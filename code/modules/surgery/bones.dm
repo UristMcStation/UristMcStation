@@ -44,11 +44,13 @@
 /singleton/surgery_step/bone/glue/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	var/bone = affected.encased ? "\the [target]'s [affected.encased]" : "bones in \the [target]'s [affected.name]"
-	user.visible_message(SPAN_NOTICE("[user] applies some [tool.name] to [bone]"), \
-		SPAN_NOTICE("You apply some [tool.name] to [bone]."))
-	if(affected.stage == 0)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] applies some [tool.name] to [bone]"),
+		SPAN_NOTICE("You apply some [tool.name] to [bone].")
+	)
+	if (affected.stage == 0)
 		affected.stage = 1
-	affected.status &= ~ORGAN_BRITTLE
+	CLEAR_FLAGS(affected.status, ORGAN_BRITTLE)
 
 /singleton/surgery_step/bone/glue/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -94,18 +96,20 @@
 /singleton/surgery_step/bone/set_bone/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	var/bone = affected.encased ? "\the [target]'s [affected.encased]" : "bones in \the [target]'s [affected.name]"
-	if (affected.status & ORGAN_BROKEN)
-		if(affected.encased == "skull")
-			user.visible_message(SPAN_NOTICE("\The [user] pieces [bone] back together with \the [tool]."), \
-				SPAN_NOTICE("You piece [bone] back together with \the [tool]."))
-		else
-			user.visible_message(SPAN_NOTICE("\The [user] sets [bone] in place with \the [tool]."), \
-				SPAN_NOTICE("You set [bone] in place with \the [tool]."))
+	if (HAS_FLAGS(affected.status, ORGAN_BROKEN))
+		var/verb = affected.encased == "skull" ? "piece" : "set"
+		user.visible_message(
+			SPAN_NOTICE("\The [user] [verb]s [bone] back together with \a [tool]."),
+			SPAN_NOTICE("You [verb] [bone] back together with \the [tool].")
+		)
 		affected.stage = 2
-	else
-		user.visible_message("[SPAN_NOTICE("\The [user] sets [bone]")] [SPAN_WARNING("in the WRONG place with \the [tool].")]", \
-			"[SPAN_NOTICE("You set [bone]")] [SPAN_WARNING("in the WRONG place with \the [tool].")]")
-		affected.fracture()
+		return
+
+	user.visible_message(
+		"[SPAN_NOTICE("\The [user] sets [bone]")] [SPAN_WARNING("in the WRONG place with \a [tool].")]",
+		"[SPAN_NOTICE("You set [bone]")] [SPAN_WARNING("in the WRONG place with \the [tool].")]"
+	)
+	affected.fracture()
 
 /singleton/surgery_step/bone/set_bone/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -143,10 +147,12 @@
 
 /singleton/surgery_step/bone/finish/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	var/bone = affected.encased ? "\the [target]'s damaged [affected.encased]" : "damaged bones in [target]'s [affected.name]"
-	user.visible_message(SPAN_NOTICE("[user] has mended [bone] with \the [tool].")  , \
-		SPAN_NOTICE("You have mended [bone] with \the [tool].") )
-	affected.status &= ~ORGAN_BROKEN
+	var/bone = affected.encased ? "\the [target]'s damaged [affected.encased]" : "damaged bones in \the [target]'s [affected.name]"
+	user.visible_message(
+		SPAN_NOTICE("\The [user] has mended [bone] with \a [tool]."),
+		SPAN_NOTICE("You have mended [bone] with \the [tool].")
+	)
+	CLEAR_FLAGS(affected.status, ORGAN_BROKEN)
 	affected.stage = 0
 	affected.update_wounds()
 

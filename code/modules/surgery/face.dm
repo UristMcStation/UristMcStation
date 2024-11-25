@@ -32,11 +32,14 @@
 	..()
 
 /singleton/surgery_step/fix_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_NOTICE("[user] repairs \the [target]'s face with \the [tool]."),	\
-	SPAN_NOTICE("You repair \the [target]'s face with \the [tool]."))
-	var/obj/item/organ/external/head/h = target.get_organ(target_zone)
-	if(h)
-		h.status &= ~ORGAN_DISFIGURED
+	user.visible_message(
+		SPAN_NOTICE("\The [user] repairs \the [target]'s face with \a [tool]."),
+		SPAN_NOTICE("You repair \the [target]'s face with \the [tool].")
+	)
+	var/obj/item/organ/external/head/head = target.get_organ(target_zone)
+	if (!head)
+		return
+	CLEAR_FLAGS(head.status, ORGAN_DISFIGURED)
 
 /singleton/surgery_step/fix_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -86,7 +89,7 @@
 
 /singleton/surgery_step/plastic_surgery/prepare_face/end_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(
-		SPAN_NOTICE("\The [user] finishes peeling back the skin around \the [target]'s face with \the [tool]."),
+		SPAN_NOTICE("\The [user] finishes peeling back the skin around \the [target]'s face with \a [tool]."),
 		SPAN_NOTICE("You finish peeling back the skin around \the [target]'s face with \the [tool].")
 	)
 
@@ -122,27 +125,27 @@
 
 /singleton/surgery_step/plastic_surgery/reform_face/end_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(
-		SPAN_NOTICE("\The [user] finishes molding \the [target]'s face with \the [tool]."),
+		SPAN_NOTICE("\The [user] finishes molding \the [target]'s face with \a [tool]."),
 		SPAN_NOTICE("You finish molding \the [target]'s face with \the [tool].")
 	)
-	if(!target.fake_name)
+	if (!target.fake_name)
 		var/new_name = sanitizeSafe(input(user, "Select a new name for \the [target].") as text|null, MAX_NAME_LEN)
-		if(new_name && user.Adjacent(target))
-			user.visible_message(
-				SPAN_NOTICE("\The [user] molds \the [target]'s face into the spitting image of [new_name]!"),
-				SPAN_NOTICE("You mold \the [target]'s face into the spitting image of [new_name]!")
-			)
-			target.fake_name=new_name
-			target.name=new_name
-
-	else
-		target.fake_name=null
+		if (!new_name || !user.use_sanity_check(target, tool))
+			return
 		user.visible_message(
-			SPAN_NOTICE("\The [user] returns \the [target]'s face back to normal!"),
-			SPAN_NOTICE("You return \the [target]'s face back to normal!")
+			SPAN_NOTICE("\The [user] molds \the [target]'s face into the spitting image of [new_name] with \a [tool]!"),
+			SPAN_NOTICE("You mold \the [target]'s face into the spitting image of [new_name] with \the [tool]!")
+		)
+		target.fake_name = new_name
+		target.name = new_name
+	else
+		target.fake_name = null
+		user.visible_message(
+			SPAN_NOTICE("\The [user] returns \the [target]'s face back to normal with \a [tool]!"),
+			SPAN_NOTICE("You return \the [target]'s face back to normal with \the [tool]!")
 		)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	affected.stage=0
+	affected.stage = 0
 
 /singleton/surgery_step/plastic_surgery/reform_face/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

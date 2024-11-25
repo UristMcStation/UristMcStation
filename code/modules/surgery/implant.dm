@@ -51,8 +51,10 @@
 
 /singleton/surgery_step/cavity/make_space/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("[user] makes some space inside [target]'s [affected.cavity_name] cavity with \the [tool]."), \
-	SPAN_NOTICE("You make some space inside [target]'s [affected.cavity_name] cavity with \the [tool].") )
+	user.visible_message(
+		SPAN_NOTICE("\The [user] makes some space inside \the [target]'s [affected.cavity_name] cavity with \a [tool]."),
+		SPAN_NOTICE("You make some space inside \the [target]'s [affected.cavity_name] cavity with \the [tool].")
+	)
 
 //////////////////////////////////////////////////////////////////
 //	 implant cavity sealing surgery step
@@ -86,8 +88,10 @@
 
 /singleton/surgery_step/cavity/close_space/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("[user] mends [target]'s [affected.cavity_name] cavity walls with \the [tool]."), \
-	SPAN_NOTICE("You mend [target]'s [affected.cavity_name] cavity walls with \the [tool].") )
+	user.visible_message(
+		SPAN_NOTICE("\The [user] mends \the [target]'s [affected.cavity_name] cavity walls with \a [tool]."),
+		SPAN_NOTICE("You mend \the [target]'s [affected.cavity_name] cavity walls with \the [tool].")
+	)
 	affected.cavity = FALSE
 
 //////////////////////////////////////////////////////////////////
@@ -145,15 +149,18 @@
 
 /singleton/surgery_step/cavity/place_item/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
-	if(!user.unEquip(tool, affected))
+	if (!user.unEquip(tool, affected))
+		FEEDBACK_UNEQUIP_FAILURE(user, tool)
 		return
-	user.visible_message(SPAN_NOTICE("[user] puts \the [tool] inside [target]'s [affected.cavity_name] cavity."), \
-	SPAN_NOTICE("You put \the [tool] inside [target]'s [affected.cavity_name] cavity.") )
-	if (tool.w_class > affected.cavity_max_w_class/2 && prob(50) && !BP_IS_ROBOTIC(affected) && affected.sever_artery())
+	user.visible_message(
+		SPAN_NOTICE("\The [user] puts \a [tool] inside \the [target]'s [affected.cavity_name] cavity."),
+		SPAN_NOTICE("You put \the [tool] inside \the [target]'s [affected.cavity_name] cavity.")
+	)
+	if (tool.w_class > affected.cavity_max_w_class / 2 && prob(50) && !BP_IS_ROBOTIC(affected) && affected.sever_artery())
 		to_chat(user, SPAN_WARNING("You tear some blood vessels trying to fit such a big object in this cavity."))
-		affected.owner.custom_pain("You feel something rip in your [affected.name]!", 1,affecting = affected)
+		affected.owner.custom_pain("You feel something rip in your [affected.name]!", 1, affecting = affected)
 	affected.implants += tool
-	affected.cavity = 0
+	affected.cavity = FALSE
 
 //////////////////////////////////////////////////////////////////
 //	 implant removal surgery step
@@ -190,11 +197,13 @@
 
 /singleton/surgery_step/cavity/implant_removal/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
+
 	var/exposed
-	if(affected.how_open() >= (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED))
+	if (affected.how_open() >= (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED))
 		exposed = TRUE
-	if(BP_IS_ROBOTIC(affected) && affected.hatch_state == HATCH_OPENED)
+	if (BP_IS_ROBOTIC(affected) && affected.hatch_state == HATCH_OPENED)
 		exposed = TRUE
+
 	var/list/loot = list()
 	if (exposed)
 		loot = affected.implants
@@ -202,12 +211,14 @@
 		for (var/datum/wound/wound in affected.wounds)
 			if (length(wound.embedded_objects))
 				loot |= wound.embedded_objects
+
 	if (!length(loot))
 		user.visible_message(
-			SPAN_NOTICE("\The [user] could not find anything inside \the [target]'s [affected.name], and pulls their [tool] out."),
-			SPAN_NOTICE("You could not find anything inside \the [target]'s [affected.name].")
+			SPAN_NOTICE("\The [user] could not find anything inside \the [target]'s [affected.name], and pulls their [tool.name] out."),
+			SPAN_NOTICE("You could not find anything inside \the [target]'s [affected.name] anmd pull your [tool.name] out..")
 		)
 		return
+
 	shuffle(loot, TRUE)
 	for (var/i = length(loot) to 1 step -1)
 		var/obj/item/obj = loot[i]
@@ -223,7 +234,7 @@
 				target.release_control()
 			worm.detatch()
 			worm.leave_host()
-		playsound(target.loc, 'sound/effects/squelch1.ogg', 15, TRUE)
+		playsound(target, 'sound/effects/squelch1.ogg', 15, TRUE)
 		if (i == 1 || !user.do_skilled(3 SECONDS, SKILL_ANATOMY, target, 0.3, DO_SURGERY) || !user.use_sanity_check(target, tool))
 			break
 

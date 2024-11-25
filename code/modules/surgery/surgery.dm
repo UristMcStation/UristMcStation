@@ -229,7 +229,19 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 		to_chat(target, SPAN_NOTICE(SPAN_BOLD("... [pick("bright light", "faraway pain", "something moving in you", "soft beeping")] ...")))
 
 
-// does stuff to end the step, which is normally print a message + do whatever this step changes
+/**
+ * Does stuff to end the step, usually just printing messages and logic for whatever the step changes.
+ *
+ * This is generally things that occur before the `do_after()` timer.
+ *
+ * **Parameters**:
+ * - `user` - The mob performing the surgery.
+ * - `target` - The mob being operated on.
+ * - `target_zone` - `user`'s targeted body zone.
+ * - `tool` - The item being used to perform the surgery.
+ *
+ * Has no return value.
+ */
 /singleton/surgery_step/proc/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return
 

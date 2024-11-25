@@ -47,8 +47,10 @@
 	playsound(target, 'sound/items/scalpel.ogg', 50, TRUE)
 
 /singleton/surgery_step/slime/cut_flesh/end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_NOTICE("[user] cuts through [target]'s flesh with \the [tool]."),	\
-	SPAN_NOTICE("You cut through [target]'s flesh with \the [tool], revealing its silky innards."))
+	user.visible_message(
+		SPAN_NOTICE("\The [user] cuts through \the [target]'s flesh with \a [tool]."),
+		SPAN_NOTICE("You cut through \the [target]'s flesh with \the [tool], revealing its silky innards.")
+	)
 	target.core_removal_stage = 1
 
 /singleton/surgery_step/slime/cut_flesh/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
@@ -79,8 +81,10 @@
 	playsound(target, 'sound/items/scalpel.ogg', 50, TRUE)
 
 /singleton/surgery_step/slime/cut_innards/end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_NOTICE("[user] cuts [target]'s innards apart with \the [tool], exposing the cores."),	\
-	SPAN_NOTICE("You cut [target]'s innards apart with \the [tool], exposing the cores."))
+	user.visible_message(
+		SPAN_NOTICE("\The [user] cuts \the [target]'s innards apart with \a [tool], exposing the cores."),
+		SPAN_NOTICE("You cut \the [target]'s innards apart with \the [tool], exposing the cores.")
+	)
 	target.core_removal_stage = 2
 
 /singleton/surgery_step/slime/cut_innards/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
@@ -110,8 +114,10 @@
 	playsound(target, 'sound/items/cautery.ogg', 50, TRUE)
 
 /singleton/surgery_step/slime/cut_laser/end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_NOTICE("[user] slices [target]'s innards apart with \the [tool], exposing the cores."),	\
-	SPAN_NOTICE("You slice [target]'s innards apart with \the [tool], exposing the cores."))
+	user.visible_message(
+		SPAN_NOTICE("\The [user] slices \the [target]'s innards apart with \a [tool], exposing the cores."),
+		SPAN_NOTICE("You slice \the [target]'s innards apart with \the [tool], exposing the cores.")
+	)
 	target.core_removal_stage = 2
 
 /singleton/surgery_step/slime/cut_laser/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
@@ -144,12 +150,15 @@
 
 /singleton/surgery_step/slime/saw_core/end_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	target.cores--
-	user.visible_message(SPAN_NOTICE("[user] cuts out one of [target]'s cores with \the [tool]."),,	\
-	SPAN_NOTICE("You cut out one of [target]'s cores with \the [tool]. [target.cores] cores left."))
-	if(target.cores >= 0)
+	var/datum/pronouns/pronouns = target.choose_from_pronouns()
+	user.visible_message(
+		SPAN_NOTICE("\The [user] cuts out one of \the [target]'s cores with \a [tool]."),
+		SPAN_NOTICE("You cut out one of \the [target]'s cores with \a [tool]. [pronouns.He] has [target.cores] cores left.")
+	)
+	if (target.cores >= 0)
 		var/coreType = target.GetCoreType()
 		new coreType(target.loc)
-	if(target.cores <= 0)
+	if (target.cores <= 0)
 		target.icon_state = "[target.colour] baby slime dead-nocore"
 
 /singleton/surgery_step/slime/saw_core/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)

@@ -87,12 +87,16 @@
 	playsound(target, 'sound/items/bonesetter.ogg', 50, TRUE)
 
 /singleton/surgery_step/limb/attach/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!user.unEquip(tool))
+	if (!user.unEquip(tool))
+		FEEDBACK_UNEQUIP_FAILURE(user, tool)
 		return
-	var/obj/item/organ/external/E = tool
-	user.visible_message(SPAN_NOTICE("[user] has attached [target]'s [E.name] to the [E.amputation_point]."),	\
-	SPAN_NOTICE("You have attached [target]'s [E.name] to the [E.amputation_point]."))
-	E.replaced(target)
+	var/obj/item/organ/external/external = tool
+	var/datum/pronouns/pronouns = target.choose_from_pronouns()
+	user.visible_message(
+		SPAN_NOTICE("\The [user] has attached \the [target]'s [external.name] to [pronouns.his] [external.amputation_point]."),
+		SPAN_NOTICE("You have attached \the [target]'s [external.name] to [pronouns.his] [external.amputation_point].")
+	)
+	external.replaced(target)
 	target.update_body()
 	target.updatehealth()
 	target.UpdateDamageIcon()
@@ -141,13 +145,15 @@
 	playsound(target, 'sound/items/fixovein.ogg', 50, TRUE)
 
 /singleton/surgery_step/limb/connect/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/obj/item/organ/external/E = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("[user] has connected tendons and muscles in [target]'s [E.amputation_point] with [tool]."),	\
-	SPAN_NOTICE("You have connected tendons and muscles in [target]'s [E.amputation_point] with [tool]."))
-	E.status &= ~ORGAN_CUT_AWAY
-	if(E.children)
-		for(var/obj/item/organ/external/C in E.children)
-			C.status &= ~ORGAN_CUT_AWAY
+	var/obj/item/organ/external/external = target.get_organ(target_zone)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] has connected tendons and muscles in \the [target]'s [external.amputation_point] with \a [tool]."),
+		SPAN_NOTICE("You have connected tendons and muscles in \the [target]'s [external.amputation_point] with \the [tool].")
+	)
+	CLEAR_FLAGS(external.status, ORGAN_CUT_AWAY)
+	if (external.children)
+		for (var/obj/item/organ/external/child in external.children)
+			CLEAR_FLAGS(child.status, ORGAN_CUT_AWAY)
 	target.update_body()
 	target.updatehealth()
 	target.UpdateDamageIcon()
@@ -191,22 +197,24 @@
 	playsound(target, 'sound/items/bonesetter.ogg', 50, TRUE)
 
 /singleton/surgery_step/limb/mechanize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/obj/item/robot_parts/L = tool
-	user.visible_message(SPAN_NOTICE("[user] has attached \the [tool] to [target]."),	\
-	SPAN_NOTICE("You have attached \the [tool] to [target]."))
+	var/obj/item/robot_parts/robot_parts = tool
+	user.visible_message(
+		SPAN_NOTICE("\The [user] has attached \a [tool] to \the [target]."),
+		SPAN_NOTICE("You have attached \the [tool] to \the [target].")
+	)
 
-	if(L.part)
-		for(var/part_name in L.part)
-			if(!isnull(target.get_organ(part_name)))
+	if (robot_parts.part)
+		for (var/part_name in robot_parts.part)
+			if (!isnull(target.get_organ(part_name)))
 				continue
 			var/list/organ_data = target.species.has_limbs["[part_name]"]
-			if(!organ_data)
+			if (!organ_data)
 				continue
 			var/new_limb_type = organ_data["path"]
 			var/obj/item/organ/external/new_limb = new new_limb_type(target)
-			new_limb.robotize(L.model_info)
-			if(L.sabotaged)
-				new_limb.status |= ORGAN_SABOTAGED
+			new_limb.robotize(robot_parts.model_info)
+			if (robot_parts.sabotaged)
+				SET_FLAGS(new_limb.status, ORGAN_SABOTAGED)
 
 	target.update_body()
 	target.updatehealth()

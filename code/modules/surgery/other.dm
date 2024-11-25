@@ -39,9 +39,11 @@
 
 /singleton/surgery_step/fix_tendon/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("[user] has reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."), \
-		SPAN_NOTICE("You have reattached the [affected.tendon_name] in [target]'s [affected.name] with \the [tool]."))
-	affected.status &= ~ORGAN_TENDON_CUT
+	user.visible_message(
+		SPAN_NOTICE("\The [user] has reattached the [affected.tendon_name] in \the [target]'s [affected.name] with \a [tool]."),
+		SPAN_NOTICE("You have reattached the [affected.tendon_name] in \the [target]'s [affected.name] with \the [tool].")
+	)
+	CLEAR_FLAGS(affected.status, ORGAN_TENDON_CUT)
 	affected.update_damages()
 
 /singleton/surgery_step/fix_tendon/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -87,9 +89,11 @@
 
 /singleton/surgery_step/fix_vein/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("[user] has patched the [affected.artery_name] in [target]'s [affected.name] with \the [tool]."), \
-		SPAN_NOTICE("You have patched the [affected.artery_name] in [target]'s [affected.name] with \the [tool]."))
-	affected.status &= ~ORGAN_ARTERY_CUT
+	user.visible_message(
+		SPAN_NOTICE("\The [user] has patched the [affected.artery_name] in \the [target]'s [affected.name] with \a [tool]."),
+		SPAN_NOTICE("You have patched the [affected.artery_name] in \the [target]'s [affected.name] with \the [tool].")
+	)
+	CLEAR_FLAGS(affected.status, ORGAN_ARTERY_CUT)
 	affected.update_damages()
 
 /singleton/surgery_step/fix_vein/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -140,13 +144,14 @@
 	..()
 
 /singleton/surgery_step/hardsuit/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-
 	var/obj/item/rig/rig = target.back
-	if(!istype(rig))
+	if (!istype(rig))
 		return
 	rig.reset()
-	user.visible_message(SPAN_NOTICE("[user] has cut through the support systems of [target]'s [rig] with \the [tool]."), \
-		SPAN_NOTICE("You have cut through the support systems of [target]'s [rig] with \the [tool]."))
+	user.visible_message(
+		SPAN_NOTICE("\The [user] has cut through the support systems of \the [target]'s [rig.name] with \a [tool]."),
+		SPAN_NOTICE("You have cut through the support systems of \the [target]'s [rig.name] with \the [tool].")
+	)
 
 /singleton/surgery_step/hardsuit/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_DANGER("[user]'s [tool] can't quite seem to get through the metal..."), \
@@ -207,8 +212,10 @@
 
 	var/trans = temp_reagents.trans_to_mob(target, temp_reagents.total_volume, CHEM_BLOOD) //technically it's contact, but the reagents are being applied to internal tissue
 	if (trans > 0)
-		user.visible_message("[SPAN_NOTICE("[user] rubs [target]'s [affected.name] down with \the [tool]'s contents")].", \
-			SPAN_NOTICE("You rub [target]'s [affected.name] down with \the [tool]'s contents."))
+		user.visible_message(
+			SPAN_NOTICE("\The [user] rubs \the [target]'s [affected.name] down with \a [tool]'s contents"),
+			SPAN_NOTICE("You rub \the [target]'s [affected.name] down with \the [tool]'s contents.")
+		)
 	affected.disinfect()
 	qdel(temp_reagents)
 	qdel(temp_holder)

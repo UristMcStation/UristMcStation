@@ -50,9 +50,11 @@
 
 /singleton/surgery_step/generic/cut_with_laser/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("[user] has made a bloodless incision on [target]'s [affected.name] with \the [tool]."), \
-	SPAN_NOTICE("You have made a bloodless incision on [target]'s [affected.name] with \the [tool]."),)
-	affected.createwound(INJURY_TYPE_CUT, affected.min_broken_damage/2, 1)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] has made a bloodless incision on \the [target]'s [affected.name] with \a [tool]."),
+		SPAN_NOTICE("You have made a bloodless incision on \the [target]'s [affected.name] with \the [tool].")
+	)
+	affected.createwound(INJURY_TYPE_CUT, affected.min_broken_damage / 2, 1)
 	affected.clamp_organ()
 	spread_germs_to_organ(affected, user)
 
@@ -94,8 +96,10 @@
 
 /singleton/surgery_step/generic/managed/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("[user] has constructed a prepared incision on and within [target]'s [affected.name] with \the [tool]."), \
-	SPAN_NOTICE("You have constructed a prepared incision on and within [target]'s [affected.name] with \the [tool]."),)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] has constructed a prepared incision on and within \the [target]'s [affected.name] with \a [tool]."),
+		SPAN_NOTICE("You have constructed a prepared incision on and within \the [target]'s [affected.name] with \the [tool].")
+	)
 	affected.createwound(INJURY_TYPE_CUT, affected.min_broken_damage/2, 1) // incision
 	affected.clamp_organ() // clamp
 	affected.open_incision() // retract
@@ -142,10 +146,12 @@
 
 /singleton/surgery_step/generic/cut_open/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("[user] has made [access_string] on [target]'s [affected.name] with \the [tool]."), \
-	SPAN_NOTICE("You have made [access_string] on [target]'s [affected.name] with \the [tool]."),)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] has made [access_string] on \the [target]'s [affected.name] with \a [tool]."),
+		SPAN_NOTICE("You have made [access_string] on \the [target]'s [affected.name] with \the [tool].")
+	)
 	affected.createwound(INJURY_TYPE_CUT, affected.min_broken_damage/2, 1)
-	playsound(target.loc, 'sound/weapons/bladeslice.ogg', 15, 1)
+	playsound(target, 'sound/weapons/bladeslice.ogg', 15, TRUE)
 
 /singleton/surgery_step/generic/cut_open/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -191,11 +197,13 @@
 
 /singleton/surgery_step/generic/clamp_bleeders/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("[user] clamps bleeders in [target]'s [affected.name] with \the [tool]."),	\
-	SPAN_NOTICE("You clamp bleeders in [target]'s [affected.name] with \the [tool]."))
+	user.visible_message(
+		SPAN_NOTICE("\The [user] clamps bleeders in \the [target]'s [affected.name] with \a [tool]."),
+		SPAN_NOTICE("You clamp bleeders in \the [target]'s [affected.name] with \the [tool].")
+	)
 	affected.clamp_organ()
 	spread_germs_to_organ(affected, user)
-	playsound(target.loc, 'sound/items/Welder.ogg', 15, 1)
+	playsound(target, 'sound/items/Welder.ogg', 15, TRUE)
 
 /singleton/surgery_step/generic/clamp_bleeders/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -245,8 +253,10 @@
 
 /singleton/surgery_step/generic/retract_skin/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("[user] keeps the incision open on [target]'s [affected.name] with \the [tool]."),	\
-	SPAN_NOTICE("You keep the incision open on [target]'s [affected.name] with \the [tool]."))
+	user.visible_message(
+		SPAN_NOTICE("\The [user] keeps the incision open on \the [target]'s [affected.name] with \a [tool]."),
+		SPAN_NOTICE("You keep the incision open on \the [target]'s [affected.name] with \the [tool].")
+	)
 	affected.open_incision()
 
 /singleton/surgery_step/generic/retract_skin/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -319,15 +329,17 @@
 
 /singleton/surgery_step/generic/cauterize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	var/datum/wound/W = affected.get_incision()
-	user.visible_message(SPAN_NOTICE("[user] [post_cauterize_term][W ? " \a [W.desc] on" : ""] \the [target]'s [affected.name] with \the [tool]."), \
-	SPAN_NOTICE("You [cauterize_term][W ? " \a [W.desc] on" : ""] \the [target]'s [affected.name] with \the [tool]."))
-	if(istype(W))
-		W.close()
+	var/datum/wound/wound = affected.get_incision()
+	user.visible_message(
+		SPAN_NOTICE("\The [user] [post_cauterize_term][wound ? " \a [wound.desc] on" : ""] \the [target]'s [affected.name] with \a [tool]."),
+		SPAN_NOTICE("You [cauterize_term][wound ? " \a [wound.desc] on" : ""] \the [target]'s [affected.name] with \the [tool].")
+	)
+	if (istype(wound))
+		wound.close()
 		affected.update_wounds()
-	if(affected.is_stump())
-		affected.status &= ~ORGAN_ARTERY_CUT
-	if(affected.clamped())
+	if (affected.is_stump())
+		CLEAR_FLAGS(affected.status, ORGAN_ARTERY_CUT)
+	if (affected.clamped())
 		affected.remove_clamps()
 
 /singleton/surgery_step/generic/cauterize/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -376,9 +388,11 @@
 
 /singleton/surgery_step/generic/amputate/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("[user] amputates [target]'s [affected.name] at the [affected.amputation_point] with \the [tool]."), \
-	SPAN_NOTICE("You amputate [target]'s [affected.name] with \the [tool]."))
-	affected.droplimb(1,DROPLIMB_EDGE)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] amputates \the [target]'s [affected.name] at the [affected.amputation_point] with \a [tool]."),
+		SPAN_NOTICE("You amputate \the [target]'s [affected.name] with \the [tool].")
+	)
+	affected.droplimb(1, DROPLIMB_EDGE)
 
 /singleton/surgery_step/generic/amputate/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

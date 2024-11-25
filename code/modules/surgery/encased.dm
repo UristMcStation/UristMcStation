@@ -39,8 +39,10 @@
 
 /singleton/surgery_step/open_encased/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("[user] has cut [target]'s [affected.encased] open with \the [tool]."),		\
-	SPAN_NOTICE("You have cut [target]'s [affected.encased] open with \the [tool]."))
+	user.visible_message(
+		SPAN_NOTICE("\The [user] has cut \the [target]'s [affected.encased] open with \a [tool]."),
+		SPAN_NOTICE("You have cut \the [target]'s [affected.encased] open with \the [tool].")
+	)
 	affected.fracture()
 
 /singleton/surgery_step/open_encased/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

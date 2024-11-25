@@ -66,23 +66,37 @@
 	..()
 
 /singleton/surgery_step/internal/fix_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/tool_name = "\the [tool]"
+	var/tool_name = tool.name
 	if (istype(tool, /obj/item/stack/medical/advanced/bruise_pack))
 		tool_name = "regenerative membrane"
 	if (istype(tool, /obj/item/stack/medical/bruise_pack))
-		tool_name = "the bandaid"
+		tool_name = "bandaid"
+
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	for(var/obj/item/organ/internal/I in affected.internal_organs)
-		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I) && (I.surface_accessible || affected.how_open() >= (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED)))
-			if(I.status & ORGAN_DEAD && I.can_recover())
-				user.visible_message(SPAN_NOTICE("\The [user] treats damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further."), \
-				SPAN_NOTICE("You treat damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further.") )
-			else
-				user.visible_message(SPAN_NOTICE("[user] treats damage to [target]'s [I.name] with [tool_name]."), \
-				SPAN_NOTICE("You treat damage to [target]'s [I.name] with [tool_name].") )
-			I.surgical_fix(user)
-	user.visible_message("\The [user] finishes treating damage within \the [target]'s [affected.name] with [tool_name].", \
-	"You finish treating damage within \the [target]'s [affected.name] with [tool_name]." )
+	for (var/obj/item/organ/internal/internal in affected.internal_organs)
+		if (!internal)
+			continue
+		if (internal.damage <= 0)
+			continue
+		if (BP_IS_ROBOTIC(internal))
+			continue
+		if (!internal.surface_accessible && affected.how_open() < (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED))
+			continue
+		if (HAS_FLAGS(internal.status, ORGAN_DEAD) && internal.can_recover())
+			user.visible_message(
+				SPAN_NOTICE("\The [user] treats damage to \the [target]'s [internal.name] with \a [tool_name], though it needs to be recovered further."),
+				SPAN_NOTICE("You treat damage to \the [target]'s [internal.name] with \the [tool_name], though it needs to be recovered further.")
+			)
+		else
+			user.visible_message(
+				SPAN_NOTICE("\The [user] treats damage to \the [target]'s [internal.name] with \a [tool_name]."),
+				SPAN_NOTICE("You treat damage to \the [target]'s [internal.name] with \the [tool_name].")
+			)
+		internal.surgical_fix(user)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] finishes treating damage within \the [target]'s [affected.name] with [tool_name]."),
+		SPAN_NOTICE("You finish treating damage within \the [target]'s [affected.name] with [tool_name].")
+	)
 
 /singleton/surgery_step/internal/fix_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -157,11 +171,14 @@
 	..()
 
 /singleton/surgery_step/internal/detatch_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/obj/item/organ/I = LAZYACCESS(target.surgeries_in_progress, target_zone)
-	user.visible_message(SPAN_NOTICE("[user] has separated [target]'s [I.name] with \the [tool].") , \
-	SPAN_NOTICE("You have separated [target]'s [I.name] with \the [tool]."))
-	if(I && istype(I))
-		I.cut_away(user)
+	var/obj/item/organ/removed = LAZYACCESS(target.surgeries_in_progress, target_zone)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] has separated \the [target]'s [removed.name] with \a [tool]."),
+		SPAN_NOTICE("You have separated \the [target]'s [removed.name] with \the [tool].")
+	)
+	if (!istype(removed))
+		return
+	removed.cut_away(user)
 
 /singleton/surgery_step/internal/detatch_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -243,26 +260,28 @@
 	..()
 
 /singleton/surgery_step/internal/remove_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/obj/item/organ/O = LAZYACCESS(target.surgeries_in_progress, target_zone)
-	user.visible_message(SPAN_NOTICE("\The [user] has removed \the [target]'s [O.name] with \the [tool]."), \
-	SPAN_NOTICE("You have removed \the [target]'s [O.name] with \the [tool]."))
+	var/obj/item/organ/removed = LAZYACCESS(target.surgeries_in_progress, target_zone)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] has removed \the [target]'s [removed.name] with \a [tool]."),
+		SPAN_NOTICE("You have removed \the [target]'s [removed.name] with \the [tool].")
+	)
 
 	// Extract the organ!
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(istype(O) && istype(affected))
-		affected.implants -= O
-		O.dropInto(target.loc)
-		if(!BP_IS_ROBOTIC(affected))
-			playsound(target.loc, 'sound/effects/squelch1.ogg', 15, 1)
+	if (istype(removed) && istype(affected))
+		affected.implants -= removed
+		removed.dropInto(target.loc)
+		if (!BP_IS_ROBOTIC(affected))
+			playsound(target, 'sound/effects/squelch1.ogg', 15, TRUE)
 		else
-			playsound(target.loc, 'sound/items/Ratchet.ogg', 50, 1)
-	if(istype(O, /obj/item/organ/internal/mmi_holder))
-		var/obj/item/organ/internal/mmi_holder/brain = O
+			playsound(target, 'sound/items/Ratchet.ogg', 50, TRUE)
+	if (istype(removed, /obj/item/organ/internal/mmi_holder))
+		var/obj/item/organ/internal/mmi_holder/brain = removed
 		brain.transfer_and_delete()
 
 	// Just in case somehow the organ we're extracting from an organic is an MMI
-	if(istype(O, /obj/item/organ/internal/mmi_holder))
-		var/obj/item/organ/internal/mmi_holder/brain = O
+	if (istype(removed, /obj/item/organ/internal/mmi_holder))
+		var/obj/item/organ/internal/mmi_holder/brain = removed
 		brain.transfer_and_delete()
 
 /singleton/surgery_step/internal/remove_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -346,16 +365,23 @@
 
 /singleton/surgery_step/internal/replace_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("\The [user] has [robotic_surgery ? "installed" : "transplanted"] \the [tool] into [target]'s [affected.name]."), \
-	SPAN_NOTICE("You have [robotic_surgery ? "installed" : "transplanted"] \the [tool] into [target]'s [affected.name]."))
-	var/obj/item/organ/O = tool
-	if(istype(O) && user.unEquip(O, target))
-		affected.implants |= O //move the organ into the patient. The organ is properly reattached in the next step
-		if(!(O.status & ORGAN_CUT_AWAY))
-			log_debug("[user] ([user.ckey]) replaced organ [O], which didn't have ORGAN_CUT_AWAY set, in [target] ([target.ckey])")
-			O.status |= ORGAN_CUT_AWAY
+	var/obj/item/organ/organ = tool
+	if (!istype(organ))
+		crash_with("Attempted to replace an invalid organ `[tool.name]` ([tool.type]). Invalid type, expected one of `/obj/item/organ`.")
+		return
+	if (!user.unEquip(organ, target))
+		FEEDBACK_UNEQUIP_FAILURE(user, tool)
+		return
+	user.visible_message(
+		SPAN_NOTICE("\The [user] has [robotic_surgery ? "installed" : "transplanted"] \a [tool] into \the [target]'s [affected.name]."),
+		SPAN_NOTICE("You have [robotic_surgery ? "installed" : "transplanted"] \the [tool] into \the [target]'s [affected.name].")
+	)
+	affected.implants |= organ //move the organ into the patient. The organ is properly reattached in the next step
+	if (!HAS_FLAGS(organ.status, ORGAN_CUT_AWAY))
+		crash_with("[user] ([user.ckey]) replaced organ [organ], which didn't have ORGAN_CUT_AWAY set, in [target] ([target.ckey])")
+		SET_FLAGS(organ.status, ORGAN_CUT_AWAY)
 
-		playsound(target.loc, 'sound/effects/squelch1.ogg', 15, 1)
+	playsound(target.loc, 'sound/effects/squelch1.ogg', 15, 1)
 
 /singleton/surgery_step/internal/replace_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging \the [tool]!"), \
@@ -458,24 +484,26 @@
 	..()
 
 /singleton/surgery_step/internal/attach_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/obj/item/organ/I = LAZYACCESS(target.surgeries_in_progress, target_zone)
+	var/obj/item/organ/organ = LAZYACCESS(target.surgeries_in_progress, target_zone)
 
-	user.visible_message(SPAN_NOTICE("[user] has attached [target]'s [I.name] with \the [tool].") , \
-	SPAN_NOTICE("You have attached [target]'s [I.name] with \the [tool]."))
+	user.visible_message(
+		SPAN_NOTICE("\The [user] has attached \the [target]'s [organ.name] with \a [tool]."),
+		SPAN_NOTICE("You have attached \the [target]'s [organ.name] with \the [tool].")
+	)
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(istype(I) && I.parent_organ == target_zone && affected && (I in affected.implants))
-		I.status &= ~ORGAN_CUT_AWAY //apply fixovein
-		affected.implants -= I
-		I.replaced(target, affected)
+	if (istype(organ) && organ.parent_organ == target_zone && affected && (organ in affected.implants))
+		CLEAR_FLAGS(organ.status, ORGAN_CUT_AWAY)
+		affected.implants -= organ
+		organ.replaced(target, affected)
 
-	if(istype(I, /obj/item/organ/internal/eyes))
-		var/obj/item/organ/internal/eyes/E = I
-		if(!E.is_broken())
-			I.owner.eye_blind = 0
-			target.disabilities &= ~BLINDED
-		if(!E.is_bruised())
-			I.owner.eye_blurry = 0
+	if (istype(organ, /obj/item/organ/internal/eyes))
+		var/obj/item/organ/internal/eyes/eyes = organ
+		if(!eyes.is_broken())
+			organ.owner.eye_blind = 0
+			CLEAR_FLAGS(target.disabilities, BLINDED)
+		if(!eyes.is_bruised())
+			organ.owner.eye_blurry = 0
 
 /singleton/surgery_step/internal/attach_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -581,13 +609,14 @@
 
 	var/trans = temp_reagents.trans_to_mob(target, temp_reagents.total_volume, CHEM_BLOOD) //technically it's contact, but the reagents are being applied to internal tissue
 	if (trans > 0)
+		if (rejuvenate)
+			CLEAR_FLAGS(affected.status, ORGAN_DEAD)
+			affected.owner.update_body(TRUE)
 
-		if(rejuvenate)
-			affected.status &= ~ORGAN_DEAD
-			affected.owner.update_body(1)
-
-		user.visible_message("[SPAN_NOTICE("[user] applies [trans] unit\s of the solution to affected tissue in [target]'s [affected.name]")].", \
-			SPAN_NOTICE("You apply [trans] unit\s of the solution to affected tissue in [target]'s [affected.name] with \the [tool]."))
+		user.visible_message(
+			SPAN_NOTICE("\The [user] applies some of \a [tool]'s solution to affected tissue in \the [target]'s [affected.name]."),
+			SPAN_NOTICE("You apply [trans] unit\s of \the [tool]'s solution to affected tissue in [target]'s [affected.name].")
+		)
 	qdel(temp_reagents)
 
 /singleton/surgery_step/internal/treat_necrosis/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
