@@ -82,11 +82,7 @@
 	. = ..()
 	quantity = 1
 	if(.)
-		var/obj/item/reagent_containers/food/snacks/fortunecookie/cookie = new(location)
-		var/obj/item/paper/paper = new(cookie)
-		cookie.trash = paper
-		paper.SetName("Fortune")
-		paper.info = pick(fortunes)
+		new/obj/item/reagent_containers/food/snacks/fortunecookie(location)
 
 /datum/trader/grocery
 	name = "Grocer"

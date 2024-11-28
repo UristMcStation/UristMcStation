@@ -473,9 +473,7 @@
 	var/obj/item/reagent_containers/food/snacks/fortunecookie/cookie = ..()
 	var/obj/item/paper/paper = locate() in microwave
 	if (paper)
-		paper.forceMove(cookie)
-		cookie.trash = paper
-		paper.loc = null
+		cookie.set_fortune(paper)
 	return cookie
 
 
