@@ -100,18 +100,20 @@
 
 /singleton/surgery_step/internal/fix_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, getting mess and tearing the inside of [target]'s [affected.name] with \the [tool]!"), \
-	SPAN_WARNING("Your hand slips, getting mess and tearing the inside of [target]'s [affected.name] with \the [tool]!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, making a mess and tearing the inside of \the [target]'s [affected.name] with \the [tool]!"),
+		SPAN_WARNING("Your hand slips, making a mess and tearing the inside of \the [target]'s [affected.name] with \the [tool]!")
+	)
 	var/dam_amt = 2
-	if(istype(tool, /obj/item/stack/medical/advanced/bruise_pack))
+	if (istype(tool, /obj/item/stack/medical/advanced/bruise_pack))
 		target.adjustToxLoss(5)
 	else
 		dam_amt = 5
 		target.adjustToxLoss(10)
-		affected.take_external_damage(dam_amt, 0, (DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE), used_weapon = tool)
-	for(var/obj/item/organ/internal/I in affected.internal_organs)
-		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I) && (I.surface_accessible || affected.how_open() >= (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED)))
-			I.take_internal_damage(dam_amt)
+		affected.take_external_damage(dam_amt, 0, DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE, tool)
+	for (var/obj/item/organ/internal/internal in affected.internal_organs)
+		if (internal.damage > 0 && !BP_IS_ROBOTIC(internal) && (internal.surface_accessible || affected.how_open() >= (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED)))
+			internal.take_internal_damage(dam_amt)
 
 //////////////////////////////////////////////////////////////////
 //	 Organ detatchment surgery step
@@ -182,9 +184,11 @@
 
 /singleton/surgery_step/internal/detatch_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"), \
-	SPAN_WARNING("Your hand slips, slicing an artery inside [target]'s [affected.name] with \the [tool]!"))
-	affected.take_external_damage(rand(30,50), 0, (DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE), used_weapon = tool)
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, slicing an artery inside \the [target]'s [affected.name] with \the [tool]!"),
+		SPAN_WARNING("Your hand slips, slicing an artery inside \the [target]'s [affected.name] with \the [tool]!")
+	)
+	affected.take_external_damage(rand(30, 50), 0, DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE, tool)
 
 //////////////////////////////////////////////////////////////////
 //	 Organ removal surgery step
@@ -286,8 +290,10 @@
 
 /singleton/surgery_step/internal/remove_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging [target]'s [affected.name] with \the [tool]!"), \
-	SPAN_WARNING("Your hand slips, damaging [target]'s [affected.name] with \the [tool]!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, damaging \the [target]'s [affected.name] with \the [tool]!"),
+		SPAN_WARNING("Your hand slips, damaging \the [target]'s [affected.name] with \the [tool]!")
+	)
 	affected.take_external_damage(20, used_weapon = tool)
 
 //////////////////////////////////////////////////////////////////
@@ -384,11 +390,14 @@
 	playsound(target.loc, 'sound/effects/squelch1.ogg', 15, 1)
 
 /singleton/surgery_step/internal/replace_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging \the [tool]!"), \
-	SPAN_WARNING("Your hand slips, damaging \the [tool]!"))
-	var/obj/item/organ/internal/I = tool
-	if(istype(I))
-		I.take_internal_damage(rand(3,5))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, damaging \the [tool]!"),
+		SPAN_WARNING("Your hand slips, damaging \the [tool]!")
+	)
+
+	var/obj/item/organ/internal/internal = tool
+	if (istype(internal))
+		internal.take_internal_damage(rand(3, 5))
 
 //////////////////////////////////////////////////////////////////
 //	 Organ attachment surgery step
@@ -507,8 +516,10 @@
 
 /singleton/surgery_step/internal/attach_organ/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"), \
-	SPAN_WARNING("Your hand slips, damaging the flesh in [target]'s [affected.name] with \the [tool]!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, damaging the flesh in \the [target]'s [affected.name] with \the [tool]!"),
+		SPAN_WARNING("Your hand slips, damaging the flesh in \the [target]'s [affected.name] with \the [tool]!")
+	)
 	affected.take_external_damage(20, used_weapon = tool)
 
 //////////////////////////////////////////////////////////////////
@@ -629,7 +640,9 @@
 
 	var/trans = container.reagents.trans_to_mob(target, container.amount_per_transfer_from_this, CHEM_BLOOD)
 
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, applying [trans] units of the solution to the wrong place in [target]'s [affected.name] with the [tool]!") , \
-	SPAN_WARNING("Your hand slips, applying [trans] units of the solution to the wrong place in [target]'s [affected.name] with the [tool]!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, applying some of \the [tool]'s solution to the wrong place in \the [target]'s [affected.name]!"),
+		SPAN_WARNING("Your hand slips, applying [trans] units of \the [tool]'s solution to the wrong place in [target]'s [affected.name]!")
+	)
 
 	//no damage or anything, just wastes medicine

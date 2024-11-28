@@ -54,8 +54,10 @@
 	target.core_removal_stage = 1
 
 /singleton/surgery_step/slime/cut_flesh/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, tearing [target]'s flesh with \the [tool]!"), \
-	SPAN_WARNING("Your hand slips, tearing [target]'s flesh with \the [tool]!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, tearing \the [target]'s flesh with \a [tool]!"),
+		SPAN_WARNING("Your hand slips, tearing \the [target]'s flesh with \the [tool]!")
+	)
 
 //////////////////////////////////////////////////////////////////
 //	slime innards cutting surgery step
@@ -88,8 +90,10 @@
 	target.core_removal_stage = 2
 
 /singleton/surgery_step/slime/cut_innards/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, tearing [target]'s innards with \the [tool]!"), \
-	SPAN_WARNING("Your hand slips, tearing [target]'s innards with \the [tool]!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, tearing \the [target]'s innards with \a [tool]!"),
+		SPAN_WARNING("Your hand slips, tearing \the [target]'s innards with \the [tool]!")
+	)
 
 //////////////////////////////////////////////////////////////////
 //	slime flesh & innards laser cutting surgery step
@@ -121,8 +125,10 @@
 	target.core_removal_stage = 2
 
 /singleton/surgery_step/slime/cut_laser/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, tearing [target]'s innards with \the [tool]!"), \
-	SPAN_WARNING("Your hand slips, searing [target]'s innards with \the [tool]!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, tearing \the [target]'s innards with \a [tool]!"),
+		SPAN_WARNING("Your hand slips, searing \the [target]'s innards with \the [tool]!")
+	)
 
 //////////////////////////////////////////////////////////////////
 //	slime core removal surgery step
@@ -163,5 +169,7 @@
 
 /singleton/surgery_step/slime/saw_core/fail_step(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	var/datum/pronouns/pronouns = user.choose_from_pronouns()
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, causing [pronouns.him] to miss the core!"), \
-	SPAN_WARNING("Your hand slips, causing you to miss the core!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, causing [pronouns.him] to miss \the [src]'s core!"),
+		SPAN_WARNING("Your hand slips, causing you to miss \the [src]'s core!")
+	)

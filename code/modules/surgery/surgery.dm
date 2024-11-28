@@ -257,9 +257,21 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 /singleton/surgery_step/proc/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return
 
-// stuff that happens when the step fails
+
+/**
+ * Does stuff if the surgery step fails.
+ *
+ * **Parameters**:
+ * - `user` - The mob performing the surgery.
+ * - `target` - The ~~victim~~mob being operated on.
+ * - `target_zone` - `user`'s targeted body zone when the surgery started.
+ * - `tool` - The item being used to perform the surgery.
+ *
+ * Has no return value.
+ */
 /singleton/surgery_step/proc/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return null
+
 
 /singleton/surgery_step/proc/success_chance(mob/living/user, mob/living/carbon/human/target, obj/item/tool, target_zone)
 	. = tool_quality(tool)

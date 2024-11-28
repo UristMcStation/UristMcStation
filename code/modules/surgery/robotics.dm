@@ -70,8 +70,10 @@
 
 /singleton/surgery_step/robotics/unscrew_hatch/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("\The [user]'s [tool.name] slips, failing to unscrew \the [target]'s [affected.name]."), \
-	SPAN_WARNING("Your [tool.name] slips, failing to unscrew [target]'s [affected.name]."))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s [tool.name] slips, failing to unscrew \the [target]'s [affected.name]."),
+		SPAN_WARNING("Your [tool.name] slips, failing to unscrew \the [target]'s [affected.name].")
+	)
 
 //////////////////////////////////////////////////////////////////
 //	 screw robotic limb hatch surgery step
@@ -112,8 +114,10 @@
 
 /singleton/surgery_step/robotics/screw_hatch/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, failing to screw down [target]'s [affected.name]."), \
-	SPAN_WARNING("Your [tool] slips, failing to screw down [target]'s [affected.name]."))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s [tool.name] slips, failing to screw down \the [target]'s [affected.name]."),
+		SPAN_WARNING("Your [tool.name] slips, failing to screw down \the [target]'s [affected.name].")
+	)
 
 //////////////////////////////////////////////////////////////////
 //	open robotic limb surgery step
@@ -155,8 +159,10 @@
 
 /singleton/surgery_step/robotics/open_hatch/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, failing to open the hatch on [target]'s [affected.name]."),
-	SPAN_WARNING("Your [tool] slips, failing to open the hatch on [target]'s [affected.name]."))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s [tool.name] slips, failing to open the hatch on \the [target]'s [affected.name]."),
+		SPAN_WARNING("Your [tool.name] slips, failing to open the hatch on \the [target]'s [affected.name].")
+	)
 
 //////////////////////////////////////////////////////////////////
 //	close robotic limb surgery step
@@ -199,8 +205,10 @@
 
 /singleton/surgery_step/robotics/close_hatch/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, failing to close the hatch on [target]'s [affected.name]."),
-	SPAN_WARNING("Your [tool.name] slips, failing to close the hatch on [target]'s [affected.name]."))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s [tool.name] slips, failing to close the hatch on \the [target]'s [affected.name]."),
+		SPAN_WARNING("Your [tool.name] slips, failing to close the hatch on \the [target]'s [affected.name].")
+	)
 
 //////////////////////////////////////////////////////////////////
 //	robotic limb brute damage repair surgery step
@@ -279,9 +287,11 @@
 
 /singleton/surgery_step/robotics/repair_brute/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s [tool.name] slips, damaging the internal structure of [target]'s [affected.name]."),
-	SPAN_WARNING("Your [tool.name] slips, damaging the internal structure of [target]'s [affected.name]."))
-	target.apply_damage(rand(5,10), DAMAGE_BURN, affected)
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s [tool.name] slips, damaging the internal structure of \the [target]'s [affected.name]."),
+		SPAN_WARNING("Your [tool.name] slips, damaging the internal structure of \the [target]'s [affected.name].")
+	)
+	target.apply_damage(rand(5, 10), DAMAGE_BURN, affected)
 
 //////////////////////////////////////////////////////////////////
 //	robotic limb brittleness repair surgery step
@@ -326,9 +336,11 @@
 
 /singleton/surgery_step/robotics/repair_brittle/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user] causes some of \the [target]'s [affected.name] to crumble!"),
-	SPAN_WARNING("You cause some of \the [target]'s [affected.name] to crumble!"))
-	target.apply_damage(rand(5,10), DAMAGE_BRUTE, affected)
+	user.visible_message(
+		SPAN_WARNING("\The [user] causes some of \the [target]'s [affected.name] to crumble with \the [tool]!"),
+		SPAN_WARNING("You cause some of \the [target]'s [affected.name] to crumble with \the [tool]!")
+	)
+	target.apply_damage(rand(5, 10), DAMAGE_BRUTE, affected)
 
 //////////////////////////////////////////////////////////////////
 //	robotic limb burn damage repair surgery step
@@ -399,9 +411,11 @@
 
 /singleton/surgery_step/robotics/repair_burn/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user] causes a short circuit in [target]'s [affected.name]!"),
-	SPAN_WARNING("You cause a short circuit in [target]'s [affected.name]!"))
-	target.apply_damage(rand(5,10), DAMAGE_BURN, affected)
+	user.visible_message(
+		SPAN_WARNING("\The [user] causes a short circuit in \the [target]'s [affected.name] with \the [tool]!"),
+		SPAN_WARNING("You cause a short circuit in \the [target]'s [affected.name] with \the [tool]!")
+	)
+	target.apply_damage(rand(5, 10), DAMAGE_BURN, affected)
 
 //////////////////////////////////////////////////////////////////
 //	 artificial organ repair surgery step
@@ -475,14 +489,14 @@
 
 /singleton/surgery_step/robotics/fix_organ_robotic/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, gumming up the mechanisms inside of [target]'s [affected.name] with \the [tool]!"), \
-	SPAN_WARNING("Your hand slips, gumming up the mechanisms inside of [target]'s [affected.name] with \the [tool]!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, gumming up the mechanisms inside of \the [target]'s [affected.name] with \the [tool]!"),
+		SPAN_WARNING("Your hand slips, gumming up the mechanisms inside of \the [target]'s [affected.name] with \the [tool]!")
+	)
 	target.adjustToxLoss(5)
 	affected.createwound(INJURY_TYPE_CUT, 5)
-	for(var/internal in affected.internal_organs)
-		var/obj/item/organ/internal/I = internal
-		if(I)
-			I.take_internal_damage(rand(3,5))
+	for (var/obj/item/organ/internal/internal in affected.internal_organs)
+		internal.take_internal_damage(rand(3, 5))
 
 //////////////////////////////////////////////////////////////////
 //	robotic organ detachment surgery step
@@ -556,8 +570,10 @@
 	internal.cut_away(user)
 
 /singleton/surgery_step/robotics/detatch_organ_robotic/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, disconnecting \the [tool]."), \
-	SPAN_WARNING("Your hand slips, disconnecting \the [tool]."))
+	user.visible_message(
+		SPAN_WARNING("[user]'s hand slips, disconnecting \the [tool] from \the [target]."),
+		SPAN_WARNING("Your hand slips, disconnecting \the [tool] from \the [target].")
+	)
 
 //////////////////////////////////////////////////////////////////
 //	robotic organ transplant finalization surgery step
@@ -634,8 +650,10 @@
 
 
 /singleton/surgery_step/robotics/attach_organ_robotic/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, disconnecting \the [tool]."), \
-	SPAN_WARNING("Your hand slips, disconnecting \the [tool]."))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, disconnecting \the [tool] from \the [target]."),
+		SPAN_WARNING("Your hand slips, disconnecting \the [tool] from \the [target].")
+	)
 
 //////////////////////////////////////////////////////////////////
 //	mmi installation surgery step
@@ -718,8 +736,10 @@
 		mmi.brainmob.mind.transfer_to(target)
 
 /singleton/surgery_step/robotics/install_mmi/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips."), \
-	SPAN_WARNING("Your hand slips."))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips while trying to install \the [tool] in \the [target]."),
+		SPAN_WARNING("Your hand slips while trying to install \the [tool] in \the [target].")
+	)
 
 /singleton/surgery_step/internal/remove_organ/robotic
 	name = "Remove robotic component"
@@ -847,8 +867,8 @@
 /singleton/surgery_step/robotics/robone/weld/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(
-		SPAN_WARNING("\The [user]'s hand slips, causing damage with \the [tool] in the open panel on [target]'s [affected.name]!"),
-		SPAN_WARNING("Your hand slips, causing damage with \the [tool] in the open panel on [target]'s [affected.name]!")
+		SPAN_WARNING("\The [user]'s hand slips, causing damage with \the [tool] in the open panel on \the [target]'s [affected.name]!"),
+		SPAN_WARNING("Your hand slips, causing damage with \the [tool] in the open panel on \the [target]'s [affected.name]!")
 	)
 	affected.take_external_damage(5, 0, used_weapon = tool)
 
@@ -954,7 +974,7 @@
 /singleton/surgery_step/robotics/robone/finish/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message(
-		SPAN_WARNING("\The [user]'s hand slips, causing damage with \the [tool] in the open panel in [target]'s [affected.name]!"),
-		SPAN_WARNING("Your hand slips, causing damage with \the [tool] in the open panel in [target]'s [affected.name]!")
+		SPAN_WARNING("\The [user]'s hand slips, causing damage with \the [tool] in the open panel in \the [target]'s [affected.name]!"),
+		SPAN_WARNING("Your hand slips, causing damage with \the [tool] in the open panel in \the [target]'s [affected.name]!")
 	)
 	affected.take_external_damage(5, 0, used_weapon = tool)

@@ -105,10 +105,12 @@
 	target.UpdateDamageIcon()
 
 /singleton/surgery_step/limb/attach/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/obj/item/organ/external/E = tool
-	user.visible_message(SPAN_WARNING(" [user]'s hand slips, damaging [target]'s [E.amputation_point]!"), \
-	SPAN_WARNING(" Your hand slips, damaging [target]'s [E.amputation_point]!"))
-	target.apply_damage(10, DAMAGE_BRUTE, null, damage_flags=DAMAGE_FLAG_SHARP)
+	var/obj/item/organ/external/external = tool
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, damaging \the [target]'s [external.amputation_point]!"),
+		SPAN_WARNING("Your hand slips, damaging \the [target]'s [external.amputation_point]!")
+	)
+	target.apply_damage(10, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP)
 
 //////////////////////////////////////////////////////////////////
 //	 limb connecting surgery step
@@ -165,10 +167,12 @@
 	target.UpdateDamageIcon()
 
 /singleton/surgery_step/limb/connect/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/obj/item/organ/external/E = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING(" [user]'s hand slips, damaging [target]'s [E.amputation_point]!"), \
-	SPAN_WARNING(" Your hand slips, damaging [target]'s [E.amputation_point]!"))
-	target.apply_damage(10, DAMAGE_BRUTE, null, damage_flags=DAMAGE_FLAG_SHARP)
+	var/obj/item/organ/external/external = target.get_organ(target_zone)
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, damaging \the [target]'s [external.amputation_point]!"),
+		SPAN_WARNING("Your hand slips, damaging \the [target]'s [external.amputation_point]!")
+	)
+	target.apply_damage(10, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP)
 
 //////////////////////////////////////////////////////////////////
 //	 robotic limb attachment surgery step
@@ -233,6 +237,8 @@
 	qdel(tool)
 
 /singleton/surgery_step/limb/mechanize/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-		user.visible_message(SPAN_WARNING(" [user]'s hand slips, damaging [target]'s flesh!"), \
-		SPAN_WARNING(" Your hand slips, damaging [target]'s flesh!"))
-		target.apply_damage(10, DAMAGE_BRUTE, null, damage_flags=DAMAGE_FLAG_SHARP)
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, damaging \the [target]'s flesh with \the [tool]!"),
+		SPAN_WARNING("Your hand slips, damaging \the [target]'s flesh with \the [tool]!")
+	)
+	target.apply_damage(10, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP)

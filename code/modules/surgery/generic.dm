@@ -60,9 +60,11 @@
 
 /singleton/surgery_step/generic/cut_with_laser/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips as the blade sputters, searing a long gash in [target]'s [affected.name] with \the [tool]!"), \
-	SPAN_WARNING("Your hand slips as the blade sputters, searing a long gash in [target]'s [affected.name] with \the [tool]!"))
-	affected.take_external_damage(15, 5, (DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE), used_weapon = tool)
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips as the blade sputters, searing a long gash in \the [target]'s [affected.name] with \the [tool]!"),
+		SPAN_WARNING("Your hand slips as the blade sputters, searing a long gash in \the [target]'s [affected.name] with \the [tool]!")
+	)
+	affected.take_external_damage(15, 5, DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE, tool)
 
 //////////////////////////////////////////////////////////////////
 //	laser scalpel surgery step
@@ -106,9 +108,11 @@
 
 /singleton/surgery_step/generic/managed/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand jolts as the system sparks, ripping a gruesome hole in [target]'s [affected.name] with \the [tool]!"), \
-	SPAN_WARNING("Your hand jolts as the system sparks, ripping a gruesome hole in [target]'s [affected.name] with \the [tool]!"))
-	affected.take_external_damage(20, 15, (DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE), used_weapon = tool)
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand jolts as the system sparks, ripping a gruesome hole in \the [target]'s [affected.name] with \the [tool]!"), \
+		SPAN_WARNING("Your hand jolts as the system sparks, ripping a gruesome hole in \the [target]'s [affected.name] with \the [tool]!")
+	)
+	affected.take_external_damage(20, 15, DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE, tool)
 
 //////////////////////////////////////////////////////////////////
 //	 scalpel surgery step
@@ -155,9 +159,11 @@
 
 /singleton/surgery_step/generic/cut_open/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, [fail_string] \the [target]'s [affected.name] in the wrong place with \the [tool]!"), \
-	SPAN_WARNING("Your hand slips, [fail_string] \the [target]'s [affected.name] in the wrong place with \the [tool]!"))
-	affected.take_external_damage(10, 0, (DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE), used_weapon = tool)
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, [fail_string] \the [target]'s [affected.name] in the wrong place with \the [tool]!"),
+		SPAN_WARNING("Your hand slips, [fail_string] \the [target]'s [affected.name] in the wrong place with \the [tool]!")
+	)
+	affected.take_external_damage(10, 0, DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE, tool)
 
 /singleton/surgery_step/generic/cut_open/success_chance(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
 	. = ..()
@@ -207,9 +213,11 @@
 
 /singleton/surgery_step/generic/clamp_bleeders/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, tearing blood vessals and causing massive bleeding in [target]'s [affected.name] with \the [tool]!"),	\
-	SPAN_WARNING("Your hand slips, tearing blood vessels and causing massive bleeding in [target]'s [affected.name] with \the [tool]!"),)
-	affected.take_external_damage(10, 0, (DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE), used_weapon = tool)
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, tearing blood vessals and causing massive bleeding in \the [target]'s [affected.name] with \the [tool]!"),
+		SPAN_WARNING("Your hand slips, tearing blood vessels and causing massive bleeding in \the [target]'s [affected.name] with \the [tool]!")
+	)
+	affected.take_external_damage(10, 0, DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE, tool)
 
 //////////////////////////////////////////////////////////////////
 //	 retractor surgery step
@@ -261,9 +269,11 @@
 
 /singleton/surgery_step/generic/retract_skin/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, tearing the edges of the incision on [target]'s [affected.name] with \the [tool]!"),	\
-	SPAN_WARNING("Your hand slips, tearing the edges of the incision on [target]'s [affected.name] with \the [tool]!"))
-	affected.take_external_damage(12, 0, (DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE), used_weapon = tool)
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, tearing the edges of the incision on \the [target]'s [affected.name] with \the [tool]!"),
+		SPAN_WARNING("Your hand slips, tearing the edges of the incision on \the [target]'s [affected.name] with \the [tool]!")
+	)
+	affected.take_external_damage(12, 0, DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE, tool)
 
 //////////////////////////////////////////////////////////////////
 //	 skin cauterization surgery step
@@ -344,8 +354,10 @@
 
 /singleton/surgery_step/generic/cauterize/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, damaging [target]'s [affected.name] with \the [tool]!"), \
-	SPAN_WARNING("Your hand slips, damaging [target]'s [affected.name] with \the [tool]!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, damaging \the [target]'s [affected.name] with \the [tool]!"),
+		SPAN_WARNING("Your hand slips, damaging \the [target]'s [affected.name] with \the [tool]!")
+	)
 	affected.take_external_damage(0, 3, used_weapon = tool)
 
 //////////////////////////////////////////////////////////////////
@@ -396,7 +408,9 @@
 
 /singleton/surgery_step/generic/amputate/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, sawing through the bone in [target]'s [affected.name] with \the [tool]!"), \
-	SPAN_WARNING("Your hand slips, sawwing through the bone in [target]'s [affected.name] with \the [tool]!"))
-	affected.take_external_damage(30, 0, (DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE), used_weapon = tool)
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, sawing through the bone in \the [target]'s [affected.name] with \the [tool]!"),
+		SPAN_WARNING("Your hand slips, sawwing through the bone in \the [target]'s [affected.name] with \the [tool]!")
+	)
+	affected.take_external_damage(30, 0, DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE, tool)
 	affected.fracture()

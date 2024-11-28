@@ -48,8 +48,10 @@
 
 /singleton/surgery_step/fix_tendon/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!") , \
-	SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, smearing \the [tool] in the incision in \the [target]'s [affected.name]!"),
+		SPAN_WARNING("Your hand slips, smearing \the [tool] in the incision in \the [target]'s [affected.name]!")
+	)
 	affected.take_external_damage(5, used_weapon = tool)
 
 //////////////////////////////////////////////////////////////////
@@ -98,8 +100,10 @@
 
 /singleton/surgery_step/fix_vein/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!") , \
-	SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, smearing \the [tool] in the incision in \the [target]'s [affected.name]!"),
+		SPAN_WARNING("Your hand slips, smearing \the [tool] in the incision in \the [target]'s [affected.name]!")
+	)
 	affected.take_external_damage(5, used_weapon = tool)
 
 
@@ -159,8 +163,10 @@
 	)
 
 /singleton/surgery_step/hardsuit/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_DANGER("[user]'s [tool] can't quite seem to get through the metal..."), \
-	SPAN_DANGER("Your [tool] can't quite seem to get through the metal. It's weakening, though - try again."))
+	user.visible_message(
+		SPAN_DANGER("\The [user]'s [tool.name] can't quite seem to get through the metal..."), \
+		SPAN_DANGER("Your [tool.name] can't quite seem to get through the metal. It's weakening, though - try again.")
+	)
 
 
 //////////////////////////////////////////////////////////////////
@@ -230,13 +236,14 @@
 
 	if (!istype(tool, /obj/item/reagent_containers))
 		return
-
 	var/obj/item/reagent_containers/container = tool
 
 	container.reagents.trans_to_mob(target, container.amount_per_transfer_from_this, CHEM_BLOOD)
 
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, spilling \the [tool]'s contents over the [target]'s [affected.name]!") , \
-	SPAN_WARNING("Your hand slips, spilling \the [tool]'s contents over the [target]'s [affected.name]!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, spilling \the [tool]'s contents over the \the [target]'s [affected.name]!"),
+		SPAN_WARNING("Your hand slips, spilling \the [tool]'s contents over the \the [target]'s [affected.name]!")
+	)
 	affected.disinfect()
 
 /singleton/surgery_step/sterilize/proc/check_chemicals(obj/item/reagent_containers/container)

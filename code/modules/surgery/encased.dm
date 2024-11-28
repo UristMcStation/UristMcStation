@@ -47,7 +47,9 @@
 
 /singleton/surgery_step/open_encased/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, cracking [target]'s [affected.encased] with \the [tool]!") , \
-	SPAN_WARNING("Your hand slips, cracking [target]'s [affected.encased] with \the [tool]!") )
-	affected.take_external_damage(15, 0, (DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE), used_weapon = tool)
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, cracking \the [target]'s [affected.encased] with \the [tool]!"),
+		SPAN_WARNING("Your hand slips, cracking \the [target]'s [affected.encased] with \the [tool]!")
+	)
+	affected.take_external_damage(15, 0, DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE, tool)
 	affected.fracture()

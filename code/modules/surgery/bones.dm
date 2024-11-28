@@ -54,8 +54,10 @@
 
 /singleton/surgery_step/bone/glue/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!") , \
-	SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, smearing \the [tool] in the incision in \the [target]'s [affected.name]!"),
+		SPAN_WARNING("Your hand slips, smearing \the [tool] in the incision in \the [target]'s [affected.name]!")
+	)
 
 
 //////////////////////////////////////////////////////////////////
@@ -113,8 +115,10 @@
 
 /singleton/surgery_step/bone/set_bone/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("\The [user]'s hand slips, damaging the [affected.encased ? affected.encased : "bones"] in \the [target]'s [affected.name] with \the [tool]!") , \
-		SPAN_WARNING("Your hand slips, damaging the [affected.encased ? affected.encased : "bones"] in \the [target]'s [affected.name] with \the [tool]!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, damaging the [affected.encased ? affected.encased : "bones"] in \the [target]'s [affected.name] with \the [tool]!") , \
+		SPAN_WARNING("Your hand slips, damaging the [affected.encased ? affected.encased : "bones"] in \the [target]'s [affected.name] with \the [tool]!")
+	)
 	affected.fracture()
 	affected.take_external_damage(5, used_weapon = tool)
 
@@ -158,5 +162,7 @@
 
 /singleton/surgery_step/bone/finish/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, smearing [tool] in the incision in [target]'s [affected.name]!") , \
-	SPAN_WARNING("Your hand slips, smearing [tool] in the incision in [target]'s [affected.name]!"))
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, smearing \the [tool] in the incision in \the [target]'s [affected.name]!"),
+		SPAN_WARNING("Your hand slips, smearing \the [tool] in the incision in \the [target]'s [affected.name]!")
+	)

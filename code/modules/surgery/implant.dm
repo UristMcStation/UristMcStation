@@ -14,9 +14,11 @@
 
 /singleton/surgery_step/cavity/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/chest/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_WARNING("[user]'s hand slips, scraping around inside [target]'s [affected.name] with \the [tool]!"), \
-	SPAN_WARNING("Your hand slips, scraping around inside [target]'s [affected.name] with \the [tool]!"))
-	affected.take_external_damage(20, 0, (DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE), used_weapon = tool)
+	user.visible_message(
+		SPAN_WARNING("\The [user]'s hand slips, scraping around inside \the [target]'s [affected.name] with \the [tool]!"),
+		SPAN_WARNING("Your hand slips, scraping around inside \the [target]'s [affected.name] with \the [tool]!")
+	)
+	affected.take_external_damage(20, 0, DAMAGE_FLAG_SHARP | DAMAGE_FLAG_EDGE, tool)
 
 //////////////////////////////////////////////////////////////////
 //	 create implant space surgery step
@@ -243,11 +245,14 @@
 /singleton/surgery_step/cavity/implant_removal/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	..()
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	for(var/obj/item/implant/imp in affected.implants)
+	for (var/obj/item/implant/implant in affected.implants)
 		var/fail_prob = 10
 		fail_prob += 100 - tool_quality(tool)
-		if (prob(fail_prob))
-			user.visible_message(SPAN_WARNING("Something beeps inside [target]'s [affected.name]!"))
-			playsound(imp.loc, 'sound/items/countdown.ogg', 75, 1, -3)
-			spawn(25)
-				imp.activate()
+		if (!prob(fail_prob))
+			continue
+		target.visible_message(
+			SPAN_DANGER("Something beeps inside \the [target]'s [affected.name]!"),
+			SPAN_DANGER("Something beeps inside your [affected.name]!")
+		)
+		playsound(target, 'sound/items/countdown.ogg', 75, TRUE, -3)
+		addtimer(new Callback(implant, /obj/item/implant/proc/activate), 2.5 SECONDS, TIMER_UNIQUE)
