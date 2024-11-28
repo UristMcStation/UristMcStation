@@ -73,10 +73,13 @@
 
 
 /singleton/surgery_step/limb/attach/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/organ/external/E = tool
-		var/obj/item/organ/external/P = target.organs_by_name[E.parent_organ]
-		. = (P && !P.is_stump() && !(BP_IS_ROBOTIC(P) && !BP_IS_ROBOTIC(E)))
+	. = ..()
+	if (!.)
+		return
+
+	var/obj/item/organ/external/external_tool = tool
+	var/obj/item/organ/external/attach_point = target.organs_by_name[external_tool.parent_organ]
+	return (attach_point && !attach_point.is_stump() && !(BP_IS_ROBOTIC(attach_point) && !BP_IS_ROBOTIC(external_tool)))
 
 /singleton/surgery_step/limb/attach/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = tool
@@ -132,9 +135,12 @@
 
 
 /singleton/surgery_step/limb/connect/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/organ/external/E = target.get_organ(target_zone)
-		return E && !E.is_stump() && (E.status & ORGAN_CUT_AWAY)
+	. = ..()
+	if (!.)
+		return
+
+	var/obj/item/organ/external/external = target.get_organ(target_zone)
+	return external && !external.is_stump() && HAS_FLAGS(external.status, ORGAN_CUT_AWAY)
 
 /singleton/surgery_step/limb/connect/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
@@ -182,12 +188,16 @@
 
 
 /singleton/surgery_step/limb/mechanize/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(..())
-		var/obj/item/robot_parts/p = tool
-		if (p.part)
-			if (!(target_zone in p.part))
-				return 0
-		return isnull(target.get_organ(target_zone))
+	. = ..()
+	if (!.)
+		return
+
+	var/obj/item/robot_parts/robot_parts = tool
+	if (robot_parts.part)
+		if (!(target_zone in robot_parts.part))
+			return FALSE
+
+	return isnull(target.get_organ(target_zone))
 
 /singleton/surgery_step/limb/mechanize/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(

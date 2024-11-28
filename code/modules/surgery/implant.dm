@@ -104,9 +104,10 @@
 	max_duration = 10 SECONDS
 
 /singleton/surgery_step/cavity/place_item/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(istype(user,/mob/living/silicon/robot))
+	if (istype(user, /mob/living/silicon/robot))
 		return FALSE
-	. = ..()
+
+	return ..()
 
 /singleton/surgery_step/cavity/place_item/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = ..()

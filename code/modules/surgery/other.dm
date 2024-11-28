@@ -122,18 +122,23 @@
 	return TRUE
 
 
+/singleton/surgery_step/hardsuit/assess_surgery_candidate(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	return ..() && target_zone == BP_CHEST && istype(target.back, /obj/item/rig) && !(target.back.canremove)
+
+
 /singleton/surgery_step/hardsuit/get_skill_reqs(mob/living/user, mob/living/carbon/human/target, obj/item/tool)
 	return list(SKILL_EVA = SKILL_BASIC)
 
 
 /singleton/surgery_step/hardsuit/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	if(!istype(target))
-		return FALSE
-	if(isWelder(tool))
+	. = ..()
+	if (!.)
+		return
+
+	if (isWelder(tool))
 		var/obj/item/weldingtool/welder = tool
-		if(!welder.remove_fuel(1,user))
+		if (!welder.remove_fuel(1, user))
 			return FALSE
-	return (target_zone == BP_CHEST) && istype(target.back, /obj/item/rig) && !(target.back.canremove)
 
 /singleton/surgery_step/hardsuit/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	user.visible_message(

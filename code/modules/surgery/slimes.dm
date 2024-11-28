@@ -36,8 +36,8 @@
 	min_duration = 0.5 SECONDS
 	max_duration = 2 SECONDS
 
-/singleton/surgery_step/slime/cut_flesh/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	return ..() && istype(target) && target.core_removal_stage == 0
+/singleton/surgery_step/slime/cut_flesh/assess_surgery_candidate(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
+	return ..() && target.core_removal_stage == 0
 
 /singleton/surgery_step/slime/cut_flesh/begin_step(mob/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	user.visible_message(
@@ -70,8 +70,8 @@
 	min_duration = 0.5 SECONDS
 	max_duration = 2 SECONDS
 
-/singleton/surgery_step/slime/cut_innards/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	return ..() && istype(target) && target.core_removal_stage == 1
+/singleton/surgery_step/slime/cut_innards/assess_surgery_candidate(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
+	return ..() && target.core_removal_stage == 1
 
 /singleton/surgery_step/slime/cut_innards/begin_step(mob/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	user.visible_message(
@@ -103,8 +103,8 @@
 	min_duration = 1 SECOND
 	max_duration = 2 SECONDS
 
-/singleton/surgery_step/slime/cut_laser/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	return ..() && istype(target) && target.core_removal_stage < 2
+/singleton/surgery_step/slime/cut_laser/assess_surgery_candidate(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
+	return ..() && target.core_removal_stage < 2
 
 /singleton/surgery_step/slime/cut_laser/begin_step(mob/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	user.visible_message(
@@ -138,8 +138,8 @@
 	min_duration = 1 SECOND
 	max_duration = 3 SECONDS
 
-/singleton/surgery_step/slime/saw_core/can_use(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
-	return ..() && (istype(target) && target.core_removal_stage == 2 && target.cores > 0) //This is being passed a human as target, unsure why.
+/singleton/surgery_step/slime/saw_core/assess_surgery_candidate(mob/living/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
+	return ..() && target.core_removal_stage == 2 && target.cores > 0
 
 /singleton/surgery_step/slime/saw_core/begin_step(mob/user, mob/living/carbon/slime/target, target_zone, obj/item/tool)
 	user.visible_message(

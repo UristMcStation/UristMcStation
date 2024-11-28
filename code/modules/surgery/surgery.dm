@@ -125,7 +125,19 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 	return SURGERY_SKILLS_GENERIC
 
 
-// checks whether this step can be applied with the given user and target
+/**
+ * Whether this step can be applied with the given user and target.
+ *
+ * By default, checks both `assess_bodypart()` and `assess_surgery_candidate()`.
+ *
+ * **Parameters**:
+ * - `user` - The mob performing the operation.
+ * - `target` - The mob being operated on.
+ * - `target_zone` - The user's selected target zone.
+ * - `tool` - The item being used to perform the operation.
+ *
+ * Returns boolean.
+ */
 /singleton/surgery_step/proc/can_use(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	return assess_bodypart(user, target, target_zone, tool) && assess_surgery_candidate(user, target, target_zone, tool)
 
