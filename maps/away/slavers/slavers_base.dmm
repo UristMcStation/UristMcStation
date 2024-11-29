@@ -75,35 +75,33 @@
 	},
 /turf/simulated/floor/ceiling,
 /area/slavers_base/mort)
+"ap" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/slavers_base/dorms)
 "aq" = (
 /obj/structure/table/standard,
 /obj/item/material/knife/kitchen/cleaver,
 /turf/simulated/floor/ceiling,
 /area/slavers_base/mort)
 "as" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/ceiling,
+/area/slavers_base/mort)
+"at" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /obj/catwalk_plated,
 /turf/simulated/floor/ceiling,
 /area/slavers_base/powatm)
-"aw" = (
-/obj/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/slavers_base/dorms)
 "az" = (
 /obj/item/material/utensil/knife,
 /turf/simulated/floor/ceiling,
 /area/slavers_base/mort)
-"aA" = (
-/obj/structure/bed/chair{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/slavers_base/med)
 "aB" = (
 /obj/structure/closet/crate/freezer,
 /turf/simulated/floor/ceiling,
@@ -379,7 +377,7 @@
 "br" = (
 /obj/wallframe_spawn/reinforced,
 /obj/paint,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/ceiling,
 /area/slavers_base/med)
 "bs" = (
 /obj/machinery/flasher{
@@ -716,13 +714,17 @@
 /turf/simulated/wall,
 /area/slavers_base/hangar)
 "co" = (
-/obj/machinery/vending/medical/torch{
-	dir = 1
-	},
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/corner/red{
 	dir = 10
 	},
+/obj/structure/table/rack,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
 /turf/simulated/floor/tiled/white,
 /area/slavers_base/med)
 "cp" = (
@@ -3193,10 +3195,12 @@
 /turf/simulated/floor/tiled,
 /area/slavers_base/dorms)
 "iD" = (
-/obj/wallframe_spawn/reinforced,
-/obj/paint,
-/turf/simulated/floor/ceiling,
-/area/slavers_base/med)
+/obj/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/slavers_base/dorms)
 "iE" = (
 /obj/floor_decal/industrial/warning{
 	dir = 4;
@@ -3270,6 +3274,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/slavers_base/dorms)
+"iR" = (
+/obj/wallframe_spawn/reinforced,
+/obj/paint,
+/turf/simulated/floor/tiled,
+/area/slavers_base/med)
 "iS" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/glass2/fitnessflask/proteinshake,
@@ -3502,6 +3511,14 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/ceiling,
 /area/slavers_base/mort)
+"jx" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/slavers_base/demo)
 "jy" = (
 /obj/machinery/light/small,
 /obj/floor_decal/corner/blue/diagonal,
@@ -3633,10 +3650,6 @@
 	},
 /turf/simulated/floor/lino,
 /area/slavers_base/demo)
-"jO" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/ceiling,
-/area/slavers_base/mort)
 "jP" = (
 /obj/machinery/door/airlock{
 	name = "Restroom"
@@ -3963,10 +3976,10 @@
 /area/slavers_base/maint)
 "kN" = (
 /obj/structure/table/standard,
-/obj/item/gun/projectile/pistol/bobcat,
 /obj/floor_decal/techfloor{
 	dir = 1
 	},
+/obj/item/gun/projectile/pistol/m19,
 /turf/simulated/floor/tiled/techfloor,
 /area/slavers_base/maint)
 "kO" = (
@@ -4307,6 +4320,12 @@
 /obj/random/junk,
 /turf/simulated/floor/tiled/techfloor,
 /area/slavers_base/maint)
+"qO" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/slavers_base/med)
 "qR" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -5207,6 +5226,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/slavers_base/dorms)
+"FQ" = (
+/mob/living/simple_animal/hostile/fleet_heavy,
+/turf/simulated/floor/tiled/techfloor,
+/area/slavers_base/powatm)
 "FR" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/flora/pottedplant/decorative,
@@ -5263,26 +5286,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/slavers_base/med)
-"GL" = (
-/obj/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/slavers_base/dorms)
 "GQ" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/blood/gibs/robot/down,
 /turf/simulated/floor/tiled,
 /area/slavers_base/hallway)
-"Hb" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/slavers_base/demo)
 "Hs" = (
 /obj/decal/cleanable/dirt,
 /obj/item/ammo_casing/pistol/used,
@@ -5624,8 +5632,8 @@
 /area/slavers_base/med)
 "NC" = (
 /obj/floor_decal/corner/paleblue/mono,
-/obj/machinery/sleeper,
 /obj/decal/cleanable/dirt,
+/obj/machinery/vending/medical/torch,
 /turf/simulated/floor/tiled/white/monotile,
 /area/slavers_base/med)
 "NQ" = (
@@ -6352,10 +6360,6 @@
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
 /area/slavers_base/demo)
-"Yt" = (
-/mob/living/simple_animal/hostile/fleet_heavy,
-/turf/simulated/floor/tiled/techfloor,
-/area/slavers_base/powatm)
 "YE" = (
 /obj/decal/cleanable/dirt,
 /obj/item/ammo_casing/pistol/used,
@@ -6438,13 +6442,6 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/slavers_base/powatm)
 "Zr" = (
-/obj/structure/table/rack,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
 /obj/decal/cleanable/dirt,
 /obj/floor_decal/corner/red{
 	dir = 10
@@ -17307,7 +17304,7 @@ go
 uM
 Vj
 Vj
-Yt
+FQ
 UZ
 JD
 cR
@@ -17506,7 +17503,7 @@ AK
 fL
 cR
 Zb
-as
+at
 bq
 ey
 Vj
@@ -19309,7 +19306,7 @@ bL
 cV
 gt
 dn
-iD
+br
 hk
 cf
 ST
@@ -19511,7 +19508,7 @@ oS
 cV
 gV
 hp
-iD
+br
 hk
 Iw
 QR
@@ -19708,12 +19705,12 @@ YX
 wz
 US
 dn
-aA
+qO
 bL
 cV
 gt
 dn
-iD
+br
 hk
 dn
 dn
@@ -20108,7 +20105,7 @@ ad
 cV
 cV
 kk
-br
+iR
 cV
 cV
 cV
@@ -20521,7 +20518,7 @@ kl
 cV
 dn
 dn
-iD
+br
 By
 Wo
 dn
@@ -20916,7 +20913,7 @@ ad
 cV
 cV
 kk
-br
+iR
 cV
 zT
 DD
@@ -20925,7 +20922,7 @@ kl
 cV
 eH
 dn
-iD
+br
 NC
 eu
 eH
@@ -21553,8 +21550,8 @@ jk
 gi
 ic
 ic
-GL
-aw
+ap
+iD
 ic
 XF
 ic
@@ -22324,7 +22321,7 @@ ad
 ah
 aq
 ak
-jO
+as
 az
 jC
 aN
@@ -22525,8 +22522,8 @@ ad
 ad
 ah
 jv
-jO
-jO
+as
+as
 vz
 aL
 aM
@@ -23576,10 +23573,10 @@ hd
 iK
 iZ
 jm
-Hb
+jx
 jI
 jS
-Hb
+jx
 ku
 hd
 kE
