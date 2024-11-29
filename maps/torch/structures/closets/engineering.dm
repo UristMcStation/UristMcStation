@@ -56,7 +56,7 @@
 		/obj/item/clothing/glasses/welding/superior,
 		/obj/item/clothing/suit/armor/pcarrier/medium/command,
 		/obj/item/clothing/head/helmet/solgov/command,
-		/obj/item/material/clipboard,
+		/obj/item/material/folder/clipboard,
 		/obj/item/device/holowarrant,
 		/obj/item/storage/box/armband/engine,
 		/obj/item/storage/box/secret_project_disks,

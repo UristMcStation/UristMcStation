@@ -688,14 +688,14 @@
 /obj/structure/filingcabinet/chestdrawer{
 	dir = 1
 	},
-/obj/item/folder/blue,
-/obj/item/folder/red,
-/obj/item/folder,
-/obj/item/folder/nt,
-/obj/item/folder/yellow,
-/obj/item/folder/white,
-/obj/item/folder/white,
-/obj/item/folder/white,
+/obj/item/material/folder/blue,
+/obj/item/material/folder/red,
+/obj/item/material/folder,
+/obj/item/material/folder/nt,
+/obj/item/material/folder/yellow,
+/obj/item/material/folder/white,
+/obj/item/material/folder/white,
+/obj/item/material/folder/white,
 /obj/decal/cleanable/cobweb{
 	dir = 4
 	},
@@ -4467,14 +4467,14 @@
 /obj/structure/filingcabinet/chestdrawer{
 	dir = 1
 	},
-/obj/item/folder/blue,
-/obj/item/folder/red,
-/obj/item/folder,
-/obj/item/folder/nt,
-/obj/item/folder/yellow,
-/obj/item/folder/white,
-/obj/item/folder/white,
-/obj/item/folder/white,
+/obj/item/material/folder/blue,
+/obj/item/material/folder/red,
+/obj/item/material/folder,
+/obj/item/material/folder/nt,
+/obj/item/material/folder/yellow,
+/obj/item/material/folder/white,
+/obj/item/material/folder/white,
+/obj/item/material/folder/white,
 /obj/floor_decal/corner/paleblue/mono,
 /obj/machinery/button/alternate/door{
 	id_tag = "counselor";
@@ -6714,14 +6714,14 @@
 /obj/structure/filingcabinet/chestdrawer{
 	dir = 1
 	},
-/obj/item/folder/blue,
-/obj/item/folder/red,
-/obj/item/folder,
-/obj/item/folder/nt,
-/obj/item/folder/yellow,
-/obj/item/folder/white,
-/obj/item/folder/white,
-/obj/item/folder/white,
+/obj/item/material/folder/blue,
+/obj/item/material/folder/red,
+/obj/item/material/folder,
+/obj/item/material/folder/nt,
+/obj/item/material/folder/yellow,
+/obj/item/material/folder/white,
+/obj/item/material/folder/white,
+/obj/item/material/folder/white,
 /obj/floor_decal/corner/paleblue/mono,
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/medpaperworkoffice)
@@ -8534,7 +8534,7 @@
 	pixel_y = 7
 	},
 /obj/item/pen,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/floor_decal/corner/red{
 	dir = 6
 	},
@@ -9440,7 +9440,7 @@
 	pixel_y = 7
 	},
 /obj/random/clipboard,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/item/pen,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/item/sticky_pad/random,
@@ -18640,7 +18640,7 @@
 /obj/random/powercell,
 /obj/random/powercell,
 /obj/random/powercell,
-/obj/item/folder/nt,
+/obj/item/material/folder/nt,
 /obj/item/stack/nanopaste,
 /obj/machinery/alarm{
 	pixel_y = 24
@@ -20516,7 +20516,7 @@
 /obj/structure/table/steel,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/tape_roll,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -20792,7 +20792,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /turf/simulated/floor/tiled,
 /area/security/detectives_office)
 "kyb" = (
@@ -21576,7 +21576,7 @@
 "lxb" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/item/pen,
 /obj/machinery/requests_console{
 	announcementConsole = 1;
@@ -23575,13 +23575,13 @@
 /obj/structure/filingcabinet/chestdrawer{
 	dir = 1
 	},
-/obj/item/folder/blue,
-/obj/item/folder/red,
-/obj/item/folder,
-/obj/item/folder/nt,
-/obj/item/folder/yellow,
-/obj/item/folder/white,
-/obj/item/folder/yellow,
+/obj/item/material/folder/blue,
+/obj/item/material/folder/red,
+/obj/item/material/folder,
+/obj/item/material/folder/nt,
+/obj/item/material/folder/yellow,
+/obj/item/material/folder/white,
+/obj/item/material/folder/yellow,
 /obj/floor_decal/corner/yellow{
 	dir = 5
 	},
@@ -27434,7 +27434,7 @@
 	pixel_y = 7
 	},
 /obj/item/pen,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /turf/simulated/floor/tiled/dark,
 /area/security/questioning)
 "szb" = (
@@ -28411,14 +28411,14 @@
 /obj/structure/filingcabinet/chestdrawer{
 	dir = 1
 	},
-/obj/item/folder/blue,
-/obj/item/folder/red,
-/obj/item/folder,
-/obj/item/folder/nt,
-/obj/item/folder/yellow,
-/obj/item/folder/white,
-/obj/item/folder/nt,
-/obj/item/folder/nt,
+/obj/item/material/folder/blue,
+/obj/item/material/folder/red,
+/obj/item/material/folder,
+/obj/item/material/folder/nt,
+/obj/item/material/folder/yellow,
+/obj/item/material/folder/white,
+/obj/item/material/folder/nt,
+/obj/item/material/folder/nt,
 /obj/floor_decal/corner/research/mono,
 /obj/machinery/light_switch{
 	pixel_x = 22;
@@ -29919,7 +29919,7 @@
 "xhX" = (
 /obj/structure/table/steel,
 /obj/random/clipboard,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/item/hand_labeler,
 /obj/machinery/light{
 	dir = 1

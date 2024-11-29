@@ -271,7 +271,7 @@
 
 /datum/stack_recipe/clipboard
 	title = "clipboard"
-	result_type = /obj/item/material/clipboard
+	result_type = /obj/item/material/folder/clipboard
 	req_amount = 5
 	send_material_data = 1
 

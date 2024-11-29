@@ -2434,7 +2434,7 @@
 /area/command/pathfinder)
 "hX" = (
 /obj/structure/table/standard,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /turf/simulated/floor/tiled,
 /area/command/pathfinder)
 "hY" = (
@@ -2980,7 +2980,7 @@
 	dir = 1;
 	pixel_y = -24
 	},
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /turf/simulated/floor/lino,
 /area/tcommsat/computer)
 "ku" = (
@@ -10893,10 +10893,10 @@
 	name = "plastic table frame"
 	},
 /obj/floor_decal/industrial/outline/yellow,
-/obj/item/folder/red{
+/obj/item/material/folder/red{
 	pixel_x = -3
 	},
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /turf/simulated/floor/tiled/monotile,
 /area/quartermaster/office)
 "Lu" = (
@@ -12684,7 +12684,7 @@
 /area/crew_quarters/lounge)
 "Qu" = (
 /obj/structure/table/standard,
-/obj/item/folder/envelope/preset/dcorder,
+/obj/item/material/folder/envelope/preset/dcorder,
 /turf/simulated/floor/tiled,
 /area/quartermaster/deckchief)
 "Qy" = (
@@ -12745,7 +12745,7 @@
 /obj/random_multi/single_item/memo_research,
 /obj/random_multi/single_item/memo_exploration,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/folder/envelope/preset/exploorder,
+/obj/item/material/folder/envelope/preset/exploorder,
 /turf/simulated/floor/tiled,
 /area/command/pathfinder)
 "QI" = (
@@ -14657,7 +14657,7 @@
 /obj/floor_decal/corner/brown/half{
 	dir = 1
 	},
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/stamp/supply,
 /obj/item/stamp/denied{
 	pixel_x = 4;
