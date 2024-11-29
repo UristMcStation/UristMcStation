@@ -65,6 +65,13 @@
 "ak" = (
 /turf/simulated/floor/ceiling,
 /area/slavers_base/mort)
+"am" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/slavers_base/dorms)
 "an" = (
 /obj/decal/cleanable/ash,
 /turf/simulated/floor/ceiling,
@@ -75,29 +82,11 @@
 	},
 /turf/simulated/floor/ceiling,
 /area/slavers_base/mort)
-"ap" = (
-/obj/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
-/area/slavers_base/dorms)
 "aq" = (
 /obj/structure/table/standard,
 /obj/item/material/knife/kitchen/cleaver,
 /turf/simulated/floor/ceiling,
 /area/slavers_base/mort)
-"as" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/ceiling,
-/area/slavers_base/mort)
-"at" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
-	dir = 4
-	},
-/obj/catwalk_plated,
-/turf/simulated/floor/ceiling,
-/area/slavers_base/powatm)
 "az" = (
 /obj/item/material/utensil/knife,
 /turf/simulated/floor/ceiling,
@@ -106,6 +95,10 @@
 /obj/structure/closet/crate/freezer,
 /turf/simulated/floor/ceiling,
 /area/slavers_base/mort)
+"aC" = (
+/mob/living/simple_animal/hostile/fleet_heavy,
+/turf/simulated/floor/tiled/techfloor,
+/area/slavers_base/powatm)
 "aD" = (
 /obj/gibspawner/human,
 /obj/decal/cleanable/dirt,
@@ -377,7 +370,7 @@
 "br" = (
 /obj/wallframe_spawn/reinforced,
 /obj/paint,
-/turf/simulated/floor/ceiling,
+/turf/simulated/floor/tiled,
 /area/slavers_base/med)
 "bs" = (
 /obj/machinery/flasher{
@@ -3194,13 +3187,6 @@
 /obj/structure/bed/chair,
 /turf/simulated/floor/tiled,
 /area/slavers_base/dorms)
-"iD" = (
-/obj/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/slavers_base/dorms)
 "iE" = (
 /obj/floor_decal/industrial/warning{
 	dir = 4;
@@ -3274,11 +3260,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/slavers_base/dorms)
-"iR" = (
-/obj/wallframe_spawn/reinforced,
-/obj/paint,
-/turf/simulated/floor/tiled,
-/area/slavers_base/med)
 "iS" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/glass2/fitnessflask/proteinshake,
@@ -3511,14 +3492,6 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/ceiling,
 /area/slavers_base/mort)
-"jx" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/slavers_base/demo)
 "jy" = (
 /obj/machinery/light/small,
 /obj/floor_decal/corner/blue/diagonal,
@@ -4278,6 +4251,11 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/ceiling,
 /area/slavers_base/demo)
+"oZ" = (
+/obj/wallframe_spawn/reinforced,
+/obj/paint,
+/turf/simulated/floor/ceiling,
+/area/slavers_base/med)
 "pl" = (
 /obj/decal/cleanable/dirt,
 /obj/item/gun/projectile/automatic/machine_pistol,
@@ -4321,11 +4299,12 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/slavers_base/maint)
 "qO" = (
-/obj/structure/bed/chair{
+/obj/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
-/area/slavers_base/med)
+/turf/simulated/floor/tiled,
+/area/slavers_base/dorms)
 "qR" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -5226,10 +5205,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/slavers_base/dorms)
-"FQ" = (
-/mob/living/simple_animal/hostile/fleet_heavy,
-/turf/simulated/floor/tiled/techfloor,
-/area/slavers_base/powatm)
 "FR" = (
 /obj/decal/cleanable/dirt,
 /obj/structure/flora/pottedplant/decorative,
@@ -5286,11 +5261,25 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/slavers_base/med)
+"GL" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/slavers_base/med)
 "GQ" = (
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/blood/gibs/robot/down,
 /turf/simulated/floor/tiled,
 /area/slavers_base/hallway)
+"Hb" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/slavers_base/demo)
 "Hs" = (
 /obj/decal/cleanable/dirt,
 /obj/item/ammo_casing/pistol/used,
@@ -5359,6 +5348,10 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/slavers_base/demo)
+"Id" = (
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/ceiling,
+/area/slavers_base/mort)
 "In" = (
 /obj/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -5633,7 +5626,7 @@
 "NC" = (
 /obj/floor_decal/corner/paleblue/mono,
 /obj/decal/cleanable/dirt,
-/obj/machinery/vending/medical/torch,
+/obj/machinery/sleeper,
 /turf/simulated/floor/tiled/white/monotile,
 /area/slavers_base/med)
 "NQ" = (
@@ -6360,6 +6353,13 @@
 /obj/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
 /area/slavers_base/demo)
+"Yt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/catwalk_plated,
+/turf/simulated/floor/ceiling,
+/area/slavers_base/powatm)
 "YE" = (
 /obj/decal/cleanable/dirt,
 /obj/item/ammo_casing/pistol/used,
@@ -17304,7 +17304,7 @@ go
 uM
 Vj
 Vj
-FQ
+aC
 UZ
 JD
 cR
@@ -17503,7 +17503,7 @@ AK
 fL
 cR
 Zb
-at
+Yt
 bq
 ey
 Vj
@@ -19306,7 +19306,7 @@ bL
 cV
 gt
 dn
-br
+oZ
 hk
 cf
 ST
@@ -19508,7 +19508,7 @@ oS
 cV
 gV
 hp
-br
+oZ
 hk
 Iw
 QR
@@ -19705,12 +19705,12 @@ YX
 wz
 US
 dn
-qO
+GL
 bL
 cV
 gt
 dn
-br
+oZ
 hk
 dn
 dn
@@ -20105,7 +20105,7 @@ ad
 cV
 cV
 kk
-iR
+br
 cV
 cV
 cV
@@ -20518,7 +20518,7 @@ kl
 cV
 dn
 dn
-br
+oZ
 By
 Wo
 dn
@@ -20913,7 +20913,7 @@ ad
 cV
 cV
 kk
-iR
+br
 cV
 zT
 DD
@@ -20922,7 +20922,7 @@ kl
 cV
 eH
 dn
-br
+oZ
 NC
 eu
 eH
@@ -21550,8 +21550,8 @@ jk
 gi
 ic
 ic
-ap
-iD
+am
+qO
 ic
 XF
 ic
@@ -22321,7 +22321,7 @@ ad
 ah
 aq
 ak
-as
+Id
 az
 jC
 aN
@@ -22522,8 +22522,8 @@ ad
 ad
 ah
 jv
-as
-as
+Id
+Id
 vz
 aL
 aM
@@ -23573,10 +23573,10 @@ hd
 iK
 iZ
 jm
-jx
+Hb
 jI
 jS
-jx
+Hb
 ku
 hd
 kE
