@@ -22,3 +22,22 @@ GLOBAL_LIST_INIT(full_alphabet, list("a","b","c","d","e","f","g","h","i","j","k"
 GLOBAL_LIST_EMPTY(meteor_list)
 
 GLOBAL_LIST_EMPTY(shield_generators) // All shield generators
+
+GLOBAL_LIST_INIT(wall_blend_objects, list(
+	/obj/machinery/door,
+	/obj/structure/wall_frame,
+	/obj/structure/grille,
+	/obj/structure/window/reinforced/full,
+	/obj/structure/window/reinforced/polarized/full,
+	/obj/structure/window/shuttle,
+	/obj/structure/window/boron_basic/full,
+	/obj/structure/window/boron_reinforced/full
+))
+
+GLOBAL_LIST_INIT(wall_noblend_objects, list(
+	/obj/machinery/door/window
+))
+
+GLOBAL_LIST_INIT(wall_fullblend_objects, list(
+	/obj/structure/wall_frame
+))
