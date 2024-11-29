@@ -32,6 +32,10 @@
 	if (!eyes)
 		return
 
+	for (var/obj/item/equipped as anything in owner.get_equipped_items())
+		if (HAS_FLAGS(equipped.body_parts_covered, EYES))
+			return
+
 	return eyes.get_special_overlay()
 
 /obj/item/organ/external/head/proc/get_eyes()

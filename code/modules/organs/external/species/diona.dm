@@ -130,6 +130,10 @@
 	if (!glowing_eyes)
 		return
 
+	for (var/obj/item/equipped as anything in owner.get_equipped_items())
+		if (HAS_FLAGS(equipped.body_parts_covered, EYES))
+			return
+
 	var/icon/I = get_eyes()
 	var/image/eye_glow = image(I)
 	eye_glow.AddOverlays(emissive_appearance(eye_icon_location, ""))
