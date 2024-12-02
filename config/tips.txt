@@ -132,3 +132,63 @@ Changelings can spawn as jobs that might otherwise not be spawn-able as a Traito
 Floor Tiles can be sharpened using a wirecutter to create a more deadly thrown projectile.
 Spacesuits have injection ports to administer medicine safely while in low pressure environments. These however take extra time to use.
 Setting your suit sensors to maximum isn't a good idea if you are an antagonist, as medbay can track wherever you go.
+Wrapping a bedsheet around a glass shard makes it easier to hold.
+If you don't have a hazard vest, you can make armor using rail assemblies to hold together steel sheets - be aware of electrical conduction.
+A rag can hold some liquid - smothering someone's mouth will force them to breathe it in...
+You can take apart scissors with a screwdriver.
+Roll two newspapers together to swat away pests - then put a shard or a scissor blade in it...
+Syringes are delicate - do not harmfully stab someone with one, or you may transfer some bad reagents into them!
+Touching the Supermatter shard is good for health.
+Be polite. Be efficient. Have a plan to slip everyone you meet.
+Don't forget. You're here forever.
+A lot of things can be ground up to make chemicals and materials. Try and grind up a Danitos package, if you dare!
+Modular computers have a lot of utility. Buy some programs for it, or use the wall computers to send everyone in a department a message if they're not listening to the radio! Some can even be health scanners!
+A character with Exploitables will show up with a red name in the Uplink. Fill out your Exploitable Information with a plausible story for your character - you are doing a public service for new antagonist players to work with.
+When there is no captain at the start, other heads of staff can become the acting-captain and secure important items such as the captain's spare and do job changes.
+Interacting with an alien artifact without proper protection can be hazardous for your health! Consider wearing anomaly protection gear before you end up in Medbay.
+The traditional Baystation 12 skill system has no effect here, everyone is on the same skills.
+As a Janitor, the way your vessel looks represents the psyche of the crew: Clean the blood trails, collect the glass shards, do what you can to keep up a clean apperance, before the crew go mad.
+Clumsy characters cannot safely operate firearms, and have poor skills in disarming and pushing people down. A good clown always knows a way around this.
+The declumsifier in the antagonist uplink can make the playing field equal for the clown. Arm up, and make them pay for what they did.
+Mimes should never break the vow of silence.
+Clicking the occupation name inside of character setup allows you to select alternative titles for the role.
+You have 12 loadout points to personalize your character's outfit and items, don't just pack a boot knife!
+Patients undergoing surgery may shake and flail around on the operating table in pain if not properly accommodated.
+Low strength infections can be fought with some cold medicine, but for stronger ones, nothing a visit from the antibiotics fairy can't fix.
+Doing gimmicks are fun as long as they're novel, but lose their shine quickly over time. Always try to innovate your storytelling methods, especially as a clown, mime, or antagonist.
+If you make at least 3 or 4 people remember the round by next week, you did better than most players.
+The players and the game masters have the same goal: to tell a good story. Ask for assistance in your ideas - trade for items not in the uplink, to creating fax messages for the ship and turning into a full blown mini-event.
+You don't have to kill everyone in a conflict: A drunken fist fight in the bar that results in brawlers reconciling and getting drunk together - a classic example that will be impossible if you escalate it into a saloon shootout.
+Does success really bring joy? Remember the rounds where the crew professionally neutralized all the traitors at the very beginning and nothing happened for an hour - the only real victory is a grand defeat for somebody.
+As an antagonist, you can Set Ambition with a summary of what you intended/set out on doing. This will show up on the Round End summary.
+Runechat (Floating chat messages) can be toggled off in the character setup menu, if you prefer the old-school system.
+You can ban somebody's device from the NTNet using the administration utility program.
+Writing in paper has a character limit of 6,000. NanoWord allows 30,000 characters. Good for writing books!
+Examining things shows a message about it to people in a 4 tile range. If you don't want to see this message, you can disable it with a preference.
+Constructing a barricade and then attaching rods to the barricade will hurt anyone who touches the barricade.
+CPR works - it helps with blood circulation even if you fail to restart the heart.
+Engraved graffiti, papers on notice boards, and sticky notes purchased from cargo will persist from round to round.
+As a dirty detective, you can remove the tape from a tape recorder and use wirecutters to manipulate it.
+Skrell and Tritonians handle water very easily.
+Maintenance drones will not disturb fellow synthetics.
+As an IPC or FBP, there is a verb to change your eye color using RGB at will.
+Lung damage occurs in a severe change in pressure. A space suit prevents this, but you will still need internals to avoid suffocation.
+Using a multitool on a smartgun will disable the tracker, but prevents it from firing. An emag works better...
+The deck management program will allow you to file a flight plan, giving some information on shuttle movements and automatically announcing them across the ship.
+Gas inhalation is reagent-based: treat yourself with dialysis/anti-toxin as your lungs send the phoron particles into your bloodstream.
+Melee weapons have different attack cooldowns. Generally small knifes are faster, big toolboxes and axes are slower.
+If you aren't wearing magboots, you will slip in zero-gravity.
+Accuracy also affects melee and disarms: you are a lot less likely to hit if you are blind, blurry eyes, confused, in pain (hearing audible heart beating sound), etc...
+Grabbing a limb and clicking with help intent will examine, checking for external injuries, bone fractures, or poorly concealed implants.
+Blood spraying out in shots from a limb is a rupture of a major blood vessel, causing a quick death - delay it by using gauze and applying pressure with your hand or a medical splint.
+Cut a hole in the elevator shaft and throw your enemies down it. Leave them to cringe and whimper in a pool of their own blood and bone fractures.
+In case of gravity fluctuations and turbulence, remain seated so you don't fall over!
+You can cut the orange muzzle off of a cap gun using wire cutters. Very dastardly.
+One drop of water, one wayward pinch of potassium, one errant twitch and KABLOOEY
+Don't like what someone is saying about you over the newscaster channel? You can censor it with the right access! Run your own dictatorship!
+You can distribute wanted posters for people of interest, which will create a loud noise and notification for anyone nearby a newscaster.
+Ian can be safely stored in the washing machine.
+You can avoid radiation storms by hiding inside of maintenance.
+Maintenance is always safe!
+You can tactical reload a weapon by holding the magazine in your active hand and GRAB Intent clicking your weapon, which will quick swap your magazine.
+You can speedreload a weapon by holding the magazine in your active ahdn and HARM Intent clicking your weapon, which will drop the magazine on the floor.
