@@ -12,8 +12,9 @@
 	var/obj/item/mop/mymop = null
 	var/obj/item/reagent_containers/spray/myspray = null
 	var/obj/item/device/lightreplacer/myreplacer = null
+	var/obj/item/clothing/mask/plunger/myplunger = null
+	var/obj/item/gun/mygun = null
 	var/signs = 0	//maximum capacity hardcoded below
-
 
 /obj/structure/janitorialcart/Initialize()
 	. = ..()
@@ -60,6 +61,22 @@
 		updateUsrDialog()
 		to_chat(user, SPAN_NOTICE("You put [I] into [src]."))
 
+	else if(istype(I, /obj/item/clothing/mask/plunger) && !myplunger)
+		if(!user.unEquip(I, src))
+			return
+		myplunger = I
+		update_icon()
+		updateUsrDialog()
+		to_chat(user, SPAN_NOTICE("You put [I] into [src]."))
+
+	else if(istype(I, /obj/item/gun) && !mygun)
+		if(!user.unEquip(I, src))
+			return
+		mygun = I
+		update_icon()
+		updateUsrDialog()
+		to_chat(user, SPAN_NOTICE("You put [I] into [src]."))
+
 	else if(istype(I, /obj/item/device/lightreplacer) && !myreplacer)
 		if(!user.unEquip(I, src))
 			return
@@ -97,11 +114,13 @@
 	data["mop"] = mymop ? capitalize(mymop.name) : null
 	data["spray"] = myspray ? capitalize(myspray.name) : null
 	data["replacer"] = myreplacer ? capitalize(myreplacer.name) : null
+	data["plunger"] = myplunger ? capitalize(myplunger.name) : null
+	data["gun"] = mygun ? capitalize(mygun.name) : null
 	data["signs"] = signs ? "[signs] sign\s" : null
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
-		ui = new(user, src, ui_key, "janitorcart.tmpl", "Janitorial cart", 240, 160)
+		ui = new(user, src, ui_key, "janitorcart.tmpl", "Janitorial cart", 400, 280)
 		ui.set_initial_data(data)
 		ui.open()
 
@@ -134,6 +153,16 @@
 					user.put_in_hands(myreplacer)
 					to_chat(user, SPAN_NOTICE("You take [myreplacer] from [src]."))
 					myreplacer = null
+			if("plunger")
+				if(myplunger)
+					user.put_in_hands(myplunger)
+					to_chat(user, SPAN_NOTICE("You take [myplunger] from [src]."))
+					myplunger = null
+			if("gun")
+				if(mygun)
+					user.put_in_hands(mygun)
+					to_chat(user, SPAN_NOTICE("You take [mygun] from [src]."))
+					mygun = null
 			if("sign")
 				if(signs)
 					var/obj/item/caution/Sign = locate() in src
@@ -161,7 +190,10 @@
 		overlays += "cart_replacer"
 	if(signs)
 		overlays += "cart_sign[signs]"
-
+	if(myplunger)
+		overlays += "cart_plunger"
+	if(mygun)
+		overlays += "cart_gun"
 
 //old style retardo-cart
 /obj/structure/bed/chair/janicart
