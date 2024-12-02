@@ -25,6 +25,7 @@
 /datum/artifact_effect/electric_field/DoEffectTouch(mob/living/toucher)
 	if(istype(toucher))
 		zap((rand(10, 40)), toucher)
+		toucher.setClickCooldown(2 SECONDS)
 
 /datum/artifact_effect/electric_field/DoEffectAura()
 	zap(damage = (rand(1, 10)))
