@@ -36,7 +36,7 @@
 ///area/command/headquarters
 //	name = "\improper Officers' Quarters"
 
-/area/command/ce_dorm
+/*/area/command/ce_dorm
 	name = "\improper Chief Engineer Dorm"
 	req_access = list(access_ce)
 
@@ -50,7 +50,7 @@
 
 /area/command/so_dorm
 	name = "\improper Second Officers Dorm"
-	req_access = list(access_hop)
+	req_access = list(access_hop) */
 
 /area/command/fo
 	name = "\improper First Officer's Office"
@@ -714,6 +714,10 @@
 
 /area/maintenance/second_deck/central
 	name = "\improper Second Deck Central Maintenance"
+	icon_state = "maintcentral"
+
+/area/maintenance/second_deck/lounge
+	name = "\improper Second Deck Lounge Maintenance"
 	icon_state = "maintcentral"
 
 //third deck
