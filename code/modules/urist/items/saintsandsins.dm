@@ -131,7 +131,7 @@
 
 /singleton/hierarchy/sas_card/heretic/New()
 	..()
-	desc = "Health: [health]. [ability]"
+	desc = "Heretic card. Health: [health]. [ability]"
 
 /singleton/hierarchy/sas_card/heretic/lady_of_holy_death
 	name = "Lady of Holy Death"
