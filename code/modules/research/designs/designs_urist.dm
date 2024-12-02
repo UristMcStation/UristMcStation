@@ -239,4 +239,4 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	req_tech = list(TECH_ENGINEERING = 2, TECH_MATERIAL = 1, TECH_POWER = 1)
 	materials = list (MATERIAL_STEEL = 150, MATERIAL_GLASS = 100, MATERIAL_PLASTIC = 400)
 	build_path = /obj/item/device/geiger
-	sort_string = "URSTG"
+	sort_string = "URSCD"
