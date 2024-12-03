@@ -231,8 +231,7 @@
 
 	playsound(src, pick(climbsounds), 50)
 	playsound(target_ladder, pick(climbsounds), 50)
-	var/result = user.Move(T)
-	return result
+	return user.Move(T)
 
 /obj/structure/ladder/CanPass(obj/mover, turf/source, height, airflow)
 	return airflow || !density
