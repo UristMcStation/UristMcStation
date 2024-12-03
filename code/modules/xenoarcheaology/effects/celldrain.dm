@@ -65,6 +65,6 @@
 				for (var/obj/item/organ/internal/cell/potato in H.contents)
 					potato.cell.charge = max(potato.cell.charge - rand() * 150,0)
 					if(world.time - last_message > 200)
-						to_chat(H, SPAN_WARNING("SYSTEM ALERT: Energy boost detected!"))
+						to_chat(H, SPAN_WARNING("SYSTEM ALERT: Energy drain detected!"))
 						last_message = world.time
 	return 1
