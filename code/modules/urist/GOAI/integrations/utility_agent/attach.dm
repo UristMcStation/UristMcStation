@@ -11,7 +11,7 @@
 		var/true_newtype = type_on_new || /datum/utility_ai/mob_commander
 		new_commander = new true_newtype()
 
-	commander.pawn = REFERENCE_PAWN(M)
+	new_commander.pawn = REFERENCE_PAWN(M)
 
 	var/dict/pawn_attachments = M.attachments
 
@@ -23,7 +23,7 @@
 	M.attachments["commander_removeme"] = new_commander
 	M.attachments["aibrain_removeme"] = new_commander.brain
 
-	var/datum/utility_ai/mob_commander/mobcommander = commander
+	var/datum/utility_ai/mob_commander/mobcommander = new_commander
 	var/is_mobcommander = istype(mobcommander)
 
 	if(is_mobcommander)
