@@ -3,13 +3,13 @@
 	"active": 1, 
 	"actions": [
 		{
-			"name": "Print Faction", 
+			"name": "Befriend Faction", 
 			"description": "Does literally nothing. Fallback behavior.", 
-			"handler": "/datum/utility_ai/proc/PrintArg", 
-			"priority": 1,
+			"handler": "/datum/utility_ai/proc/ImproveRelations", 
+			"priority": 0,
 			"context_procs": ["/proc/ctxfetcher_all_faction_ais"], 
 			"context_args": [{
-				"output_context_key": "printarg"
+				"output_context_key": "target"
 			}],
 			"considerations": [
 				{

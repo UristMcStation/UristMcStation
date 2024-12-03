@@ -168,7 +168,7 @@
 
 
 /datum/relationships/proc/GetRelationshipByTags(var/list/tags)
-	if(!(data && tags && tags.len))
+	if(!(data && tags))
 		return
 
 	var/total_val = 0

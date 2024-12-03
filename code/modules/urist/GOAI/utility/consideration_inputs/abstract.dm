@@ -29,7 +29,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_arg_not_null)
 	if(isnull(from_ctx))
 		from_ctx = TRUE
 
-	var/inp_key = consideration_args["input_key"] || "input"
+	CONSIDERATION_GET_INPUT_KEY(var/inp_key)
 
 	var/candidate = null
 	try
@@ -51,7 +51,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_read_var)
 	if(isnull(from_ctx))
 		from_ctx = TRUE
 
-	var/inp_key = consideration_args["input_key"] || "input"
+	CONSIDERATION_GET_INPUT_KEY(var/inp_key)
 
 	var/datum/candidate = null
 	try

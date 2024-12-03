@@ -9,7 +9,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_relationship_score)
 
 	var/from_ctx = DEFAULT_IF_NULL(consideration_args?["from_context"], TRUE)
 
-	var/inp_key = consideration_args?["input_key"] || "target"
+	var/inp_key = consideration_args?[CONSIDERATION_INPUTKEY_KEY] || "target"
 	var/candidate = null
 
 	DEBUGLOG_MEMORY_ERRTRY(candidate = (from_ctx ? context[inp_key] : consideration_args[inp_key]))

@@ -175,7 +175,15 @@
 		if(isnull(action_definition))
 			continue
 
-		var/datum/utility_action_template/new_action_template = ActionTemplateFromData(action_definition)
+		var/datum/utility_action_template/new_action_template = null
+
+		try
+			new_action_template = ActionTemplateFromData(action_definition)
+
+		catch(var/exception/e)
+			world.Error(e)
+			new_action_template = null
+
 		if(isnull(new_action_template))
 			continue
 

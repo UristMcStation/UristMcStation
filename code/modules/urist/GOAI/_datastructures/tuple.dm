@@ -176,6 +176,32 @@
 	return 0
 
 
+/datum/Quadruple/proc/TriCompareRev(var/datum/Quadruple/left, var/datum/Quadruple/right)
+	// returns 1 if Right > Left
+	// returns -1 if Right < Left
+	// return 0 if Right == Left
+
+	if (left.first < right.first)
+		return 1
+
+	if (left.first > right.first)
+		return -1
+
+	if (left.second < right.second)
+		return 1
+
+	if (left.second > right.second)
+		return -1
+
+	if (left.third < right.third)
+		return 1
+
+	if (left.third > right.third)
+		return -1
+
+	return 0
+
+
 /datum/Quadruple/proc/ActionCompare(var/datum/Quadruple/left, var/datum/Quadruple/right)
 	/*
 	// returns -1 if Right > Left

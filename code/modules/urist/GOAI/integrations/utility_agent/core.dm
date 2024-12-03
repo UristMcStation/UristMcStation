@@ -3,8 +3,6 @@
 	var/life = TRUE
 	var/paused = FALSE
 
-	var/list/needs = null
-
 	// Pawn - an AI-controlled entity.
 	// This can be a mob/atom, a faction datum, a squad wrapper datum for multiple mobs/atoms, etc.
 	// Note this can also be left blank if you want a purely abstract AI.
@@ -16,8 +14,11 @@
 	var/weakref/pawn
 	# endif
 
-	// If True, calls src.InitializePawn()
-	// Set to False as an optimization to skip an unnecessary call.
+	// If TRUE, calls src.InitPawn(), skips if FALSE
+	// Set to FALSE as an optimization to skip an unnecessary call
+	// or to defer the Pawn initializer until later (e.g. for spawners, which might customize some vars first).
+	//
+	// NOTE: if you wish to defer it, it's on *YOU* as the user to call <ai_instance>.InitPawn() later!
 	var/initialize_pawn = TRUE
 
 	// Associated Brain
@@ -67,23 +68,6 @@
 	// DEPRECATED
 	var/list/new_actionslist = list()
 	return new_actionslist
-
-
-/datum/utility_ai/proc/InitNeeds()
-	// Allows overwriting the Brain's needs with AI's own.
-	src.needs = list()
-
-	if(!(src.brain))
-		return src.needs
-
-	var/list/needs = src.brain.needs
-
-	if(isnull(needs) || !istype(needs))
-		needs = list()
-
-	src.brain.needs = needs
-
-	return src.needs
 
 
 /datum/utility_ai/proc/InitRelations()
@@ -138,7 +122,7 @@
 	src.RegisterAI()
 
 	src.brain = src.CreateBrain()
-	src.InitNeeds()
+
 	src.InitRelations()
 	src.InitSenses()
 	src.UpdateBrain()
@@ -188,28 +172,6 @@
 	return mypawn
 
 
-/datum/utility_ai/proc/LifeTick()
-	if(paused)
-		return
-
-	if(brain)
-		brain.LifeTick()
-
-		for(var/datum/ActionTracker/instant_action_tracker in brain.pending_instant_actions)
-			var/tracked_instant_action = instant_action_tracker?.tracked_action
-			if(tracked_instant_action)
-				src.HandleInstantAction(tracked_instant_action, instant_action_tracker)
-
-		PUT_EMPTY_LIST_IN(brain.pending_instant_actions)
-
-		if(brain.running_action_tracker)
-			var/tracked_action = brain.running_action_tracker.tracked_action
-
-			if(tracked_action)
-				src.HandleAction(tracked_action, brain.running_action_tracker)
-
-	return TRUE
-
 
 /datum/utility_ai/proc/RegisterLifeSystems()
 	// Adds any number of subsystems.
@@ -237,8 +199,9 @@
 			if(cleaned_up)
 				return
 
-			// Run the Life update function.
-			src.LifeTick()
+			if(!src.paused)
+				// Run the Life update function.
+				src.LifeTick()
 
 			// Fix the tickrate to prevent runaway loops in case something messes with it.
 			// Doing it here is nice, because it saves us from sanitizing it all over the place.

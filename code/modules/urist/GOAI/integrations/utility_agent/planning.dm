@@ -166,7 +166,7 @@
 
 		else
 			// parsing error!
-			CRASH("Unrecognized Querytype: [raw_querytype] @ [__LINE__] in [__FILE__]")
+			CRASH("Unrecognized Querytype: [raw_querytype] @ L[__LINE__] in [__FILE__]")
 
 	return FALSE
 
@@ -533,7 +533,7 @@
 				name = "TargetNearby",
 				active = TRUE,
 				consideration_args = list(
-					"input_key" = target_key,
+					CONSIDERATION_INPUTKEY_KEY = target_key,
 					"from_context" = 1
 				)
 			)

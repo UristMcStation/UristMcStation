@@ -20,7 +20,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_manhattan_distance_to_req
 	if(isnull(from_ctx))
 		from_ctx = !from_memory
 
-	var/pos_key = consideration_args?["input_key"] || "position"
+	var/pos_key = consideration_args?[CONSIDERATION_INPUTKEY_KEY] || "position"
 
 	var/raw_qry_target = null
 
@@ -67,7 +67,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_chebyshev_distance_to_req
 	if(isnull(from_ctx))
 		from_ctx = !from_memory
 
-	var/pos_key = consideration_args?["input_key"] || "position"
+	var/pos_key = consideration_args?[CONSIDERATION_INPUTKEY_KEY] || "position"
 
 	var/raw_qry_target = null
 
@@ -206,7 +206,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_raytrace_impactee_distanc
 	var/default = consideration_args["default"] || PLUS_INF
 	var/strict = consideration_args["strict"] || FALSE  // only accept strict identity (in case cover is in the same tile)
 	var/reverse = consideration_args["reverse"] || FALSE  // raytrace from target to source instead of the opposite (for self-cover checks)
-	var/pos_key = consideration_args["input_key"] || "input"
+	CONSIDERATION_GET_INPUT_KEY(var/pos_key)
 	var/check_glancing_angles = consideration_args["check_glancing_angles"] || FALSE
 	var/candidate = null
 

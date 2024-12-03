@@ -18,7 +18,7 @@
 	var/atom/pawn = src.GetPawn()
 
 	if(!istype(pawn))
-		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI @ L[__LINE__] in [__FILE__]")
 		return
 
 	return pawn.CurrentPositionAsTuple()
@@ -28,7 +28,7 @@
 	var/atom/pawn = src.GetPawn()
 
 	if(!istype(pawn))
-		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI @ L[__LINE__] in [__FILE__]")
 		return
 
 	var/atom/start_loc = null
@@ -109,7 +109,7 @@
 /datum/utility_ai/mob_commander/proc/CheckForObstacles(var/list/dirty_path)
 	var/atom/pawn = src.GetPawn()
 	if(!istype(pawn))
-		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI @ L[__LINE__] in [__FILE__]")
 		return
 
 	/*
@@ -225,6 +225,7 @@
 	if(pathtracker)
 		src.active_path = pathtracker
 		src.brain.SetMemory(MEM_PATH_ACTIVE, pathtracker.path)
+		MOVEMENT_DEBUG_LOG("[src]: Created a pathtracker to [trg] @ [pawn.loc] [COORDS_TUPLE(pawn.loc)]")
 
 	else
 		#ifdef MOVEMENT_DEBUG_LOGGING
@@ -272,7 +273,7 @@
 		true_pawn = src.GetPawn()
 
 	if(!istype(true_pawn))
-		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
 	var/mob/pawn_mob = true_pawn
@@ -332,7 +333,7 @@
 		true_pawn = src.GetPawn()
 
 	if(!istype(true_pawn))
-		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		MOVEMENT_DEBUG_LOG("No owned mob found for [src.name] AI @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
 	var/turf/targ_turf = get_turf(trg)

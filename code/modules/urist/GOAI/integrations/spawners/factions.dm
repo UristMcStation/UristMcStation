@@ -1,11 +1,19 @@
-// TODO: port to Utility!
 
-/proc/spawn_faction_commander(var/faction_name)
-	var/datum/utility_ai/faction_commander/debug/new_commander = new()
-	var/true_faction_name = (faction_name || BuildFactionName())
+/proc/spawn_faction_commander(var/factionspec_filepath, var/generate_faction_name = FALSE)
+	var/datum/utility_ai/faction_commander/spawner/new_commander = new()
 
-	if(true_faction_name)
-		new_commander.name = true_faction_name
+	if(factionspec_filepath)
+		new_commander.factionspec_source = factionspec_filepath
+
+	// We use deferred InitPawn() here so we need to call it ourselves.
+	new_commander.InitPawn()
+
+	if(generate_faction_name)
+		new_commander.name = BuildFactionName()
+	else
+		new_commander.name = new_commander.GetPawn()?.name
+
+	return new_commander
 
 
 /proc/BuildFactionName()
@@ -36,14 +44,24 @@
 
 
 /obj/spawner/oneshot/faction
-	var/faction_name
+	var/factionspec_filepath = null
+	var/generate_faction_name = null
 	script = /proc/spawn_faction_commander
 
 
 /obj/spawner/oneshot/faction/CallScript()
+	set waitfor = FALSE
+
 	if(!active)
 		return
 
-	var/script_args = list(faction_name = BuildFactionName())
-	sleep(-1)
+	var/script_args = list()
+
+	if(!isnull(src.factionspec_filepath))
+		script_args["factionspec_filepath"] = src.factionspec_filepath
+
+	if(!isnull(src.generate_faction_name))
+		script_args["generate_faction_name"] = src.generate_faction_name
+
+	sleep(0)
 	call(script)(arglist(script_args))

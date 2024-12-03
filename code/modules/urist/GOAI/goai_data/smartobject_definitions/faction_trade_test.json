@@ -1,0 +1,278 @@
+{
+	"name": "Trade", 
+	"active": 1, 
+	"actions": [
+		{
+			"name": "Fulfill Contract", 
+			"description": "Deliver on our side of a contract.", 
+			"handler": "/datum/utility_ai/proc/FulfillContractInstantBilateral", 
+			"priority": 11,
+			"context_procs": ["/proc/ctxfetcher_get_own_contracts"], 
+			"context_args": [{
+				
+			}],
+			"considerations": [
+				{
+					"name": "Can fulfill",
+					"input_proc": "/proc/consideration_we_can_fulfill",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "Priority fuzzing",
+					"input_proc": "/proc/consideration_input_fuzz_uniform",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"curve_proc": "/proc/curve_linear"
+				}
+			]
+		},
+		{
+			"name": "Accept Trade", 
+			"description": "Given a trade offer, accept it if it's beneficial.", 
+			"handler": "/datum/utility_ai/proc/AcceptTradeOffer", 
+			"priority": 10,
+			"context_procs": ["/proc/ctxfetcher_get_market_trade_offers"], 
+			"context_args": [{
+				"input_key": "input"
+			}],
+			"considerations": [
+				{
+					"name": "Offers Below Max",
+					"input_proc": "/proc/consideration_contracts_pending",
+					"lo_mark": 0, 
+					"hi_mark": 10, 
+					"curve_proc": "/proc/curve_antilinear",
+					"consideration_args": {
+						"default": 0
+					}
+				},
+				{
+					"name": "TradeDesirability",
+					"input_proc": "/proc/consideration_trade_desirability",
+					"lo_mark": 0, 
+					"hi_mark": 0.2, 
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "Priority fuzzing",
+					"input_proc": "/proc/consideration_input_fuzz_uniform",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"curve_proc": "/proc/curve_linear"
+				}
+			]
+		},
+		{
+			"name": "Make Sell Offer", 
+			"description": "Create a Sell offer for a Commodity we don't particularly want.", 
+			"handler": "/datum/utility_ai/proc/CreateSellOfferForNeed", 
+			"priority": 5,
+			"context_procs": ["/proc/ctxfetcher_get_needs"], 
+			"context_args": [{
+				"skipped_needs": ["wealth"]
+			}],
+			"considerations": [
+				{
+					"name": "Offers Below Max",
+					"input_proc": "/proc/consideration_offers_pending",
+					"lo_mark": 0, 
+					"hi_mark": 4, 
+					"curve_proc": "/proc/curve_antisquare",
+					"consideration_args": {
+						"default": 0
+					}
+				},
+				{
+					"name": "Contracts Below Max",
+					"input_proc": "/proc/consideration_contracts_pending",
+					"lo_mark": 1, 
+					"hi_mark": 3, 
+					"curve_proc": "/proc/curve_antibinary",
+					"consideration_args": {
+						"default": 3
+					}
+				},
+				{
+					"name": "Need is High",
+					"input_proc": "/proc/consideration_input_get_need_perc",
+					"lo_mark": 0.2, 
+					"hi_mark": 1, 
+					"curve_proc": "/proc/curve_square"
+				},
+				{
+					"name": "Need Weight",
+					"input_proc": "/proc/consideration_input_get_need_weight",
+					"lo_mark": 1, 
+					"hi_mark": 20, 
+					"curve_proc": "/proc/curve_antilinear",
+					"consideration_args": {
+						"default": 0
+					}
+				}
+			]
+		},
+		{
+			"name": "Make Buy Offer", 
+			"description": "Create a Buy offer for a Commodity that will satisfy our Need(s).", 
+			"handler": "/datum/utility_ai/proc/CreateBuyOfferForNeed", 
+			"priority": 5,
+			"context_procs": ["/proc/ctxfetcher_get_needs"], 
+			"context_args": [{
+				"skipped_needs": ["wealth"]
+			}],
+			"considerations": [
+				{
+					"name": "Offers Below Max",
+					"input_proc": "/proc/consideration_offers_pending",
+					"lo_mark": 0, 
+					"hi_mark": 4, 
+					"curve_proc": "/proc/curve_antisquare",
+					"consideration_args": {
+						"default": 0
+					}
+				},
+				{
+					"name": "Contracts Below Max",
+					"input_proc": "/proc/consideration_contracts_pending",
+					"lo_mark": 1, 
+					"hi_mark": 3, 
+					"curve_proc": "/proc/curve_antibinary",
+					"consideration_args": {
+						"default": 3
+					}
+				},
+				{
+					"name": "Need is Low",
+					"input_proc": "/proc/consideration_input_get_need_perc",
+					"lo_mark": 0, 
+					"hi_mark": 0.8, 
+					"curve_proc": "/proc/curve_antisquare"
+				},
+				{
+					"name": "Need Weight",
+					"input_proc": "/proc/consideration_input_get_need_weight",
+					"lo_mark": -10, 
+					"hi_mark": 10, 
+					"curve_proc": "/proc/curve_linear"
+				}
+			]
+		},
+		{
+			"name": "Make Emergency Buy Offer", 
+			"description": "Same as Buy Offer, but restricted to extremely low vital needs. Relaxes some considerations and has higher priority.", 
+			"handler": "/datum/utility_ai/proc/CreateBuyOfferForNeed", 
+			"priority": 10,
+			"context_procs": ["/proc/ctxfetcher_get_needs"], 
+			"context_args": [{
+				"skipped_needs": ["wealth"]
+			}],
+			"considerations": [
+				{
+					"name": "Need is Low",
+					"input_proc": "/proc/consideration_input_get_need_perc",
+					"lo_mark": 0, 
+					"hi_mark": 0.2, 
+					"curve_proc": "/proc/curve_antibinary",
+					"consideration_args": {
+						"log_need_value": 1
+					}
+				},
+				{
+					"name": "Need Weight",
+					"input_proc": "/proc/consideration_input_get_need_weight",
+					"lo_mark": 1, 
+					"hi_mark": 3, 
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "Offers Below Max",
+					"input_proc": "/proc/consideration_offers_pending",
+					"lo_mark": 0, 
+					"hi_mark": 20, 
+					"curve_proc": "/proc/curve_antisquare",
+					"consideration_args": {
+						"default": 0
+					}
+				},
+				{
+					"name": "Contracts Below Max",
+					"input_proc": "/proc/consideration_contracts_pending",
+					"lo_mark": 1, 
+					"hi_mark": 20, 
+					"curve_proc": "/proc/curve_antibinary",
+					"consideration_args": {
+						"default": 0
+					}
+				},
+				{
+					"name": "Priority fuzzing",
+					"input_proc": "/proc/consideration_input_fuzz_uniform",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"curve_proc": "/proc/curve_linear"
+				}
+			]
+		},
+		{
+			"name": "Make Overstock Sell Offer", 
+			"description": "Same as Sell Offer, but restricted to needs that are over-filled (i.e. >100%). Relaxes some considerations and has higher priority.", 
+			"handler": "/datum/utility_ai/proc/CreateSellOfferForNeed", 
+			"priority": 10,
+			"context_procs": ["/proc/ctxfetcher_get_needs"], 
+			"context_args": [{
+				"skipped_needs": ["wealth"]
+			}],
+			"considerations": [
+				{
+					"name": "Need is High",
+					"input_proc": "/proc/consideration_input_get_need_perc",
+					"lo_mark": 0.98, 
+					"hi_mark": 1, 
+					"curve_proc": "/proc/curve_linear",
+					"consideration_args": {
+						"log_need_value": 1
+					}
+				},
+				{
+					"name": "Need Weight",
+					"input_proc": "/proc/consideration_input_get_need_weight",
+					"lo_mark": 0, 
+					"hi_mark": 20, 
+					"curve_proc": "/proc/curve_antilinear",
+					"consideration_args": {
+						"default": 0
+					}
+				},
+				{
+					"name": "Offers Below Max",
+					"input_proc": "/proc/consideration_offers_pending",
+					"lo_mark": 0, 
+					"hi_mark": 4, 
+					"curve_proc": "/proc/curve_antisquare",
+					"consideration_args": {
+						"default": 0
+					}
+				},
+				{
+					"name": "Contracts Below Max",
+					"input_proc": "/proc/consideration_contracts_pending",
+					"lo_mark": 1, 
+					"hi_mark": 3, 
+					"curve_proc": "/proc/curve_antibinary",
+					"consideration_args": {
+						"default": 3
+					}
+				},
+				{
+					"name": "Priority fuzzing",
+					"input_proc": "/proc/consideration_input_fuzz_uniform",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"curve_proc": "/proc/curve_linear"
+				}
+			]
+		}
+	]
+}

@@ -1,5 +1,7 @@
 
 /datum/utility_ai/proc/HandleAction(var/datum/utility_action/action, var/datum/ActionTracker/tracker)
+	set waitfor = FALSE
+
 	MAYBE_LOG("Tracker: [tracker]")
 	var/running = 1
 

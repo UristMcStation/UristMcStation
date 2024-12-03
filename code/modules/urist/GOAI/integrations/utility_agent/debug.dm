@@ -1,4 +1,3 @@
-
 /mob/proc/PosessWithGoaiUtilityCommander()
 	set category = "Debug Utility AI"
 
@@ -78,10 +77,7 @@
 		to_chat(usr, "AI <[commander]> has no brain!")
 		return
 
-	for(var/cache_key in ubrain.file_actionsets)
-		GOAI_LIBBED_GLOB_ATTR(actionset_file_cache)[cache_key] = null  // clear the global cache
-
-	PUT_EMPTY_LIST_IN(ubrain.file_actionsets)  // clear the local cache
+	#warn Reloading unfinished!
 	to_chat(usr, "AI <[commander]> reloaded!")
 
 	return

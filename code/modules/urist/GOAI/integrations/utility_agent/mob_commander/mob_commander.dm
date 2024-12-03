@@ -146,3 +146,9 @@
 			src.senses_index[new_fetcher.sense_idx_key] = new_fetcher
 
 	return src.senses
+
+
+/datum/utility_ai/mob_commander/UpdateBrain()
+	. = ..()
+	src.brain.needs[NEED_COMPOSURE] = NEED_SAFELEVEL
+

@@ -11,6 +11,7 @@
 # define INTRISIC_COST_QUERY(start, end) (isnull(src.intrisic_distance_cost_proc) ? 0 : call(src, src.intrisic_distance_cost_proc)(start, end))
 
 
+
 /datum/utility_ai/proc/AiAStar(var/start, var/end, var/adjacent, var/dist, var/max_nodes, var/max_node_depth = 30, var/min_target_dist = 0, var/min_node_dist, var/list/adj_args = null, var/exclude)
 	/* AStar pathfinding algorithm.
 	// For SS13 purposes, this is essentially my (scrdest's) fork of the OG SS13 AStar for merge-compatibility WITH OOP STUFF ON TOP.
@@ -26,7 +27,7 @@
 	// - adj_args: Optional[assoc]; Args to pass to the adjacent arg's proc, if any.
 	// - exclude: Optional[datum]; Ignored adjacents. Pretty useless tbh. Blame legacy code.
 	*/
-	var/PriorityQueue/open = new /PriorityQueue(/proc/PathWeightCompare)
+	var/PriorityQueue/open = new DEFAULT_PRIORITY_QUEUE_IMPL(/proc/PathWeightCompare)
 	var/list/closed = list()
 	var/list/path
 	var/list/path_node_by_position = list()
@@ -39,7 +40,11 @@
 
 	open.Enqueue(new /PathNode(start, null, 0, initial_dist, 0))
 
-	while(!open.IsEmpty() && !path)
+	while(!open.IsEmpty())
+
+		if(path)
+			return path
+
 		var/PathNode/current = open.Dequeue()
 		closed.Add(current.position)
 
@@ -54,7 +59,8 @@
 			while(current.previous_node)
 				current = current.previous_node
 				path[index--] = current.position
-			break
+
+			return path
 
 		if(min_node_dist && max_node_depth)
 			var/current_to_end_min_dist = call(min_node_dist)(current.position, end)
@@ -95,7 +101,7 @@
 			path_node_by_position[neighb] = next_node
 			open.Enqueue(next_node)
 
-			if(max_nodes && open.Length() > max_nodes)
+			while(max_nodes && open.Length() > max_nodes)
 				open.Remove(open.Length())
 
-	return path
+	return

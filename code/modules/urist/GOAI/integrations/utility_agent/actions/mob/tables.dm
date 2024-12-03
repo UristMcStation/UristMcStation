@@ -1,6 +1,14 @@
 
-
-/datum/utility_ai/mob_commander/proc/FlipTable(var/datum/ActionTracker/tracker, var/turf/location, var/obj/cover/table/target)
+/datum/utility_ai/mob_commander/proc/FlipTable(
+	var/datum/ActionTracker/tracker,
+	var/turf/location,
+	# ifdef GOAI_LIBRARY_FEATURES
+	var/obj/cover/table/target
+	#endif
+	# ifdef GOAI_SS13_SUPPORT
+	var/obj/structure/table/target
+	#endif
+)
 	/*
 	// (╯ರ ~ ರ）╯︵ ┻━┻
 	*/
@@ -24,7 +32,15 @@
 
 	src.allow_wandering = FALSE
 	var/dist = MANHATTAN_DISTANCE(pawn, target)
+
+	# ifdef GOAI_LIBRARY_FEATURES
 	var/succeeded = (dist == 1 && target.pFlip(get_dir(pawn, target)))
+	#endif
+
+	# ifdef GOAI_SS13_SUPPORT
+	var/succeeded = (dist == 1 && target.flip(get_dir(pawn, target)))
+	#endif
+
 
 	if(succeeded)
 		tracker.SetDone()
@@ -38,7 +54,16 @@
 	return
 
 
-/datum/utility_ai/mob_commander/proc/UnflipTable(var/datum/ActionTracker/tracker, var/turf/location, var/obj/cover/table/target)
+/datum/utility_ai/mob_commander/proc/UnflipTable(
+	var/datum/ActionTracker/tracker,
+	var/turf/location,
+	# ifdef GOAI_LIBRARY_FEATURES
+	var/obj/cover/table/target
+	#endif
+	# ifdef GOAI_SS13_SUPPORT
+	var/obj/structure/table/target
+	#endif
+)
 	/*
 	// ┬──┬ ノ( ゜-゜ノ)
 	*/
@@ -63,7 +88,14 @@
 	src.allow_wandering = FALSE
 	var/dist = MANHATTAN_DISTANCE(pawn, target)
 	src.brain?.SetMemory("DontWanderToTurf", location, 200)
+
+	# ifdef GOAI_LIBRARY_FEATURES
 	var/succeeded = (dist == 1 && target.pUnflip())
+	#endif
+
+	# ifdef GOAI_SS13_SUPPORT
+	var/succeeded = (dist == 1 && target.unflip())
+	#endif
 
 	if(succeeded)
 		tracker.SetDone()

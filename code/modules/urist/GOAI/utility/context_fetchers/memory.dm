@@ -6,15 +6,16 @@ CTXFETCHER_CALL_SIGNATURE(/proc/__ctxfetcher_get_memory_value_helper)
 		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for __ctxfetcher_get_memory_value_helper is null @ L[__LINE__] in [__FILE__]!")
 		return null
 
-	var/datum/utility_ai/mob_commander/requester_ai = requester
+	var/datum/utility_ai/requester_ai = requester
 
-	if(isnull(requester_ai))
+	if(!istype(requester_ai))
 		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for __ctxfetcher_get_memory_value_helper is not an AI @ L[__LINE__] in [__FILE__]!")
 		return null
 
-	var/datum/utility_ai/mob_commander/controller = requester
+	// this seems like a redundant var wrt requester_ai; don't want to mess with it now, TODO
+	var/datum/utility_ai/controller = requester
 
-	var/input_key = context_args["input_key"]
+	var/input_key = context_args[CONSIDERATION_INPUTKEY_KEY]
 
 	if(isnull(input_key))
 		UTILITYBRAIN_DEBUG_LOG("WARNING: key for __ctxfetcher_get_memory_value_helper is null @ L[__LINE__] in [__FILE__]!")
@@ -56,20 +57,29 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_get_memory_value)
 	// Returns a stored Memory
 
 	var/memory_val = __ctxfetcher_get_memory_value_helper(CTXFETCHER_FORWARD_ARGS)
-
-	var/context_key = context_args["output_context_key"] || "memory"
+	CONTEXT_GET_OUTPUT_KEY(var/context_key)
 
 	var/list/contexts = list()
+	CONTEXT_ADD_SINGLE_KEYED_CONTEXT(memory_val, context_key, contexts)
+	return contexts
 
-	var/list/ctx = list()
-	ctx[context_key] = memory_val
 
-	ARRAY_APPEND(contexts, ctx)
+CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_get_memory_value_assoc)
+	// Returns a stored Memory, expecting it to be an assoc list.
+	// If that is the case, unpacks all items as keys in a single a new context.
+
+	var/list/memory_val = __ctxfetcher_get_memory_value_helper(CTXFETCHER_FORWARD_ARGS)
+
+	if(!istype(memory_val))
+		return list()
+
+	var/list/contexts = list()
+	ARRAY_APPEND(contexts, memory_val)
 	return contexts
 
 
 CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_get_memory_value_array)
-	/* Retrieves a stored Memory, expecting it to be a list.
+	/* Retrieves a stored Memory, expecting it to be an array list.
 	// If that is the case, unpacks each list item to a new context.
 	//
 	// This is handy if you want to build Contexts from a single Memory,
@@ -118,14 +128,11 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_get_memory_value_array)
 			if(predicate_result)
 				ARRAY_APPEND(memory_val, listitem)
 
-	var/context_key = context_args["output_context_key"] || "memory"
+	CONTEXT_GET_OUTPUT_KEY(var/context_key)
 
 	var/list/contexts = list()
-
 	for(var/mem_item in memory_val)
-		var/list/ctx = list()
-		ctx[context_key] = mem_item
-		ARRAY_APPEND(contexts, ctx)
+		CONTEXT_ADD_SINGLE_KEYED_CONTEXT(mem_item, context_key, contexts)
 
 	return contexts
 
