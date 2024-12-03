@@ -26,6 +26,7 @@ var/global/list/mining_floors = list()
 	var/mined_ore = 0
 	var/last_act = 0
 	var/emitter_blasts_taken = 0 // EMITTER MINING! Muhehe.
+	var/mining_hardness = 1 //a modifier for how tough a turf is to mine. A pickaxe's digspeed is multiplied by this var
 
 	var/datum/geosample/geologic_data
 	var/excavation_level = 0
@@ -177,7 +178,9 @@ var/global/list/mining_floors = list()
 			return
 
 		var/obj/item/pickaxe/P = W
-		if(last_act + P.digspeed > world.time)//prevents message spam
+		var/digtime = P.digspeed * mining_hardness // applies the modifier for mining_hardness. default is 1, so no change from digspeed.
+
+		if(last_act + digtime > world.time)//prevents message spam
 			return
 		last_act = world.time
 
@@ -201,7 +204,7 @@ var/global/list/mining_floors = list()
 				if(prob(50))
 					artifact_debris()
 
-		if(do_after(user, P.digspeed, src,  DO_DEFAULT | DO_PUBLIC_PROGRESS))
+		if(do_after(user, digtime, src,  DO_DEFAULT | DO_PUBLIC_PROGRESS))
 			if(finds && length(finds))
 				var/datum/find/F = finds[1]
 				if(newDepth == F.excavation_required) // When the pick hits that edge just right, you extract your find perfectly, it's never confined in a rock
