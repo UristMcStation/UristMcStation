@@ -65,8 +65,23 @@
 			// Path-following mode:
 			MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: IN PATH-FOLLOWING MODE <-")
 
-			var/atom/next_step = src.active_path.path[src.active_path.curr_offset]
-			var/atom/destination = src.active_path.path[src.active_path.path.len]
+			var/atom/destination = null
+			var/active_path_len = src.active_path.path.len
+
+			if(active_path_len)
+				destination = src.active_path.path[active_path_len]
+			else
+				do_path_following = FALSE
+				continue
+
+			var/atom/next_step = null
+
+			if(src.active_path.curr_offset <= active_path_len)
+				// make sure the index is valid; this runtimed at least once before otherwise
+				next_step = src.active_path.path[src.active_path.curr_offset]
+			else
+				do_path_following = FALSE
+				continue
 
 			var/turf/prev_draw_pos = null
 
