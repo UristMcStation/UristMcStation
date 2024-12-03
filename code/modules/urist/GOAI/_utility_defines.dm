@@ -185,24 +185,88 @@
 /*
 // The code to implement SmartObjects is extremely boilerplate 99% of the time. These macros write it for you.
 */
-# define GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(OBJTYPE, AS_FNAME) ##OBJTYPE/GetUtilityActions(var/requester, var/list/args = null) { var/list/my_action_sets = list(); ASSERT(fexists(AS_FNAME)); var/datum/action_set/myset = ActionSetFromJsonFile(AS_FNAME); myset.origin = src; my_action_sets.Add(myset); return my_action_sets } ;
+# define GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(OBJTYPE, AS_FNAME) \
+\
+##OBJTYPE/GetUtilityActions(var/requester, var/list/args = null) { \
+    var/list/my_action_sets = list(); \
+    ASSERT(fexists(AS_FNAME)); \
+    var/datum/action_set/myset = ActionSetFromJsonFile(AS_FNAME); \
+    myset.origin = src; \
+    my_action_sets.Add(myset); \
+    return my_action_sets \
+} ;
 
 /* HasUtilityActions() impls */
 
 // Always available:
-# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_ALWAYS(OBJTYPE) ##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { return TRUE }
+# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_ALWAYS(OBJTYPE) \
+\
+##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { \
+	return TRUE \
+} ;
 
 // Available if a list in our variable is non-empty:
-# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_VARLIST(OBJTYPE, LISTVAR) ##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { return (##LISTVAR) }
+# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_VARLIST(OBJTYPE, LISTVAR) \
+##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) {\
+	return (##LISTVAR) \
+} ;
 
 // Is 'us', broadly speaking:
-# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_ISPAWN(OBJTYPE) ##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { if(requester == src) { return TRUE }; var/datum/utility_ai/mob_commander/commander = requester; if(!istype(commander)) { return FALSE }; var/pawn = commander.GetPawn(); return (pawn == src) }
+# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_ISPAWN(OBJTYPE) \
+\
+##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { \
+	if(requester == src) {\
+		return TRUE \
+	}; \
+	var/datum/utility_ai/mob_commander/commander = requester; \
+	if(!istype(commander)) {\
+		return FALSE \
+	}; \
+	var/pawn = commander.GetPawn(); \
+	return (pawn == src) \
+};
 
 // Available if nearby (by Chebyshev dist; requires source to be an atom!):
-# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_CHEBYSHEV(OBJTYPE, MAXDIST) ##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { var/atom/requester_atom = requester; if(istype(requester_atom)) { return (CHEBYSHEV_DISTANCE_TWOD(requester_atom, src, PLUS_INF) <= MAXDIST) }; var/datum/utility_ai/mob_commander/commander = requester; if(!istype(commander)) { return FALSE }; var/atom/pawn = commander.GetPawn(); return (CHEBYSHEV_DISTANCE_TWOD(pawn, src, PLUS_INF) <= MAXDIST) }
+# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_CHEBYSHEV(OBJTYPE, MAXDIST) \
+##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) {\
+	var/atom/requester_atom = requester; \
+	if(istype(requester_atom)) { \
+		return (CHEBYSHEV_DISTANCE_TWOD(requester_atom, src, PLUS_INF) <= MAXDIST) \
+	}; \
+	var/datum/utility_ai/mob_commander/commander = requester; \
+	if(!istype(commander)) {\
+		return FALSE \
+	}; \
+	var/atom/pawn = commander.GetPawn(); \
+	return (CHEBYSHEV_DISTANCE_TWOD(pawn, src, PLUS_INF) <= MAXDIST) \
+};
 
 // Available if nearby (by Manhattan dist; requires source to be an atom!):
-# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_MANHATTAN(OBJTYPE, MAXDIST) ##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { var/atom/requester_atom = requester; if(istype(requester_atom)) { return MANHATTAN_DISTANCE_TWOD(requester_atom, src, PLUS_INF) <= MAXDIST }; var/datum/utility_ai/mob_commander/commander = requester; if(!istype(commander)) { return FALSE }; var/atom/pawn = commander.GetPawn(); return (MANHATTAN_DISTANCE_TWOD(pawn, src, PLUS_INF) <= MAXDIST) }
+# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_MANHATTAN(OBJTYPE, MAXDIST) \
+##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) {\
+	var/atom/requester_atom = requester; \
+	if(istype(requester_atom)) { \
+		return (MANHATTAN_DISTANCE_TWOD(requester_atom, src, PLUS_INF) <= MAXDIST) \
+	}; \
+	var/datum/utility_ai/mob_commander/commander = requester; \
+	if(!istype(commander)) {\
+		return FALSE \
+	}; \
+	var/atom/pawn = commander.GetPawn(); \
+	return (MANHATTAN_DISTANCE_TWOD(pawn, src, PLUS_INF) <= MAXDIST) \
+};
 
 // Available if in inventory/contents, non-recursively:
-# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_INVENTORY_SIMPLE(OBJTYPE) ##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { var/atom/requester_atom = requester; if(istype(requester_atom)) { return (src in requester_atom) }; var/datum/utility_ai/mob_commander/commander = requester; if(!istype(commander)) { return FALSE }; var/atom/pawn = commander.GetPawn(); return (src in pawn) }
+# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_INVENTORY_SIMPLE(OBJTYPE) \
+##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { \
+	var/atom/requester_atom = requester; \
+	if(istype(requester_atom)) { \
+		return (src in requester_atom) \
+	}; \
+	var/datum/utility_ai/mob_commander/commander = requester; \
+	if(!istype(commander)) { \
+		return FALSE \
+	}; \
+	var/atom/pawn = commander.GetPawn(); \
+	return (src in pawn) \
+};

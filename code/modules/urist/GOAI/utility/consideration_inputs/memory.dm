@@ -9,7 +9,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/_cihelper_get_brain_data)
 	// These proper Considerations should just forward their callsig to this Helper.
 
 	var/default = consideration_args?["memory_default"]
-	var/input_key = consideration_args?["memory_key"] || "input"
+	var/input_key = consideration_args?["memory_key"] || CONSIDERATION_INPUTKEY_DEFAULT
 
 	var/datum/brain/requesting_brain = _cihelper_get_requester_brain(requester, "_cihelper_get_brain_data")
 
@@ -104,7 +104,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_candidate_in_brain)
 	if(isnull(from_ctx))
 		from_ctx = TRUE
 
-	var/pos_key = consideration_args["input_key"] || "position"
+	var/pos_key = consideration_args[CONSIDERATION_INPUTKEY_KEY] || "position"
 
 	var/candidate = (from_ctx ? context[pos_key] : consideration_args[pos_key])
 	if(isnull(candidate))
@@ -120,7 +120,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_candidate_in_brain)
 CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_candidate_in_brain_list)
 	var/from_ctx = DEFAULT_IF_NULL(consideration_args["from_context"], TRUE)
 
-	var/pos_key = consideration_args["input_key"] || "position"
+	var/pos_key = consideration_args[CONSIDERATION_INPUTKEY_KEY] || "position"
 	var/candidate = null
 
 	DEBUGLOG_MEMORY_ERRTRY(candidate = (from_ctx ? context[pos_key] : consideration_args[pos_key]))
@@ -149,7 +149,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_candidate_in_brain_list)
 
 
 CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_action_in_brain)
-	var/pos_key = consideration_args["input_key"] || "action_name"
+	var/pos_key = consideration_args[CONSIDERATION_INPUTKEY_KEY] || "action_name"
 
 	var/candidate = consideration_args[pos_key]
 	if(isnull(candidate))

@@ -22,6 +22,9 @@
 	// Faction Registry index
 	var/registry_index
 
+	// Associated Actions
+	var/list/actionset_files = null
+
 
 /datum/faction_data/proc/RegisterFaction()
 	// Registry pattern, to facilitate querying all Factions
@@ -51,23 +54,22 @@
 	return mytags
 
 
-/datum/faction_data/New(var/newname, var/datum/relationships/init_relations = null, var/list/init_tags = null)
+/datum/faction_data/New(var/newname, var/datum/relationships/init_relations = null, var/list/init_tags = null, var/list/actionsets = null, var/list/initial_assets = null)
 	. = ..()
 
-	if(newname)
-		src.name = newname
+	SET_IF_NOT_NULL(newname, src.name)
+	SET_IF_NOT_NULL(init_tags, src.tags)
+	SET_IF_NOT_NULL(actionsets, src.actionset_files)
 
-	if(init_relations)
+	if(istype(init_relations))
 		src.relations = init_relations
 
-	if(init_tags)
-		src.tags = init_tags
-
 	// Populate data structures (do not override existing)
-	src.relations = (src.relations || src.BuildRelations())
-	src.tags = (src.tags || src.BuildTags())
+	src.relations = DEFAULT_IF_NULL(src.relations, src.BuildRelations())
+	src.tags = DEFAULT_IF_NULL(src.tags, src.BuildTags())
 
 	// Sign up to the registry for queries once ready
 	src.RegisterFaction()
 
 	return
+

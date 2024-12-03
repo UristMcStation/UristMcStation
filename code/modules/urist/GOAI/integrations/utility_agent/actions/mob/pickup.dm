@@ -16,7 +16,7 @@
 	var/atom/pawn = src.GetPawn()
 
 	if(!istype(pawn))
-		RUN_ACTION_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		RUN_ACTION_DEBUG_LOG("No owned mob found for [src.name] AI @ L[__LINE__] in [__FILE__]")
 		return
 
 	if(target in pawn.contents)

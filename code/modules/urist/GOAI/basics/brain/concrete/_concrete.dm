@@ -88,17 +88,6 @@
 	return
 
 
-/datum/brain/concrete/Life()
-	while(life)
-		CheckForCleanup()
-		LifeTick()
-		sleep(AI_TICK_DELAY)
-	return
-
-
-/datum/brain/concrete/proc/OnBeginLifeTick()
-	return
-
 
 /datum/brain/concrete/proc/BuildGoalState(var/list/curr_state) // -> assoc list(k: v)
 	/* Builds a Map of {Goal Key: Target Val} for the Planner to solve for. */
@@ -120,141 +109,8 @@
 	return goal_state
 
 
-/datum/brain/concrete/proc/OnInvalidAction(var/action_key) // -> bool
-	/* If the Action is invalid, what do we do?
-	//
-	// Returns a bool, indicating whether to try planning again in the same tick.
-	*/
 
-	// By default, abandon ship.
-	var/datum/goai_action/action = src.actionslist[action_key]
-	RUN_ACTION_DEBUG_LOG("INVALID ACTION: [action_key]/[action] | <@[src]>")
-	action?.ReduceCharges(action.charges)
-	src.AbortPlan()
-	return TRUE
-
-
-/datum/brain/concrete/proc/HandlePlanningState()
-	/* Wrapper around CreatePlan() logic. Ensures the plan is valid.*/
-
-	var/list/curr_state = src.states.Copy()
-
-	// Build the state we're solving for
-	var/list/goal_state = BuildGoalState(curr_state)
-
-	if (goal_state && goal_state.len && (!is_planning))
-		var/list/curr_available_actions = GetAvailableActions()
-
-		spawn(0)
-			var/list/raw_active_plan = CreatePlan(curr_state, goal_state, curr_available_actions)
-
-			if(raw_active_plan)
-				var/first_clean_pos = 0
-
-				for (var/planstep in raw_active_plan)
-					first_clean_pos++
-
-					if(planstep in curr_available_actions)
-						break
-
-				raw_active_plan.Cut(0, first_clean_pos)
-				src.active_plan = raw_active_plan
-				src.last_plan_successful = TRUE
-
-			else
-				RUN_ACTION_DEBUG_LOG("Failed to create a plan | <@[src]>")
-
-	else //satisfied, can be lazy
-		Idle()
-
-	return
-
-
-/datum/brain/concrete/LifeTick()
-	var/run_count = 0
-	var/target_run_count = 1
-	var/do_plan = FALSE
-
-	OnBeginLifeTick() // hook
-
-	while(run_count++ < target_run_count)
-		/* STATE: Running */
-		if(running_action_tracker) // processing action
-			RUN_ACTION_DEBUG_LOG("ACTIVE ACTION: [running_action_tracker.tracked_action] @ [running_action_tracker.IsRunning()] | <@[src]>")
-
-			if(running_action_tracker.replan)
-				do_plan = TRUE
-				target_run_count++
-				src.AbortPlan(FALSE)
-
-			else if(running_action_tracker.is_done)
-				src.NextPlanStep()
-				target_run_count++
-
-			else if(running_action_tracker.is_failed)
-				src.AbortPlan(FALSE)
-
-
-		/* STATE: Ready */
-		else if(selected_action) // ready to go
-			RUN_ACTION_DEBUG_LOG("SELECTED ACTION: [selected_action] | <@[src]>")
-
-			var/is_valid = src.IsActionValid(selected_action)
-
-			RUN_ACTION_DEBUG_LOG("SELECTED ACTION [selected_action] VALID: [is_valid ? "TRUE" : "FALSE"]")
-
-			if(is_valid)
-				running_action_tracker = src.DoAction(selected_action)
-
-			else
-				var/should_rerun = src.OnInvalidAction(selected_action)
-				if(should_rerun)
-					target_run_count++
-
-			selected_action = null
-
-
-		/* STATE: Pending next stage */
-		else if(active_plan && active_plan.len)
-			//step done, move on to the next
-			RUN_ACTION_DEBUG_LOG("ACTIVE PLAN: [active_plan] ([active_plan.len]) | <@[src]>")
-			DEBUG_LOG_LIST_ARRAY(active_plan, RUN_ACTION_DEBUG_LOG)
-
-			while(active_plan.len && isnull(selected_action))
-				// do instants in one tick
-				selected_action = lpop(active_plan)
-
-				if(!(selected_action in actionslist))
-					continue
-
-				var/datum/goai_action/goai_act = src.actionslist[selected_action]
-
-				if(!goai_act)
-					continue
-
-				if(goai_act.instant)
-					RUN_ACTION_DEBUG_LOG("Instant ACTION: [selected_action] | <@[src]>")
-					DoInstantAction(selected_action)
-					selected_action = null
-
-				else
-					RUN_ACTION_DEBUG_LOG("Regular ACTION: [selected_action] | <@[src]>")
-
-
-		else //no plan & need to make one
-			do_plan = TRUE
-
-
-		/* STATE: Planning */
-		if(do_plan)
-			var/should_retry = HandlePlanningState()
-			if(should_retry)
-				target_run_count++
-
-	return
-
-
-/datum/brain/verb/DoAction(Act as anything in actionslist)
+/datum/brain/concrete/DoAction(Act as anything in actionslist)
 	if(!(Act in actionslist))
 		return null
 
@@ -273,7 +129,7 @@
 	return new_actiontracker
 
 
-/datum/brain/verb/DoInstantAction(Act as anything in actionslist)
+/datum/brain/concrete/DoInstantAction(Act as anything in actionslist)
 	if(!(Act in actionslist))
 		return null
 
@@ -297,28 +153,6 @@
 	return
 
 
-/datum/brain/concrete/proc/NextPlanStep()
-	src.running_action_tracker = null
-	return TRUE
-
-
-/datum/brain/concrete/AbortPlan(var/mark_failed = TRUE)
-	if(mark_failed)
-		// Mark the plan as failed
-		src.last_plan_successful = FALSE
-		src.running_action_tracker?.SetFailed()
-
-	// Cancel current tracker, if any is running
-	src.running_action_tracker = null
-
-	// Cancel all instant and regular Actions
-	PUT_EMPTY_LIST_IN(src.pending_instant_actions)
-	src.active_plan = null
-	src.selected_action = null
-
-	return TRUE
-
-
 /* Motives */
 /datum/brain/concrete/proc/GetMotive(var/motive_key)
 	if(isnull(motive_key))
@@ -337,7 +171,11 @@
 
 	var/fixed_value = min(NEED_MAXIMUM, max(NEED_MINIMUM, (value)))
 	needs[motive_key] = fixed_value
+
+	#ifdef BRAIN_MODULE_INCLUDED_METRICS
 	last_need_update_times[motive_key] = world.time
+	#endif
+
 	MOTIVES_DEBUG_LOG("Curr [motive_key] = [needs[motive_key]] <@[src]>")
 
 

@@ -34,7 +34,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_mobhealth_abs)
 		target = pawn
 
 	else
-		var/input_key = consideration_args?["input_key"] || "input"
+		CONSIDERATION_GET_INPUT_KEY(var/input_key)
 		var/from_context = consideration_args?["from_context"]
 		var/from_memory = consideration_args?["from_memory"]
 
@@ -93,7 +93,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_mobhealth_rel)
 		target = pawn
 
 	else
-		var/input_key = consideration_args?["input_key"] || "input"
+		CONSIDERATION_GET_INPUT_KEY(var/input_key)
 		var/from_context = consideration_args?["from_context"]
 		var/from_memory = consideration_args?["from_memory"]
 
