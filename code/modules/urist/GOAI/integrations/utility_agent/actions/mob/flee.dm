@@ -17,7 +17,7 @@
 	var/atom/pawn = src.GetPawn()
 
 	if(!istype(pawn))
-		RUN_ACTION_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		RUN_ACTION_DEBUG_LOG("No owned mob found for [src.name] AI @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
 	var/turf/curr_loc = get_turf(pawn)
@@ -71,7 +71,7 @@
 
 			var/datum/brain/utility/needybrain = src.brain
 			if(istype(needybrain))
-				needybrain.AddMotive(NEED_COMPOSURE, MAGICNUM_COMPOSURE_GAIN_FLEED)
+				needybrain.AddNeed(NEED_COMPOSURE, MAGICNUM_COMPOSURE_GAIN_FLEED)
 
 			return
 

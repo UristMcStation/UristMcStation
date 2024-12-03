@@ -98,7 +98,7 @@ PathNode
 	// - adj_args: Optional<assoc>; Args to pass to the adjacent arg's proc, if any.
 	// - exclude: Optional<datum>; Ignored adjacents. Pretty useless tbh. Blame legacy code.
 	*/
-	var/PriorityQueue/open = new /PriorityQueue(/proc/PathWeightCompare)
+	var/PriorityQueue/open = new DEFAULT_PRIORITY_QUEUE_IMPL(/proc/PathWeightCompare)
 	var/list/closed = list()
 	var/list/path
 	var/list/path_node_by_position = list()

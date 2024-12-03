@@ -159,8 +159,19 @@
 		sleep(9)
 		qdel(src)
 
+# endif
 
-/proc/grenade_yeet(var/obj/item/test_grenade/grenade, var/atom/To, var/atom/From)
+
+/proc/grenade_yeet(
+	# ifdef GOAI_LIBRARY_FEATURES
+	var/obj/item/test_grenade/grenade,
+	#endif
+	# ifdef GOAI_SS13_SUPPORT
+	var/obj/item/grenade/grenade,
+	#endif
+	var/atom/To,
+	var/atom/From
+)
 	if(isnull(grenade))
 		return
 
@@ -170,6 +181,7 @@
 	if(isnull(From))
 		return
 
+	# ifdef GOAI_LIBRARY_FEATURES
 	var/atom/impactee = AtomDensityRaytrace(From, To, list(From), RAYTYPE_PROJECTILE_NOCOVER, FALSE)
 
 	var/expected_dist = get_dist(From, To)
@@ -185,8 +197,14 @@
 	grenade.Boom()
 
 	walk_to(grenade, endturf, ((isturf(true_impactee) && endturf.density) ? 1 : 0))
-	return
+	#endif
 
+	# ifdef GOAI_SS13_SUPPORT
+	grenade.activate()
+	grenade.throw_at(To, get_dist(From, To), grenade.throw_speed)
+	#endif
+
+	return
 
 
 /proc/grenade_spawnyeet(var/atom/To, var/atom/From)
@@ -201,9 +219,13 @@
 	if(isnull(startturf))
 		return
 
+	# ifdef GOAI_LIBRARY_FEATURES
 	var/obj/item/test_grenade/grenade = new(startturf)
+	#endif
+
+	# ifdef GOAI_SS13_SUPPORT
+	var/obj/item/grenade/grenade = new(startturf)
+	#endif
+
 	grenade_yeet(grenade, To, From)
 	return
-
-
-# endif
