@@ -81,7 +81,7 @@
 	if(isnull(my_loc))
 		return
 
-	var/PriorityQueue/target_queue = new /PriorityQueue(/datum/Tuple/proc/FirstCompare)
+	var/PriorityQueue/target_queue = new DEFAULT_PRIORITY_QUEUE_IMPL(/datum/Tuple/proc/FirstCompare)
 
 	var/list/occupied_turfs = list()
 

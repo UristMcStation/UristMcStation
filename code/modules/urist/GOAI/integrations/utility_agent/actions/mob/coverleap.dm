@@ -2,7 +2,7 @@
 	var/atom/pawn = src.GetPawn()
 
 	if(!istype(pawn))
-		ACTION_RUNTIME_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		ACTION_RUNTIME_DEBUG_LOG("No owned mob found for [src.name] AI @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
 	// Pathfinding/search
@@ -14,7 +14,7 @@
 	//var/list/processed = list(_startpos)
 	var/list/processed = list()
 
-	var/PriorityQueue/cover_queue = new /PriorityQueue(/datum/Quadruple/proc/TriCompare)
+	var/PriorityQueue/cover_queue = new DEFAULT_PRIORITY_QUEUE_IMPL(/datum/Quadruple/proc/TriCompare)
 
 	var/datum/chunkserver/chunkserver = GetOrSetChunkserver()
 	var/datum/chunk/startchunk = chunkserver.ChunkForAtom(_startpos)
@@ -250,7 +250,7 @@
 	var/atom/pawn = src.GetPawn()
 
 	if(!istype(pawn))
-		ACTION_RUNTIME_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		ACTION_RUNTIME_DEBUG_LOG("No owned mob found for [src.name] AI @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
 	var/turf/best_local_pos = tracker?.BBGet("bestpos", null)
@@ -283,7 +283,7 @@
 	var/atom/pawn = src.GetPawn()
 
 	if(!istype(pawn))
-		ACTION_RUNTIME_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		ACTION_RUNTIME_DEBUG_LOG("No owned mob found for [src.name] AI @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
 	var/tracker_frustration = tracker.BBSetDefault("frustration", 0)
@@ -388,14 +388,14 @@
 
 	else if(src.active_path && tracker.IsOlderThan(COMBATAI_MOVE_TICK_DELAY * (20 + walk_dist)))
 		if(istype(needybrain))
-			needybrain.AddMotive(NEED_COMPOSURE, -MAGICNUM_COMPOSURE_LOSS_FAILMOVE)
+			needybrain.AddNeed(NEED_COMPOSURE, -MAGICNUM_COMPOSURE_LOSS_FAILMOVE)
 
 		CancelNavigate()
 		tracker.SetFailed()
 
 	else if(tracker.IsOlderThan(COMBATAI_MOVE_TICK_DELAY * (10 + walk_dist)))
 		if(istype(needybrain))
-			needybrain.AddMotive(NEED_COMPOSURE, -MAGICNUM_COMPOSURE_LOSS_FAILMOVE)
+			needybrain.AddNeed(NEED_COMPOSURE, -MAGICNUM_COMPOSURE_LOSS_FAILMOVE)
 
 		CancelNavigate()
 		tracker.SetFailed()

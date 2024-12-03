@@ -1,6 +1,6 @@
 
 /datum/ActionTracker
-	var/datum/goai_action/tracked_action
+	var/datum/tracked_action
 	var/timeout_ds = null
 	var/list/tracker_blackboard
 	var/sleep_time = ACTION_TICK_DELAY
@@ -12,6 +12,9 @@
 
 	var/process = TRUE
 
+	// this doesn't do anything, just prevents multiple things trying to request pause/unpause
+	var/_pausetracker = FALSE
+
 	// Special flag; when TRUE, plan is invalid but not failed (typically, a dependency popped up)
 	// The value might be a key - this indicates the reason for replan (i.e. OBSTACLE might have an obstacle-specific replanner)
 	var/replan = FALSE
@@ -22,7 +25,7 @@
 	var/last_check_time = null
 
 
-/datum/ActionTracker/proc/Initialize(var/datum/goai_action/action, var/timeout = null, var/tick_delay = null, var/run = TRUE)
+/datum/ActionTracker/proc/Initialize(var/datum/action, var/timeout = null, var/tick_delay = null, var/run = TRUE)
 	if(src.is_rebuilding)
 		return
 
@@ -51,7 +54,7 @@
 	src.is_rebuilding = FALSE
 
 
-/datum/ActionTracker/New(var/datum/goai_action/action, var/timeout = null, var/tick_delay = null)
+/datum/ActionTracker/New(var/datum/action, var/timeout = null, var/tick_delay = null)
 	src.Initialize(action, timeout, tick_delay, TRUE)
 
 
@@ -154,21 +157,21 @@
 
 /datum/ActionTracker/proc/SetTriggered()
 	if(!IsTriggered())
-		ACTIONTRACKER_DEBUG_LOG("Setting tracker to triggered!")
+		ACTIONTRACKER_DEBUG_LOG("Setting tracker for [src.tracked_action:name] to triggered!")
 		src.trigger_time = world.time
 	return
 
 
 /datum/ActionTracker/proc/ResetTriggered()
-	ACTIONTRACKER_DEBUG_LOG("Setting tracker to non-triggered!")
+	ACTIONTRACKER_DEBUG_LOG("Setting tracker for [src.tracked_action:name] to non-triggered!")
 	src.trigger_time = null
 	return
 
 
 /datum/ActionTracker/proc/SetDone()
 	if(!is_done)
-		ACTIONTRACKER_DEBUG_LOG("Setting tracker to done!")
-		src.tracked_action.ReduceCharges(1)
+		ACTIONTRACKER_DEBUG_LOG("Setting tracker for [src.tracked_action:name] to done!")
+		//src.tracked_action.ReduceCharges(1)
 		src.is_done = TRUE
 
 	return
@@ -176,8 +179,8 @@
 
 /datum/ActionTracker/proc/SetFailed()
 	if(!is_failed)
-		ACTIONTRACKER_DEBUG_LOG("Setting tracker to failed!")
-		src.tracked_action.ReduceCharges(1)
+		ACTIONTRACKER_DEBUG_LOG("Setting tracker for [src.tracked_action:name] to failed!")
+		//src.tracked_action.ReduceCharges(1)
 		src.is_failed = TRUE
 
 	return
@@ -191,7 +194,7 @@
 	// signalling to the Plan that, for whatever reason, the Plan is no
 	// longer valid *as a whole* and needs to be cancelled.
 	*/
-	ACTIONTRACKER_DEBUG_LOG("Setting tracker to ABORT!!!")
+	ACTIONTRACKER_DEBUG_LOG("Setting tracker for [src.tracked_action:name] to ABORT!!!")
 	src.is_aborted = TRUE
 	return
 
@@ -219,6 +222,28 @@
 	src.replan = FALSE
 	PUT_EMPTY_LIST_IN(src.replan_data)
 	return
+
+
+/datum/ActionTracker/proc/PauseFor(var/time)
+	set waitfor = FALSE
+
+	. = TRUE
+
+	if(src._pausetracker)
+		return FALSE
+
+	if(!time || time < 0)
+		return FALSE
+
+	src._pausetracker = TRUE
+	src.process = FALSE
+
+	sleep(time)
+
+	src._pausetracker = TRUE
+	src.process = FALSE
+
+	return TRUE
 
 
 /* Core loop */

@@ -11,10 +11,10 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_get_personality_trait)
 		DEBUGLOG_MEMORY_FETCH("consideration_input_get_personality_trait Brain is null ([requesting_brain || "null"]) @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
-	var/input_key = "input"
+	var/input_key = CONSIDERATION_INPUTKEY_DEFAULT
 
 	if(!isnull(consideration_args))
-		input_key = consideration_args["input_key"] || input_key
+		input_key = consideration_args[CONSIDERATION_INPUTKEY_KEY] || input_key
 
 	if(isnull(input_key))
 		DEBUGLOG_MEMORY_FETCH("consideration_input_get_personality_trait Input Key is null ([input_key || "null"]) @ L[__LINE__] in [__FILE__]")

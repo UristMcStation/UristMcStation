@@ -11,7 +11,7 @@
 CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mean)
 	/* Calculates the average of the wrapped proc's values */
 	var/default = consideration_args?["default"] || 0
-	var/input_key = consideration_args?["input_key"] || "input"
+	CONSIDERATION_GET_INPUT_KEY(var/input_key)
 	var/from_ctx = consideration_args?["from_context"]
 	var/from_memory = consideration_args?["from_memory"]
 	var/min_count_raw = consideration_args?["min_count"] || 1
@@ -66,7 +66,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mean)
 	var/aggregated_proc = STR_TO_PROC(aggregated_proc_raw)
 
 	if(isnull(aggregated_proc))
-		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ L[__LINE__] in [__FILE__]")
 		return
 
 	if(isnull(aggregated_proc))
@@ -99,7 +99,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mean)
 		var/subresult = call(aggregated_proc)(action_template, recycleable_subctx_list, requester, subargs)
 
 		if(isnull(subresult))
-			GOAI_LOG_ERROR("ERROR: subresult for consideration_decorator_mean is null for [aggregated_proc]([action_template], [json_encode(recycleable_subctx_list)], [requester], [json_encode(subargs)])! @ [__LINE__] in [__FILE__]")
+			GOAI_LOG_ERROR("ERROR: subresult for consideration_decorator_mean is null for [aggregated_proc]([action_template], [json_encode(recycleable_subctx_list)], [requester], [json_encode(subargs)])! @ L[__LINE__] in [__FILE__]")
 			continue
 
 		value += subresult
@@ -120,7 +120,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mean_kalman)
 	// This might also be worthwhile for YUUUGE inputs (in value or count), for numerical stability reasons.
 	*/
 	var/default = consideration_args?["default"] || 0
-	var/input_key = consideration_args?["input_key"] || "input"
+	CONSIDERATION_GET_INPUT_KEY(var/input_key)
 	var/from_ctx = consideration_args?["from_context"]
 	var/from_memory = consideration_args?["from_memory"]
 
@@ -168,7 +168,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mean_kalman)
 	var/cutoff_mincount = consideration_args?["cutoff_mincount"] || 0
 
 	if(isnull(aggregated_proc))
-		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ L[__LINE__] in [__FILE__]")
 		return
 
 	if(isnull(aggregated_proc))
@@ -216,7 +216,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mean_kalman)
 CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_min)
 	/* Calculates the min of the wrapped proc's values */
 	var/default = consideration_args?["default"] || 0
-	var/input_key = consideration_args?["input_key"] || "input"
+	CONSIDERATION_GET_INPUT_KEY(var/input_key)
 	var/from_ctx = consideration_args?["from_context"]
 	var/from_memory = consideration_args?["from_memory"]
 
@@ -261,7 +261,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_min)
 	var/aggregated_proc = STR_TO_PROC(aggregated_proc_raw)
 
 	if(isnull(aggregated_proc))
-		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ L[__LINE__] in [__FILE__]")
 		return
 
 	if(isnull(aggregated_proc))
@@ -303,7 +303,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_min)
 CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_max)
 	/* Calculates the max of the wrapped proc's values */
 	var/default = consideration_args?["default"] || 0
-	var/input_key = consideration_args?["input_key"] || "input"
+	CONSIDERATION_GET_INPUT_KEY(var/input_key)
 	var/from_ctx = consideration_args?["from_context"]
 	var/from_memory = consideration_args?["from_memory"]
 
@@ -347,7 +347,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_max)
 	var/aggregated_proc = STR_TO_PROC(aggregated_proc_raw)
 
 	if(isnull(aggregated_proc))
-		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ L[__LINE__] in [__FILE__]")
 		return
 
 	if(isnull(aggregated_proc))
@@ -391,7 +391,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mode)
 	// NOTE: do not use this for large contexts - this may require a fair bit of extra RAM!
 	*/
 	var/default = consideration_args?["default"] || 0
-	var/input_key = consideration_args?["input_key"] || "input"
+	CONSIDERATION_GET_INPUT_KEY(var/input_key)
 	var/from_ctx = consideration_args?["from_context"]
 	var/from_memory = consideration_args?["from_memory"]
 
@@ -434,7 +434,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_mode)
 	var/aggregated_proc = STR_TO_PROC(aggregated_proc_raw)
 
 	if(isnull(aggregated_proc))
-		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ L[__LINE__] in [__FILE__]")
 		return
 
 	if(isnull(aggregated_proc))
@@ -499,7 +499,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_median)
 	// NOTE: do not use this for large contexts - this may require a fair bit of extra RAM!
 	*/
 	var/default = consideration_args?["default"] || 0
-	var/input_key = consideration_args?["input_key"] || "input"
+	CONSIDERATION_GET_INPUT_KEY(var/input_key)
 	var/from_ctx = consideration_args?["from_context"]
 	var/from_memory = consideration_args?["from_memory"]
 
@@ -544,13 +544,13 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_decorator_median)
 	var/aggregated_proc = STR_TO_PROC(aggregated_proc_raw)
 
 	if(isnull(aggregated_proc))
-		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ [__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: Invalid proc: [aggregated_proc_raw]! @ L[__LINE__] in [__FILE__]")
 		return
 
 	var/list/subargs = consideration_args?["aggregated_proc_args"]
 
 	// We'll use a Priority Queue to sort values for us
-	var/PriorityQueue/values = new /PriorityQueue(/proc/medianhelper_gt)
+	var/PriorityQueue/values = new DEFAULT_PRIORITY_QUEUE_IMPL(/proc/medianhelper_gt)
 	var/count = 0
 
 	// We pretty much only need a list for context as a formality, and inits are expensive
@@ -601,7 +601,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_list_length)
 	// This can be used to consider how many enemies are in view, for example.
 	var/default = consideration_args?["default"] || 0
 	var/from_ctx = consideration_args?["from_context"]
-	var/input_key = consideration_args?["input_key"] || "input"
+	CONSIDERATION_GET_INPUT_KEY(var/input_key)
 	var/from_memory = consideration_args?["from_memory"]
 
 	if(isnull(from_ctx))

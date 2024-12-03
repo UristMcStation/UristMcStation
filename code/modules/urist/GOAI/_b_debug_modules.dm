@@ -1,5 +1,6 @@
 // Uncomment defines as needed to enable various loggers.
 
+
 # ifdef ENABLE_DEBUG_LOG_MACROS
 	# define DEMOGOAP_DEBUG_LOGGING 0
 	//# define DEBUG_LOGGING 0
@@ -28,6 +29,7 @@
 	//# define DEBUG_UTILITY_MEMORY_QUERIES 0
 	//# define DEBUG_UTILITY_INPUT_FETCHERS 0
 	//# define PLANNING_CONSIDERATIONS_DEBUG_LOGGING 0
+	# define MARKETWATCH_DEBUG_LOGGING 0
 
 #endif
 
@@ -193,4 +195,10 @@
 # define DEMOGOAP_DEBUG_LOG(X) to_world_log(X)
 # else
 # define DEMOGOAP_DEBUG_LOG(X)
+# endif
+
+# ifdef MARKETWATCH_DEBUG_LOGGING
+# define MARKETWATCH_DEBUG_LOG(X) to_world_log(X)
+# else
+# define MARKETWATCH_DEBUG_LOG(X)
 # endif

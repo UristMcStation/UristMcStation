@@ -4,6 +4,36 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_null)
 	return null
 
 
+CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_get_origin)
+	// Retrieves the origin object.
+
+	if(isnull(requester))
+		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_read_origin_var is null @ L[__LINE__] in [__FILE__]!")
+		return null
+
+	var/datum/utility_ai/requester_ai = requester
+
+	if(!istype(requester_ai))
+		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_read_origin_var is not an AI @ L[__LINE__] in [__FILE__]!")
+		return null
+
+	var/datum/candidate = parent.origin
+	var/datum/action_set/parent_actionset = candidate
+
+	if(istype(parent_actionset))
+		candidate = parent_actionset.origin
+
+	if(isnull(candidate))
+		UTILITYBRAIN_DEBUG_LOG("ActionTemplate [parent?.name] has no parent (direct or ActionSet). Cannot infer origin! @ L[__LINE__] in [__FILE__]")
+		return null
+
+	var/list/contexts = list()
+	CONTEXT_GET_OUTPUT_KEY(var/context_key)
+	CONTEXT_ADD_SINGLE_KEYED_CONTEXT(candidate, context_key, contexts)
+
+	return contexts
+
+
 CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_read_origin_var)
 	// Retrieves an arbitrary variable from the origin object.
 
@@ -11,9 +41,9 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_read_origin_var)
 		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_read_origin_var is null @ L[__LINE__] in [__FILE__]!")
 		return null
 
-	var/datum/utility_ai/mob_commander/requester_ai = requester
+	var/datum/utility_ai/requester_ai = requester
 
-	if(isnull(requester_ai))
+	if(!istype(requester_ai))
 		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_read_origin_var is not an AI @ L[__LINE__] in [__FILE__]!")
 		return null
 

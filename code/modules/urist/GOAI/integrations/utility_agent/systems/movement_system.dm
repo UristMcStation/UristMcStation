@@ -66,6 +66,7 @@
 			MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: IN PATH-FOLLOWING MODE <-")
 
 			var/atom/destination = null
+
 			var/active_path_len = src.active_path.path.len
 
 			if(active_path_len)

@@ -26,7 +26,7 @@
 	var/atom/movable/pawn = src.GetPawn()
 
 	if(!istype(pawn))
-		RUN_ACTION_DEBUG_LOG("No owned mob found for [src.name] AI @ [__LINE__] in [__FILE__]")
+		RUN_ACTION_DEBUG_LOG("No owned mob found for [src.name] AI @ L[__LINE__] in [__FILE__]")
 		return FALSE
 
 	var/turf/pawnturf = get_turf(pawn)

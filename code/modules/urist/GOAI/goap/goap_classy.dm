@@ -391,7 +391,7 @@ X================================================================X
 	var/list/_transposition_table = isnull(transposition_table) ? list() : transposition_table
 	var/list/_blackboard = isnull(blackboard) ? list() : blackboard.Copy()
 
-	var/PriorityQueue/_pqueue = isnull(queue) ? new /PriorityQueue(/datum/Quadruple/proc/ActionCompare) : queue
+	var/PriorityQueue/_pqueue = isnull(queue) ? new DEFAULT_PRIORITY_QUEUE_IMPL(/datum/Quadruple/proc/ActionCompare) : queue
 
 	GOAP_DEBUG_LOG("RAW_BB is [json_encode(_blackboard)]")
 
@@ -527,7 +527,7 @@ X================================================================X
 	var/list/next_params = list()
 	var/list/transposition_table = list() // prunes equivalent paths
 	var/list/result = null
-	var/PriorityQueue/queue = new /PriorityQueue(/datum/Quadruple/proc/ActionCompare)
+	var/PriorityQueue/queue = new DEFAULT_PRIORITY_QUEUE_IMPL(/datum/Quadruple/proc/ActionCompare)
 
 	var/starthash = hash_goap_state(start)
 	transposition_table[starthash] = 1 // will have to check if this is O(1) to check membership if not assoc'd

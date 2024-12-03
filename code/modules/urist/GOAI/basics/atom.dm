@@ -14,10 +14,6 @@
 	// If block_all is zero, run this dynamic proc instead.
 	var/raycast_cover_proc = null
 
-	// a free-form key-value map; intended for associated interfaces/scripts/whatevs
-	// eventually might be redone as a big array/SparseSet with implicit IDs, ECS-style
-	var/dict/attachments
-
 	// a set of metadata flags that helps GOAI filter out irrelevant stuff
 	var/goai_processing_visibility = GOAI_VISTYPE_STANDARD
 

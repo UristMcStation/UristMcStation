@@ -34,7 +34,7 @@
 		COMBAT_AI_DEBUG_LOG("[src] attempted to get loc, but couldn't find one!")
 		return
 
-	var/PriorityQueue/target_queue = new /PriorityQueue(/datum/Tuple/proc/FirstCompare)
+	var/PriorityQueue/target_queue = new DEFAULT_PRIORITY_QUEUE_IMPL(/datum/Tuple/proc/FirstCompare)
 
 	for(var/mob/enemy in true_searchspace)
 		if(!(istype(enemy, /mob/living/carbon) || istype(enemy, /mob/living/simple_animal) || istype(enemy, /mob/living/bot)))
@@ -276,7 +276,7 @@
 		// Similarly, this is base rate, so negative STEADFAST means taking MORE morale hit per, uh, hit.
 		var/composure_dr = 1 - steadfastness
 		var/composure_loss = composure_dr * MAGICNUM_COMPOSURE_LOSS_ONHIT_BASE
-		needybrain.AddMotive(NEED_COMPOSURE, -composure_loss)
+		needybrain.AddNeed(NEED_COMPOSURE, -composure_loss)
 
 	src.brain.SetMemory("mainthreat", by_whom, 100)
 	return
