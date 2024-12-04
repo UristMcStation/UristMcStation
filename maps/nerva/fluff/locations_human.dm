@@ -115,8 +115,8 @@
 	undiscovered alien hives are uncovered. Although separated from their hivemind, individual aliens still are a threat to those trying \
 	to return to their lives that were torn apart by war. The bright point of the rebuilding process is the Ceti Institute of Technology, which \
 	has been completely rebuilt, and is slowly returning to its former glory. <br><br>The people of Ceti Epsilon are some of the most, well, average in the TC. Being from a largely built up world with a focus on \
-	the cutting edge, most Episoloners are tech-savvy, at the very least and are usually well educated, with a focus on the sciences. The people \
-	of Ceti Episilon have developed a reputation for being some of the best and brightest that the Confederacy has to offer. However, everyone from Ceti Epsilon \
+	the cutting edge, most Epsiloners are tech-savvy, at the very least and are usually well educated, with a focus on the sciences. The people \
+	of Ceti Epsilon have developed a reputation for being some of the best and brightest that the Confederacy has to offer. However, everyone from Ceti Epsilon \
 	knows someone who died during the invasion, and they carry this collective trauma with them."
 	capital = "Verlize"
 	economic_power = 1.2
