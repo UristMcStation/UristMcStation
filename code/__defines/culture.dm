@@ -143,7 +143,7 @@
 #define RELIGION_VOX           "Auralis Reverence"
 
 // IPC cultures.
-#define CULTURE_POSITRONICS    "Union Member"
+#define CULTURE_POSITRONICS    "Positronic"
 
 #define HOME_SYSTEM_ROOT       "Root"
 
