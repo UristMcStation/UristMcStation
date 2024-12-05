@@ -3301,6 +3301,7 @@
 #include "code\modules\urist\datums\xenoarch_effects\fogmachine.dm"
 #include "code\modules\urist\datums\xenoarch_effects\haunting.dm"
 #include "code\modules\urist\datums\xenoarch_effects\magnetic.dm"
+#include "code\modules\urist\datums\xenoarch_effects\nanomachines.dm"
 #include "code\modules\urist\datums\xenoarch_effects\parroting.dm"
 #include "code\modules\urist\datums\xenoarch_effects\unholy.dm"
 #include "code\modules\urist\decals\urist.dm"
