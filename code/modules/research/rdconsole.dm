@@ -982,7 +982,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += GetResearchListInfo()
 
 	var/datum/browser/popup = new(user, "rdconsolenew", "Core Fabricator Console", 850, 600)
-	popup.set_content(JOINTEXT(dat))
+	popup.set_content(jointext(dat, null))
 	popup.open()
 
 /obj/machinery/computer/rdconsole/robotics
