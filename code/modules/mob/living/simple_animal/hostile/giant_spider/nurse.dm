@@ -77,7 +77,7 @@
 		if(!L.stat)
 			return ..()
 
-	if(!istype(A, /atom/movable))
+	if(!ismovable(A))
 		return
 	var/atom/movable/AM = A
 
