@@ -78,7 +78,7 @@
 		to_chat(usr, "Variable appears to be <b>TYPE</b>.")
 		default = "type"
 
-	else if(istype(var_value,/list))
+	else if(islist(var_value))
 		to_chat(usr, "Variable appears to be <b>LIST</b>.")
 		default = "list"
 

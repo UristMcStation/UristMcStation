@@ -1670,7 +1670,7 @@
 		var/dirty_paths
 		if (istext(href_list["object_list"]))
 			dirty_paths = list(href_list["object_list"])
-		else if (istype(href_list["object_list"], /list))
+		else if (islist(href_list["object_list"]))
 			dirty_paths = href_list["object_list"]
 
 		var/paths = list()

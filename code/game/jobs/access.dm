@@ -28,7 +28,7 @@
 
 	if(!R)
 		R = list()
-	if(!istype(L, /list))
+	if(!islist(L))
 		return FALSE
 
 	if(GLOB.using_map?.maint_all_access)

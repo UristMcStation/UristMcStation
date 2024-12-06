@@ -91,7 +91,7 @@
 	for(var/job_name in SSjobs.titles_to_datums)
 		var/datum/job/job = SSjobs.get_by_title(job_name)
 		var/input_skills = list()
-		if((job in input) && istype(input[job], /list))
+		if((job in input) && islist(input[job]))
 			input_skills = input[job]
 
 		var/L = list()

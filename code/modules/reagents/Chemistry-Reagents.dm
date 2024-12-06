@@ -169,7 +169,7 @@
 	return
 
 /datum/reagent/proc/get_data() // Just in case you have a reagent that handles data differently.
-	if(data && istype(data, /list))
+	if(data && islist(data))
 		return data.Copy()
 	else if(data)
 		return data

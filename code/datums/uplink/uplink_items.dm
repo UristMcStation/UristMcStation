@@ -122,7 +122,7 @@ var/global/datum/uplink/uplink = new()
 	if(!I)
 		return
 
-	if(istype(I, /list))
+	if(islist(I))
 		var/list/L = I
 		if(length(L)) I = L[1]
 

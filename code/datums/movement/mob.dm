@@ -294,7 +294,7 @@
 			return
 		. = max(., G.grab_slowdown())
 		var/list/L = mob.ret_grab()
-		if(istype(L, /list))
+		if(islist(L))
 			if(length(L) == 2)
 				L -= mob
 				var/mob/M = L[1]

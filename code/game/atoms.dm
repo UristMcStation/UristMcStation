@@ -602,7 +602,7 @@
 	if(atom_flags & ATOM_FLAG_NO_BLOOD)
 		return 0
 
-	if(!blood_DNA || !istype(blood_DNA, /list))	//if our list of DNA doesn't exist yet (or isn't a list) initialise it.
+	if(!blood_DNA || !islist(blood_DNA))	//if our list of DNA doesn't exist yet (or isn't a list) initialise it.
 		blood_DNA = list()
 
 	was_bloodied = 1
@@ -631,7 +631,7 @@
 	germ_level = 0
 	blood_color = null
 	gunshot_residue = null
-	if(istype(blood_DNA, /list))
+	if(islist(blood_DNA))
 		blood_DNA = null
 		return 1
 

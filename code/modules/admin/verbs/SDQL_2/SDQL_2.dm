@@ -196,7 +196,7 @@
 		spaces += "&nbsp;&nbsp;&nbsp;&nbsp;"
 
 	for(var/item in query_tree)
-		if(istype(item, /list))
+		if(islist(item))
 			to_chat(usr, "[spaces](")
 			SDQL_testout(item, indent + 1)
 			to_chat(usr, "[spaces])")
@@ -206,7 +206,7 @@
 
 		if(!isnum(item) && query_tree[item])
 
-			if(istype(query_tree[item], /list))
+			if(islist(query_tree[item]))
 				to_chat(usr, "[spaces]&nbsp;&nbsp;&nbsp;&nbsp;(")
 				SDQL_testout(query_tree[item], indent + 2)
 				to_chat(usr, "[spaces]&nbsp;&nbsp;&nbsp;&nbsp;)")
@@ -325,7 +325,7 @@
 	if(i > length(expression))
 		return list("val" = null, "i" = i)
 
-	if(istype(expression[i], /list))
+	if(islist(expression[i]))
 		val = SDQL_expression(object, expression[i])
 
 	else if(expression[i] == "!")
