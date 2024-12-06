@@ -1,0 +1,4 @@
+author: SierraKomodo
+changes:
+  - {admin: Individual legion can now be spawned in with the warp effect manually.}
+delete-after: true
