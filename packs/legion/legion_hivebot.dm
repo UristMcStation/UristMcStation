@@ -58,8 +58,10 @@
 
 /obj/spawner/legion/hivebot/Initialize(mapload, ...)
 	. = ..()
+	legion_warp_effect(get_turf(src))
 	base_hivebot = new base_hivebot(loc)
 	base_hivebot.legionify()
+	base_hivebot.visible_message(SPAN_DANGER("\A [base_hivebot] warps in!"))
 	return INITIALIZE_HINT_QDEL
 
 

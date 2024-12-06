@@ -59,7 +59,7 @@
 	. = ..()
 
 	if (!mapload)
-		effect_warp()
+		legion_warp_effect()
 		visible_message(SPAN_WARNING("\A [src] warps in!"))
 
 	if (!length(spawn_types))
@@ -163,7 +163,7 @@
 	))
 
 	if (target_turf)
-		effect_warp(target_turf)
+		legion_warp_effect(target_turf)
 		var/mob/living/simple_animal/hostile/legion/legion = new spawntype(target_turf, src)
 		linked_mobs += legion
 		last_spawn_time = world.time
@@ -209,10 +209,10 @@
 			continue
 		unlink_mob(child)
 
-	effect_warp()
+	legion_warp_effect(get_turf(src))
 	visible_message(SPAN_DANGER("\The [src] lets out a horrifying screech, then warps away!"))
 	forceMove(target_turf)
-	effect_warp()
+	legion_warp_effect(get_turf(src))
 	visible_message(SPAN_DANGER("\The [src] warps in!"))
 	log_and_message_admins("\The [src] has teleported to a new location at [get_area(target_turf)]", null, location = target_turf)
 
@@ -222,9 +222,9 @@
 		if (!length(child_target_turfs))
 			unlink_mob(child)
 			continue
-		effect_warp(get_turf(child))
+		legion_warp_effect(get_turf(child))
 		child.forceMove(pick_n_take(child_target_turfs))
-		effect_warp(get_turf(child))
+		legion_warp_effect(get_turf(child))
 
 
 /obj/structure/legion/beacon/proc/unlink_mob(mob/living/child)
@@ -232,17 +232,6 @@
 		var/mob/living/simple_animal/hostile/legion/legion = child
 		legion.linked_beacon = null
 	linked_mobs -= child
-
-
-
-/**
- * Creates a warp effect on the beacon's current turf.
- */
-/obj/structure/legion/beacon/proc/effect_warp(turf/target)
-	if (!target)
-		target = get_turf(src)
-	new /obj/explosion(target)
-	playsound(src, GLOB.legion_warp_sound, 25, TRUE)
 
 
 /* Hivebot Variant */
