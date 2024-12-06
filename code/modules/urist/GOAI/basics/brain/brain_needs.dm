@@ -61,8 +61,6 @@
 	to_world_log("Setting preferred_trades for [src] to: [json_encode(src.preferred_trades)]")
 	#endif
 
-	#warn debug logs
-	to_world_log("Setting needs for [src] to: [json_encode(src.needs)] | [json_encode(src.need_weights)]")
 	return needs
 
 

@@ -30,6 +30,7 @@
 	//# define DEBUG_UTILITY_INPUT_FETCHERS 0
 	//# define PLANNING_CONSIDERATIONS_DEBUG_LOGGING 0
 	# define MARKETWATCH_DEBUG_LOGGING 0
+	# define TRADE_DEBUG_LOGGING 0
 
 #endif
 
@@ -201,4 +202,12 @@
 # define MARKETWATCH_DEBUG_LOG(X) to_world_log(X)
 # else
 # define MARKETWATCH_DEBUG_LOG(X)
+# endif
+
+# ifdef TRADE_DEBUG_LOGGING
+# define TRADE_DEBUG_LOG(X) to_world_log(X)
+# define TRADE_DEBUG_LOG_IF(Pred, X) if(##Pred) { to_world_log(X) };
+# else
+# define TRADE_DEBUG_LOG(X)
+# define TRADE_DEBUG_LOG_IF(Pred, X)
 # endif
