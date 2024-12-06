@@ -307,7 +307,7 @@
 		if("select")
 			var/text = ""
 			for(var/datum/t in objs)
-				if(istype(t, /atom))
+				if(isloc(t))
 					var/atom/a = t
 
 					if(a.x)

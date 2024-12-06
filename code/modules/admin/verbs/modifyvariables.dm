@@ -173,7 +173,7 @@
 		variable = "\icon[variable]"
 		default = "icon"
 
-	else if(istype(variable,/atom) || istype(variable,/datum))
+	else if(isloc(variable) || istype(variable,/datum))
 		to_chat(usr, "Variable appears to be <b>TYPE</b>.")
 		default = "type"
 
@@ -371,7 +371,7 @@
 				var_value = "\icon[var_value]"
 				class = "icon"
 
-			else if(istype(var_value,/atom) || istype(var_value,/datum))
+			else if(isloc(var_value) || istype(var_value,/datum))
 				to_chat(usr, "Variable appears to be <b>TYPE</b>.")
 				class = "type"
 
@@ -426,7 +426,7 @@
 			var_value = "\icon[var_value]"
 			default = "icon"
 
-		else if(istype(var_value,/atom) || istype(var_value,/datum))
+		else if(isloc(var_value) || istype(var_value,/datum))
 			to_chat(usr, "Variable appears to be <b>TYPE</b>.")
 			default = "type"
 
@@ -477,7 +477,7 @@
 
 	var/original_name
 
-	if (!istype(O, /atom))
+	if (!isloc(O))
 		original_name = "\ref[O] ([O])"
 	else
 		original_name = O:name

@@ -63,7 +63,7 @@ SUBSYSTEM_DEF(codex)
 	return string
 
 /datum/controller/subsystem/codex/proc/get_codex_entry(entry)
-	if(istype(entry, /atom))
+	if(isloc(entry))
 		var/atom/entity = entry
 		if(entity.get_specific_codex_entry())
 			return entity.get_specific_codex_entry()

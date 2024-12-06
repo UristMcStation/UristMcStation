@@ -105,7 +105,7 @@
 					var/text = ""
 					for(var/datum/t in objs)
 						text += "<A HREF='?_src_=vars;Vars=\ref[t]'>\ref[t]</A>"
-						if(istype(t, /atom))
+						if(isloc(t))
 							var/atom/a = t
 
 							if(a.x)
