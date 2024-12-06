@@ -348,7 +348,7 @@
  */
 /atom/proc/get_container(container_type)
 	var/atom/A = src
-	while (!istype(A, /area))
+	while (!isarea(A))
 		if (istype(A.loc, container_type))
 			return A.loc
 		A = A.loc
