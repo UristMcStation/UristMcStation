@@ -88,6 +88,7 @@
 
 		if (BEACON_STATE_ON)
 			if (world.time < last_spawn_time + spawn_rate)
+				last_spawn_time = world.time
 				return
 			if (length(linked_mobs) >= max_active_bots)
 				return
