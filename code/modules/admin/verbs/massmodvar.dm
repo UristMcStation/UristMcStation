@@ -137,7 +137,7 @@
 						if ( istype(M , O.type) )
 							M.vars[variable] = O.vars[variable]
 
-				else if(istype(O, /obj))
+				else if(isobj(O))
 					for(var/obj/A in world)
 						if ( istype(A , O.type) )
 							A.vars[variable] = O.vars[variable]
@@ -153,7 +153,7 @@
 						if (M.type == O.type)
 							M.vars[variable] = O.vars[variable]
 
-				else if(istype(O, /obj))
+				else if(isobj(O))
 					for(var/obj/A in world)
 						if (A.type == O.type)
 							A.vars[variable] = O.vars[variable]
@@ -178,7 +178,7 @@
 						if ( istype(M , O.type) )
 							M.vars[variable] = O.vars[variable]
 
-				else if(istype(O, /obj))
+				else if(isobj(O))
 					for(var/obj/A in world)
 						if ( istype(A , O.type) )
 							A.vars[variable] = O.vars[variable]
@@ -193,7 +193,7 @@
 						if (M.type == O.type)
 							M.vars[variable] = O.vars[variable]
 
-				else if(istype(O, /obj))
+				else if(isobj(O))
 					for(var/obj/A in world)
 						if (A.type == O.type)
 							A.vars[variable] = O.vars[variable]
@@ -215,7 +215,7 @@
 						if ( istype(M , O.type) )
 							M.vars[variable] = O.vars[variable]
 
-				else if(istype(O, /obj))
+				else if(isobj(O))
 					for(var/obj/A in world)
 						if ( istype(A , O.type) )
 							A.vars[variable] = O.vars[variable]
@@ -231,7 +231,7 @@
 						if (M.type == O.type)
 							M.vars[variable] = O.vars[variable]
 
-				else if(istype(O, /obj))
+				else if(isobj(O))
 					for(var/obj/A in world)
 						if (A.type == O.type)
 							A.vars[variable] = O.vars[variable]
@@ -252,7 +252,7 @@
 						if ( istype(M , O.type) )
 							M.vars[variable] = O.vars[variable]
 
-				else if(istype(O, /obj))
+				else if(isobj(O))
 					for(var/obj/A in world)
 						if ( istype(A , O.type) )
 							A.vars[variable] = O.vars[variable]
@@ -267,7 +267,7 @@
 						if (M.type == O.type)
 							M.vars[variable] = O.vars[variable]
 
-				else if(istype(O, /obj))
+				else if(isobj(O))
 					for(var/obj/A in world)
 						if (A.type == O.type)
 							A.vars[variable] = O.vars[variable]
@@ -288,7 +288,7 @@
 						if ( istype(M , O.type) )
 							M.vars[variable] = O.vars[variable]
 
-				else if(istype(O.type, /obj))
+				else if(isobj(O.type))
 					for(var/obj/A in world)
 						if ( istype(A , O.type) )
 							A.vars[variable] = O.vars[variable]
@@ -303,7 +303,7 @@
 						if (M.type == O.type)
 							M.vars[variable] = O.vars[variable]
 
-				else if(istype(O.type, /obj))
+				else if(isobj(O.type))
 					for(var/obj/A in world)
 						if (A.type == O.type)
 							A.vars[variable] = O.vars[variable]
@@ -323,7 +323,7 @@
 						if ( istype(M , O.type) )
 							M.vars[variable] = O.vars[variable]
 
-				else if(istype(O, /obj))
+				else if(isobj(O))
 					for(var/obj/A in world)
 						if ( istype(A , O.type) )
 							A.vars[variable] = O.vars[variable]
@@ -339,7 +339,7 @@
 						if (M.type == O.type)
 							M.vars[variable] = O.vars[variable]
 
-				else if(istype(O, /obj))
+				else if(isobj(O))
 					for(var/obj/A in world)
 						if (A.type == O.type)
 							A.vars[variable] = O.vars[variable]

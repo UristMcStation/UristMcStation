@@ -664,7 +664,7 @@ default behaviour is:
 			holster.clear_holster()
 		to_chat(src, SPAN_WARNING("You extricate yourself from \the [holster]."))
 		H.forceMove(get_turf(H))
-	else if(istype(H.loc,/obj))
+	else if(isobj(H.loc))
 		to_chat(src, SPAN_WARNING("You struggle free of \the [H.loc]."))
 		H.forceMove(get_turf(H))
 

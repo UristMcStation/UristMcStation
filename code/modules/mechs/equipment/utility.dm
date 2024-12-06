@@ -82,7 +82,7 @@
 	. = ..()
 
 	if(.)
-		if(istype(target, /obj))
+		if(isobj(target))
 			var/obj/O = target
 			if(O.buckled_mob)
 				return

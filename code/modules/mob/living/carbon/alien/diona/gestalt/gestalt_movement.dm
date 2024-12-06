@@ -39,7 +39,7 @@
 		return FALSE
 	if(valid_things_to_roll_up[thing.type])
 		return TRUE
-	if(istype(thing, /obj))
+	if(isobj(thing))
 		var/obj/rolling_up = thing
 		return rolling_up.w_class <= get_max_item_rollup_size()
 	if(ismob(thing))

@@ -226,7 +226,7 @@
 /mob/proc/encumbrance()
 	. = 0
 	if(pulling)
-		if(istype(pulling, /obj))
+		if(isobj(pulling))
 			var/obj/O = pulling
 			. += clamp(O.w_class, 0, ITEM_SIZE_GARGANTUAN) / 5
 		else if(ismob(pulling))
