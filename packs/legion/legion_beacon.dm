@@ -24,7 +24,7 @@
 	var/sensor_range = 8
 
 	/// Integer. Time between mob spawns.
-	var/spawn_rate = 5 SECONDS
+	var/spawn_rate = 10 SECONDS
 
 	/// Integer. `world.time` of the last mob spawn.
 	var/last_spawn_time = 0
