@@ -2,6 +2,7 @@
 // only needed in the library as SS13 has the exact same implementation already
 // Insert an object A into a sorted list using cmp_proc (/code/_helpers/cmp.dm) for comparison.
 #define ADD_SORTED(list, A, cmp_proc) if(!list.len) {list.Add(A)} else {list.Insert(FindElementIndex(A, list, cmp_proc), A)}
+#endif
 
 /*
 // PriorityQueue object
@@ -9,6 +10,7 @@
 // Actual usable datastructure impls in subclasses, expected to be full overrides on methods.
 */
 
+#ifdef GOAI_LIBRARY_FEATURES
 /PriorityQueue
 	var/list/L //the actual queue
 	var/cmp //the weight function used to order the queue
@@ -27,6 +29,7 @@
 //removes and returns the first element in the queue
 /PriorityQueue/proc/Dequeue()
 	return
+
 //Removes an arbitrary item from the queue
 /PriorityQueue/proc/Remove(var/idx)
 	return 0
@@ -34,13 +37,11 @@
 //return the length of the queue
 /PriorityQueue/proc/Length()
 	return 0
-
 #endif
 
 //Returns the first element in the queue without removing or otherwise mutating the queue
 /PriorityQueue/proc/Peek()
 	return
-
 
 /*
 // Ordered List/Array Bisection-based PQ
@@ -50,6 +51,16 @@
 
 //an ordered list, using the cmp proc to weight the list elements
 /PriorityQueue/OrderedList
+
+//removes and returns the first element in the queue
+/PriorityQueue/OrderedList/Peek()
+	if(!L.len)
+		return
+
+	return L[1]
+
+#ifdef GOAI_LIBRARY_FEATURES
+// All things here already defined in the base class if SS13 decl is included
 
 /PriorityQueue/OrderedList/New(compare)
 	L = list()
@@ -71,27 +82,20 @@
 
 	Remove(.)
 
-//removes and returns the first element in the queue
-/PriorityQueue/OrderedList/Peek()
-	if(!L.len)
-		return
-
-	return L[1]
-
 //removes an element
 /PriorityQueue/OrderedList/Remove(var/idx)
 	. = L.Remove(idx)
 
 //returns a copy of the elements list
-/PriorityQueue/OrderedList/List()
+/PriorityQueue/OrderedList/proc/List()
 	. = L.Copy()
 
 //return the position of an element or 0 if not found
-/PriorityQueue/OrderedList/Seek(var/A)
+/PriorityQueue/OrderedList/proc/Seek(var/A)
 	. = L.Find(A)
 
 //return the element at the i_th position
-/PriorityQueue/OrderedList/Get(i)
+/PriorityQueue/OrderedList/proc/Get(i)
 	if(i > L.len || i < 1)
 		return 0
 	return L[i]
@@ -101,7 +105,7 @@
 	. = L.len
 
 //replace the passed element at it's right position using the cmp proc
-/PriorityQueue/OrderedList/ReSort(var/A)
+/PriorityQueue/OrderedList/proc/ReSort(var/A)
 	var/i = Seek(A)
 	if(i == 0)
 		return
@@ -111,6 +115,7 @@
 	while(i > 1 && call(cmp)(L[i],L[i-1]) <= 0) //last inserted element being first in case of ties (optimization)
 		L.Swap(i,i-1)
 		i--
+#endif
 
 
 /*
