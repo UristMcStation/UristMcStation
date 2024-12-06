@@ -37,13 +37,12 @@
 
 	var/completed = contract.Complete()
 
-	# warn TODO, debug logs for contract fulfillment
 	if(completed)
 		tracker.SetDone()
-		to_world_log("FULFILLED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
+		TRADE_DEBUG_LOG("FULFILLED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
 	else
 		tracker.SetFailed()
-		to_world_log("FAILED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
+		TRADE_DEBUG_LOG("FAILED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
 
 	return
 
@@ -118,13 +117,12 @@
 
 	var/completed = contract.Complete()
 
-	# warn TODO, debug logs for contract fulfillment
 	if(completed)
 		tracker.SetDone()
-		to_world_log("FULFILLED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
+		TRADE_DEBUG_LOG("FULFILLED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
 	else
 		tracker.SetFailed()
-		to_world_log("FAILED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
+		TRADE_DEBUG_LOG("FAILED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
 
 	return
 
@@ -184,12 +182,11 @@
 
 	var/completed = contract.Complete()
 
-	# warn TODO, debug logs for contract fulfillment
 	if(completed)
 		tracker.SetDone()
-		to_world_log("FULFILLED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
+		TRADE_DEBUG_LOG("FULFILLED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
 	else
 		tracker.SetFailed()
-		to_world_log("FAILED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
+		TRADE_DEBUG_LOG("FAILED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
 
 	return

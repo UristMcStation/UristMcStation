@@ -35,8 +35,7 @@
 	var/datum/trade_contract/contract = offer.ToContract(ai_pawn)
 	GOAI_BRAIN_ADD_CONTRACT(src.brain, contract)
 
-	# warn TODO, debug log
-	to_world_log("ACCEPTED a deal for [offer.commodity_key] * [offer.commodity_amount]u @ [offer.cash_value]$")
+	TRADE_DEBUG_LOG("ACCEPTED a deal for [offer.commodity_key] * [offer.commodity_amount]u @ [offer.cash_value]$")
 
 	var/unit_price = (abs(offer.cash_value) / abs(offer.commodity_amount))
 	SET_PRICE_POINT(offer.commodity_key, unit_price)
@@ -212,8 +211,7 @@
 
 	tracker.SetDone()
 
-	#warn Debug logs
-	to_world_log("CreateSellOfferForNeed: [src.name] created new Sell offer for [commodity] @ [trade_amount]u | [asking_price]$")
+	TRADE_DEBUG_LOG("CreateSellOfferForNeed: [src.name] created new Sell offer for [commodity] @ [trade_amount]u | [asking_price]$")
 	return sell_offer
 
 
@@ -350,8 +348,7 @@
 		var/datum/trade_offer/buy_offer_fast = new(source_entity, commodity, fast_trade_amount, bid_price_fast, world.time + expiry_time_fast)
 		REGISTER_OFFER_TO_MARKETPLACE(buy_offer_fast)
 		GOAI_BRAIN_ADD_OFFER(ai_brain, buy_offer_fast.id)
-		#warn Debug logs
-		to_world_log("CreateBuyOfferForNeed: [src.name] created new fast Buy offer for [commodity] @ [fast_trade_amount]u | [bid_price_fast]$ @Time:[world.time]")
+		TRADE_DEBUG_LOG("CreateBuyOfferForNeed: [src.name] created new fast Buy offer for [commodity] @ [fast_trade_amount]u | [bid_price_fast]$ @Time:[world.time]")
 
 	if(!isnull(bid_price_slow))
 		// all the same steps, except assume the fast trade has been 'applied' and extend the timeout
@@ -381,8 +378,7 @@
 		var/datum/trade_offer/buy_offer_slow = new(source_entity, commodity, slow_trade_amount, bid_price_slow, world.time + expiry_time_slow)
 		REGISTER_OFFER_TO_MARKETPLACE(buy_offer_slow)
 		GOAI_BRAIN_ADD_OFFER(ai_brain, buy_offer_slow.id)
-		#warn Debug logs
-		to_world_log("CreateBuyOfferForNeed: [src.name] created new slow Buy offer for [commodity] @ [slow_trade_amount]u | [bid_price_slow]$ @Time:[world.time]")
+		TRADE_DEBUG_LOG("CreateBuyOfferForNeed: [src.name] created new slow Buy offer for [commodity] @ [slow_trade_amount]u | [bid_price_slow]$ @Time:[world.time]")
 
 	tracker.SetDone()
 
@@ -542,20 +538,16 @@
 		// Should be completeable at this point
 		var/completed = contract.Complete()
 
-		# warn TODO, debug logs for contract fulfillment
 		if(completed)
 			tracker.SetDone()
-			to_world_log("FULFILLED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
+			TRADE_DEBUG_LOG("FULFILLED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
 		else
 			tracker.SetFailed()
-			to_world_log("FAILED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
+			TRADE_DEBUG_LOG("FAILED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
 
 	else
-		if(!paid)
-			to_world_log("Payer [money_sender] could not pay for contract [contract].")
-
-		if(!delivered)
-			to_world_log("Supplier [goods_sender] could not provide goods for contract [contract].")
+		TRADE_DEBUG_LOG_IF(!paid, "Payer [money_sender] could not pay for contract [contract].")
+		TRADE_DEBUG_LOG_IF(!delivered, "Supplier [goods_sender] could not provide goods for contract [contract].")
 
 		var/failures = tracker.BBSetDefault("CouldNotDeliver", 1)
 		tracker.BBSet("CouldNotDeliver", failures + 1)
