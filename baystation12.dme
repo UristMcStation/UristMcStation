@@ -3380,5 +3380,6 @@
 #include "maps\_map_include.dm"
 #include "maps\_maps.dm"
 #include "packs\legion\_pack.dm"
+#include "packs\legion\legion_warp_effect.dm"
 #include "~code\global_init.dm"
 // END_INCLUDE
