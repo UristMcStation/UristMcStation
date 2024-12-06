@@ -692,7 +692,7 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 	for(var/atom/A in atoms)
 		if(A)
 			var/icon/img = getFlatIcon(A)
-			if(istype(img, /icon))
+			if(isicon(img))
 				if(istype(A, /mob/living) && A:lying)
 					img.BecomeLying()
 				var/xoff = (A.x - tx) * 32
