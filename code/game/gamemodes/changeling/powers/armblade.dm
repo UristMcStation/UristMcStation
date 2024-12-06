@@ -129,7 +129,7 @@
 	var/mob/living/carbon/human/H = creator
 	if ( H.handcuffed || (H.stat != CONSCIOUS))
 		qdel(src)
-	if(!istype(loc,/mob))
+	if(!ismob(loc))
 		src.visible_message(SPAN_DANGER("\The [src] rapidly decays and melts into a puddle of slime!"))
 		new /obj/decal/cleanable/ling_vomit(src.loc)
 		qdel(src)
@@ -322,7 +322,7 @@
 	var/mob/living/carbon/human/H = creator
 	if ( H.handcuffed || (H.stat != CONSCIOUS))
 		qdel(src)
-	if(!istype(loc,/mob))
+	if(!ismob(loc))
 		src.visible_message(SPAN_DANGER("\The [src] rapidly decays and melts into a puddle of slime!"))
 		new /obj/decal/cleanable/ling_vomit(src.loc)
 		qdel(src)

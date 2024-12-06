@@ -907,7 +907,7 @@ var/global/list/obj/machinery/newscaster/allCasters = list() //Global list that 
 			src.curr_page--
 			playsound(src.loc, "pageturn", 50, 1)
 
-		if (istype(src.loc, /mob))
+		if (ismob(loc))
 			src.attack_self(src.loc)
 
 

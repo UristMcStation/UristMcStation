@@ -136,7 +136,7 @@
 		for(var/turf/T in targetTurfs)
 			chemholder.reagents.touch_turf(T)
 			for(var/atom/A in T.contents)
-				if(istype(A, /obj/effect/smoke/chem) || istype(A, /mob))
+				if(ismob(A) || istype(A, /obj/effect/smoke/chem))
 					continue
 				else if(isobj(A) && !A.simulated)
 					chemholder.reagents.touch_obj(A)

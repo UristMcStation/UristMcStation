@@ -72,7 +72,7 @@
 		if(!istype(T))
 			return FALSE
 		depth = T.get_fluid_depth()
-	if(istype(loc, /mob))
+	if(ismob(loc))
 		return depth >= FLUID_SHALLOW
 	if(istype(loc, /turf))
 		return depth >= 3

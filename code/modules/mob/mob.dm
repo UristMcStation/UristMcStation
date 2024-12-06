@@ -229,7 +229,7 @@
 		if(istype(pulling, /obj))
 			var/obj/O = pulling
 			. += clamp(O.w_class, 0, ITEM_SIZE_GARGANTUAN) / 5
-		else if(istype(pulling, /mob))
+		else if(ismob(pulling))
 			var/mob/M = pulling
 			. += max(0, M.mob_size) / MOB_MEDIUM
 		else
