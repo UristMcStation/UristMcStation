@@ -56,7 +56,7 @@
 	//..()
 	if(usr.stat || usr.restrained())
 		return
-	if(((istype(usr, /mob/living/carbon/human) && (usr.IsAdvancedToolUser() && usr.contents.Find(src))) || (usr.contents.Find(master) || (in_range(src, usr) && istype(loc, /turf)))))
+	if(((istype(usr, /mob/living/carbon/human) && (usr.IsAdvancedToolUser() && usr.contents.Find(src))) || (usr.contents.Find(master) || (in_range(src, usr) && isturf(loc)))))
 		usr.set_machine(src)
 		if(href_list["freq"])
 			var/new_frequency = sanitize_frequency(frequency + text2num(href_list["freq"]))
@@ -97,7 +97,7 @@
 	if(ismob(loc) && on)
 		var/mob/M = loc
 		var/turf/T = M.loc
-		if(istype(T, /turf))
+		if(isturf(T))
 			if(!M.moved_recently && M.last_move)
 				M.moved_recently = 1
 				step(M, M.last_move)

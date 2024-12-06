@@ -118,7 +118,7 @@
 		to_chat(owner, SPAN_WARNING("You must keep hold of your weapon!"))
 	else if(owner.eye_blind)
 		to_chat(owner, SPAN_WARNING("You are blind and cannot see your target!"))
-	else if(!aiming_at || !istype(aiming_at.loc, /turf))
+	else if(!aiming_at || !isturf(aiming_at.loc))
 		to_chat(owner, SPAN_WARNING("You have lost sight of your target!"))
 	else if(owner.incapacitated() || owner.lying || owner.restrained())
 		to_chat(owner, SPAN_WARNING("You must be conscious and standing to keep track of your target!"))

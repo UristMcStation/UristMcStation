@@ -480,7 +480,7 @@ SUBSYSTEM_DEF(jobs)
 	if(!joined_late || job.latejoin_at_spawnpoints)
 		var/obj/S = job.get_roundstart_spawnpoint()
 
-		if(istype(S, /obj/landmark/start) && istype(S.loc, /turf))
+		if(istype(S, /obj/landmark/start) && isturf(S.loc))
 			H.forceMove(S.loc)
 		else
 			var/datum/spawnpoint/spawnpoint = job.get_spawnpoint(H.client)

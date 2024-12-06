@@ -24,7 +24,7 @@
 
 /obj/item/mop/use_after(atom/A, mob/living/user, click_parameters)
 	var/moppable
-	if(istype(A, /turf))
+	if(isturf(A))
 		var/turf/T = A
 		var/obj/fluid/F = locate() in T
 		if(F && F.fluid_amount > 0)

@@ -551,7 +551,7 @@
 					rstats[i] = environment.vars[stats[i]]
 		else if(istype(T, /turf/simulated))
 			rstats = null // Exclude zone (wall, door, etc).
-		else if(istype(T, /turf))
+		else if(isturf(T))
 			// Should still work.  (/turf/return_air())
 			var/datum/gas_mixture/environment = T.return_air()
 			for(var/i=1;i<=length(stats);i++)

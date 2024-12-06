@@ -169,7 +169,7 @@ var/global/list/mining_floors = list()
 		return TRUE
 
 	if (istype(W, /obj/item/pickaxe))
-		if(!istype(user.loc, /turf))
+		if(!isturf(user.loc))
 			return
 
 		var/obj/item/pickaxe/P = W

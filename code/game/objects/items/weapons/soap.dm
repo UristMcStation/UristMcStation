@@ -132,7 +132,7 @@
 		to_chat(user, SPAN_NOTICE("You scrub \the [target.name] out."))
 		qdel(target)
 		cleaned = TRUE
-	else if(istype(target,/turf) || istype(target, /obj/structure/catwalk))
+	else if(isturf(/turf) || istype(target, /obj/structure/catwalk))
 		var/turf/T = get_turf(target)
 		if(!T)
 			return TRUE

@@ -20,7 +20,7 @@
 	if (!origin)
 		return FALSE
 	var/turf/epicenter
-	if (istype(origin, /turf))
+	if (isturf(origin))
 		epicenter = origin
 	else
 		epicenter = get_turf(origin)

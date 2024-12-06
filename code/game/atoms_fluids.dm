@@ -74,7 +74,7 @@
 		depth = T.get_fluid_depth()
 	if(ismob(loc))
 		return depth >= FLUID_SHALLOW
-	if(istype(loc, /turf))
+	if(isturf(loc))
 		return depth >= 3
 	return depth >= FLUID_OVER_MOB_HEAD
 

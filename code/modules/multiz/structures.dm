@@ -148,7 +148,7 @@
 	instant_climb(M)
 
 /obj/structure/ladder/proc/getTargetLadder(mob/M)
-	if((!target_up && !target_down) || (target_up && !istype(target_up.loc, /turf/simulated/open) || (target_down && !istype(target_down.loc, /turf))))
+	if((!target_up && !target_down) || (target_up && !istype(target_up.loc, /turf/simulated/open) || (target_down && !isturf(target_down.loc))))
 		to_chat(M, SPAN_NOTICE("\The [src] is incomplete and can't be climbed."))
 		return
 
