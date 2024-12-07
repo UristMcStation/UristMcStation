@@ -58,10 +58,10 @@ GLOBAL_VAR(production_subsystem_last_update_time)
 # endif
 
 // Inline version; generally preferable unless you REALLY need a proc
-#define INITIALIZE_PRODUCTION_SYSTEM_INLINE(Tickrate) if(TRUE) {\
+#define INITIALIZE_PRODUCTION_SYSTEM_INLINE(Tickrate) \
 	StartProductionConsumptionSystem(Tickrate); \
 	MARKETWATCH_DEBUG_LOG("Initialized a production/consumption subsystem with tickrate [DEFAULT_IF_NULL(Tickrate, DEFAULT_PRODUCTION_SYSTEM_TICKRATE)]"); \
-};
+;
 
 // Variant - does the same, but only if it's not already initialized
 #define INITIALIZE_PRODUCTION_SYSTEM_INLINE_IF_NEEDED(Tickrate) if(isnull(GOAI_LIBBED_GLOB_ATTR(production_subsystem_running))) {\
