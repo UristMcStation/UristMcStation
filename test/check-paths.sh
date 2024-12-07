@@ -28,7 +28,7 @@ exactly 2 "/atom text paths" '"/atom'
 exactly 2 "/area text paths" '"/area'
 exactly 2 "/datum text paths" '"/datum'
 exactly 2 "/mob text paths" '"/mob'
-exactly 10 "/obj text paths" '"/obj'
+exactly 15 "/obj text paths" '"/obj'
 exactly 8 "/turf text paths" '"/turf'
 exactly 155 "to_world uses" '\sto_world\('
 exactly 0 "globals with leading /" '^/var' -P

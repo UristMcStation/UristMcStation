@@ -188,12 +188,12 @@
 # define GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(OBJTYPE, AS_FNAME) \
 \
 ##OBJTYPE/GetUtilityActions(var/requester, var/list/args = null) { \
-    var/list/my_action_sets = list(); \
-    ASSERT(fexists(AS_FNAME)); \
-    var/datum/action_set/myset = ActionSetFromJsonFile(AS_FNAME); \
-    myset.origin = src; \
-    my_action_sets.Add(myset); \
-    return my_action_sets \
+	var/list/my_action_sets = list(); \
+	ASSERT(fexists(AS_FNAME)); \
+	var/datum/action_set/myset = ActionSetFromJsonFile(AS_FNAME); \
+	myset.origin = src; \
+	my_action_sets.Add(myset); \
+	return my_action_sets \
 } ;
 
 /* HasUtilityActions() impls */
