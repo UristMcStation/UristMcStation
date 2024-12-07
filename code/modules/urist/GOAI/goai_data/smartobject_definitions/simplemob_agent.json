@@ -396,7 +396,7 @@
 						"input_key": "threat",
 						"from_context": 1
 					},
-					"curve_proc": "/proc/curve_antilinear"
+					"curve_proc": "/proc/curve_linear"
 				},
 				{
 					"name": "ThreatInLOS",
