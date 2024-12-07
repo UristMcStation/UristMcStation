@@ -8,12 +8,12 @@
 	/* Simple callback meant as a default, resolves the trade instantly */
 	set waitfor = FALSE
 
-	to_world_log("INFO: RUNNING trade_apply_instant_abstract_success() @ [__LINE__] in [__FILE__]")
+	GOAI_LOG_DEBUG("INFO: RUNNING trade_apply_instant_abstract_success() @ [__LINE__] in [__FILE__]")
 	ASSETS_TABLE_LAZY_INIT(TRUE)
 	sleep(0)
 
 	if(!istype(contract))
-		to_world_log("ERROR: trade_apply_instant_success() received an invalid input type [contract] ([NULL_TO_TEXT(contract?.type)]) @ [__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: trade_apply_instant_success() received an invalid input type [contract] ([NULL_TO_TEXT(contract?.type)]) @ [__LINE__] in [__FILE__]")
 		return
 
 	if(!contract.escrow)
@@ -27,13 +27,13 @@
 	var/datum/my_creator = contract.creator
 
 	if(!istype(my_creator))
-		to_world_log("ERROR: trade_apply_instant_abstract_success contract creator ([NULL_TO_TEXT(my_creator)]) is not a datum @ L[__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: trade_apply_instant_abstract_success contract creator ([NULL_TO_TEXT(my_creator)]) is not a datum @ L[__LINE__] in [__FILE__]")
 		return
 
 	var/creator_global_id = GET_GLOBAL_ID_LAZY(my_creator)
 
 	if(isnull(creator_global_id))
-		to_world_log("ERROR: trade_apply_instant_abstract_success contract creator ([NULL_TO_TEXT(my_creator)]) has no global ID @ L[__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: trade_apply_instant_abstract_success contract creator ([NULL_TO_TEXT(my_creator)]) has no global ID @ L[__LINE__] in [__FILE__]")
 		return
 
 	var/creator_has_account = HAS_REGISTERED_ASSETS(creator_global_id)
@@ -44,13 +44,13 @@
 	var/datum/my_receiver = contract.receiver
 
 	if(!istype(my_receiver))
-		to_world_log("ERROR: trade_apply_instant_abstract_success contract receiver ([NULL_TO_TEXT(my_receiver)]) is not a datum @ L[__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: trade_apply_instant_abstract_success contract receiver ([NULL_TO_TEXT(my_receiver)]) is not a datum @ L[__LINE__] in [__FILE__]")
 		return
 
 	var/receiver_global_id = GET_GLOBAL_ID_LAZY(my_receiver)
 
 	if(isnull(receiver_global_id))
-		to_world_log("ERROR: trade_apply_instant_abstract_success contract receiver ([NULL_TO_TEXT(my_receiver)]) has no global ID @ L[__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: trade_apply_instant_abstract_success contract receiver ([NULL_TO_TEXT(my_receiver)]) has no global ID @ L[__LINE__] in [__FILE__]")
 		return
 
 	var/receiver_has_account = HAS_REGISTERED_ASSETS(receiver_global_id)
@@ -83,15 +83,15 @@
 		if(escrow_key == NEED_WEALTH)
 			//curr_sender = money_sender
 			curr_recipient = money_receiver
-			to_world_log("DEBUG: trade_apply_instant_abstract_success current receiver for [escrow_key] @ [escrow_val] is the money receiver ([NULL_TO_TEXT(curr_recipient)]) @Time: [world.time];  @ L[__LINE__] in [__FILE__]")
+			GOAI_LOG_DEBUG("DEBUG: trade_apply_instant_abstract_success current receiver for [escrow_key] @ [escrow_val] is the money receiver ([NULL_TO_TEXT(curr_recipient)]) @Time: [world.time];  @ L[__LINE__] in [__FILE__]")
 
 		else
 			//curr_sender = goods_sender
 			curr_recipient = goods_receiver
-			to_world_log("DEBUG: trade_apply_instant_abstract_success current receiver for [escrow_key] @ [escrow_val] is the goods receiver ([NULL_TO_TEXT(curr_recipient)]) @Time: [world.time]; @ L[__LINE__] in [__FILE__]")
+			GOAI_LOG_DEBUG("DEBUG: trade_apply_instant_abstract_success current receiver for [escrow_key] @ [escrow_val] is the goods receiver ([NULL_TO_TEXT(curr_recipient)]) @Time: [world.time]; @ L[__LINE__] in [__FILE__]")
 
 		if(isnull(curr_recipient))
-			to_world_log("ERROR: trade_apply_instant_abstract_success current receiver ([NULL_TO_TEXT(curr_recipient)]) is null @ L[__LINE__] in [__FILE__]")
+			GOAI_LOG_ERROR("ERROR: trade_apply_instant_abstract_success current receiver ([NULL_TO_TEXT(curr_recipient)]) is null @ L[__LINE__] in [__FILE__]")
 			continue
 
 		var/receiver_id = GET_GLOBAL_ID_LAZY(curr_recipient)
@@ -118,5 +118,5 @@
 
 	// All done!
 	contract.is_open = FALSE
-	to_world_log("INFO: FINISHED trade_apply_instant_abstract_success() @ L[__LINE__] in [__FILE__]")
+	GOAI_LOG_DEBUG("INFO: FINISHED trade_apply_instant_abstract_success() @ L[__LINE__] in [__FILE__]")
 	return

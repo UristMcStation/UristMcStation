@@ -56,7 +56,7 @@
 			abs_spec_path = GOAI_FACTIONSPEC_PATH(spec_file)
 
 		READ_JSON_FILE_CACHED(abs_spec_path, factionspec)
-		to_world_log("Read factionspec [abs_spec_path] for [src] ([json_encode(factionspec)])")
+		GOAI_LOG_DEBUG("Read factionspec [abs_spec_path] for [src] ([json_encode(factionspec)])")
 
 	var/faction_name = null
 	if(factionspec)
@@ -114,7 +114,7 @@
 	// if for whatever reason the faction gets de-registered from a global list,
 	// this would result in the pawn getting nulled out.
 	src.pawn = REFERENCE_PAWN(new_faction)
-	to_world_log("The pawn for Faction AI [src] is [src.pawn] ([faction_name])")
+	GOAI_LOG_DEBUG("The pawn for Faction AI [src] is [src.pawn] ([faction_name])")
 
 	// Initial Assets (things this faction 'owns')
 	// Note this needs to happen AFTER the main datum init.

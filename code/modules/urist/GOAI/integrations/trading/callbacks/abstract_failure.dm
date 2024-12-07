@@ -12,12 +12,12 @@
 	// each party deposited *back to them*.
 	*/
 	set waitfor = FALSE
-	to_world_log("INFO: RUNNING trade_apply_instant_abstract_failure() @ [__LINE__] in [__FILE__]")
+	GOAI_LOG_DEBUG("INFO: RUNNING trade_apply_instant_abstract_failure() @ [__LINE__] in [__FILE__]")
 	ASSETS_TABLE_LAZY_INIT(TRUE)
 	sleep(0)
 
 	if(!istype(contract))
-		to_world_log("ERROR: trade_apply_instant_abstract_failure() received an invalid input type [contract] ([NULL_TO_TEXT(contract?.type)]) @ [__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: trade_apply_instant_abstract_failure() received an invalid input type [contract] ([NULL_TO_TEXT(contract?.type)]) @ [__LINE__] in [__FILE__]")
 		return
 
 	if(!contract.escrow)
@@ -31,15 +31,15 @@
 	var/datum/my_creator = contract.creator
 
 	if(!istype(my_creator))
-		to_world_log("ERROR: trade_apply_instant_abstract_failure contract creator ([NULL_TO_TEXT(my_creator)]) is not a datum")
+		GOAI_LOG_ERROR("ERROR: trade_apply_instant_abstract_failure contract creator ([NULL_TO_TEXT(my_creator)]) is not a datum")
 		return
 
 	if(isnull(my_creator.global_id))
-		to_world_log("WARNING: trade_apply_instant_abstract_failure contract receiver ([NULL_TO_TEXT(my_creator)]) has no global ID - attempting to initialize")
+		GOAI_LOG_DEBUG("WARNING: trade_apply_instant_abstract_failure contract receiver ([NULL_TO_TEXT(my_creator)]) has no global ID - attempting to initialize")
 		my_creator.InitializeGlobalId()
 
 	if(isnull(my_creator.global_id))
-		to_world_log("ERROR: trade_apply_instant_abstract_failure contract receiver ([NULL_TO_TEXT(my_creator)]) has no global ID")
+		GOAI_LOG_ERROR("ERROR: trade_apply_instant_abstract_failure contract receiver ([NULL_TO_TEXT(my_creator)]) has no global ID")
 		return
 
 	var/creator_has_account = HAS_REGISTERED_ASSETS(my_creator.global_id)
@@ -50,15 +50,15 @@
 	var/datum/my_receiver = contract.receiver
 
 	if(!istype(my_receiver))
-		to_world_log("ERROR: trade_apply_instant_abstract_failure contract receiver ([NULL_TO_TEXT(my_receiver)]) is not a datum")
+		GOAI_LOG_ERROR("ERROR: trade_apply_instant_abstract_failure contract receiver ([NULL_TO_TEXT(my_receiver)]) is not a datum")
 		return
 
 	if(isnull(my_receiver.global_id))
-		to_world_log("WARNING: trade_apply_instant_abstract_failure contract receiver ([NULL_TO_TEXT(my_receiver)]) has no global ID - attempting to initialize")
+		GOAI_LOG_DEBUG("WARNING: trade_apply_instant_abstract_failure contract receiver ([NULL_TO_TEXT(my_receiver)]) has no global ID - attempting to initialize")
 		my_receiver.InitializeGlobalId()
 
 	if(isnull(my_receiver.global_id))
-		to_world_log("ERROR: trade_apply_instant_abstract_failure contract receiver ([NULL_TO_TEXT(my_receiver)]) has no global ID")
+		GOAI_LOG_ERROR("ERROR: trade_apply_instant_abstract_failure contract receiver ([NULL_TO_TEXT(my_receiver)]) has no global ID")
 		return
 
 	var/receiver_has_account = HAS_REGISTERED_ASSETS(my_receiver.global_id)
@@ -142,7 +142,7 @@
 				penalty = 0
 
 		if(isnull(curr_recipient))
-			to_world_log("ERROR: trade_apply_instant_abstract_failure current receiver ([NULL_TO_TEXT(curr_recipient)]) is null")
+			GOAI_LOG_ERROR("ERROR: trade_apply_instant_abstract_failure current receiver ([NULL_TO_TEXT(curr_recipient)]) is null")
 			continue
 
 		var/list/receiver_assets = GET_ASSETS_TRACKER(curr_recipient.global_id)
@@ -159,7 +159,7 @@
 		// Return everything else to the Sender.
 
 		if(isnull(curr_sender))
-			to_world_log("ERROR: trade_apply_instant_abstract_failure current sender ([NULL_TO_TEXT(curr_sender)]) is not a datum")
+			GOAI_LOG_ERROR("ERROR: trade_apply_instant_abstract_failure current sender ([NULL_TO_TEXT(curr_sender)]) is not a datum")
 			continue
 
 		var/list/sender_assets = GET_ASSETS_TRACKER(curr_sender.global_id)
@@ -195,5 +195,5 @@
 
 	// All done!
 	contract.is_open = FALSE
-	to_world_log("INFO: FINISHED trade_apply_instant_abstract_failure() @ [__LINE__] in [__FILE__]")
+	GOAI_LOG_DEBUG("INFO: FINISHED trade_apply_instant_abstract_failure() @ [__LINE__] in [__FILE__]")
 	return

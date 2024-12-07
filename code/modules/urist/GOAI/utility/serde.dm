@@ -226,7 +226,7 @@
 # define JSON_KEY_SO_FETCHER_RETENTION_TIME "retention_time_dseconds"
 
 /proc/UtilitySmartobjectFetcherFromJsonFile(var/json_filepath) // str -> ActionTemplate
-	GOAI_LOG_DEVEL("Creating a utility_sense_fetcher from [json_filepath]")
+	GOAI_LOG_DEBUG("Creating a utility_sense_fetcher from [json_filepath]")
 	ASSERT(json_filepath)
 
 	var/list/json_data = null; READ_JSON_FILE_CACHED(json_filepath, json_data)
@@ -289,7 +289,7 @@
 						not_matched = FALSE
 
 					else
-						GOAI_LOG_DEVEL("DEBUG: Regex Cache miss for [raw_precond_key]: [uncached_match] ([length(uncached_match)])")
+						GOAI_LOG_DEBUG("DEBUG: Regex Cache miss for [raw_precond_key]: [uncached_match] ([length(uncached_match)])")
 				# endif
 
 				if(not_matched)

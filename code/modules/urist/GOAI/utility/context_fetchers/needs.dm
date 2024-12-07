@@ -69,12 +69,12 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_get_needs)
 		if(disjoint_thresh)
 			// we're looking for tails, so only one predicate can be satisfied
 			if(!(aboveness || belowness))
-				to_world_log("Skipping [need_key] for [requester_ai.name] - DISJOINT CASE, failed [above_threshold] < val [curr_need_value] or > [below_threshold]  @ L[__LINE__] in [__FILE__]")
+				GOAI_LOG_DEBUG("Skipping [need_key] for [requester_ai.name] - DISJOINT CASE, failed [above_threshold] < val [curr_need_value] or > [below_threshold]  @ L[__LINE__] in [__FILE__]")
 				continue
 		else
 			// we're looking for an intersection, so both must be satisfied
 			if(!(aboveness && belowness))
-				to_world_log("Skipping [need_key] for [requester_ai.name] - MIDDLE CASE, failed [above_threshold] > val [curr_need_value] and < [below_threshold] @ L[__LINE__] in [__FILE__]")
+				GOAI_LOG_DEBUG("Skipping [need_key] for [requester_ai.name] - MIDDLE CASE, failed [above_threshold] > val [curr_need_value] and < [below_threshold] @ L[__LINE__] in [__FILE__]")
 				continue
 
 		// We survived the checks; emit a context

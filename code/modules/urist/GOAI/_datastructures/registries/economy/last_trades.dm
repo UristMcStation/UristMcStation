@@ -31,7 +31,6 @@ GLOBAL_LIST_EMPTY(global_pricepoint_registry)
 
 	var/db_filepath = isnull(filepath_override) ? DEFAULT_PRICEPOINT_DB_FP : filepath_override
 	READ_JSON_FILE_CACHED(db_filepath, GOAI_LIBBED_GLOB_ATTR(global_pricepoint_registry))
-	to_world_log("New PricepointsDB is [GOAI_LIBBED_GLOB_ATTR(global_pricepoint_registry) ? json_encode(GOAI_LIBBED_GLOB_ATTR(global_pricepoint_registry)) : "uninitialized"] from [db_filepath]")
 
 	if(!GOAI_LIBBED_GLOB_ATTR(global_pricepoint_registry))
 		GOAI_LIBBED_GLOB_ATTR(global_pricepoint_registry) = null

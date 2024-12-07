@@ -1,6 +1,6 @@
 
 /datum/utility_ai/mob_commander/proc/FleeFrom(var/datum/ActionTracker/tracker, var/atom/threat, var/timeout = null)
-	GOAI_LOG_DEVEL_WORLD("[src] fleeing from [islist(threat) ? json_encode(threat) : threat]")
+	GOAI_LOG_DEBUG_WORLD("[src] fleeing from [islist(threat) ? json_encode(threat) : threat]")
 
 	if(isnull(tracker))
 		RUN_ACTION_DEBUG_LOG("Tracker position is null | <@[src]> | [__FILE__] -> L[__LINE__]")

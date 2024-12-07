@@ -117,7 +117,6 @@ GLOBAL_LIST_EMPTY(commodity_db)
 
 	var/db_filepath = isnull(filepath_override) ? DEFAULT_COMMODITY_DB_FP : filepath_override
 	READ_JSON_FILE_CACHED(db_filepath, GOAI_LIBBED_GLOB_ATTR(commodity_db))
-	to_world_log("New CommodityDB is [GOAI_LIBBED_GLOB_ATTR(commodity_db) ? json_encode(GOAI_LIBBED_GLOB_ATTR(commodity_db)) : "uninitialized"] from [db_filepath]")
 
 	if(!GOAI_LIBBED_GLOB_ATTR(commodity_db))
 		GOAI_LIBBED_GLOB_ATTR(commodity_db) = null

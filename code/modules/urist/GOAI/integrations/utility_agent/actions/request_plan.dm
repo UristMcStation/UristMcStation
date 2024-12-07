@@ -129,7 +129,7 @@
 	tracker.SetDone()
 
 	// temp devshit, will probably regret it again
-	GOAI_LOG_DEVEL("Nulling out SmartOrders! | <@[src]> | [__FILE__] -> L[__LINE__]")
+	GOAI_LOG_DEBUG("Nulling out SmartOrders! | <@[src]> | [__FILE__] -> L[__LINE__]")
 	src.brain.SetMemory("SmartOrders", null)
 	return
 

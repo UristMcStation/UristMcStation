@@ -62,13 +62,13 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_trade_desirability)
 	CONSIDERATION_GET_INPUT_KEY(var/datasource_key)
 
 	if(isnull(datasource_key))
-		to_world_log("ERROR: consideration_trade_desirability for [requester]: datasource_key [datasource_key || "null"] is null")
+		GOAI_LOG_ERROR("ERROR: consideration_trade_desirability for [requester]: datasource_key [datasource_key || "null"] is null")
 		return 0
 
 	var/datum/trade_offer/offer = datasource[datasource_key]
 
 	if(!istype(offer))
-		to_world_log("ERROR: consideration_trade_desirability for [requester]: received offer [offer || "null"] is not of a valid trade_offer type!")
+		GOAI_LOG_ERROR("ERROR: consideration_trade_desirability for [requester]: received offer [offer || "null"] is not of a valid trade_offer type!")
 		return 0
 
 	var/commodity = offer.commodity_key
@@ -252,7 +252,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_we_can_fulfill)
 		return null
 
 	if(!istype(contract))
-		to_world_log("ERROR: consideration_we_can_fulfill for [requester] - Contract is not a valid type! @ L[__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: consideration_we_can_fulfill for [requester] - Contract is not a valid type! @ L[__LINE__] in [__FILE__]")
 		return null
 
 	if(!contract.is_open)

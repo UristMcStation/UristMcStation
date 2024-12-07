@@ -31,7 +31,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_get_need_perc)
 	var/log_need_value = consideration_args?["log_need_value"]
 
 	if(log_need_value)
-		to_world_log("INFO: consideration_input_get_lowest_need_perc for [requesting_brain] - raw need value for Need [need_key] is [NULL_TO_TEXT(value)] @ L[__LINE__] in [__FILE__]!")
+		GOAI_LOG_DEBUG("INFO: consideration_input_get_lowest_need_perc for [requesting_brain] - raw need value for Need [need_key] is [NULL_TO_TEXT(value)] @ L[__LINE__] in [__FILE__]!")
 
 	if(isnull(value))
 		return default
@@ -95,7 +95,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_get_lowest_need_perc)
 	var/log_need_value = consideration_args?["log_need_value"]
 
 	if(log_need_value)
-		to_world_log("INFO: consideration_input_get_lowest_need_perc for [requesting_brain] - raw need value for Need [lowest_need] is [NULL_TO_TEXT(lowest_value)] @ L[__LINE__] in [__FILE__]!")
+		GOAI_LOG_DEBUG("INFO: consideration_input_get_lowest_need_perc for [requesting_brain] - raw need value for Need [lowest_need] is [NULL_TO_TEXT(lowest_value)] @ L[__LINE__] in [__FILE__]!")
 
 	if(isnull(lowest_need))
 		return default

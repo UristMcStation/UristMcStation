@@ -63,11 +63,11 @@
 # endif
 
 #ifdef ENABLE_GOAI_DEVEL_LOGGING
-	#define GOAI_LOG_DEVEL(Msg) to_world_log(Msg)
-	#define GOAI_LOG_DEVEL_WORLD(Msg) to_world(Msg)
+	#define GOAI_LOG_DEBUG(Msg) to_world_log(Msg)
+	#define GOAI_LOG_DEBUG_WORLD(Msg) to_world(Msg)
 #else
-	#define GOAI_LOG_DEVEL(Msg)
-	#define GOAI_LOG_DEVEL_WORLD(Msg)
+	#define GOAI_LOG_DEBUG(Msg)
+	#define GOAI_LOG_DEBUG_WORLD(Msg)
 #endif
 
 #ifdef ENABLE_GOAI_ERROR_LOGGING

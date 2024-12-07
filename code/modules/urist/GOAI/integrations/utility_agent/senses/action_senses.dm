@@ -58,7 +58,7 @@
 		var/has_actions = cand.HasUtilityActions(owner.GetPawn())
 
 		if(!has_actions)
-			//GOAI_LOG_DEVEL("[cand] has no actions ([has_actions])")
+			//GOAI_LOG_DEBUG("[cand] has no actions ([has_actions])")
 			continue
 
 		smartobjects.Add(cand)

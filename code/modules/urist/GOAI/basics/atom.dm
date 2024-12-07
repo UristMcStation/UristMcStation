@@ -63,7 +63,7 @@
 
 	shotby - a reference to who shot us (atom - to incl. turret objects etc.)
 	*/
-	GOAI_LOG_DEVEL_WORLD("[src] hit by [hitby]")
+	GOAI_LOG_DEBUG_WORLD("[src] hit by [hitby]")
 	FetchAiControllerForObjIntoVar(src, var/datum/utility_ai/commander)
 	if(istype(commander))
 		commander.HitMelee(src, hitby)
@@ -80,7 +80,7 @@
 
 	shotby - a reference to who shot us (atom - to incl. turret objects etc.)
 	*/
-	GOAI_LOG_DEVEL_WORLD("[src] shot by [shotby]")
+	GOAI_LOG_DEBUG_WORLD("[src] shot by [shotby]")
 	FetchAiControllerForObjIntoVar(src, var/datum/utility_ai/commander)
 	if(istype(commander))
 		commander.HitRanged(src, hit_angle, shotby)
