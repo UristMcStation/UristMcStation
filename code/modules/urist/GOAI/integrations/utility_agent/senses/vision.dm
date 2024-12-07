@@ -38,7 +38,7 @@
 
 	for(var/atom/viewthing in _raw_visual_range)
 		if(!(CHECK_ALL_FLAGS(viewthing.goai_processing_visibility, GOAI_VISTYPE_STANDARD)))
-			//GOAI_LOG_DEVEL("Skipping [viewthing] from sight - goai_processing_visibility is [viewthing.goai_processing_visibility] vs [GOAI_VISTYPE_STANDARD] required.")
+			//GOAI_LOG_DEBUG("Skipping [viewthing] from sight - goai_processing_visibility is [viewthing.goai_processing_visibility] vs [GOAI_VISTYPE_STANDARD] required.")
 			continue
 
 		visual_range.Add(viewthing)

@@ -102,7 +102,7 @@
 
 // PrintPair, debug callback for testing callbacks
 /proc/_print_pair(var/left, var/right)
-	GOAI_LOG_DEVEL_WORLD("LEFT: [left] & RIGHT: [right]")
+	GOAI_LOG_DEBUG_WORLD("LEFT: [left] & RIGHT: [right]")
 	return
 
 
@@ -120,7 +120,7 @@
 /mob/proc/TogglePrintPair()
 	var/client/mobclient = src.client
 	if(isnull(mobclient))
-		GOAI_LOG_DEVEL_WORLD("Client for [src] is null!")
+		GOAI_LOG_DEBUG_WORLD("Client for [src] is null!")
 		return
 
 	mobclient.mode ^= MODE_SELECT
@@ -130,7 +130,7 @@
 	// for simplicity, wipe the blackboard anytime the callback changes
 	mobclient.blackboard = list()
 
-	GOAI_LOG_DEVEL_WORLD("Client [mobclient] [select_enabled ? "now" : "no longer"] does PrintPair...")
+	GOAI_LOG_DEBUG_WORLD("Client [mobclient] [select_enabled ? "now" : "no longer"] does PrintPair...")
 	return
 
 
@@ -237,7 +237,7 @@
 		mobclient.blackboard["TargetCommander"] = M
 		mobclient.blackboard["TargetState"] = jsondata
 
-	GOAI_LOG_DEVEL_WORLD("Client [mobclient] [select_enabled ? "now" : "no longer"] does CommanderGiveGOAPSolverOrder...")
+	GOAI_LOG_DEBUG_WORLD("Client [mobclient] [select_enabled ? "now" : "no longer"] does CommanderGiveGOAPSolverOrder...")
 	return
 
 
@@ -262,5 +262,5 @@
 	if(select_enabled)
 		mobclient.blackboard["TargetCommander"] = M
 
-	GOAI_LOG_DEVEL_WORLD("Client [mobclient] [select_enabled ? "now" : "no longer"] does CommanderGiveMoveOrderClick...")
+	GOAI_LOG_DEBUG_WORLD("Client [mobclient] [select_enabled ? "now" : "no longer"] does CommanderGiveMoveOrderClick...")
 	return

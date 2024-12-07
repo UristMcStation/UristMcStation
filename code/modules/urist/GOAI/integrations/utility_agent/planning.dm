@@ -85,7 +85,7 @@
 				not_matched = FALSE
 
 			else
-				GOAI_LOG_DEVEL("DEBUG: Regex Cache miss for [query]: [uncached_match] ([length(uncached_match)])")
+				GOAI_LOG_DEBUG("DEBUG: Regex Cache miss for [query]: [uncached_match] ([length(uncached_match)])")
 		# endif
 
 		if(not_matched)
@@ -216,7 +216,7 @@
 							not_matched = FALSE
 
 						else
-							GOAI_LOG_DEVEL("DEBUG: Regex Cache miss for [query_key]: [uncached_match] ([length(uncached_match)])")
+							GOAI_LOG_DEBUG("DEBUG: Regex Cache miss for [query_key]: [uncached_match] ([length(uncached_match)])")
 					# endif
 
 					if(not_matched)

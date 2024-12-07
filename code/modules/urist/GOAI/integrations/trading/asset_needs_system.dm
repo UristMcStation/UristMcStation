@@ -55,7 +55,7 @@ GLOBAL_LIST_EMPTY(assetneeds_assets_totals_table)
 	var/ticker_id = my_id || ASSETNEEDS_SYSTEM_TICKER_ID_HASH(1000)
 	var/tick_rate = max(1, DEFAULT_IF_NULL(tickrate, DEFAULT_ASSETNEEDS_SYSTEM_TICKRATE))
 	GOAI_LIBBED_GLOB_ATTR(assetneeds_subsystem_running) = ticker_id
-	to_world_log("= ASSET-NEEDS SYSTEM: Initialized an asset-needs subsystem with tickrate [tick_rate] =")
+	GOAI_LOG_DEBUG("= ASSET-NEEDS SYSTEM: Initialized an asset-needs subsystem with tickrate [tick_rate] =")
 
 	// Waitfor is false, so we use this sleep to detach the 'thread'
 	sleep(0)
@@ -64,7 +64,7 @@ GLOBAL_LIST_EMPTY(assetneeds_assets_totals_table)
 	// If we start a new instance, it will take over the value in the global
 	// thereby terminating any old instances.
 	while(ticker_id == GOAI_LIBBED_GLOB_ATTR(assetneeds_subsystem_running))
-		to_world_log("= ASSET-NEEDS SYSTEM: STARTED TICK! =")
+		GOAI_LOG_DEBUG("= ASSET-NEEDS SYSTEM: STARTED TICK! =")
 
 		// We start the tally fresh each tick to avoid statefulness bugs
 		GOAI_LIBBED_GLOB_ATTR(assetneeds_assets_totals_table) = list()
@@ -89,12 +89,12 @@ GLOBAL_LIST_EMPTY(assetneeds_assets_totals_table)
 			// TODO add a mechanism for player-controlled things to provide a valid ID too
 
 			if(!istype(faction))
-				to_world_log("= ASSET-NEEDS SYSTEM: SKIPPING for ref [NULL_TO_TEXT(faction)] - wrong type! =")
+				GOAI_LOG_DEBUG("= ASSET-NEEDS SYSTEM: SKIPPING for ref [NULL_TO_TEXT(faction)] - wrong type! =")
 				continue
 
 			var/faction_id = GET_GLOBAL_ID_LAZY(faction)
 			var/list/assets = GET_ASSETS_TRACKER(faction_id)
-			to_world_log("= ASSET-NEEDS SYSTEM: PROCESSING [faction.name]|ID=[faction_id] with assets: [json_encode(assets)] @TIME:[world.time] =")
+			GOAI_LOG_DEBUG("= ASSET-NEEDS SYSTEM: PROCESSING [faction.name]|ID=[faction_id] with assets: [json_encode(assets)] @TIME:[world.time] =")
 
 			if(isnull(GOAI_LIBBED_GLOB_ATTR(commodity_db)))
 				InitCommodityDb()
@@ -136,7 +136,7 @@ GLOBAL_LIST_EMPTY(assetneeds_assets_totals_table)
 					new_need_values[need_key] = new_need_val
 
 			// all need deltas calculated, now apply...
-			to_world_log("= ASSET-NEEDS SYSTEM: Updated for [NULL_TO_TEXT(faction)]... =")
+			GOAI_LOG_DEBUG("= ASSET-NEEDS SYSTEM: Updated for [NULL_TO_TEXT(faction)]... =")
 			aibrain.SetNeedBatched(new_need_values)
 
 		// Wait for the next iteration

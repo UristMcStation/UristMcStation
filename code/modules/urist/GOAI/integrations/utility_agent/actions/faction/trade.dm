@@ -21,14 +21,14 @@
 	var/datum/trade_offer/offer = input
 
 	if(!istype(offer))
-		to_world_log("AcceptTradeOffer ([src]): Invalid offer type for offer object [NULL_TO_TEXT(offer)]!")
+		GOAI_LOG_ERROR("AcceptTradeOffer ([src]): Invalid offer type for offer object [NULL_TO_TEXT(offer)]!")
 		tracker.SetFailed()
 		return
 
 	var/ai_pawn = src.GetPawn()  // usually a faction, though COULD be a mob too
 
 	if(isnull(ai_pawn))
-		to_world_log("AcceptTradeOffer ([src]): Does not have a pawn ([NULL_TO_TEXT(ai_pawn)]).")
+		GOAI_LOG_ERROR("AcceptTradeOffer ([src]): Does not have a pawn ([NULL_TO_TEXT(ai_pawn)]).")
 		tracker.SetFailed()
 		return
 
@@ -55,7 +55,7 @@
 	var/datum/brain/ai_brain = src.brain
 
 	if(!istype(ai_brain))
-		to_world_log("CreateSellOfferForNeed: object [ai_brain] is not a brain!")
+		GOAI_LOG_ERROR("CreateSellOfferForNeed: object [ai_brain] is not a brain!")
 		tracker.SetFailed()
 		return
 
@@ -63,7 +63,7 @@
 	var/curr_need = ai_brain.GetNeed(need_key, null)
 
 	if(isnull(curr_need))
-		to_world_log("CreateSellOfferForNeed: need_key [need_key] value is null!")
+		GOAI_LOG_ERROR("CreateSellOfferForNeed: need_key [need_key] value is null!")
 		tracker.SetFailed()
 		return
 
@@ -71,7 +71,7 @@
 	var/commodity = src.GetBestSaleCommodityForNeed(need_key)
 
 	if(isnull(commodity))
-		to_world_log("ERROR: CreateSellOfferForNeed: [src.name] Commodity for [need_key] is null ([commodity])")
+		GOAI_LOG_ERROR("ERROR: CreateSellOfferForNeed: [src.name] Commodity for [need_key] is null ([commodity])")
 		tracker.SetFailed()
 		return
 
@@ -101,13 +101,13 @@
 
 	// ...converted into what it would be as a need delta
 	var/min_viable_need_delta = GetUtilityAsNeedDelta(min_trade_utility, need_key, curr_need)
-	to_world_log("CreateSellOfferForNeed: [src.name] - min_trade_utility is [min_trade_utility], min_viable_need_delta is [min_viable_need_delta], curr_need is [curr_need]")
+	GOAI_LOG_DEBUG("CreateSellOfferForNeed: [src.name] - min_trade_utility is [min_trade_utility], min_viable_need_delta is [min_viable_need_delta], curr_need is [curr_need]")
 
 	var/need_safety_margin = 15
 
 	if((min_viable_need_delta + need_safety_margin) >= curr_need)
 		// Can't afford it without putting ourselves in danger!
-		to_world_log("CreateSellOfferForNeed: Cannot safely offer [need_key] - Need is [curr_need], min delta is [min_viable_need_delta] + margin [need_safety_margin]")
+		GOAI_LOG_DEBUG("CreateSellOfferForNeed: Cannot safely offer [need_key] - Need is [curr_need], min delta is [min_viable_need_delta] + margin [need_safety_margin]")
 		tracker.SetFailed()
 		return
 
@@ -123,7 +123,7 @@
 	var/need_delta_total = -max(min_viable_need_delta, rand_delta)
 
 	// If we can sell more than minimum, go for it
-	to_world_log("CreateSellOfferForNeed: [src.name] - need_delta_total is [need_delta_total], rand factor is [rand_delta], min factor is [min_viable_need_delta], curr_need is [curr_need]")
+	GOAI_LOG_DEBUG("CreateSellOfferForNeed: [src.name] - need_delta_total is [need_delta_total], rand factor is [rand_delta], min factor is [min_viable_need_delta], curr_need is [curr_need]")
 
 	if(need_delta_total > 0)
 		// Would put us in danger (or some code went rogue), abort!
@@ -134,7 +134,7 @@
 	var/raw_trade_amount = src.GetCommodityAmountForNeedDelta(commodity, need_key, need_delta_total)  // should usually return a negative value!
 
 	if(isnull(raw_trade_amount))
-		to_world_log("ERROR: CreateSellOfferForNeed: [src.name] Commodity raw_trade_amount for [need_key] is [NULL_TO_TEXT(raw_trade_amount)]")
+		GOAI_LOG_ERROR("ERROR: CreateSellOfferForNeed: [src.name] Commodity raw_trade_amount for [need_key] is [NULL_TO_TEXT(raw_trade_amount)]")
 		tracker.SetFailed()
 		return
 
@@ -165,7 +165,7 @@
 	var/raw_asking_price = src.GetMoneyForNeedUtility(total_pricing_utility, safe_wealth)
 
 	if(isnull(raw_asking_price))
-		to_world_log("ERROR: CreateSellOfferForNeed: [src.name] Commodity raw_asking_price for [total_pricing_utility] is [NULL_TO_TEXT(raw_asking_price)]")
+		GOAI_LOG_ERROR("ERROR: CreateSellOfferForNeed: [src.name] Commodity raw_asking_price for [total_pricing_utility] is [NULL_TO_TEXT(raw_asking_price)]")
 		tracker.SetFailed()
 		return
 
@@ -226,7 +226,7 @@
 	var/datum/brain/ai_brain = src.brain
 
 	if(!istype(ai_brain))
-		to_world_log("CreateBuyOfferForNeed: object [ai_brain] is not a brain!")
+		GOAI_LOG_ERROR("CreateBuyOfferForNeed: object [ai_brain] is not a brain!")
 		tracker.SetFailed()
 		return
 
@@ -234,7 +234,7 @@
 	var/curr_need = ai_brain.GetNeed(need_key, null)
 
 	if(isnull(curr_need))
-		to_world_log("CreateBuyOfferForNeed: need_key [need_key] value is null!")
+		GOAI_LOG_ERROR("CreateBuyOfferForNeed: need_key [need_key] value is null!")
 		tracker.SetFailed()
 		return
 
@@ -284,7 +284,7 @@
 	var/commodity = src.GetBestPurchaseCommodityForNeed(need_key)
 
 	if(isnull(commodity))
-		to_world_log("ERROR: CreateBuyOfferForNeed: [src.name] Commodity for [need_key] is [NULL_TO_TEXT(commodity)]")
+		GOAI_LOG_ERROR("ERROR: CreateBuyOfferForNeed: [src.name] Commodity for [need_key] is [NULL_TO_TEXT(commodity)]")
 		tracker.SetFailed()
 		return
 
@@ -400,19 +400,19 @@
 	var/datum/trade_contract/contract = input
 
 	if(!istype(contract))
-		to_world_log("ContractDispatchInstant ([src]): Invalid offer type for contract object [NULL_TO_TEXT(contract)]!")
+		GOAI_LOG_ERROR("ContractDispatchInstant ([src]): Invalid offer type for contract object [NULL_TO_TEXT(contract)]!")
 		tracker.SetFailed()
 		return
 
 	if(!(contract.is_open))
-		to_world_log("ContractDispatchInstant ([src]): Contract [contract] is closed (expired or already fulfilled)!")
+		GOAI_LOG_DEBUG("ContractDispatchInstant ([src]): Contract [contract] is closed (expired or already fulfilled)!")
 		tracker.SetFailed()
 		return
 
 	var/datum/ai_pawn = src.GetPawn()  // usually a faction, though COULD be a mob too
 
 	if(!istype(ai_pawn))
-		to_world_log("ContractDispatchInstant ([src]): Does not have a valid pawn ([NULL_TO_TEXT(ai_pawn)]).")
+		GOAI_LOG_ERROR("ContractDispatchInstant ([src]): Does not have a valid pawn ([NULL_TO_TEXT(ai_pawn)]).")
 		tracker.SetFailed()
 		return
 
@@ -439,7 +439,7 @@
 			contract.lifecycle_state |= GOAI_CONTRACT_LIFECYCLE_GOODS_DELIVERED
 		else
 			tracker.SetFailed()
-			to_world_log("FAILED to send goods for order [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
+			GOAI_LOG_ERROR("FAILED to send goods for order [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
 			return
 
 	if(we_send_money)
@@ -447,7 +447,7 @@
 			contract.lifecycle_state |= GOAI_CONTRACT_LIFECYCLE_PAID
 		else
 			tracker.SetFailed()
-			to_world_log("FAILED to send payment for order [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
+			GOAI_LOG_ERROR("FAILED to send payment for order [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
 			return
 
 	contract.Signoff(ai_pawn)
@@ -459,9 +459,9 @@
 			completed = contract.Complete()
 
 	if(completed)
-		to_world_log("COMPLETED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
+		GOAI_LOG_DEBUG("COMPLETED a contract for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
 	else
-		to_world_log("FULFILLED an order for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
+		GOAI_LOG_DEBUG("FULFILLED an order for [contract.commodity_key] * [contract.commodity_amount]u @ [contract.cash_value]$")
 
 	tracker.SetDone()
 	return
@@ -487,19 +487,19 @@
 	var/datum/trade_contract/contract = input
 
 	if(!istype(contract))
-		to_world_log("FulfillContractInstantBilateral ([src]): Invalid offer type for contract object [NULL_TO_TEXT(contract)]!")
+		GOAI_LOG_ERROR("FulfillContractInstantBilateral ([src]): Invalid offer type for contract object [NULL_TO_TEXT(contract)]!")
 		tracker.SetFailed()
 		return
 
 	if(!(contract.is_open))
-		to_world_log("FulfillContractInstantBilateral ([src]): Contract [contract] is closed (expired or already fulfilled)!")
+		GOAI_LOG_ERROR("FulfillContractInstantBilateral ([src]): Contract [contract] is closed (expired or already fulfilled)!")
 		tracker.SetFailed()
 		return
 
 	var/ai_pawn = src.GetPawn()  // usually a faction, though COULD be a mob too
 
 	if(isnull(ai_pawn))
-		to_world_log("FulfillContractInstantBilateral ([src]): Does not have a pawn ([NULL_TO_TEXT(ai_pawn)]).")
+		GOAI_LOG_ERROR("FulfillContractInstantBilateral ([src]): Does not have a pawn ([NULL_TO_TEXT(ai_pawn)]).")
 		tracker.SetFailed()
 		return
 
@@ -560,13 +560,13 @@
 
 		if(failures >= 2)
 			tracker.SetFailed()
-			to_world_log("Contract [contract] could not be fulfilled after max tries - cancelling.")
+			GOAI_LOG_DEBUG("Contract [contract] could not be fulfilled after max tries - cancelling.")
 			contract.Expire()
 			return
 
 		if(failures > 1)
 			tracker.SetFailed()
-			to_world_log("Contract [contract] could not be fulfilled right now.")
+			GOAI_LOG_DEBUG("Contract [contract] could not be fulfilled right now.")
 			return
 
 

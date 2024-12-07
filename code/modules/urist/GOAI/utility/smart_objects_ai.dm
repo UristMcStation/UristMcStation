@@ -41,7 +41,7 @@
 		return so_actions
 
 	if(!(smartobj.HasUtilityActions(requester, args)))
-		GOAI_LOG_DEVEL("[smartobj] failed HasUtilityActions check")
+		GOAI_LOG_DEBUG("[smartobj] failed HasUtilityActions check")
 
 	var/datum/action_set/subactions = smartobj.GetUtilityActions(requester, args)
 
