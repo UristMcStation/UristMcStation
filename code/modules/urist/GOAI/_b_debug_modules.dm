@@ -35,7 +35,7 @@
 #endif
 
 // Undefine to remove warnings for noncritical WIP code stuff
-# define SHOW_GOAI_WIP_WARNINGS 1
+//# define SHOW_GOAI_WIP_WARNINGS 1
 
 // Undefine to disable drawing debug lines pointing at assorted Stuff
 # define ENABLE_GOAI_DEBUG_BEAM_GIZMOS 1
