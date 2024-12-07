@@ -431,7 +431,7 @@
 
 	if(!commodity)
 		TRADE_DEBUG_LOG("GetCommodityAmountForNeedDelta: Commodity [NULL_TO_TEXT(commodity)] is null.")
-		return null.
+		return null
 
 	if(!need_key)
 		TRADE_DEBUG_LOG("GetCommodityAmountForNeedDelta: need_key [NULL_TO_TEXT(need_key)] is null.")

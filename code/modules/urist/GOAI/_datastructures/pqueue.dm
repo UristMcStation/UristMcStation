@@ -139,7 +139,7 @@
 #define BH_RCHILD_IDX(ParentIdx) (1+(2*ParentIdx))
 
 // Sort downwards from root - used for heappop and heapify operations
-#define BH_PERCOLATE_DOWN(StartIdx, CmpProc, Heap) if(TRUE) {\
+#define BH_PERCOLATE_DOWN(StartIdx, CmpProc, Heap) if(!isnull(Heap)) {\
 	var/__HeapPercolateDown_HeapSize = length(Heap) ;\
 	var/__HeapPercolateDown_Idx = StartIdx ;\
 	;\
@@ -165,7 +165,7 @@
 };
 
 // Sort upwards from a subtree to root - used for heappush operations
-#define BH_PERCOLATE_UP(StartIdx, CmpProc, Heap) if(TRUE) {\
+#define BH_PERCOLATE_UP(StartIdx, CmpProc, Heap) if(!isnull(Heap)) {\
 	var/__HeapPercolate_CurrentIdx = StartIdx ;\
 	while(__HeapPercolate_CurrentIdx > 1) {\
 		var/__HeapPercolate_HeapParentIdx = BH_PARENT_IDX(__HeapPercolate_CurrentIdx) ;\
@@ -181,7 +181,7 @@
 
 // Turns a (non-assoc) list into a heap
 // Leaf nodes are already sorted, so we start from the half-size idx
-#define BH_HEAPIFY(List, CmpProc) if(TRUE) {\
+#define BH_HEAPIFY(List, CmpProc) if(!isnull(List)) {\
 	var/__Heapify_HeapSize = length(List) ;\
 	for(var/idx = FLOOR(__Heapify_HeapSize / 2), idx > 0, idx--) {;\
 		BH_PERCOLATE_DOWN(idx, CmpProc, List) ;\
@@ -191,7 +191,7 @@
 
 // Adds a new element to the heap in the appropriate location,
 // shuffling the rest as needed
-#define BH_HEAPPUSH(Elem, CmpProc, Heap) if(TRUE) {\
+#define BH_HEAPPUSH(Elem, CmpProc, Heap) if(!isnull(Heap)) {\
 	Heap.len++; Heap[Heap.len] = Elem ;\
 	BH_PERCOLATE_UP(Heap.len, CmpProc, Heap) ;\
 };

@@ -31,9 +31,9 @@ GLOBAL_LIST_EMPTY(assetneeds_assets_totals_table)
 #define ASSETNEEDS_SYSTEM_TICKER_ID_HASH(MaxRand) "[rand(1, MaxRand)]-[world.time]"
 
 // Inline version; generally preferable unless you REALLY need a proc
-#define INITIALIZE_ASSETNEEDS_SYSTEM_INLINE(Tickrate) if(TRUE) {\
+#define INITIALIZE_ASSETNEEDS_SYSTEM_INLINE(Tickrate) \
 	StartAssetNeedsSystem(Tickrate); \
-};
+;
 
 // Variant - does the same, but only if it's not already initialized
 #define INITIALIZE_ASSETNEEDS_SYSTEM_INLINE_IF_NEEDED(Tickrate) if(isnull(GOAI_LIBBED_GLOB_ATTR(assetneeds_subsystem_running))) {\
