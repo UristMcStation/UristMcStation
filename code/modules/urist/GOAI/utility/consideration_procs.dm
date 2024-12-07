@@ -19,23 +19,22 @@
 // Uses aggressive, ugly prefixing to ensure the odds of a varname clash are minimal.
 */
 #define CIHELPER_GET_REQUESTER_BRAIN_INLINED(Requester, Output) \
-\
-var/_cihelper_get_requester_brain_okay = TRUE; \
-var/datum/brain/_cihelper_get_requester_brain_output_brain = null; \
-var/datum/utility_ai/_cihelper_get_requester_brain_controller = Requester; \
-if(_cihelper_get_requester_brain_okay && !istype(_cihelper_get_requester_brain_controller)) {\
-	to_world_log("GET_REQUESTER_BRAIN_INLINED Controller is not an AI ([_cihelper_get_requester_brain_controller]) @ L[__LINE__] in [__FILE__] in CIHELPER_GET_REQUESTER_BRAIN_INLINED"); \
-	_cihelper_get_requester_brain_okay = FALSE; \
-}; \
-if(_cihelper_get_requester_brain_okay) {\
-	var/datum/brain/_cihelper_get_requester_brain_requesting_brain = _cihelper_get_requester_brain_controller.brain; \
-	if(!istype(_cihelper_get_requester_brain_requesting_brain)) {\
-		to_world_log("GET_REQUESTER_BRAIN_INLINED _cihelper_get_requester_brain_requesting_brain is not a Brain ([_cihelper_get_requester_brain_requesting_brain]) @ L[__LINE__] in [__FILE__] in CIHELPER_GET_REQUESTER_BRAIN_INLINED"); \
+	var/_cihelper_get_requester_brain_okay = TRUE; \
+	var/datum/brain/_cihelper_get_requester_brain_output_brain = null; \
+	var/datum/utility_ai/_cihelper_get_requester_brain_controller = Requester; \
+	if(_cihelper_get_requester_brain_okay && !istype(_cihelper_get_requester_brain_controller)) {\
+		to_world_log("GET_REQUESTER_BRAIN_INLINED Controller is not an AI ([_cihelper_get_requester_brain_controller]) @ L[__LINE__] in [__FILE__] in CIHELPER_GET_REQUESTER_BRAIN_INLINED"); \
 		_cihelper_get_requester_brain_okay = FALSE; \
 	}; \
-	_cihelper_get_requester_brain_output_brain = _cihelper_get_requester_brain_requesting_brain; \
-}; \
-##Output = _cihelper_get_requester_brain_output_brain;
+	if(_cihelper_get_requester_brain_okay) {\
+		var/datum/brain/_cihelper_get_requester_brain_requesting_brain = _cihelper_get_requester_brain_controller.brain; \
+		if(!istype(_cihelper_get_requester_brain_requesting_brain)) {\
+			to_world_log("GET_REQUESTER_BRAIN_INLINED _cihelper_get_requester_brain_requesting_brain is not a Brain ([_cihelper_get_requester_brain_requesting_brain]) @ L[__LINE__] in [__FILE__] in CIHELPER_GET_REQUESTER_BRAIN_INLINED"); \
+			_cihelper_get_requester_brain_okay = FALSE; \
+		}; \
+		_cihelper_get_requester_brain_output_brain = _cihelper_get_requester_brain_requesting_brain; \
+	}; \
+	##Output = _cihelper_get_requester_brain_output_brain;
 
 #define CONSIDERATION_INPUTKEY_KEY "input_key"
 #define CONSIDERATION_INPUTKEY_DEFAULT "input"
@@ -47,9 +46,9 @@ if(_cihelper_get_requester_brain_okay) {\
 #define CONTEXT_GET_OUTPUT_KEY(Varname) ##Varname = context_args?[CONTEXT_OUTPUTKEY_KEY] || CONSIDERATION_INPUTKEY_DEFAULT
 
 #define CONTEXT_ADD_SINGLE_KEYED_CONTEXT(Item, ContextKeyVar, ContextsListVar) \
-    var/list/__macro_ctx = list(); \
-    __macro_ctx[##ContextKeyVar] = ##Item; \
-    ARRAY_APPEND(##ContextsListVar, __macro_ctx) \
+	var/list/__macro_ctx = list(); \
+	__macro_ctx[##ContextKeyVar] = ##Item; \
+	ARRAY_APPEND(##ContextsListVar, __macro_ctx) \
 ;
 
 
