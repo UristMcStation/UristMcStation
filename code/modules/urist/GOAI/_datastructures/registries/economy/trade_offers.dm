@@ -139,19 +139,19 @@ GLOBAL_VAR(global_marketwatch_running)
 /* PROCS TO SET UP THE MARKETPLACE */
 
 // Inline version; generally preferable unless you REALLY need a proc
-#define INITIALIZE_GLOBAL_MARKETPLACE_INLINE(Tickrate) if(TRUE) {\
+#define INITIALIZE_GLOBAL_MARKETPLACE_INLINE(Tickrate) \
 	GOAI_LIBBED_GLOB_ATTR(global_marketplace) = list(); \
 	StartGlobalMarketwatch(Tickrate); \
 	MARKETWATCH_DEBUG_LOG("Initialized a global marketplace with tickrate [DEFAULT_IF_NULL(Tickrate, DEFAULT_MARKETWATCH_TICKRATE)]"); \
-};
+;
 
 // Variant - does the same, but only if it's not already initialized
-#define INITIALIZE_GLOBAL_MARKETPLACE_INLINE_IF_NEEDED(Tickrate) if(TRUE) {\
+#define INITIALIZE_GLOBAL_MARKETPLACE_INLINE_IF_NEEDED(Tickrate) \
 	if(isnull(GOAI_LIBBED_GLOB_ATTR(global_marketplace))) {\
 		INITIALIZE_GLOBAL_MARKETPLACE_INLINE(Tickrate); \
 	};\
 	if(isnull(GOAI_LIBBED_GLOB_ATTR(global_marketwatch_running))) { StartGlobalMarketwatch(Tickrate) };\
-};
+;
 
 
 /proc/InitializeGlobalMarketplace()
