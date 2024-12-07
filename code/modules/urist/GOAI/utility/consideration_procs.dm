@@ -46,11 +46,11 @@ if(_cihelper_get_requester_brain_okay) {\
 #define CONTEXT_OUTPUTKEY_KEY "output_context_key"
 #define CONTEXT_GET_OUTPUT_KEY(Varname) ##Varname = context_args?[CONTEXT_OUTPUTKEY_KEY] || CONSIDERATION_INPUTKEY_DEFAULT
 
-#define CONTEXT_ADD_SINGLE_KEYED_CONTEXT(Item, ContextKeyVar, ContextsListVar) if(TRUE) {\
+#define CONTEXT_ADD_SINGLE_KEYED_CONTEXT(Item, ContextKeyVar, ContextsListVar) \
     var/list/__macro_ctx = list(); \
     __macro_ctx[##ContextKeyVar] = ##Item; \
     ARRAY_APPEND(##ContextsListVar, __macro_ctx) \
-};
+;
 
 
 /proc/_cihelper_get_requester_brain(var/requester, var/caller = null)
