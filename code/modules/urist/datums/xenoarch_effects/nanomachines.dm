@@ -43,9 +43,8 @@
 	wall = src
 	if (!istype(wall, /turf/simulated/wall/alium))
 		ChangeTurf(/turf/simulated/wall/alium)
-		for(var/turf/simulated/wall/alium/newwall)
-			desc = "A wall of foreign metal."
-			newwall.material.icon_colour = "#8f3432"
+		desc = "A wall of foreign metal."
+		wall.material.icon_colour = "#8f3432"
 
 
 /turf/simulated/floor/proc/mechanize_floor(turf/simulated/floor/T)
@@ -154,18 +153,18 @@
 /obj/effect/gateway/artifact/fabricator/king/increment()
 	..()
 	var/obj/effect/gateway/artifact/fabricator/king/A = src
-	for(var/turf/simulated/floor/T in range(mechradius, src))
-		if (istype(T.flooring, /singleton/flooring/reinforced/circuit/red) && rand(1,1000) == 7)
-			if (A.fabs < 5 && !T.turf_is_crowded())
-				var/obj/effect/gateway/artifact/fabricator/fab = new(T)
-				to_chat(fab, SPAN_WARNING("A machine emerges from the circuitry!"))
-				A.fabs += 1
-		else if (rand(1,5) == 3)
-			T.mechanize()
-	for(var/turf/simulated/wall/wall in range(mechradius, src))
-		if (!istype(wall, /turf/simulated/wall/alium))
-			if (rand(1,20) == 7)
-				wall.mechanize()
+	for(var/turf/simulated/s in range(mechradius, src))
+		if(istype(s, /turf/simulated/floor))
+			var/turf/simulated/floor/b = s
+			if(istype(b.flooring, /singleton/flooring/reinforced/circuit/red) && rand(1,1000) == 7)
+				if (A.fabs < 5 && !s.turf_is_crowded())
+					var/obj/effect/gateway/artifact/fabricator/fab = new(b)
+					to_chat(fab, SPAN_WARNING("A machine emerges from the circuitry!"))
+					A.fabs += 1
+			else if (rand(1,5) == 3)
+				s.mechanize()
+		if((!istype(s, /turf/simulated/wall/alium)) && (rand(1,7) == 7))
+			s.mechanize()
 	mechradius += 0.2
 
 /obj/effect/gateway/artifact/fabricator/king/on_death()
