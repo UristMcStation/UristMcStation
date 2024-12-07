@@ -12,9 +12,11 @@
 	var/list/smartobject_last_fetched = null
 
 
-/datum/utility_ai/proc/GetActionSetsFromSmartObject(var/datum/smartobj, var/requester, var/list/args = null)
+/datum/utility_ai/proc/GetActionSetsFromSmartObject(var/datum/smartobj, var/requester, var/list/args = null, var/no_cache = null)
 	if(isnull(smartobj))
 		return null
+
+	var/_no_cache = DEFAULT_IF_NULL(no_cache, disable_so_cache)
 
 	if(isnull(src.smart_objects))
 		src.smart_objects = list()
@@ -25,7 +27,7 @@
 
 	var/list/so_actions = null
 
-	so_actions = smartobj.no_smartobject_caching ? null : GOAI_LIBBED_GLOB_ATTR(smartobject_cache)[cache_key]
+	so_actions = (_no_cache || smartobj.no_smartobject_caching) ? null : GOAI_LIBBED_GLOB_ATTR(smartobject_cache)[cache_key]
 
 	if(!isnull(so_actions))
 		//for(var/so_actionset in so_actions)
@@ -34,7 +36,7 @@
 		src.smart_objects[cache_key] = so_actions
 		return so_actions
 
-	so_actions = smartobj.no_smartobject_caching ? null : src.smart_objects[cache_key]
+	so_actions = (_no_cache || smartobj.no_smartobject_caching) ? null : src.smart_objects[cache_key]
 
 	if(so_actions)
 		//so_actions.Refresh()

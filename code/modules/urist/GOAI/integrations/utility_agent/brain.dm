@@ -2,10 +2,9 @@
 // Procs for integrating an AI with a Brain.
 */
 
-/datum/utility_ai/proc/CreateBrain(var/list/custom_actionslist = null, var/list/init_memories = null, var/list/init_action = null, var/datum/brain/with_hivemind = null, var/list/custom_personality = null)
-	var/list/new_actionslist = (custom_actionslist ? custom_actionslist : actionslist)
+/datum/utility_ai/proc/CreateBrain(var/list/init_memories = null, var/list/init_action = null, var/datum/brain/with_hivemind = null, var/list/custom_personality = null)
 	var/list/new_personality = (isnull(custom_personality) ? GeneratePersonality() : custom_personality)
-	var/datum/brain/utility/new_brain = new(new_actionslist, init_memories, init_action, with_hivemind, new_personality)
+	var/datum/brain/utility/new_brain = new(null, init_memories, init_action, with_hivemind, new_personality)
 	//new_brain.states = states ? states.Copy() : new_brain.states
 	return new_brain
 

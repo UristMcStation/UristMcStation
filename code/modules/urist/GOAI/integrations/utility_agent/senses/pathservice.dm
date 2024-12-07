@@ -124,9 +124,9 @@
 		src.smartobject_cache_key = src.name
 
 
-/datum/path_smartobject/GetUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> [ActionSet]
+/datum/path_smartobject/GetUtilityActions(var/requester, var/list/args = null, var/no_cache = FALSE) // (Any, assoc) -> [ActionSet]
 	ASSERT(fexists(MOVEPATH_ACTIONSET_PATH))
-	var/datum/action_set/myset = ActionSetFromJsonFile(MOVEPATH_ACTIONSET_PATH)
+	var/datum/action_set/myset = ActionSetFromJsonFile(MOVEPATH_ACTIONSET_PATH, no_cache)
 	ASSERT(!isnull(myset))
 
 	var/list/my_action_sets = list()

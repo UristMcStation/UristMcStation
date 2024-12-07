@@ -1,3 +1,5 @@
+#ifdef GOAI_LIBRARY_FEATURES
+
 // Extending the default controls for easier development
 
 # define MODE_PASSTHRU 0
@@ -264,3 +266,5 @@
 
 	GOAI_LOG_DEBUG_WORLD("Client [mobclient] [select_enabled ? "now" : "no longer"] does CommanderGiveMoveOrderClick...")
 	return
+
+#endif

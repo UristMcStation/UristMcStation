@@ -80,26 +80,7 @@
 			sleep(sleeptime)
 
 
-/datum/utility_ai/proc/HandleInstantAction(var/datum/goai_action/action, var/datum/ActionTracker/tracker)
+/datum/utility_ai/proc/HandleInstantAction(var/datum/utility_action/action, var/datum/ActionTracker/tracker)
 	MAYBE_LOG("Tracker: [tracker]")
-
-	var/list/action_lookup = src.actionlookup // abstract maybe
-	if(isnull(action_lookup))
-		return
-
-	MAYBE_LOG("[src]: Tracker: [tracker] running @ [tracker?.IsRunning()]")
-	MAYBE_LOG("[src]: HandleInstantAction action is: [action]")
-
-	var/actionproc = action_lookup[action.name]
-
-	var/list/action_args = list()
-	action_args["tracker"] = tracker
-	action_args += action.arguments
-
-	if(isnull(actionproc))
-		tracker.SetFailed()
-
-	else
-		call(src, actionproc)(arglist(action_args))
-
+	src.HandleAction(action, tracker)
 	return

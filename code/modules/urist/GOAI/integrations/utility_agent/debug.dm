@@ -72,16 +72,12 @@
 	if(!istype(commander))
 		return
 
-	var/datum/brain/utility/ubrain = commander?.brain
-	if(!istype(ubrain))
-		to_chat(usr, "AI <[commander]> has no brain!")
-		return
+	// force a cache refresh
+	// WARNING: will affect ALL AIs using the same file!
+	FILEDATA_CACHE_INVALIDATE(1)
+	commander.GetAvailableActions(TRUE)
 
-	# ifdef SHOW_GOAI_WIP_WARNINGS
-	#warn AI Reloading unfinished!
-	# endif
 	to_chat(usr, "AI <[commander]> reloaded!")
-
 	return
 
 
