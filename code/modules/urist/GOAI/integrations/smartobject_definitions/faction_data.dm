@@ -1,7 +1,7 @@
 
 GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_VARLIST(/datum/faction_data, actionset_files)
 
-/datum/faction_data/GetUtilityActions(var/requester, var/list/args = null)
+/datum/faction_data/GetUtilityActions(var/requester, var/list/args = null, var/no_cache = FALSE)
 	var/list/my_action_sets = list()
 
 	if(!src.actionset_files)
@@ -13,7 +13,7 @@ GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_VARLIST(/datum/faction_data, actionset_file
 			continue
 
 		try
-			var/datum/action_set/myset = ActionSetFromJsonFile(action_bundle_json_fp)
+			var/datum/action_set/myset = ActionSetFromJsonFile(action_bundle_json_fp, no_cache)
 			myset.origin = src
 			my_action_sets.Add(myset)
 

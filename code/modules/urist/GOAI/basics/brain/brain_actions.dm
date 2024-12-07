@@ -4,7 +4,7 @@
 	var/list/actionslist
 
 
-/datum/brain/proc/GetAvailableActions()
+/datum/brain/proc/GetAvailableActions(var/no_cache = null)
 	/* Abstraction layer over Action updates.
 	// We need this to let nearby Smart Objects etc. yield
 	// Actions to the planner.

@@ -52,7 +52,8 @@
 	return TRUE
 
 
-/datum/utility_ai/proc/GetAvailableActions()
+/datum/utility_ai/proc/GetAvailableActions(var/no_cache = null)
+	var/_no_cache = DEFAULT_IF_NULL(no_cache, src.disable_so_cache)
 	var/list/actionsets = list()
 
 	var/list/smartobjects = src.brain?.GetMemoryValue("SmartObjects", null)
@@ -92,7 +93,7 @@
 
 	if(smartobjects)
 		for(var/datum/SO in smartobjects)
-			var/list/SO_actionsets = src.GetActionSetsFromSmartObject(SO, src)
+			var/list/SO_actionsets = src.GetActionSetsFromSmartObject(SO, src, null, _no_cache)
 
 			if(!isnull(SO_actionsets))
 				actionsets.Add(SO_actionsets)
@@ -351,7 +352,7 @@
 				// do instants in one tick
 				if(action?.instant)
 					RUN_ACTION_DEBUG_LOG("Instant ACTION: [action?.name || "NONE"]([action?.arguments && json_encode(action?.arguments)]) | <@[src]>")
-					src.DoInstantAction(src.selected_action)
+					src.DoAction(src.selected_action)
 					src.selected_action = null
 
 				else

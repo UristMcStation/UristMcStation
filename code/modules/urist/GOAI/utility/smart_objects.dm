@@ -50,7 +50,7 @@
 	var/list/smartobject_last_fetched = null
 
 
-/datum/brain/utility/proc/GetActionSetsFromSmartObject(var/datum/smartobj, var/requester, var/list/args = null)
+/datum/brain/utility/proc/GetActionSetsFromSmartObject(var/datum/smartobj, var/requester, var/list/args = null, var/no_cache = FALSE)
 	if(isnull(smartobj))
 		return null
 
@@ -63,7 +63,7 @@
 
 	var/list/so_actions = null
 
-	so_actions = smartobj.no_smartobject_caching ? null : GOAI_LIBBED_GLOB_ATTR(smartobject_cache)[cache_key]
+	so_actions = (no_cache || smartobj.no_smartobject_caching) ? null : GOAI_LIBBED_GLOB_ATTR(smartobject_cache)[cache_key]
 
 	if(!isnull(so_actions))
 		//for(var/so_actionset in so_actions)
