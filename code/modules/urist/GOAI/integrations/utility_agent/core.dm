@@ -46,8 +46,10 @@
 	// Optional - for map editor. Set this to force initial action. Must be valid (in available actions).
 	var/initial_action = null
 
-	// Dynamically attached junk
+	#ifndef GOAI_USE_GENERIC_DATUM_ATTACHMENTS_SYSTEM
+	/* Dynamically attached junk */
 	var/dict/attachments
+	#endif
 
 	// These two are, by and large, relics of earlier code and are, practically speaking, DEPRECATED!
 	var/list/actionslist
