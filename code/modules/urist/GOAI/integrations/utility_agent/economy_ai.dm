@@ -2,8 +2,9 @@
 // Adds logic for handling trade stuff.
 */
 
-
+# ifdef SHOW_GOAI_WIP_WARNINGS
 #warn Restore the nulls for default procs here:
+# endif
 //#define DEFAULT_BUY_ITEM_PROC null
 //#define DEFAULT_SELL_ITEM_PROC null
 
