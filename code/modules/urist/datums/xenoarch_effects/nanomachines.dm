@@ -1,6 +1,6 @@
 //This artifact turns into a fabricator!
 //This fabricator changes nearby floors and walls over time, as well as spawning hivebots and other fabricators (both limited)
-//Then those fabriators change more floors and walls and spawn more hivebots (to a limit)...
+//Then those fabricators change adjacent floors and walls and spawn more hivebots (to a limit)...
 
 /datum/artifact_effect/greygoo
 	name = "greygoo"
@@ -129,7 +129,7 @@
 				playsound(B, pick(mob_spawn_sounds), 50)
 				visible_message(SPAN_WARNING("\The [src] churns out a hivebot!"))
 
-		for (var/i = 0 to rand(1,10))
+		for (var/i = 0 to rand(1,9))
 			var/turf/T = get_step(src, pick(GLOB.alldirs))
 			T.mechanize()
 
