@@ -77,7 +77,9 @@
 		to_chat(usr, "AI <[commander]> has no brain!")
 		return
 
+	# ifdef SHOW_GOAI_WIP_WARNINGS
 	#warn AI Reloading unfinished!
+	# endif
 	to_chat(usr, "AI <[commander]> reloaded!")
 
 	return
