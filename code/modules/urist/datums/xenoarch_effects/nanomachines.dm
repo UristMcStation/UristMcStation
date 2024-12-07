@@ -129,9 +129,12 @@
 				playsound(B, pick(mob_spawn_sounds), 50)
 				visible_message(SPAN_WARNING("\The [src] churns out a hivebot!"))
 
-		for (var/i = 0 to rand(1,9))
-			var/turf/T = get_step(src, pick(GLOB.alldirs))
-			T.mechanize()
+		for(var/turf/simulated/floor/T in range(1, src))
+			if (!istype(T.flooring, /singleton/flooring/reinforced/circuit/red))
+				T.mechanize()
+		for(var/turf/simulated/wall/wall in range(1, src))
+			if (!istype(wall, /turf/simulated/wall/alium))
+				wall.mechanize()
 
 /obj/effect/gateway/artifact/fabricator/king
 	name = "large strange machine"
