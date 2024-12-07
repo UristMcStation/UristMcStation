@@ -11,10 +11,8 @@
 
 
 /datum/artifact_effect/extinguisher/DoEffectTouch(mob/living/user)
-	if(user)
-		if(istype(user, /mob/living/carbon/human))
-			user.ExtinguishMob()
-			user.fire_stacks = clamp(user.fire_stacks - 1, -25, 25)
+	for(user in oview(effectrange, get_turf(holder)))
+		user.water_act(2)
 
 
 /datum/artifact_effect/extinguisher/UpdateMove()
