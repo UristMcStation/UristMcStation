@@ -24,8 +24,10 @@
 	/* Dict containing sensory data indexed by sense key. */
 	var/dict/perceptions
 
+	#ifndef GOAI_USE_GENERIC_DATUM_ATTACHMENTS_SYSTEM
 	/* Dynamically attached junk */
 	var/dict/attachments
+	#endif
 
 
 /datum/brain/proc/GetAiController()
