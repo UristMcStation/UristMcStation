@@ -9,7 +9,7 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 	/// The set of options for the amount of reagents the bag will try to transfer per process.
-	var/static/list/allowed_transfer_amounts = list(2, 1, 0)
+	var/static/list/allowed_transfer_amounts = list(2, 1, 0.5, 0)
 
 	/// The configured amount of reagents the IV bag will try to transfer per process.
 	var/transfer_amount = 2
