@@ -22,12 +22,12 @@
 /proc/utility_best_trade_item_selector_personality_generic(var/need_key, var/list/kwargs, var/datum/utility_ai/caller)
 	// This is a lazy dev's variant - chuck all items into one big list so buys and sells are symmetrical.
 	if(!istype(caller))
-		to_world_log("ERROR: utility_best_trade_item_selector_personality_generic() caller is not an AI!")
+		GOAI_LOG_ERROR("ERROR: utility_best_trade_item_selector_personality_generic() caller is not an AI!")
 		return null
 
 	var/datum/brain/ai_brain = caller.brain
 	if(!istype(ai_brain))
-		to_world_log("ERROR: utility_best_trade_item_selector_personality_generic()'s AI caller has no Brain!")
+		GOAI_LOG_ERROR("ERROR: utility_best_trade_item_selector_personality_generic()'s AI caller has no Brain!")
 		return null
 
 	var/list/lookup = ai_brain.preferred_trades
@@ -38,12 +38,12 @@
 
 /proc/utility_best_trade_item_selector_personality_buy(var/need_key, var/list/kwargs, var/datum/utility_ai/caller)
 	if(!istype(caller))
-		to_world_log("ERROR: utility_best_trade_item_selector_personality_generic() caller is not an AI!")
+		GOAI_LOG_ERROR("ERROR: utility_best_trade_item_selector_personality_generic() caller is not an AI!")
 		return null
 
 	var/datum/brain/ai_brain = caller.brain
 	if(!istype(ai_brain))
-		to_world_log("ERROR: utility_best_trade_item_selector_personality_generic()'s AI caller has no Brain!")
+		GOAI_LOG_ERROR("ERROR: utility_best_trade_item_selector_personality_generic()'s AI caller has no Brain!")
 		return null
 
 	var/list/lookup = ai_brain.preferred_trades?["buy"]
@@ -53,12 +53,12 @@
 
 /proc/utility_best_trade_item_selector_personality_sell(var/need_key, var/list/kwargs, var/datum/utility_ai/caller)
 	if(!istype(caller))
-		to_world_log("ERROR: utility_best_trade_item_selector_personality_generic() caller is not an AI!")
+		GOAI_LOG_ERROR("ERROR: utility_best_trade_item_selector_personality_generic() caller is not an AI!")
 		return null
 
 	var/datum/brain/ai_brain = caller.brain
 	if(!istype(ai_brain))
-		to_world_log("ERROR: utility_best_trade_item_selector_personality_generic()'s AI caller has no Brain!")
+		GOAI_LOG_ERROR("ERROR: utility_best_trade_item_selector_personality_generic()'s AI caller has no Brain!")
 		return null
 
 	var/list/lookup = ai_brain.preferred_trades?["sell"]

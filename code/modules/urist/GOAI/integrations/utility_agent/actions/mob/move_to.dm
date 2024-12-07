@@ -116,7 +116,7 @@
 		RUN_ACTION_DEBUG_LOG("No owned mob found for [src.name] AI @ L[__LINE__] in [__FILE__]")
 		return
 
-	GOAI_LOG_DEVEL_WORLD("[pawn] is running to [position] [COORDS_TUPLE(position)]")
+	GOAI_LOG_DEBUG_WORLD("[pawn] is running to [position] [COORDS_TUPLE(position)]")
 
 	src.allow_wandering = TRUE
 

@@ -4,7 +4,7 @@
 	//
 	*/
 
-	GOAI_LOG_DEVEL("Calling ClimbLadder([tracker], [location], [target])!")
+	GOAI_LOG_DEBUG("Calling ClimbLadder([tracker], [location], [target])!")
 
 	if(isnull(tracker))
 		RUN_ACTION_DEBUG_LOG("Tracker position is null | <@[src]> | [__FILE__] -> L[__LINE__]")

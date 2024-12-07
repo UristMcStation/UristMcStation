@@ -29,7 +29,6 @@ GLOBAL_LIST_EMPTY(reference_market_utilities)
 
 	var/db_filepath = isnull(filepath_override) ? DEFAULT_MARKET_UTILITY_DB_FP : filepath_override
 	READ_JSON_FILE_CACHED(db_filepath, GOAI_LIBBED_GLOB_ATTR(reference_market_utilities))
-	to_world_log("New ReferenceUtilitiesDB is [GOAI_LIBBED_GLOB_ATTR(reference_market_utilities) ? json_encode(GOAI_LIBBED_GLOB_ATTR(reference_market_utilities)) : "uninitialized"] from [db_filepath]")
 
 	if(!GOAI_LIBBED_GLOB_ATTR(reference_market_utilities))
 		GOAI_LIBBED_GLOB_ATTR(reference_market_utilities) = null

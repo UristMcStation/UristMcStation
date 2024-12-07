@@ -321,7 +321,7 @@
 				//target_run_count++
 
 			else if(src.running_action_tracker.is_failed)
-				to_world_log("[src.running_action_tracker.tracked_action] failed, aborting")
+				RUN_ACTION_DEBUG_LOG("[src.running_action_tracker.tracked_action] failed, aborting")
 				src.AbortPlan(TRUE)
 
 		/* STATE: Ready */

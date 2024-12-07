@@ -419,7 +419,7 @@
 	// This has a bunch of benefits, but the biggest one IMO is interpretability - this is
 	// the cost, in Utils, of bothering with the trade and associated information assymetries.
 	// As such, the padding value can be either RNG'd or estimated by AI in sane ways.
-	to_world_log("[src.name] | GetMoneyForNeedUtility: breakeven_money_value for Utility [utility] and current wealth [wealth] is: [breakeven_money_value] on basis [basis]/angle [as_angle]")
+	GOAI_LOG_DEBUG("[src.name] | GetMoneyForNeedUtility: breakeven_money_value for Utility [utility] and current wealth [wealth] is: [breakeven_money_value] on basis [basis]/angle [as_angle]")
 	return breakeven_money_value
 
 

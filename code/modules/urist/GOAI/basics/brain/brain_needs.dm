@@ -57,8 +57,7 @@
 
 	#ifdef BRAIN_MODULE_INCLUDED_ECONOMY
 	src.preferred_trades = file_preferred_trades
-	#warn debug logs
-	to_world_log("Setting preferred_trades for [src] to: [json_encode(src.preferred_trades)]")
+	GOAI_LOG_DEBUG("Setting preferred_trades for [src] to: [json_encode(src.preferred_trades)]")
 	#endif
 
 	return needs

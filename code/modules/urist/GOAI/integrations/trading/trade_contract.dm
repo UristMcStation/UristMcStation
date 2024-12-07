@@ -153,7 +153,7 @@
 		src.on_failure_proc_args
 	)
 
-	to_world_log("Contract [contract] <ID #[NULL_TO_TEXT(contract.id)]> ([contract.commodity_key] x [contract.commodity_amount] @ [contract.cash_value] by [NULL_TO_TEXT(contract.deadline)]) created between creator [contract.creator] and contractor [contract.receiver]")
+	GOAI_LOG_DEBUG("Contract [contract] <ID #[NULL_TO_TEXT(contract.id)]> ([contract.commodity_key] x [contract.commodity_amount] @ [contract.cash_value] by [NULL_TO_TEXT(contract.deadline)]) created between creator [contract.creator] and contractor [contract.receiver]")
 	return contract
 
 
@@ -187,26 +187,26 @@
 	ASSETS_TABLE_LAZY_INIT(TRUE)
 
 	if(isnull(party.global_id))
-		to_world_log("ERROR: EscrowPut party ([NULL_TO_TEXT(party)]) has no global ID.")
+		GOAI_LOG_ERROR("ERROR: EscrowPut party ([NULL_TO_TEXT(party)]) has no global ID.")
 		return null
 
 	var/list/assets = GET_ASSETS_TRACKER(party.global_id)
 
 	if(!assets)
 		// If we don't even have a list entry, we sure as hell don't have enough stuff to put here.
-		to_world_log("WARNING: EscrowPut party ([NULL_TO_TEXT(party)]) has no assets.")
+		GOAI_LOG_ERROR("WARNING: EscrowPut party ([NULL_TO_TEXT(party)]) has no assets.")
 		return FALSE
 
 	var/owned_key_amt = assets[key]
 
 	if(!owned_key_amt)
 		// We ain't got it, abort.
-		to_world_log("WARNING: EscrowPut party ([NULL_TO_TEXT(party)]) has no asset '[key]' (assets: [json_encode(assets)]).")
+		GOAI_LOG_ERROR("WARNING: EscrowPut party ([NULL_TO_TEXT(party)]) has no asset '[key]' (assets: [json_encode(assets)]).")
 		return FALSE
 
 	if(!allow_partial && (owned_key_amt < value))
 		// We got some, but not enough - still abort.
-		to_world_log("WARNING: EscrowPut party ([NULL_TO_TEXT(party)]) has insufficient amount of [key] - needs [value], has [owned_key_amt].")
+		GOAI_LOG_ERROR("WARNING: EscrowPut party ([NULL_TO_TEXT(party)]) has insufficient amount of [key] - needs [value], has [owned_key_amt].")
 		return FALSE
 
 	if(!istype(src.escrow))
@@ -331,7 +331,7 @@
 	*/
 
 	if(isnull(signoff_party))
-		to_world_log("TradeContract [src] received a call to Signoff() with a null signoff_party. This is not critical, but generally should not happen.")
+		GOAI_LOG_ERROR("TradeContract [src] received a call to Signoff() with a null signoff_party. This is not critical, but generally should not happen.")
 		return src
 
 	if(signoff_party == src.creator)
@@ -373,7 +373,7 @@
 		if(require_signoff && GOAI_CONTRACT_COMPLETED_IF_SIGNED(src.lifecycle_state, src.progressed_state))
 			// if we got here, the only missing thing is signoff
 			// if signoff is not required, we just keep going to completion state
-			to_world_log("Contract [src] could not complete - missing required signoff ([src.lifecycle_state])")
+			GOAI_LOG_DEBUG("Contract [src] could not complete - missing required signoff ([src.lifecycle_state])")
 			return FALSE
 
 	// Mark the contract as closed.

@@ -28,27 +28,27 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_get_market_trade_offers)
 
 		if(!istype(offer))
 			// Exclude null/junk offers
-			//to_world_log("ctxfetcher_get_market_trade_offers: Rejecting [offer_key] - junk")
+			//GOAI_LOG_DEBUG("ctxfetcher_get_market_trade_offers: Rejecting [offer_key] - junk")
 			continue
 
 		if(!(offer.is_open))
 			// Exclude bound offers
-			//to_world_log("ctxfetcher_get_market_trade_offers: Rejecting [offer_key] - no longer open")
+			//GOAI_LOG_DEBUG("ctxfetcher_get_market_trade_offers: Rejecting [offer_key] - no longer open")
 			continue
 
 		if(!(isnull(offer.expiry_time) || (offer.expiry_time > now)))
 			// Exclude expired offers
-			//to_world_log("ctxfetcher_get_market_trade_offers: Rejecting [offer_key] - expired")
+			//GOAI_LOG_DEBUG("ctxfetcher_get_market_trade_offers: Rejecting [offer_key] - expired")
 			continue
 
 		if(!(isnull(offer.receiver) || (offer.receiver == requester_pawn)))
 			// Exclude offers that are specifically directed at someone else.
-			//to_world_log("ctxfetcher_get_market_trade_offers: Rejecting [offer_key] - directed at someone else")
+			//GOAI_LOG_DEBUG("ctxfetcher_get_market_trade_offers: Rejecting [offer_key] - directed at someone else")
 			continue
 
 		if(!isnull(requester_pawn) && (offer.creator == requester_pawn))
 			// Exclude our own offers; this should be handled by another CF.
-			//to_world_log("ctxfetcher_get_market_trade_offers: Rejecting [offer_key] - we created this")
+			//GOAI_LOG_DEBUG("ctxfetcher_get_market_trade_offers: Rejecting [offer_key] - we created this")
 			continue
 
 		var/list/ctx = list()
@@ -73,14 +73,14 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_get_own_contracts)
 		requester_pawn = requester_ai.GetPawn()
 
 	if(!istype(requesting_brain))
-		to_world_log("ERROR: ctxfetcher_get_own_contracts: Brain [requesting_brain] for [requester_ai] is not a valid Brain object! @ L[__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: ctxfetcher_get_own_contracts: Brain [requesting_brain] for [requester_ai] is not a valid Brain object! @ L[__LINE__] in [__FILE__]")
 		return null
 
 	var/list/contexts = list()
 
 	if(isnull(requester_pawn))
 		// We MUST have a pawn to determine if we're a receiver or creator of any given offer
-		to_world_log("WARNING: ctxfetcher_get_own_contracts: Pawn [requester_pawn] for [requester_ai] is null, no contracts will be found! @ L[__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("WARNING: ctxfetcher_get_own_contracts: Pawn [requester_pawn] for [requester_ai] is null, no contracts will be found! @ L[__LINE__] in [__FILE__]")
 		return contexts
 
 	if(!(requesting_brain.active_contracts))
@@ -126,7 +126,7 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_get_own_assets)
 		requester_pawn = requester_ai.GetPawn()
 
 	if(!istype(requester_pawn))
-		to_world_log("ERROR: ctxfetcher_get_own_assets: Pawn [requester_pawn] for [requester_ai] is not a valid object! @ L[__LINE__] in [__FILE__]")
+		GOAI_LOG_ERROR("ERROR: ctxfetcher_get_own_assets: Pawn [requester_pawn] for [requester_ai] is not a valid object! @ L[__LINE__] in [__FILE__]")
 		return null
 
 	var/list/contexts = list()
