@@ -23,13 +23,13 @@
 	var/datum/brain/_cihelper_get_requester_brain_output_brain = null; \
 	var/datum/utility_ai/_cihelper_get_requester_brain_controller = Requester; \
 	if(_cihelper_get_requester_brain_okay && !istype(_cihelper_get_requester_brain_controller)) {\
-		to_world_log("GET_REQUESTER_BRAIN_INLINED Controller is not an AI ([_cihelper_get_requester_brain_controller]) @ L[__LINE__] in [__FILE__] in CIHELPER_GET_REQUESTER_BRAIN_INLINED"); \
+		GOAI_LOG_ERROR("GET_REQUESTER_BRAIN_INLINED Controller is not an AI ([_cihelper_get_requester_brain_controller]) @ L[__LINE__] in [__FILE__] in CIHELPER_GET_REQUESTER_BRAIN_INLINED"); \
 		_cihelper_get_requester_brain_okay = FALSE; \
 	}; \
 	if(_cihelper_get_requester_brain_okay) {\
 		var/datum/brain/_cihelper_get_requester_brain_requesting_brain = _cihelper_get_requester_brain_controller.brain; \
 		if(!istype(_cihelper_get_requester_brain_requesting_brain)) {\
-			to_world_log("GET_REQUESTER_BRAIN_INLINED _cihelper_get_requester_brain_requesting_brain is not a Brain ([_cihelper_get_requester_brain_requesting_brain]) @ L[__LINE__] in [__FILE__] in CIHELPER_GET_REQUESTER_BRAIN_INLINED"); \
+			GOAI_LOG_ERROR("GET_REQUESTER_BRAIN_INLINED _cihelper_get_requester_brain_requesting_brain is not a Brain ([_cihelper_get_requester_brain_requesting_brain]) @ L[__LINE__] in [__FILE__] in CIHELPER_GET_REQUESTER_BRAIN_INLINED"); \
 			_cihelper_get_requester_brain_okay = FALSE; \
 		}; \
 		_cihelper_get_requester_brain_output_brain = _cihelper_get_requester_brain_requesting_brain; \
