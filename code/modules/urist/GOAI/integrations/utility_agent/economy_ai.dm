@@ -360,10 +360,6 @@
 	// The return value can be used as input for TradeOffer cash_amount directly raw,
 	// as it is expressed from the point of view of the counterparty taking the deal.
 	*/
-
-	// mostly pro-forma in case this ever does anything important in the ABC
-	. = ..(utility)
-
 	var/wealth = DEFAULT_IF_NULL(DEFAULT_IF_NULL(curr_wealth, src.brain?.GetNeed(NEED_WEALTH, null)), 0)
 
 	// We scale UP by this in GetMoneyDesirability(), so need to scale DOWN here.
@@ -477,8 +473,6 @@
 
 
 /datum/utility_ai/proc/GetBestPurchaseCommodityForNeed(var/need_key)
-	. = ..(need_key)
-
 	if(src.best_purchase_for_need_proc)
 		var/value = call(src.best_purchase_for_need_proc)(need_key, src.best_purchase_for_need_proc_args, src)
 		return value
@@ -490,8 +484,6 @@
 
 
 /datum/utility_ai/proc/GetBestSaleCommodityForNeed(var/need_key)
-	. = ..(need_key)
-
 	if(src.best_sale_for_need_proc)
 		var/value = call(src.best_sale_for_need_proc)(need_key, src.best_sale_for_need_proc_args, src)
 		return value

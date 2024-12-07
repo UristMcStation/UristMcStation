@@ -11,7 +11,8 @@
 	if(generate_faction_name)
 		new_commander.name = BuildFactionName()
 	else
-		new_commander.name = new_commander.GetPawn()?.name
+		var/mob/pawnmob = new_commander.GetPawn()
+		new_commander.name = pawnmob?.name
 
 	return new_commander
 
