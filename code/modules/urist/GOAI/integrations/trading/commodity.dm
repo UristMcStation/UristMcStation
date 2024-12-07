@@ -36,7 +36,7 @@
 // These are both handled by the same proc:
 //
 //
-// >>  GetCommodityNeedValue(var/key)
+// =>  GetCommodityNeedValue(var/key)
 //
 //
 // The 'key' variable defines which 'type of value' we are asking about. This is usually a need of some sort.
@@ -52,7 +52,7 @@
 // there is a separate, convenience proc available:
 //
 //
-// >>   GetCommodityNeedValueSet(var/list/keyset)
+// =>   GetCommodityNeedValueSet(var/list/keyset)
 //
 //
 // This is effectively a variant of GetCommodityNeedValue that returns an assoc list for each input key.
