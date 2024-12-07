@@ -38,8 +38,13 @@
 	var/ai_tick_delay = UTILITYAI_AI_TICK_DELAY // this is the actually used sleep; == base_ai_tick_delay + rand()
 	var/senses_tick_delay = COMBATAI_SENSE_TICK_DELAY
 
-	// what time to wake the AI up for the next tick
+	// What time to wake the AI up for the next tick
 	var/waketime = 0
+
+	// Default value for the no_cache args when reading data from JSON.
+	// If TRUE, will re-read the files every time (slower, but allows editing in real-time).
+	// If FALSE, will read each file once and store it forever globally (unless someone else forces a refresh); fast, should be the default.
+	var/disable_so_cache = FALSE
 
 	var/registry_index
 
@@ -50,26 +55,6 @@
 	/* Dynamically attached junk */
 	var/dict/attachments
 	#endif
-
-	// These two are, by and large, relics of earlier code and are, practically speaking, DEPRECATED!
-	var/list/actionslist
-	var/list/actionlookup
-
-
-/datum/utility_ai/proc/InitActionLookup()
-	/* Largely redundant; initializes handlers, but
-	// InitActions should generally use AddAction
-	// with a handler arg to register them.
-	// Mostly a relic of past design iterations.
-	*/
-	var/list/new_actionlookup = list()
-	return new_actionlookup
-
-
-/datum/utility_ai/proc/InitActionsList()
-	// DEPRECATED
-	var/list/new_actionslist = list()
-	return new_actionslist
 
 
 /datum/utility_ai/proc/InitRelations()
@@ -117,8 +102,6 @@
 	//var/spawn_time = world.time
 	//src.last_update_time = spawn_time
 	src.attachments = new()
-	src.actionlookup = src.InitActionLookup()  // order matters!
-	src.actionslist = src.InitActionsList()
 
 	src.PreSetupHook()
 	src.RegisterAI()
@@ -215,6 +198,3 @@
 			// Wait until the next update tick.
 			while(world.time < src.waketime)
 				sleep(sleeptime)
-
-
-
