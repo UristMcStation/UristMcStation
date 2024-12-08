@@ -120,6 +120,8 @@
 # define JSON_KEY_ACT_ACTIVE "active"
 # define JSON_KEY_ACT_PRECONDS "preconditions"
 # define JSON_KEY_ACT_EFFECTS "effects"
+# define JSON_KEY_ACT_MINLOD "min_lod"
+# define JSON_KEY_ACT_MAXLOD "max_lod"
 
 // ActionSet schema:
 # define JSON_KEY_ACTSET_NAME "name"

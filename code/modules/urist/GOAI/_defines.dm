@@ -123,14 +123,6 @@
 # define GOAI_CHEAT_SEE_WAYPOINT_TURF_MAXDIST_CUTOFF (world.view * 3)
 
 
-/* ===   Relationships:  === */
-
-// Very Big Numbers - should be much bigger than normal relationship val/wgt
-// These should effectively force other tags to be ignored entirely.
-# define GOAI_REL_LUDICROUS_WEIGHT 10000
-# define GOAI_REL_LUDICROUS_VALUE 10000
-
-
 /* Raycast blocking */
 # define RAYCAST_BLOCK_ALL 1
 # define RAYCAST_BLOCK_NONE -1
@@ -280,3 +272,22 @@
 // 128+32+16+8+4+2+1 == 191
 // Cult mobs, and other things that are basically normal objects but also visible on the supernatural layer
 #define GOAI_VISTYPE_SUPERNATURAL 191
+
+
+/* ===   Relationships:  === */
+
+// Very Big Numbers - should be much bigger than normal relationship val/wgt
+// These should effectively force other tags to be ignored entirely.
+# define GOAI_REL_LUDICROUS_WEIGHT 10000
+# define GOAI_REL_LUDICROUS_VALUE 10000
+
+#define RELATIONS_DEFAULT_RELATIONSHIP_VAL 0
+#define RELATIONS_DEFAULT_RELATIONSHIP_WEIGHT 1
+
+#define RELATIONS_DEFAULT_HOSTILITY_THRESHOLD 0
+#define RELATIONS_DEFAULT_ALLIANCE_THRESHOLD 100
+
+#define RELATIONS_DEFAULT_SELF_FACTION_RELATION_VAL 100
+#define RELATIONS_DEFAULT_SELF_FACTION_RELATION_WEIGHT 1
+#define RELATIONS_DEFAULT_SELF_HIDDENFACTION_RELATION_VAL 50
+#define RELATIONS_DEFAULT_SELF_HIDDENFACTION_RELATION_WEIGHT 1
