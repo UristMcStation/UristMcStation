@@ -1,0 +1,5 @@
+author: Cakey
+changes:
+  - {rscadd: Walls that are painted different colours will now have border segments
+      between them where possible}
+delete-after: true
