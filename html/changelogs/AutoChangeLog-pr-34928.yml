@@ -1,0 +1,6 @@
+author: SierraKomodo
+changes:
+  - {bugfix: 'APC power channel status icon overlays now render again (How long has
+      this been broken for?). Red = set to off, orange = set to auto but currently
+      off, green = set to on, blue = set to auto and currently on.'}
+delete-after: true
