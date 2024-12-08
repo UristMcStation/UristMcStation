@@ -3577,7 +3577,6 @@
 #include "code\modules\urist\GOAI\integrations\utility_agent\orders.dm"
 #include "code\modules\urist\GOAI\integrations\utility_agent\personality.dm"
 #include "code\modules\urist\GOAI\integrations\utility_agent\planning.dm"
-#include "code\modules\urist\GOAI\integrations\utility_agent\preflights.dm"
 #include "code\modules\urist\GOAI\integrations\utility_agent\relations.dm"
 #include "code\modules\urist\GOAI\integrations\utility_agent\senses.dm"
 #include "code\modules\urist\GOAI\integrations\utility_agent\tick_ai.dm"
