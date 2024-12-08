@@ -73,7 +73,7 @@
 			GLOB.alive_mobs += SM
 			SM.update_icon()
 			SM.revive()
-			holder.visible_message("<span class='alien'>\The [SM]'s eyes open in a flash of light!</span>")
+			holder.visible_message(SPAN_CLASS("alien", "\The [SM]'s eyes open in a flash of light!"))
 		else if (ishuman(L))
 			var/mob/living/carbon/human/H = L
 			if (!H.client && H.mind)
@@ -87,8 +87,5 @@
 			H.adjustFireLoss(-40)
 			sleep(10 SECONDS)
 			if (H.client)
-				L.stat = CONSCIOUS
-				GLOB.dead_mobs -= H
-				GLOB.alive_mobs += H
-				H.timeofdeath = null
-				holder.visible_message("<span class='alien'>\The [H]'s eyes open in a flash of light!</span>")
+				H.revive()
+				holder.visible_message(SPAN_CLASS("alien", "\The [H]'s eyes open in a flash of light!"))

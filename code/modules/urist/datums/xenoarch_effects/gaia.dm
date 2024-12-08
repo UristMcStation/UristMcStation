@@ -6,7 +6,7 @@
 
 
 /datum/artifact_effect/gaia/DoEffectTouch(mob/living/user)
-	to_chat(user, "<span class='alien'>You feel the presence of something long forgotten.</span>")
+	to_chat(user, SPAN_CLASS("alien", "You feel the presence of something long forgotten."))
 	for (var/obj/machinery/portable_atmospherics/hydroponics/Tray in view(world.view,get_turf(holder)))
 		age_plantlife(Tray)
 	for (var/obj/effect/vine/P in view(world.view,get_turf(holder)))

@@ -9,10 +9,11 @@
 
 /datum/artifact_effect/poltergeist/DoEffectAura()
 	var/mob/living/target = null
-	for (var/mob/living/L in oview(get_turf(holder), effectrange))
+	var/turf/holder_turf = get_turf(holder)
+	for (var/mob/living/L in oview(holder_turf, effectrange))
 		if (L.stat || !L.mind)
 			continue
-		if (target && get_dist(get_turf(holder), L) > get_dist(get_turf(holder), target))
+		if (target && get_dist(holder_turf, L) > get_dist(holder_turf, target))
 			continue
 		target = L
 	if (target)
@@ -21,10 +22,11 @@
 
 /datum/artifact_effect/poltergeist/DoEffectPulse()
 	var/mob/living/target = null
-	for (var/mob/living/L in oview(get_turf(holder), effectrange))
+	var/turf/holder_turf = get_turf(holder)
+	for (var/mob/living/L in oview(holder_turf, effectrange))
 		if (L.stat || !L.mind)
 			continue
-		if (target && get_dist(get_turf(holder), L) > get_dist(get_turf(holder), target))
+		if (target && get_dist(holder_turf, L) > get_dist(holder_turf, target))
 			continue
 		target = L
 	if (target)
@@ -38,5 +40,5 @@
 			valid_targets |= O
 	if (length(valid_targets))
 		var/obj/obj_to_throw = pick(valid_targets)
-		obj_to_throw.visible_message("<span class='alien'>\The [obj_to_throw] levitates, before hurtling toward [target]!</span>")
+		obj_to_throw.visible_message(SPAN_CLASS("alien", "\The [obj_to_throw] levitates, before hurtling toward [target]!"))
 		obj_to_throw.throw_at(target, world.view, min(40, damage * obj_to_throw.w_class))
