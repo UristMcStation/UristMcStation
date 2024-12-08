@@ -3573,6 +3573,7 @@
 #include "code\modules\urist\GOAI\integrations\utility_agent\debug.dm"
 #include "code\modules\urist\GOAI\integrations\utility_agent\economy_ai.dm"
 #include "code\modules\urist\GOAI\integrations\utility_agent\global_planactions_repo.dm"
+#include "code\modules\urist\GOAI\integrations\utility_agent\lod_checks.dm"
 #include "code\modules\urist\GOAI\integrations\utility_agent\movement.dm"
 #include "code\modules\urist\GOAI\integrations\utility_agent\orders.dm"
 #include "code\modules\urist\GOAI\integrations\utility_agent\personality.dm"
