@@ -1,0 +1,4 @@
+author: SierraKomodo
+changes:
+  - {rscadd: 'NanoMed, NanoMed Mini, and NanoMed Plus vendors now carry allergy autoinjectors.'}
+delete-after: true
