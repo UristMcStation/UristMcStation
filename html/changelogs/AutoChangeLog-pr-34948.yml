@@ -1,0 +1,7 @@
+author: SierraKomodo
+changes:
+  - {tweak: IV bag drip rate options now includes 0.5.}
+  - {rscadd: Characters with Experienced or higher in the Medicine skill can now select
+      an exact flow rate for IV bags by choosing "Custom" then typing in a number
+      from 0.0 to 2.0. Numbers are rounded to the nearest multiple of 0.1.}
+delete-after: true
