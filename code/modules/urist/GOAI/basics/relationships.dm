@@ -193,5 +193,4 @@
 		var/weighted_val = factor * rel_val
 		total_val += weighted_val
 
-
 	return total_val

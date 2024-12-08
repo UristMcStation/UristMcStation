@@ -28,10 +28,12 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_get_need_perc)
 
 	var/value = requesting_brain.GetNeed(need_key, null)
 
+	#ifdef ENABLE_GOAI_DEVEL_LOGGING
 	var/log_need_value = consideration_args?["log_need_value"]
 
 	if(log_need_value)
-		GOAI_LOG_DEBUG("INFO: consideration_input_get_lowest_need_perc for [requesting_brain] - raw need value for Need [need_key] is [NULL_TO_TEXT(value)] @ L[__LINE__] in [__FILE__]!")
+		GOAI_LOG_DEBUG("INFO: consideration_input_get_need_perc for [requesting_brain] - raw need value for Need [need_key] is [NULL_TO_TEXT(value)] @ L[__LINE__] in [__FILE__]!")
+	#endif
 
 	if(isnull(value))
 		return default
@@ -92,10 +94,12 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_get_lowest_need_perc)
 			lowest_value = need_value
 			lowest_need = need_key
 
+	#ifdef ENABLE_GOAI_DEVEL_LOGGING
 	var/log_need_value = consideration_args?["log_need_value"]
 
 	if(log_need_value)
 		GOAI_LOG_DEBUG("INFO: consideration_input_get_lowest_need_perc for [requesting_brain] - raw need value for Need [lowest_need] is [NULL_TO_TEXT(lowest_value)] @ L[__LINE__] in [__FILE__]!")
+	#endif
 
 	if(isnull(lowest_need))
 		return default

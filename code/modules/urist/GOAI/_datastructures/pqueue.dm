@@ -357,6 +357,9 @@
 
 
 /PriorityQueue/BinHeap/Dequeue()
+	if(!src.L.len)
+		return
+
 	var/popped
 	BH_HEAPPOP(popped, src.cmp, src.L)
 	return popped

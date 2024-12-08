@@ -23,6 +23,31 @@
 	//
 	var/unranked_actions = FALSE
 
+	// Optional path to proc.
+	// Proc must take a single argument, which is the reference to the calling AI.
+	// It should return an LOD level constant (use macros for convenience).
+	//
+	// The LOD level determines how much detail we allow for the AI - high LOD means
+	// full fidelity, low LOD means we simplify and abstract for higher performance
+	// when players wouldn't see these details.
+	//
+	// For example, there is no point running full pathfinding (max LOD) for AI mobs
+	// on a ship that hasn't yet been encountered by the players. We MAYBE want to
+	// run only coarse simulation to move the pawns between rooms on a schedule
+	// or something (lower LOD) if it's within 'medium' range, but we can disable it
+	// entirely (zero LOD) if it's in the 'far' range.
+	//
+	// If null, this step is simply ignored, defaulting to a sane LOD.
+	var/dynamic_lod_check = null
+
+	// Tracking current state.
+	// Nuke the dynamic_lod_check and set this manually if you want to override it for badmin reasons.
+	var/current_lod = GOAI_LOD_STANDARD
+
+	// AI LODs at which to run this.
+	// min <= current <= max to tick.
+	var/min_lod = GOAI_LOD_FACTION_LOW
+	var/max_lod = GOAI_LOD_HIGHEST
 
 
 /datum/utility_ai/proc/AbortPlan(var/mark_failed = TRUE)
@@ -130,6 +155,8 @@
 	var/template_count = 0
 	# endif
 
+	var/our_lod = DEFAULT_IF_NULL(src.current_lod, GOAI_LOD_STANDARD)
+
 	for(var/datum/action_set/actionset in actionsets)
 		if(!(actionset?.active))
 			continue
@@ -142,6 +169,14 @@
 			# ifdef UTILITYBRAIN_LOG_ACTIONCOUNT
 			template_count++
 			# endif
+
+			var/action_minlod = DEFAULT_IF_NULL(action_template.min_lod, GOAI_LOD_LOWEST)
+			if(our_lod < action_minlod)
+				continue
+
+			var/action_maxlod = DEFAULT_IF_NULL(action_template.max_lod, GOAI_LOD_STANDARD)
+			if(our_lod > action_maxlod)
+				continue
 
 			var/list/contexts = action_template.GetCandidateContexts(src)
 
@@ -297,13 +332,34 @@
 	if(!src.brain)
 		return
 
+	// LOD checks
+	var/lod_level = null
+	if(src.dynamic_lod_check)
+		lod_level = call(src.dynamic_lod_check)(src)
+
+	lod_level = DEFAULT_IF_NULL(DEFAULT_IF_NULL(lod_level, src.current_lod), GOAI_LOD_STANDARD)
+	src.current_lod = lod_level
+
+	if(!isnull(src.min_lod))
+		if(src.current_lod < src.min_lod)
+			return
+
+	if(!isnull(src.max_lod))
+		if(src.current_lod > src.max_lod)
+			return
+
+	// Should run, probably.
+	src.OnBeginLifeTick() // hook
+
+	if(src.paused)
+		// yes, again - in case the hook pauses us
+		return
+
 	var/list/active_plan = src.active_plan
 
 	var/run_count = 0
 	var/target_run_count = 1
 	var/do_plan = FALSE
-
-	src.OnBeginLifeTick() // hook
 
 	while(run_count++ < target_run_count)
 		/* STATE: Running */

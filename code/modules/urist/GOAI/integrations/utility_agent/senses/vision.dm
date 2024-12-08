@@ -44,7 +44,7 @@
 		visual_range.Add(viewthing)
 
 	if(visual_range)
-		owner_brain?.perceptions[SENSE_SIGHT_CURR] = visual_range
+		owner_brain.perceptions[SENSE_SIGHT_CURR] = visual_range
 
 	/*
 	// Disabled because it takes a lot of memory for not a lot of obvious benefit

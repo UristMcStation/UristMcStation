@@ -29,7 +29,7 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_cover_candidates)
 	var/list/curr_view = requesting_brain.perceptions[SENSE_SIGHT_CURR]
 
 	if(!istype(curr_view))
-		UTILITYBRAIN_DEBUG_LOG("WARNING: curr_view for ctxfetcher_cover_candidates is not a list @ L[__LINE__] in [__FILE__]!")
+		UTILITYBRAIN_DEBUG_LOG("WARNING: curr_view [NULL_TO_TEXT(curr_view)] for ctxfetcher_cover_candidates is not a list @ L[__LINE__] in [__FILE__]!")
 		return null
 
 	var/turf/unreachable = requesting_brain.GetMemoryValue("UnreachableTile", null)
@@ -58,6 +58,9 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_cover_candidates)
 			continue
 
 		var/turf/cover_loc = (istype(candidate_cover, /turf) ? candidate_cover : get_turf(candidate_cover))
+
+		if(!istype(cover_loc))
+			continue
 
 		if(cover_loc in processed)
 			continue

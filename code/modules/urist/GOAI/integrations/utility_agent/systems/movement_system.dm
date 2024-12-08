@@ -84,9 +84,9 @@
 				do_path_following = FALSE
 				continue
 
+			#ifdef ENABLE_GOAI_DEBUG_BEAM_GIZMOS
 			var/turf/prev_draw_pos = null
 
-			#ifdef ENABLE_GOAI_DEBUG_BEAM_GIZMOS
 			for(var/turf/drawpos in src.active_path.path)
 				// debug path drawing
 				if(!isnull(prev_draw_pos))

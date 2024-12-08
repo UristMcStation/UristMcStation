@@ -15,6 +15,10 @@
 	var/processing = FALSE // to avoid calling stuff multiple times per tick
 	var/enabled = TRUE
 
+	// AI LOD stuff
+	var/min_lod = GOAI_LOD_LOWEST
+	var/max_lod = GOAI_LOD_STANDARD
+
 
 /sense/proc/ProcessTick(var/owner)
 	// overall logic goes here;

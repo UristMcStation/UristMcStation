@@ -24,7 +24,7 @@
 			"considerations": [
 				{
 					"name": "Closed Door Nearby",
-					"lo_mark": 0.1, 
+					"lo_mark": 0, 
 					"hi_mark": 1, 
 					"input_proc": "/proc/consideration_input_is_passable", 
 					"input_args": {
