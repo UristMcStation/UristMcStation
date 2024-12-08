@@ -81,8 +81,8 @@
 /datum/trader/ship/chinese/trade_quantity(quantity, list/offers, num, turf/location)
 	. = ..()
 	quantity = 1
-	if(.)
-		new/obj/item/reagent_containers/food/snacks/fortunecookie(location)
+	if (.)
+		new /obj/item/reagent_containers/food/snacks/fortunecookie (location)
 
 /datum/trader/grocery
 	name = "Grocer"
