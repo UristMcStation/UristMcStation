@@ -15,7 +15,7 @@
 
 /datum/build_mode/throw_at/OnClick(atom/A, list/parameters)
 	if(parameters["left"])
-		if(istype(A, /atom/movable))
+		if(ismovable(A))
 			SetThrowable(A)
 	else if(parameters["right"])
 		if(to_throw)

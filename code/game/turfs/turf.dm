@@ -192,7 +192,7 @@ var/global/const/enterloopsanity = 100
 
 	QUEUE_TEMPERATURE_ATOMS(atom)
 
-	if(!istype(atom, /atom/movable))
+	if(!ismovable(atom))
 		return
 
 	var/atom/movable/A = atom

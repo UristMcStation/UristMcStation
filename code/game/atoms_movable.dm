@@ -336,7 +336,7 @@
 	SetName(master.name)
 	set_dir(master.dir)
 
-	if(istype(master, /atom/movable))
+	if(ismovable(master))
 		GLOB.moved_event.register(master, src, follow_proc)
 		SetInitLoc()
 
@@ -349,7 +349,7 @@
 	forceMove(master.loc)
 
 /atom/movable/fake_overlay/Destroy()
-	if(istype(master, /atom/movable))
+	if(ismovable(master))
 		GLOB.moved_event.unregister(master, src)
 	GLOB.destroyed_event.unregister(master, src)
 	GLOB.dir_set_event.unregister(master, src)

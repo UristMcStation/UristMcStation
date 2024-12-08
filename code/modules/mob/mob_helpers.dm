@@ -415,7 +415,7 @@ var/global/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 /proc/announce_ghost_joinleave(O, joined_ghosts = 1, message = "")
 	var/client/C
 	//Accept any type, sort what we want here
-	if(istype(O, /mob))
+	if(ismob(O))
 		var/mob/M = O
 		if(M.client)
 			C = M.client
@@ -612,7 +612,7 @@ var/global/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 
 /mob/proc/try_teleport(area/thearea)
 	if(!istype(thearea))
-		if(istype(thearea, /list))
+		if(islist(thearea))
 			thearea = thearea[1]
 	var/list/L = list()
 	for(var/turf/T in get_area_turfs(thearea))

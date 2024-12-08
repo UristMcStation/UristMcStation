@@ -105,7 +105,7 @@ would spawn and follow the beaker, even if it is carried or thrown.
 	..()
 	playsound(src.loc, "sparks", 100, 1)
 	var/turf/T = src.loc
-	if (istype(T, /turf))
+	if (isturf(T))
 		T.hotspot_expose(1000,100)
 
 /obj/sparks/Initialize()
@@ -114,14 +114,14 @@ would spawn and follow the beaker, even if it is carried or thrown.
 
 /obj/sparks/Destroy()
 	var/turf/T = src.loc
-	if (istype(T, /turf))
+	if (isturf(T))
 		T.hotspot_expose(1000,100)
 	return ..()
 
 /obj/sparks/Move()
 	..()
 	var/turf/T = src.loc
-	if (istype(T, /turf))
+	if (isturf(T))
 		T.hotspot_expose(1000,100)
 
 /datum/effect/spark_spread

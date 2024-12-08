@@ -19,7 +19,7 @@ var/global/list/view_variables_no_assoc = list("verbs", "contents","screen","ima
 
 	var/icon/sprite
 	var/atom/A
-	if(istype(D, /atom))
+	if(isloc(D))
 		A = D
 		if(A.icon && A.icon_state)
 			sprite = icon(A.icon, A.icon_state)

@@ -22,7 +22,7 @@ var/global/list/cached_icons = list()
 	if(istype(target) && reagents.total_volume > 5)
 		if (reagents.should_admin_log())
 			var/contained = reagentlist()
-			if (istype(target, /mob))
+			if (ismob(target))
 				admin_attack_log(user, target, "Used \the [name] containing [contained] to splash the victim.", "Was splashed by \the [name] containing [contained].", "used \the [name] containing [contained] to splash")
 			else
 				admin_attacker_log(user, "Used \the [name] containing [contained] to splash \the [target]")

@@ -249,7 +249,7 @@
 /obj/item/storage/proc/handle_item_insertion(obj/item/W, prevent_warning = 0, NoUpdate = 0)
 	if(!istype(W))
 		return 0
-	if(istype(W.loc, /mob))
+	if(ismob(W.loc))
 		var/mob/M = W.loc
 		if(!M.unEquip(W))
 			return

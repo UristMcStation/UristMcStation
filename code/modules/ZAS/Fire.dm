@@ -160,7 +160,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 /obj/hotspot/New(newLoc,fl)
 	..()
 
-	if(!istype(loc, /turf))
+	if(!isturf(loc))
 		qdel(src)
 		return
 

@@ -73,6 +73,6 @@
 /obj/item/stack/material/rods/attack_self(mob/user as mob)
 	src.add_fingerprint(user)
 
-	if(!istype(user.loc,/turf)) return 0
+	if(!isturf(user.loc)) return 0
 
 	place_grille(user, user.loc, src)

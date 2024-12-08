@@ -147,7 +147,7 @@
 					return
 
 
-		if (istype(A, /atom)) // Force attack.
+		if (isloc(A)) // Force attack.
 			if (pa["alt"])
 				var/i = 0
 				for(var/mob/living/unit in selected_mobs)

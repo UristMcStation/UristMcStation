@@ -448,7 +448,7 @@ Checks if a list has the same entries and values as an element of big.
 /proc/bitfield2list(bitfield = 0, list/wordlist)
 	RETURN_TYPE(/list)
 	var/list/r = list()
-	if(istype(wordlist,/list))
+	if(islist(wordlist))
 		var/max = min(length(wordlist),16)
 		var/bit = 1
 		for(var/i=1, i<=max, i++)

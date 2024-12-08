@@ -86,7 +86,7 @@
 //	log_debug("create_area")
 
 	var/res = detect_room(get_turf(usr))
-	if(!istype(res,/list))
+	if(!islist(res))
 		switch(res)
 			if(ROOM_ERR_SPACE)
 				to_chat(usr, SPAN_WARNING("The new area must be completely airtight!"))

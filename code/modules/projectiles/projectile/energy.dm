@@ -208,7 +208,7 @@
 
 /obj/item/projectile/energy/plasmastun/sonic/bang(mob/living/carbon/M)
 	..()
-	if(istype(M, /atom/movable) && M.simulated && !M.anchored)
+	if(ismovable(M) && M.simulated && !M.anchored)
 		M.throw_at(get_edge_target_turf(M, get_dir(src, M)), rand(1,5), 6)
 
 /obj/item/projectile/energy/plasmastun/sonic/weak

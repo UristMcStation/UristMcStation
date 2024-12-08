@@ -529,7 +529,7 @@ var/global/list/slot_flags_enumeration = list(
 	if (!usr.HasFreeHand())
 		to_chat(usr, SPAN_WARNING("Your hands are full."))
 		return
-	if(!istype(src.loc, /turf)) //Object is on a turf
+	if(!isturf(loc)) //Object is on a turf
 		to_chat(usr, SPAN_WARNING("You can't pick that up!"))
 		return
 	//All checks are done, time to pick it up!

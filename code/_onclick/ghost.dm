@@ -17,7 +17,7 @@
 			return
 
 	// Things you might plausibly want to follow
-	if(istype(A,/atom/movable))
+	if(ismovable(A))
 		start_following(A)
 	// Otherwise jump
 	else

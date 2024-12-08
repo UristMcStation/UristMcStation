@@ -30,7 +30,7 @@
 
 /singleton/vv_set_handler/location_handler/handle_set_var(atom/movable/AM, variable, var_value, client)
 	if(variable == "loc")
-		if(istype(var_value, /atom) || isnull(var_value) || var_value == "")	// Proper null or empty string is fine, 0 is not
+		if(isloc(var_value) || isnull(var_value) || var_value == "")	// Proper null or empty string is fine, 0 is not
 			AM.forceMove(var_value)
 		else
 			to_chat(client, SPAN_WARNING("May only assign null or /atom types to loc."))

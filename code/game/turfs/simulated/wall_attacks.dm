@@ -142,7 +142,7 @@
 		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return TRUE
 
-	if(!istype(user.loc, /turf))
+	if(!isturf(user.loc))
 		return	..()
 
 	radiate()
