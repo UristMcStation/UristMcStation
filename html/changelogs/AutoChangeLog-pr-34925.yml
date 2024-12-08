@@ -1,0 +1,5 @@
+author: YourName
+changes:
+  - {tweak: Lings have two stasis uses at maximum. Absorb to stasis more.}
+  - {bugfix: Fixes darksight for ling.}
+delete-after: true
