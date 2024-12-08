@@ -32,16 +32,16 @@
 	# define MARKETWATCH_DEBUG_LOGGING 0
 	# define TRADE_DEBUG_LOGGING 0
 
+	// Undefine to remove warnings for noncritical WIP code stuff
+	//# define SHOW_GOAI_WIP_WARNINGS 1
+
+	// Undefine to disable drawing debug lines pointing at assorted Stuff
+	# define ENABLE_GOAI_DEBUG_BEAM_GIZMOS 1
+
+	# define ENABLE_GOAI_DEVEL_LOGGING 1
+	# define ENABLE_GOAI_ERROR_LOGGING 1
+
 #endif
-
-// Undefine to remove warnings for noncritical WIP code stuff
-//# define SHOW_GOAI_WIP_WARNINGS 1
-
-// Undefine to disable drawing debug lines pointing at assorted Stuff
-# define ENABLE_GOAI_DEBUG_BEAM_GIZMOS 1
-
-# define ENABLE_GOAI_DEVEL_LOGGING 1
-# define ENABLE_GOAI_ERROR_LOGGING 1
 
 #ifndef to_world
 	#define to_world(message) world << (message)

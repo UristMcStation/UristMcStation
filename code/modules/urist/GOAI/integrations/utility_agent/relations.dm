@@ -139,7 +139,7 @@
 	if(isnull(trg))
 		return FALSE
 
-	var/threshold = 0
+	var/threshold = RELATIONS_DEFAULT_HOSTILITY_THRESHOLD
 	if(src.brain)
 		threshold = src.brain.hostility_threshold
 
@@ -161,7 +161,7 @@
 	if(isnull(trg))
 		return FALSE
 
-	var/threshold = 50
+	var/threshold = RELATIONS_DEFAULT_ALLIANCE_THRESHOLD
 	if(src.brain)
 		threshold = src.brain.ally_threshold
 

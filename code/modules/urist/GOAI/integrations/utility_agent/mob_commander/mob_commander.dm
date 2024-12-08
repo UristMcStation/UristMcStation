@@ -16,6 +16,9 @@
 	// We only ever attach to an existing pawn
 	initialize_pawn = FALSE
 
+	// sensible default, override if needed
+	dynamic_lod_check = /proc/goai_pawn_is_conscious
+
 	// Moving stuff:
 	var/datum/ActivePathTracker/active_path
 	var/is_repathing = 0
@@ -57,6 +60,9 @@
 
 	var/atom/movable/pawn = src.GetPawn()
 
+	if(!GOAI_LIBBED_GLOB_ATTR(relationships_db))
+		InitRelationshipsDb()
+
 	var/datum/relationships/relations = ..()
 
 	if(isnull(relations) || !istype(relations))
@@ -68,7 +74,10 @@
 		var/my_faction = L.faction
 
 		if(my_faction)
-			var/datum/relation_data/my_faction_rel = new(5, 1) // slightly positive
+			var/db_value = (GOAI_LIBBED_GLOB_ATTR(relationships_db))?[my_faction]
+			var/new_relation_val = DEFAULT_IF_NULL(db_value, RELATIONS_DEFAULT_SELF_FACTION_RELATION_VAL) // slightly positive
+
+			var/datum/relation_data/my_faction_rel = new(new_relation_val, RELATIONS_DEFAULT_SELF_FACTION_RELATION_WEIGHT)
 			relations.Insert(my_faction, my_faction_rel)
 
 	# ifdef GOAI_SS13_SUPPORT
@@ -82,8 +91,10 @@
 			// NOTE: This means that Hostiles will have *very slightly* higher threshold
 			//       for getting mad at other Hostiles in the same faction & hiddenfaction.
 			//       as opposed to the ones in the same faction but DIFFERENT hiddenfaction.
+			var/db_value = (GOAI_LIBBED_GLOB_ATTR(relationships_db))?[my_hiddenfaction]
+			var/new_relation_val = DEFAULT_IF_NULL(db_value, RELATIONS_DEFAULT_SELF_HIDDENFACTION_RELATION_VAL) // slightly positive
 
-			var/datum/relation_data/my_hiddenfaction_rel = new(1, 1) // minimally positive
+			var/datum/relation_data/my_hiddenfaction_rel = new(new_relation_val, RELATIONS_DEFAULT_SELF_HIDDENFACTION_RELATION_WEIGHT) // minimally positive
 			relations.Insert(my_hiddenfaction, my_hiddenfaction_rel)
 
 	# endif
