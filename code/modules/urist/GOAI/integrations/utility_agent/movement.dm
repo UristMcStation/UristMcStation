@@ -212,6 +212,10 @@
 	src.is_repathing = 1
 
 	var/atom/pawn = src.GetPawn()
+	if(!istype(pawn))
+		MOVEMENT_DEBUG_LOG("[src]: Could not build a pathtracker to [trg] - no pawn!")
+		src.is_repathing = 0
+		return
 
 	var/used_min_dist = min_dist - 1
 	var/datum/ActivePathTracker/pathtracker = null
@@ -233,6 +237,7 @@
 		MOVEMENT_DEBUG_LOG("[src]: Could not build a pathtracker to [trg] @ [pawnloc] [COORDS_TUPLE(pawnloc)]")
 		#endif
 		src.brain.SetMemory("PendingMovementTarget", trg, 100)
+		src.is_repathing = 0
 		return
 
 	#ifdef ENABLE_GOAI_DEBUG_BEAM_GIZMOS

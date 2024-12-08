@@ -46,6 +46,22 @@
 
 /datum/faction_data/proc/BuildRelations()
 	var/datum/relationships/new_relations = new()
+
+	if(!GOAI_LIBBED_GLOB_ATTR(relationships_db))
+		InitRelationshipsDb()
+
+	var/list/our_rels = (GOAI_LIBBED_GLOB_ATTR(relationships_db))?[src.name]
+
+	if(our_rels)
+		for(var/reltag in our_rels)
+			var/relval = our_rels[reltag]
+
+			if(isnull(relval))
+				continue
+
+			var/datum/relation_data/reldata = new(relval, RELATIONS_DEFAULT_RELATIONSHIP_WEIGHT)
+			new_relations.Insert(reltag, reldata)
+
 	return new_relations
 
 

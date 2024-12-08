@@ -169,18 +169,24 @@ GLOBAL_VAR(production_subsystem_last_update_time)
 				curr_simulation_time += PRODUCTIONSYSTEM_TICKSIZE_DSECONDS
 
 				//GOAI_LOG_DEBUG("= PRODUCTION/CONSUMPTION SYSTEM: PROCESSING [faction.name] - simulation tick... =")
+				#ifdef ENABLE_GOAI_DEVEL_LOGGING
 				var/recipe_idx = 0
+				#endif
 
 				for(var/list/recipe_asset_deltas in prodconsume_db)
 					// Go through all Resource 'recipes' and check how much they use/produce stuff...
+					#ifdef ENABLE_GOAI_DEVEL_LOGGING
 					recipe_idx++
+					#endif
 
 					if(!recipe_asset_deltas)
 						// junk entry somehow
 						GOAI_LOG_ERROR("ERROR: Recipe [recipe_idx] in prodconsume_db has no asset deltas - SKIPPING")
 						continue
 
+					#ifdef ENABLE_GOAI_DEVEL_LOGGING
 					var/recipe_name = recipe_asset_deltas["recipe_name"]
+					#endif
 					//GOAI_LOG_DEBUG("= PRODUCTION/CONSUMPTION SYSTEM: PROCESSING RECIPE [recipe_idx] ([NULL_TO_TEXT(recipe_name)]) for ref [NULL_TO_TEXT(faction_ref)]... =")
 
 					// What asset gives rise to this recipe?

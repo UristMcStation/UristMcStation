@@ -17,6 +17,12 @@
 
 	var/active = TRUE  // meant to granularly disable options (e.g. for cooldowns) without affecting the whole ActionSet.
 
+	// Controls what LOD levels this Action is available at.
+	// For example, we can have a standard PathfindingMove at 7+ LOD, at 3-6 allow TeleportMove, and at 0-2 don't let AI move at all.
+	// By default, Actions are available at all LODs up to Standard. Actions that rely on elevated LOD must explicitly mark themselves as such.
+	var/min_lod = GOAI_LOD_LOWEST
+	var/max_lod = GOAI_LOD_STANDARD
+
 	var/list/context_fetchers = null // a list of procs that generate candidate context for the action
 	var/list/context_args = null // a list of lists of arguments argslisted into the context_fetchers; index should correspond to the ContextFetcher to route args to; optional
 
@@ -47,7 +53,7 @@
 	var/_terminates_plan_hash = null
 
 
-/datum/utility_action_template/New(var/list/bound_considerations, var/handler = null, var/handlertype = null, var/context_fetchers = null, var/list/context_args = null, var/priority = null, var/charges = null, var/instant = null, var/list/hard_args = null, var/name_override = null, var/description_override = null, var/active = null, var/list/preconditions = null, var/list/effects = null)
+/datum/utility_action_template/New(var/list/bound_considerations, var/handler = null, var/handlertype = null, var/context_fetchers = null, var/list/context_args = null, var/priority = null, var/charges = null, var/instant = null, var/list/hard_args = null, var/name_override = null, var/description_override = null, var/active = null, var/min_lod = null, var/max_lod = null, var/list/preconditions = null, var/list/effects = null)
 	SET_IF_NOT_NULL(bound_considerations, src.considerations)
 	SET_IF_NOT_NULL(context_fetchers, src.context_fetchers)
 	SET_IF_NOT_NULL(context_args, src.context_args)
@@ -60,6 +66,9 @@
 	SET_IF_NOT_NULL(name_override, src.name)
 	SET_IF_NOT_NULL(description_override, src.description)
 	SET_IF_NOT_NULL(active, src.active)
+	// LODs
+	SET_IF_NOT_NULL(min_lod, src.min_lod)
+	SET_IF_NOT_NULL(max_lod, src.max_lod)
 	// GOAP
 	SET_IF_NOT_NULL(preconditions, src.preconditions)
 	SET_IF_NOT_NULL(effects, src.effects)

@@ -103,6 +103,11 @@
 	var/act_name = json_data[JSON_KEY_ACT_NAME]
 	var/act_description = json_data[JSON_KEY_ACT_DESCRIPTION]
 	var/active = json_data[JSON_KEY_ACT_ACTIVE]
+
+	//LOD stuff
+	var/min_lod = json_data[JSON_KEY_ACT_MINLOD]
+	var/max_lod = json_data[JSON_KEY_ACT_MAXLOD]
+
 	// GOAP stuff
 	var/list/preconds = json_data[JSON_KEY_ACT_PRECONDS]
 	var/list/effects = json_data[JSON_KEY_ACT_EFFECTS]
@@ -122,6 +127,8 @@
 		act_name,
 		act_description,
 		active,
+		min_lod,
+		max_lod,
 		// GOAP stuff
 		preconds,
 		effects
@@ -229,6 +236,8 @@
 
 # define JSON_KEY_SO_FETCHER_IDX_KEY "sense_index_key"
 # define JSON_KEY_SO_FETCHER_ENABLED "enabled"
+# define JSON_KEY_SO_FETCHER_MINLOD "min_lod"
+# define JSON_KEY_SO_FETCHER_MAXLOD "max_lod"
 # define JSON_KEY_SO_FETCHER_INP_MEM_KEY "in_memory_key"
 # define JSON_KEY_SO_FETCHER_OUT_MEM_KEY "out_memory_key"
 # define JSON_KEY_SO_FETCHER_RETENTION_TIME "retention_time_dseconds"
@@ -255,11 +264,13 @@
 
 	var/key = json_data[JSON_KEY_SO_FETCHER_IDX_KEY]
 	var/enabled = json_data[JSON_KEY_SO_FETCHER_ENABLED]
+	var/min_lod = json_data[JSON_KEY_SO_FETCHER_MINLOD]
+	var/max_lod = json_data[JSON_KEY_SO_FETCHER_MAXLOD]
 	var/in_memory_key = json_data[JSON_KEY_SO_FETCHER_INP_MEM_KEY]
 	var/out_memory_key = json_data[JSON_KEY_SO_FETCHER_OUT_MEM_KEY]
 	var/retention_time_dseconds = json_data[JSON_KEY_SO_FETCHER_RETENTION_TIME]
 
-	var/sense/utility_smartobject_fetcher/new_sense = new(key, enabled, in_memory_key, out_memory_key, retention_time_dseconds)
+	var/sense/utility_smartobject_fetcher/new_sense = new(key, enabled, min_lod, max_lod, in_memory_key, out_memory_key, retention_time_dseconds)
 	return new_sense
 
 # endif
@@ -427,6 +438,7 @@
 	ASSERT(json_filepath)
 
 	var/list/json_data = null
+
 	READ_JSON_FILE_CACHED(json_filepath, json_data)
 	ASSERT(json_data)
 

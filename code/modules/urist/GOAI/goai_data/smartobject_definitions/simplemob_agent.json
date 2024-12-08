@@ -297,8 +297,8 @@
 				},
 				{
 					"name": "IsFoe",
-					"lo_mark": -50, 
-					"hi_mark": 0, 
+					"lo_mark": -1, 
+					"hi_mark": 1, 
 					"noise_scale": 0,
 					"input_proc": "/proc/consideration_input_relationship_score", 
 					"input_args": {
@@ -356,8 +356,8 @@
 				},
 				{
 					"name": "IsFoe",
-					"lo_mark": -50, 
-					"hi_mark": 0, 
+					"lo_mark": -1, 
+					"hi_mark": 1, 
 					"noise_scale": 0,
 					"input_proc": "/proc/consideration_input_relationship_score", 
 					"input_args": {
