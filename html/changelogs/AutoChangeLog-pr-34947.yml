@@ -1,8 +1,0 @@
-author: PurplePineapple
-changes:
-  - {rscadd: 'Corporate Operative now has a dash that can instantly climb ladders,
-      get into mechs, and scale objects like tables. The user is invulnerable during
-      a dash, and can grab someone if the target is a player.'}
-  - {tweak: 'AUGMENT_EYES now exists separately for eye augments like HUDs, glare
-      dampeners.'}
-delete-after: true

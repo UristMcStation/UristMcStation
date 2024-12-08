@@ -1,5 +1,0 @@
-author: SierraKomodo
-changes:
-  - {tweak: Using blank paper with the fortune cookie recipe generates a random fortune
-      for you. How convenient!}
-delete-after: true

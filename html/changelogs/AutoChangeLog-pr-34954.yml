@@ -1,5 +1,0 @@
-author: SierraKomodo
-changes:
-  - {rscadd: 'You can now copy loadout slots to other slots by selecting the target
-      slot, then clicking "Copy Loadout" and selecting the origin slot to copy from.'}
-delete-after: true
