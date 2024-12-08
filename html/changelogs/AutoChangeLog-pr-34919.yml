@@ -1,0 +1,13 @@
+author: Spookerton
+changes:
+  - {bugfix: Writing on papers and photos held on clipboards works.}
+  - {tweak: You can use stamps and signet rings on a clipboard to affect its top paper.}
+  - {tweak: Bopping a loose paper with a clipboard collects it.}
+  - {tweak: 'Using a pen on an empty clipboard stores the pen. The Store Pen button
+      in the clipboard interface tries to find a pen in either hand, not just the
+      active.'}
+  - {tweak: 'Trying to use Write on a clipboard paper will try to use a pen in either
+      hand, then a pen from a deployed hardsuit, then the pen attached to the clipboard.'}
+  - {tweak: Trying to write on paper will look for a pen the same way clipboards do.}
+  - {tweak: You can't write on or rename papers inside folders.}
+delete-after: true
