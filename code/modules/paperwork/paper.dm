@@ -44,10 +44,12 @@
 	var/is_copy = TRUE
 
 
-/obj/item/paper/Initialize(text, title, list/metadata, datum/language/language)
+/obj/item/paper/Initialize(mapload, text, title, list/metadata, datum/language/language)
 	. = ..()
-	set_content(text ? text : info, title)
-	src.metadata = metadata
+	if (text)
+		set_content(text, title)
+	if (metadata)
+		src.metadata = metadata
 	if (language)
 		src.language = language
 	if (!set_language(src.language, TRUE))
