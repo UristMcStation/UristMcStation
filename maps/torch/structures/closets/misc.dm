@@ -32,8 +32,8 @@
 /obj/structure/closet/secure_closet/liaison/WillContain()
 	return list(
 		/obj/item/device/flash,
-		/obj/item/material/clipboard,
-		/obj/item/folder,
+		/obj/item/material/folder/clipboard,
+		/obj/item/material/folder,
 		/obj/item/device/tape/random = 3,
 		/obj/item/storage/secure/briefcase,
 		/obj/item/clothing/shoes/laceup,
@@ -55,8 +55,8 @@
 	return list(
 		/obj/item/device/flash,
 		/obj/item/device/camera_film = 2,
-		/obj/item/material/clipboard,
-		/obj/item/folder,
+		/obj/item/material/folder/clipboard,
+		/obj/item/material/folder,
 		/obj/item/device/tape/random = 3,
 		/obj/item/storage/secure/briefcase,
 		/obj/item/device/radio/headset/headset_com,

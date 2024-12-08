@@ -258,8 +258,8 @@
 					/obj/item/clothing/shoes/laceup,
 					/obj/item/clothing/suit/storage/toggle/labcoat,
 					/obj/item/clothing/shoes/white,
-					/obj/item/material/clipboard,
-					/obj/item/folder/white,
+					/obj/item/material/folder/clipboard,
+					/obj/item/material/folder/white,
 					/obj/item/pen)
 	cost = 15
 	containertype = /obj/structure/closet/crate/secure
@@ -287,7 +287,7 @@
 
 /singleton/hierarchy/supply_pack/medical/autopsy
 	name = "Gear - Autopsy equipment"
-	contains = list(/obj/item/folder/white,
+	contains = list(/obj/item/material/folder/white,
 					/obj/item/device/camera,
 					/obj/item/device/camera_film = 2,
 					/obj/item/autopsy_scanner,

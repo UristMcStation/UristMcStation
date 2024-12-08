@@ -11,7 +11,7 @@
 		/obj/item/clothing/shoes/white,
 		/obj/item/device/radio/headset/headset_sci,
 		/obj/item/clothing/mask/gas,
-		/obj/item/material/clipboard
+		/obj/item/material/folder/clipboard
 	)
 
 /obj/structure/closet/secure_closet/xenobio
@@ -28,7 +28,7 @@
 		/obj/item/device/radio/headset/headset_sci,
 		/obj/item/clothing/mask/gas,
 		/obj/item/clothing/gloves/latex,
-		/obj/item/material/clipboard,
+		/obj/item/material/folder/clipboard,
 		/obj/item/storage/belt/general
 	)
 
@@ -47,7 +47,7 @@
 		/obj/item/device/radio/headset/heads/rd,
 		/obj/item/clothing/mask/gas,
 		/obj/item/device/flash,
-		/obj/item/material/clipboard,
+		/obj/item/material/folder/clipboard,
 	)
 
 /obj/structure/closet/secure_closet/animal

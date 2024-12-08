@@ -44,7 +44,7 @@
 	/obj/item/caution,
 	/obj/item/caution/cone,
 	/obj/item/crowbar,
-	/obj/item/material/clipboard,
+	/obj/item/material/folder/clipboard,
 	/obj/item/cell/standard,
 	/obj/item/circular_saw,
 	/obj/item/material/hatchet,

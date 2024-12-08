@@ -1352,7 +1352,7 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /turf/simulated/floor/tiled,
 /area/lar_maria/library)
 "dz" = (
@@ -1916,7 +1916,7 @@
 /area/lar_maria/office)
 "fp" = (
 /obj/structure/table/standard,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /turf/simulated/floor/tiled,
 /area/lar_maria/office)
 "fq" = (

@@ -28,7 +28,7 @@
 		/obj/item/device/taperecorder,
 		/obj/item/device/tape,
 		/obj/item/clothing/gloves,
-		/obj/item/folder,
+		/obj/item/material/folder,
 		/obj/item/paper,
 		/obj/item/photo,
 		/obj/item/paper_bundle,

@@ -151,9 +151,11 @@
 
 #define CanPhysicallyInteractWith(user, target) (target.CanUseTopicPhysical(user) == STATUS_INTERACTIVE)
 
-#define QDEL_NULL_LIST(x) if(x) { for(var/y in x) { qdel(y) }}; if(x) {x.Cut(); x = null; } // Second x check to handle items that LAZYREMOVE on qdel.
+#define QDEL_CONTENTS for(var/entry in contents) qdel(entry)
 
-#define QDEL_NULL_ASSOC_LIST(x) if(x) { for(var/y in x) { qdel(x[y]) }}; if(x) {x.Cut(); x = null; }
+#define QDEL_NULL_LIST(x) if(x) { for(var/y in x) { qdel(y) }}; if(x) { LIST_RESIZE(x, 0); x = null; } // Second x check to handle items that LAZYREMOVE on qdel.
+
+#define QDEL_NULL_ASSOC_LIST(x) if(x) { for(var/y in x) { qdel(x[y]) }}; if(x) { LIST_RESIZE(x, 0); x = null; }
 
 #define QDEL_NULL(x) if(x) { qdel(x) ; x = null }
 
@@ -300,3 +302,10 @@
 
 /// Explicitly set the length of L to NEWLEN, adding nulls or dropping entries. Is the same value as NEWLEN.
 #define LIST_RESIZE(L, NEWLEN) ((L).len = (NEWLEN))
+
+
+/// A ref=src anchor.
+#define aref(text, params) "<a href=\"?src=\ref[src];[params]\">[text]</a>"
+
+/// A ref=src anchor with additional anchor properties.
+#define arefext(text, params, props) "<a href=\"?src=\ref[src];[params]\" [props]>[text]</a>"

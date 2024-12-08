@@ -8020,7 +8020,7 @@
 /area/map_template/oldlab2/mess)
 "PU" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/cso)
 "PV" = (

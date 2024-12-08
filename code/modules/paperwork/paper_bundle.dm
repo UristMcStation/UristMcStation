@@ -141,7 +141,7 @@
 /obj/item/paper_bundle/Topic(href, href_list)
 	if(..())
 		return 1
-	if((src in usr.contents) || (istype(src.loc, /obj/item/folder) && (src.loc in usr.contents)))
+	if((src in usr.contents) || (istype(src.loc, /obj/item/material/folder) && (src.loc in usr.contents)))
 		usr.set_machine(src)
 		var/obj/item/in_hand = usr.get_active_hand()
 		if(href_list["next_page"])

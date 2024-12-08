@@ -51,7 +51,7 @@
 	desc = "A simple grasping tool for clerical work."
 
 	can_hold = list(
-		/obj/item/material/clipboard,
+		/obj/item/material/folder/clipboard,
 		/obj/item/paper,
 		/obj/item/paper_bundle,
 		/obj/item/card/id,

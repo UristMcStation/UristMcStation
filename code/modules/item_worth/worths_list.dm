@@ -139,7 +139,7 @@ var/global/list/worths = list(
 					/obj/item/stock_parts/computer/tesla_link = 350,
 					/obj/item/stock_parts/computer = 80,
 					/obj/item/stock_parts/computer/hard_drive = 125,
-					/obj/item/material/clipboard = 15,
+					/obj/item/material/folder/clipboard = 15,
 //POWER CELLS,
 					/obj/item/cell/device = 100,
 					/obj/item/cell/crap = 30,

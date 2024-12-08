@@ -3912,7 +3912,7 @@
 	pixel_x = 2;
 	pixel_y = 6
 	},
-/obj/item/folder/envelope/preset/csorder,
+/obj/item/material/folder/envelope/preset/csorder,
 /turf/simulated/floor/carpet/green,
 /area/crew_quarters/chief_steward)
 "iO" = (

@@ -11367,7 +11367,7 @@
 /area/storage/cargo)
 "CC" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
 	},

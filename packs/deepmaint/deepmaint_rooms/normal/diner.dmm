@@ -341,7 +341,7 @@
 /area/map_template/deepmaint)
 "Xs" = (
 /obj/structure/table/marble,
-/obj/item/paper/exodus_bartender,
+/obj/item/paper/bar_shotgun,
 /obj/item/clothing/under/rank/bartender,
 /obj/item/gun/projectile/shotgun/doublebarrel,
 /obj/item/storage/box/ammo/stunshells,

@@ -7,7 +7,7 @@
 	uniform = /obj/item/clothing/under/rank/cargo
 	shoes = /obj/item/clothing/shoes/brown
 	glasses = /obj/item/clothing/glasses/sunglasses
-	l_hand = /obj/item/material/clipboard
+	l_hand = /obj/item/material/folder/clipboard
 	id_types = list(/obj/item/card/id/cargo/head)
 	pda_type = /obj/item/modular_computer/pda/cargo
 

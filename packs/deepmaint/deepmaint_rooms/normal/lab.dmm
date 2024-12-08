@@ -115,7 +115,7 @@
 "ix" = (
 /obj/structure/table/standard,
 /obj/item/pen/red,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/floor_decal/corner/lime/mono,
 /turf/simulated/floor/tiled/white/monotile,
 /area/map_template/deepmaint)
@@ -336,7 +336,7 @@
 /area/map_template/deepmaint)
 "CP" = (
 /obj/structure/table/standard,
-/obj/item/material/clipboard/plastic,
+/obj/item/material/folder/clipboard/plastic,
 /obj/floor_decal/corner/lime/mono,
 /turf/simulated/floor/tiled/white/monotile,
 /area/map_template/deepmaint)
