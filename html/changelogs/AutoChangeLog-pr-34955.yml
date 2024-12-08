@@ -1,0 +1,5 @@
+author: SierraKomodo
+changes:
+  - {tweak: GAS and other mobs that don't use actively breathing lungs no longer lose
+      their voice from allergies.}
+delete-after: true
