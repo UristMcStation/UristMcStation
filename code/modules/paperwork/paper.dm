@@ -46,7 +46,7 @@
 
 /obj/item/paper/Initialize(mapload, text, title, list/metadata, datum/language/language)
 	. = ..()
-	set_content(text, title)
+	set_content(text ? text : info, title)
 	if (metadata)
 		src.metadata = metadata
 	if (language)
