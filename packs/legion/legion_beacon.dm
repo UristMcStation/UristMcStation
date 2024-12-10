@@ -151,7 +151,6 @@
 		try_retreat = TRUE
 
 	if (try_retreat)
-		spawn_rate -= 1 SECOND
 		retreat()
 
 
