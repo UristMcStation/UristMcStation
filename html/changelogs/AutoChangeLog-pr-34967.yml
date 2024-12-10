@@ -1,4 +1,0 @@
-author: Spookerton
-changes:
-  - {bugfix: GAS can't roll changeling.}
-delete-after: true
