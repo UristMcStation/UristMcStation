@@ -121,8 +121,7 @@
 				B = new B(nearby)
 				src.icon_state = initial(icon_state)
 				B.faction = "nanomachines"
-				if (!istype(B, /mob/living/simple_animal/hostile/hivebot/mega))
-					B.icon_state = "red"
+				B.icon_state = "red"
 				register_mob(B)
 
 				playsound(B, pick(mob_spawn_sounds), 50)
