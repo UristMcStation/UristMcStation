@@ -2,6 +2,7 @@
 	name = "resurrect"
 	effect_type = EFFECT_ORGANIC
 	var/stored_life = 0
+	var/already_reviving = FALSE
 
 
 /datum/artifact_effect/resurrect/DoEffectTouch(mob/living/user)
@@ -47,7 +48,7 @@
 /datum/artifact_effect/resurrect/proc/give_life(mob/living/target)
 	if (!istype(target))
 		return
-	if (target.stat == DEAD && stored_life)
+	if (target.stat == DEAD && stored_life && !already_reviving)
 		holder.Beam(target, icon_state = "r_beam", time = 1 SECOND)
 		target.adjustBruteLoss(-5)
 		target.adjustFireLoss(-5)
@@ -56,7 +57,8 @@
 		target.adjustHalLoss(-5)
 		target.adjustToxLoss(-5)
 		stored_life = max(0, stored_life - 5)
-		if ((target.getBruteLoss() < (target.maxHealth / 4)) && (target.getFireLoss() < (target.maxHealth / 4)))
+		if ((target.getBruteLoss() < (target.maxHealth / 4)) && (target.getFireLoss() < (target.maxHealth / 4) && (!already_reviving)))
+			already_reviving = TRUE
 			attempt_revive(target)
 			stored_life = 0
 
@@ -74,6 +76,10 @@
 			SM.update_icon()
 			SM.revive()
 			holder.visible_message(SPAN_CLASS("alien", "\The [SM]'s eyes open in a flash of light!"))
+			if (prob(20))
+				var/turf/simulated/floor/F = get_turf(holder)
+				new /obj/effect/decal/cleanable/ash(F)
+				qdel(holder)
 		else if (ishuman(L))
 			var/mob/living/carbon/human/H = L
 			if (!H.client && H.mind)
@@ -89,3 +95,9 @@
 			if (H.client)
 				H.revive()
 				holder.visible_message(SPAN_CLASS("alien", "\The [H]'s eyes open in a flash of light!"))
+				already_reviving = FALSE
+				if (prob(60))
+					var/turf/simulated/floor/F = get_turf(holder)
+					new /obj/effect/decal/cleanable/ash(F)
+					qdel(holder)
+		already_reviving = FALSE
