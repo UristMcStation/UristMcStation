@@ -589,6 +589,8 @@
 /area/bluespaceriver/ship)
 "bQ" = (
 /obj/machinery/artifact_scanpad,
+/obj/machinery/anomaly_container,
+/obj/machinery/artifact,
 /turf/simulated/floor/reinforced,
 /area/bluespaceriver/ship)
 "bR" = (

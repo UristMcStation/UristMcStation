@@ -73,7 +73,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/giant_spider/hunter,
+/mob/living/simple_animal/hostile/giant_spider/spitter,
 /turf/simulated/floor/wood/walnut,
 /area/yacht/bridge)
 "ao" = (
@@ -1469,6 +1469,14 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/turf/simulated/floor/plating,
+/area/yacht/engine)
+"Ow" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/mob/living/simple_animal/hostile/giant_spider/hunter,
 /turf/simulated/floor/plating,
 /area/yacht/engine)
 "Ty" = (
@@ -7029,7 +7037,7 @@ bF
 aB
 bN
 ca
-cn
+Ow
 cn
 ub
 bN

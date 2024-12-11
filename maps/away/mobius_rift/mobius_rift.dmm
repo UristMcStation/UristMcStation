@@ -66,6 +66,21 @@
 /obj/effect/shuttle_landmark/automatic,
 /turf/unsimulated/beach/sand,
 /area/mobius_rift)
+"O" = (
+/obj/item/archaeological_find/bowl,
+/turf/simulated/floor/cult,
+/area/mobius_rift)
+"P" = (
+/turf/simulated/floor/cult,
+/area/mobius_rift)
+"Q" = (
+/obj/structure/fountain/strange,
+/turf/simulated/floor/cult,
+/area/mobius_rift)
+"W" = (
+/obj/item/archaeological_find/bowl/urn,
+/turf/simulated/floor/cult,
+/area/mobius_rift)
 
 (1,1,1) = {"
 a
@@ -9615,7 +9630,7 @@ e
 e
 e
 d
-d
+e
 f
 k
 f
@@ -10024,7 +10039,7 @@ e
 k
 k
 e
-d
+e
 b
 c
 c
@@ -10219,7 +10234,7 @@ h
 h
 e
 j
-e
+h
 h
 h
 h
@@ -10418,9 +10433,9 @@ c
 b
 d
 h
-i
-i
-d
+h
+h
+e
 e
 l
 h
@@ -10620,17 +10635,17 @@ b
 b
 d
 e
-d
 e
 e
-e
-e
-h
+W
+P
+P
+P
 h
 e
 k
 e
-d
+e
 b
 b
 b
@@ -10823,12 +10838,12 @@ d
 d
 e
 h
-e
 k
+P
+P
+Q
+O
 e
-e
-d
-d
 e
 k
 e
@@ -11026,11 +11041,11 @@ d
 e
 h
 k
-k
+O
+P
+P
+P
 e
-j
-e
-d
 k
 k
 k
@@ -11230,13 +11245,13 @@ h
 k
 e
 e
+j
 e
-d
-d
+e
 k
 k
 k
-d
+e
 b
 c
 c
@@ -11428,12 +11443,12 @@ c
 b
 d
 e
-e
+k
 f
 e
 e
-d
-i
+e
+h
 h
 k
 k
@@ -11634,7 +11649,7 @@ f
 f
 e
 j
-i
+h
 h
 h
 e
@@ -11840,7 +11855,7 @@ e
 h
 h
 e
-e
+j
 e
 d
 b
