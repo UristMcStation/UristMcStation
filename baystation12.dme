@@ -3384,6 +3384,5 @@
 #include "maps\_maps.dm"
 #include "packs\event_legion_capaneus\_pack.dm"
 #include "packs\legion\_pack.dm"
-#include "packs\legion\legion_warp_effect.dm"
 #include "~code\global_init.dm"
 // END_INCLUDE
