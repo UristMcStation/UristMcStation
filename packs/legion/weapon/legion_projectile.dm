@@ -9,8 +9,9 @@
 
 
 /obj/item/projectile/beam/legion/reaver
-	damage = 5
-	armor_penetration = 2
+	damage = 80
+	armor_penetration = 20
+	fire_sound = 'packs/legion/sounds/legion_basic_shot.ogg'
 
 
 /obj/projectile/legion
