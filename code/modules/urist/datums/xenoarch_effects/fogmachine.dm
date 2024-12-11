@@ -18,7 +18,6 @@
 
 /datum/artifact_effect/fogmachine/DoEffectGeneric(atom/location)
 	var/true_holder = isnull(location) ? src.holder : location
-
 	if(isnull(true_holder))
 		return
 
@@ -30,7 +29,6 @@
 	var/datum/effect/effect/system/smoke_spread/chill_mist/funfog = new()
 	funfog.set_up(5, 0, T)
 	funfog.start()
-
 	return
 
 
