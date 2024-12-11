@@ -1,10 +1,14 @@
+/// Sound file to use for legion warp sound effects.
 GLOBAL_VAR_CONST(legion_warp_sound, 'packs/legion/sounds/legion_arrive.ogg')
 
+
+/// List of sound files. Pool of sound effects to use for legion broadcast and narration events.
 GLOBAL_LIST_INIT(legion_voices_sounds, list(\
 	'packs/legion/sounds/legion_voices1.ogg'\
 ))
 
 
+/// List of strings. Pool of generic messages to use for legion broadcast and narration events.
 GLOBAL_LIST_INIT(legion_narrations, list(\
 	"A cacaphony of voices suddenly invades your mind. You can't make anything out.",\
 	"The voices. There's so many voices in your head. They're all crying out in endless agony.",\
@@ -16,6 +20,7 @@ GLOBAL_LIST_INIT(legion_narrations, list(\
 ))
 
 
+/// List of strings. Pool of generic individual voices that can be heard for legion broadcast and narration events.
 GLOBAL_LIST_INIT(legion_last_words_generic, list(\
 	"I don't want to die!",\
 	"No, get away!",\
