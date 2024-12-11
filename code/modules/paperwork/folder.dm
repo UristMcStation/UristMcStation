@@ -42,6 +42,29 @@
 	return ..()
 
 
+/obj/item/material/folder/use_after(atom/target, mob/living/user, click_parameters)
+	if (is_type_in_list(target, list(/obj/item/paper, /obj/item/photo, /obj/item/paper_bundle)))
+		if (istype(src, /obj/item/material/folder/envelope))
+			var/obj/item/material/folder/envelope/envelope = src
+			if (envelope.sealed)
+				to_chat(user, SPAN_WARNING("\The [src] is sealed."))
+				return TRUE
+		user.visible_message(
+			SPAN_ITALIC("\The [user] adds \a [target] to \a [src]."),
+			SPAN_ITALIC("You add \the [target] to \the [src]."),
+			range = 5
+		)
+		var/obj/obj = target
+		obj.forceMove(src)
+		if (istype(target, /obj/item/paper))
+			var/obj/item/material/folder/clipboard/clipboard = src
+			if (istype(clipboard))
+				clipboard.top_paper = target
+		update_icon()
+		return TRUE
+	return ..()
+
+
 /obj/item/material/folder/attack_self(mob/living/user)
 	var/list/document = list("<title>Folder</title>")
 	for (var/obj/item/item as anything in contents)
@@ -226,13 +249,19 @@
 
 
 /obj/item/material/folder/clipboard/use_after(atom/target, mob/living/user, click_parameters)
-	if (is_type_in_list(target, list(/obj/item/paper, /obj/item/photo, /obj/item/paper_bundle)))
-		user.visible_message(SPAN_ITALIC("\The [user] adds \a [target] to \a [src]."), range = 5)
-		var/obj/obj = target
-		obj.forceMove(src)
-		if (istype(target, /obj/item/paper))
-			top_paper = target
-			update_icon()
+	if (istype(target, /obj/item/pen))
+		if (stored_pen)
+			to_chat(user, SPAN_WARNING("\The [src] already has \a [stored_pen] attached."))
+			return
+		var/obj/item/pen/pen = target
+		pen.forceMove(src)
+		user.visible_message(
+			SPAN_ITALIC("\The [user] adds \a [pen] to \a [src]."),
+			SPAN_ITALIC("You add \the [pen] to \the [src]."),
+			range = 5
+		)
+		stored_pen = pen
+		update_icon()
 		return TRUE
 	return ..()
 
