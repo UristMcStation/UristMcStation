@@ -28,7 +28,7 @@
 
 
 /obj/item/material/folder/use_tool(obj/item/item, mob/living/user, list/click_params)
-	if (istype(item, /obj/item/paper) || istype(item, /obj/item/photo))
+	if (is_type_in_list(item, list(/obj/item/paper, /obj/item/photo, /obj/item/paper_bundle)))
 		if (!user.unEquip(item, src))
 			FEEDBACK_UNEQUIP_FAILURE(user, item)
 			return TRUE
@@ -238,19 +238,6 @@
 
 
 /obj/item/material/folder/clipboard/use_tool(obj/item/item, mob/living/user, list/click_params)
-	if (is_type_in_list(item, list(/obj/item/paper, /obj/item/photo, /obj/item/paper_bundle)))
-		if (!user.unEquip(item, src))
-			FEEDBACK_UNEQUIP_FAILURE(user, item)
-			return TRUE
-		if (istype(item, /obj/item/paper))
-			top_paper = item
-		user.visible_message(
-			SPAN_ITALIC("\The [user] adds \a [item] to \a [src]."),
-			SPAN_ITALIC("You add \the [item] to \the [src]."),
-			range = 5
-		)
-		update_icon()
-		return TRUE
 	if (is_type_in_list(item, list(/obj/item/pen, /obj/item/stamp, /obj/item/clothing/ring/seal)))
 		if (top_paper)
 			top_paper.use_tool(item, user)
@@ -271,7 +258,10 @@
 			stored_pen = item
 			update_icon()
 		return TRUE
-	return ..()
+	. = ..()
+	if (istype(item, /obj/item/paper) && (item in contents))
+		top_paper = item
+		update_icon()
 
 
 /obj/item/material/folder/clipboard/attack_self(mob/living/user)
