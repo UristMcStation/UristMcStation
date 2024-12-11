@@ -1559,3 +1559,31 @@
 
 	glass_name = "horchata"
 	glass_desc = "A lovely looking horchata del chufa."
+
+/datum/reagent/ethanol/welderbomb // Now we can use those 200 bottles of whiskey in maint.
+	name = "Welder Bomb"
+	description = "A drink made from welding fuel, whiskey and diluted with water."
+	taste_description = "petroleum fumes"
+	color = "#371e0d"
+	glass_name = "welder bomber"
+	glass_desc = "A dark brown drink, with a faint rainbow sheen to it, smells of fuel."
+	strength = 15
+//	glass_icon = DRINK_ICON_VAPOR
+
+/datum/reagent/ethanol/welderbomb/affect_ingest(mob/living/carbon/M, removed)
+	if(M.chem_doses[type] < 15)
+		M.adjustToxLoss(7 * removed)
+
+/datum/reagent/ethanol/rattle
+	name = "Rattle"
+	description = "A drink of pure desperation, made from oil, space cola and welding fuel. Medbay certified."
+	taste_description = "acrid sludge"
+	color = "#340911"
+	glass_name = ""
+	glass_desc = "A glass of disgusting brownish-red sludge, it smells sickeningly sweet."
+	strength = 20
+//	glass_icon = DRINK_ICON_FIZZ
+
+/datum/reagent/ethanol/rattle/affect_ingest(mob/living/carbon/M, removed)
+	if(M.chem_doses[type] < 25)
+		M.adjustToxLoss(5 * removed)
