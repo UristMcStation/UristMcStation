@@ -141,8 +141,7 @@
 	spawnable = list(
 				/mob/living/simple_animal/hostile/hivebot = 80,
 				/mob/living/simple_animal/hostile/hivebot/range = 45,
-				/mob/living/simple_animal/hostile/hivebot/strong = 25,
-				/mob/living/simple_animal/hostile/hivebot/mega = 1
+				/mob/living/simple_animal/hostile/hivebot/strong = 25
 				)
 	health_current = 500 //slightly more than a blob core
 	health_max = 500
