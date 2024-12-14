@@ -322,14 +322,25 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 			. -= 10
 	. = max(., 0)
 
-/proc/spread_germs_to_organ(obj/item/organ/external/E, mob/living/carbon/human/user)
-	if(!istype(user) || !istype(E)) return
+
+/**
+ * Handles spreading `germ_level` from `user` to `organ`.
+ *
+ * **Parameters**:
+ * - `organ` - The organ germs are being spread to.
+ * - `user` - The mob germs are being spread from.
+ *
+ * Has no return value.
+ */
+/proc/spread_germs_to_organ(obj/item/organ/external/organ, mob/living/carbon/human/user)
+	if(!istype(user) || !istype(organ))
+		return
 
 	var/germ_level = user.germ_level
 	if(user.gloves)
 		germ_level = user.gloves.germ_level
 
-	E.germ_level = max(germ_level,E.germ_level) //as funny as scrubbing microbes out with clean gloves is - no.
+	organ.germ_level = max(germ_level, organ.germ_level)
 
 /obj/item/proc/do_surgery(mob/living/carbon/M, mob/living/user, fuckup_prob)
 
