@@ -273,6 +273,17 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 	return null
 
 
+/**
+ * Determines the change the surgery can succeed as a percentile value from `0` to `100`.
+ *
+ * **Parameters**:
+ * - `user` - The mob attempting the surgery.
+ * - `target` - The mob being operated on.
+ * - `tool` - The item being used to perform the surgery.
+ * - `target_zone` - `user`'s targeted body zone when the surgery started.
+ *
+ * Returns integer value from `0` to `100`. Final value is based on `tool_quality(tool)` alongside several other generalized and surgery specific checks.
+ */
 /singleton/surgery_step/proc/success_chance(mob/living/user, mob/living/carbon/human/target, obj/item/tool, target_zone)
 	. = tool_quality(tool)
 	if(user == target)
