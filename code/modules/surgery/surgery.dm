@@ -439,6 +439,13 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 	return FALSE
 
 
+/**
+ * Handles any additional logic the item should perform after completing a surgery. I.e., resource usage.
+ *
+ * Called by `do_surgery()` after `/datum/surgery_step/proc/end_step()`
+ *
+ * Has no return value.
+ */
 /obj/item/proc/handle_post_surgery()
 	return
 
