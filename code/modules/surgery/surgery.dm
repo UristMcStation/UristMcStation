@@ -342,15 +342,31 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 
 	organ.germ_level = max(germ_level, organ.germ_level)
 
-/obj/item/proc/do_surgery(mob/living/carbon/M, mob/living/user, fuckup_prob)
+
+/**
+ * Checks if this item can be used to perform a surgery, then attempts to perform said surgery.
+ *
+ * Displays user feedback messages on failure.
+ *
+ * This proc leads into `/singleton/surgery_step` logic.
+ *
+ * Called by the `use_*()` chain of procs.
+ *
+ * **Parameters**:
+ * - `target` - The mob being operated on.
+ * - `user` - The mob performing the operation.
+ *
+ * Returns boolean. If `TRUE` the interaction is considered handled and the `use_*()` chain is halted.
+ */
+/obj/item/proc/do_surgery(mob/living/carbon/target, mob/living/user)
 
 	// Check for the Hippocratic oath.
-	if(!istype(M) || user.a_intent == I_HURT)
+	if (!istype(target) || user.a_intent == I_HURT)
 		return FALSE
 
 	// Check for multi-surgery drifting.
 	var/zone = user.zone_sel.selecting
-	if(LAZYACCESS(M.surgeries_in_progress, zone))
+	if (LAZYACCESS(target.surgeries_in_progress, zone))
 		to_chat(user, SPAN_WARNING("You can't operate on this area while surgery is already in progress."))
 		return TRUE
 
@@ -358,29 +374,29 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 	var/list/possible_surgeries
 	var/list/all_surgeries = GET_SINGLETON_SUBTYPE_MAP(/singleton/surgery_step)
 	for(var/singleton in all_surgeries)
-		var/singleton/surgery_step/S = all_surgeries[singleton]
-		if(S.name && S.tool_quality(src) && S.can_use(user, M, zone, src))
+		var/singleton/surgery_step/possible_surgery = all_surgeries[singleton]
+		if (possible_surgery.name && possible_surgery.tool_quality(src) && possible_surgery.can_use(user, target, zone, src))
 			var/image/radial_button = image(icon = icon, icon_state = icon_state)
-			radial_button.name = S.name
-			LAZYSET(possible_surgeries, S, radial_button)
+			radial_button.name = possible_surgery.name
+			LAZYSET(possible_surgeries, possible_surgery, radial_button)
 
 	// Which surgery, if any, do we actually want to do?
-	var/singleton/surgery_step/S
+	var/singleton/surgery_step/chosen_surgery
 	if (user.client && length(possible_surgeries))
 		if (length(possible_surgeries) == 1 && user.get_preference_value(/datum/client_preference/surgery_skip_radial))
-			S = possible_surgeries[1]
+			chosen_surgery = possible_surgeries[1]
 		else
-			S = show_radial_menu(user, M, possible_surgeries, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))
-		if (!user.use_sanity_check(M))
-			S = null
-		if (S && !user.skill_check_multiple(S.get_skill_reqs(user, M, src, zone)))
-			S = pick(possible_surgeries)
+			chosen_surgery = show_radial_menu(user, target, possible_surgeries, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))
+		if (!user.use_sanity_check(target))
+			chosen_surgery = null
+		if (chosen_surgery && !user.skill_check_multiple(chosen_surgery.get_skill_reqs(user, target, src, zone)))
+			chosen_surgery = pick(possible_surgeries)
 
 	var/obj/item/gripper/gripper = user.get_active_hand()
 	// We didn't find a surgery, or decided not to perform one.
-	if(!istype(S))
+	if (!istype(chosen_surgery))
 		// If we're on an optable, we are protected from some surgery fails. Bypass this for some items (like health analyzers).
-		if((locate(/obj/machinery/optable) in get_turf(M)) && user.a_intent == I_HELP)
+		if ((locate(/obj/machinery/optable) in get_turf(target)) && user.a_intent == I_HELP)
 			// Keep track of which tools we know aren't appropriate for surgery on help intent.
 			if(GLOB.surgery_tool_exception_cache[type])
 				return FALSE
@@ -388,39 +404,40 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 				if(istype(src, tool))
 					GLOB.surgery_tool_exception_cache[type] = TRUE
 					return FALSE
-			to_chat(user, SPAN_WARNING("You aren't sure what you could do to \the [M] with \the [src]."))
+			to_chat(user, SPAN_WARNING("You aren't sure what you could do to \the [target] with \the [src]."))
 			return TRUE
 
 	// Otherwise we can make a start on surgery!
-	else if(istype(M) && !QDELETED(M) && user.a_intent != I_HURT && (user.get_active_hand() == src || (istype(gripper) && gripper.wrapped == src)))
+	else if (istype(target) && !QDELETED(target) && user.a_intent != I_HURT && (user.get_active_hand() == src || (istype(gripper) && gripper.wrapped == src)))
 		// Double-check this in case it changed between initial check and now.
-		if(zone in M.surgeries_in_progress)
+		if (zone in target.surgeries_in_progress)
 			to_chat(user, SPAN_WARNING("You can't operate on this area while surgery is already in progress."))
-		else if(S.can_use(user, M, zone, src) && S.is_valid_target(M))
-			var/operation_data = S.pre_surgery_step(user, M, zone, src)
+		else if (chosen_surgery.can_use(user, target, zone, src) && chosen_surgery.is_valid_target(target))
+			var/operation_data = chosen_surgery.pre_surgery_step(user, target, zone, src)
 			if(operation_data)
-				LAZYSET(M.surgeries_in_progress, zone, operation_data)
-				S.begin_step(user, M, zone, src)
-				var/list/skill_reqs = S.get_skill_reqs(user, M, src, zone)
-				var/duration = user.skill_delay_mult(skill_reqs[1]) * rand(S.min_duration, S.max_duration)
-				if(prob(S.success_chance(user, M, src, zone)) && do_after(user, duration, M, DO_SURGERY))
-					if (S.can_use(user, M, zone, src))
-						S.end_step(user, M, zone, src)
+				LAZYSET(target.surgeries_in_progress, zone, operation_data)
+				chosen_surgery.begin_step(user, target, zone, src)
+				var/list/skill_reqs = chosen_surgery.get_skill_reqs(user, target, src, zone)
+				var/duration = user.skill_delay_mult(skill_reqs[1]) * rand(chosen_surgery.min_duration, chosen_surgery.max_duration)
+				if (prob(chosen_surgery.success_chance(user, target, src, zone)) && do_after(user, duration, target, DO_SURGERY))
+					if (chosen_surgery.can_use(user, target, zone, src))
+						chosen_surgery.end_step(user, target, zone, src)
 						handle_post_surgery()
 					else
 						to_chat(user, SPAN_WARNING("The patient lost the target organ before you could finish operating!"))
 
-				else if ((src in user.contents) && user.Adjacent(M))
-					S.fail_step(user, M, zone, src)
+				else if ((src in user.contents) && user.Adjacent(target))
+					chosen_surgery.fail_step(user, target, zone, src)
 				else
 					to_chat(user, SPAN_WARNING("You must remain close to your patient to conduct surgery."))
-				if(!QDELETED(M))
-					LAZYREMOVE(M.surgeries_in_progress, zone) // Clear the in-progress flag.
-					if(ishuman(M))
-						var/mob/living/carbon/human/H = M
-						H.update_surgery()
+				if (!QDELETED(target))
+					LAZYREMOVE(target.surgeries_in_progress, zone) // Clear the in-progress flag.
+					if (ishuman(target))
+						var/mob/living/carbon/human/human_target = target
+						human_target.update_surgery()
 		return TRUE
 	return FALSE
+
 
 /obj/item/proc/handle_post_surgery()
 	return
