@@ -1,6 +1,0 @@
-author: SierraKomodo
-changes:
-  - {balance: "Legionified hivebots are now able to move in space and are immune to
-      airflow knockdown. These aren't your average hivebots, but you already knew
-      that. Hopefully."}
-delete-after: true
