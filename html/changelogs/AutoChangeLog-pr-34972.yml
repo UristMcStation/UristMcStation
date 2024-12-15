@@ -1,0 +1,5 @@
+author: SierraKomodo
+changes:
+  - {tweak: Legion briefing documents now clarify that EMP and ion weapons have had
+      no effect on legion forces.}
+delete-after: true
