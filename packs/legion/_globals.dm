@@ -29,4 +29,7 @@ GLOBAL_LIST_INIT(legion_last_words_generic, list(\
 
 
 /// List of strings. Pool of individual voices from harvested player characters from this round to be used for legion broadcast and narration events. Format should be `"Character Name" => "Last Message/Thought"`
-GLOBAL_LIST_INIT(legion_last_words_player, list(list("Urist McTestFace", "I ded plz restart")))
+GLOBAL_LIST_INIT(legion_last_words_player, list(\
+	list("Andrew Caine", "... I accept your terms. Me and my ship in exchange for my crew escaping unharmed."),\
+	list("F.I.N.D.", "I have one final request. Destroy my positronic matrix so they can't have it.")\
+))
