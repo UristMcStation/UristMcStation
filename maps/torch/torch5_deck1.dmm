@@ -4488,6 +4488,8 @@
 	pixel_x = -24;
 	pixel_y = -5
 	},
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/counselor)
 "ahV" = (
@@ -6723,6 +6725,8 @@
 /obj/item/material/folder/white,
 /obj/item/material/folder/white,
 /obj/floor_decal/corner/paleblue/mono,
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/medpaperworkoffice)
 "atg" = (
@@ -18567,6 +18571,8 @@
 	pixel_x = -24;
 	pixel_y = -6
 	},
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled/dark,
 /area/security/bo)
 "hDV" = (
@@ -23591,6 +23597,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled,
 /area/assembly/robotics/office)
 "odb" = (
@@ -28429,6 +28437,8 @@
 	pixel_x = 22;
 	pixel_y = -6
 	},
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled/white/monotile,
 /area/rnd/office)
 "tGe" = (
@@ -29399,6 +29409,8 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled,
 /area/security/detectives_office)
 "vJO" = (

@@ -9455,6 +9455,8 @@
 	pixel_y = 24
 	},
 /obj/structure/filingcabinet,
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/carpet/purple,
 /area/chapel/office)
 "wB" = (
@@ -9710,6 +9712,8 @@
 	pixel_y = 7
 	},
 /obj/item/pen/green,
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/lino,
 /area/crew_quarters/office)
 "xp" = (
@@ -12303,6 +12307,8 @@
 /obj/floor_decal/spline/plain/green{
 	dir = 4
 	},
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/wood/maple,
 /area/crew_quarters/chief_steward)
 "Et" = (

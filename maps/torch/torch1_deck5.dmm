@@ -3697,6 +3697,7 @@
 	pixel_y = 7
 	},
 /obj/item/material/folder/blue,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/lino,
 /area/command/pilot)
 "iL" = (
