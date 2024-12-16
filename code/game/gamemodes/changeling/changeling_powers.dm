@@ -37,6 +37,16 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	/// Is our Vision Augmented? With thermals?
 	var/thermal_sight = FALSE
 	var/last_human_form = null
+	/// List of strings (Any of `SPECIES_*`). Species that cannot be absorbed by changelings.
+	var/list/species_blacklist = list(
+		SPECIES_VOX,
+		SPECIES_GOLEM,
+		SPECIES_MONKEY,
+		SPECIES_FARWA,
+		SPECIES_NEAERA,
+		SPECIES_STOK
+	)
+
 /datum/changeling/New(gender=FEMALE)
 	..()
 	if(length(possible_changeling_IDs))

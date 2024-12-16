@@ -46,7 +46,7 @@
 	if(T == src)
 		to_chat(src,SPAN_WARNING("We would have to be very silly to try absorbing ourselves."))
 		return
-	if(!istype(T) || T.isSynthetic() || istype(T.species,/datum/species/vox))
+	if(!istype(T) || T.isSynthetic() || (T.get_species() in changeling.species_blacklist))
 		to_chat(src, SPAN_WARNING("\The [T] is not compatible with our biology."))
 		return
 
