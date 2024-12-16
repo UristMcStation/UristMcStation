@@ -39,6 +39,16 @@
 		)
 		update_icon()
 		return TRUE
+	if (istype(item, /obj/item/pen))
+		var/response = input(user, null, "Label \the [src]") as null | text
+		response = sanitize(response, MAX_LNAME_LEN)
+		if (!response)
+			return TRUE
+		if (user.stat || !user.IsHolding(item) || !Adjacent(user))
+			to_chat(user, SPAN_WARNING("You're no longer able to do that."))
+			return TRUE
+		AddLabel(response, user)
+		return TRUE
 	return ..()
 
 
@@ -173,35 +183,47 @@
 		return
 	var/message = "The seal is [sealed ? "intact" : "broken"]."
 	if (seal_stamp)
-		message = "It has a seal from \the [seal_stamp]. [message]"
+		message = "It has a seal from \a [seal_stamp]. [message]"
 	to_chat(user, message)
 
 
-/obj/item/material/folder/envelope/proc/sealcheck(user)
-	var/response = alert("Are you sure you want to break the seal on \the [src]?", "Confirmation","Yes", "No")
-	if (response != "Yes")
-		return
-	visible_message("[user] breaks the seal on \the [src], and opens it.")
+/obj/item/material/folder/envelope/proc/Unseal(mob/living/user)
+	if (user)
+		var/response = alert(user, "Break the seal on \the [src]?", null, "Yes", "No")
+		if (response != "Yes")
+			return FALSE
+		if (user.stat || !Adjacent(user))
+			to_chat(user, SPAN_WARNING("You're no longer able to do that."))
+			return FALSE
+		user.visible_message(
+			SPAN_ITALIC("\The [user] breaks the seal on \a [src]."),
+			SPAN_ITALIC("You break the seal on \the [src]."),
+			range = 5
+		)
 	sealed = FALSE
 	update_icon()
+	return TRUE
 
 
 /obj/item/material/folder/envelope/attack_self(mob/living/user)
-	if (sealed)
-		sealcheck(user)
+	if (sealed && !Unseal(user))
 		return
-	..()
+	return ..()
 
 
 /obj/item/material/folder/envelope/use_tool(obj/item/item, mob/living/user, list/click_params)
 	if (sealed)
-		sealcheck(user)
+		Unseal(user)
 		return TRUE
-	if (!sealed && istype(item, /obj/item/stamp))
-		seal_stamp = item.name
-		visible_message("\The [user] seals \the [src] with [item].")
+	else if (is_type_in_list(item, list(/obj/item/stamp, /obj/item/clothing/ring/seal)))
 		sealed = TRUE
-		playsound(src, 'sound/effects/stamp.ogg', 50, 1)
+		seal_stamp = item.name
+		user.visible_message(
+			SPAN_ITALIC("\The [user] seals \a [src] with \a [item]."),
+			SPAN_ITALIC("You seal \the [src] with \the [item]."),
+			range = 5
+		)
+		playsound(src, 'sound/effects/stamp.ogg', 50, TRUE)
 		update_icon()
 		return TRUE
 	return ..()
