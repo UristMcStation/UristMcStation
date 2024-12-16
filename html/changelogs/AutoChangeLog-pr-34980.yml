@@ -1,0 +1,5 @@
+author: SierraKomodo
+changes:
+  - {balance: 'Changelings can no longer absorb monkeys, stoks, farwas, neaeras, or
+      golems.'}
+delete-after: true
