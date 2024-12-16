@@ -7,6 +7,7 @@
 	default_material = MATERIAL_CARDBOARD
 	applies_material_name = FALSE
 	applies_material_colour = FALSE
+	unbreakable = TRUE
 	matter = list(MATERIAL_CARDBOARD = 70)
 	w_class = ITEM_SIZE_SMALL
 
@@ -128,6 +129,11 @@
 		attack_hand(usr)
 		update_icon()
 		return
+
+
+/obj/item/material/folder/shatter()
+	DROP_CONTENTS
+	..()
 
 
 /obj/item/material/folder/blue
@@ -444,6 +450,7 @@
 	default_material = MATERIAL_GLASS
 	matter = list(MATERIAL_GLASS = 70)
 	window_name = "glass clipboard"
+	unbreakable = FALSE
 
 
 /obj/item/material/folder/clipboard/plastic
