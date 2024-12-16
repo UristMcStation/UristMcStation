@@ -74,6 +74,10 @@
 	access = access_brig
 
 /singleton/hierarchy/supply_pack/operations/bureaucracy
+	name = "Office supplies"
+	cost = 15
+	containertype = /obj/structure/closet/crate/large
+	containername = "office supplies crate"
 	contains = list(
 		/obj/item/material/folder/clipboard,
 		/obj/item/material/folder/clipboard,
@@ -81,19 +85,21 @@
 		/obj/item/pen/retractable/blue,
 		/obj/item/pen/green,
 		/obj/item/device/camera_film,
+		/obj/item/material/folder,
 		/obj/item/material/folder/blue,
 		/obj/item/material/folder/red,
 		/obj/item/material/folder/yellow,
+		/obj/item/material/folder/white,
+		/obj/item/material/folder/envelope,
+		/obj/item/material/folder/envelope,
+		/obj/item/material/folder/envelope,
+		/obj/item/material/folder/envelope,
 		/obj/item/hand_labeler,
 		/obj/item/tape_roll,
 		/obj/structure/filingcabinet/chestdrawer{anchored = FALSE},
 		/obj/item/paper_bin,
 		/obj/item/storage/pill_bottle/tacks
 	)
-	name = "Office supplies"
-	cost = 15
-	containertype = /obj/structure/closet/crate/large
-	containername = "office supplies crate"
 
 /singleton/hierarchy/supply_pack/operations/minergear
 	name = "Shaft miner equipment"
