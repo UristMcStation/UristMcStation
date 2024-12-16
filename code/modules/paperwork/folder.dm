@@ -10,6 +10,9 @@
 	matter = list(MATERIAL_CARDBOARD = 70)
 	w_class = ITEM_SIZE_SMALL
 
+	/// The window name to use for folder UIs
+	var/window_name = "gray folder"
+
 
 /obj/item/material/folder/Destroy()
 	QDEL_CONTENTS
@@ -82,8 +85,8 @@
 			continue
 		var/ref = any2ref(item)
 		document += "[aref(item.name, "view=[ref]")] [aref("Remove", "remove=[ref]")]<br>"
-	show_browser(user, jointext(document, ""), "window=folder")
-	onclose(user, "folder")
+	show_browser(user, jointext(document, ""), "window=[window_name]")
+	onclose(user, window_name)
 	add_fingerprint(usr)
 
 
@@ -130,32 +133,38 @@
 /obj/item/material/folder/blue
 	desc = "A blue folder."
 	icon_state = "folder_blue"
+	window_name = "blue folder"
 
 
 /obj/item/material/folder/red
 	desc = "A red folder."
 	icon_state = "folder_red"
+	window_name = "red folder"
 
 
 /obj/item/material/folder/yellow
 	desc = "A yellow folder."
 	icon_state = "folder_yellow"
+	window_name = "yellow folder"
 
 
 /obj/item/material/folder/white
 	desc = "A white folder."
 	icon_state = "folder_white"
+	window_name = "white folder"
 
 
 /obj/item/material/folder/nt
 	desc = "A corporate folder."
 	icon_state = "folder_nt"
+	window_name = "corporate folder"
 
 
 /obj/item/material/folder/envelope
 	name = "envelope"
 	desc = "A thick envelope."
 	icon_state = "envelope0"
+	window_name = "envelope"
 
 	/// Whether the envelope has been opened or not
 	var/sealed = FALSE
@@ -241,6 +250,7 @@
 	applies_material_colour = TRUE
 	default_material = MATERIAL_WOOD
 	matter = list(MATERIAL_WOOD = 70)
+	window_name = "wood clipboard"
 
 	var/obj/item/pen/stored_pen
 
@@ -333,8 +343,8 @@
 		var/ref = any2ref(item)
 		document += "[aref(item.name, "view=[ref]")] [aref("Write", "write=[ref]")] \
 			[aref("Rename", "rename=[ref]")] [aref("Remove", "remove=[ref]")]<br>"
-	show_browser(user, jointext(document, ""), "window=clipboard")
-	onclose(user, "clipboard")
+	show_browser(user, jointext(document, ""), "window=[window_name]")
+	onclose(user, window_name)
 	add_fingerprint(usr)
 
 
@@ -415,23 +425,28 @@
 /obj/item/material/folder/clipboard/ebony
 	default_material = MATERIAL_EBONY
 	matter = list(MATERIAL_EBONY = 70)
+	window_name = "ebony clipboard"
 
 
 /obj/item/material/folder/clipboard/steel
 	default_material = MATERIAL_STEEL
 	matter = list(MATERIAL_STEEL = 70)
+	window_name = "steel clipboard"
 
 
 /obj/item/material/folder/clipboard/aluminium
 	default_material = MATERIAL_ALUMINIUM
 	matter = list(MATERIAL_ALUMINIUM = 70)
+	window_name = "aluminium clipboard"
 
 
 /obj/item/material/folder/clipboard/glass
 	default_material = MATERIAL_GLASS
 	matter = list(MATERIAL_GLASS = 70)
+	window_name = "glass clipboard"
 
 
 /obj/item/material/folder/clipboard/plastic
 	default_material = MATERIAL_PLASTIC
 	matter = list(MATERIAL_PLASTIC = 70)
+	window_name = "plastic clipboard"
