@@ -1,5 +1,0 @@
-author: PurplePineapple
-changes:
-  - {bugfix: The "Ward-Takahashi GMB Coloured Torso" marking no longer adds extra
-      pixels to heads.}
-delete-after: true
