@@ -37,6 +37,21 @@
 /obj/item/paper/contract/nanotrasen/cargo/kitchen/coldchili
 	contract_type = /datum/contract/cargo/kitchen/coldchili
 
+/obj/item/paper/contract/nanotrasen/cargo/kitchen/egg
+	contract_type = /datum/contract/cargo/kitchen/egg
+
+/obj/item/paper/contract/nanotrasen/cargo/kitchen/bearmeat
+	contract_type = /datum/contract/cargo/kitchen/bearmeat
+
+/obj/item/paper/contract/nanotrasen/cargo/kitchen/cookedspider
+	contract_type = /datum/contract/cargo/kitchen/cookedspider
+
+/obj/item/paper/contract/nanotrasen/cargo/kitchen/xenomeat
+	contract_type = /datum/contract/cargo/kitchen/xenomeat
+
+/obj/item/paper/contract/nanotrasen/cargo/kitchen/clownstears
+	contract_type = /datum/contract/cargo/kitchen/clownstears
+
 //random
 
 /obj/item/paper/contract/nanotrasen/cargo/eswords
@@ -44,6 +59,18 @@
 
 /obj/item/paper/contract/nanotrasen/cargo/alienguns
 	contract_type = /datum/contract/cargo/alienguns
+
+/obj/item/paper/contract/nanotrasen/cargo/handcuffs
+	contract_type = /datum/contract/cargo/handcuffs
+
+/obj/item/paper/contract/nanotrasen/cargo/spaceaks
+	contract_type = /datum/contract/cargo/spaceaks
+
+/obj/item/paper/contract/nanotrasen/cargo/coltsaa
+	contract_type = /datum/contract/cargo/coltsaa
+
+/obj/item/paper/contract/nanotrasen/cargo/folders
+	contract_type = /datum/contract/cargo/folders
 
 //ore
 

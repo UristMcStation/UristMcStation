@@ -89,6 +89,31 @@
 	item_type = /obj/item/paper/contract/nanotrasen/cargo/kitchen/coldchili
 	category = "ntkitchencontract"
 
+/datum/trade_item/contract/ntkitchen/egg
+	name = "Egg Delivery Contract"
+	item_type = /obj/item/paper/contract/nanotrasen/cargo/kitchen/egg
+	category = "ntkitchencontract"
+
+/datum/trade_item/contract/ntkitchen/bearmeat
+	name = "Bear Meat Delivery Contract"
+	item_type = /obj/item/paper/contract/nanotrasen/cargo/kitchen/bearmeat
+	category = "ntkitchencontract"
+
+/datum/trade_item/contract/ntkitchen/cookedspider
+	name = "Cooked Spider Legs Delivery Contract"
+	item_type = /obj/item/paper/contract/nanotrasen/cargo/kitchen/cookedspider
+	category = "ntkitchencontract"
+
+/datum/trade_item/contract/ntkitchen/xenomeat
+	name = "Xeno Meat Delivery Contract"
+	item_type = /obj/item/paper/contract/nanotrasen/cargo/kitchen/xenomeat
+	category = "ntkitchencontract"
+
+/datum/trade_item/contract/ntkitchen/clownstears
+	name = "Clown's Tears Delivery Contract"
+	item_type = /obj/item/paper/contract/nanotrasen/cargo/kitchen/clownstears
+	category = "ntkitchencontract"
+
 //random
 
 /datum/trade_item/contract/ntsec/eswords
@@ -100,3 +125,23 @@
 	name = "Lactera Weaponry Delivery Contract"
 	item_type = /obj/item/paper/contract/nanotrasen/cargo/alienguns
 	category = "ntseccontract"
+
+/datum/trade_item/contract/ntsec/handcuffs
+	name = "Handcuffs Delivery Contract"
+	item_type = /obj/item/paper/contract/nanotrasen/cargo/handcuffs
+	category = "ntseccontract"
+
+/datum/trade_item/contract/ntsec/spaceaks
+	name = "STS-35 Assault Rifle Delivery Contract"
+	item_type = /obj/item/paper/contract/nanotrasen/cargo/spaceaks
+	category = "ntseccontract"
+
+/datum/trade_item/contract/ntsec/coltsaa
+	name = "Colt Single Action Army Delivery Contract"
+	item_type = /obj/item/paper/contract/nanotrasen/cargo/coltsaa
+	category = "ntseccontract"
+
+/datum/trade_item/contract/ntscience/folders
+	name = "Folder Delivery Contract"
+	item_type = /obj/item/paper/contract/nanotrasen/cargo/folders
+	category = "ntsciencecontract"
