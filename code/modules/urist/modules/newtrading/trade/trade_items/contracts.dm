@@ -114,6 +114,11 @@
 	item_type = /obj/item/paper/contract/nanotrasen/cargo/kitchen/clownstears
 	category = "ntkitchencontract"
 
+/datum/trade_item/contract/nitkitchen/cheese
+	name = "Cheese Delivery Contract"
+	item_type = /obj/item/paper/contract/nanotrasen/cargo/kitchen/cheese
+	category = "ntkitchencontract"
+
 //random
 
 /datum/trade_item/contract/ntsec/eswords

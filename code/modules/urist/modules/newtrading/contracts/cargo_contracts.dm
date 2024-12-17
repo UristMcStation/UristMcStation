@@ -176,6 +176,15 @@
 	desc = "Head of Security Burke's station doesn't have clowns. Send him something to remind him of the good old days. 10u water and clown shoes in a bowl should do it."
 	..()
 
+/datum/contract/cargo/kitchen/cheese
+	name = "Cheese Delivery Contract"
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/cheesewedge)
+	money = 240
+
+/datum/contract/cargo/kitchen/cheese/New()
+	amount = rand(2,6)
+	desc = "Bioscans indicate that mice have been breeding in the NSS Mirabilis. Further infestation is likely if left unchecked, so send us [amount] cheese wedges for our mousetraps."
+
 //stuff related to awaymissions and shipcombat mostly
 
 /datum/contract/cargo/eswords

@@ -52,6 +52,9 @@
 /obj/item/paper/contract/nanotrasen/cargo/kitchen/clownstears
 	contract_type = /datum/contract/cargo/kitchen/clownstears
 
+/obj/item/paper/contract/nanotrasen/cargo/kitchen/cheese
+	contract_type = /datum/contract/cargo/kitchen/cheese
+
 //random
 
 /obj/item/paper/contract/nanotrasen/cargo/eswords
