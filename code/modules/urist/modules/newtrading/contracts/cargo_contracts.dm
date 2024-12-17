@@ -238,7 +238,7 @@
 /datum/contract/cargo/handcuffs
 	name = "Handcuffs Delivery Contract"
 	wanted_types = list(/obj/item/handcuffs)
-	money = 1000
+	money = 400
 
 /datum/contract/cargo/handcuffs/New()
 	amount = rand(3,9)
