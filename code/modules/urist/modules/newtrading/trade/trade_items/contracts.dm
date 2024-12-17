@@ -114,7 +114,7 @@
 	item_type = /obj/item/paper/contract/nanotrasen/cargo/kitchen/clownstears
 	category = "ntkitchencontract"
 
-/datum/trade_item/contract/nitkitchen/cheese
+/datum/trade_item/contract/ntkitchen/cheese
 	name = "Cheese Delivery Contract"
 	item_type = /obj/item/paper/contract/nanotrasen/cargo/kitchen/cheese
 	category = "ntkitchencontract"
