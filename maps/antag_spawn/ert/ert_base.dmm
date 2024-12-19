@@ -2415,18 +2415,11 @@
 "fn" = (
 /turf/simulated/floor/tiled/dark,
 /area/map_template/rescue_base/start)
-"fo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/paint/merc,
-/turf/simulated/wall/titanium,
-/area/map_template/rescue_base/start)
 "fp" = (
+/obj/paint/merc,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/paint/merc,
 /turf/simulated/wall/titanium,
 /area/map_template/rescue_base/start)
 "fq" = (
@@ -2466,10 +2459,10 @@
 	},
 /area/map_template/rescue_base/base)
 "ft" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
 /obj/paint/merc,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
 /turf/simulated/wall/titanium,
 /area/map_template/rescue_base/start)
 "fu" = (
@@ -2873,6 +2866,9 @@
 	},
 /obj/machinery/atmospherics/portables_connector,
 /obj/floor_decal/industrial/outline/orange,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/rescue_base/start)
 "gm" = (
@@ -3401,6 +3397,9 @@
 /obj/structure/handrail{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/map_template/rescue_base/start)
 "kg" = (
@@ -3861,7 +3860,10 @@
 /area/map_template/rescue_base/start)
 "yK" = (
 /obj/machinery/telecomms/allinone/ert,
-/obj/decal/warning_stripes,
+/obj/floor_decal/industrial/warning/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/rescue_base/start)
 "zn" = (
@@ -4001,6 +4003,7 @@
 /obj/item/stack/medical/advanced/bruise_pack,
 /obj/item/stack/medical/advanced/bruise_pack,
 /obj/item/reagent_containers/dropper/peridaxon,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white/monotile,
 /area/map_template/rescue_base/start)
 "DZ" = (
@@ -4136,10 +4139,10 @@
 	},
 /area/map_template/rescue_base/base)
 "Hn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
 /obj/paint/merc,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
 /turf/simulated/wall/titanium,
 /area/map_template/rescue_base/start)
 "Hw" = (
@@ -4347,7 +4350,6 @@
 /turf/simulated/floor/plating,
 /area/map_template/rescue_base/start)
 "NG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/table/steel_reinforced,
 /obj/machinery/cell_charger,
 /obj/item/cell/hyper,
@@ -4355,6 +4357,9 @@
 	pixel_y = 32
 	},
 /obj/floor_decal/techfloor,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/rescue_base/start)
 "NO" = (
@@ -4415,6 +4420,9 @@
 	},
 /obj/floor_decal/techfloor,
 /obj/machinery/shieldgen,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/rescue_base/start)
 "Qa" = (
@@ -6277,7 +6285,7 @@ eQ
 eQ
 eQ
 eQ
-fo
+MZ
 NG
 hi
 gI
@@ -6341,7 +6349,7 @@ eQ
 eQ
 eQ
 eQ
-fp
+MZ
 PV
 nM
 fE
@@ -6405,7 +6413,7 @@ eQ
 eQ
 eQ
 eQ
-fp
+MZ
 gl
 jG
 gh
@@ -6469,7 +6477,7 @@ eQ
 eQ
 eQ
 kg
-fp
+MZ
 yK
 hx
 XO
@@ -6533,8 +6541,8 @@ eQ
 eQ
 eQ
 ft
-Hn
 MZ
+fp
 MZ
 MZ
 MZ
@@ -6596,7 +6604,7 @@ bB
 eQ
 eQ
 eQ
-MZ
+Hn
 DF
 jV
 uv
