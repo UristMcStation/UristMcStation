@@ -54,8 +54,6 @@
 	/// The beacon is currently active.
 	var/const/BEACON_STATE_ON = 1
 
-	var/mob/legion_broadcaster/broadcaster
-
 
 /obj/structure/legion/beacon/Initialize(mapload)
 	. = ..()
@@ -67,8 +65,6 @@
 	if (!length(spawn_types))
 		spawn_types = typesof(/mob/living/simple_animal/hostile/legion)
 
-	broadcaster = new(src)
-
 	START_PROCESSING(SSobj, src)
 
 
@@ -78,8 +74,6 @@
 	for (var/mob/living/simple_animal/hostile/legion/legion in linked_mobs)
 		legion.linked_beacon = null
 	linked_mobs.Cut()
-
-	QDEL_NULL(broadcaster)
 
 	return ..()
 
@@ -102,9 +96,9 @@
 
 	if (world.time >= last_broadcast_time + broadcast_rate && rand(1, 100) <= broadcast_chance)
 		last_broadcast_time = world.time
-		var/list/message_data = pick_legion_message()
-		show_legion_messages(get_z(src), message_data["full"])
-		broadcaster.legion_broadcast(message_data["origin"], message_data["contents"])
+		var/message = pick_legion_message()
+		var/target_z = get_z(src)
+		show_legion_broadcast(target_z, message)
 
 
 /obj/structure/legion/beacon/proc/set_active()
