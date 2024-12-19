@@ -239,7 +239,7 @@
 		for (var/scan in last_scan["data"])
 			scan_data += scan + "\n\n"
 
-		new/obj/item/paper/(get_turf(src), scan_data, "paper (Sensor Scan - [last_scan["name"]])", L = print_language)
+		new /obj/item/paper (get_turf(src), scan_data, "paper (Sensor Scan - [last_scan["name"]])", null, print_language)
 		return TOPIC_HANDLED
 
 

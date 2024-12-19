@@ -20,7 +20,7 @@
 /area/map_template/deepmaint)
 "j" = (
 /obj/structure/table/woodentable_reinforced/ebony,
-/obj/item/material/clipboard/ebony,
+/obj/item/material/folder/clipboard/ebony,
 /turf/simulated/floor/greengrid,
 /area/map_template/deepmaint)
 "k" = (

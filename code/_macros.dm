@@ -151,9 +151,11 @@
 
 #define CanPhysicallyInteractWith(user, target) (target.CanUseTopicPhysical(user) == STATUS_INTERACTIVE)
 
-#define QDEL_NULL_LIST(x) if(x) { for(var/y in x) { qdel(y) }}; if(x) {x.Cut(); x = null; } // Second x check to handle items that LAZYREMOVE on qdel.
+#define QDEL_CONTENTS for(var/entry in contents) qdel(entry)
 
-#define QDEL_NULL_ASSOC_LIST(x) if(x) { for(var/y in x) { qdel(x[y]) }}; if(x) {x.Cut(); x = null; }
+#define QDEL_NULL_LIST(x) if(x) { for(var/y in x) { qdel(y) }}; if(x) { LIST_RESIZE(x, 0); x = null; } // Second x check to handle items that LAZYREMOVE on qdel.
+
+#define QDEL_NULL_ASSOC_LIST(x) if(x) { for(var/y in x) { qdel(x[y]) }}; if(x) { LIST_RESIZE(x, 0); x = null; }
 
 #define QDEL_NULL(x) if(x) { qdel(x) ; x = null }
 
@@ -170,8 +172,6 @@
 
 // Spawns multiple objects of the same type
 #define cast_new(type, num, args...) if((num) == 1) { new type(args) } else { for(var/i=0;i<(num),i++) { new type(args) } }
-
-#define JOINTEXT(X) jointext(X, null)
 
 #define SPAN_CLASS(class, X) "<span class='[class]'>[X]</span>"
 
@@ -288,12 +288,6 @@
 #define num2hex(num) num2text(num, 1, 16)
 
 
-/// Generate random hex up to char length nibbles
-/proc/randhex(nibbles)
-	for (var/i = 1 to nibbles)
-		. += num2text(rand(0, 15), 1, 16)
-
-
 /// Increase the size of L by 1 at the end. Is the old last entry index.
 #define LIST_INC(L) ((L).len++)
 
@@ -308,3 +302,10 @@
 
 /// Explicitly set the length of L to NEWLEN, adding nulls or dropping entries. Is the same value as NEWLEN.
 #define LIST_RESIZE(L, NEWLEN) ((L).len = (NEWLEN))
+
+
+/// A ref=src anchor.
+#define aref(text, params) "<a href=\"?src=\ref[src];[params]\">[text]</a>"
+
+/// A ref=src anchor with additional anchor properties.
+#define arefext(text, params, props) "<a href=\"?src=\ref[src];[params]\" [props]>[text]</a>"

@@ -179,4 +179,4 @@
 	if(grown_seed.get_trait(TRAIT_CONSUME_GASSES))
 		dat += "<br>It will remove gas from the environment."
 
-	return JOINTEXT(dat)
+	return jointext(dat, null)

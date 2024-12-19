@@ -137,7 +137,7 @@ default behaviour is:
 			var/saved_dir = AM.dir
 			if ((is_confused() || (MUTATION_CLUMSY in mutations)) && !MOVING_DELIBERATELY(src))
 				AM.slam_into(src)
-			if (!istype(AM, /atom/movable) || AM.anchored)
+			if (!ismovable(AM) || AM.anchored)
 				return
 			if (!now_pushing)
 				now_pushing = 1
@@ -664,7 +664,7 @@ default behaviour is:
 			holster.clear_holster()
 		to_chat(src, SPAN_WARNING("You extricate yourself from \the [holster]."))
 		H.forceMove(get_turf(H))
-	else if(istype(H.loc,/obj))
+	else if(isobj(H.loc))
 		to_chat(src, SPAN_WARNING("You struggle free of \the [H.loc]."))
 		H.forceMove(get_turf(H))
 

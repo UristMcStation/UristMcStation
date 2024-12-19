@@ -1670,7 +1670,7 @@
 		var/dirty_paths
 		if (istext(href_list["object_list"]))
 			dirty_paths = list(href_list["object_list"])
-		else if (istype(href_list["object_list"], /list))
+		else if (islist(href_list["object_list"]))
 			dirty_paths = href_list["object_list"]
 
 		var/paths = list()
@@ -1739,7 +1739,7 @@
 				to_chat(usr, "You don't have any object marked. Abandoning spawn.")
 				return
 			else
-				if ( !istype(marked_datum,/atom) )
+				if ( !isloc(marked_datum) )
 					to_chat(usr, "The object you have marked cannot be used as a target. Target must be of type /atom. Abandoning spawn.")
 					return
 
@@ -1769,7 +1769,7 @@
 							O.set_dir(obj_dir)
 							if(obj_name)
 								O.SetName(obj_name)
-								if(istype(O,/mob))
+								if(ismob(O))
 									var/mob/M = O
 									M.real_name = obj_name
 

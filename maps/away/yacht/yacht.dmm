@@ -56,7 +56,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/yacht/bridge)
 "am" = (
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/item/form_printer,
 /obj/structure/table/woodentable,
 /obj/item/reagent_containers/food/drinks/glass2/coffeecup,

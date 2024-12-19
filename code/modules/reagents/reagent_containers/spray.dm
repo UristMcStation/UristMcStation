@@ -47,7 +47,7 @@
 	playsound(src.loc, 'sound/effects/spray2.ogg', 50, 1, -6)
 	if (reagents.should_admin_log())
 		var/contained = reagents.get_reagents()
-		if (istype(A, /mob))
+		if (ismob(A))
 			admin_attack_log(user, A, "Used \the [src] containing [contained] to spray the victim", "Was sprayed by \the [src] containing [contained]", "used \the [src] containing [contained] to spray")
 		else
 			admin_attacker_log(user, "Used \the [name] containing [contained] to spray \the [A]")
@@ -194,7 +194,7 @@
 
 	if (reagents.should_admin_log())
 		var/contained = reagents.get_reagents()
-		if (istype(A, /mob))
+		if (ismob(A))
 			admin_attack_log(user, A, "Used \the [src] containing [contained] to spray the victim", "Was sprayed by \the [src] containing [contained]", "used \the [src] containing [contained] to spray")
 		else
 			admin_attacker_log(user, "Used \the [name] containing [contained] to spray \the [A]")

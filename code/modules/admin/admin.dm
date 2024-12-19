@@ -1367,7 +1367,7 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 	if(istype(whom, /client))
 		C = whom
 		M = C.mob
-	else if(istype(whom, /mob))
+	else if(ismob(whom))
 		M = whom
 		C = M.client
 	else

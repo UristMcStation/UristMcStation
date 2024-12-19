@@ -226,10 +226,10 @@
 /mob/proc/encumbrance()
 	. = 0
 	if(pulling)
-		if(istype(pulling, /obj))
+		if(isobj(pulling))
 			var/obj/O = pulling
 			. += clamp(O.w_class, 0, ITEM_SIZE_GARGANTUAN) / 5
-		else if(istype(pulling, /mob))
+		else if(ismob(pulling))
 			var/mob/M = pulling
 			. += max(0, M.mob_size) / MOB_MEDIUM
 		else
@@ -308,7 +308,7 @@
 /mob/proc/reset_view(atom/A)
 	if (client)
 		A = A ? A : eyeobj
-		if (istype(A, /atom/movable))
+		if (ismovable(A))
 			client.perspective = EYE_PERSPECTIVE
 			client.eye = A
 		else

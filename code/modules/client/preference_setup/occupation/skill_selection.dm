@@ -91,7 +91,7 @@
 	for(var/job_name in SSjobs.titles_to_datums)
 		var/datum/job/job = SSjobs.get_by_title(job_name)
 		var/input_skills = list()
-		if((job in input) && istype(input[job], /list))
+		if((job in input) && islist(input[job]))
 			input_skills = input[job]
 
 		var/L = list()
@@ -192,7 +192,7 @@
 			for(var/singleton/hierarchy/skill/perk in S.children)
 				dat += get_skill_row(job, perk)
 	dat += "</table>"
-	return JOINTEXT(dat)
+	return jointext(dat, null)
 
 /datum/category_item/player_setup_item/occupation/proc/get_skill_row(datum/job/job, singleton/hierarchy/skill/S)
 	var/list/dat = list()
@@ -204,7 +204,7 @@
 	for(var/i = SKILL_MIN, i <= SKILL_MAX, i++)
 		dat += skill_to_button(S, job, level, i, min, cap)
 	dat += "</tr>"
-	return JOINTEXT(dat)
+	return jointext(dat, null)
 
 /datum/category_item/player_setup_item/occupation/proc/open_skill_setup(mob/user, datum/job/job)
 	panel = new(user, "skill-selection", "Skill Selection: [job.title]", 770, 850, src)

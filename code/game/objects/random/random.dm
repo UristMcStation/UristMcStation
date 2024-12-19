@@ -1286,12 +1286,12 @@ var/global/list/multi_point_spawns
 	icon_state = "clipboard_preview"
 
 /obj/random/clipboard/spawn_choices()
-	return list(/obj/item/material/clipboard = 300,
-				/obj/item/material/clipboard/steel = 200,
-				/obj/item/material/clipboard/aluminium = 200,
-				/obj/item/material/clipboard/plastic = 200,
-				/obj/item/material/clipboard/glass = 100,
-				/obj/item/material/clipboard/ebony = 10)
+	return list(/obj/item/material/folder/clipboard = 300,
+				/obj/item/material/folder/clipboard/steel = 200,
+				/obj/item/material/folder/clipboard/aluminium = 200,
+				/obj/item/material/folder/clipboard/plastic = 200,
+				/obj/item/material/folder/clipboard/glass = 100,
+				/obj/item/material/folder/clipboard/ebony = 10)
 
 //Random MRE stuff
 

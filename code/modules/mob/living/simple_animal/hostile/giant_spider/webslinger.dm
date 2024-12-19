@@ -73,7 +73,7 @@
 	stacks = stacks + 1
 	stacks = clamp(stacks, 1, max_stacks)
 
-	if (stacks >= max_stacks && istype(user.loc, /turf))
+	if (stacks >= max_stacks && isturf(user.loc))
 
 		var/obj/spider/cocoon/C = new(user.loc)
 		user.forceMove(C)

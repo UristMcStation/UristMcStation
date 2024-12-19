@@ -49,6 +49,18 @@
 	..()
 
 
+/mob/living/simple_animal/hostile/hivebot/Process_Spacemove(allow_movement)
+	if (is_legion)
+		return !is_physically_disabled()
+	return ..()
+
+
+/mob/living/simple_animal/hostile/hivebot/AirflowCanMove(n)
+	if (is_legion)
+		return FALSE
+	return ..()
+
+
 // Legion hivebot spawners
 /obj/spawner/legion/hivebot
 	abstract_type = /obj/spawner/legion/hivebot
@@ -58,8 +70,10 @@
 
 /obj/spawner/legion/hivebot/Initialize(mapload, ...)
 	. = ..()
+	legion_warp_effect(get_turf(src))
 	base_hivebot = new base_hivebot(loc)
 	base_hivebot.legionify()
+	base_hivebot.visible_message(SPAN_DANGER("\A [base_hivebot] warps in!"))
 	return INITIALIZE_HINT_QDEL
 
 

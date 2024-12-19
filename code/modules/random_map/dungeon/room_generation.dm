@@ -21,12 +21,12 @@
 	if(!item_spawns || !length(item_spawns))
 		return 0
 	var/place = pick(item_spawns)
-	if(istype(place,/obj)) //we assume what object we get is some sort of container.
+	if(isobj(place)) //we assume what object we get is some sort of container.
 		var/obj/O = place
 		if(O.contents && prob(length(O.contents) * (25 / O.w_class)))
 			return 0
 		new type(place)
-	else if(istype(place,/mob))
+	else if(ismob(place))
 		var/mob/M = place
 		var/atom/movable/A = new type(M.loc)
 		M.equip_to_appropriate_slot(A) //we don't have to check if its an object or not since hte proc in question already does that

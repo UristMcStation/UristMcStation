@@ -47,9 +47,9 @@
 	visuals.icon_state = icon_state
 	Draw()
 	//Register for movement events
-	if(istype(origin, /atom/movable))
+	if(ismovable(origin))
 		GLOB.moved_event.register(origin, src, .proc/redrawing)
-	if(istype(target, /atom/movable))
+	if(ismovable(target))
 		GLOB.moved_event.register(target, src, .proc/redrawing)
 	GLOB.destroyed_event.register(origin, src, .proc/redrawing)
 	GLOB.destroyed_event.register(target, src, .proc/redrawing)

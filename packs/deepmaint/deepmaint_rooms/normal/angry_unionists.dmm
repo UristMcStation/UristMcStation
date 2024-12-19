@@ -119,7 +119,7 @@
 "pS" = (
 /obj/structure/table/woodentable/walnut,
 /obj/structure/window/reinforced,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /turf/simulated/floor/wood/walnut,
 /area/map_template/deepmaint)
 "qI" = (
@@ -135,7 +135,7 @@
 /area/map_template/deepmaint)
 "ss" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/material/clipboard/plastic,
+/obj/item/material/folder/clipboard/plastic,
 /obj/item/pen/blue,
 /turf/simulated/floor/carpet/red,
 /area/map_template/deepmaint)
@@ -161,8 +161,8 @@
 "wK" = (
 /obj/structure/table/woodentable/walnut,
 /obj/structure/window/reinforced,
-/obj/item/material/clipboard/plastic,
-/obj/item/folder/blue,
+/obj/item/material/folder/clipboard/plastic,
+/obj/item/material/folder/blue,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -234,10 +234,10 @@
 /area/map_template/deepmaint)
 "Fy" = (
 /obj/structure/table/rack,
-/obj/item/folder/blue,
-/obj/item/folder/blue,
-/obj/item/folder/blue,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
+/obj/item/material/folder/blue,
+/obj/item/material/folder/blue,
+/obj/item/material/folder/blue,
 /turf/simulated/floor/wood/walnut,
 /area/map_template/deepmaint)
 "GI" = (
@@ -248,7 +248,7 @@
 "Hj" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/item/crowbar/prybar,
 /obj/item/melee/classic_baton,
 /turf/simulated/floor/carpet/blue2,
@@ -295,7 +295,7 @@
 /area/map_template/deepmaint)
 "Nj" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /turf/simulated/floor/carpet/blue2,
 /area/map_template/deepmaint)
 "ND" = (
@@ -345,7 +345,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/machinery/light{
 	dir = 4
 	},

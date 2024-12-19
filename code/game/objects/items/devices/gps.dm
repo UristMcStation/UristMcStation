@@ -64,7 +64,7 @@ var/global/list/all_gps_units = list()
 		holder.client?.screen -= compass
 		holder = null
 
-	if(!force_clear && istype(loc, /mob))
+	if(!force_clear && ismob(loc))
 		holder = loc
 		GLOB.moved_event.register(holder, src, .proc/update_compass)
 		GLOB.dir_set_event.register(holder, src, .proc/update_compass)

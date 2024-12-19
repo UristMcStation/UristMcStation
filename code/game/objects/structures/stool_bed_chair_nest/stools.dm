@@ -143,7 +143,7 @@ var/global/list/stool_cache = list() //haha stool
 			to_chat(user, SPAN_WARNING("You cannot pad \the [src] with that."))
 			return TRUE
 		C.use(1)
-		if(!istype(src.loc, /turf))
+		if(!isturf(loc))
 			user.drop_from_inventory(src)
 			src.dropInto(loc)
 		to_chat(user, "You add padding to \the [src].")

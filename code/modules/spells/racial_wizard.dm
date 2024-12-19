@@ -166,7 +166,7 @@
 	..()
 	if(istype(spellbook,/obj/item/spellbook))
 		linked = spellbook
-	if(istype(owner,/mob))
+	if(ismob(owner))
 		contract_master = owner
 
 /obj/item/contract/apprentice/skrell/attack_self(mob/user as mob)

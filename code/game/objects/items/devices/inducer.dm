@@ -94,7 +94,7 @@
 	var/obj/item/cell/MyC = get_cell()
 	var/obj/item/cell/C = A.get_cell()
 	var/obj/O
-	if(istype(A, /obj))
+	if(isobj(A))
 		O = A
 	if(C)
 		var/length = 10

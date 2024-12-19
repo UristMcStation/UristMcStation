@@ -24,8 +24,8 @@
 
 	var/unformatedText = ""
 
-/obj/item/paper/admin/New()
-	..()
+/obj/item/paper/admin/Initialize()
+	. = ..()
 	generateInteractions()
 
 

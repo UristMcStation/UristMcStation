@@ -529,7 +529,7 @@ var/global/list/slot_flags_enumeration = list(
 	if (!usr.HasFreeHand())
 		to_chat(usr, SPAN_WARNING("Your hands are full."))
 		return
-	if(!istype(src.loc, /turf)) //Object is on a turf
+	if(!isturf(loc)) //Object is on a turf
 		to_chat(usr, SPAN_WARNING("You can't pick that up!"))
 		return
 	//All checks are done, time to pick it up!
@@ -961,6 +961,12 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /// Virtual for behavior to do after successful do_after if equip_delay is set
 /obj/item/proc/equip_delay_after(mob/user, slot, equip_flags)
 	return
+
+
+/// Proc called when when the item has been equipped. Unlike `equip_delay_*`, this is always called.
+/obj/item/proc/post_equip_item(mob/user, slot, equip_flags)
+	return
+
 
 /obj/item/OnTopic(href, href_list, datum/topic_state/state)
 	. = ..()

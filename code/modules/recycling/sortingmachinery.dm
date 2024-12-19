@@ -551,10 +551,10 @@
 	var/mob/living/L = AM
 	if (istype(L) && L.ckey)
 		log_and_message_admins("has flushed themselves down \the [src].", L, src)
-	if(istype(AM, /obj))
+	if(isobj(AM))
 		var/obj/O = AM
 		O.forceMove(src)
-	else if(istype(AM, /mob))
+	else if(ismob(AM))
 		var/mob/M = AM
 		M.forceMove(src)
 	src.flush()

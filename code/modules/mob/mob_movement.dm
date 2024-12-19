@@ -219,7 +219,7 @@
 
 	var/obj/item/grab/G = locate() in src
 	for(var/A in range(1, get_turf(src)))
-		if(istype(A,/atom/movable))
+		if(ismovable(A))
 			var/atom/movable/AM = A
 			if(AM == src || AM == inertia_ignore || !AM.simulated || !AM.mouse_opacity || AM == buckled)	//mouse_opacity is hacky as hell, need better solution
 				continue

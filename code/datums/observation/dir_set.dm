@@ -18,7 +18,7 @@ GLOBAL_DATUM_INIT(dir_set_event, /singleton/observ/dir_set, new)
 	. = ..()
 
 	// Listen to the parent if possible.
-	if(. && istype(dir_changer.loc, /atom/movable))	// We don't care about registering to turfs.
+	if(. && ismovable(dir_changer.loc))	// We don't care about registering to turfs.
 		register(dir_changer.loc, dir_changer, /atom/proc/recursive_dir_set)
 
 /*********************

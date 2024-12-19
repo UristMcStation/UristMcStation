@@ -22,7 +22,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] is full and cannot accept further items."))
 		return TRUE
 
-	if(istype(A, /mob))
+	if(ismob(A))
 		var/accept = 0
 		for(var/D in accept_mobs)
 			if(istype(A, D))

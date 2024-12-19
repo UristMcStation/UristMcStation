@@ -18,7 +18,7 @@
 		/obj/item/card/id = 3,
 		/obj/item/paper_bundle = 3,
 		/obj/item/sample/print = 1,
-		/obj/item/folder = 2
+		/obj/item/material/folder = 2
 		)
 
 /obj/machinery/papershredder/use_tool(obj/item/W, mob/living/user, list/click_params)
