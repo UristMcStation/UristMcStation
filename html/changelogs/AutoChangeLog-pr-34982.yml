@@ -1,0 +1,4 @@
+author: SierraKomodo
+changes:
+  - {tweak: Legion radio narrations are now less obnoxiously spammy.}
+delete-after: true
