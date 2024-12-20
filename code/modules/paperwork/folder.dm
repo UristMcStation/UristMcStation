@@ -46,10 +46,7 @@
 	if (istype(item, /obj/item/pen))
 		var/response = input(user, null, "Label \the [src]") as null | text
 		response = sanitize(response, MAX_LNAME_LEN)
-		if (!response)
-			return TRUE
-		if (user.stat || !user.IsHolding(item) || !Adjacent(user))
-			to_chat(user, SPAN_WARNING("You're no longer able to do that."))
+		if (!response || !user.use_sanity_check(src, item))
 			return TRUE
 		AddLabel(response, user)
 		return TRUE
@@ -207,8 +204,7 @@
 		var/response = alert(user, "Break the seal on \the [src]?", null, "Yes", "No")
 		if (response != "Yes")
 			return FALSE
-		if (user.stat || !Adjacent(user))
-			to_chat(user, SPAN_WARNING("You're no longer able to do that."))
+		if (!user.use_sanity_check(src))
 			return FALSE
 		user.visible_message(
 			SPAN_ITALIC("\The [user] breaks the seal on \a [src]."),
