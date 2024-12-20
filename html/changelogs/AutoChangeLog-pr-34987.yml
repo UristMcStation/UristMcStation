@@ -1,0 +1,4 @@
+author: SierraKomodo
+changes:
+  - {bugfix: Age descriptors now appear for ghosts when examining carbon mobs.}
+delete-after: true
