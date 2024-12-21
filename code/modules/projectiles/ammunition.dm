@@ -149,49 +149,158 @@
 	update_icon()
 
 
-/obj/item/ammo_magazine/use_tool(obj/item/W, mob/living/user, list/click_params)
-	if(istype(W, /obj/item/ammo_casing))
-		var/obj/item/ammo_casing/C = W
-		if(C.caliber != caliber)
-			to_chat(user, SPAN_WARNING("\The [C] does not fit into \the [src]."))
+/obj/item/ammo_magazine/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	if (istype(tool, /obj/item/ammo_casing))
+		if (!do_after(user, 0.25 SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool) || !load_casing(tool, user, TRUE))
 			return TRUE
-		if(length(stored_ammo) >= max_ammo)
-			to_chat(user, SPAN_WARNING("\The [src] is full!"))
-			return TRUE
-		if(!user.unEquip(C, src))
-			FEEDBACK_UNEQUIP_FAILURE(user, C)
-			return TRUE
-		stored_ammo.Add(C)
-		update_icon()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] loads \a [tool] into \a [src]."),
+			SPAN_NOTICE("You load \the [tool] into \the [src].")
+		)
 		return TRUE
+
 	return ..()
 
 
-/obj/item/ammo_magazine/attack_self(mob/user)
-	if(!length(stored_ammo))
-		to_chat(user, SPAN_NOTICE("[src] is already empty!"))
-		return
-	to_chat(user, SPAN_NOTICE("You empty [src]."))
-	for(var/obj/item/ammo_casing/C in stored_ammo)
-		C.forceMove(user.loc)
-		C.set_dir(pick(GLOB.alldirs))
+/**
+ * Checks if the casing can be loaded into this magazine. Provides user feedback messages on failure.
+ *
+ * Does not include unequip checks by default, as this is intended to be usable in cases those checks would be invalid.
+ *
+ * **Parameters**:
+ * - `ammo_casing` - The ammo casing to check.
+ * - `user` - The mob performing the action. If not set, feedback messages are skipped.
+ *
+ * Returns boolean.
+ */
+/obj/item/ammo_magazine/proc/can_load_casing(obj/item/ammo_casing/ammo_casing, mob/living/user)
+	if (!istype(ammo_casing) || ammo_casing.caliber != caliber)
+		if (user)
+			USE_FEEDBACK_FAILURE("\The [ammo_casing] does not fit in \the [src].")
+		return FALSE
+
+	if (length(stored_ammo) >= max_ammo)
+		if (user)
+			USE_FEEDBACK_FAILURE("\The [src] is full.")
+		return FALSE
+
+	return TRUE
+
+
+/**
+ * Attempts to load the ammo casing into this magazine. Provides user feedback on failure.
+ *
+ * Checks `can_load_casing()`.
+ *
+* **Parameters**:
+ * - `ammo_casing` - The ammo casing to load.
+ * - `user` - The mob performing the action. If not set, feedback messages are skipped.
+ * - `unequip_check` (Boolean, default `FALSE`) - If set, includes a `user.unEquip(ammo_casing, src)` check.
+ *
+ * Returns boolean. Indicates whether the casing was loaded or not.
+ */
+/obj/item/ammo_magazine/proc/load_casing(obj/item/ammo_casing/ammo_casing, mob/living/user, unequip_check = FALSE)
+	if (!can_load_casing(ammo_casing, user, unequip_check))
+		return FALSE
+
+	if (unequip_check && !user?.unEquip(ammo_casing, src))
+		FEEDBACK_UNEQUIP_FAILURE(user, ammo_casing)
+		return FALSE
+
+	ammo_casing.forceMove(src)
+	stored_ammo += ammo_casing
+	update_icon()
+	return TRUE
+
+
+/**
+ * Removes the last casing from the magazine. Provides user feedback on failure.
+ *
+ * Either `user` or `target` can be provided, the proc will function either way.
+ *
+ * **Parameters**:
+ * - `user` - The mob performing the action.
+ * - `target` (Default `user`, if set) - The target atom to move the casing to. If a mob, attempts to place it in hands.
+ *
+ * Returns the removed casing.
+ */
+/obj/item/ammo_magazine/proc/remove_casing(mob/living/user, atom/target = user)
+	if (!user && !target)
+		crash_with("`remove_casing()` requires either user or target, or both, to be provided. Neither were provided.")
+		return FALSE
+
+	if (!length(stored_ammo))
+		if (user)
+			USE_FEEDBACK_FAILURE("\The [src] is empty.")
+		return FALSE
+
+	var/obj/item/ammo_casing/ammo_casing = stored_ammo[length(stored_ammo)]
+	stored_ammo -= ammo_casing
+	update_icon()
+
+	if (ismob(target))
+		var/mob/target_mob = target
+		target_mob.put_in_hands(ammo_casing)
+	else
+		ammo_casing.forceMove(target)
+
+	return ammo_casing
+
+
+/**
+ * Attempts to dump all casings into `target`. Provides user feedback on failure.
+ *
+ * **Parameters**:
+ * - `user` - The mob performing the action.
+ * - `target` (Default `get_turf(src)`) - The target atom to move the casings to.
+ *
+ * Returns a list of the removed casings, or `FALSE`.
+ */
+/obj/item/ammo_magazine/proc/dump_all_casings(mob/living/user, atom/target = get_turf(src))
+	RETURN_TYPE(/list)
+	if (!length(stored_ammo))
+		if (user)
+			USE_FEEDBACK_FAILURE("\The [src] is empty.")
+		return FALSE
+
+	var/list/removed = list()
+	for (var/obj/item/ammo_casing/ammo_casing in stored_ammo)
+		ammo_casing.forceMove(target)
+		ammo_casing.set_dir(pick(GLOB.alldirs))
+		removed += ammo_casing
+
 	stored_ammo.Cut()
 	update_icon()
 
+	return removed
+
+
+/obj/item/ammo_magazine/attack_self(mob/user)
+	if (!dump_all_casings(user, user.loc))
+		return
+	user.visible_message(
+		SPAN_WARNING("\The [user] ejects \a [src]'s contents on the ground."),
+		SPAN_WARNING("You eject \the [src]'s contents on the ground.")
+	)
+
 
 /obj/item/ammo_magazine/attack_hand(mob/user)
-	if(user.get_inactive_hand() == src)
-		if(!length(stored_ammo))
-			to_chat(user, SPAN_NOTICE("[src] is already empty!"))
-		else
-			var/obj/item/ammo_casing/C = stored_ammo[length(stored_ammo)]
-			stored_ammo-=C
-			user.put_in_hands(C)
-			user.visible_message("\The [user] removes \a [C] from [src].", SPAN_NOTICE("You remove \a [C] from [src]."))
-			update_icon()
-	else
-		..()
+	if (user.get_inactive_hand() == src)
+		if (!length(stored_ammo))
+			USE_FEEDBACK_FAILURE("\The [src] is empty.")
+			return TRUE
+		if (!do_after(user, 0.25 SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src))
+			return TRUE
+		var/atom/removed_casing = remove_casing(user)
+		if (!removed_casing)
+			return
+		user.visible_message(
+			SPAN_NOTICE("\The [user] removes \a [removed_casing] from \a [src]."),
+			SPAN_NOTICE("You remove \a [removed_casing] from \the [src].")
+		)
 		return
+
+	..()
 
 
 /obj/item/ammo_magazine/on_update_icon()
