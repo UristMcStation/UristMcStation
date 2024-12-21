@@ -162,6 +162,55 @@
 	return ..()
 
 
+/obj/item/ammo_magazine/use_after(atom/target, mob/living/user, click_parameters)
+	// Try to scoop bullets up
+	var/turf/target_turf
+	if (isturf(target))
+		target_turf = target
+	else if (istype(target, /obj/item/ammo_casing) && isturf(target.loc))
+		target_turf = target.loc
+	if (!target_turf)
+		return ..()
+
+	var/list/candidates = list()
+	for (var/obj/item/ammo_casing/ammo_casing in target_turf)
+		if (ammo_casing.caliber != caliber)
+			continue
+		candidates += ammo_casing
+
+	if (!length(candidates))
+		USE_FEEDBACK_FAILURE("There are no bullets \the [src] can hold here.")
+		return TRUE
+	if (length(stored_ammo) >= max_ammo)
+		USE_FEEDBACK_FAILURE("\The [src] is full.")
+		return TRUE
+
+	user.visible_message(
+		SPAN_NOTICE("\The [user] starts loading \a [src] with loose bullets."),
+		SPAN_NOTICE("You start loading \the [src] with loose bullets.")
+	)
+	var/count = 0
+	for (var/obj/item/ammo_casing/ammo_casing as anything in candidates)
+		if (!do_after(user, 0.25 SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, ammo_casing, SANITY_CHECK_DEFAULT & ~SANITY_CHECK_TOOL_IN_HAND))
+			break
+		if (!load_casing(ammo_casing, user))
+			break
+		count++
+
+	if (!count)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] fails to load \a [src] with loose bullets."),
+			SPAN_WARNING("You fail to load \the [src] with loose bullets.")
+		)
+		return TRUE
+	user.visible_message(
+		SPAN_NOTICE("\The [user] loads \a [src] with loose bullets."),
+		SPAN_NOTICE("You load \the [src] with loose bullets.")
+	)
+	return TRUE
+
+
+
 /**
  * Checks if the casing can be loaded into this magazine. Provides user feedback messages on failure.
  *
