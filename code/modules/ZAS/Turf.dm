@@ -6,9 +6,18 @@
 
 /turf/simulated/proc/update_graphic(list/graphic_add = null, list/graphic_remove = null)
 	if(graphic_add && length(graphic_add))
-		vis_contents += graphic_add
+		add_vis_contents(graphic_add)
 	if(graphic_remove && length(graphic_remove))
-		vis_contents -= graphic_remove
+		remove_vis_contents(graphic_remove)
+
+/turf/simulated/get_air_graphic()
+	if(zone && !zone.invalid)
+		return zone.air?.graphic
+	// if(external_atmosphere_participation && is_outside())
+	// 	var/datum/level_data/level = SSmapping.levels_by_z[z]
+	// 	return level.exterior_atmosphere.graphic
+	var/datum/gas_mixture/environment = return_air()
+	return environment?.graphic
 
 /turf/proc/update_air_properties()
 	var/block
@@ -250,6 +259,8 @@
 	if(initial_gas)
 		GM.gas = initial_gas.Copy()
 	GM.temperature = temperature
+	if (weather)
+		GM.temperature = weather.adjust_temperature(GM.temperature)
 	GM.update_values()
 
 	return GM

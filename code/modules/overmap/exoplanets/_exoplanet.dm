@@ -17,7 +17,7 @@ GLOBAL_VAR(planet_repopulation_disabled)
 
 
 	//DAY/NIGHT CYCLE
-	var/daycycle_range = list(15 MINUTES, 30 MINUTES)
+	var/daycycle_range = list(25 MINUTES, 45 MINUTES)
 	var/daycycle = 0//How often do we change day and night, at first list, to determine min and max day length
 	var/sun_process_interval = 1.5 MINUTES //How often we update planetary sunlight
 	var/sun_last_process = null // world.time
@@ -38,7 +38,7 @@ GLOBAL_VAR(planet_repopulation_disabled)
 	var/list/plant_colors = list("RANDOM")
 	var/grass_color
 	var/surface_color = COLOR_ASTEROID_ROCK
-	var/water_color = "#436499"
+	var/water_color = COLOR_WATER
 	var/image/skybox_image
 
 	var/list/actors = list() //things that appear in engravings on xenoarch finds.
@@ -72,6 +72,10 @@ GLOBAL_VAR(planet_repopulation_disabled)
 
 	//Either a type or a list of types and weights. You must include all types if it's a list
 	var/habitability_weight = HABITABILITY_TYPICAL
+
+	///What weather state to use for this planet initially. If null, will not initialize any weather system. Must be a typepath rather than an instance.
+	var/singleton/state/weather/initial_weather_state = /singleton/state/weather/calm
+	var/list/banned_weather_conditions
 
 /obj/overmap/visitable/sector/exoplanet/New(nloc, max_x, max_y)
 	if (!GLOB.using_map.use_overmap)
@@ -138,6 +142,8 @@ GLOBAL_VAR(planet_repopulation_disabled)
 	update_biome()
 	generate_daycycle()
 	generate_planet_image()
+	if(ispath(initial_weather_state))
+		generate_weather()
 	START_PROCESSING(SSobj, src)
 
 //attempt at more consistent history generation for xenoarch finds.
@@ -185,6 +191,13 @@ GLOBAL_VAR(planet_repopulation_disabled)
 /obj/overmap/visitable/sector/exoplanet/proc/generate_daycycle()
 	daycycle = rand(daycycle_range[1], daycycle_range[2])
 	update_sun()
+
+///Setup the initial weather state for the planet. Doesn't apply it to our z levels however.
+/obj/overmap/visitable/sector/exoplanet/proc/generate_weather()
+	if(ispath(initial_weather_state))
+		initial_weather_state = GET_SINGLETON(initial_weather_state)
+	//Set weather firs time around
+	SSweather.setup_weather_system(map_z[1], initial_weather_state, banned_weather_conditions)
 
 // This changes the position of the sun on the planet.
 /obj/overmap/visitable/sector/exoplanet/proc/update_sun()
