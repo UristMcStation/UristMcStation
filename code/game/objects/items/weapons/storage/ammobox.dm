@@ -137,8 +137,8 @@
 			USE_FEEDBACK_FAILURE("\The [src] is full.")
 			return TRUE
 
-		var/obj/item/ammo_casing/first_casing = magazine.stored_ammo[1]
-		if (!can_insert_casing(first_casing, user))
+		var/obj/item/ammo_casing/casing = magazine.stored_ammo[length(magazine.stored_ammo)]
+		if (!can_insert_casing(casing, user))
 			return TRUE
 
 		user.visible_message(
@@ -147,18 +147,23 @@
 		)
 
 		var/partial = FALSE // Alters the visible message to say "partially" if there was a casing that halted the loop
-		for (var/obj/item/ammo_casing/casing in magazine.stored_ammo)
+		while (length(magazine.stored_ammo))
+			casing = magazine.stored_ammo[length(magazine.stored_ammo)]
+			if (!can_insert_casing(casing, user))
+				partial = TRUE
+				break
 			if (!do_after(user, 0.25 SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
 				partial = TRUE
 				break
-			if (!insert_casing(casing))
+			casing = magazine.remove_casing(user, src)
+			if (!casing)
 				partial = TRUE
 				break
-			magazine.stored_ammo -= casing
+			insert_casing(casing)
 
 		user.visible_message(
 			SPAN_NOTICE("\The [user] [partial ? "partially " : null]empties \a [tool] into \a [src]."),
-			SPAN_NOTICE("You [partial ? "partially " : null]empty \the [tool] into \the [src]. The box now holds [ammo_count] round\s. [partial ? "The magazine has [length(magazine.stored_ammo)] round\s remaining." : null]")
+			SPAN_NOTICE("You [partial ? "partially " : null]empty \the [tool] into \the [src].")
 		)
 		return TRUE
 
@@ -198,8 +203,7 @@
 				partial = TRUE
 				break
 			count++
-			magazine.stored_ammo += casing
-			magazine.update_icon()
+			magazine.load_casing(casing, user)
 
 		if (!count)
 			user.visible_message(
@@ -363,6 +367,7 @@
 	ammo_count++
 	if (ammo_type != ammo_casing.type)
 		set_ammo_type(ammo_casing.type)
+	playsound(src, 'sound/weapons/guns/interaction/bullet_insert.ogg', 10, TRUE)
 	qdel(ammo_casing)
 	return TRUE
 
@@ -385,11 +390,17 @@
 			USE_FEEDBACK_FAILURE("\The [src] is empty.")
 		return
 
+	var/obj/item/ammo_casing/casing
 	ammo_count--
 	if (target)
-		var/obj/item/ammo_casing/casing = new ammo_type(target)
+		casing = new ammo_type(target)
 		. = casing
 
+	if (casing && isturf(target))
+		playsound(src, pick(casing.fall_sounds), 10, TRUE)
+	else if (ismob(target))
+		playsound(src, 'sound/weapons/guns/interaction/bullet_insert.ogg', 10, TRUE)
+	// Any other target type, i.e. magazine, already has its own sound effect
 
 	if (!ammo_count)
 		ammo_type = null

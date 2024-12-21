@@ -306,6 +306,7 @@
 		FEEDBACK_UNEQUIP_FAILURE(user, ammo_casing)
 		return FALSE
 
+	playsound(src, 'sound/weapons/guns/interaction/shotgun_instert.ogg', 10, TRUE)
 	ammo_casing.forceMove(src)
 	stored_ammo += ammo_casing
 	update_icon()
@@ -342,6 +343,7 @@
 		target_mob.put_in_hands(ammo_casing)
 	else
 		ammo_casing.forceMove(target)
+	playsound(src, 'sound/weapons/guns/interaction/bullet_insert.ogg', 10, TRUE)
 
 	return ammo_casing
 
@@ -364,6 +366,7 @@
 
 	var/list/removed = list()
 	for (var/obj/item/ammo_casing/ammo_casing in stored_ammo)
+		playsound(src, pick(ammo_casing.fall_sounds), 10, TRUE)
 		ammo_casing.forceMove(target)
 		ammo_casing.set_dir(pick(GLOB.alldirs))
 		removed += ammo_casing
