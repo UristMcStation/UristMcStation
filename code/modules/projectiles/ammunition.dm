@@ -159,6 +159,56 @@
 		)
 		return TRUE
 
+
+	if (istype(tool, /obj/item/ammo_magazine))
+		if (length(stored_ammo) >= max_ammo)
+			USE_FEEDBACK_FAILURE("\The [src] is full.")
+			return TRUE
+		var/obj/item/ammo_magazine/donor_magazine = tool
+		if (length(donor_magazine.stored_ammo) <= 0)
+			USE_FEEDBACK_FAILURE("\The [donor_magazine] is empty.")
+			return TRUE
+		if (donor_magazine.caliber != caliber)
+			USE_FEEDBACK_FAILURE("\The [donor_magazine]'s ammunition does not fit \the [src].")
+			return TRUE
+
+		user.visible_message(
+			SPAN_NOTICE("\The [user] starts transferring bullets from \a [tool] to \a [src]."),
+			SPAN_NOTICE("You start transferring bullets from \the [tool] to \the [src].")
+		)
+		var/partial = FALSE
+		var/count = 0
+		while (length(donor_magazine.stored_ammo))
+			if (!do_after(user, 0.5 SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+				partial = TRUE
+				break
+			if (length(donor_magazine.stored_ammo) <= 0)
+				USE_FEEDBACK_FAILURE("\The [donor_magazine] is empty.")
+				partial = TRUE
+				break
+			var/obj/item/ammo_casing/ammo_casing = donor_magazine.stored_ammo[length(donor_magazine.stored_ammo)]
+			if (!load_casing(ammo_casing))
+				partial = TRUE
+				break
+			donor_magazine.stored_ammo -= ammo_casing
+			donor_magazine.update_icon()
+			count++
+
+		if (!count)
+			user.visible_message(
+				SPAN_NOTICE("\The [user] fails to transfer any bullets from \a [tool] to \a [src]."),
+				SPAN_NOTICE("Your fail to transfer any bullets from \the [tool] to \the [src].")
+			)
+			return TRUE
+		user.visible_message(
+			SPAN_NOTICE("\The [user] [partial ? "partially " : null]transfers bullets from \a [tool] to \a [src]."),
+			SPAN_NOTICE("You [partial ? "partially " : null]transfer bullets from \the [tool] to \the [src].")
+		)
+		update_icon()
+		donor_magazine.update_icon()
+		return TRUE
+
+
 	return ..()
 
 
