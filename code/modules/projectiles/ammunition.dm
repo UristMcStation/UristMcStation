@@ -17,9 +17,11 @@
 	var/fall_sounds = list('sound/weapons/guns/casingfall1.ogg','sound/weapons/guns/casingfall2.ogg','sound/weapons/guns/casingfall3.ogg')
 
 
-/obj/item/ammo_casing/Initialize()
-	if(ispath(projectile_type))
+/obj/item/ammo_casing/Initialize(mapload, spawn_empty = FALSE)
+	if (ispath(projectile_type) && !spawn_empty)
 		BB = new projectile_type(src)
+	if (spawn_empty)
+		update_icon()
 	if(randpixel)
 		pixel_x = rand(-randpixel, randpixel)
 		pixel_y = rand(-randpixel, randpixel)

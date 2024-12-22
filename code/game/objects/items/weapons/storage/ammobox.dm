@@ -7,6 +7,9 @@
 	/// Path (Subtypes of `/obj/item/ammo_casing`). The ammo type this ammo box holds. Generally, you should not modify directly. See `set_ammo_type()`
 	var/obj/item/ammo_casing/ammo_type
 
+	/// Boolean. Whether or not the box is carrying spent or unspent rounds.
+	var/ammo_spent = FALSE
+
 	/// Positive Integer. The amount on ammunition currently in this box. Generally, you should not modify directly. See `insert_casing()` and `remove_casing()`.
 	var/ammo_count
 
@@ -26,6 +29,7 @@
 
 	if (!ammo_count)
 		ammo_type = null
+		ammo_spent = null
 
 	update_name()
 
@@ -87,7 +91,7 @@
 			USE_FEEDBACK_FAILURE("\The [src] is full.")
 			return TRUE
 
-		if (ammo_count && donor_box.ammo_type != ammo_type)
+		if (ammo_count && (donor_box.ammo_type != ammo_type || donor_box.ammo_spent != ammo_spent))
 			USE_FEEDBACK_FAILURE("\The [donor_box]'s contents can't be mixed with \the [initial(ammo_type.name)] already in \the [src].")
 			return TRUE
 
@@ -101,7 +105,7 @@
 			if (!do_after(user, 0.5 SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
 				partial = TRUE
 				break
-			if (!insert_casing(new donor_box.ammo_type()))
+			if (!insert_casing(new donor_box.ammo_type(src, donor_box.ammo_spent)))
 				partial = TRUE
 				break
 			donor_box.remove_casing()
@@ -115,6 +119,8 @@
 
 	// Ammo Casing - Attempt to add to the box.
 	if (istype(tool, /obj/item/ammo_casing))
+		if (!can_insert_casing(tool, user))
+			return TRUE
 		if (!do_after(user, 0.5 SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
 			return TRUE
 		if (!insert_casing(tool, user))
@@ -219,13 +225,17 @@
 
 
 	// Try to scoop bullets up
+	var/obj/item/ammo_casing/clicked
 	var/turf/target_turf
 	var/obj/item/ammo_casing/target_type
+	var/target_spent = FALSE
 	if (isturf(target))
 		target_turf = target
 	else if (istype(target, /obj/item/ammo_casing) && isturf(target.loc))
+		clicked = target
 		target_turf = target.loc
 		target_type = target.type
+		target_spent = !clicked.BB
 	else
 		return ..()
 
@@ -233,16 +243,17 @@
 		USE_FEEDBACK_FAILURE("\The [src] is full.")
 		return TRUE
 
-	if (ammo_count && target_type && target_type != ammo_type)
-		var/obj/item/ammo_casing/clicked = target
-		USE_FEEDBACK_FAILURE("The [clicked.caliber] [clicked.name] can't be mixed with the [initial(ammo_type.caliber)] [initial(ammo_type.name)] already in \the [src].")
-		return TRUE
+	if (ammo_count && target_type)
+		if (target_type != ammo_type || ammo_spent != !clicked.BB)
+			USE_FEEDBACK_FAILURE("The [clicked.caliber] [clicked.name] can't be mixed with the [initial(ammo_type.caliber)] [initial(ammo_type.name)] already in \the [src].")
+			return TRUE
 
 	var/list/candidates = list()
 	for (var/obj/item/ammo_casing/ammo_casing in target_turf)
-		if (!ammo_count && !target_type)
+		if (!ammo_count)
 			target_type = ammo_casing.type
-		else if (ammo_count && ammo_casing.type != target_type)
+			target_spent = !ammo_casing.BB
+		else if (ammo_count && (ammo_casing.type != target_type || target_spent != !ammo_casing.BB))
 			continue
 		candidates += ammo_casing
 
@@ -256,7 +267,7 @@
 	)
 	var/count = 0
 	for (var/obj/item/ammo_casing/ammo_casing as anything in candidates)
-		if (ammo_count && ammo_casing.type != ammo_type)
+		if (ammo_count && (ammo_casing.type != ammo_type || ammo_spent != ammo_casing.BB))
 			continue
 		if (!do_after(user, 0.25 SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, ammo_casing, SANITY_CHECK_DEFAULT & ~SANITY_CHECK_TOOL_IN_HAND))
 			break
@@ -293,11 +304,15 @@
  *
  * **Parameters**:
  * - `new_ammo_type` (Path - Subtype of `obj/item/ammo_casing`).
+ * - `casing_spent` (Boolean). Only used if `new_ammo_type` is a path. Whether or not the casing is considered spent.
  *
  * Has no return value.
  */
-/obj/item/ammobox/proc/set_ammo_type(obj/item/ammo_casing/new_ammo_type)
+/obj/item/ammobox/proc/set_ammo_type(obj/item/ammo_casing/new_ammo_type, casing_spent = FALSE)
 	if (isatom(new_ammo_type))
+		if (!istype(new_ammo_type))
+			return
+		casing_spent = !new_ammo_type.BB
 		new_ammo_type = new_ammo_type.type
 
 	if (!ispath(new_ammo_type, /obj/item/ammo_casing))
@@ -307,6 +322,7 @@
 		return
 
 	ammo_type = new_ammo_type
+	ammo_spent = casing_spent
 	update_name()
 
 
@@ -318,10 +334,11 @@
  * **Parameters**:
  * - `ammo_casing` (Object or path. Subtypes of `/obj/item/ammo_casing`) - The casing to insert. Has to be the same type as `ammo_type`, unless `ammo_count` is `0`.
  * - `user` - The mob attempting to insert the casing. Used for feedback messages. If not set, no feedback messages are sent.
+ * - `casing_spent` (Boolean). Only used if `ammo_casing` is a path. Whether or not the casing is considered spent.
  *
  * Returns boolean. `TRUE` if the casing was successfully inserted, `FALSE` otherwise.
  */
-/obj/item/ammobox/proc/can_insert_casing(obj/item/ammo_casing/ammo_casing, mob/user)
+/obj/item/ammobox/proc/can_insert_casing(obj/item/ammo_casing/ammo_casing, mob/user, casing_spent = FALSE)
 	var/obj/item/ammo_casing/casing_type
 	var/casing_name
 	if (ispath(ammo_casing))
@@ -330,13 +347,14 @@
 	else
 		casing_type = ammo_casing.type
 		casing_name = ammo_casing.name
+		casing_spent = !ammo_casing.BB
 
 	if (!ispath(casing_type, /obj/item/ammo_casing))
 		if (user)
 			USE_FEEDBACK_FAILURE("\The [src] isn't designed to hold \the [ammo_casing].")
 		return FALSE
 
-	if (ammo_count && ammo_type != casing_type)
+	if (ammo_count && (ammo_type != casing_type || ammo_spent != casing_spent))
 		if (user)
 			USE_FEEDBACK_FAILURE("\The [casing_name] can't be mixed with \the [initial(ammo_type.name)] already in \the [src].")
 		return FALSE
@@ -393,7 +411,7 @@
 	var/obj/item/ammo_casing/casing
 	ammo_count--
 	if (target)
-		casing = new ammo_type(target)
+		casing = new ammo_type(target, ammo_spent)
 		. = casing
 
 	if (casing && isturf(target))
@@ -404,6 +422,7 @@
 
 	if (!ammo_count)
 		ammo_type = null
+		ammo_spent = null
 		update_name()
 
 
@@ -411,4 +430,4 @@
 	if (!ammo_count)
 		SetName("empty [initial(name)]")
 		return
-	SetName("[initial(name)] - [initial(ammo_type.caliber)] [initial(ammo_type.name)]")
+	SetName("[initial(name)] - [ammo_spent ? "spent " : null][initial(ammo_type.caliber)] [initial(ammo_type.name)]")
