@@ -7,6 +7,8 @@
 	maxHealth = 15
 	bleed_colour = SYNTH_BLOOD_COLOUR
 	faction = "legion"
+	say_list_type = /datum/say_list/legion
+	ai_holder = /datum/ai_holder/legion
 
 	/// The legion beacon this mob is linked to and spawned from.
 	var/obj/structure/legion/beacon/linked_beacon = null
