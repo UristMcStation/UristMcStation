@@ -16,21 +16,15 @@
 
 /mob/living/simple_animal/hostile/legion/Initialize(mapload, obj/structure/legion/beacon/spawner)
 	health = maxHealth
-
 	. = ..()
-
-	if (spawner)
-		linked_beacon = spawner
+	set_beacon(spawner)
 
 	add_language(LANGUAGE_HUMAN_EURO)
 	add_language(LANGUAGE_LEGION_GLOBAL)
 
 
 /mob/living/simple_animal/hostile/legion/Destroy()
-	if (linked_beacon)
-		linked_beacon.linked_mobs -= src
-		linked_beacon = null
-
+	clear_beacon()
 	return ..()
 
 
@@ -52,3 +46,21 @@
 
 /mob/living/simple_animal/hostile/legion/AirflowCanMove(n)
 	return FALSE
+
+
+/mob/living/simple_animal/hostile/legion/proc/set_beacon(obj/structure/legion/beacon/beacon)
+	if (!beacon || beacon == linked_beacon)
+		return
+	if (linked_beacon)
+		linked_beacon.linked_mobs -= src
+	linked_beacon = beacon
+	linked_beacon.linked_mobs += src
+	ai_holder.home_turf = get_turf(linked_beacon)
+
+
+/mob/living/simple_animal/hostile/legion/proc/clear_beacon()
+	if (!linked_beacon)
+		return
+	linked_beacon.linked_mobs -= src
+	linked_beacon = null
+	ai_holder.home_turf = get_turf(src)
