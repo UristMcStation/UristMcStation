@@ -14,17 +14,22 @@
 		return
 	var/name
 	var/caliber
+	var/label
 	if (ispath(ammo_casing))
 		name = initial(ammo_casing.name)
 		caliber = initial(ammo_casing.caliber)
+		label = initial(ammo_casing.label)
 	else
 		name = ammo_casing.name
 		caliber = ammo_casing.caliber
 		spent = !ammo_casing.BB
+		label = ammo_casing.label
 
 	. = "[caliber] [name]"
 	if (spent)
 		. = "spent [.]"
+	if (label)
+		. = "[.] ([label])"
 
 
 
@@ -41,6 +46,8 @@
 
 	var/leaves_residue = TRUE
 	var/caliber = ""					//Which kind of guns it can be loaded into
+	/// String. Additional label used for `_get_ammo_casing_name()`. Should be things like 'practice', 'blank', 'AP', 'FMJ', etc.
+	var/label
 	var/projectile_type					//The bullet type to create when New() is called
 	var/obj/item/projectile/BB = null	//The loaded bullet - make it so that the projectiles are created only when needed?
 	var/spent_icon = "pistolcasing-spent"
