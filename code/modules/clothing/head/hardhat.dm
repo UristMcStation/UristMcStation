@@ -3,6 +3,7 @@
 	desc = "A piece of headgear used in dangerous working conditions to protect the head. Comes with a built-in flashlight."
 	icon_state = "hardhat0_yellow"
 	action_button_name = "Toggle Headlamp"
+	head_light_range = 6 //light range when on
 	brightness_on = 0.5 //luminosity when on
 	light_overlay = "hardhat_light"
 	w_class = ITEM_SIZE_NORMAL
