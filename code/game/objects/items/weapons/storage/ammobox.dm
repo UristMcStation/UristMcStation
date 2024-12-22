@@ -56,7 +56,7 @@
 	user.put_in_hands(casing)
 	user.visible_message(
 		SPAN_NOTICE("\The [user] removes \a [casing] from \a [src]."),
-		SPAN_NOTICE("You remove \a [casing] from \the [src]. [ammo_count ? "It now holds [ammo_count] more." : "It is not empty."]")
+		SPAN_NOTICE("You remove \a [casing.get_ammo_casing_name()] from \the [src]. [ammo_count ? "It now holds [ammo_count] more." : "It is not empty."]")
 	)
 	return TRUE
 
@@ -92,7 +92,7 @@
 			return TRUE
 
 		if (ammo_count && (donor_box.ammo_type != ammo_type || donor_box.ammo_spent != ammo_spent))
-			USE_FEEDBACK_FAILURE("\The [donor_box]'s contents can't be mixed with \the [initial(ammo_type.name)] already in \the [src].")
+			USE_FEEDBACK_FAILURE("\The [donor_box]'s contents can't be mixed with the rounds already in \the [src].")
 			return TRUE
 
 		user.visible_message(
@@ -125,9 +125,10 @@
 			return TRUE
 		if (!insert_casing(tool, user))
 			return TRUE
+		var/obj/item/ammo_casing/ammo_casing = tool
 		user.visible_message(
 			SPAN_NOTICE("\The [user] adds \a [tool] to \a [src]."),
-			SPAN_NOTICE("You add \a [tool] to \the [src]. It now holds [ammo_count] round\s.")
+			SPAN_NOTICE("You add \a [ammo_casing.get_ammo_casing_name()] to \the [src]. It now holds [ammo_count] round\s.")
 		)
 		return TRUE
 
@@ -245,7 +246,7 @@
 
 	if (ammo_count && target_type)
 		if (target_type != ammo_type || ammo_spent != !clicked.BB)
-			USE_FEEDBACK_FAILURE("The [clicked.caliber] [clicked.name] can't be mixed with the [initial(ammo_type.caliber)] [initial(ammo_type.name)] already in \the [src].")
+			USE_FEEDBACK_FAILURE("The [clicked.get_ammo_casing_name()] can't be mixed with the rounds already in \the [src].")
 			return TRUE
 
 	var/list/candidates = list()
@@ -262,11 +263,13 @@
 		return TRUE
 
 	user.visible_message(
-		SPAN_NOTICE("\The [user] starts loading \a [src] with loose bullets."),
-		SPAN_NOTICE("You start loading \the [src] with loose bullets.")
+		SPAN_NOTICE("\The [user] starts loading \a [src] with loose rounds."),
+		SPAN_NOTICE("You start loading \the [src] with loose rounds.")
 	)
 	var/count = 0
 	for (var/obj/item/ammo_casing/ammo_casing as anything in candidates)
+		if (ammo_casing.loc != target_turf)
+			continue
 		if (ammo_count && (ammo_casing.type != ammo_type || ammo_spent != ammo_casing.BB))
 			continue
 		if (!do_after(user, 0.25 SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, ammo_casing, SANITY_CHECK_DEFAULT & ~SANITY_CHECK_TOOL_IN_HAND))
@@ -277,13 +280,13 @@
 
 	if (!count)
 		user.visible_message(
-			SPAN_NOTICE("\The [user] fails to load \a [src] with loose bullets."),
-			SPAN_WARNING("You fail to load \the [src] with loose bullets.")
+			SPAN_NOTICE("\The [user] fails to load \a [src] with loose rounds."),
+			SPAN_WARNING("You fail to load \the [src] with loose rounds.")
 		)
 		return TRUE
 	user.visible_message(
-		SPAN_NOTICE("\The [user] loads \a [src] with loose bullets."),
-		SPAN_NOTICE("You load \the [src] with loose bullets.")
+		SPAN_NOTICE("\The [user] loads \a [src] with loose rounds."),
+		SPAN_NOTICE("You load \the [src] with loose rounds.")
 	)
 	return TRUE
 
@@ -340,23 +343,21 @@
  */
 /obj/item/ammobox/proc/can_insert_casing(obj/item/ammo_casing/ammo_casing, mob/user, casing_spent = FALSE)
 	var/obj/item/ammo_casing/casing_type
-	var/casing_name
+	var/casing_name = _get_ammo_casing_name(ammo_casing, casing_spent)
 	if (ispath(ammo_casing))
 		casing_type = ammo_casing
-		casing_name = initial(ammo_casing.name)
 	else
 		casing_type = ammo_casing.type
-		casing_name = ammo_casing.name
 		casing_spent = !ammo_casing.BB
 
 	if (!ispath(casing_type, /obj/item/ammo_casing))
 		if (user)
-			USE_FEEDBACK_FAILURE("\The [src] isn't designed to hold \the [ammo_casing].")
+			USE_FEEDBACK_FAILURE("\The [src] isn't designed to hold \the [casing_name].")
 		return FALSE
 
 	if (ammo_count && (ammo_type != casing_type || ammo_spent != casing_spent))
 		if (user)
-			USE_FEEDBACK_FAILURE("\The [casing_name] can't be mixed with \the [initial(ammo_type.name)] already in \the [src].")
+			USE_FEEDBACK_FAILURE("\The [casing_name] can't be mixed with the rounds already in \the [src].")
 		return FALSE
 
 	if (ammo_count >= ammo_max)
@@ -430,4 +431,8 @@
 	if (!ammo_count)
 		SetName("empty [initial(name)]")
 		return
-	SetName("[initial(name)] - [ammo_spent ? "spent " : null][initial(ammo_type.caliber)] [initial(ammo_type.name)]")
+	SetName("[initial(name)] - [get_ammo_casing_name()]")
+
+
+/obj/item/ammobox/proc/get_ammo_casing_name()
+	return _get_ammo_casing_name(ammo_type, ammo_spent)

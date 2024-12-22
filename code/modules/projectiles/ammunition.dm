@@ -1,3 +1,33 @@
+/**
+ * Determines the full descriptive name for an ammo casing.
+ *
+ * Global proc so it also functions with uninitialized type paths.
+ *
+ * **Parameters**:
+ * - `ammo_casing` (Object or path).
+ * - `spent` (Boolean, default `FALSE`). Only used if `ammo_casing` is a path. Whether the casing is considered spent or not. Otherwise, this is defined based on the presence of `ammo_casing.BB`.
+ *
+ * Returns string.
+ */
+/proc/_get_ammo_casing_name(obj/item/ammo_casing/ammo_casing, spent = FALSE)
+	if (!ammo_casing)
+		return
+	var/name
+	var/caliber
+	if (ispath(ammo_casing))
+		name = initial(ammo_casing.name)
+		caliber = initial(ammo_casing.caliber)
+	else
+		name = ammo_casing.name
+		caliber = ammo_casing.caliber
+		spent = !ammo_casing.BB
+
+	. = "[caliber] [name]"
+	if (spent)
+		. = "spent [.]"
+
+
+
 /obj/item/ammo_casing
 	name = "bullet casing"
 	desc = "A bullet casing."
@@ -97,6 +127,10 @@
 		to_chat(user, "Its caliber is [caliber].")
 	if (!BB)
 		to_chat(user, "This one is spent.")
+
+
+/obj/item/ammo_casing/proc/get_ammo_casing_name()
+	return _get_ammo_casing_name(src)
 
 
 //An item that holds casings and can be used to put them inside guns
