@@ -13,4 +13,6 @@
 
 #include "say_list/legion_saylist.dm"
 
+#include "weapon/legion_projectile.dm"
+
 #include "legion_language.dm"
