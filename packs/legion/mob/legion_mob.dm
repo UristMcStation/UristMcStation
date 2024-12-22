@@ -13,6 +13,8 @@
 
 
 /mob/living/simple_animal/hostile/legion/Initialize(mapload, obj/structure/legion/beacon/spawner)
+	health = maxHealth
+
 	. = ..()
 
 	if (spawner)
