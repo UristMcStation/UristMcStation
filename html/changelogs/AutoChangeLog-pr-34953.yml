@@ -1,5 +1,0 @@
-author: JebediahTechnic
-changes:
-  - {maptweak: Major changes to the ERT base and shuttle which includes a new loadout
-      room and the removal of the security and command loadout rooms.}
-delete-after: true
