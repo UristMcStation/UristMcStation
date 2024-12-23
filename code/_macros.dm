@@ -151,8 +151,6 @@
 
 #define CanPhysicallyInteractWith(user, target) (target.CanUseTopicPhysical(user) == STATUS_INTERACTIVE)
 
-#define QDEL_CONTENTS for(var/entry in contents) qdel(entry)
-
 #define QDEL_NULL_LIST(x) if(x) { for(var/y in x) { qdel(y) }}; if(x) { LIST_RESIZE(x, 0); x = null; } // Second x check to handle items that LAZYREMOVE on qdel.
 
 #define QDEL_NULL_ASSOC_LIST(x) if(x) { for(var/y in x) { qdel(x[y]) }}; if(x) { LIST_RESIZE(x, 0); x = null; }
@@ -164,6 +162,10 @@
 #define DROP_NULL(x) if(x) { x.dropInto(loc); x = null; }
 
 #define DROP_NULL_LIST(x) if(x) { for(var/atom/movable/y in x) { y.dropInto(loc) }}; x.Cut(); x = null;
+
+#define QDEL_CONTENTS for (var/entry in contents) qdel(entry);
+
+#define DROP_CONTENTS if (length(contents)) { var/turf/turf = get_turf(src); for (var/atom/movable/entry in contents) entry.dropInto(turf); }
 
 #define ARGS_DEBUG log_debug("[__FILE__] - [__LINE__]") ; for(var/arg in args) { log_debug("\t[log_info_line(arg)]") }
 

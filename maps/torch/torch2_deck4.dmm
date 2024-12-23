@@ -7681,6 +7681,8 @@
 	dir = 4
 	},
 /obj/structure/filingcabinet/chestdrawer,
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled/monotile,
 /area/command/pathfinder)
 "zF" = (
@@ -12732,6 +12734,8 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled/monotile,
 /area/quartermaster/deckchief)
 "QG" = (
@@ -14603,6 +14607,8 @@
 	},
 /obj/structure/filingcabinet/filingcabinet,
 /obj/floor_decal/industrial/outline/yellow,
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled/monotile,
 /area/quartermaster/office)
 "Vx" = (

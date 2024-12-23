@@ -3951,6 +3951,8 @@
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled/monotile,
 /area/crew_quarters/heads/office/ce)
 "ih" = (
@@ -5683,6 +5685,8 @@
 	pixel_y = -30
 	},
 /obj/floor_decal/industrial/outline/yellow,
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/office/cmo)
 "nH" = (
@@ -6308,6 +6312,8 @@
 	dir = 1;
 	pixel_y = -24
 	},
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crew_quarters/heads/office/cos)
 "pz" = (
@@ -8372,6 +8378,8 @@
 /obj/floor_decal/corner/blue/mono,
 /obj/floor_decal/industrial/outline/yellow,
 /obj/item/material/folder/clipboard,
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crew_quarters/heads/office/sea)
 "vn" = (
@@ -8580,6 +8588,8 @@
 /obj/machinery/newscaster/security_unit{
 	pixel_x = -32
 	},
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/carpet/blue2,
 /area/crew_quarters/heads/office/sgr)
 "vY" = (
@@ -9901,6 +9911,8 @@
 /obj/item/material/folder/white,
 /obj/item/material/folder/blue,
 /obj/machinery/light,
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/heads/cobed)
 "zQ" = (
@@ -11535,6 +11547,8 @@
 /obj/item/material/folder/white,
 /obj/floor_decal/industrial/outline/yellow,
 /obj/item/paper/dclassreport1,
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bridge/storage)
 "Hg" = (
@@ -12469,6 +12483,8 @@
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/carpet/green,
 /area/crew_quarters/heads/office/cl/backroom)
 "KB" = (
@@ -13644,6 +13660,8 @@
 /obj/floor_decal/spline/plain/beige{
 	dir = 1
 	},
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crew_quarters/heads/office/xo)
 "Qe" = (
@@ -14458,6 +14476,12 @@
 /obj/structure/sign/warning/smoking{
 	pixel_y = 26
 	},
+/obj/item/material/folder/envelope,
+/obj/item/paper_bin{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/obj/item/pen,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bridge/disciplinary_board_room/deliberation)
 "Tg" = (
@@ -14894,6 +14918,8 @@
 	},
 /obj/item/material/folder/nt,
 /obj/floor_decal/corner/research/mono,
+/obj/item/material/folder/envelope,
+/obj/item/material/folder/envelope,
 /turf/simulated/floor/tiled/monotile,
 /area/crew_quarters/heads/office/rd)
 "Vj" = (

@@ -7,8 +7,12 @@
 	default_material = MATERIAL_CARDBOARD
 	applies_material_name = FALSE
 	applies_material_colour = FALSE
+	unbreakable = TRUE
 	matter = list(MATERIAL_CARDBOARD = 70)
 	w_class = ITEM_SIZE_SMALL
+
+	/// The window name to use for folder UIs
+	var/window_name = "gray folder"
 
 
 /obj/item/material/folder/Destroy()
@@ -28,7 +32,7 @@
 
 
 /obj/item/material/folder/use_tool(obj/item/item, mob/living/user, list/click_params)
-	if (istype(item, /obj/item/paper) || istype(item, /obj/item/photo))
+	if (is_type_in_list(item, list(/obj/item/paper, /obj/item/photo, /obj/item/paper_bundle)))
 		if (!user.unEquip(item, src))
 			FEEDBACK_UNEQUIP_FAILURE(user, item)
 			return TRUE
@@ -37,6 +41,36 @@
 			SPAN_ITALIC("You add \the [item] to \the [src]."),
 			range = 5
 		)
+		update_icon()
+		return TRUE
+	if (istype(item, /obj/item/pen))
+		var/response = input(user, null, "Label \the [src]") as null | text
+		response = sanitize(response, MAX_LNAME_LEN)
+		if (!response || !user.use_sanity_check(src, item))
+			return TRUE
+		AddLabel(response, user)
+		return TRUE
+	return ..()
+
+
+/obj/item/material/folder/use_after(atom/target, mob/living/user, click_parameters)
+	if (is_type_in_list(target, list(/obj/item/paper, /obj/item/photo, /obj/item/paper_bundle)))
+		if (istype(src, /obj/item/material/folder/envelope))
+			var/obj/item/material/folder/envelope/envelope = src
+			if (envelope.sealed)
+				to_chat(user, SPAN_WARNING("\The [src] is sealed."))
+				return TRUE
+		user.visible_message(
+			SPAN_ITALIC("\The [user] adds \a [target] to \a [src]."),
+			SPAN_ITALIC("You add \the [target] to \the [src]."),
+			range = 5
+		)
+		var/obj/obj = target
+		obj.forceMove(src)
+		if (istype(target, /obj/item/paper))
+			var/obj/item/material/folder/clipboard/clipboard = src
+			if (istype(clipboard))
+				clipboard.top_paper = target
 		update_icon()
 		return TRUE
 	return ..()
@@ -49,8 +83,8 @@
 			continue
 		var/ref = any2ref(item)
 		document += "[aref(item.name, "view=[ref]")] [aref("Remove", "remove=[ref]")]<br>"
-	show_browser(user, jointext(document, ""), "window=folder")
-	onclose(user, "folder")
+	show_browser(user, jointext(document, ""), "window=[window_name]")
+	onclose(user, window_name)
 	add_fingerprint(usr)
 
 
@@ -94,35 +128,46 @@
 		return
 
 
+/obj/item/material/folder/shatter()
+	DROP_CONTENTS
+	..()
+
+
 /obj/item/material/folder/blue
 	desc = "A blue folder."
 	icon_state = "folder_blue"
+	window_name = "blue folder"
 
 
 /obj/item/material/folder/red
 	desc = "A red folder."
 	icon_state = "folder_red"
+	window_name = "red folder"
 
 
 /obj/item/material/folder/yellow
 	desc = "A yellow folder."
 	icon_state = "folder_yellow"
+	window_name = "yellow folder"
 
 
 /obj/item/material/folder/white
 	desc = "A white folder."
 	icon_state = "folder_white"
+	window_name = "white folder"
 
 
 /obj/item/material/folder/nt
 	desc = "A corporate folder."
 	icon_state = "folder_nt"
+	window_name = "corporate folder"
 
 
 /obj/item/material/folder/envelope
 	name = "envelope"
 	desc = "A thick envelope."
 	icon_state = "envelope0"
+	window_name = "envelope"
 
 	/// Whether the envelope has been opened or not
 	var/sealed = FALSE
@@ -150,35 +195,46 @@
 		return
 	var/message = "The seal is [sealed ? "intact" : "broken"]."
 	if (seal_stamp)
-		message = "It has a seal from \the [seal_stamp]. [message]"
+		message = "It has a seal from \a [seal_stamp]. [message]"
 	to_chat(user, message)
 
 
-/obj/item/material/folder/envelope/proc/sealcheck(user)
-	var/response = alert("Are you sure you want to break the seal on \the [src]?", "Confirmation","Yes", "No")
-	if (response != "Yes")
-		return
-	visible_message("[user] breaks the seal on \the [src], and opens it.")
+/obj/item/material/folder/envelope/proc/Unseal(mob/living/user)
+	if (user)
+		var/response = alert(user, "Break the seal on \the [src]?", null, "Yes", "No")
+		if (response != "Yes")
+			return FALSE
+		if (!user.use_sanity_check(src))
+			return FALSE
+		user.visible_message(
+			SPAN_ITALIC("\The [user] breaks the seal on \a [src]."),
+			SPAN_ITALIC("You break the seal on \the [src]."),
+			range = 5
+		)
 	sealed = FALSE
 	update_icon()
+	return TRUE
 
 
 /obj/item/material/folder/envelope/attack_self(mob/living/user)
-	if (sealed)
-		sealcheck(user)
+	if (sealed && !Unseal(user))
 		return
-	..()
+	return ..()
 
 
 /obj/item/material/folder/envelope/use_tool(obj/item/item, mob/living/user, list/click_params)
 	if (sealed)
-		sealcheck(user)
+		Unseal(user)
 		return TRUE
-	if (!sealed && istype(item, /obj/item/stamp))
-		seal_stamp = item.name
-		visible_message("\The [user] seals \the [src] with [item].")
+	else if (is_type_in_list(item, list(/obj/item/stamp, /obj/item/clothing/ring/seal)))
 		sealed = TRUE
-		playsound(src, 'sound/effects/stamp.ogg', 50, 1)
+		seal_stamp = item.name
+		user.visible_message(
+			SPAN_ITALIC("\The [user] seals \a [src] with \a [item]."),
+			SPAN_ITALIC("You seal \the [src] with \the [item]."),
+			range = 5
+		)
+		playsound(src, 'sound/effects/stamp.ogg', 50, TRUE)
 		update_icon()
 		return TRUE
 	return ..()
@@ -196,6 +252,7 @@
 	applies_material_colour = TRUE
 	default_material = MATERIAL_WOOD
 	matter = list(MATERIAL_WOOD = 70)
+	window_name = "wood clipboard"
 
 	var/obj/item/pen/stored_pen
 
@@ -226,31 +283,24 @@
 
 
 /obj/item/material/folder/clipboard/use_after(atom/target, mob/living/user, click_parameters)
-	if (is_type_in_list(target, list(/obj/item/paper, /obj/item/photo, /obj/item/paper_bundle)))
-		user.visible_message(SPAN_ITALIC("\The [user] adds \a [target] to \a [src]."), range = 5)
-		var/obj/obj = target
-		obj.forceMove(src)
-		if (istype(target, /obj/item/paper))
-			top_paper = target
-			update_icon()
+	if (istype(target, /obj/item/pen))
+		if (stored_pen)
+			to_chat(user, SPAN_WARNING("\The [src] already has \a [stored_pen] attached."))
+			return
+		var/obj/item/pen/pen = target
+		pen.forceMove(src)
+		user.visible_message(
+			SPAN_ITALIC("\The [user] adds \a [pen] to \a [src]."),
+			SPAN_ITALIC("You add \the [pen] to \the [src]."),
+			range = 5
+		)
+		stored_pen = pen
+		update_icon()
 		return TRUE
 	return ..()
 
 
 /obj/item/material/folder/clipboard/use_tool(obj/item/item, mob/living/user, list/click_params)
-	if (is_type_in_list(item, list(/obj/item/paper, /obj/item/photo, /obj/item/paper_bundle)))
-		if (!user.unEquip(item, src))
-			FEEDBACK_UNEQUIP_FAILURE(user, item)
-			return TRUE
-		if (istype(item, /obj/item/paper))
-			top_paper = item
-		user.visible_message(
-			SPAN_ITALIC("\The [user] adds \a [item] to \a [src]."),
-			SPAN_ITALIC("You add \the [item] to \the [src]."),
-			range = 5
-		)
-		update_icon()
-		return TRUE
 	if (is_type_in_list(item, list(/obj/item/pen, /obj/item/stamp, /obj/item/clothing/ring/seal)))
 		if (top_paper)
 			top_paper.use_tool(item, user)
@@ -271,7 +321,10 @@
 			stored_pen = item
 			update_icon()
 		return TRUE
-	return ..()
+	. = ..()
+	if (istype(item, /obj/item/paper) && (item in contents))
+		top_paper = item
+		update_icon()
 
 
 /obj/item/material/folder/clipboard/attack_self(mob/living/user)
@@ -292,8 +345,8 @@
 		var/ref = any2ref(item)
 		document += "[aref(item.name, "view=[ref]")] [aref("Write", "write=[ref]")] \
 			[aref("Rename", "rename=[ref]")] [aref("Remove", "remove=[ref]")]<br>"
-	show_browser(user, jointext(document, ""), "window=clipboard")
-	onclose(user, "clipboard")
+	show_browser(user, jointext(document, ""), "window=[window_name]")
+	onclose(user, window_name)
 	add_fingerprint(usr)
 
 
@@ -374,23 +427,29 @@
 /obj/item/material/folder/clipboard/ebony
 	default_material = MATERIAL_EBONY
 	matter = list(MATERIAL_EBONY = 70)
+	window_name = "ebony clipboard"
 
 
 /obj/item/material/folder/clipboard/steel
 	default_material = MATERIAL_STEEL
 	matter = list(MATERIAL_STEEL = 70)
+	window_name = "steel clipboard"
 
 
 /obj/item/material/folder/clipboard/aluminium
 	default_material = MATERIAL_ALUMINIUM
 	matter = list(MATERIAL_ALUMINIUM = 70)
+	window_name = "aluminium clipboard"
 
 
 /obj/item/material/folder/clipboard/glass
 	default_material = MATERIAL_GLASS
 	matter = list(MATERIAL_GLASS = 70)
+	window_name = "glass clipboard"
+	unbreakable = FALSE
 
 
 /obj/item/material/folder/clipboard/plastic
 	default_material = MATERIAL_PLASTIC
 	matter = list(MATERIAL_PLASTIC = 70)
+	window_name = "plastic clipboard"
