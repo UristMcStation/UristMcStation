@@ -1,0 +1,13 @@
+author: Spookerton
+changes:
+  - {bugfix: Pens can add labels to folders.}
+  - {bugfix: Folders can hold paper bundles.}
+  - {bugfix: Folders & subtypes use correct window names.}
+  - {bugfix: Most folder types don't shatter when struck by pens. But glass ones still
+      do!}
+  - {tweak: 'Folders & open envelopes can scoop paper, photos, and bundles like clipboards.'}
+  - {tweak: Clipboards can scoop pens as well as the other stuff.}
+  - {tweak: 'Seal rings (signet rings, masonic rings, etc) can be used to seal envelopes.'}
+  - {tweak: Added envelopes and a couple more colors to the Office Supplies orderable.}
+  - {tweak: Added envelopes to many filing cabinets.}
+delete-after: true
