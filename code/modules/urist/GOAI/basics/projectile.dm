@@ -133,7 +133,7 @@
 
 
 /obj/item/gun/proc/Fire(var/atom/At, var/atom/From)
-	src.Shoot(At, From)
+	src.shoot(At, From)
 	return
 
 

@@ -135,10 +135,12 @@
 
 	if(!isnull(target) && (targetLM?.stat != DEAD))
 		if(my_gun)
+			COMBAT_AI_DEBUG_LOG("[src] - firing Pawn [pawn]'s gun [my_gun] at [target]")
 			my_gun.Fire(target, pawn)
 			return TRUE
 
 		else if(gun_pawn)
+			COMBAT_AI_DEBUG_LOG("[src] - firing Pawn [gun_pawn] at [target]")
 			gun_pawn.Fire(target, gun_pawn)
 			return TRUE
 

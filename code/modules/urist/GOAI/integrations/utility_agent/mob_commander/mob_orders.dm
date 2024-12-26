@@ -221,7 +221,7 @@
 		return
 
 	// goal_state, target, considerations
-	var/datum/order_smartobject/new_order = new(jsondata, object, null)
+	var/datum/goap_order_smartobject/new_order = new(jsondata, object, null)
 
 	var/list/smart_orders = commander_brain.GetMemoryValue("SmartOrders", null) || list()
 
@@ -244,6 +244,7 @@
 	usr.verbs -= /mob/proc/CommanderGiveFleeOrder
 	usr.verbs -= /mob/proc/CommanderGiveMoveOrder
 	usr.verbs -= /mob/proc/CommanderGiveMoveOrderThreeD
+	//usr.verbs -= /mob/proc/CommanderOrderSquadMoveTo2d
 	usr.verbs -= /mob/proc/CommanderCancelOrders
 	usr.verbs -= /mob/proc/CommanderSetForcedFriendTag
 	usr.verbs -= /mob/proc/CommanderSetForcedFoeTag
@@ -273,6 +274,7 @@
 	usr.verbs |= /mob/proc/CommanderGiveFleeOrder
 	usr.verbs |= /mob/proc/CommanderGiveMoveOrder
 	usr.verbs |= /mob/proc/CommanderGiveMoveOrderThreeD
+	//usr.verbs |= /mob/proc/CommanderOrderSquadMoveTo2d
 	usr.verbs |= /mob/proc/CommanderCancelOrders
 	usr.verbs |= /mob/proc/CommanderSetForcedFriendTag
 	usr.verbs |= /mob/proc/CommanderSetForcedFoeTag

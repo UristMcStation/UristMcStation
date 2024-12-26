@@ -1,8 +1,8 @@
 /*
 // REMINDER: GOAI Brains != organ brains.
 // GOAI Brains are abstract datums and are effectively a data structure.
-// Since they have their own subloop, we want to be able to clean them up
-// so we don't have orphan Brains running empty loops.
+// One purpose of this is to be able to clean them up so we don't have orphan Brains eating up resources.
+// Another is serving as a 'specialized weakref' - a way to do a quick and cheap lookup for a brain from a brain ID.
 */
 
 // lazily initialized by the first brain to register itself
@@ -44,7 +44,7 @@ GLOBAL_LIST_EMPTY(global_aibrain_registry)
 /datum/brain/proc/RegisterBrain()
 	// Registry pattern, to facilitate querying all GOAI Brains in verbs
 
-	if(!(GOAI_LIBBED_GLOB_ATTR(global_aibrain_registry)))
+	if(isnull(GOAI_LIBBED_GLOB_ATTR(global_aibrain_registry)))
 		GOAI_LIBBED_GLOB_ATTR(global_aibrain_registry) = list()
 
 	if(src.registry_index)

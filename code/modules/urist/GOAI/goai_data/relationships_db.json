@@ -1,5 +1,17 @@
 {
 	"neutral": {
 		"neutral": 0
+	},
+	"ANTAG": {
+		"ANTAG": 100
+	},
+	"Skrell": {
+		"Skrell": 100
+	},
+	"Terran": {
+		"Terran": 100
+	},
+	"NTIS": {
+		"NTIS": 100
 	}
 }

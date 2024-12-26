@@ -15,7 +15,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_mobhealth_abs)
 	var/datum/utility_ai/mob_commander/requester_ai = requester
 
 	if(isnull(requester_ai))
-		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_mobhealth_abs Requester is not an AI (from [requester || "null"] raw val) @ L[__LINE__] in [__FILE__]")
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_mobhealth_abs Requester is not an AI (from [NULL_TO_TEXT(requester)] raw val) @ L[__LINE__] in [__FILE__]")
 		return null
 
 	var/mob/living/target = null
@@ -74,7 +74,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_mobhealth_rel)
 	var/datum/utility_ai/mob_commander/requester_ai = requester
 
 	if(isnull(requester_ai))
-		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_mobhealth_rel Requester is not an AI (from [requester || "null"] raw val) @ L[__LINE__] in [__FILE__]")
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_mobhealth_rel Requester is not an AI (from [NULL_TO_TEXT(requester)] raw val) @ L[__LINE__] in [__FILE__]")
 		return null
 
 	var/mob/living/target = null

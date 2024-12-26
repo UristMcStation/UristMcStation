@@ -72,7 +72,7 @@
 
 	var/list/trg_tags = list()
 
-	var/mob/living/L = trg
+	var/mob/L = trg
 
 	if(istype(L))
 		// Faction:
@@ -131,7 +131,6 @@
 		return 0
 
 	var/friendliness_score = my_relations.GetRelationshipByTags(trg_tags)
-
 	return friendliness_score
 
 

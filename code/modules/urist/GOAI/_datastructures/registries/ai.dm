@@ -7,7 +7,7 @@ var/global/list/global_goai_registry
 GLOBAL_LIST_EMPTY(global_goai_registry)
 # endif
 
-# define IS_REGISTERED_AI(id) (id && GOAI_LIBBED_GLOB_ATTR(global_goai_registry) && (id <= GOAI_LIBBED_GLOB_ATTR(global_goai_registry.len)))
+# define IS_REGISTERED_AI(id) GLOBAL_ARRAY_LOOKUP_BOUNDS_CHECK(id, global_goai_registry)
 
 /proc/deregister_ai(var/id, var/delete_ai=TRUE, var/delete_ai_brain=TRUE)
 	// Deletes the AI and deregisters it from the global.
@@ -43,7 +43,7 @@ GLOBAL_LIST_EMPTY(global_goai_registry)
 /datum/utility_ai/proc/RegisterAI()
 	// Registry pattern, to facilitate querying all GOAI AIs in verbs
 
-	if(!GOAI_LIBBED_GLOB_ATTR(global_goai_registry))
+	if(isnull(GOAI_LIBBED_GLOB_ATTR(global_goai_registry)))
 		GOAI_LIBBED_GLOB_ATTR(global_goai_registry) = list()
 
 	if(src.registry_index)

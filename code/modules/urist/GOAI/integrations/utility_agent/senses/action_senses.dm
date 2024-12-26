@@ -24,11 +24,13 @@
 	var/retention_time_dseconds = null
 
 
-/sense/utility_smartobject_fetcher/New(var/sense_idx_key, var/enabled = TRUE, var/in_memory_key = null, var/out_memory_key = null, var/retention_time_dseconds = null)
+/sense/utility_smartobject_fetcher/New(var/sense_idx_key, var/enabled = TRUE, var/min_lod = null, var/max_lod = null, var/in_memory_key = null, var/out_memory_key = null, var/retention_time_dseconds = null)
 	// As of writing, Senses have no shared New(); this one is intended for SerDe and dynamic creation convenience.
 	// If Senses ever get a high-level New(), this will need to be rewritten somehow.
 	SET_IF_NOT_NULL(sense_idx_key, src.sense_idx_key)
 	SET_IF_NOT_NULL(enabled, src.enabled)
+	SET_IF_NOT_NULL(min_lod, src.min_lod)
+	SET_IF_NOT_NULL(max_lod, src.max_lod)
 	SET_IF_NOT_NULL(in_memory_key, src.in_memory_key)
 	SET_IF_NOT_NULL(out_memory_key, src.out_memory_key)
 	SET_IF_NOT_NULL(retention_time_dseconds, src.retention_time_dseconds)

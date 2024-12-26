@@ -13,6 +13,25 @@
 */
 
 /proc/goai_pawn_is_conscious(var/datum/utility_ai/goai)
+	// Disables AI for mobs that are dead, IF they can die at all.
+	if(!istype(goai))
+		return GOAI_LOD_DONTRUN
+
+	var/mob/living/pawn = goai.GetPawn()
+
+	if(!istype(pawn))
+		return GOAI_LOD_STANDARD
+
+	var/is_conscious = (pawn.stat == CONSCIOUS)
+
+	if(!is_conscious)
+		return GOAI_LOD_DONTRUN
+
+	return GOAI_LOD_STANDARD
+
+
+/proc/goai_pawn_is_conscious_and_present(var/datum/utility_ai/goai)
+	// like goai_pawn_is_conscious(), but throttles despawned squaddie mobs to Squad level LOD
 	if(!istype(goai))
 		return GOAI_LOD_DONTRUN
 
@@ -23,5 +42,12 @@
 
 	var/is_conscious = (pawn.stat == CONSCIOUS)
 
-	if(is_conscious)
-		return GOAI_LOD_STANDARD
+	if(!is_conscious)
+		return GOAI_LOD_DONTRUN
+
+	var/in_nullspace = isnull(pawn.loc)
+
+	if(in_nullspace)
+		return GOAI_LOD_SQUAD
+
+	return GOAI_LOD_STANDARD

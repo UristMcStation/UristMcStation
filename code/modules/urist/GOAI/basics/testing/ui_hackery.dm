@@ -163,7 +163,7 @@
 		return
 
 	// goal_state, target, considerations
-	var/datum/order_smartobject/new_order = new(jsondata, object, null)
+	var/datum/goap_order_smartobject/new_order = new(jsondata, object, null)
 
 	var/list/smart_orders = commander_brain.GetMemoryValue("SmartOrders", null) || list()
 

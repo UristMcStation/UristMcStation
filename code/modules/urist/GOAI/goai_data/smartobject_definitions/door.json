@@ -88,7 +88,7 @@
 						"from_context": 1
 					},
 					"curve_proc": "/proc/curve_linear"
-				},
+				}
 			]
 		}
 	]

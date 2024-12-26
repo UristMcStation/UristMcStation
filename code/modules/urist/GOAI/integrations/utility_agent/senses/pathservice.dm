@@ -1,5 +1,7 @@
 
 /sense/combatant_commander_utility_wayfinder
+	// Only run if units are simulated properly and not abstracted
+	min_lod = GOAI_LOD_UNIT_LOW
 
 
 /sense/combatant_commander_utility_wayfinder/proc/DraftMoveToPrecise(var/datum/utility_ai/mob_commander/owner, var/atom/position, var/max_node_depth = null, var/min_target_dist = null, var/path_ttl = null)
@@ -140,6 +142,8 @@
 // This is a copypasta of the non-SO one above as I CBA dealing with OOP bullshit before I nail this down
 
 /sense/combatant_commander_utility_wayfinder_smartobjectey
+	// Only run if units are simulated properly and not abstracted
+	min_lod = GOAI_LOD_UNIT_LOW
 
 
 /sense/combatant_commander_utility_wayfinder_smartobjectey/proc/DraftMoveToPrecise(var/datum/utility_ai/mob_commander/owner, var/atom/position, var/max_node_depth = null, var/min_target_dist = null, var/path_ttl = null)

@@ -59,16 +59,6 @@
 	out what tick rate to use; uses a constant as a fallback option. */
 	var/tickrate = AI_TICK_DELAY
 
-	# ifdef GOAI_AGENTS_INCLUDED
-
-	var/mob/goai/combatant/combatmob = owner
-
-	if(combatmob)
-		tickrate = combatmob.ai_tick_delay
-		return tickrate
-
-	#endif
-
 	var/datum/utility_ai/utility_commander = owner
 
 	if(utility_commander)

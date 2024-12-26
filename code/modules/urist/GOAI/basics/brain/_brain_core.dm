@@ -10,17 +10,6 @@
 	var/name = "brain"
 	var/life = 1
 
-	/* Optional 'parent' brain ref.
-	//
-	// Can be used to simulate literal hiveminds, but also
-	// various lower-granularity planners, e.g. squads or
-	// organisations or a mob's 'strategic' planner that
-	// informs the 'tactical'/'operational' planners' goals.
-	//
-	// IMPORTANT: this hierarchy should form a (Directed) Acyclic Graph!
-	*/
-	var/datum/brain/hivemind
-
 	/* Dict containing sensory data indexed by sense key. */
 	var/dict/perceptions
 
