@@ -53,8 +53,10 @@
 			true_avoid.Add(friends_positions)
 
 		var/datum/squad/mysquad = aibrain.GetSquad()
-		if(istype(mysquad))
-			for(var/atom/squaddie in mysquad)
+		var/list/squaddies = mysquad?.members
+
+		if(istype(squaddies))
+			for(var/atom/squaddie in squaddies)
 				var/turf/squaddie_loc = get_turf(squaddie)
 				if(istype(squaddie_loc))
 					true_avoid.Add(squaddie_loc)
