@@ -12,19 +12,21 @@
 	// # define OBSTACLEHUNT_DEBUG_LOGGING 0
 	// # define VALIDATE_ACTION_DEBUG_LOGGING 0
 	# define ACTION_RUNTIME_DEBUG_LOGGING 0
-	# define ACTIONTRACKER_DEBUG_LOGGING 0
+	//# define ACTIONTRACKER_DEBUG_LOGGING 0
 	//# define PLANNING_DEBUG_LOGGING 0
 	# define MOTIVES_DEBUG_LOGGING 0
 	//# define COVERDATA_DEBUG_LOGGING 0
 	//# define DIRBLOCKER_DEBUG_LOGGING 0
 	//# define GOAP_INSPECTION_LOGGING 0
 	# define UTILITYBRAIN_DEBUG_LOGGING 0
-	# define UTILITYBRAIN_LOG_UTILITIES 0
+	//# define UTILITYBRAIN_LOG_UTILITIES 0
 	//# define UTILITYBRAIN_LOG_CONTEXTS 0
 	//# define UTILITYBRAIN_LOG_CONTROLLER_LOOKUP 0
 	//# define UTILITYBRAIN_LOG_ACTIONCOUNT 0
-	# define UTILITYBRAIN_LOG_CONSIDERATION_INPUTS 0
-	# define UTILITYBRAIN_LOG_AXIS_SCORES 0
+	//# define UTILITYBRAIN_LOG_CONSIDERATION_INPUTS 0
+	//# define UTILITYBRAIN_LOG_AXIS_SCORES 0
+	//# define UTILITYBRAIN_LOG_AXIS_TOTALS 0
+	//# define UTILITYBRAIN_LOG_AXIS_CUTOFFS 0
 	//# define UTILITYBRAIN_LOG_CURVE_INPUTS 0
 	//# define DEBUG_UTILITY_MEMORY_QUERIES 0
 	//# define DEBUG_UTILITY_INPUT_FETCHERS 0
@@ -35,13 +37,13 @@
 	// Undefine to remove warnings for noncritical WIP code stuff
 	//# define SHOW_GOAI_WIP_WARNINGS 1
 
-	// Undefine to disable drawing debug lines pointing at assorted Stuff
-	# define ENABLE_GOAI_DEBUG_BEAM_GIZMOS 1
-
 	# define ENABLE_GOAI_DEVEL_LOGGING 1
 	# define ENABLE_GOAI_ERROR_LOGGING 1
 
 #endif
+
+// Undefine to disable drawing debug lines pointing at assorted Stuff
+//# define ENABLE_GOAI_DEBUG_BEAM_GIZMOS 1
 
 #ifndef to_world
 	#define to_world(message) world << (message)

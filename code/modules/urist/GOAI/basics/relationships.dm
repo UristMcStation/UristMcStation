@@ -178,10 +178,12 @@
 			continue
 
 		var/datum/relation_data/relation = GetDataByTag(tag)
+
 		if(!relation)
 			continue
 
 		var/rel_val = relation.value
+
 		if(isnull(rel_val))
 			continue
 

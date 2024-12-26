@@ -20,7 +20,10 @@
 	// This saves us doing a full object alloc on each decision tick
 	var/PriorityQueue/utility_ranking
 
-	//
+	// Helper for the async processing in the core tick-loop.
+	// We're running it in the background, so potentially it could
+	// be triggered TWICE while a previous tick is still resolving.
+	// This attr stops this behavior - redundant calls get killed early while it's TRUE.
 	var/unranked_actions = FALSE
 
 	// Optional path to proc.
@@ -48,6 +51,10 @@
 	// min <= current <= max to tick.
 	var/min_lod = GOAI_LOD_FACTION_LOW
 	var/max_lod = GOAI_LOD_HIGHEST
+
+	// Optimization - set this to True if your OnBeginLifeTick proc actually does anything.
+	// Otherwise, we waste time on a proc call, and those ain't free in DM.
+	var/has_begin_hook = FALSE
 
 
 /datum/utility_ai/proc/AbortPlan(var/mark_failed = TRUE)
@@ -81,10 +88,20 @@
 	var/_no_cache = DEFAULT_IF_NULL(no_cache, src.disable_so_cache)
 	var/list/actionsets = list()
 
-	var/list/smartobjects = src.brain?.GetMemoryValue("SmartObjects", null)
-	var/list/smart_paths = src.brain?.GetMemoryValue("AbstractSmartPaths", null)
-	var/list/smart_plans = src.brain?.GetMemoryValue("SmartPlans", null)
-	var/list/smart_orders = src.brain?.GetMemoryValue("SmartOrders", null)
+	var/list/smartobjects = null
+	var/list/smart_paths = null
+	var/list/smart_plans = null
+	var/list/smart_orders = null
+	var/datum/squad/mysquad = null
+
+	var/datum/brain/ai_brain = src.brain
+
+	if(istype(ai_brain))
+		smartobjects = ai_brain.GetMemoryValue("SmartObjects", null)
+		smart_paths = ai_brain.GetMemoryValue("AbstractSmartPaths", null)
+		smart_plans = ai_brain.GetMemoryValue("SmartPlans", null)
+		smart_orders = ai_brain.GetMemoryValue("SmartOrders", null)
+		mysquad = ai_brain.GetSquad()
 
 	if(isnull(smartobjects))
 		smartobjects = list()
@@ -100,12 +117,12 @@
 			smartobjects.Add(plan_so)
 
 	if(smart_orders)
-		for(var/datum/order_smartobject/order_so in smart_orders)
+		for(var/datum/goap_order_smartobject/order_so in smart_orders)
 			smartobjects.Add(order_so)
 
 	// Innate actions; note that these should be used fairly sparingly
 	// (to avoid checking for actions we could never take anyway).
-	// Mostly useful for abstract AIs that have no natural pawns some of the time.
+	// Mostly useful for abstract AIs that have no 'natural' pawns some of the time.
 	smartobjects.Add(src)
 
 	// currently implicit since we always can see ourselves
@@ -115,6 +132,10 @@
 	var/datum/pawn = src.GetPawn()
 	if(!isnull(pawn))
 		smartobjects.Add(pawn)
+
+	// The Squad is one as well!
+	if(istype(mysquad))
+		smartobjects.Add(mysquad)
 
 	if(smartobjects)
 		for(var/datum/SO in smartobjects)
@@ -349,7 +370,8 @@
 			return
 
 	// Should run, probably.
-	src.OnBeginLifeTick() // hook
+	if(src.has_begin_hook)
+		src.OnBeginLifeTick() // hook
 
 	if(src.paused)
 		// yes, again - in case the hook pauses us

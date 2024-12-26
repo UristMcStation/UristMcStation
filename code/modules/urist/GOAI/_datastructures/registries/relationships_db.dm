@@ -4,7 +4,7 @@
 // There's a whole bunch of relationship scores we need to define for any faction.
 // Rather than hardcoding it in, we'll make this data-driven as well.
 //
-// The schema is simply: Map[FactionKey: Map[Tag: RelationshipValue]]
+// The schema is simply: Map<FactionKey: Map<Tag: RelationshipValue>>
 //
 // The top-level FactionKey is 'Us', the nested Tag key is 'Them'.
 // i.e. {A: {B: 1, C: 2}, B: {A: 0, C: 2}} means that

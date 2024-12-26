@@ -22,6 +22,7 @@
 			"name": "Flee", 
 			"description": "Bravely turn tail and run because you're scared.", 
 			"handler": "/datum/utility_ai/mob_commander/proc/FleeFrom", 
+			"min_lod": 7,
 			"priority": 8,
 			"context_procs": ["/proc/ctxfetcher_get_memory_value"], 
 			"context_args": [
@@ -75,7 +76,7 @@
 				{
 					"name": "AnyIsFoe",
 					"lo_mark": -50, 
-					"hi_mark": 0, 
+					"hi_mark": 1, 
 					"noise_scale": 0,
 					"input_proc": "/proc/consideration_decorator_min", 
 					"input_args": {
@@ -126,6 +127,7 @@
 			"name": "GetToCover", 
 			"description": "Duck and cover.", 
 			"handler": "/datum/utility_ai/mob_commander/proc/SteerTo", 
+			"min_lod": 7,
 			"priority": 8,
 			"context_procs": ["/proc/ctxfetcher_cover_candidates"], 
 			"context_args": [
@@ -227,23 +229,25 @@
 			"name": "FleeOrdered", 
 			"description": "Bravely turn tail and run as ordered.", 
 			"handler": "/datum/utility_ai/mob_commander/proc/FleeFrom", 
-			"priority": 8,
+			"min_lod": 7,
+			"priority": 0,
 			"context_procs": ["/proc/ctxfetcher_get_memory_value"], 
 			"context_args": [
 				{
-					"key": "forced_fleethreat",
+					"input_key": "forced_fleethreat",
 					"output_context_key": "threat"
 				}
 			],
 			"considerations": [
 				{
-					"name": "ClDistanceToThreat",
+					"name": "ClDistanceToThreat-FleeOrdered",
 					"lo_mark": 1, 
 					"hi_mark": 8, 
 					"noise_scale": 10,
 					"input_proc": "/proc/consideration_input_manhattan_distance_to_requester", 
 					"input_args": {
-						"input_key": "position",
+						"input_key": "threat",
+						"default": 999,
 						"from_context": 1
 					},
 					"curve_proc": "/proc/curve_antisquare"
@@ -264,7 +268,31 @@
 			],
 			"considerations": [
 				{
-					"name": "MeleeAffinity",
+					"name": "IsFoe-Punch",
+					"lo_mark": 0, 
+					"hi_mark": 0.01, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_relationship_score", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antilinear"
+				},
+				{
+					"name": "FoeHatred-Punch",
+					"lo_mark": -100, 
+					"hi_mark": 100, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_relationship_score", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antilinear"
+				},
+				{
+					"name": "MeleeAffinity-Punch",
 					"lo_mark": 0, 
 					"hi_mark": 1, 
 					"noise_scale": 0,
@@ -276,7 +304,7 @@
 					"curve_proc": "/proc/curve_linear"
 				},
 				{
-					"name": "ClDistanceToThreat",
+					"name": "ClDistanceToThreat-Punch",
 					"lo_mark": 1, 
 					"hi_mark": 2, 
 					"noise_scale": 0,
@@ -288,24 +316,12 @@
 					"curve_proc": "/proc/curve_antilinear"
 				},
 				{
-					"name": "ThreatRNG",
+					"name": "ThreatRNG-Punch",
 					"lo_mark": 0, 
 					"hi_mark": 1, 
 					"noise_scale": 0,
 					"input_proc": "/proc/consideration_input_fuzz_uniform", 
 					"curve_proc": "/proc/curve_linear"
-				},
-				{
-					"name": "IsFoe",
-					"lo_mark": -50, 
-					"hi_mark": 0, 
-					"noise_scale": 0,
-					"input_proc": "/proc/consideration_input_relationship_score", 
-					"input_args": {
-						"input_key": "threat",
-						"from_context": 1
-					},
-					"curve_proc": "/proc/curve_antilinear"
 				}
 			]
 		},
@@ -313,7 +329,8 @@
 			"name": "Grenade", 
 			"description": "Throws an (entirely fake) grenade", 
 			"handler": "/datum/utility_ai/mob_commander/proc/FakeGrenadeThrow", 
-			"priority": 9,
+			"min_lod": 7,
+			"priority": 0,
 			"context_procs": ["/proc/ctxdeco_bounding_box_turfs_around_objects"], 
 			"context_args": [
 				{

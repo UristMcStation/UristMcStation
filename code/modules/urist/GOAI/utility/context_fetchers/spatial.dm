@@ -69,6 +69,10 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_turfs_in_view)
 		UTILITYBRAIN_DEBUG_LOG("WARNING: requesting_brain for ctxfetcher_turfs_in_view is null @ L[__LINE__] in [__FILE__]!")
 		return null
 
+	var/min_dist = context_args["min_dist"]
+	var/max_dist = context_args["max_dist"]
+	var/no_dense = context_args["no_dense"] || FALSE
+
 	var/list/contexts = list()
 	var/context_key = context_args["output_context_key"] || "position"
 	var/raw_type = context_args?[CTX_KEY_FILTERTYPE]
@@ -82,6 +86,12 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_turfs_in_view)
 
 	var/list/curr_view = requesting_brain.perceptions[SENSE_SIGHT_CURR]
 
+	var/atom/pawn = requester_ai.GetPawn()
+	var/valid_pawn = istype(pawn)
+
+	var/valid_min_dist = (!isnull(min_dist) && valid_pawn)
+	var/valid_max_dist = (!isnull(max_dist) && valid_pawn)
+
 	if(!istype(curr_view))
 		UTILITYBRAIN_DEBUG_LOG("WARNING: curr_view for ctxfetcher_turfs_in_view is not a list @ L[__LINE__] in [__FILE__]!")
 		return contexts
@@ -89,6 +99,18 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_turfs_in_view)
 	for(var/turf/pos in curr_view)
 		if(isnull(pos))
 			continue
+
+		if(no_dense && pos.density)
+			continue
+
+		if(valid_min_dist || valid_max_dist)
+			var/pos_dist = get_dist(pawn, pos)
+
+			if(valid_min_dist && pos_dist < min_dist)
+				continue
+
+			if(valid_max_dist && pos_dist > max_dist)
+				continue
 
 		var/list/ctx = list()
 
