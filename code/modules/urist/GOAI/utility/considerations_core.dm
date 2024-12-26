@@ -85,11 +85,11 @@
 	// Convenience proc; fetches input data from the input proc then calls Run() onnit.
 
 	if(isnull(src.get_input_val_proc))
-		UTILITYBRAIN_DEBUG_LOG("ERROR: Input proc of Consideration `[src.name]` is null, @ L[__LINE__] in [__FILE__]!")
+		UTILITYBRAIN_DEBUG_LOG("ERROR: [NULL_TO_TEXT(requester)] - Input proc of Consideration `[src.name]` is null, @ L[__LINE__] in [__FILE__]!")
 		return ACTIVATION_NONE
 
 	if(isnull(src.response_curve_proc))
-		UTILITYBRAIN_DEBUG_LOG("ERROR: Response curve proc of Consideration `[src.name]` is null @ L[__LINE__] in [__FILE__]!")
+		UTILITYBRAIN_DEBUG_LOG("ERROR: [NULL_TO_TEXT(requester)] - Response curve proc of Consideration `[src.name]` is null @ L[__LINE__] in [__FILE__]!")
 		return ACTIVATION_NONE
 
 	if(!(src.active))
@@ -98,7 +98,7 @@
 	var/raw_input = call(src.get_input_val_proc)(action_template, context, requester, src.consideration_args)
 
 	# ifdef UTILITYBRAIN_LOG_CONSIDERATION_INPUTS
-	UTILITYBRAIN_DEBUG_LOG("INFO: Raw input for Consideration `[src.name]` is [isnull(raw_input) ? "null" : raw_input] <- [src.get_input_val_proc]; CTX: [json_encode(context)], RQS: [requester] @ L[__LINE__] in [__FILE__]!")
+	UTILITYBRAIN_DEBUG_LOG("INFO: [NULL_TO_TEXT(requester)] - Raw input for Consideration `[src.name]` is [isnull(raw_input) ? "null" : raw_input] <- [src.get_input_val_proc]; CTX: [json_encode(context)], RQS: [requester] @ L[__LINE__] in [__FILE__]!")
 	# endif
 
 	var/activation = src.Run(raw_input)
@@ -116,7 +116,7 @@
 	*/
 
 	if(isnull(inputs))
-		UTILITYBRAIN_DEBUG_LOG("ERROR: run_considerations input list is null @ L[__LINE__] in [__FILE__]!")
+		UTILITYBRAIN_DEBUG_LOG("ERROR: [NULL_TO_TEXT(requester)] - run_considerations input list is null @ L[__LINE__] in [__FILE__]!")
 		return ACTIVATION_NONE
 
 	var/axis_count = 0
@@ -131,7 +131,7 @@
 		# endif
 
 		if(isnull(axis))
-			UTILITYBRAIN_DEBUG_LOG("WARNING: null Consideration axis on iteration [axis_count+1] @ L[__LINE__] in [__FILE__]!")
+			UTILITYBRAIN_DEBUG_LOG("WARNING: [NULL_TO_TEXT(requester)] - null Consideration axis on iteration [axis_count+1] @ L[__LINE__] in [__FILE__]!")
 			continue
 
 		axis_count++
@@ -139,12 +139,15 @@
 		var/axis_score = axis.FetchAndRun(action_template, context, requester)
 
 		# ifdef UTILITYBRAIN_LOG_AXIS_SCORES
-		UTILITYBRAIN_DEBUG_LOG("INFO: Axis score for axis [axis_count] is: [axis_score]")
+		UTILITYBRAIN_DEBUG_LOG("INFO: [NULL_TO_TEXT(requester)] - Axis score for axis [axis_count] is: [axis_score]")
 		# endif
 
 		if(axis_score <= ACTIVATION_NONE)
 			// That's never gonna be above threshold
 			total = min(total, 0)
+			# ifdef UTILITYBRAIN_LOG_AXIS_CUTOFFS
+			UTILITYBRAIN_DEBUG_LOG("INFO: [NULL_TO_TEXT(requester)] - EARLY BREAK at axis [axis_count] ([axis.name]) for [action_template.name] ([context ? json_encode(context) : "null"]) - value [axis_score] below minimum Activation [ACTIVATION_NONE]")
+			# endif
 			break
 
 		// Multiply scores to get a probabilistic logical AND on criteria
@@ -156,6 +159,9 @@
 		if(valid_cutoff && (total < fuzzed_cutoff))
 			// If we already know we have better candidates, we can stop.
 			total = min(total, 0)
+			# ifdef UTILITYBRAIN_LOG_AXIS_CUTOFFS
+			UTILITYBRAIN_DEBUG_LOG("INFO: [NULL_TO_TEXT(requester)] - EARLY BREAK at axis [axis_count] ([axis.name]) for [action_template.name] ([context ? json_encode(context) : "null"]) - value [total] below cutoff [fuzzed_cutoff]")
+			# endif
 			break
 
 		cutoff = total
@@ -163,8 +169,8 @@
 	// Rescale to remove downward bias from adding more Considerations
 	var/adjusted_total = CORRECT_UTILITY_SCORE(total, axis_count)
 
-	# ifdef UTILITYBRAIN_LOG_AXIS_SCORES
-	UTILITYBRAIN_DEBUG_LOG("INFO: Total score is: [adjusted_total]")
+	# ifdef UTILITYBRAIN_LOG_AXIS_TOTALS
+	UTILITYBRAIN_DEBUG_LOG("INFO: [NULL_TO_TEXT(requester)] - Total score for [action_template.name] ([context ? json_encode(context) : "null"]) is: [adjusted_total]")
 	# endif
 
 	return adjusted_total

@@ -24,7 +24,7 @@
 	return pawn.CurrentPositionAsTuple()
 
 
-/datum/utility_ai/mob_commander/proc/FindPathTo(var/trg, var/min_dist = 0, var/avoid = null, var/adjproc = null, var/distanceproc = null, var/list/adjargs = null)
+/datum/utility_ai/mob_commander/proc/FindPathTo(var/trg, var/min_dist = 0, var/list/avoid = null, var/adjproc = null, var/distanceproc = null, var/list/adjargs = null)
 	var/atom/pawn = src.GetPawn()
 
 	if(!istype(pawn))
@@ -40,7 +40,24 @@
 		MOVEMENT_DEBUG_LOG("No start loc found for [src.name] AI")
 		return
 
-	var/true_avoid = (avoid)
+	var/list/true_avoid = DEFAULT_IF_NULL(avoid, list())
+
+	var/datum/brain/aibrain = src.brain
+	if(istype(aibrain))
+		var/list/enemy_positions = aibrain.GetMemoryValue(MEM_ENEMIES_POSITIONS)
+		if(enemy_positions)
+			true_avoid.Add(enemy_positions)
+
+		var/list/friends_positions = aibrain.GetMemoryValue(MEM_FRIENDS_POSITIONS)
+		if(friends_positions)
+			true_avoid.Add(friends_positions)
+
+		var/datum/squad/mysquad = aibrain.GetSquad()
+		if(istype(mysquad))
+			for(var/atom/squaddie in mysquad)
+				var/turf/squaddie_loc = get_turf(squaddie)
+				if(istype(squaddie_loc))
+					true_avoid.Add(squaddie_loc)
 
 	var/true_adjproc = (isnull(adjproc) ? /proc/fCardinalTurfs : adjproc)
 	var/true_distproc = (isnull(distanceproc) ? DEFAULT_GOAI_DISTANCE_PROC : distanceproc)

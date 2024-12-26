@@ -23,6 +23,11 @@
 
 # define sign(x) (x / abs(x))
 
+// Some code, especially Registries, has a repeated pattern of safety-checking both index and length.
+// Got tired of copypasta-ing it, so this is a macro-ized version of the check.
+// TODO: Replace the registry-level defines so they all use this instead of a homebrew version.
+# define GLOBAL_ARRAY_LOOKUP_BOUNDS_CHECK(Idx, Array) (Idx && GOAI_LIBBED_GLOB_ATTR(Array) && (Idx <= GOAI_LIBBED_GLOB_ATTR(Array.len)))
+
 
 /proc/greater_than(var/left, var/right)
 	var/result = left > right

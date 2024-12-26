@@ -289,7 +289,7 @@
 	return worldstate
 
 
-/datum/order_smartobject
+/datum/goap_order_smartobject
 	/*
 	// A fairly lightweight generic "here's something to solve for with planning" marker.
 	// By giving one to an agent, you're effectively requesting the AI to solve for a certain
@@ -319,7 +319,7 @@
 	no_smartobject_caching = TRUE // caching causes pain here
 
 
-/datum/order_smartobject/New(var/list/new_goal_state, var/datum/new_target, var/list/new_planning_considerations, var/name = null)
+/datum/goap_order_smartobject/New(var/list/new_goal_state, var/datum/new_target, var/list/new_planning_considerations, var/name = null)
 	. = ..()
 	src.goal_state = new_goal_state
 	src.target = new_target
@@ -328,7 +328,7 @@
 	return
 
 
-/datum/order_smartobject/GetUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> [ActionSet]
+/datum/goap_order_smartobject/GetUtilityActions(var/requester, var/list/args = null) // (Any, assoc) -> [ActionSet]
 	var/list/actions = list()
 
 	var/action_key = src.name

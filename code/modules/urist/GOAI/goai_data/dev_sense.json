@@ -1,6 +1,7 @@
 {
 	"sense_index_key": "sofetcher",
 	"enabled": 1,
+	"min_lod": 7,
 	"in_memory_key": "SightCurr",
 	"out_memory_key": "SmartObjects"
 }

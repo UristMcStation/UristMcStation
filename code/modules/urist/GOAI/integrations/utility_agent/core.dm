@@ -21,6 +21,13 @@
 	// NOTE: if you wish to defer it, it's on *YOU* as the user to call <ai_instance>.InitPawn() later!
 	var/initialize_pawn = TRUE
 
+	// If TRUE, calls src.InitRelations(), skips if FALSE
+	// Set to FALSE as an optimization to skip an unnecessary call
+	// or to defer the initializer until later (e.g. for spawners, which might customize some vars first).
+	//
+	// NOTE: if you wish to defer it, it's on *YOU* as the user to call <ai_instance>.InitRelations() later!
+	var/initialize_relations = TRUE
+
 	// Associated Brain
 	// Brains are a datastructure for AI-adjacent information like memories, perceptions, needs, etc.
 	var/datum/brain/utility/brain = null
@@ -87,7 +94,7 @@
 	return
 
 
-/datum/utility_ai/New(var/active = null)
+/datum/utility_ai/New(var/active = null, var/init_pawn = null, var/init_relations = null)
 	..()
 
 	/*
@@ -97,6 +104,8 @@
 	// manually. For example, have the AI only activate when a player first moves
 	// nearby.
 	*/
+	SET_IF_NOT_NULL(init_pawn, src.initialize_pawn)
+	SET_IF_NOT_NULL(init_relations, src.initialize_relations)
 	var/true_active = (isnull(active) ? TRUE : active)
 
 	//var/spawn_time = world.time
@@ -108,12 +117,14 @@
 
 	src.brain = src.CreateBrain()
 
-	src.InitRelations()
-	src.InitSenses()
-	src.UpdateBrain()
-
 	if(src.initialize_pawn)
 		src.InitPawn()
+
+	if(src.initialize_relations)
+		src.InitRelations()
+
+	src.InitSenses()
+	src.UpdateBrain()
 
 	src.PostSetupHook()
 

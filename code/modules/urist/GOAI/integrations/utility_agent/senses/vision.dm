@@ -1,5 +1,8 @@
 
 /sense/combatant_commander_eyes
+	// Only run if units are simulated properly and not abstracted
+	min_lod = GOAI_LOD_UNIT_LOW
+
 	// max length of stored enemies
 	var/max_enemies = DEFAULT_MAX_ENEMIES
 
@@ -18,6 +21,8 @@
 
 	// filter out dead mobs
 	var/ignore_dead = TRUE
+
+	var/sense_side_delay_mult = 1
 
 
 /sense/combatant_commander_eyes/proc/UpdatePerceptions(var/datum/utility_ai/mob_commander/owner)
@@ -109,8 +114,8 @@
 		if (enemy_dist <= 0 || enemy_dist > src.enemy_dist_cutoff)
 			continue
 
-		if(!(owner.IsEnemy(enemy)))
-			if(length(friends) < src.max_friends && enemy_dist < friend_dist_cutoff && owner.IsFriend(enemy))
+		if(owner.IsFriend(enemy))
+			if(length(friends) < src.max_friends && enemy_dist < friend_dist_cutoff)
 				friends.Add(enemy)
 				var/turf/friend_pos = get_turf(enemy)
 				if(!isnull(friend_pos))
@@ -272,7 +277,7 @@
 	AssessThreats(owner)
 	//SpotWaypoint(owner)
 
-	spawn(src.GetOwnerAiTickrate(owner) * 3)
+	spawn(src.GetOwnerAiTickrate(owner) * src.sense_side_delay_mult)
 		// Sense-side delay to avoid spamming view() scans too much
 		processing = FALSE
 	return

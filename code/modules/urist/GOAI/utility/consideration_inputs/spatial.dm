@@ -5,18 +5,19 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_manhattan_distance_to_req
 	var/datum/utility_ai/mob_commander/requester_ai = requester
 
 	if(isnull(requester_ai))
-		DEBUGLOG_UTILITY_INPUT_FETCHERS("Requester is not an AI (from [requester || "null"] raw val) @ L[__LINE__] in [__FILE__]")
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("Requester is not an AI (from [NULL_TO_TEXT(requester)] raw val) @ L[__LINE__] in [__FILE__]")
 		return null
 
 	var/atom/requester_entity = requester_ai?.GetPawn()
 
 	if(!istype(requester_entity))
-		DEBUGLOG_UTILITY_INPUT_FETCHERS("Requesting identity is invalid (from [requester || "null"] raw val) @ L[__LINE__] in [__FILE__]")
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("Requesting identity is invalid (from [NULL_TO_TEXT(requester)] raw val) @ L[__LINE__] in [__FILE__]")
 		return null
 
+	var/default = consideration_args?["default"]
 	var/from_memory = consideration_args?["from_memory"]
-
 	var/from_ctx = consideration_args?["from_context"]
+
 	if(isnull(from_ctx))
 		from_ctx = !from_memory
 
@@ -25,7 +26,13 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_manhattan_distance_to_req
 	var/raw_qry_target = null
 
 	if(from_memory)
-		raw_qry_target = _cihelper_get_brain_data(action_template, context, requester, consideration_args)
+		var/datum/brain/ai_brain = requester_ai.brain
+
+		if(!istype(ai_brain))
+			DEBUGLOG_UTILITY_INPUT_FETCHERS("Requester has no Brain (from [NULL_TO_TEXT(requester)] raw val) @ L[__LINE__] in [__FILE__]")
+			return default
+
+		raw_qry_target = ai_brain.GetMemoryValue(pos_key)
 
 	else if(from_ctx)
 		raw_qry_target = context[pos_key]
@@ -35,13 +42,13 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_manhattan_distance_to_req
 
 	if(isnull(raw_qry_target))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_manhattan_distance_to_requester raw_qry_target is null ([raw_qry_target || "null"]) @ L[__LINE__] in [__FILE__]")
-		return null
+		return default
 
 	var/atom/query_target = raw_qry_target
 
 	if(isnull(query_target))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_manhattan_distance_to_requester query_target is null ([query_target || "null"]) @ L[__LINE__] in [__FILE__]")
-		return null
+		return default
 
 	var/result = ManhattanDistance(requester_entity, query_target)
 	return result
@@ -52,13 +59,13 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_chebyshev_distance_to_req
 	var/datum/utility_ai/mob_commander/requester_ai = requester
 
 	if(isnull(requester_ai))
-		DEBUGLOG_UTILITY_INPUT_FETCHERS("Requester is not an AI (from [requester || "null"] raw val) @ L[__LINE__] in [__FILE__]")
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("Requester is not an AI (from [NULL_TO_TEXT(requester)] raw val) @ L[__LINE__] in [__FILE__]")
 		return null
 
 	var/atom/requester_entity = requester_ai?.GetPawn()
 
 	if(!istype(requester_entity))
-		DEBUGLOG_UTILITY_INPUT_FETCHERS("Requesting identity is invalid (from [requester || "null"] raw val) @ L[__LINE__] in [__FILE__]")
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("Requesting identity is invalid (from [NULL_TO_TEXT(requester)] raw val) @ L[__LINE__] in [__FILE__]")
 		return null
 
 	var/from_memory = consideration_args?["from_memory"]
@@ -164,7 +171,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_is_passable)
 	var/datum/utility_ai/mob_commander/requester_ai = requester
 
 	if(isnull(requester_ai))
-		DEBUGLOG_UTILITY_INPUT_FETCHERS("Requester is not an AI (from [requester || "null"] raw val) @ L[__LINE__] in [__FILE__]")
+		DEBUGLOG_UTILITY_INPUT_FETCHERS("Requester is not an AI (from [NULL_TO_TEXT(requester)] raw val) @ L[__LINE__] in [__FILE__]")
 		return null
 
 	var/atom/requester_atom = requester_ai?.GetPawn()

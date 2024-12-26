@@ -43,7 +43,7 @@
 	if(istype(commander_user))
 		var/atom/commander_pawn = commander_user.GetPawn()
 
-		if(commander_pawn && src == commander_pawn.directional_blocker)
+		if(commander_pawn && (src == commander_pawn.directional_blocker))
 			// no self-collisions!
 			return FALSE
 
@@ -65,7 +65,6 @@
 		DIRBLOCKER_DEBUG_LOG("[src] @ [src.attached_to || "<detached>"] is inactive...")
 		return FALSE
 
-	/*
 	var/atom/movable/atom_user = query_user
 
 	if(istype(atom_user))
@@ -73,15 +72,14 @@
 			// no self-collisions!
 			return FALSE
 
-	var/datum/goai/mob_commander/commander_user = query_user
+	var/datum/utility_ai/mob_commander/commander_user = query_user
 
 	if(commander_user && istype(commander_user))
 		var/atom/commander_pawn = commander_user.GetPawn()
 
-		if(commander_pawn && src == commander_pawn.directional_blocker)
+		if(commander_pawn && (src == commander_pawn.directional_blocker))
 			// no self-collisions!
 			return FALSE
-	*/
 
 	if(block_all)
 		DIRBLOCKER_DEBUG_LOG("[src] blocks all - TRUE!")

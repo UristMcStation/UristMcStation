@@ -1,4 +1,3 @@
-
 /datum/brain/New(
 	var/list/actions = null,
 	var/list/init_memories = null,

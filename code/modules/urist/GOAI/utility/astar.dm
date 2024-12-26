@@ -12,7 +12,7 @@
 
 
 
-/datum/utility_ai/proc/AiAStar(var/start, var/end, var/adjacent, var/dist, var/max_nodes, var/max_node_depth = 30, var/min_target_dist = 0, var/min_node_dist, var/list/adj_args = null, var/exclude)
+/datum/utility_ai/proc/AiAStar(var/start, var/end, var/adjacent, var/dist, var/max_nodes, var/max_node_depth = 30, var/min_target_dist = 0, var/min_node_dist, var/list/adj_args = null, var/list/exclude = null)
 	/* AStar pathfinding algorithm.
 	// For SS13 purposes, this is essentially my (scrdest's) fork of the OG SS13 AStar for merge-compatibility WITH OOP STUFF ON TOP.
 	// This is meant to provide access to instance vars and, if you must, override stuff in subclasses (ugh)
@@ -79,7 +79,7 @@
 			true_adj_args += adj_args
 
 		for(var/neighb in call(adjacent)(arglist(true_adj_args)))
-			if(neighb == exclude)
+			if(!isnull(exclude) && (neighb in exclude))
 				continue
 
 			var/new_dist_cost = call(dist)(current.position, neighb)

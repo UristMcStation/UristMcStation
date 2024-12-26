@@ -17,7 +17,7 @@
 	initialize_pawn = FALSE
 
 	// sensible default, override if needed
-	dynamic_lod_check = /proc/goai_pawn_is_conscious
+	dynamic_lod_check = /proc/goai_pawn_is_conscious_and_present
 
 	// Moving stuff:
 	var/datum/ActivePathTracker/active_path
@@ -60,7 +60,7 @@
 
 	var/atom/movable/pawn = src.GetPawn()
 
-	if(!GOAI_LIBBED_GLOB_ATTR(relationships_db))
+	if(isnull(GOAI_LIBBED_GLOB_ATTR(relationships_db)))
 		InitRelationshipsDb()
 
 	var/datum/relationships/relations = ..()
@@ -69,16 +69,17 @@
 		relations = new()
 
 	// Same faction should not be attacked by default, same as vanilla
-	var/mob/living/L = pawn
-	if(L && istype(L))
+	var/mob/L = pawn
+	if(istype(L))
 		var/my_faction = L.faction
 
 		if(my_faction)
-			var/db_value = (GOAI_LIBBED_GLOB_ATTR(relationships_db))?[my_faction]
-			var/new_relation_val = DEFAULT_IF_NULL(db_value, RELATIONS_DEFAULT_SELF_FACTION_RELATION_VAL) // slightly positive
-
-			var/datum/relation_data/my_faction_rel = new(new_relation_val, RELATIONS_DEFAULT_SELF_FACTION_RELATION_WEIGHT)
-			relations.Insert(my_faction, my_faction_rel)
+			var/list/our_db_values = (GOAI_LIBBED_GLOB_ATTR(relationships_db))?[my_faction]
+			for(var/faction_key in our_db_values)
+				var/db_value = our_db_values[faction_key]
+				var/new_relation_val = DEFAULT_IF_NULL(db_value, RELATIONS_DEFAULT_SELF_FACTION_RELATION_VAL) // slightly positive
+				var/datum/relation_data/my_faction_rel = new(new_relation_val, RELATIONS_DEFAULT_SELF_FACTION_RELATION_WEIGHT)
+				relations.Insert(faction_key, my_faction_rel)
 
 	# ifdef GOAI_SS13_SUPPORT
 
