@@ -13,8 +13,33 @@
 					"output_context_key": "threat"
 				}
 			],
+			"min_lod": 7,
 			"priority": 16, 
 			"considerations": [
+				{
+					"name": "IsFoe",
+					"lo_mark": 0, 
+					"hi_mark": 0.01, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_relationship_score", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antilinear"
+				},
+				{
+					"name": "FoeHatred",
+					"lo_mark": -100, 
+					"hi_mark": 100, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_relationship_score", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antilinear"
+				},
 				{
 					"name": "RangedUsageAffinity",
 					"lo_mark": 0, 
@@ -38,18 +63,6 @@
 						"from_context": 1
 					},
 					"curve_proc": "/proc/curve_antibinary"
-				},
-				{
-					"name": "IsFoe",
-					"lo_mark": -50, 
-					"hi_mark": 0, 
-					"noise_scale": 0,
-					"input_proc": "/proc/consideration_input_relationship_score", 
-					"input_args": {
-						"input_key": "threat",
-						"from_context": 1
-					},
-					"curve_proc": "/proc/curve_antilinear"
 				},
 				{
 					"name": "ThreatRNG",

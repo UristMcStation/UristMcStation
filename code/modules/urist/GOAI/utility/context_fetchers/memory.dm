@@ -18,7 +18,7 @@ CTXFETCHER_CALL_SIGNATURE(/proc/__ctxfetcher_get_memory_value_helper)
 	var/input_key = context_args[CONSIDERATION_INPUTKEY_KEY]
 
 	if(isnull(input_key))
-		UTILITYBRAIN_DEBUG_LOG("WARNING: key for __ctxfetcher_get_memory_value_helper is null @ L[__LINE__] in [__FILE__]!")
+		UTILITYBRAIN_DEBUG_LOG("WARNING: key for __ctxfetcher_get_memory_value_helper is [NULL_TO_TEXT(input_key)] @ L[__LINE__] in [__FILE__]!")
 		return null
 
 	var/datum/brain/requesting_brain = controller.brain

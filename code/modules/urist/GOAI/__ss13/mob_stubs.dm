@@ -9,6 +9,7 @@
 
 /mob
 	var/real_name
+	var/faction
 
 /mob/Bump(atom/Obstacle)
 	var/turf/obsloc = get_turf(Obstacle)
@@ -26,7 +27,6 @@
 
 /mob/living
 	var/stat = CONSCIOUS
-	var/faction
 
 	var/health_current = 100
 	var/health_max = 100

@@ -1,12 +1,12 @@
+//#define GOAI_AGENTS_INCLUDED 0
+
 # ifdef GOAI_AGENTS_INCLUDED
-/proc/spawn_commanded_combatant(var/atom/loc, var/name = null, var/mob_icon = null, var/mob_icon_state = null, var/spawn_commander = TRUE)
+/proc/spawn_commanded_combatant(var/atom/loc, var/name = null, var/mob_icon = null, var/mob_icon_state = null)
 	var/true_name = name
 
-	var/mob/goai/combatant/M = new(active = FALSE)
+	var/mob/living/simple_animal/aitester/squadtester/M = new(loc)
 	if(true_name)
 		M.name = true_name
-
-	M.pLobotomizeGoai(stop_life = FALSE) // probably should refactor to not make a brain in the first place!
 
 	if(mob_icon)
 		M.icon = mob_icon
@@ -16,25 +16,7 @@
 
 	M.loc = loc
 
-	if(spawn_commander)
-		var/datum/goai/mob_commander/new_commander = new()
-
-		new_commander.pawn = M
-		var/dict/pawn_attachments = M.attachments
-
-		if(isnull(pawn_attachments))
-			pawn_attachments = new()
-			M.attachments = pawn_attachments
-
-		pawn_attachments[ATTACHMENT_CONTROLLER_BACKREF] = new_commander.registry_index
-
-		new_commander.name = "AI of [M.name] (#[rand(0, 100000)])"
-
-		if(true_name)
-			new_commander.name = true_name
-
-	return
-
+	return M
 
 
 /obj/spawner/oneshot/commanded_mob
@@ -60,8 +42,153 @@
 		loc = src.loc,
 		name = src.commander_name,
 		mob_icon = true_mob_icon,
+		mob_icon_state = true_mob_icon_state
+	)
+
+	call(script)(arglist(script_args))
+
+
+// SQUAD VARIANT
+
+
+/proc/spawn_commanded_squad(var/atom/loc, var/count = 4, var/radius = null, var/faction = null, var/mob_icon = null, var/mob_icon_state = null, var/with_squad_brain = TRUE)
+	if(isnull(loc))
+		return
+
+	var/to_spawn_count = DEFAULT_IF_NULL(count, 4)
+	if(to_spawn_count <= 0)
+		return
+
+	var/spawn_radius = DEFAULT_IF_NULL(radius, 1)
+	while(((2+spawn_radius)*(2+spawn_radius)) < to_spawn_count)
+		// expand radius to accomodate all required spawns
+		spawn_radius++
+
+	var/list/spawnlocs = trangeGeneric(spawn_radius, loc.x, loc.y, loc.z)
+	var/spawned_amt = 0
+
+	var/true_faction = faction
+
+	var/datum/squad/spawn_squad = null
+	var/datum/brain/squad_brain = null
+
+	while(spawned_amt < to_spawn_count)
+		// A slightly tricky, but efficient, random pop (i.e. 'destructive' pick()).
+		var/spawnloc_len = spawnlocs.len // cache var for efficiency
+		if(!spawnloc_len)
+			break
+
+		// 1) Pick a random item, by INDEX
+		var/index = rand(1, spawnloc_len)
+
+		// 2) Swap the picked item with the LAST item
+		spawnlocs.Swap(index, spawnloc_len)
+
+		// 3) Retrieve the picked item, now as the new last index
+		var/atom/spawn_location = spawnlocs[spawnloc_len]
+
+		// 4) Reduce the list len to yeet the pick out of the running for next iter.
+		spawnlocs.len--
+
+		if(spawn_location.density)
+			// don't wallspawn; just pop and move on
+			continue
+
+		// Actually spawn the mob
+		var/mob/M = spawn_commanded_combatant(spawn_location, null, mob_icon, mob_icon_state)
+
+		if(!istype(M))
+			break
+
+		// Wire the mob up to a faction
+		if(isnull(true_faction))
+			// if unspecified, just default to first spawnee's faction
+			true_faction = M.faction
+		else
+			// overwrite all factions to be uniform
+			M.faction = true_faction
+
+		// for devmobs, adjust sprite to appropriate team's
+		var/mob/living/simple_animal/aitester/testmob = M
+		if(istype(testmob))
+			testmob.icon_state = testmob.SpriteForFaction(testmob.faction)
+
+		// ...and a Squad
+		if(isnull(spawn_squad))
+			// lazy init
+			spawn_squad = new /datum/squad(spawn_location.x, spawn_location.y, spawn_location.z)
+
+			if(isnull(spawn_squad.members))
+				spawn_squad.members = list()
+
+		// ...and a shared 'hivemind' Brain
+		if(isnull(squad_brain))
+			// lazy init
+			squad_brain = new /datum/brain()
+			squad_brain.name = "Brain of Squad [spawn_squad.registry_index]"
+
+		/* Spawn a new Commander, so we don't have to go chasing one down from vars or crashing if it's null */
+		// TODO: make sure this does not create duplicate mob AIs for one mob
+		// As of writing, the mob-spawning proc uses a variant that has no AI, so it's safe,
+		// but want to make sure it stays this way if we switch it out.
+		var/datum/utility_ai/mob_commander/new_commander = new(TRUE, FALSE, FALSE) // Active, No Pawn Spawner (handled already), No Relations Init (yet)
+		#ifdef UTILITY_SMARTOBJECT_SENSES
+		// Spec for Dev senses!
+		new_commander.sense_filepaths = DEFAULT_UTILITY_AI_SENSES
+		#endif
+		AttachUtilityCommanderTo(M, new_commander)
+		new_commander.min_lod = 7
+
+		// We deferred relations init in the AI's new to attach the preexisting mob first, so we need to init it now.
+		new_commander.InitRelations()
+		/* ---  AI get!  --- */
+
+		var/datum/brain/aibrain = new_commander.brain
+
+		aibrain.SetSquad(spawn_squad)
+		aibrain.hivemind = squad_brain
+
+		spawn_squad.members.Add(M)
+
+		// Increase the success counter
+		spawned_amt++
+
+		M.name = "[faction][isnull(faction) ? "" : "-"][aibrain.squad_idx]-[spawned_amt]"
+		new_commander.name = "AI of [M.name]"
+		aibrain.name = "Brain of [M.name]"
+
+	return
+
+
+/obj/spawner/oneshot/commanded_squad_mob
+	var/count = 3
+	var/radius = 2
+	var/mob_faction = null
+	var/mob_icon = null
+	var/mob_icon_state = null
+	var/with_squad_brain = TRUE
+
+	icon = 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "ANTAG"
+
+	script = /proc/spawn_commanded_squad
+
+
+/obj/spawner/oneshot/commanded_squad_mob/CallScript()
+	if(!active)
+		return
+
+	var/true_mob_icon = src.mob_icon || src.icon
+	var/true_mob_icon_state = src.mob_icon_state || src.icon_state
+
+	var/script_args = list(
+		loc = src.loc,
+		count = src.count,
+		radius = src.radius,
+		faction = src.mob_faction,
+		mob_icon = true_mob_icon,
 		mob_icon_state = true_mob_icon_state,
-		spawn_commander = spawn_commander
+		with_squad_brain = with_squad_brain
 	)
 
 	call(script)(arglist(script_args))

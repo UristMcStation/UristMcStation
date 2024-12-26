@@ -31,7 +31,11 @@
 	// serving 'their' actions (similar to how BYOND Verbs can broadcast themselves
 	// to other nearby objects with set src in whatever).
 	*/
+	#ifdef BRAIN_MODULE_INCLUDED_ACTIONS
 	planner.graph = (isnull(actions) ? GetAvailableActions() : actions)
+	#else
+	planner.graph = (isnull(actions) ? list() : actions)
+	#endif
 
 	for(var/goalkey in goal)
 		PLANNING_DEBUG_LOG("[src] CreatePlan goal: [goalkey] => [goal[goalkey]]")
@@ -109,6 +113,7 @@
 	return goal_state
 
 
+#ifdef BRAIN_MODULE_INCLUDED_ACTIONS
 
 /datum/brain/concrete/DoAction(Act as anything in actionslist)
 	if(!(Act in actionslist))
@@ -148,6 +153,7 @@
 
 	return new_actiontracker
 
+#endif
 
 /datum/brain/concrete/proc/Idle()
 	return
