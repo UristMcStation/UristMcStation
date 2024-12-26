@@ -1,8 +1,6 @@
 /mob/verb/SquadList()
 	set category = "Squad Debug"
 
-	to_world_log("[json_encode(GOAI_LIBBED_GLOB_ATTR(global_squad_registry))]")
-
 	for(var/datum/squad/target_squad in GOAI_LIBBED_GLOB_ATTR(global_squad_registry))
 		to_chat(usr, "Squad [target_squad.registry_index] - members [json_encode(target_squad.members)]")
 
