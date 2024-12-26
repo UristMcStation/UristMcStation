@@ -402,7 +402,7 @@ Helpers
 /datum/controller/subsystem/ticker/proc/send_random_tip()
 	var/list/randomtips = file2list("config/tips.txt")
 	if(randomtips.len)
-		to_world(SPAN_GOOD("<b>Tip of the Round:</b>" + strip_html_properly(pick(randomtips))))
+		to_world(SPAN_GOOD("<b>Tip of the Round: </b>" + strip_html_properly(pick(randomtips))))
 
 /datum/controller/subsystem/ticker/proc/collect_minds()
 	for(var/mob/living/player in GLOB.player_list)

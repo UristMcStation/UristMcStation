@@ -2,6 +2,7 @@
 /datum/artifact_effect/heat
 	name = "heat"
 	var/target_temp
+	effect_state = "sparkles_3"
 
 /datum/artifact_effect/heat/New()
 	..()

@@ -1,6 +1,7 @@
 //todo
 /datum/artifact_effect/celldrain
 	name = "cell drain"
+	effect_icon = "sparks"
 	effect_type = EFFECT_ELECTRO
 	var/last_message
 
@@ -11,6 +12,13 @@
 			for (var/obj/item/cell/D in R.contents)
 				D.charge = max(D.charge - rand() * 100, 0)
 				to_chat(R, SPAN_WARNING("SYSTEM ALERT: Energy drain detected!"))
+			return 1
+		if(istype(user, /mob/living/carbon/human))
+			if(user.isSynthetic())
+				var/mob/living/carbon/human/H = user
+				for (var/obj/item/organ/internal/cell/potato in H.contents)
+					potato.cell.charge = max(potato.cell.charge - rand() * 100, 0)
+					to_chat(H, SPAN_WARNING("SYSTEM ALERT: Energy drain detected!"))
 			return 1
 
 		return 1
@@ -29,6 +37,13 @@
 				if(world.time - last_message > 200)
 					to_chat(M, SPAN_WARNING("SYSTEM ALERT: Energy drain detected!"))
 					last_message = world.time
+		for (var/mob/living/carbon/human/H in range(50, T))
+			if(H.isSynthetic())
+				for (var/obj/item/organ/internal/cell/potato in H.contents)
+					potato.cell.charge = max(potato.cell.charge - 50,0)
+					if(world.time - last_message > 200)
+						to_chat(H, SPAN_WARNING("SYSTEM ALERT: Energy drain detected!"))
+						last_message = world.time
 	return 1
 
 /datum/artifact_effect/celldrain/DoEffectPulse()
@@ -45,4 +60,11 @@
 				if(world.time - last_message > 200)
 					to_chat(M, SPAN_WARNING("SYSTEM ALERT: Energy drain detected!"))
 					last_message = world.time
+		for (var/mob/living/carbon/human/H in range(100, T))
+			if(H.isSynthetic())
+				for (var/obj/item/organ/internal/cell/potato in H.contents)
+					potato.cell.charge = max(potato.cell.charge - rand() * 150,0)
+					if(world.time - last_message > 200)
+						to_chat(H, SPAN_WARNING("SYSTEM ALERT: Energy drain detected!"))
+						last_message = world.time
 	return 1

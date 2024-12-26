@@ -1,6 +1,7 @@
 //inverse of /datum/artifact_effect/heat, the two effects split up for neatness' sake
 /datum/artifact_effect/cold
 	name = "cold"
+	effect_icon = "pulsing"
 	var/target_temp
 
 /datum/artifact_effect/cold/New()

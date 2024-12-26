@@ -395,7 +395,7 @@
 
 //structures
 
-/obj/structure/fountain
+/obj/structure/fountain/strange/urist
 	name = "fountain"
 	desc = "A fountain that appears to be spewing red water. Wait... Is that blood?"
 	icon = 'icons/urist/jungle/64x64.dmi'

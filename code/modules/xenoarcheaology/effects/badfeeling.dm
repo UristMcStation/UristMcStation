@@ -1,6 +1,8 @@
 /datum/artifact_effect/badfeeling
 	name = "badfeeling"
 	effect_type = EFFECT_PSIONIC
+	effect_icon = 'icons/effects/effects.dmi'
+	effect_state = "summoning"
 	var/list/messages = list("You feel worried.",
 		"Something doesn't feel right.",
 		"You get a strange feeling in your gut.",
@@ -16,7 +18,7 @@
 		"The light seems to flicker.",
 		"The shadows seem to lengthen.",
 		"The walls are getting closer.",
-		"Something is wrong")
+		"Something is wrong.")
 
 	var/list/drastic_messages = list("You've got to get out of here!",
 		"Someone's trying to kill you!",

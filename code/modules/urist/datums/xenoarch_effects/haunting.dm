@@ -27,7 +27,7 @@
 		"The light seems to flicker.",
 		"The shadows seem to lengthen.",
 		"The walls are getting closer.",
-		"Something is wrong"
+		"Something is wrong."
 	)
 
 

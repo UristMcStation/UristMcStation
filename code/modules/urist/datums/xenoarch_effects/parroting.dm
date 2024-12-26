@@ -88,7 +88,7 @@
 				live_parrots.Add(parrot_ref)
 
 	for(var/obj/item/I in user)
-		if(live_parrots.len >= src.max_parrots)
+		if(length(live_parrots) >= src.max_parrots)
 			break
 
 		if(I.talking_atom)
@@ -137,7 +137,7 @@
 		var/turf/T = get_turf(true_holder)
 
 		for(var/obj/item/I in range(effectrange, T))
-			if(live_parrots.len >= src.max_parrots)
+			if(length(live_parrots) >= src.max_parrots)
 				break
 
 			if(I.talking_atom)
@@ -161,4 +161,3 @@
 
 	// update stored refs with the refreshed ones
 	src.parrots = live_parrots
-
