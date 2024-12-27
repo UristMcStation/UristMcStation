@@ -35,9 +35,23 @@
 /mob/living/simple_animal/hostile/legion/death(gibbed, deathmessage, show_dead_message)
 	..(FALSE, "blows apart!")
 	var/turf/turf = get_turf(src)
+	explosion(turf, 2, EX_ACT_LIGHT)
 	new /obj/gibspawner/robot(turf)
-	explosion(loc, 2, EX_ACT_LIGHT)
 	qdel_self()
+
+	if (!rand(0, 1))
+		return
+
+	switch(rand(1, 2))
+		if (1) // Normal brain
+			var/obj/item/organ/internal/brain/brain = new(turf)
+			brain.SetName("[name]'s [initial(brain.name)]")
+			brain.die()
+
+		if (2) // Positronic
+			var/obj/item/organ/internal/posibrain/posibrain = new(turf)
+			posibrain.SetName("[name]'s [initial(posibrain.name)]")
+			posibrain.die()
 
 
 /mob/living/simple_animal/hostile/legion/Process_Spacemove(allow_movement)
