@@ -4,11 +4,38 @@
 	abstract_type = /mob/living/simple_animal/hostile/legion
 	icon = 'packs/legion/legion.dmi'
 	icon_state = "hivebot"
-	maxHealth = 15
+	health = 100
+	maxHealth = 100
 	bleed_colour = SYNTH_BLOOD_COLOUR
 	faction = "legion"
 	say_list_type = /datum/say_list/legion
 	ai_holder = /datum/ai_holder/legion
+	can_escape = TRUE
+
+	minbodytemp = 0
+	maxbodytemp = INFINITY
+	min_oxy = 0
+	max_tox = 0
+	max_co2 = 0
+
+	meat_type = null
+	meat_amount = 0
+	skin_material = null
+	skin_amount = 0
+	bone_material = null
+	bone_amount = 0
+
+	armor_type = /datum/extension/armor
+	armor = list(
+		"melee" = 0,
+		"bullet" = 0,
+		"laser" = 0,
+		"energy" = 0,
+		"bomb" = 0,
+		"bio" = 100,
+		"rad" = 100
+	)
+	natural_armor = list()
 
 	/// The legion beacon this mob is linked to and spawned from.
 	var/obj/structure/legion/beacon/linked_beacon = null
