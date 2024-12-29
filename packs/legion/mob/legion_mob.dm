@@ -18,6 +18,9 @@
 	if (spawner)
 		linked_beacon = spawner
 
+	add_language(LANGUAGE_HUMAN_EURO)
+	add_language(LANGUAGE_LEGION_GLOBAL)
+
 
 /mob/living/simple_animal/hostile/legion/Destroy()
 	if (linked_beacon)

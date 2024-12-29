@@ -37,3 +37,4 @@ changes:
   - rscadd: "Added rotating light subtypes with a looping alarm sound effect provided by SupermatterTechnician."
   - balance: "Legion beacons no longer increaase their spawn rate every time they retreat to a new location."
   - spellcheck: "Reworded some legion broadcasts to better grammatically fit being sent via radio as well as in your head."
+  - rscadd: "Added legion hivemind language."

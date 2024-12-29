@@ -7,3 +7,5 @@
 #include "mob/legion_mob.dm"
 
 #include "object/legion_beacon.dm"
+
+#include "legion_language.dm"
