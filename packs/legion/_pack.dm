@@ -7,5 +7,6 @@
 #include "mob/legion_mob.dm"
 
 #include "object/legion_beacon.dm"
+#include "object/legion_implant.dm"
 
 #include "legion_language.dm"
