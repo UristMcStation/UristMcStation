@@ -1,0 +1,6 @@
+author: SierraKomodo
+changes:
+  - {bugfix: It is now possible to lay multi-z cables again by clicking on an open
+      space turf that does _not_ have a lattice.}
+  - {tweak: Laying multi-z cables now requires the turf below to have its tiles removed.}
+delete-after: true
