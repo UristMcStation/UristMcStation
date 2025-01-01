@@ -1,4 +1,0 @@
-author: Spookerton
-changes:
-  - {bugfix: Fabrication is no longer accessible to explorers.}
-delete-after: true
