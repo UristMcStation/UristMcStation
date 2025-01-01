@@ -1,0 +1,4 @@
+author: Spookerton
+changes:
+  - {admin: F6 opens the player list pane.}
+delete-after: true
