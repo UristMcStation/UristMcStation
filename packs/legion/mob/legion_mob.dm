@@ -26,7 +26,7 @@
 	bone_amount = 0
 
 	armor_type = /datum/extension/armor
-	armor = list(
+	natural_armor = list(
 		"melee" = 0,
 		"bullet" = 0,
 		"laser" = 0,
@@ -35,7 +35,6 @@
 		"bio" = 100,
 		"rad" = 100
 	)
-	natural_armor = list()
 
 	/// The legion beacon this mob is linked to and spawned from.
 	var/obj/structure/legion/beacon/linked_beacon = null
