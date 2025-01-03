@@ -55,6 +55,9 @@
 		if (!age_diff_descriptor)
 			age_diff_descriptor = age_diff_descriptors[length(age_diff_descriptors)]
 
+	if (observer == observed)
+		return "You are of [age_descriptor] age for a [name]."
+
 	var/datum/pronouns/pronouns = observed.choose_from_pronouns()
 	if (age_diff_descriptor)
 		return "[pronouns.He] [pronouns.is] of [age_descriptor] age for a [name], [age_diff_descriptor] you."
