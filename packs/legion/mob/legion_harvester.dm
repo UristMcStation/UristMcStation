@@ -12,6 +12,10 @@
 	mob_size = MOB_LARGE
 	ai_holder = /datum/ai_holder/legion/harvester
 
+	special_attack_min_range = 0
+	special_attack_max_range = 1
+	special_attack_cooldown = 0 // "cooldown" is just the time it takes the process to try to happen.
+
 	/// The current atom selected for harvesting.
 	var/atom/harvest_target
 
@@ -62,11 +66,11 @@
 
 	switch (harvester_state)
 		if (HARVESTER_STATE_DEFAULT)
-			if (harvest_target)
-				if (harvest_target == user)
+			if (ai_holder.target)
+				if (ai_holder.target == user)
 					to_chat(user, FONT_LARGE(SPAN_DANGER("It seems focused on <b>you</b>.")))
 				else
-					to_chat(user, SPAN_WARNING("It seems focused on \the [harvest_target]."))
+					to_chat(user, SPAN_WARNING("It seems focused on \the [ai_holder.target]."))
 			else
 				to_chat(user, SPAN_WARNING("It seems to be searching for something..."))
 
@@ -92,6 +96,10 @@
 			harvested_brain.throw_at_random(FALSE, 4, 3)
 		harvested_brains.Cut()
 	qdel(src)
+
+
+/mob/living/simple_animal/hostile/legion/harvester/do_special_attack(atom/A)
+	return harvest_brain(A)
 
 
 /**
