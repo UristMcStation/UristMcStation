@@ -59,7 +59,7 @@ SUBSYSTEM_DEF(fabrication)
 		return
 	var/list/stages = SSfabrication.find_crafting_recipes(target.type)
 	for (var/singleton/crafting_stage/stage in stages)
-		if (stage.can_begin_with(target) && stage.is_appropriate_tool(tool))
+		if (stage.can_begin_with(target) && stage.is_appropriate_tool(tool, user))
 			var/obj/item/crafting_holder/crafting = new (turf, stage, target, tool, user)
 			if (stage.progress_to(tool, user, crafting))
 				return crafting
