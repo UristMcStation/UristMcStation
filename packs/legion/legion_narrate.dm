@@ -56,7 +56,7 @@ GLOBAL_LIST_EMPTY(all_radios)
 	var/message
 
 	// Choose a message to display
-	if (rand(0, 100) <= 20)
+	if (rand(0, 100) <= 30)
 		if (!length(GLOB.legion_last_words_player) || rand(0, 1))
 			message = "A voice rises above the chorus, \"[pick(GLOB.legion_last_words_generic)]\""
 		else
