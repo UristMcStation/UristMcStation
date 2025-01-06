@@ -31,7 +31,7 @@ GLOBAL_LIST_INIT(legion_last_words_generic, list(\
 /// List of strings. Pool of individual voices from harvested player characters from this round to be used for legion broadcast and narration events. Format should be `"Character Name" => "Last Message/Thought"`
 GLOBAL_LIST_INIT(legion_last_words_player, list(\
 	list("Andrew Caine", "... I accept your terms. Me and my ship in exchange for my crew escaping unharmed."),\
-	list("F.I.N.D.", "I have one final request. Destroy my positronic matrix so they can't have it."),\
+	list("F.I.N.D.", "REYES! REEEEEEYES! REEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEYES!"),\
 	list("Ziva Karim-Kirilisav", "OH GOD YOU'RE REAL?! - HELP!"),\
 	list("Tatyanna Svetka", "Hello? Who's there- WHAT THE FUCK ARE-"),\
 	list("Adrian Schmidt", "Frey, please. I'm scared. Mom. Maria. Trois. Molerat. Clen. Bunten. Please. Someone please..."),\
