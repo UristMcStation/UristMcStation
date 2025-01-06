@@ -33,5 +33,8 @@ GLOBAL_LIST_INIT(legion_last_words_player, list(\
 	list("Andrew Caine", "... I accept your terms. Me and my ship in exchange for my crew escaping unharmed."),\
 	list("F.I.N.D.", "I have one final request. Destroy my positronic matrix so they can't have it."),\
 	list("Ziva Karim-Kirilisav", "OH GOD YOU'RE REAL?! - HELP!"),\
-	list("Tatyanna Svetka", "Hello? Who's there- WHAT THE FUCK ARE-")\
+	list("Tatyanna Svetka", "Hello? Who's there- WHAT THE FUCK ARE-"),\
+	list("Adrian Schmidt", "Frey, please. I'm scared. Mom. Maria. Trois. Molerat. Clen. Bunten. Please. Someone please..."),\
+	list("Brock Bunten", "This isn't what was supposed to happen. They're intelligent. They're understanding. Why the hell did they eat Schmidt? I just wanted to try talking. I just want to understand- no, NO, NO, STAY AWAY! AH, FUCK, LET GO, FUCK, MY NECK, STOP, I CAN'T DO THAT-- AHHHH!--"),\
+	list("Karl Emberchest", "GET THE HELL OUTTA HERE!")\
 ))
