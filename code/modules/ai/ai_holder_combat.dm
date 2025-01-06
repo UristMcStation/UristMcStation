@@ -258,7 +258,15 @@
 
 // Pry open a door, if it's unpowered/broken
 /datum/ai_holder/proc/pry_door(obj/machinery/door/door)
-	return FALSE
+	. = FALSE
+	if (door.operable())
+		return FALSE
+
+	var/mob/living/simple_animal/holder_simple = holder
+	if (!prying && holder_simple.can_pry)
+		prying = TRUE
+		var/pry_time_holder = (door.pry_mod * holder_simple.pry_time)
+		return holder_simple.pry_door(holder_simple, pry_time_holder, door)
 
 // Despite the name, this can also be used to help clear a path without any destruction.
 /datum/ai_holder/proc/destroy_surroundings(direction, violent = TRUE)
