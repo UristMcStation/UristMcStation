@@ -1,3 +1,5 @@
+#define WRAP_MOD(A, N) (((A) % (N)) + ((A) < 0 ? (ceil(((A) % (N)) / (N)) * (N)) : 0))
+
 /// Compartmentalized PRNG. Allows for coordinated randomness through multiple PRNG datums with the same seed
 /datum/prng
 	var/seed = 0
@@ -13,7 +15,7 @@
 		seed = abs(new_seed)
 
 /// Get a random value between low and high, inclusive.
-// Default PRNG is just a wrapper. Not thread-safe across multiple PRNG datums because state is shared
+/// Default PRNG is just a wrapper. Not thread-safe across multiple PRNG datums because state is shared
 /datum/prng/proc/random(low = 0, high = null)
 	rand_seed(seed)
 	seed = rand(low, high)
@@ -34,9 +36,9 @@
 		// each intercardinal can be made from 2 cardinals so this roll doesn't affect the distribution
 		// for example, SOUTHWEST can be rolled via either SOUTH | WEST or WEST | SOUTH
 		if(chance(50))
-			dir |= turn(dir, 90)
+			dir |= turn(dir, 45)
 		else
-			dir |= turn(dir, -90)
+			dir |= turn(dir, -45)
 	return dir
 
 /// Block cipher based PRNG
