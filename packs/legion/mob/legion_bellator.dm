@@ -1,8 +1,8 @@
 // Base front line combat mob.
-/mob/living/simple_animal/hostile/legion/reaver
-	name = "legion reaver"
+/mob/living/simple_animal/hostile/legion/bellator
+	name = "legion bellator"
 	desc = "A hulking mass of floating dark spikes and menacing yellow lights."
-	icon = 'packs/legion/icons/reaver.dmi'
+	icon = 'packs/legion/icons/bellator.dmi'
 	icon_state = "base"
 	default_pixel_x = -16
 	default_pixel_y = -16
@@ -26,16 +26,16 @@
 
 	mob_size = MOB_LARGE
 
-	projectiletype = /obj/item/projectile/beam/legion/reaver
+	projectiletype = /obj/item/projectile/beam/legion/bellator
 	base_attack_cooldown = 2 SECONDS
 
 
-/mob/living/simple_animal/hostile/legion/reaver/Initialize(mapload, obj/structure/legion/beacon/spawner)
+/mob/living/simple_animal/hostile/legion/bellator/Initialize(mapload, obj/structure/legion/beacon/spawner)
 	. = ..()
 	update_icon()
 
 
-/mob/living/simple_animal/hostile/legion/reaver/on_update_icon()
+/mob/living/simple_animal/hostile/legion/bellator/on_update_icon()
 	ClearOverlays()
 	..()
 	if (icon_state == "base")
