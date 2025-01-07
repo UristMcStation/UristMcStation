@@ -18,7 +18,7 @@ var/global/list/organ_cache = list()
 	// Reference data.
 	var/mob/living/carbon/human/owner // Current mob owning the organ.
 	var/datum/dna/dna                 // Original DNA.
-	var/datum/species/species         // Original species.
+	var/singleton/species/species         // Original species.
 
 	// Damage vars.
 	var/damage = 0                    // Current damage to the organ
@@ -70,7 +70,7 @@ var/global/list/organ_cache = list()
 	if (given_dna)
 		set_dna(given_dna)
 	if (!species)
-		species = all_species[SPECIES_HUMAN]
+		species = GLOB.species_by_name[SPECIES_HUMAN]
 	species.resize_organ(src)
 
 	create_reagents(5 * (w_class-1)**2)
@@ -85,7 +85,7 @@ var/global/list/organ_cache = list()
 			blood_DNA = list()
 		blood_DNA.Cut()
 		blood_DNA[dna.unique_enzymes] = dna.b_type
-		species = all_species[dna.species]
+		species = GLOB.species_by_name[dna.species]
 		if (!species)
 			crash_with("Invalid DNA species. Expected a valid species name as string, was: [log_info_line(dna.species)]")
 
