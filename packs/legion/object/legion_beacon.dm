@@ -72,7 +72,7 @@
 	STOP_PROCESSING(SSobj, src)
 
 	for (var/mob/living/simple_animal/hostile/legion/legion in linked_mobs)
-		legion.linked_beacon = null
+		legion.clear_beacon()
 	linked_mobs.Cut()
 
 	return ..()
@@ -151,7 +151,6 @@
 		try_retreat = TRUE
 
 	if (try_retreat)
-		spawn_rate -= 1 SECOND
 		retreat()
 
 
@@ -168,7 +167,6 @@
 	if (target_turf)
 		legion_warp_effect(target_turf)
 		var/mob/living/simple_animal/hostile/legion/legion = new spawntype(target_turf, src)
-		linked_mobs += legion
 		last_spawn_time = world.time
 		return legion
 

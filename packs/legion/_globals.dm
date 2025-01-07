@@ -1,5 +1,8 @@
+/// Sound file to use for legion warp sound effects.
 GLOBAL_VAR_CONST(legion_warp_sound, 'packs/legion/sounds/legion_arrive.ogg')
 
+
+/// List of sound files. Pool of sound effects to use for legion broadcast and narration events.
 GLOBAL_LIST_INIT(legion_voices_sounds, list(\
 	'packs/legion/sounds/legion_voices1.ogg'\
 ))

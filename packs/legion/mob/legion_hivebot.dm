@@ -74,6 +74,8 @@
 	base_hivebot = new base_hivebot(loc)
 	base_hivebot.legionify()
 	base_hivebot.visible_message(SPAN_DANGER("\A [base_hivebot] warps in!"))
+	base_hivebot.add_language(LANGUAGE_HUMAN_EURO)
+	base_hivebot.add_language(LANGUAGE_LEGION_GLOBAL)
 	return INITIALIZE_HINT_QDEL
 
 
