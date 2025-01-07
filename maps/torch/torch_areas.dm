@@ -51,9 +51,6 @@
 	name = "\improper Fourth Deck Fore Hallway"
 	icon_state = "hallF"
 
-/area/hallway/primary/fourthdeck/center
-	name = "\improper Fourth Deck Central Hallway"
-	icon_state = "hallC3"
 
 /area/hallway/primary/fourthdeck/aft
 	name = "\improper Fourth Deck Aft Hallway"
@@ -917,15 +914,9 @@
 	sound_env = LARGE_ENCLOSED
 	req_access = list(access_hangar)
 
-/area/quartermaster/hangar/catwalks_port
-	name = "\improper Hangar Port Upper Walkway"
-	req_access = list()
+/area/quartermaster/hangar/catwalks
+	name = "\improper Upper Hangar Deck"
 	icon_state = "hangar_catwalk_p"
-
-/area/quartermaster/hangar/catwalks_starboard
-	name = "\improper Hangar Starboard Upper Walkway"
-	req_access = list()
-	icon_state = "hangar_catwalk_s"
 
 // Research
 /area/rnd/canister
