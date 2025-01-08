@@ -8,7 +8,7 @@
 	impact_type = /obj/projectile/legion/impact
 
 
-/obj/item/projectile/beam/legion/reaver
+/obj/item/projectile/beam/legion/bellator
 	damage = 80
 	armor_penetration = 20
 	fire_sound = 'packs/legion/sounds/legion_basic_shot.ogg'
