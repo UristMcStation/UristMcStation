@@ -3461,6 +3461,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/light/spot,
 /turf/simulated/floor/plating,
 /area/quartermaster/hangar)
 "ip" = (
@@ -5429,16 +5430,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/quartermaster/storage)
 "mE" = (
-/obj/catwalk_plated,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/tele_beacon,
 /obj/structure/cable/cyan{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/wall/prepainted,
 /area/quartermaster/hangar)
 "mF" = (
 /obj/catwalk_plated,
@@ -14508,6 +14507,13 @@
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/shuttle/petrov/isolation)
+"OE" = (
+/obj/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/tele_beacon,
+/turf/simulated/floor/tiled/monotile,
+/area/quartermaster/hangar)
 "OG" = (
 /turf/simulated/floor/tiled,
 /area/quartermaster/storage)
@@ -16797,6 +16803,9 @@
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
+	},
+/obj/machinery/light/spot{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/quartermaster/hangar)
@@ -35916,7 +35925,7 @@ eT
 eT
 eT
 eT
-eT
+OE
 fy
 eT
 eT
