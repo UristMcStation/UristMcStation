@@ -4,9 +4,6 @@
 	/// server name (for world name / status)
 	var/static/server_name = "Space Station 13"
 
-	/// generate numeric suffix based on server port
-	var/static/server_suffix = FALSE
-
 	/// for topic status requests
 	var/static/game_version = "Baystation12"
 
@@ -196,9 +193,7 @@
 
 	var/static/debugparanoid = FALSE
 
-	var/static/serverurl
-
-	var/static/server
+	var/static/server_address
 
 	var/static/banappeals
 
@@ -611,14 +606,12 @@
 				respawn_menu_delay = respawn_menu_delay > 0 ? respawn_menu_delay : 0
 			if ("server_name")
 				server_name = value
-			if ("serversuffix")
-				server_suffix = TRUE
 			if ("hostedby")
 				hostedby = value
-			if ("serverurl")
-				serverurl = value
-			if ("server")
-				server = value
+			if ("server_address")
+				server_address = value
+				if (copytext(server_address, 1, 9) != "byond://")
+					server_address = "byond://[server_address]"
 			if ("banappeals")
 				banappeals = value
 			if ("wiki_url")
