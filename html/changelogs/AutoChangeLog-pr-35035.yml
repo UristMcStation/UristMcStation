@@ -1,0 +1,6 @@
+author: SierraKomodo
+changes:
+  - {bugfix: Torn inflatables can no longer be inflated.}
+  - {bugfix: 'Clicking on ladders with an object in hand no longer uses the object
+      _and_ climbs the ladder, instead only climbing.'}
+delete-after: true
