@@ -1,0 +1,4 @@
+author: SierraKomodo
+changes:
+  - {admin: Staff are now notified in chat whenever a client connects to the server.}
+delete-after: true
