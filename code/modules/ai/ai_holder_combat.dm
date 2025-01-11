@@ -278,13 +278,15 @@
 				return FALSE
 			if (airlock.welded) // Welding check after the bolt check so the bot can still unbolt the door before trying to break it open.
 				return FALSE
-		return !!door.open()
+		door.open()
+		return TRUE
 
 	var/mob/living/simple_animal/holder_simple = holder
 	if (!prying && holder_simple.can_pry)
 		prying = TRUE
 		var/pry_time_holder = (door.pry_mod * holder_simple.pry_time)
-		return holder_simple.pry_door(holder_simple, pry_time_holder, door)
+		holder_simple.pry_door(holder_simple, pry_time_holder, door)
+		return TRUE
 
 	return FALSE
 
