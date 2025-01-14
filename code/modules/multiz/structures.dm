@@ -202,7 +202,7 @@
 
 			//We cannot use the ladder, but we probably can remove the obstruction
 			var/atom/movable/M = A
-			if(istype(M) && M.movable_flags & MOVABLE_FLAG_Z_INTERACT)
+			if (istype(M) && HAS_FLAGS(M.movable_flags, MOVABLE_FLAG_Z_INTERACT))
 				if(isnull(I))
 					M.attack_hand(user)
 				else

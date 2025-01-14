@@ -54,8 +54,8 @@
 			H.visible_message(SPAN_DANGER("\the [holder] latches onto \the [H], pulsating!"))
 			V.forceMove(V.gripping.loc)
 
-/mob/living/simple_animal/hostile/vagrant/Process_Spacemove()
-	return 1
+/mob/living/simple_animal/hostile/vagrant/Process_Spacemove(allow_movement)
+	return TRUE
 
 /mob/living/simple_animal/hostile/vagrant/bullet_act(obj/item/projectile/Proj)
 	if (status_flags & GODMODE)
