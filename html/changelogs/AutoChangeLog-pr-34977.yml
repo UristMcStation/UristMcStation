@@ -1,5 +1,0 @@
-author: SierraKomodo
-changes:
-  - {admin: The debug log for transplanted organs missing the cut away flag is now
-      a runtime error for stacktracing.}
-delete-after: true
