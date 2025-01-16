@@ -195,8 +195,8 @@
 	to_chat(user, SPAN_NOTICE("You transfer [trans] unit\s of the solution to \the [target].  \The [src] now contains [src.reagents.total_volume] units."))
 	return 1
 
-/obj/item/reagent_containers/do_surgery(mob/living/carbon/target, mob/living/user)
-	if (user.zone_sel.selecting != BP_MOUTH) //in case it is ever used as a surgery tool
+/obj/item/reagent_containers/do_surgery(mob/living/carbon/M, mob/living/user)
+	if(user.zone_sel.selecting != BP_MOUTH) //in case it is ever used as a surgery tool
 		return ..()
 
 /obj/item/reagent_containers/AltClick(mob/user)
