@@ -142,31 +142,29 @@
 		// place the item in the usr's hand if possible
 		usr.put_in_hands(P)
 
-/obj/item/autopsy_scanner/do_surgery(mob/living/carbon/human/target, mob/living/user)
-	if (!istype(target))
-		return FALSE
+/obj/item/autopsy_scanner/do_surgery(mob/living/carbon/human/M, mob/living/user)
+	if(!istype(M))
+		return 0
 
-	set_target(target, user)
+	set_target(M, user)
 
-	timeofdeath = target.timeofdeath
+	timeofdeath = M.timeofdeath
 
-	var/obj/item/organ/external/organ = target.get_organ(user.zone_sel.selecting)
-	if (!organ)
-		to_chat(usr, SPAN_WARNING("\The [src] can't scan \the [target]'s [organ.name]."))
-		return TRUE
-	if (!organ.how_open())
-		to_chat(usr, SPAN_WARNING("You have to cut \the [organ] open before you scan scan it with \the [src]."))
-		return TRUE
-	user.visible_message(
-		SPAN_NOTICE("\The [user] scans the wounds on [target]'s [organ.name] with \a [src]."),
-		SPAN_NOTICE("You scan the wounds on \the [target]'s [organ.name] with \the [src].")
-	)
+	var/obj/item/organ/external/S = M.get_organ(user.zone_sel.selecting)
+	if(!S)
+		to_chat(usr, SPAN_WARNING("You can't scan this body part."))
+		return
+	if(!S.how_open())
+		to_chat(usr, SPAN_WARNING("You have to cut [S] open first!"))
+		return
+	M.visible_message(SPAN_NOTICE("\The [user] scans the wounds on [M]'s [S.name] with [src]"))
 
-	add_data(organ)
-	for(var/datum/reagent/reagent as anything in target.chem_doses)
-		chemtraces |= initial(reagent.name)
+	add_data(S)
+	for(var/T in M.chem_doses)
+		var/datum/reagent/R = T
+		chemtraces |= initial(R.name)
 
-	return TRUE
+	return 1
 
 /obj/item/autopsy_scanner/proc/set_target(atom/new_target, user)
 	if(target_name != new_target.name)
