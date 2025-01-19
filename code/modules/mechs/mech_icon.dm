@@ -63,7 +63,7 @@
 					color = head.color
 					decal = head.decal
 
-				new_overlays += get_mech_image(decal, use_icon_state, 'icons/mecha/mech_weapon_overlays.dmi', color, hardpoint_object.mech_layer )
+				new_overlays += get_mech_image(decal, use_icon_state, hardpoint_object.on_mech_icon, color, hardpoint_object.mech_layer )
 	SetOverlays(new_overlays)
 
 /mob/living/exosuit/proc/update_pilots(update_overlays = TRUE)
