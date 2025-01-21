@@ -401,11 +401,6 @@
 	center_of_mass = "x=16;y=14"
 	bitesize = 1
 	sushi_overlay = "egg"
-/obj/item/reagent_containers/food/snacks/friedegg/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 3)
-	reagents.add_reagent(/datum/reagent/sodiumchloride, 1)
-	reagents.add_reagent(/datum/reagent/blackpepper, 1)
 
 
 /obj/item/reagent_containers/food/snacks/boiledegg
@@ -413,9 +408,6 @@
 	desc = "A hard boiled egg."
 	icon_state = "egg"
 	filling_color = "#ffffff"
-/obj/item/reagent_containers/food/snacks/boiledegg/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 2)
 
 /obj/item/reagent_containers/food/snacks/organ
 	name = "organ"

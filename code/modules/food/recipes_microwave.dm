@@ -18,7 +18,7 @@
 
 
 /datum/microwave_recipe/boiledegg
-	required_reagents = list(
+	consumed_reagents = list(
 		/datum/reagent/water = 10
 	)
 	required_items = list(
