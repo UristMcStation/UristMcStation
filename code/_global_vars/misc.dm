@@ -4,11 +4,11 @@ GLOBAL_LIST_EMPTY(all_observable_events)
 GLOBAL_VAR_AS(defer_powernet_rebuild, FALSE)
 
 // Those networks can only be accessed by pre-existing terminals. AIs and new terminals can't use them.
-GLOBAL_LIST_AS(restricted_camera_networks, list(\
-	NETWORK_ERT,\
-	NETWORK_MERCENARY,\
-	NETWORK_CRESCENT,\
-	"Secret"\
+GLOBAL_LIST_AS(restricted_camera_networks, list(
+	NETWORK_ERT,
+	NETWORK_MERCENARY,
+	NETWORK_CRESCENT,
+	"Secret"
 ))
 
 GLOBAL_VAR_AS(stat_flags_planted, 0)
