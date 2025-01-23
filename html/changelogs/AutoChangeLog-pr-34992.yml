@@ -1,0 +1,5 @@
+author: SierraKomodo
+changes:
+  - {sounddel: Removed the high-pitched goggles toggle sound effect. Existing usages
+      are replaced by the 'Beep' sound normally used by cleanbots.}
+delete-after: true
