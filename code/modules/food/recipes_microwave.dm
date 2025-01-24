@@ -1,3 +1,4 @@
+///Eggs
 /datum/microwave_recipe/friedegg
 	required_reagents = list(
 		/datum/reagent/sodiumchloride = 1,
@@ -28,7 +29,7 @@
 
 
 /datum/microwave_recipe/dionaroast
-	required_reagents = list(
+	consumed_reagents = list(
 		/datum/reagent/acid/polyacid = 5
 	)
 	required_items = list(
@@ -47,6 +48,15 @@
 	)
 	result_path = /obj/item/reagent_containers/food/snacks/classichotdog
 
+///Donuts
+/datum/microwave_recipe/donut
+	required_reagents = list(
+		/datum/reagent/sugar = 5
+	)
+	required_items = list(
+		/obj/item/reagent_containers/food/snacks/doughslice
+	)
+	result_path = /obj/item/reagent_containers/food/snacks/donut/normal
 
 /datum/microwave_recipe/jellydonut
 	required_reagents = list(
@@ -80,24 +90,46 @@
 	)
 	result_path = /obj/item/reagent_containers/food/snacks/donut/cherryjelly
 
-
-/datum/microwave_recipe/donut
+/datum/microwave_recipe/frostedjellydonut
 	required_reagents = list(
-		/datum/reagent/sugar = 5
+		/datum/reagent/nutriment/sprinkles = 3,
+		/datum/reagent/drink/juice/berry = 5,
+		/datum/reagent/sugar = 3
 	)
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice
 	)
-	result_path = /obj/item/reagent_containers/food/snacks/donut/normal
+	result_path = /obj/item/reagent_containers/food/snacks/donut/jelly
 
+/datum/microwave_recipe/frostedjellydonut/slime
+	required_reagents = list(
+		/datum/reagent/nutriment/sprinkles = 3,
+		/datum/reagent/slimejelly = 5,
+		/datum/reagent/sugar = 3
+	)
+	required_items = list(
+		/obj/item/reagent_containers/food/snacks/doughslice
+	)
+	result_path = /obj/item/reagent_containers/food/snacks/donut/slimejelly
 
+/datum/microwave_recipe/frostedjellydonut/cherry
+	required_reagents = list(
+		/datum/reagent/nutriment/sprinkles = 3,
+		/datum/reagent/nutriment/cherryjelly = 5,
+		/datum/reagent/sugar = 3
+	)
+	required_items = list(
+		/obj/item/reagent_containers/food/snacks/doughslice
+	)
+	result_path = /obj/item/reagent_containers/food/snacks/donut/cherryjelly
+
+///Burgers
 /datum/microwave_recipe/meatburger
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/bun,
 		/obj/item/reagent_containers/food/snacks/cutlet
 	)
 	result_path = /obj/item/reagent_containers/food/snacks/meatburger
-
 
 /datum/microwave_recipe/brainburger
 	required_items = list(

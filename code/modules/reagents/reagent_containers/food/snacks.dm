@@ -3752,28 +3752,26 @@
 /obj/item/reagent_containers/food/snacks/donut
 	name = "donut"
 	desc = "Goes great with Robust Coffee."
-	icon_state = "donut1"
+	icon_state = "donut"
 	filling_color = "#b87b12"
 	var/overlay_state = "box-donut1"
 	center_of_mass = "x=13;y=16"
 	nutriment_desc = list("sweetness", "donut")
 
+/obj/item/reagent_containers/food/snacks/donut/on_reagent_change()
+	. = ..()
+	if (icon_state == initial(icon_state) && reagents.has_reagent(/datum/reagent/nutriment/sprinkles, 3))
+		icon_state = "[initial(icon_state)]2"
+		filling_color = "#ff7fc1"
+		SetName("frosted [initial(name)]")
+
 /obj/item/reagent_containers/food/snacks/donut/normal
 	name = "donut"
 	desc = "Goes great with Robust Coffee."
-	icon_state = "donut1"
+	icon_state = "donut"
+	center_of_mass = "x=19;y=16"
 	nutriment_amt = 3
 	bitesize = 3
-/obj/item/reagent_containers/food/snacks/donut/normal/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 1)
-
-	if(prob(30))
-		src.icon_state = "donut2"
-		filling_color = "#ff7fc1"
-		src.SetName("frosted donut")
-	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 2)
-	center_of_mass = "x=19;y=16"
 
 /obj/item/reagent_containers/food/snacks/donut/chaos
 	name = "chaos donut"
@@ -3785,7 +3783,6 @@
 	bitesize = 10
 /obj/item/reagent_containers/food/snacks/donut/chaos/Initialize()
 	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 1)
 	reagents.add_reagent(pick(list(
 		/datum/reagent/nutriment,
 		/datum/reagent/capsaicin,
@@ -3802,57 +3799,41 @@
 /obj/item/reagent_containers/food/snacks/donut/jelly
 	name = "jelly donut"
 	desc = "You jelly?"
-	icon_state = "jdonut1"
+	icon_state = "jdonut"
 	filling_color = "#b87b12"
 	center_of_mass = "x=16;y=11"
 	nutriment_amt = 3
 	bitesize = 5
-/obj/item/reagent_containers/food/snacks/donut/jelly/Initialize()
+
+///Need to manually add some taste to snacks part of the random snack rotation; since reagents are usually transfered while cooking.
+/obj/item/reagent_containers/food/snacks/donut/jelly/Initialize(mapload)
 	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 1)
-	reagents.add_reagent(/datum/reagent/drink/juice/berry, 5)
-	if(prob(30))
-		src.icon_state = "jdonut2"
-		filling_color = "#ff7fc1"
-		src.SetName("frosted jelly donut")
-	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 2)
+	if (mapload)
+		reagents.add_reagent(/datum/reagent/drink/juice/berry, 5)
 
 /obj/item/reagent_containers/food/snacks/donut/slimejelly
 	name = "jelly donut"
 	desc = "You jelly?"
-	icon_state = "jdonut1"
+	icon_state = "jdonut"
 	filling_color = "#b87b12"
 	center_of_mass = "x=16;y=11"
 	nutriment_amt = 3
 	bitesize = 5
-/obj/item/reagent_containers/food/snacks/donut/slimejelly/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 1)
-	reagents.add_reagent(/datum/reagent/slimejelly, 5)
-	if(prob(30))
-		src.icon_state = "jdonut2"
-		filling_color = "#ff7fc1"
-		src.SetName("frosted jelly donut")
-	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 2)
 
 /obj/item/reagent_containers/food/snacks/donut/cherryjelly
 	name = "jelly donut"
 	desc = "You jelly?"
-	icon_state = "jdonut1"
+	icon_state = "jdonut"
 	filling_color = "#b87b12"
 	center_of_mass = "x=16;y=11"
 	nutriment_amt = 3
 	bitesize = 5
-/obj/item/reagent_containers/food/snacks/donut/cherryjelly/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 1)
-	reagents.add_reagent(/datum/reagent/nutriment/cherryjelly, 5)
-	if(prob(30))
-		src.icon_state = "jdonut2"
-		filling_color = "#ff7fc1"
-		src.SetName("frosted jelly donut")
-	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 2)
 
+///Need to manually add some taste to snacks part of the random snack rotation; since reagents usually are transfered while cooking.
+/obj/item/reagent_containers/food/snacks/donut/cherryjelly/Initialize(mapload)
+	. = ..()
+	if (mapload)
+		reagents.add_reagent(/datum/reagent/nutriment/cherryjelly, 5)
 
 /obj/item/reagent_containers/food/snacks/clam_chowder
 	name = "clam chowder"

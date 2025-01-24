@@ -30,7 +30,8 @@
 	var/mechanics_text
 	var/antag_text
 
-
+///Creates the result and transfers over all reagents (except those in consumed_reagents) and reagents from ingredients EXCEPT nutriment.
+///Nutriment is handled by nutriment_amt at level of the created item; not transferred here.
 /datum/microwave_recipe/proc/CreateResult(obj/machinery/microwave/microwave, ...)
 	var/list/result_args = list(microwave)
 	if (length(args) > 1)
