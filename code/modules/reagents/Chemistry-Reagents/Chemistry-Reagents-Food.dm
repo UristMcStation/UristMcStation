@@ -132,8 +132,9 @@
 /datum/reagent/nutriment/batter
 	name = "Batter"
 	description = "A gooey mixture of eggs and flour, a base for turning wheat into food."
-	taste_description = "blandness"
+	taste_description = "bready goodness"
 	reagent_state = LIQUID
+	taste_mult = 0.2
 	nutriment_factor = 3
 	color = "#ffd592"
 	protein_amount = 0.4
@@ -155,7 +156,10 @@
 	description = "A gooey mixture of eggs, flour and sugar, an important precursor to cake!"
 	taste_description = "sweetness"
 	color = "#ffe992"
+	nutriment_factor = 5
+	taste_mult = 0.3
 	protein_amount = 0.3
+	sugar_amount = 0.3
 
 	condiment_name = "cake batter mix"
 

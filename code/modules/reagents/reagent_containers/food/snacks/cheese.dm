@@ -24,12 +24,11 @@
 	filling_color = "#fff700"
 	bitesize = 2
 	center_of_mass = "x=16;y=10"
+	nutriment_amt = 2
 
 
 /obj/item/reagent_containers/food/snacks/cheesewedge/Initialize()
 	. = ..()
-	if (!reagents.has_reagent(/datum/reagent/nutriment))
-		reagents.add_reagent(/datum/reagent/nutriment, 2, nutriment_desc)
 	if (!reagents.has_reagent(/datum/reagent/nutriment/protein))
 		reagents.add_reagent(/datum/reagent/nutriment/protein, 2)
 
