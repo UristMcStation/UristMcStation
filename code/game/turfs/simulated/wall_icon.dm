@@ -32,10 +32,12 @@
 
 /turf/simulated/wall/proc/paint_wall(new_paint_color)
 	paint_color = new_paint_color
+	update_connections(1)
 	update_icon()
 
 /turf/simulated/wall/proc/stripe_wall(new_paint_color)
 	stripe_color = new_paint_color
+	update_connections(1)
 	update_icon()
 
 /turf/simulated/wall/proc/set_material(material/newmaterial, material/newrmaterial)
