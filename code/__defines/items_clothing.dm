@@ -258,7 +258,7 @@
 	8 - things that take up an entire turf, like wall girders or door assemblies
 */
 
-GLOBAL_LIST_INIT(default_onmob_icons, list(
+GLOBAL_LIST_AS(default_onmob_icons, list(
 	slot_l_hand_str = 'icons/mob/onmob/items/lefthand.dmi',\
 	slot_r_hand_str = 'icons/mob/onmob/items/righthand.dmi',\
 	slot_belt_str = 'icons/mob/onmob/onmob_belt.dmi',\

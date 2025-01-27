@@ -578,7 +578,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		translate_turfs(translation, null)
 
 
-GLOBAL_LIST_INIT(duplicate_object_disallowed_vars, list(
+GLOBAL_LIST_AS(duplicate_object_disallowed_vars, list(
 	"type",
 	"loc",
 	"locs",
