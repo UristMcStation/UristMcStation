@@ -2,10 +2,6 @@
 For the main html chat area
 *********************************/
 
-/// Cache of icons for the browser output
-GLOBAL_TYPED_AS(iconCache, /savefile, new("data/iconCache.sav"))
-
-
 /// Should match the value set in the browser js
 #define MAX_COOKIE_LENGTH 5
 #define SPAM_TRIGGER_AUTOMUTE 10
