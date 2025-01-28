@@ -1,4 +1,4 @@
-GLOBAL_TYPED_AS(musical_config, /datum/musical_config, new)
+GLOBAL_TYPED_NEW(musical_config, /datum/musical_config)
 
 /datum/musical_config
 	var/highest_octave = 9
