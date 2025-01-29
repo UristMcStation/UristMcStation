@@ -51,6 +51,15 @@
 /turf/simulated/floor/proc/set_flooring(singleton/flooring/newflooring)
 	make_plating(defer_icon_update = 1)
 	flooring = newflooring
+
+	var/check_z_flags
+	if(flooring)
+		check_z_flags = flooring.z_flags
+
+	if(check_z_flags & ZM_MIMIC_BELOW)
+		enable_zmimic(check_z_flags)
+
+
 	update_icon(1)
 	levelupdate()
 
@@ -62,6 +71,9 @@
 
 	for(var/obj/decal/writing/W in src)
 		qdel(W)
+
+	disable_zmimic()
+	z_flags = initial(z_flags)
 
 	SetName(base_name)
 	desc = base_desc
