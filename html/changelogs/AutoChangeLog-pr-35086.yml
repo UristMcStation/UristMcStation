@@ -1,0 +1,5 @@
+author: Cakey
+changes:
+  - {bugfix: Painting walls will now correctly update their connections so that walls
+      with the same paint will blend correctly}
+delete-after: true
