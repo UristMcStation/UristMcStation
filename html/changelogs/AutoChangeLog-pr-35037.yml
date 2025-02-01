@@ -1,0 +1,4 @@
+author: SierraKomodo
+changes:
+  - {maptweak: Added a pillar with lights to the center of the hangar.}
+delete-after: true
