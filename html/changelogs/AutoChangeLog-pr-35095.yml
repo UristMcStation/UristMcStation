@@ -1,0 +1,8 @@
+author: JuneauQT
+changes:
+  - {imageadd: Added a new sprite to the NanoTrasen lunchbox}
+  - {tweak: The NanoTrasen brand lunchbox that can be taken in the loadout uses the
+      new icon}
+  - {rscadd: Added a 'misprinted NanoTrasen brand lunchbox' to the Dinnerware vendor
+      in the kitchen's contraband list}
+delete-after: true
