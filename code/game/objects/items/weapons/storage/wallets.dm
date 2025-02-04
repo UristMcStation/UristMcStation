@@ -28,6 +28,7 @@
 		/obj/item/pen,
 		/obj/item/photo,
 		/obj/item/phototrinket,
+		/obj/item/photomaxim,
 		/obj/item/reagent_containers/pill,
 		/obj/item/device/encryptionkey,
 		/obj/item/key,
