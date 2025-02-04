@@ -7,8 +7,8 @@
 		)
 	var/prescription = FALSE
 	off_state = "degoggles"
-	activation_sound = 'sound/machines/boop1.ogg'
-	deactivation_sound = null
+	activation_sound = sound('sound/machines/boop1.ogg', volume = 10)
+	deactivation_sound = sound('sound/effects/compbeep1.ogg', volume = 30)
 	var/obj/screen/overlay = null
 	var/obj/item/clothing/glasses/hud/hud = null	// Hud glasses, if any
 	electric = FALSE //if the glasses should be disrupted by EMP
