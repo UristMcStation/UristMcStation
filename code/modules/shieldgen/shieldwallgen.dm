@@ -198,7 +198,7 @@
 	if (active)
 		to_chat(user, SPAN_WARNING("Turn off \the [src] first."))
 		return FALSE
-	..()
+	return ..()
 
 /obj/machinery/shieldwallgen/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/modular_computer))
