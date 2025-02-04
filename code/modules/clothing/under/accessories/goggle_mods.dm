@@ -17,7 +17,8 @@
 		SPECIES_VOX = 'icons/mob/species/vox/onmob_goggle_mod_vox.dmi',
 		SPECIES_HUMAN = 'icons/mob/onmob/onmob_goggle_mod.dmi'
 	)
-	activation_sound = 'sound/machines/boop1.ogg'
+	activation_sound = sound('sound/machines/boop1.ogg', volume = 10)
+	deactivation_sound = sound('sound/effects/compbeep1.ogg', volume = 30)
 
 /obj/item/clothing/accessory/glassesmod/attack_self(mob/user)
 	if(toggleable && !user.incapacitated())

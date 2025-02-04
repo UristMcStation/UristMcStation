@@ -7,8 +7,6 @@
 	gender = NEUTER
 	toggleable = TRUE
 	action_button_name = "Toggle HUD"
-	activation_sound = sound('sound/machines/boop1.ogg', volume = 10)
-	deactivation_sound = sound('sound/effects/compbeep1.ogg', volume = 30)
 
 	species_restricted = null
 
