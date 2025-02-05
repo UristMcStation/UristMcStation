@@ -1,6 +1,0 @@
-author: SierraKomodo
-changes:
-  - {tweak: 'Toggleable glasses and accessories now use a quieter activation sound,
-      and also make use of a deactivation sound. Sounds and values are identical to
-      those already in use for HUDs.'}
-delete-after: true
