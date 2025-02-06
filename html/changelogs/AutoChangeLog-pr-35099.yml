@@ -1,5 +1,0 @@
-author: Detritus-Ha
-changes:
-  - {bugfix: Pill bottles should now enter chemmasters instead of trying to dissolve
-      pills.}
-delete-after: true

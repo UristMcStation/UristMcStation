@@ -1,4 +1,0 @@
-author: SierraKomodo
-changes:
-  - {bugfix: Fixes shield wall generators not being anchorable/unanchorable with tools.}
-delete-after: true
