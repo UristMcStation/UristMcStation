@@ -3313,6 +3313,7 @@
 #include "code\modules\urist\datums\xenoarch_effects\haunting.dm"
 #include "code\modules\urist\datums\xenoarch_effects\indiscriminate_spines.dm"
 #include "code\modules\urist\datums\xenoarch_effects\magnetic.dm"
+#include "code\modules\urist\datums\xenoarch_effects\nanomachines.dm"
 #include "code\modules\urist\datums\xenoarch_effects\parroting.dm"
 #include "code\modules\urist\datums\xenoarch_effects\poltergeist.dm"
 #include "code\modules\urist\datums\xenoarch_effects\resurrect.dm"
