@@ -111,7 +111,7 @@
 			if(free_languages[lang])
 				LAZYADD(., "- [lang] (required).<br>")
 			else
-				LAZYADD(., "- [lang] <a href='?src=\ref[src];remove_language=[i]'>Remove.</a> <span style='color:#ff0000;font-style:italic;'>[all_languages[lang].warning]</span><br>")
+				LAZYADD(., "- [lang] <a href='byond://?src=\ref[src];remove_language=[i]'>Remove.</a> <span style='color:#ff0000;font-style:italic;'>[all_languages[lang].warning]</span><br>")
 	if(length(pref.alternate_languages) < MAX_LANGUAGES)
 		var/remaining_langs = MAX_LANGUAGES - length(pref.alternate_languages)
-		LAZYADD(., "- <a href='?src=\ref[src];add_language=1'>add</a> ([remaining_langs] remaining)<br>")
+		LAZYADD(., "- <a href='byond://?src=\ref[src];add_language=1'>add</a> ([remaining_langs] remaining)<br>")

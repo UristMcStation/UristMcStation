@@ -116,7 +116,7 @@
 			var/mob/M = get_mob_by_key(carry.my_atom.fingerprintslast)
 			var/more = ""
 			if(M)
-				more = "(<A HREF='?_src_=holder;adminmoreinfo=\ref[M]'>?</a>)"
+				more = "(<A HREF='byond://?_src_=holder;adminmoreinfo=\ref[M]'>?</a>)"
 			log_and_message_admins("A chemical smoke reaction has taken place in [A.name] ([location.x],[location.y],[location.z]) [contained]. Last associated key is [carry.my_atom.fingerprintslast][more].", null, location)
 		else
 			log_and_message_admins("A chemical smoke reaction has taken place in [A.name] ([location.x],[location.y],[location.z]). No associated key.", null, location)

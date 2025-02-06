@@ -398,8 +398,8 @@ GLOBAL_VAR_AS(world_topic_last, world.timeofday)
 		if(rank == "Unknown")
 			rank = "Staff"
 
-		var/message =	SPAN_CLASS("pm", "[rank] PM from <b><a href='?irc_msg=[input["sender"]]'>[input["sender"]]</a></b>: [input["msg"]]")
-		var/amessage =  SPAN_CLASS("staff_pm", "[rank] PM from <a href='?irc_msg=[input["sender"]]'>[input["sender"]]</a> to <b>[key_name(C)]</b> : [input["msg"]]")
+		var/message =	SPAN_CLASS("pm", "[rank] PM from <b><a href='byond://?irc_msg=[input["sender"]]'>[input["sender"]]</a></b>: [input["msg"]]")
+		var/amessage =  SPAN_CLASS("staff_pm", "[rank] PM from <a href='byond://?irc_msg=[input["sender"]]'>[input["sender"]]</a> to <b>[key_name(C)]</b> : [input["msg"]]")
 
 		C.received_irc_pm = world.time
 

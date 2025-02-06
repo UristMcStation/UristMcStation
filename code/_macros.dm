@@ -307,7 +307,7 @@
 
 
 /// A ref=src anchor.
-#define aref(text, params) "<a href=\"?src=\ref[src];[params]\">[text]</a>"
+#define aref(text, params) "<a href=\"byond://?src=\ref[src];[params]\">[text]</a>"
 
 /// A ref=src anchor with additional anchor properties.
-#define arefext(text, params, props) "<a href=\"?src=\ref[src];[params]\" [props]>[text]</a>"
+#define arefext(text, params, props) "<a href=\"byond://?src=\ref[src];[params]\" [props]>[text]</a>"
