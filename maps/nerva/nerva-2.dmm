@@ -15553,6 +15553,7 @@
 	pixel_x = 0;
 	pixel_y = 24
 	},
+/obj/structure/largecrate/animal/chick,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/central)
 "aBj" = (

@@ -97,7 +97,7 @@
 	supervisors = "yourself, as you are the owner of this ship and the sole arbiter of its destiny. However, be careful not to anger NanoTrasen and the other factions that have set up outposts in this sector, or your own staff for that matter. It could lead to your undoing"
 	minimal_player_age = 14
 	outfit_type = /singleton/hierarchy/outfit/job/nerva/captain
-	economic_power = 24
+	economic_power = 3
 
 /datum/job/captain/get_description_blurb()
 	return "You are the Captain and owner of the ICS Nerva. You are the top dog. Your backstory and destiny is your own to decide, however, you are ultimately responsible for all that happens onboard. Your job is to make sure the that Nerva survives its time in this sector, and turns a profit for you. Delegate to your First Officer, the Second Officer, and your department heads to effectively manage the ship, and listen to and trust their expertise. It might be the difference between life and death. Oh, and watch out for pirates. The ICS Nerva only has a small complement of weapons at first, which can be upgraded either by your supply team, or by purchasing/salvaging additional weaponry. Good luck."
