@@ -854,6 +854,17 @@
 				/obj/item/dice/d8
 				)
 
+/obj/random/saintsandsins_packs
+	name = "random Saints and Sins booster pack" // Builder pack not included.
+	desc = "This is a random booster pack."
+	icon = 'icons/urist/items/saintsandsins.dmi'
+	icon_state = "card_pack_saintsandsins"
+
+/obj/random/saintsandsins_packs/spawn_choices()
+	return list(pick(prob(6);/obj/item/pack/saintsandsins/booster,
+			prob(4);/obj/item/pack/saintsandsins/booster/alchemist,
+			prob(2);/obj/item/pack/saintsandsins/booster/fatebringer))
+
 /obj/item/bodyguardkit
 	name = "bodyguard plate carrier kit"
 	desc = "A secure box containing a plate carrier."

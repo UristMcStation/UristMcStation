@@ -3367,6 +3367,7 @@
 #include "code\modules\urist\items\papercrafts.dm"
 #include "code\modules\urist\items\radio_jammer.dm"
 #include "code\modules\urist\items\razor.dm"
+#include "code\modules\urist\items\saintsandsins.dm"
 #include "code\modules\urist\items\salvageable.dm"
 #include "code\modules\urist\items\scissors.dm"
 #include "code\modules\urist\items\storeitems.dm"
