@@ -64,7 +64,7 @@
 
 	if (charges >= 0.1)
 		if (prob(5))
-			holder.visible_message(SPAN_CLASS("alien", "\icon[holder] \The [holder] gleams a bloody red!"))
+			holder?.visible_message(SPAN_CLASS("alien", "\icon[holder] \The [holder] gleams a bloody red!"))
 			charges -= 0.1
 
 

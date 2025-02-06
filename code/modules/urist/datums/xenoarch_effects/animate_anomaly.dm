@@ -39,7 +39,7 @@
 
 
 /datum/artifact_effect/animate_anomaly/proc/find_target()
-	if (!target || target.z != holder.z || get_dist(target, holder) > effectrange)
+	if (!target || target.z != holder?.z || get_dist(target, holder) > effectrange)
 		var/mob/living/ClosestMob = null
 		for (var/mob/living/L in range(effectrange, get_turf(holder)))
 			if (!L.mind)

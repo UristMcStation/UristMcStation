@@ -13,8 +13,7 @@
 	effect = EFFECT_TOUCH
 
 /datum/artifact_effect/spines/proc/shoot(list/exempt = list())
-	var/atom/A = holder
-	A.visible_message(SPAN_DANGER("\The [holder] fires spines wildly in all directions!"))
+	holder?.visible_message(SPAN_DANGER("\The [holder] fires spines wildly in all directions!"))
 	for(var/mob/living/L in oview(world.view, get_turf(holder)))
 		if(chargelevel < 3)
 			break
