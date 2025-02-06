@@ -21,6 +21,6 @@
 	var/mob/living/carbon/T = changeling_sting(15,/mob/proc/changeling_lsdsting)
 	if(!T)	return FALSE
 	admin_attack_log(src,T,"Hallucination sting (changeling)")
-	addtimer(new Callback(T,/mob/.proc/time_lsd), 400)
+	addtimer(new Callback(T, TYPE_PROC_REF(/mob, time_lsd)), 400)
 
 	return TRUE

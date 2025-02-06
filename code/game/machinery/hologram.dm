@@ -254,12 +254,12 @@ var/global/const/HOLOPAD_MODE = RANGE_BASED
 	if (!istype(pda))
 		return
 	LAZYADD(linked_pdas, pda)
-	GLOB.destroyed_event.register(pda, src, .proc/unlink_pda)
+	GLOB.destroyed_event.register(pda, src, PROC_REF(unlink_pda))
 
 
 /obj/machinery/hologram/holopad/proc/unlink_pda(obj/item/modular_computer/pda/pda)
 	LAZYREMOVE(linked_pdas, pda)
-	GLOB.destroyed_event.unregister(pda, src, .proc/unlink_pda)
+	GLOB.destroyed_event.unregister(pda, src, PROC_REF(unlink_pda))
 
 /*This is the proc for special two-way communication between AI and holopad/people talking near holopad.
 For the other part of the code, check silicon say.dm. Particularly robot talk.*/

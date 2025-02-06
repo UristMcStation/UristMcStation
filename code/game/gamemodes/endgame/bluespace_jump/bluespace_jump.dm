@@ -102,9 +102,9 @@
 	daddy = ndaddy
 	set_dir(daddy.dir)
 	appearance = daddy.appearance
-	GLOB.moved_event.register(daddy, src, /obj/bluegoast/proc/mirror)
-	GLOB.dir_set_event.register(daddy, src, /obj/bluegoast/proc/mirror_dir)
-	GLOB.destroyed_event.register(daddy, src, /datum/proc/qdel_self)
+	GLOB.moved_event.register(daddy, src, PROC_REF(mirror))
+	GLOB.dir_set_event.register(daddy, src, PROC_REF(mirror_dir))
+	GLOB.destroyed_event.register(daddy, src, TYPE_PROC_REF(/datum, qdel_self))
 
 
 /obj/bluegoast/Destroy()

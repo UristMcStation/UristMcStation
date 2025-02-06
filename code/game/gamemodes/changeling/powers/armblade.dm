@@ -198,7 +198,7 @@
 			A.update_icon()
 			playsound(A, 'sound/effects/meteorimpact.ogg', 100, 1)
 			A.visible_message(SPAN_DANGER("\The [user] tears \the [A] open with \a [src]!"))
-			addtimer(new Callback(A, /obj/machinery/door/airlock/.proc/open, TRUE), 0)
+			addtimer(new Callback(A, TYPE_PROC_REF(/obj/machinery/door/airlock, open), TRUE), 0)
 			A.open()
 			A.set_broken(TRUE)
 

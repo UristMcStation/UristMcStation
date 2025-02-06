@@ -190,8 +190,8 @@
 	<br><br>---END OF TRANSMISSION---")
 
 /obj/overmap/radio/proc/set_origin(obj/overmap/origin)
-	GLOB.moved_event.register(origin, src, /obj/overmap/radio/proc/follow)
-	GLOB.destroyed_event.register(origin, src, /datum/proc/qdel_self)
+	GLOB.moved_event.register(origin, src, PROC_REF(follow))
+	GLOB.destroyed_event.register(origin, src, TYPE_PROC_REF(/datum, qdel_self))
 	forceMove(origin.loc)
 	source = origin
 	pixel_x = -(origin.bound_width - 6)

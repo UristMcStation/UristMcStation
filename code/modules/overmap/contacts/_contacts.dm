@@ -66,7 +66,7 @@
 		var/matrix/M = matrix()
 		M.Scale(range*2.6)
 		animate(radar, transform = M, alpha = 0, time = (SENSOR_TIME_DELAY*range), 1, SINE_EASING)
-		addtimer(new Callback(src, .proc/reset_radar, radar), (0.25 SECONDS *range+0.1))
+		addtimer(new Callback(src, PROC_REF(reset_radar), radar), (0.25 SECONDS *range+0.1))
 
 /datum/overmap_contact/proc/reset_radar(image/radar)
 	images -= radar
@@ -97,7 +97,7 @@
 	pinged = TRUE
 	show()
 	animate(marker, alpha=255, 0.5 SECOND, 1, LINEAR_EASING)
-	addtimer(new Callback(src, .proc/unping), 1 SECOND)
+	addtimer(new Callback(src, PROC_REF(unping)), 1 SECOND)
 
 /datum/overmap_contact/proc/unping()
 	animate(marker, alpha=75, 2 SECOND, 1, LINEAR_EASING)

@@ -78,7 +78,7 @@
 	H.apply_stored_shock_to(target)
 
 /singleton/species/shapeshifter/promethean/handle_death(mob/living/carbon/human/H)
-	addtimer(new Callback(H, /mob/proc/gib),0)
+	addtimer(new Callback(H, TYPE_PROC_REF(/mob, gib)), 0)
 
 /singleton/species/shapeshifter/promethean/handle_environment_special(mob/living/carbon/human/H)
 

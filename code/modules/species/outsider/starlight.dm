@@ -34,7 +34,7 @@
 	return FALSE
 
 /singleton/species/starlight/handle_death(mob/living/carbon/human/H)
-	addtimer(new Callback(H,/mob/proc/dust),0)
+	addtimer(new Callback(H, TYPE_PROC_REF(/mob, dust)), 0)
 
 /singleton/species/starlight/starborn
 	name = "Starborn"

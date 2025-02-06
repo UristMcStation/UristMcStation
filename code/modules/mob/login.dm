@@ -63,7 +63,7 @@
 
 	// Add to player list if missing
 	if (!GLOB.player_list.Find(src))
-		ADD_SORTED(GLOB.player_list, src, /proc/cmp_mob_key)
+		ADD_SORTED(GLOB.player_list, src, GLOBAL_PROC_REF(cmp_mob_key))
 
 	update_Login_details()
 	world.update_status()

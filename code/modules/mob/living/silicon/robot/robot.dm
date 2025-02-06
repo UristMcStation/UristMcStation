@@ -284,7 +284,7 @@
 	recalculate_synth_capacities()
 	if(module)
 		notify_ai(ROBOT_NOTIFICATION_NEW_MODULE, module.name)
-		addtimer(new Callback(src, .proc/announce_module_change), 2 SECONDS)
+		addtimer(new Callback(src, PROC_REF(announce_module_change)), 2 SECONDS)
 
 /mob/living/silicon/robot/proc/announce_module_change()
 	var/singleton/security_state/security_state = GET_SINGLETON(GLOB.using_map.security_state)

@@ -479,7 +479,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	if (!quick_deconstruct)
 		screen = 0.1
 	linked_destroy.icon_state = "d_analyzer_process"
-	addtimer(new Callback(src, .proc/finish_deconstruct, W), 24)
+	addtimer(new Callback(src, PROC_REF(finish_deconstruct), W), 24)
 
 /obj/machinery/computer/rdconsole/proc/finish_deconstruct(weakref/W)
 	CHECK_DESTROY

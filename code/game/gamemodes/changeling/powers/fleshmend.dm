@@ -45,4 +45,4 @@
 			sleep(1 SECOND)
 
 	src.verbs -= /mob/proc/changeling_fleshmend
-	addtimer(new Callback(src,/mob/.proc/end_fleshmend), 50 SECONDS)
+	addtimer(new Callback(src, TYPE_PROC_REF(/mob, end_fleshmend)), 50 SECONDS)

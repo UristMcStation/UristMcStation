@@ -11,7 +11,7 @@
 /mob/proc/apply_blind()
 	src.disabilities &= ~NEARSIGHTED
 /mob/proc/ling_blind(mob/living/carbon/M, duration)
-	addtimer(new Callback(M,/mob/.proc/apply_blind),duration)
+	addtimer(new Callback(M, TYPE_PROC_REF(/mob, apply_blind)),duration)
 	M.eye_blind = 10
 	M.eye_blurry = 20
 /mob/proc/changeling_blind_sting()

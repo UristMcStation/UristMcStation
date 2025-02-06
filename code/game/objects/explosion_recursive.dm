@@ -70,7 +70,7 @@ GLOBAL_VAR_AS(running_explosions, 0)
 			movable.ex_act(severity)
 			if (QDELETED(movable) || movable.anchored)
 				continue
-			addtimer(new Callback(movable, /atom/movable/.proc/throw_at, throw_target, throw_power, throw_power), 0)
+			addtimer(new Callback(movable, TYPE_PROC_REF(/atom/movable, throw_at), throw_target, throw_power, throw_power), 0)
 	if (--GLOB.running_explosions < 0)
 		GLOB.running_explosions = 0
 

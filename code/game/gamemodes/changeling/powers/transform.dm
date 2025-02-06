@@ -66,4 +66,4 @@
 	changeling_update_languages(changeling.absorbed_languages)
 
 	src.verbs -= /mob/proc/changeling_transform
-	addtimer(new Callback(src,/mob/.proc/transform_cooldown), 10 SECONDS)
+	addtimer(new Callback(src, TYPE_PROC_REF(/mob, transform_cooldown)), 10 SECONDS)

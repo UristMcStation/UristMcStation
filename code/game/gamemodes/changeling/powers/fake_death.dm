@@ -41,6 +41,6 @@
 
 	if(C.stat != DEAD)
 		C.adjustOxyLoss(C.maxHealth * 2)
-	addtimer(new Callback(src,/mob/.proc/finish_revive),rand(2 MINUTES, 4 MINUTES))
+	addtimer(new Callback(src, TYPE_PROC_REF(/mob, finish_revive)),rand(2 MINUTES, 4 MINUTES))
 
 	return TRUE

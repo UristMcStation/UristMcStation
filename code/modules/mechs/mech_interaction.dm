@@ -297,7 +297,7 @@
 		user.client.screen |= hud_elements
 	LAZYADD(pilots, user)
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
-	GLOB.destroyed_event.register(user, src, .proc/remove_pilot)
+	GLOB.destroyed_event.register(user, src, PROC_REF(remove_pilot))
 	sync_access()
 	update_pilots()
 
@@ -313,7 +313,7 @@
 		user.client.eye = user
 	LAZYREMOVE(user.additional_vision_handlers, src)
 	LAZYREMOVE(pilots, user)
-	GLOB.destroyed_event.unregister(user, src, .proc/remove_pilot)
+	GLOB.destroyed_event.unregister(user, src, PROC_REF(remove_pilot))
 	sync_access()
 	update_pilots()
 

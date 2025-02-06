@@ -54,7 +54,7 @@
 		drive.set_light(1, 8, 25, 15, COLOR_CYAN_BLUE)
 		if (severity <= EVENT_LEVEL_MODERATE)
 			continue
-		addtimer(new Callback(drive, /obj/machinery/bluespacedrive/proc/create_flash, TRUE, turf_conversion_range), 2 SECONDS)
+		addtimer(new Callback(drive, TYPE_PROC_REF(/obj/machinery/bluespacedrive, create_flash), TRUE, turf_conversion_range), 2 SECONDS)
 	if (severity <= EVENT_LEVEL_MODERATE)
 		return
 	for (var/obj/structure/stairs/stair in world)
@@ -92,7 +92,7 @@
 		zlevels = affecting_z
 	)
 	for (var/obj/machinery/bluespacedrive/drive in drives)
-		addtimer(new Callback(drive, /obj/machinery/bluespacedrive/proc/do_pulse), 20 SECONDS)
+		addtimer(new Callback(drive, TYPE_PROC_REF(/obj/machinery/bluespacedrive, do_pulse)), 20 SECONDS)
 	for (var/mob/mob in GLOB.player_list)
 		if (istype(mob, /mob/new_player))
 			continue
