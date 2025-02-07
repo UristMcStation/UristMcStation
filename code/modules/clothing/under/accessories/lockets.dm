@@ -12,7 +12,8 @@
 	var/static/list/locket_allowed = list(
 		/obj/item/paper,
 		/obj/item/photo,
-		/obj/item/phototrinket
+		/obj/item/phototrinket,
+		/obj/item/photomaxim
 	)
 
 

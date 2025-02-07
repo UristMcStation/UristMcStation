@@ -3,6 +3,11 @@
 	description = "A definable photograph. The only limit is your imagination."
 	path = /obj/item/phototrinket
 
+/datum/gear/trinket/photomaxim
+	display_name = "Maxim's photo"
+	description = "Token photograph from E-14b."
+	path = /obj/item/photomaxim
+
 /datum/gear/trinket/scg_challenge_coin
 	display_name = "sol challenge coin selection"
 	description = "A selection of challenge coins for identification, collection or simply bragging rights."
@@ -35,6 +40,7 @@
 	var/list/options = list()
 	options["PCRC"] = /obj/item/material/coin/challenge/misc/pcrc
 	options["SAARE"] = /obj/item/material/coin/challenge/misc/saare
+	options["Maxim"] = /obj/item/material/coin/challenge/misc/maxim
 	gear_tweaks += new /datum/gear_tweak/path (options)
 
 
