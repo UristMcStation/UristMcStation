@@ -469,14 +469,14 @@
 
 	var/window = {"
 	<b>Activated Modules</b><br>
-	Module 1: [module_state_1 ? "<a href=?src=\ref[src];mod=\ref[module_state_1]>[module_state_1]<a>" : "No Module"]<br>
-	Module 2: [module_state_2 ? "<a href=?src=\ref[src];mod=\ref[module_state_2]>[module_state_2]<a>" : "No Module"]<br>
-	Module 3: [module_state_3 ? "<a href=?src=\ref[src];mod=\ref[module_state_3]>[module_state_3]<a>" : "No Module"]<br>
+	Module 1: [module_state_1 ? "<a href='byond://?src=\ref[src];mod=\ref[module_state_1]'>[module_state_1]</a>" : "No Module"]<br>
+	Module 2: [module_state_2 ? "<a href='byond://?src=\ref[src];mod=\ref[module_state_2]'>[module_state_2]</a>" : "No Module"]<br>
+	Module 3: [module_state_3 ? "<a href='byond://?src=\ref[src];mod=\ref[module_state_3]'>[module_state_3]</a>" : "No Module"]<br>
 	<br><b>Available Modules</b><br>"}
 	for (var/O in module.equipment)
 		if (!O)
 			window += "<br><b>Depleted Resource</b>"
 		else
-			window += "<br>[O]: [IsHolding(O) ? "<b>Activated</b>" : "<a href='?src=\ref[src];act=\ref[O]'>Activate</a>"]"
+			window += "<br>[O]: [IsHolding(O) ? "<b>Activated</b>" : "<a href='byond://?src=\ref[src];act=\ref[O]'>Activate</a>"]"
 	window = strip_improper("<head><title>Drone modules</title></head><tt>[jointext(window, null)]</tt>")
 	show_browser(src, window, "window=robotmod")

@@ -13,7 +13,7 @@ if(!singletons_by_name) \
 
 /// Full Options Button.
 #define FBTN(key, value, label, title, style) \
-"[title ? "[title]: " : ""]<a href=\"?src=\ref[src];[key]=[value]\"[style ? " style=\"[style]\"" : ""]>[label]</a>"
+"[title ? "[title]: " : ""]<a href=\"byond://?src=\ref[src];[key]=[value]\"[style ? " style=\"[style]\"" : ""]>[label]</a>"
 
 /// Value-passing Styled Button.
 #define VSBTN(key, value, label, style) FBTN(key, value, label, "", style)

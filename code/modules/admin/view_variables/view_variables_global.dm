@@ -19,7 +19,7 @@ GLOBAL_TYPED_NEW(debug_real_globals, /datum/debug_real_globals)
 
 
 /datum/debug_real_globals/make_view_variables_variable_entry(name, value)
-	return {"(<a href="?_src_=vars;datumedit=\ref[src];varnameedit=[name]">E</a>) "}
+	return {"(<a href="byond://?_src_=vars;datumedit=\ref[src];varnameedit=[name]">E</a>) "}
 
 
 /datum/debug_real_globals/set_variable_value(name, value)

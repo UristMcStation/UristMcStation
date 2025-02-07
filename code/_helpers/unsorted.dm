@@ -184,9 +184,6 @@ Turf and target are seperate in case you want to teleport some distance from a t
 			return 1
 	return 0
 
-/proc/sign(x)
-	return x!=0?x/abs(x):0
-
 /proc/getline(atom/M,atom/N)//Ultra-Fast Bresenham Line-Drawing Algorithm
 	RETURN_TYPE(/list)
 	var/px=M.x		//starting x
@@ -651,17 +648,20 @@ GLOBAL_LIST_AS(duplicate_object_disallowed_vars, list(
 			trg_min_y = turf.y
 	var/list/refined_src = list()
 	for (var/turf/turf in turfs_src)
-		refined_src[turf] = new /datum/vector2 (turf.x - src_min_x, turf.y - src_min_y)
+		refined_src[turf] = list(turf.x - src_min_x, turf.y - src_min_y)
 	var/list/refined_trg = list()
 	for (var/turf/turf in turfs_trg)
-		refined_trg[turf] = new /datum/vector2 (turf.x - trg_min_x, turf.y - trg_min_y)
+		refined_trg[turf] = list(turf.x - src_min_x, turf.y - src_min_y)
 	var/list/turfs_to_update = list()
 	var/list/copied_movables = list()
 	moving:
 		for (var/turf/source_turf in refined_src)
-			var/datum/vector2/source_position = refined_src[source_turf]
+			var/list/source_position = refined_src[source_turf]
 			for (var/turf/target_turf in refined_trg)
-				if (source_position ~= refined_trg[target_turf])
+				var/list/target_position = refined_trg[target_turf]
+				var/same_position = source_position[1] == target_position[1] \
+					&& source_position[2] == target_position[2]
+				if (same_position)
 					var/old_dir1 = source_turf.dir
 					var/old_icon_state1 = source_turf.icon_state
 					var/old_icon1 = source_turf.icon
@@ -911,7 +911,7 @@ var/global/list/WALLITEMS = list(
 /proc/topic_link(datum/D, arglist, content)
 	if(islist(arglist))
 		arglist = list2params(arglist)
-	return "<a href='?src=\ref[D];[arglist]'>[content]</a>"
+	return "<a href='byond://?src=\ref[D];[arglist]'>[content]</a>"
 
 /proc/get_random_colour(simple = FALSE, lower = 0, upper = 255)
 	var/colour

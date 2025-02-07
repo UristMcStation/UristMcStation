@@ -386,7 +386,7 @@
 		else if (force || length(user.languages))
 			if (!has_language)
 				language = user.languages[1]
-			html += PAPER_META("You are writing in <a href='?src=\ref[src];change_language=1'>[language.name]</a>.")
+			html += PAPER_META("You are writing in <a href='byond://?src=\ref[src];change_language=1'>[language.name]</a>.")
 			html += "<hr/>" + info_links
 		else
 			html += PAPER_META_BAD("You can't write without knowing a language.")
@@ -434,8 +434,8 @@
 /obj/item/paper/proc/updateinfolinks()
 	info_links = info
 	for(var/i = 1 to fields)
-		addtofield(i, "<span style='font-family: [deffont]'><A href='?src=\ref[src];write=[i]'>write</A></span>", 1)
-	info_links = info_links + "<span style='font-family: [deffont]'><A href='?src=\ref[src];write=end'>write</A></span>"
+		addtofield(i, "<span style='font-family: [deffont]'><A href='byond://?src=\ref[src];write=[i]'>write</A></span>", 1)
+	info_links = info_links + "<span style='font-family: [deffont]'><A href='byond://?src=\ref[src];write=end'>write</A></span>"
 
 
 /obj/item/paper/proc/update_space(new_text)
