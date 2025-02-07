@@ -16,26 +16,31 @@
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 
 GLOBAL_LIST_AS(possible_switch_offsets, list(
-		"North" = list(
-			"Middle Lower" = list(0,25),
-			"Offset Lower" = list(7,25),
-			"Middle Upper" = list(0,32),
-			"Offset Upper" = list(7,32)),
-		"East" = list(
-			"Middle Lower" = list(25,0),
-			"Offset Lower" = list(25,7),
-			"Middle Upper" = list(32,0),
-			"Offset Upper" = list(32,7)),
-		"South" = list(
-			"Middle Lower" = list(0,-25),
-			"Offset Lower" = list(7,-25),
-			"Middle Upper" = list(0,-32),
-			"Offset Upper" = list(7,-32)),
-		"West" = list(
-			"Middle Lower" = list(-25,0),
-			"Offset Lower" = list(-25,7),
-			"Middle Upper" = list(-32,0),
-			"Offset Upper" = list(-32,7))))
+	"North" = list(
+		"Middle Lower" = list(0, 25),
+		"Offset Lower" = list(7, 25),
+		"Middle Upper" = list(0, 32),
+		"Offset Upper" = list(7, 32)
+	),
+	"East" = list(
+		"Middle Lower" = list(25, 0),
+		"Offset Lower" = list(25, 7),
+		"Middle Upper" = list(32, 0),
+		"Offset Upper" = list(32, 7)
+	),
+	"South" = list(
+		"Middle Lower" = list(0, -25),
+		"Offset Lower" = list(7, -25),
+		"Middle Upper" = list(0, -32),
+		"Offset Upper" = list(7, -32)
+	),
+	"West" = list(
+		"Middle Lower" = list(-25, 0),
+		"Offset Lower" = list(-25, 7),
+		"Middle Upper" = list(-32, 0),
+		"Offset Upper" = list(-32, 7)
+	)
+))
 
 
 /obj/item/frame/light_switch/proc/position_with_direction(obj/item/frame/light_switch/S as obj, mob/user as mob)

@@ -1,24 +1,24 @@
 GLOBAL_LIST_AS(possible_chassis, list(
-		"Drone" = "drone",
-		"Cat" = "cat",
-		"Mouse" = "mouse",
-		"Monkey" = "monkey",
-		"Rabbit" = "rabbit",
-		"Mushroom" = "mushroom",
-		"Corgi" = "corgi",
-		"Crow" = "crow",
-		"Humanoid" = "humanoid"
-		))
+	"Drone" = "drone",
+	"Cat" = "cat",
+	"Mouse" = "mouse",
+	"Monkey" = "monkey",
+	"Rabbit" = "rabbit",
+	"Mushroom" = "mushroom",
+	"Corgi" = "corgi",
+	"Crow" = "crow",
+	"Humanoid" = "humanoid"
+))
 
 GLOBAL_LIST_AS(possible_say_verbs, list(
-		"Robotic" = list("states","declares","queries"),
-		"Natural" = list("says","yells","asks"),
-		"Beep" = list("beeps","beeps loudly","boops"),
-		"Chirp" = list("chirps","chirrups","cheeps"),
-		"Feline" = list("purrs","yowls","meows"),
-		"Canine" = list("yaps", "barks", "woofs"),
-		"Corvid" = list("caws", "caws loudly", "whistles")
-		))
+	"Robotic" = list("states", "declares", "queries"),
+	"Natural" = list("says", "yells", "asks"),
+	"Beep" = list("beeps", "beeps loudly" ,"boops"),
+	"Chirp" = list("chirps", "chirrups", "cheeps"),
+	"Feline" = list("purrs", "yowls", "meows"),
+	"Canine" = list("yaps", "barks", "woofs"),
+	"Corvid" = list("caws", "caws loudly", "whistles")
+))
 
 /mob/living/silicon/pai
 	name = "pAI"

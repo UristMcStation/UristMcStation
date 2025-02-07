@@ -1,4 +1,4 @@
-GLOBAL_TYPED_NEW(sound_channels, /repository/sound_channels)
+GLOBAL_TYPED_NEW_STEP(sound_channels, /repository/sound_channels, 40)
 GLOBAL_VAR_AS(lobby_sound_channel, GLOB.sound_channels.RequestChannel("LOBBY"))
 GLOBAL_VAR_AS(vote_sound_channel, GLOB.sound_channels.RequestChannel("VOTE"))
 GLOBAL_VAR_AS(admin_sound_channel, GLOB.sound_channels.RequestChannel("ADMIN_FUN"))

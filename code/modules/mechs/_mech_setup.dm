@@ -1,6 +1,6 @@
-GLOBAL_TYPED_AS(default_hardpoint_background, /image, null)
-GLOBAL_TYPED_AS(hardpoint_error_icon, /image, null)
-GLOBAL_TYPED_AS(hardpoint_bar_empty, /image, null)
+GLOBAL_TYPED(default_hardpoint_background, /image)
+GLOBAL_TYPED(hardpoint_error_icon, /image)
+GLOBAL_TYPED(hardpoint_bar_empty, /image)
 
 GLOBAL_LIST_EMPTY(hardpoint_bar_cache)
 GLOBAL_LIST_EMPTY(mech_damage_overlay_cache)

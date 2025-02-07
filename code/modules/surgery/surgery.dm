@@ -8,6 +8,7 @@ GLOBAL_LIST_AS(surgery_tool_exceptions, list(
 	/obj/item/reagent_containers/syringe,
 	/obj/item/reagent_containers/borghypo
 ))
+
 GLOBAL_LIST_EMPTY(surgery_tool_exception_cache)
 
 /* SURGERY STEPS */
