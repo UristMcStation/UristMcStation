@@ -1,6 +1,6 @@
 /obj/abstract/weather_system
-	var/tmp/wind_direction =    0   // Bitflag; current wind direction.
-	var/tmp/wind_strength =     1   // How strong is the wind currently?
+	var/wind_direction =    0   // Bitflag; current wind direction.
+	var/wind_strength =     1   // How strong is the wind currently?
 	var/const/base_wind_delay = 0.5 // What is the base movement delay or increase applied by wind strength?
 
 // Randomizes wind speed and direction sometimes.
@@ -29,7 +29,7 @@
 	for(var/obj/abstract/weather_particles/particle_source in particle_sources)
 		particle_source.update_particle_system(src)
 
-/obj/abstract/weather_system/proc/show_wind(var/mob/M, var/force = FALSE)
+/obj/abstract/weather_system/proc/show_wind(mob/M, force = FALSE)
 	var/mob_ref = weakref(M)
 	if(mob_shown_wind[mob_ref] && !force)
 		return FALSE

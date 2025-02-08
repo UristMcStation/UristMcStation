@@ -45,7 +45,7 @@
 	var/next_weather_transition = 0                      // What world.time will we next evaluate our state?
 
 	var/obj/abstract/lightning_overlay/lightning_overlay // A visible atom used for animated lighting effects.
-	var/tmp/list/vis_contents_additions                  // Holder for a list used to add required atoms to turf vis_contents.
+	var/list/vis_contents_additions                  // Holder for a list used to add required atoms to turf vis_contents.
 	/// A list of particle sources to randomize particle-based effects per-turf.
 	var/list/obj/abstract/weather_particles/particle_sources = newlist(
 		/obj/abstract/weather_particles,
@@ -92,8 +92,6 @@
 
 // Called by /singleton/state/weather to assess validity of a state in the weather FSM.
 /obj/abstract/weather_system/proc/supports_weather_state(singleton/state/weather/next_state)
-	// Exoplanet stuff for the future:
-	// - TODO: track and check exoplanet temperature.
 	if(!istype(next_state))
 		return FALSE
 
@@ -106,7 +104,7 @@
 
 	//Assumption ice is actual ice. You can get some forms of rain even in hot planets but ice needs that cool factor
 	if (next_state.is_ice)
-		if (planet && planet.atmosphere && planet.atmosphere.temperature > 5 CELSIUS)
+		if (planet && planet.exterior_atmosphere && planet.exterior_atmosphere.temperature > 5 CELSIUS)
 			return FALSE
 
 	if(length(banned_weather_conditions) && (next_state.type in banned_weather_conditions))

@@ -11,7 +11,6 @@ GLOBAL_VAR(planet_repopulation_disabled)
 	var/list/megafauna_types = list() 	// possibble types of megafauna to spawn
 	var/list/animals = list()
 	var/max_animal_count
-	var/datum/gas_mixture/atmosphere
 	var/list/breathgas = list()	//list of gases animals/plants require to survive
 	var/badgas					//id of gas that is toxic to life here
 
@@ -120,10 +119,10 @@ GLOBAL_VAR(planet_repopulation_disabled)
 	generate_atmosphere()
 	for (var/datum/exoplanet_theme/T in themes)
 		T.adjust_atmosphere(src)
-	if (atmosphere)
+	if (exterior_atmosphere)
 		//Set up gases for living things
 		if (!length(breathgas))
-			var/list/goodgases = atmosphere.gas.Copy()
+			var/list/goodgases = exterior_atmosphere.gas.Copy()
 			var/gasnum = min(rand(1,3), length(goodgases))
 			for (var/i = 1 to gasnum)
 				var/gas = pick(goodgases)
@@ -131,7 +130,7 @@ GLOBAL_VAR(planet_repopulation_disabled)
 				goodgases -= gas
 		if (!badgas)
 			var/list/badgases = gas_data.gases.Copy()
-			badgases -= atmosphere.gas
+			badgases -= exterior_atmosphere.gas
 			badgas = pick(badgases)
 	generate_flora()
 	generate_map()
@@ -169,21 +168,6 @@ GLOBAL_VAR(planet_repopulation_disabled)
 	for (var/zlevel in map_z)
 		if (repopulating && !GLOB.planet_repopulation_disabled)
 			handle_repopulation()
-
-		if (!atmosphere)
-			continue
-
-		var/zone/Z
-		for (var/i = 1 to maxx)
-			var/turf/simulated/T = locate(i, 2, zlevel)
-			if (istype(T) && T.zone && length(T.zone.contents) > (maxx*maxy*0.25)) //if it's a zone quarter of zlevel, good enough odds it's planetary main one
-				Z = T.zone
-				break
-		if (Z && !length(Z.fire_tiles) && !atmosphere.compare(Z.air)) //let fire die out first if there is one
-			var/datum/gas_mixture/daddy = new() //make a fake 'planet' zone gas
-			daddy.copy_from(atmosphere)
-			daddy.group_multiplier = Z.air.group_multiplier
-			Z.air.equalize(daddy)
 
 	if(sun_last_process <= (world.time - sun_process_interval))
 		update_sun()
@@ -346,15 +330,15 @@ GLOBAL_VAR(planet_repopulation_disabled)
 /obj/overmap/visitable/sector/exoplanet/get_scan_data(mob/user)
 	. = ..()
 	var/list/extra_data = list()
-	if (atmosphere)
+	if (exterior_atmosphere)
 		if (user.skill_check(SKILL_SCIENCE, SKILL_TRAINED))
 			var/list/gases = list()
-			for (var/g in atmosphere.gas)
-				if (atmosphere.gas[g] > atmosphere.total_moles * 0.05)
+			for (var/g in exterior_atmosphere.gas)
+				if (exterior_atmosphere.gas[g] > exterior_atmosphere.total_moles * 0.05)
 					gases += gas_data.name[g]
 			extra_data += "Atmosphere composition: [english_list(gases)]"
 			var/inaccuracy = rand(8,12)/10
-			extra_data += "Atmosphere pressure [atmosphere.return_pressure()*inaccuracy] kPa, temperature [atmosphere.temperature*inaccuracy] K"
+			extra_data += "Atmosphere pressure [exterior_atmosphere.return_pressure()*inaccuracy] kPa, temperature [exterior_atmosphere.temperature*inaccuracy] K"
 		else if (user.skill_check(SKILL_SCIENCE, SKILL_BASIC))
 			extra_data += "Atmosphere present"
 		extra_data += ""

@@ -25,9 +25,9 @@ SUBSYSTEM_DEF(weather)
 		processing_systems = weather_systems.Copy()
 
 	var/obj/abstract/weather_system/weather
-	while(processing_systems.len)
-		weather = processing_systems[processing_systems.len]
-		processing_systems.len--
+	while(length(processing_systems))
+		weather = processing_systems[length(processing_systems)]
+		LIST_DEC(processing_systems)
 		weather.tick()
 		if(MC_TICK_CHECK)
 			return

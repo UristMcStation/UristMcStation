@@ -14,7 +14,7 @@ SUBSYSTEM_DEF(weather_atoms)
 /datum/controller/subsystem/weather_atoms/UpdateStat(time)
 	if (PreventUpdateStat(time))
 		return ..()
-	..("A:[weather_atoms.len]")
+	..("A:[length(weather_atoms)]")
 
 /datum/controller/subsystem/weather_atoms/fire(resumed = 0)
 	if(!resumed)
@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(weather_atoms)
 	weather_state = null
 
 	var/i = 0
-	while(i < processing_atoms.len)
+	while(i < length(processing_atoms))
 		i++
 		atom = processing_atoms[i]
 
@@ -53,5 +53,5 @@ SUBSYSTEM_DEF(weather_atoms)
 
 	processing_atoms.Cut()
 
-/atom/proc/process_weather(obj/abstract/weather_system/weather, decl/state/weather/weather_state)
+/atom/proc/process_weather(obj/abstract/weather_system/weather, singleton/state/weather/weather_state)
 	return PROCESS_KILL

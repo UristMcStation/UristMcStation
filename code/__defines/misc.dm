@@ -283,7 +283,7 @@
 //Misc text define. Does 4 spaces. Used as a makeshift tabulator.
 #define FOURSPACES "&nbsp;&nbsp;&nbsp;&nbsp;"
 
-#define INCREMENT_WORLD_Z_SIZE world.maxz++; if (length(SSzcopy.zlev_maximums)) { SSzcopy.calculate_zstack_limits() }; if(SSweather?.weather_by_z) { SSweather.weather_by_z.len = world.maxz}
+#define INCREMENT_WORLD_Z_SIZE world.maxz++; if (length(SSzcopy.zlev_maximums)) { SSzcopy.calculate_zstack_limits() }; if(SSweather?.weather_by_z) { LIST_RESIZE(SSweather.weather_by_z, world.maxz)}
 
 //-- Masks for /atom/var/init_flags --
 //- machinery

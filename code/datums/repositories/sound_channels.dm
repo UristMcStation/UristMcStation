@@ -7,7 +7,7 @@ GLOBAL_VAR_AS(ambience_channel_vents, GLOB.sound_channels.RequestChannel("AMBIEN
 GLOBAL_VAR_AS(ambience_channel_forced, GLOB.sound_channels.RequestChannel("AMBIENCE_FORCED"))
 GLOBAL_VAR_AS(ambience_channel_common, GLOB.sound_channels.RequestChannel("AMBIENCE_COMMON"))
 
-GLOBAL_VAR_INIT(weather_channel, GLOB.sound_channels.RequestChannel("WEATHER"))
+GLOBAL_VAR_AS(weather_channel, GLOB.sound_channels.RequestChannel("WEATHER"))
 
 /repository/sound_channels
 	var/datum/stack/available_channels

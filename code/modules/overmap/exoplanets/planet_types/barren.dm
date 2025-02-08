@@ -14,7 +14,7 @@
 	initial_weather_state = null //Airless rocks dont have weather currently
 
 /obj/overmap/visitable/sector/exoplanet/barren/generate_atmosphere()
-	atmosphere = new
+	exterior_atmosphere = new
 
 /obj/overmap/visitable/sector/exoplanet/barren/generate_flora()
 	return
