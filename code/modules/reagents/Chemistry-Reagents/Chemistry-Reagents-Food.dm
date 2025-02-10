@@ -143,6 +143,12 @@
 	condiment_name = "batter mix"
 	condiment_desc = "A gooey mixture of eggs and flour in a vat. Delicious!"
 
+/datum/reagent/nutriment/batter/soy
+	name = "Soy Batter"
+	description = "A gooey mixture of tofu and flour, a base for turning soy into food."
+	taste_description = "tofu goodness?"
+	protein_amount = 0
+
 /datum/reagent/nutriment/batter/touch_turf(turf/simulated/T)
 	if(!istype(T, /turf/space))
 		new /obj/decal/cleanable/pie_smudge(T)
@@ -160,8 +166,13 @@
 	taste_mult = 0.3
 	protein_amount = 0.3
 	sugar_amount = 0.3
-
 	condiment_name = "cake batter mix"
+
+/datum/reagent/nutriment/batter/cakebatter/soy
+	name = "Soy Cake Batter"
+	description = "A gooey mixture of soy, flour and honey, an important precursor to cake!"
+	protein_amount = 0
+	sugar_amount = 0.4
 
 /datum/reagent/nutriment/coffee
 	name = "Coffee Powder"
