@@ -48,7 +48,7 @@
 	heat_discomfort_strings = list(
 		"Your CPU temperature probes warn you that you are approaching critical heat levels!"
 		)
-	genders = list(NEUTER)
+	genders = list(MALE, FEMALE, NEUTER)
 
 	available_cultural_info = list(
 		TAG_CULTURE = list(
@@ -56,7 +56,6 @@
 		),
 		TAG_HOMEWORLD = list(
 			HOME_SYSTEM_ROOT,
-			HOME_SYSTEM_EARTH,
 			HOME_SYSTEM_LUNA,
 			HOME_SYSTEM_MARS,
 			HOME_SYSTEM_VENUS,
@@ -91,6 +90,12 @@
 	*/
 
 	bodyfall_sound = 'sound/effects/bodyfall_machine.ogg'
+
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/MachineChangeScreen,
+		/mob/living/carbon/human/proc/MachineDisableScreen,
+		/mob/living/carbon/human/proc/MachineShowText
+	)
 
 /datum/species/machine/handle_death(mob/living/carbon/human/H)
 	..()

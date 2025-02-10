@@ -2597,7 +2597,7 @@
 /area/command/ce)
 "fw" = (
 /obj/structure/closet/secure_closet/engineering_chief,
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/item/clothing/glasses/welding/superior,
 /obj/effect/floor_decal/corner/fadeblue{
 	dir = 5;
@@ -3496,6 +3496,7 @@
 /obj/structure/hygiene/toilet{
 	pixel_y = 12
 	},
+/obj/item/storage/box/bogrolls,
 /turf/simulated/floor/tiled/white,
 /area/command/captain)
 "gs" = (
@@ -6801,6 +6802,9 @@
 /area/civilian/dorms)
 "na" = (
 /obj/structure/bed/chair/wood/walnut,
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
 /turf/simulated/floor/carpet/blue2,
 /area/civilian/dorms)
 "nb" = (
@@ -9342,6 +9346,7 @@
 /obj/structure/hygiene/toilet{
 	dir = 4
 	},
+/obj/item/taperoll/bog,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/bath)
 "rW" = (
@@ -11499,8 +11504,8 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/obj/item/storage/backpack/duffel/duffel_norm,
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/suit/coat,
 /obj/item/clothing/suit/coat,
 /obj/machinery/light{
@@ -11813,7 +11818,6 @@
 	pixel_x = 22;
 	pixel_y = 0
 	},
-/obj/item/clothing/mask/plunger,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
@@ -11824,6 +11828,8 @@
 	icon_state = "alarm0";
 	pixel_y = -22
 	},
+/obj/item/storage/box/bogrolls,
+/obj/item/clothing/mask/plunger,
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/bath)
 "wC" = (
@@ -14873,7 +14879,7 @@
 /obj/structure/table/rack{
 	dir = 8
 	},
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /obj/machinery/alarm{
 	pixel_y = 25
 	},
@@ -14985,6 +14991,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
+"HC" = (
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
+/turf/simulated/floor/wood/walnut,
+/area/civilian/dorms)
 "HJ" = (
 /obj/effect/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
@@ -39346,7 +39358,7 @@ fO
 Qx
 hH
 io
-jk
+HC
 kb
 kZ
 lY
@@ -40558,7 +40570,7 @@ fS
 gO
 hH
 iq
-jk
+HC
 jk
 WF
 ma

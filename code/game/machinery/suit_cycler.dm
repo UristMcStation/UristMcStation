@@ -196,37 +196,39 @@
 /obj/machinery/suit_cycler/interact(mob/user)
 	user.set_machine(src)
 
-	var/dat = list()
+	var/dat = ""
 	dat += "<HEAD><TITLE>Suit Cycler Interface</TITLE></HEAD>"
 
 	if(active)
-		dat+= "<br>[SPAN_COLOR("red", "<b>The [model_text ? "[model_text] " : ""]suit cycler is currently in use. Please wait...</b>")]"
+		dat+= "<br>[SPAN_COLOR("red", "<b>The [model_text ? "[model_text] " : ""]Suit Cycler is currently in use. Please wait...</b>")]"
 
 	else if(locked)
-		dat += "<br>[SPAN_COLOR("red", "<b>The [model_text ? "[model_text] " : ""]suit cycler is currently locked. Please contact your system administrator.</b>")]"
+		dat += "<br>[SPAN_COLOR("red", "<b>The [model_text ? "[model_text] " : ""]Suit Cycler is currently locked. Please contact your system administrator.</b>")]"
 		if(allowed(user))
-			dat += "<br><a href='?src=\ref[src];toggle_lock=1'>\[unlock unit\]</a>"
+			dat += "<br><a href='?src=\ref[src];toggle_lock=1'>\[Unlock Unit\]</a>"
 	else
-		dat += "<h1>Suit cycler</h1>"
-		dat += "<B>Welcome to the [model_text ? "[model_text] " : ""]suit cycler control panel. <a href='?src=\ref[src];toggle_lock=1'>\[lock unit\]</a></B><HR>"
+		dat += "<h1>Suit Cycler:</h1>"
+		dat += "<B>Welcome to the [model_text ? "[model_text] " : ""]Suit Cycler control panel: <a href='?src=\ref[src];toggle_lock=1'>\[Lock Unit\]</a></B><HR>"
 
-		dat += "<h2>Maintenance</h2>"
-		dat += "<b>Helmet: </b> [helmet ? "\the [helmet]" : "no helmet stored" ]. <A href='?src=\ref[src];eject_helmet=1'>\[eject\]</a><br/>"
-		dat += "<b>Suit: </b> [suit ? "\the [suit]" : "no suit stored" ]. <A href='?src=\ref[src];eject_suit=1'>\[eject\]</a>"
+		dat += "<h2>Maintenance:</h2>"
+		dat += "<b>Helmet: </b> [helmet ? "\the [helmet]" : "No Helmet Stored" ]. <A href='?src=\ref[src];eject_helmet=1'>\[eject\]</a><br/>"
+		dat += "<b>Suit: </b> [suit ? "\the [suit]" : "No Suit Stored" ]. <A href='?src=\ref[src];eject_suit=1'>\[eject\]</a>"
 
 		if(can_repair && suit && istype(suit))
 			dat += "[(suit.damage ? " <A href='?src=\ref[src];repair_suit=1'>\[repair\]</a>" : "")]"
 
-		dat += "<br/><b>UV decontamination systems:</b> [emagged ? SPAN_COLOR("red", "SYSTEM ERROR") : SPAN_COLOR("green", "READY")]<br>"
-		dat += "Output level: [radiation_level]<br>"
-		dat += "<A href='?src=\ref[src];select_rad_level=1'>\[select power level\]</a> <A href='?src=\ref[src];begin_decontamination=1'>\[begin decontamination cycle\]</a><br><hr>"
+		dat += "<br/><b>UV Decontamination Systems:</b> [emagged ? SPAN_COLOR("red", "SYSTEM ERROR") : SPAN_COLOR("green", "READY")]<br>"
+		dat += "<b>Output Level: </b> [radiation_level]<br>"
+		dat += "<A href='?src=\ref[src];select_rad_level=1'>\[Select Power Level\]</a> <A href='?src=\ref[src];begin_decontamination=1'>\[Begin Decontamination Cycle\]</a><br><hr>"
 
 		dat += "<h2>Customisation</h2>"
-		dat += "<b>Target product:</b> <A href='?src=\ref[src];select_department=1'>[target_modification.name]</a>, <A href='?src=\ref[src];select_species=1'>[target_species]</a>."
-		dat += "<A href='?src=\ref[src];apply_paintjob=1'><br>\[apply customisation routine\]</a><br><hr>"
+		dat += "<b>Target Product:</b> <A href='?src=\ref[src];select_department=1'>[target_modification.name]</a><br/>"
+		dat += "<b>Target Species:</b> <A href='?src=\ref[src];select_species=1'>[target_species]</a><br/>"
+		dat += "<A href='?src=\ref[src];apply_paintjob=1'>\[Apply Customisation Routine\]</a><br/><hr>"
 
-	show_browser(user, JOINTEXT(dat), "window=suit_cycler")
-	onclose(user, "suit_cycler")
+	var/datum/browser/popup = new(user, "suit_cycler", "Suit Cycler Interface", 500, 400)
+	popup.set_content(dat)
+	popup.open()
 	return
 
 /obj/machinery/suit_cycler/Topic(href, href_list)

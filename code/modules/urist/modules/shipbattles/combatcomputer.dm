@@ -91,6 +91,11 @@
 
 	ui_interact(user)
 
+/obj/machinery/computer/combatcomputer/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
+	else ui_interact(user)
+
 /obj/machinery/computer/combatcomputer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]
 	var/list/weapons[0]

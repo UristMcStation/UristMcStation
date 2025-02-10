@@ -9,6 +9,10 @@
 	name = "New Pirate - Laser"
 	corpse_outfits = list(/singleton/hierarchy/outfit/newpirate)
 
+/obj/effect/landmark/corpse/newpirate/laser/elite
+	name = "New Pirate - Laser Elite"
+	corpse_outfits = list(/singleton/hierarchy/outfit/newpirate/elite)
+
 /obj/effect/landmark/corpse/newpirate/melee
 	name = "New Pirate - Melee"
 	corpse_outfits = list(/singleton/hierarchy/outfit/newpirate/melee)
@@ -16,6 +20,10 @@
 /obj/effect/landmark/corpse/newpirate/ballistic
 	name = "New Pirate - Ballistic"
 	corpse_outfits = list(/singleton/hierarchy/outfit/newpirate/ballistic)
+
+/obj/effect/landmark/corpse/newpirate/ballistic/space
+	name = "New Pirate - Ballistic Space"
+	corpse_outfits = list(/singleton/hierarchy/outfit/newpirate/ballistic/space)
 
 //terran corpses
 

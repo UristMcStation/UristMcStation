@@ -37,7 +37,8 @@
 		/datum/reagent/thermite =      1,
 		/datum/reagent/foaming_agent = 1,
 		/datum/reagent/surfactant =    1,
-		/datum/reagent/paint =         1
+		/datum/reagent/paint =         1,
+		/datum/reagent/lube =		   1
 	)
 	var/static/list/can_digest_matter = list(
 		MATERIAL_WOOD =        TRUE,

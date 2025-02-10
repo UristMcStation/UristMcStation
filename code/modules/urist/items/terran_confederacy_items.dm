@@ -103,7 +103,7 @@
 	armor = list(melee = 65, bullet = 50, laser = 40,energy = 15, bomb = 35, bio = 100, rad = 30)
 
 /obj/item/ammo_magazine/c10mm
-	name = "TD-10 SMG magazine (10mm)"
+	name = "TD-10 SMG magazine"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "smg10mm"
 	origin_tech = list(TECH_COMBAT = 2)
@@ -115,7 +115,7 @@
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/c10mm/TD10
-	name = "TD-10 Pistol magazine (10mm)"
+	name = "TD-10 Pistol magazine"
 	icon_state = "10mmadv"
 	max_ammo = 12
 	multiple_sprites = 1
@@ -262,7 +262,7 @@
 	desc = "A grey protective helmet, standard issue for all Terran Confederacy Marines serving aboard Naval vessels."
 	icon_state = "terran_helm"
 	armor = list(melee = 50, bullet = 55, laser = 30, energy = 25, bomb = 30, bio = 0, rad = 0)
-	var/obj/item/storage/fancy/cigarettes/cigs
+	var/obj/item/storage/fancy/smokable/cigs
 
 /obj/item/card/id/terran/marine
 	name = "\improper Terran Marine ID"

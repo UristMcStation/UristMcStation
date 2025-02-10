@@ -115,6 +115,10 @@
 			  /mob/living/simple_animal/hostile/retaliate/parrot/verb/drop_held_item_player, \
 			  /mob/living/simple_animal/hostile/retaliate/parrot/proc/perch_player)
 
+	icon_state = "[icon_set]_fly"
+	icon_living = "[icon_set]_fly"
+	icon_dead = "[icon_set]_dead"
+
 	update_icon()
 
 /mob/living/simple_animal/hostile/retaliate/parrot/death(gibbed, deathmessage, show_dead_message)
@@ -127,11 +131,6 @@
 /mob/living/simple_animal/hostile/retaliate/parrot/Stat()
 	. = ..()
 	stat("Held Item", held_item)
-
-/mob/living/simple_animal/hostile/retaliate/parrot/on_update_icon()
-	icon_state = "[icon_set]_fly"
-	icon_living = "[icon_set]_fly"
-	icon_dead = "[icon_set]_dead"
 
 /*
  * Inventory
@@ -436,7 +435,7 @@
 				if(!parrot_perch || parrot_interest.loc != parrot_perch.loc)
 					held_item = parrot_interest
 					parrot_interest.forceMove(src)
-					visible_message("[src] grabs the [held_item]!", SPAN_NOTICE("You grab the [held_item]!"), "You hear the sounds of wings flapping furiously.")
+					visible_message("[src] grabs \the [held_item]!", SPAN_NOTICE("You grab \the [held_item]!"), "You hear the sounds of wings flapping furiously.")
 
 			parrot_interest = null
 			parrot_state = PARROT_SWOOP | PARROT_RETURN
@@ -603,7 +602,7 @@
 
 			held_item = I
 			I.forceMove(src)
-			visible_message("[src] grabs the [held_item]!", SPAN_NOTICE("You grab the [held_item]!"), "You hear the sounds of wings flapping furiously.")
+			visible_message("[src] grabs \the [held_item]!", SPAN_NOTICE("You grab \the [held_item]!"), "You hear the sounds of wings flapping furiously.")
 			return held_item
 
 	to_chat(src, SPAN_WARNING("There is nothing of interest to take."))
@@ -631,7 +630,7 @@
 
 		if(stolen_item && C.unEquip(stolen_item, src))
 			held_item = stolen_item
-			visible_message("[src] grabs the [held_item] out of [C]'s hand!", SPAN_WARNING("You snag the [held_item] out of [C]'s hand!"), "You hear the sounds of wings flapping furiously.")
+			visible_message("[src] grabs \the [held_item] out of [C]'s hand!", SPAN_WARNING("You snag \the [held_item] out of [C]'s hand!"), "You hear the sounds of wings flapping furiously.")
 			return held_item
 
 	to_chat(src, SPAN_WARNING("There is nothing of interest to take."))
@@ -666,11 +665,11 @@
 			var/obj/item/grenade/G = held_item
 			G.dropInto(loc)
 			G.detonate()
-			to_chat(src, "You let go of the [held_item]!")
+			to_chat(src, "You let go of \the [held_item]!")
 			held_item = null
 			return 1
 
-	to_chat(src, "You drop the [held_item].")
+	to_chat(src, "You drop \the [held_item].")
 
 	held_item.dropInto(loc)
 	held_item = null

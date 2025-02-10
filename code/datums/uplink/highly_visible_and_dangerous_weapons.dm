@@ -56,11 +56,11 @@
 	item_cost = 20
 	path = /obj/item/storage/box/syndie_kit/silenced
 
-/*/datum/uplink_item/item/visible_weapons/broomstick //broken on bay's end
+/datum/uplink_item/item/visible_weapons/broomstick
 	name = "Broomstick Pistol"
 	desc = "An antique pistol stolen from a museum. Be warned, it may be faulty and comes unloaded."
 	item_cost = 40
-	path = /obj/item/gun/projectile/pistol/broomstick*/
+	path = /obj/item/gun/projectile/pistol/broomstick
 
 /datum/uplink_item/item/badassery/money_cannon
 	name = "Modified Money Cannon"

@@ -199,7 +199,10 @@
 		/obj/item/clothing/accessory/storage/holster/armpit,
 		/obj/item/reagent_containers/food/drinks/flask/detflask,
 		/obj/item/storage/briefcase/crimekit,
-		/obj/item/device/holowarrant
+		/obj/item/device/holowarrant,
+		/obj/item/clothing/suit/urist/raincoat,
+		/obj/item/clothing/mask/smokable/cigarette/cigar/green,
+		/obj/item/clothing/under/suit_jacket/tan
 	)
 
 /obj/structure/closet/secure_closet/injection

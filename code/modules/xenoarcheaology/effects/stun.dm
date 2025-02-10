@@ -11,9 +11,9 @@
 		var/susceptibility = GetAnomalySusceptibility(C)
 		if(prob(susceptibility * 100))
 			to_chat(C, SPAN_WARNING("A powerful force overwhelms your consciousness."))
-			C.Weaken(rand(1,10) * susceptibility)
+			C.Weaken(rand(5,20) * susceptibility)
 			C.stuttering += 30 * susceptibility
-			C.Stun(rand(1,10) * susceptibility)
+			C.Stun(rand(5,20) * susceptibility)
 
 /datum/artifact_effect/stun/DoEffectAura()
 	if(holder)

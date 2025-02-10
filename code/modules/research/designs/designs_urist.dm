@@ -222,3 +222,21 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	materials = list (MATERIAL_STEEL = 10000, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 1000, MATERIAL_GOLD = 1000, MATERIAL_PHORON = 200)
 	build_path = /obj/item/organ/internal/stack
 	sort_string = "VACBA"
+
+// Utility
+
+/datum/design/item/utility/advanced_flashlight
+	name = "advanced flashlight"
+	desc = "An upgraded flashlight, allowing you to see further into the dark than your usual flashlight. "
+	req_tech = list(TECH_ENGINEERING = 1, TECH_MATERIAL = 2, TECH_POWER = 3)
+	materials = list (MATERIAL_STEEL = 350, MATERIAL_GLASS = 250, MATERIAL_PLASTIC = 200) // Cheap enough to replace without rare mats.
+	build_path = /obj/item/device/flashlight/maglight/advanced
+	sort_string = "URSTZ"
+
+/datum/design/item/utility/geiger_counter
+	name = "geiger counter"
+	desc = "A geiger counter"
+	req_tech = list(TECH_ENGINEERING = 2, TECH_MATERIAL = 1, TECH_POWER = 1)
+	materials = list (MATERIAL_STEEL = 150, MATERIAL_GLASS = 100, MATERIAL_PLASTIC = 400)
+	build_path = /obj/item/device/geiger
+	sort_string = "URSCD"

@@ -134,6 +134,10 @@
 	},
 /turf/simulated/floor/away/blueriver/alienfloor,
 /area/bluespaceriver/underground)
+"H" = (
+/obj/structure/scrap,
+/turf/simulated/floor/asteroid,
+/area/bluespaceriver/underground)
 
 (1,1,1) = {"
 a
@@ -2231,7 +2235,7 @@ a
 a
 a
 a
-a
+k
 a
 a
 a
@@ -2332,7 +2336,7 @@ a
 a
 a
 a
-a
+k
 k
 k
 k
@@ -2541,7 +2545,7 @@ k
 k
 k
 k
-a
+k
 a
 a
 a
@@ -2638,12 +2642,12 @@ a
 a
 a
 a
-a
 k
 k
 k
 k
-a
+k
+k
 a
 a
 a
@@ -4267,14 +4271,14 @@ c
 c
 c
 a
-a
-a
+k
+k
 a
 a
 a
 k
 k
-a
+k
 a
 a
 a
@@ -4472,7 +4476,7 @@ f
 c
 l
 k
-k
+a
 k
 k
 n
@@ -4483,7 +4487,7 @@ k
 k
 k
 k
-a
+H
 a
 a
 a
@@ -4577,7 +4581,7 @@ a
 a
 a
 a
-a
+k
 k
 k
 a

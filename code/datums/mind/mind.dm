@@ -504,6 +504,8 @@
 		return
 	if(manual_pay_rate)
 		return manual_pay_rate
+	if(assigned_role == "Passenger")
+		return 0
 	var/datum/job/job = SSjobs.titles_to_datums[assigned_role]
 	if(!job)
 		job = SSjobs.titles_to_datums["Assistant"]	//Fallback if weird stuff happens. Will at least return assistant wages rather than break things

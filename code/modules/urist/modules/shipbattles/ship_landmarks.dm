@@ -32,8 +32,14 @@
 /obj/effect/urist/triggers/ai_defender_landmark/pirate
 	spawn_type = list(/mob/living/simple_animal/hostile/urist/newpirate, /mob/living/simple_animal/hostile/urist/newpirate/laser)
 
+/obj/effect/urist/triggers/ai_defender_landmark/pirate/elite
+	spawn_type = list(/mob/living/simple_animal/hostile/urist/newpirate/laser/elite)
+
 /obj/effect/urist/triggers/ai_defender_landmark/pirate/ballistic
 	spawn_type = list(/mob/living/simple_animal/hostile/urist/newpirate/ballistic)
+
+/obj/effect/urist/triggers/ai_defender_landmark/pirate/ballistic/space
+	spawn_type = list(/mob/living/simple_animal/hostile/urist/newpirate/ballistic/space)
 
 /obj/effect/urist/triggers/ai_defender_landmark/terran/space_marine
 	spawn_type = list(/mob/living/simple_animal/hostile/urist/terran/marine_space)

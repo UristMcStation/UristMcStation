@@ -153,9 +153,9 @@
 							if(!can_special_reload)
 								to_chat(user, SPAN_WARNING("You can't speed reload with this gun!"))
 								return
-							if(!user.unEquip(AM, src))
-								return
 							if(do_after(user, 1, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT))
+								if(!user.unEquip(AM, src))
+									return
 								if(jam_chance && istype(ammo_magazine, magazine_type))
 									jam_chance -= 10
 								ammo_magazine.update_icon()

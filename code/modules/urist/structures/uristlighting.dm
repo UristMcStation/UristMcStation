@@ -141,3 +141,11 @@
 /obj/machinery/light/broken/Initialize()
 	. = ..()
 	broken()
+
+/obj/item/storage/box/lights/incandescent
+	name = "box of replacement incandescent lights"
+	icon = 'icons/obj/storage.dmi'
+	icon_state = "lighttube"
+	startswith = list(/obj/item/light/tube/tinted/warmtint = 7,
+					/obj/item/light/tube/tinted/coldtint = 7,
+					/obj/item/light/tube/large/tinted/warmtint = 4)

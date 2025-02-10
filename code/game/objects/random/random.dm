@@ -58,7 +58,9 @@
 				/obj/item/crowbar,
 				/obj/item/wrench,
 				/obj/item/device/flashlight,
-				/obj/item/device/flashlight/upgraded)
+				/obj/item/device/flashlight/upgraded,
+				/obj/item/airlock_brace,
+				/obj/item/device/flashlight/maglight)
 
 /obj/random/technology_scanner
 	name = "random scanner"
@@ -230,7 +232,10 @@
 				/obj/item/reagent_containers/syringe = 3,
 				/obj/item/reagent_containers/syringe/steroid = 2,
 				/obj/item/reagent_containers/syringe/drugs = 1,
-				/obj/item/reagent_containers/food/snacks/egg/lizard = 3)
+				/obj/item/reagent_containers/food/snacks/egg/lizard = 3,
+				/obj/item/reagent_containers/glass/bottle/dye/polychromic/strong = 1,
+				/obj/item/storage/backpack/satchel/syndie_kit/clerical = 1,
+				/obj/item/clothing/shoes/laceup/sneakies = 1)
 
 /obj/random/drinkbottle
 	name = "random drink"
@@ -378,7 +383,8 @@
 				/obj/item/toy/figure/warden,
 				/obj/item/toy/figure/psychologist,
 				/obj/item/toy/figure/paramedic,
-				/obj/item/toy/figure/ert)
+				/obj/item/toy/figure/ert,
+				/obj/item/toy/figure/blueshield)
 
 
 /obj/random/plushie

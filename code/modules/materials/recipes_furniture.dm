@@ -118,13 +118,13 @@ ARMCHAIR(yellow)
 	title = "door"
 	result_type = /obj/machinery/door/unpowered/simple
 	req_amount = 10
-	time = 50
+	time = 40
 
 /datum/stack_recipe/furniture/barricade
 	title = "barricade"
 	result_type = /obj/structure/barricade
 	req_amount = 5
-	time = 50
+	time = 20
 
 /datum/stack_recipe/furniture/stool
 	title = "stool"
@@ -152,7 +152,7 @@ ARMCHAIR(yellow)
 /datum/stack_recipe/furniture/table_frame
 	title = "table frame"
 	result_type = /obj/structure/table
-	time = 10
+	time = 5
 
 /datum/stack_recipe/furniture/rack
 	title = "rack"
@@ -163,7 +163,7 @@ ARMCHAIR(yellow)
 	title = "closet"
 	result_type = /obj/structure/closet
 	req_amount = 2
-	time = 15
+	time = 10
 
 /datum/stack_recipe/furniture/canister
 	title = "canister"
@@ -183,37 +183,37 @@ ARMCHAIR(yellow)
 	title = "computer frame"
 	result_type = /obj/machinery/constructable_frame/computerframe
 	req_amount = 5
-	time = 25
+	time = 20
 
 /datum/stack_recipe/furniture/girder
 	title = "wall girders"
 	result_type = /obj/structure/girder
 	req_amount = 2
-	time = 50
+	time = 20
 
 /datum/stack_recipe/furniture/wall_frame
 	title = "low wall frame"
 	result_type = /obj/structure/wall_frame
 	req_amount = 3
-	time = 50
+	time = 20
 
 /datum/stack_recipe/furniture/machine
 	title = "machine frame"
 	result_type = /obj/machinery/constructable_frame/machine_frame
 	req_amount = 5
-	time = 25
+	time = 20
 	send_material_data = 0
 
 /datum/stack_recipe/furniture/turret
 	title = "turret frame"
 	result_type = /obj/machinery/porta_turret_construct
 	req_amount = 5
-	time = 25
+	time = 20
 	send_material_data = 0
 
 /datum/stack_recipe/furniture/door_assembly
 	req_amount = 4
-	time = 50
+	time = 30
 
 /datum/stack_recipe/furniture/door_assembly/standard
 	title = "standard airlock assembly"
@@ -243,7 +243,7 @@ ARMCHAIR(yellow)
 	title = "crate"
 	result_type = /obj/structure/closet/crate
 	req_amount = 10
-	time = 50
+	time = 20
 
 /datum/stack_recipe/furniture/crate/plastic
 	result_type = /obj/structure/closet/crate/plastic
@@ -258,25 +258,25 @@ ARMCHAIR(yellow)
 	title = "coffin"
 	result_type = /obj/structure/closet/coffin
 	req_amount = 5
-	time = 15
+	time = 10
 
 /datum/stack_recipe/furniture/coffin/wooden
 	title = "coffin"
 	result_type = /obj/structure/closet/coffin/wooden
 	req_amount = 5
-	time = 15
+	time = 10
 
 /datum/stack_recipe/furniture/bookcase
 	title = "book shelf"
 	result_type = /obj/structure/bookcase
 	req_amount = 5
-	time = 15
+	time = 10
 
 /datum/stack_recipe/furniture/truss
 	title = "truss"
 	result_type = /obj/structure/kitchenspike/improvised
 	req_amount = 10
-	time = 20
+	time = 15
 
 /datum/stack_recipe/furniture/planting_bed
 	title = "planting bed"
@@ -289,7 +289,7 @@ ARMCHAIR(yellow)
 	title = "full-tile window"
 	result_type = /obj/structure/window
 	req_amount = 4
-	time = 15
+	time = 10
 	one_per_turf = 0
 
 /datum/stack_recipe/furniture/fullwindow/can_make(mob/user)

@@ -33,10 +33,10 @@
 
 /obj/item/reagent_containers/food/snacks/csandwich/attackby(obj/item/W, mob/user)
 
-	var/sandwich_limit = 4
+	var/sandwich_limit = 20  // STACK EM TALL!!!!
 	for(var/obj/item/O in ingredients)
 		if(istype(O,/obj/item/reagent_containers/food/snacks/slice/bread))
-			sandwich_limit += 4
+			sandwich_limit += 20 // For each slice, you can add another 20.
 
 	if(length(src.contents) > sandwich_limit)
 		to_chat(user, SPAN_WARNING("If you put anything else on \the [src] it's going to collapse."))

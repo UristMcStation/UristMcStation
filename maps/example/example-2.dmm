@@ -21,10 +21,36 @@
 /obj/machinery/chemical_dispenser/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
+"eP" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/table/standard,
+/obj/item/stack/material/aluminium/fifty,
+/obj/item/stack/material/aluminium/fifty,
+/obj/item/stack/material/deuterium/fifty,
+/obj/item/stack/material/diamond/ten,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/glass/phoronglass,
+/obj/item/stack/material/glass/reinforced/fifty,
+/obj/item/stack/material/gold/ten,
+/obj/item/stack/material/iron,
+/obj/item/stack/material/mhydrogen/ten,
+/obj/item/stack/material/nullglass/fifty,
+/obj/item/stack/material/ocp/fifty,
+/obj/item/stack/material/osmium/ten,
+/obj/item/stack/material/phoron/fifty,
+/obj/item/stack/material/plasteel/fifty,
+/obj/item/stack/material/plastic/fifty,
+/obj/item/stack/material/platinum/ten,
+/obj/item/stack/material/rods/fifty,
+/obj/item/stack/material/steel/fifty,
+/obj/item/stack/material/steel/fifty,
+/obj/item/stack/material/titanium/fifty,
+/obj/item/stack/material/tritium/fifty,
+/obj/item/stack/material/uranium/fifty,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
 "gk" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 5
-	},
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/closet/secure_closet/freezer/fridge,
 /obj/item/reagent_containers/food/condiment/enzyme,
@@ -34,6 +60,13 @@
 "gm" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/cell_charger,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
+"gM" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/biogenerator,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "gO" = (
@@ -114,8 +147,7 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/machinery/reagentgrinder/juicer,
-/obj/item/reagent_containers/glass/beaker/large,
+/obj/machinery/botany/editor,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "lM" = (
@@ -127,6 +159,12 @@
 /obj/item/device/robotanalyzer,
 /obj/item/device/scanner/health,
 /obj/item/storage/firstaid/adv,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
+"lQ" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/table/standard,
+/obj/machinery/chemical_dispenser/bar_soft/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "ms" = (
@@ -153,13 +191,13 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/washing_machine,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "nu" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/table/standard,
+/obj/machinery/reagent_temperature,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "nw" = (
@@ -176,11 +214,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "oy" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/obj/machinery/portable_atmospherics/canister/empty,
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/kitchenspike,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "oP" = (
@@ -188,7 +223,10 @@
 /area/space)
 "oU" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/reagent_temperature/cooler,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "oW" = (
@@ -196,11 +234,12 @@
 /obj/structure/table/glass,
 /obj/item/storage/box/gloves,
 /obj/item/storage/box/masks,
+/obj/item/storage/box/monkeycubes,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "pD" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "qw" = (
@@ -209,6 +248,17 @@
 	},
 /turf/space,
 /area/space)
+"qx" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/item/stack/material/cardboard/fifty,
+/obj/item/stack/material/cloth,
+/obj/item/stack/material/generic/bone,
+/obj/item/stack/material/generic/brick,
+/obj/item/stack/material/generic/skin,
+/obj/item/stack/material/leather,
+/obj/item/stack/material/wood,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
 "qA" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/cooker/grill,
@@ -227,9 +277,21 @@
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
+"tn" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/table/rack,
+/obj/item/stack/animalhide/cat,
+/obj/item/stack/animalhide/corgi,
+/obj/item/stack/animalhide/human,
+/obj/item/stack/animalhide/lizard,
+/obj/item/stack/animalhide/xeno,
+/obj/item/stack/animalhide/monkey,
+/obj/item/stack/hairlesshide,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
 "uA" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/computer/operating,
+/obj/machinery/vitals_monitor,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "uM" = (
@@ -279,21 +341,33 @@
 /obj/machinery/cooker/oven,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
+"xr" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/floor_light/mapped_off{
+	default_light_outer_range = 6;
+	default_light_inner_range = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
 "xu" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "xA" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6
-	},
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/gibber,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "yq" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/item/reagent_containers/syringe,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
+"zp" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/table/standard,
+/obj/machinery/reagent_temperature/cooler,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "zN" = (
@@ -321,7 +395,7 @@
 /area/medical/surgery)
 "Dh" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
-/obj/machinery/reagent_temperature,
+/obj/machinery/botany/extractor,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "DL" = (
@@ -330,6 +404,12 @@
 "Eb" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/robotics_fabricator,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
+"Eq" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/table/standard,
+/obj/machinery/chemical_dispenser/bar_alc/full,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "HE" = (
@@ -384,11 +464,15 @@
 /obj/machinery/r_n_d/server/robotics,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
-"NP" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
+"NM" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/table/standard,
+/obj/machinery/chemical_dispenser/bar_coffee/full,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
+"NP" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/cooking/still,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "OD" = (
@@ -408,12 +492,16 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
-"QN" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/obj/machinery/portable_atmospherics/canister/air,
+"QG" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
+"QN" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/reagentgrinder/juicer,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "QY" = (
@@ -451,6 +539,10 @@
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "RG" = (
@@ -482,6 +574,19 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/bodyscanner{
 	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
+"Uq" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/seed_extractor,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
+"UD" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/portable_atmospherics/canister/empty,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
@@ -533,6 +638,12 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/table/glass,
 /obj/item/storage/firstaid/surgery,
+/turf/simulated/floor/tiled/white,
+/area/medical/surgery)
+"Zl" = (
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/table/standard,
+/obj/machinery/fabricator/micro/bartender,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "Zq" = (
@@ -1205,12 +1316,12 @@ HE
 HE
 HE
 HE
-Dh
 HE
+HE
+HE
+HE
+QG
 oU
-HE
-HE
-HE
 DL
 oP
 oP
@@ -1240,11 +1351,11 @@ Eb
 HE
 KN
 VS
+nu
+zp
 HE
-HE
-HE
-HE
-HE
+pD
+UD
 DL
 oP
 oP
@@ -1273,8 +1384,8 @@ HE
 HE
 HE
 HE
-HE
-HE
+tn
+qx
 HE
 HE
 HE
@@ -1344,7 +1455,7 @@ HE
 HE
 HE
 HE
-HE
+SL
 HE
 gO
 DL
@@ -1374,7 +1485,7 @@ XT
 ms
 CJ
 HE
-HE
+xr
 HE
 HE
 HE
@@ -1402,14 +1513,14 @@ oP
 oP
 oP
 DL
-HE
-XT
+OQ
+RG
 XT
 Wk
 Yt
+Zl
 HE
-HE
-HE
+lQ
 HE
 HE
 HE
@@ -1436,17 +1547,17 @@ oP
 oP
 oP
 DL
-OQ
+gM
 HE
 vD
 Nd
 HE
 wF
 HE
+NM
 HE
 HE
-HE
-SL
+kA
 vL
 HE
 DL
@@ -1477,10 +1588,10 @@ qA
 HE
 jM
 HE
+Eq
 HE
 HE
-HE
-kA
+eP
 Eb
 NH
 DL
@@ -1508,11 +1619,11 @@ jS
 yq
 nw
 jo
-pD
+HE
 gk
 HE
 xA
-NP
+HE
 HE
 HE
 HE
@@ -1543,9 +1654,9 @@ HE
 HE
 HE
 HE
-nu
 HE
-nu
+HE
+HE
 HE
 HE
 HE
@@ -1576,11 +1687,11 @@ xu
 xu
 XF
 lf
-HE
+Dh
 QN
-HE
+Uq
 oy
-HE
+NP
 QY
 Ii
 iG

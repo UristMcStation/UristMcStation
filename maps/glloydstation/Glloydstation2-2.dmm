@@ -103,14 +103,14 @@
 /area/holodeck/source_picnicarea)
 "aar" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/holofloor{
 	icon_state = "cult";
 	dir = 2
 	},
 /area/holodeck/source_theatre)
 "aas" = (
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /obj/structure/table/rack,
 /turf/simulated/floor/holofloor{
 	icon_state = "cult";

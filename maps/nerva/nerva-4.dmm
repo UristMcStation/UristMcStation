@@ -7118,7 +7118,7 @@
 /area/maintenance/first_deck/central)
 "np" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "nq" = (
@@ -7496,7 +7496,7 @@
 /area/maintenance/first_deck/central)
 "oa" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /obj/item/device/flashlight,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)

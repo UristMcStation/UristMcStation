@@ -18,7 +18,7 @@
 	name = "S-COM Commander"
 	uniform = /obj/item/clothing/under/rank/centcom
 	suit = /obj/item/clothing/suit/captunic
-	belt = /obj/item/storage/fancy/cigarettes
+	belt = /obj/item/storage/fancy/smokable/transstellar
 	shoes = /obj/item/clothing/shoes/laceup
 	head = /obj/item/clothing/head/caphat/formal
 	mask = /obj/item/clothing/mask/smokable/cigarette
@@ -158,7 +158,7 @@
 		new /obj/item/device/radio/headset/heads/captain(src)
 		new /obj/item/clothing/mask/smokable/cigarette(src)
 		new /obj/item/clothing/head/caphat/formal(src)
-		new /obj/item/storage/fancy/cigarettes(src)
+		new /obj/item/storage/fancy/smokable/transstellar(src)
 		new /obj/item/flame/lighter/zippo(src)
 		new /obj/item/clothing/shoes/jackboots/unathi(src)
 		new /obj/item/clothing/glasses(src)

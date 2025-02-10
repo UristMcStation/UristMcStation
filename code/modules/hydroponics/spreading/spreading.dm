@@ -152,6 +152,7 @@
 	else
 		layer = (seed && seed.force_layer) ? seed.force_layer : ABOVE_OBJ_LAYER
 		set_density(0)
+		set_opacity(0)
 
 	if(!growth_type && !floor)
 		SetTransform(

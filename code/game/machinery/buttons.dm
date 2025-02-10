@@ -29,6 +29,8 @@
 	return attack_hand(user)
 
 /obj/machinery/button/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return interface_interact(user)
 
 /obj/machinery/button/interface_interact(user)

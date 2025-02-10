@@ -115,6 +115,8 @@
 			descriptors |= "glowing"
 		if(seed.get_trait(TRAIT_EXPLOSIVE))
 			descriptors |= "bulbous"
+		if(reagents.has_reagent(/datum/reagent/lube))
+			descriptors |= "slippery"
 
 		var/descriptor_num = rand(2,4)
 		var/descriptor_count = descriptor_num

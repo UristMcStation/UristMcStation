@@ -46,15 +46,16 @@
 	var/dat
 
 	dat += "<hr/><br/><b>[storage_name]</b><br/>"
-	dat += "<i>Welcome, [user.real_name].</i><br/><br/><hr/>"
-	dat += "<a href='?src=\ref[src];log=1'>View storage log</a>.<br>"
+	dat += "<i>Welcome, <b>[user.real_name]</b>.</i><br/><br/><hr/>"
+	dat += "<a href='?src=\ref[src];log=1'>View crew storage log</a><br>"
 	if(allow_items)
-		dat += "<a href='?src=\ref[src];view=1'>View objects</a>.<br>"
-		dat += "<a href='?src=\ref[src];item=1'>Recover object</a>.<br>"
-		dat += "<a href='?src=\ref[src];allitems=1'>Recover all objects</a>.<br>"
+		dat += "<a href='?src=\ref[src];view=1'>View item storage log</a><br>"
+		dat += "<a href='?src=\ref[src];item=1'>Recover stored item</a><br>"
+		dat += "<a href='?src=\ref[src];allitems=1'>Recover all stored items</a><br>"
 
-	show_browser(user, dat, "window=cryopod_console")
-	onclose(user, "cryopod_console")
+	var/datum/browser/popup = new(user, "cryopod_console", "Cryogenic Storage Console", 400, 280)
+	popup.set_content(dat)
+	popup.open()
 
 /obj/machinery/computer/cryopod/OnTopic(user, href_list, state)
 	if(href_list["log"])
@@ -62,18 +63,23 @@
 		for(var/person in frozen_crew)
 			dat += "[person]<br/>"
 		dat += "<hr/>"
-		show_browser(user, dat, "window=cryolog")
+		var/datum/browser/popup = new(user, "cryolog", "Cryogenic Crew Storage Log", 400, 280)
+		popup.set_content(dat)
+		popup.open()
+
 		. = TOPIC_REFRESH
 
 	else if(href_list["view"])
 		if(!allow_items) return
 
-		var/dat = "<b>Recently stored objects</b><br/><hr/><br/>"
+		var/dat = "<b>Recently stored items</b><br/><hr/><br/>"
 		for(var/obj/item/I in frozen_items)
 			dat += "[I.name]<br/>"
 		dat += "<hr/>"
 
-		show_browser(user, dat, "window=cryoitems")
+		var/datum/browser/popup = new(user, "cryoitems", "Cryogenic Item Storage Log", 400, 280)
+		popup.set_content(dat)
+		popup.open()
 		. = TOPIC_HANDLED
 
 	else if(href_list["item"])
@@ -83,7 +89,7 @@
 			to_chat(user, SPAN_NOTICE("There is nothing to recover from storage."))
 			return TOPIC_HANDLED
 
-		var/obj/item/I = input(user, "Please choose which object to retrieve.","Object recovery",null) as null|anything in frozen_items
+		var/obj/item/I = input(user, "Please choose which items to retrieve.","Item recovery",null) as null|anything in frozen_items
 		if(!I || !CanUseTopic(user, state))
 			return TOPIC_HANDLED
 

@@ -12,6 +12,7 @@
 	matter = list(MATERIAL_PLASTIC = 10)
 	var/colour = "black"	//what colour the ink is!
 	var/color_description = "black ink"
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
 	var/active = TRUE
 	var/iscrayon = FALSE

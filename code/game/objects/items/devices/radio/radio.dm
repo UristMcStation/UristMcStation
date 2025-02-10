@@ -326,6 +326,24 @@
 	if(speaking && (speaking.flags & (NONVERBAL|SIGNLANG))) return 0
 
 	if (!broadcasting)
+		var/list/headset_z_group = GetConnectedZlevels(get_z(src))
+		//needs to account for turfs
+		var/turf/self_turf = get_turf(src)
+		if (!self_turf)
+			return FALSE
+		var/self_x = self_turf.x
+		var/self_y = self_turf.y
+		for (var/obj/item/device/radio_jammer/jammer as anything in active_radio_jammers)
+			if (within_jamming_range(src))
+				var/turf/jammer_turf = get_turf(jammer)
+				if (!jammer_turf)
+					continue
+				var/dx = self_x - jammer_turf.x
+				var/dy = self_y - jammer_turf.y
+				if (dx*dx + dy*dy <= jammer.radius && (jammer_turf.z in headset_z_group))
+					to_chat(M,SPAN_WARNING("Instead of the familiar radio crackle, \the [src] emits a faint buzzing sound."))
+					playsound(loc, 'sound/effects/zzzt.ogg', 20, 0, -1)
+					return FALSE
 		// Sedation chemical effect should prevent radio use (Chloral and Soporific)
 		var/mob/living/carbon/C = M
 		if (istype(C))
@@ -569,6 +587,8 @@
 		var/turf/position = get_turf(src)
 		if(!position || !(position.z in level))
 			return -1
+	if(within_jamming_range(src))
+		return -1
 	if(freq in ANTAG_FREQS)
 		if(!(src.syndie))//Checks to see if it's allowed on that frequency, based on the encryption keys
 			return -1

@@ -2,7 +2,7 @@
 	name = "Raiding Party"
 	round_description = "Prepare yourself! An unknown ship is approaching!"
 	config_tag = "voxraiders"
-	required_players = 15
+	required_players = 10
 	required_enemies = 3
 	end_on_antag_death = FALSE
 	antag_tags = list(MODE_VOXRAIDER, MODE_RAIDER)

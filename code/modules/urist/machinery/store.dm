@@ -80,6 +80,8 @@ var/global/datum/store/centcomm_store=new
 	..()
 
 /obj/machinery/computer/merch/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	src.add_hiddenprint(user)
 	return attack_hand(user)
 

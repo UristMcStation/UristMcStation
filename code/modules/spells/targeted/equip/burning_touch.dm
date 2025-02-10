@@ -6,7 +6,7 @@
 	invocation = "Horila Kiha!"
 	invocation_type = SpI_SHOUT
 	spell_flags = INCLUDEUSER
-	range = -1
+	range = 0
 	duration = 0
 	max_targets = 1
 	equipped_summons = list("active hand" = /obj/item/flame/hands)

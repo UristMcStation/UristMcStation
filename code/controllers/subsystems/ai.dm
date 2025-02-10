@@ -14,6 +14,7 @@ SUBSYSTEM_DEF(ai)
 	..({"\
 		Active AI: [length(ai_holders)] \
 		Run Empty Levels: [config.run_empty_levels ? "Y" : "N"]\
+		Run Empty Levels strictness: [config.run_empty_levels_throttled_perc]%\
 	"})
 
 
@@ -23,14 +24,28 @@ SUBSYSTEM_DEF(ai)
 		if (!length(queue))
 			return
 	var/cut_until = 1
+	#ifdef INCLUDE_URIST_CODE
+	var/throttle_on_empty = prob(config.run_empty_levels_throttled_perc) // Urist edit!
+	#endif
 	for (var/datum/ai_holder/ai as anything in queue)
 		++cut_until
 		if (QDELETED(ai) || ai.busy)
 			continue
 		if (!ai.holder)
 			continue
+		#ifndef INCLUDE_URIST_CODE
 		if (!config.run_empty_levels && !SSpresence.population(get_z(ai.holder)))
 			continue
+		#else
+		// Allow 'leaky' processing of empty, activated z-levels
+		if (!config.run_empty_levels)
+			var/holder_z = get_z(ai.holder)
+			var/zlevel_has_pop = SSpresence.population(holder_z)
+			if(!zlevel_has_pop)
+				var/zlevel_had_pop = SSpresence.population_from_cache(holder_z)
+				if(!zlevel_had_pop || throttle_on_empty)
+					continue
+		#endif
 		ai.handle_strategicals()
 		if (no_mc_tick)
 			CHECK_TICK

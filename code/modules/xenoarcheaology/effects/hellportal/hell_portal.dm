@@ -67,7 +67,7 @@
 				new /obj/effect/gibspawner/human(F)
 
 			F.set_flooring(GET_SINGLETON(/singleton/flooring/flesh))
-			F.desc = "Disgusting flooring made out of flesh, bone, eyes, and various other human bits and peices."
+			F.desc = "Disgusting flooring made out of flesh, bone, eyes, and various other human bits and pieces."
 
 
 /datum/artifact_effect/hellportal/proc/spawn_monsters()

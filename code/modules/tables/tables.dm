@@ -192,6 +192,26 @@
 
 	return ..()
 
+/obj/structure/table/attack_hand(mob/user as mob)
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	if(MUTATION_HULK in user.mutations)
+		user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!"))
+		user.visible_message(SPAN_DANGER("[user] smashes through [src]!"))
+		user.do_attack_animation(src)
+		break_to_parts()
+	else if(MUTATION_FERAL in user.mutations)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN*2) //Additional cooldown
+		attack_generic(user, 10, "smashes")
+
+	else if (user.a_intent && user.a_intent == I_HURT)
+
+		if (istype(user,/mob/living/carbon/human))
+			var/mob/living/carbon/human/H = user
+			if(H.species.can_shred(H))
+				attack_generic(H,25)
+				return
+	return
+
 /obj/structure/table/MouseDrop_T(obj/item/stack/material/what)
 	if(can_reinforce && isliving(usr) && (!usr.stat) && istype(what) && usr.get_active_hand() == what && Adjacent(usr))
 		reinforce_table(what, usr)

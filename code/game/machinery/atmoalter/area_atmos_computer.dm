@@ -24,6 +24,8 @@
 
 
 /obj/machinery/computer/area_atmos/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 

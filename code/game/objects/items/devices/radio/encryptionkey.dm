@@ -11,6 +11,7 @@
 	var/translate_hive = 0
 	var/syndie = 0
 	var/list/channels = list()
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
 /obj/item/device/encryptionkey/attackby(obj/item/W as obj, mob/user as mob)
 

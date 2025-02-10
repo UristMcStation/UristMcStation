@@ -121,6 +121,7 @@
 	icon_state = "snow"
 	dirt_color = "#e3e7e8"
 	footstep_type = /singleton/footsteps/snow
+	has_snow = TRUE
 
 /turf/simulated/floor/exoplanet/snow/Initialize()
 	. = ..()

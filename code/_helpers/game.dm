@@ -561,7 +561,13 @@
 	return seconds * 10
 
 /proc/round_is_spooky(spookiness_threshold = config.cult_ghostwriter_req_cultists)
+	# ifdef INCLUDE_URIST_CODE
+	var/cult_spooky = (length(GLOB.cult.current_antagonists) > spookiness_threshold)
+	var/global_spooky = GLOB.globally_spooky > 0
+	return cult_spooky || global_spooky
+	# else
 	return (length(GLOB.cult.current_antagonists) > spookiness_threshold)
+	# endif
 
 /proc/getviewsize(view)
 	var/viewX

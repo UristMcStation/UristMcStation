@@ -42,6 +42,7 @@
 	desc = "They're comfy black shoes, with clever cloaking technology built in. It seems to have a small dial on the back of each shoe."
 	origin_tech = list(TECH_ESOTERIC = 3)
 	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
+	species_restricted = list("exclude") // Everyone can wear chameleon shoes.
 
 /obj/item/clothing/shoes/chameleon/Initialize()
 	. = ..()
@@ -66,6 +67,7 @@
 	desc = "It looks like a pair of gloves, but it seems to have a small dial inside."
 	origin_tech = list(TECH_ESOTERIC = 3)
 	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
+	species_restricted = list("exclude") // Everyone can wear chameleon gloves.
 
 /obj/item/clothing/gloves/chameleon/Initialize()
 	. = ..()

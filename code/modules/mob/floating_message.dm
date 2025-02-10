@@ -19,8 +19,8 @@ var/global/list/floating_chat_colors = list()
 	var/fontsize = 6
 	if(small)
 		fontsize = 5
-	var/limit = 50
-	if(copytext(message, length(message) - 1) == "!!")
+	var/limit = 90
+	if(copytext(message, length(message) - 1) in list("!!","?!"))
 		fontsize = 8
 		limit = 30
 		style += "font-weight: bold;"
@@ -55,7 +55,7 @@ var/global/list/floating_chat_colors = list()
 	I.plane = HUD_PLANE
 	I.layer = HUD_ABOVE_ITEM_LAYER
 	I.alpha = 0
-	I.maptext_width = 80
+	I.maptext_width = 92
 	I.maptext_height = 64
 	I.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	I.plane = EFFECTS_ABOVE_LIGHTING_PLANE

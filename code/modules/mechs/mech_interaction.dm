@@ -235,6 +235,8 @@
 		if(!silent)
 			to_chat(user, SPAN_WARNING("\The [src] is occupied to capacity."))
 		return FALSE
+	if(!user.IsAdvancedToolUser()) //no mechs allowed for xenophages
+		return FALSE
 	return TRUE
 
 /mob/living/exosuit/proc/enter(mob/user, silent = FALSE, check_incap = TRUE, instant = FALSE)

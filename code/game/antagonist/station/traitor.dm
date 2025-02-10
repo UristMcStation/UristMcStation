@@ -4,7 +4,7 @@ GLOBAL_DATUM_INIT(traitors, /datum/antagonist/traitor, new)
 /datum/antagonist/traitor
 	id = MODE_TRAITOR
 	antaghud_indicator = "hud_traitor"
-	blacklisted_jobs = list(/datum/job/ai, /datum/job/submap)
+	blacklisted_jobs = list(/datum/job/submap)
 	protected_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/detective, /datum/job/captain, /datum/job/lawyer, /datum/job/hos)
 	flags = ANTAG_SUSPICIOUS | ANTAG_RANDSPAWN | ANTAG_VOTABLE
 	skill_setter = /datum/antag_skill_setter/station
@@ -49,7 +49,7 @@ GLOBAL_DATUM_INIT(traitors, /datum/antagonist/traitor, new)
 
 	var/datum/mind/player = pending_antagonists[1]
 	if(player.assigned_role == GLOB.malf.role_text)
-		if(!GLOB.malf.add_antagonist(player))
+		if(!GLOB.malf.add_antagonist(player, do_not_greet = TRUE))
 			log_debug("Could not auto-spawn a [GLOB.malf.role_text], failed to add antagonist.")
 			return 0
 		GLOB.malf.greet(player, TRUE)
@@ -71,7 +71,7 @@ GLOBAL_DATUM_INIT(traitors, /datum/antagonist/traitor, new)
 	for(var/datum/mind/player in pending_antagonists)
 		pending_antagonists -= player
 		if(player.assigned_role == GLOB.malf.role_text)
-			GLOB.malf.add_antagonist(player)
+			GLOB.malf.add_antagonist(player, do_not_greet = TRUE)
 			GLOB.malf.greet(player, TRUE)
 		else
 			add_antagonist(player,0,0,1)
@@ -147,7 +147,7 @@ GLOBAL_DATUM_INIT(traitors, /datum/antagonist/traitor, new)
 /datum/antagonist/traitor/equip(mob/living/carbon/human/traitor_mob)
 	if(istype(traitor_mob, /mob/living/silicon)) // this needs to be here because ..() returns false if the mob isn't human
 		if(istype(traitor_mob, /mob/living/silicon/ai))
-			GLOB.malf.add_antagonist(traitor_mob.mind)
+			GLOB.malf.add_antagonist(traitor_mob.mind, do_not_greet = TRUE)
 			GLOB.malf.greet(traitor_mob.mind, TRUE)
 			return 1
 		add_law_zero(traitor_mob)

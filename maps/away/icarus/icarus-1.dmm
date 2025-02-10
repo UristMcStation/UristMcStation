@@ -2431,6 +2431,9 @@
 	dir = 4;
 	id_tag = "d1starboardnacelle"
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/fuel{
+	dir = 4
+	},
 /turf/simulated/floor/reinforced,
 /area/icarus/vessel)
 "hG" = (
@@ -2574,7 +2577,9 @@
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "ic" = (
-/obj/machinery/atmospherics/unary/engine,
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
 /turf/simulated/wall/r_wall,
 /area/icarus/open)
 "id" = (

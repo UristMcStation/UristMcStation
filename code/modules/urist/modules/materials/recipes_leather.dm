@@ -135,7 +135,7 @@
 	time = 30
 
 /datum/stack_recipe/leather_boots
-	title = "leather work gloves"
+	title = "leather work boots"
 	result_type = /obj/item/clothing/shoes/urist/leather
 	req_amount = 4
 	time = 45

@@ -4,6 +4,17 @@
 	path = "nerva"
 
 	lobby_screens = list('maps/nerva/nerva_lobby.dmi')
+	lobby_tracks = list(
+		/singleton/audio/track/df_theme,
+		/singleton/audio/track/digit_one,
+		/singleton/audio/track/dilbert,
+		/singleton/audio/track/chasing_time,
+		/singleton/audio/track/human,
+		/singleton/audio/track/lysendraa,
+		/singleton/audio/track/level3_mod,
+		/singleton/audio/track/rimward_cruise,
+		/singleton/audio/track/ambispace
+	)
 	station_levels = list(1,2,3,4)
 	contact_levels = list(1,2,3,4)
 	player_levels = list(1,2,3,4)
@@ -66,7 +77,8 @@
 		/datum/species/skrell  = list(/datum/job/captain),
 		/datum/species/machine = list(/datum/job/captain),
 		/datum/species/diona   = list(/datum/job/captain),
-		/datum/species/teshari = list(/datum/job/captain)
+		/datum/species/teshari = list(/datum/job/captain),
+		/datum/species/unathi/yeosa = list(/datum/job/captain)
 	)
 
 /datum/map/nerva/bolt_saferooms()

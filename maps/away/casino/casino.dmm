@@ -153,10 +153,9 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_bridge)
 "aw" = (
-/obj/item/wirecutters,
-/obj/item/stack/material/rods,
-/turf/space,
-/area/space)
+/obj/effect/landmark/corpse/chef,
+/turf/simulated/floor/tiled,
+/area/casino/casino_kitchen)
 "ax" = (
 /obj/machinery/computer/modular{
 	dir = 4
@@ -4231,6 +4230,7 @@
 "lF" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/landmark/corpse/nt/exec,
 /turf/simulated/floor/wood,
 /area/casino/casino_private_vip)
 "lG" = (
@@ -5449,6 +5449,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_crew_atmos)
+"Os" = (
+/obj/structure/bed,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/landmark/corpse/miner,
+/turf/simulated/floor/tiled,
+/area/casino/casino_crew_bunk)
 "OB" = (
 /obj/structure/window/basic{
 	dir = 4
@@ -5591,6 +5602,11 @@
 	},
 /turf/simulated/floor/airless,
 /area/casino/casino_bow)
+"SM" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/landmark/corpse/doctor,
+/turf/simulated/floor/tiled,
+/area/casino/casino_crew_bunk)
 "SP" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -10490,7 +10506,7 @@ aB
 bA
 ca
 ct
-cN
+SM
 de
 dx
 dO
@@ -10813,7 +10829,7 @@ vc
 fQ
 ht
 hw
-hw
+aw
 hV
 hw
 hw
@@ -10897,7 +10913,7 @@ bi
 bp
 bD
 ca
-cv
+Os
 cN
 dh
 dx

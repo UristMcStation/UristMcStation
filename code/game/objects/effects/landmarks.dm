@@ -137,9 +137,12 @@
 	if (delete_me)
 		return INITIALIZE_HINT_QDEL
 
-	var/list/options = typesof(/obj/effect/landmark/costume)
-	var/PICK= options[rand(1,length(options))]
-	new PICK(src.loc)
+/obj/effect/landmark/costume/random/Initialize()
+	var/list/landmarks = subtypesof(/obj/effect/landmark/costume)
+	landmarks -= /obj/effect/landmark/costume/random
+	var/landmark_path = pick(landmarks)
+	new landmark_path(src.loc)
+	. = ..()
 
 //SUBCLASSES.  Spawn a bunch of items and disappear likewise
 /obj/effect/landmark/costume/chameleon/Initialize()

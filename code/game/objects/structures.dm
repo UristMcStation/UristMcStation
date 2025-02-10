@@ -12,6 +12,7 @@
 	var/material/material = null
 	var/footstep_type
 	var/mob_offset = 0 //used for on_structure_offset mob animation
+	var/breakout //if someone is currently breaking out
 
 /obj/structure/damage_health(damage, damage_type, damage_flags, severity, skip_can_damage_check)
 	if (damage && HAS_FLAGS(damage_flags, DAMAGE_FLAG_TURF_BREAKER))
@@ -88,7 +89,7 @@
 
 /obj/structure/use_grab(obj/item/grab/grab, list/click_params)
 	// Harm intent - Slam face against the structure
-	if (grab.assailant == I_HURT)
+	if (grab.assailant.a_intent == I_HURT)
 		if (!grab.force_danger())
 			USE_FEEDBACK_GRAB_MUST_UPGRADE("to slam their face on \the [src]")
 			return TRUE

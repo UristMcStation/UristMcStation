@@ -1,3 +1,4 @@
 buzzclick.ogg - Made by BockelSound (https://freesound.org/people/BockelSound/sounds/489503/)
+grenade_launcher_load.ogg, grenade_launcher_unload.ogg - Made by PNMCarrieRailfan (https://freesound.org/people/PNMCarrieRailfan/sounds/681676/)
 
-All sounds above this line have been used under the Creative Commons Attribution 3.0 (CC BY 3.0) license: https://creativecommons.org/licenses/by/3.0/
+All sounds above this line have been used under the Creative Commons Attribution 4.0 (CC BY 4.0) license: https://creativecommons.org/licenses/by/4.0/

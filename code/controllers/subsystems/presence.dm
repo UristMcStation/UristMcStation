@@ -9,6 +9,9 @@ SUBSYSTEM_DEF(presence)
 	var/static/list/levels = list()
 	var/static/list/queue = list()
 	var/static/list/build
+	#ifdef INCLUDE_URIST_CODE
+	var/static/list/activated_levels = list()
+	#endif
 
 
 /datum/controller/subsystem/presence/Recover()
@@ -42,7 +45,21 @@ SUBSYSTEM_DEF(presence)
 
 /// 0, or the number of living players on level
 /datum/controller/subsystem/presence/proc/population(level)
+	#ifndef INCLUDE_URIST_CODE
 	return levels["[level]"] || 0
+	#else
+	// Urist edit - caching levels that HAD pop at some point
+	var/pop = levels["[level]"]
+	if(pop)
+		activated_levels["[level]"] = pop
+	return pop || 0
+	#endif
+
+#ifdef INCLUDE_URIST_CODE
+/// like .population(), but returns the cached value
+/datum/controller/subsystem/presence/proc/population_from_cache(level)
+	return activated_levels["[level]"]
+#endif
 
 #else
 
@@ -50,5 +67,10 @@ SUBSYSTEM_DEF(presence)
 
 /datum/controller/subsystem/presence/proc/population(level)
 	return 1
+
+#ifdef INCLUDE_URIST_CODE
+/datum/controller/subsystem/presence/proc/population_from_cache(level)
+	return 1
+#endif
 
 #endif

@@ -222,6 +222,8 @@
 
 /obj/machinery/door/unpowered/simple/resin/New(newloc,var/material_name,var/complexity)
 	..(newloc, MATERIAL_RESIN, complexity)
+	autoclose = 1
+	normalspeed = 0
 
 /obj/machinery/door/unpowered/simple/cult/New(newloc,material_name,complexity)
 	..(newloc, MATERIAL_CULT, complexity)

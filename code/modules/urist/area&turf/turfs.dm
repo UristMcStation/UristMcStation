@@ -239,6 +239,7 @@ transit/east is the same thing now AFAIK
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
+	has_snow = TRUE
 
 /turf/simulated/floor/plating/flaps //this is hacky, but it'll prevent the airtight flaps from resetting every time the ship takes off
 	blocks_air = 1
@@ -303,3 +304,12 @@ transit/east is the same thing now AFAIK
 	light_color = SSskybox.background_color
 
 	. = ..()
+
+//lighter ship walls
+
+/turf/simulated/wall/r_wall/hull/white
+	name = "hull"
+	color = "#e3e3e3"
+
+/turf/simulated/wall/r_wall/hull/dark
+	color = "#3b494d"

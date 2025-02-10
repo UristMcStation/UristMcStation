@@ -95,6 +95,14 @@
 	recharge_delay = 5 SECONDS
 	recovery_threashold = 60
 
+/datum/shipcomponents/shield/fighter/pirate
+	name = "salvaged ultralight shield"
+	strength = 520
+	health = 100
+	recharge_rate = 50
+	recharge_delay = 6 SECONDS
+	recovery_threashold = 60
+
 /datum/shipcomponents/shield/combat
 	name = "high performance combat shield"
 	strength = 1000
@@ -179,6 +187,11 @@
 	evasion_chance = 15
 	health = 250
 	turns_per_move = 8
+
+/datum/shipcomponents/engines/pod // nimble but weak
+	name = "escape pod engines"
+	evasion_chance = 20
+	health = 60
 
 //point defence
 

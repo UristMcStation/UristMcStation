@@ -195,6 +195,7 @@
 	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME.</span>"
 	brand = "\improper Trans-Stellar Duty-free"
 	var/list/filling = list(/datum/reagent/tobacco = 1)
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES // Nothing like a good shoe-ciggie to get through the day.
 
 /obj/item/clothing/mask/smokable/cigarette/New()
 	..()

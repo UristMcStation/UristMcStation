@@ -41,11 +41,14 @@
 		/obj/item/storage/fancy/smokable/luckystars = 50,
 		/obj/item/storage/fancy/smokable/jerichos = 65,
 		/obj/item/storage/fancy/smokable/menthols = 55,
+		/obj/item/storage/fancy/smokable/urist/uplift = 60,
 		/obj/item/storage/fancy/smokable/carcinomas = 65,
 		/obj/item/storage/fancy/smokable/professionals = 70,
+		/obj/item/storage/fancy/smokable/urist/midori = 80,
 		/obj/item/storage/fancy/smokable/trident = 85,
 		/obj/item/storage/fancy/smokable/trident_mint = 85,
 		/obj/item/storage/fancy/smokable/trident_fruit = 85,
+		/obj/item/storage/fancy/smokable/urist/carp = 95,
 		/obj/item/storage/box/matches = 2,
 		/obj/item/flame/lighter/random = 5,
 		/obj/item/clothing/mask/smokable/ecig/simple = 50,
@@ -73,11 +76,14 @@
 		/obj/item/storage/fancy/smokable/luckystars = 2,
 		/obj/item/storage/fancy/smokable/jerichos = 2,
 		/obj/item/storage/fancy/smokable/menthols = 2,
+		/obj/item/storage/fancy/smokable/urist/uplift = 2,
 		/obj/item/storage/fancy/smokable/carcinomas = 2,
 		/obj/item/storage/fancy/smokable/professionals = 2,
+		/obj/item/storage/fancy/smokable/urist/midori = 2,
 		/obj/item/storage/fancy/smokable/trident = 2,
 		/obj/item/storage/fancy/smokable/trident_mint = 2,
 		/obj/item/storage/fancy/smokable/trident_fruit = 2,
+		/obj/item/storage/fancy/smokable/urist/carp = 2,
 		/obj/item/storage/box/matches = 10,
 		/obj/item/flame/lighter/random = 4,
 		/obj/item/storage/chewables/tobacco = 2,
@@ -98,9 +104,11 @@
 	)
 	contraband = list(
 		/obj/item/flame/lighter/zippo = 4,
-		/obj/item/clothing/mask/smokable/cigarette/rolled/sausage = 3
+		/obj/item/clothing/mask/smokable/cigarette/rolled/sausage = 3,
+		/obj/item/storage/fancy/smokable/urist/shadyjim = 3
 	)
 	premium = list(
 		/obj/item/storage/fancy/smokable/cigar = 5,
-		/obj/item/storage/fancy/smokable/killthroat = 5
+		/obj/item/storage/fancy/smokable/killthroat = 5,
+		/obj/item/storage/fancy/smokable/urist/devil = 5
 	)

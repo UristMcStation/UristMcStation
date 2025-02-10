@@ -67,7 +67,7 @@
 	uniform = /obj/item/clothing/under/urist/nerva/cargo
 	suit = /obj/item/clothing/suit/storage/toggle/urist/cargojacket
 	l_ear = /obj/item/device/radio/headset/headset_cargo
-	shoes = /obj/item/clothing/shoes/urist/leather
+	shoes = /obj/item/clothing/shoes/workboots
 	id_types = list(/obj/item/card/id/cargo)
 	pda_type = /obj/item/modular_computer/pda/cargo
 	gloves = /obj/item/clothing/gloves/urist/leather
@@ -77,6 +77,7 @@
 	uniform = /obj/item/clothing/under/urist/nerva/qm
 	suit = /obj/item/clothing/suit/storage/toggle/urist/qmjacket
 	l_ear = /obj/item/device/radio/headset/heads/nerva_qm
+	glasses = /obj/item/clothing/glasses/sunglasses
 	shoes = /obj/item/clothing/shoes/black
 	id_types = list(/obj/item/card/id/cargo/head)
 	pda_type = /obj/item/modular_computer/pda/heads/hop
@@ -89,7 +90,7 @@
 	l_ear = /obj/item/device/radio/headset/headset_cargo
 	shoes = /obj/item/clothing/shoes/black
 	belt = /obj/item/storage/belt/robotics/full
-	id_types = list(/obj/item/card/id/cargo)
+	id_types = list(/obj/item/card/id/science/roboticist)
 	pda_slot = slot_r_store
 	pda_type = /obj/item/modular_computer/pda/roboticist
 
@@ -162,9 +163,9 @@
 	id_types = null
 	pda_type = null
 	l_ear = null
+	r_hand = /obj/item/crowbar
 	l_pocket = /obj/item/wrench
-	r_pocket = /obj/item/crowbar
-	backpack_contents = list(/obj/item/device/flashlight = 1)
+	r_pocket = /obj/item/device/flashlight
 
 //psychiatrist
 
@@ -209,3 +210,17 @@
 	flags = OUTFIT_RESET_EQUIPMENT | OUTFIT_ADJUSTMENT_SKIP_BACKPACK
 	head = null
 	gloves = null
+
+//passenger
+/singleton/hierarchy/outfit/job/nerva/passenger
+	name = OUTFIT_JOB_NAME("Nerva Passenger")
+	l_ear = /obj/item/device/radio/headset
+	uniform = /obj/item/clothing/under/rank/psych/turtleneck/sweater
+	shoes = /obj/item/clothing/shoes/black
+	id_types = list(/obj/item/card/id)
+	pda_type = /obj/item/modular_computer/pda
+
+// assistant - mainly for tool storage.
+/singleton/hierarchy/outfit/job/nerva/assistant
+	name = OUTFIT_JOB_NAME("Nerva Assistant")
+	id_types = list(/obj/item/card/id/civilian/nerva_assistant)

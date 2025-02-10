@@ -26,6 +26,7 @@ SUBSYSTEM_DEF(ticker)
 	var/list/minds = list()         //Minds of everyone in the game.
 	var/list/antag_pool = list()
 	var/looking_for_antags = 0
+	var/tipped = FALSE
 
 	var/secret_force_mode = "secret"
 
@@ -112,6 +113,9 @@ SUBSYSTEM_DEF(ticker)
 		return
 	if(round_progressing && last_fire)
 		pregame_timeleft -= world.time - last_fire
+	if(pregame_timeleft <= 30 SECONDS && !tipped)
+		send_random_tip()
+		tipped = TRUE
 	if(pregame_timeleft <= 0)
 		Master.SetRunLevel(RUNLEVEL_SETUP)
 		return
@@ -395,6 +399,10 @@ Helpers
 		ready_players += player
 	return ready_players
 
+/datum/controller/subsystem/ticker/proc/send_random_tip()
+	var/list/randomtips = file2list("config/tips.txt")
+	if(randomtips.len)
+		to_world(SPAN_GOOD("<b>Tip of the Round: </b>" + strip_html_properly(pick(randomtips))))
 
 /datum/controller/subsystem/ticker/proc/collect_minds()
 	for(var/mob/living/player in GLOB.player_list)

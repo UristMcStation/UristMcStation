@@ -127,7 +127,7 @@
 			if(istype(target, /mob/living/carbon/slime))
 				to_chat(user, SPAN_WARNING("You are unable to locate any blood."))
 				return
-			var/amount = min(reagents.get_free_space(), amount_per_transfer_from_this)
+			var/amount = reagents.get_free_space()
 			var/mob/living/carbon/T = target
 			if(!T.dna)
 				to_chat(user, SPAN_WARNING("You are unable to locate any blood."))

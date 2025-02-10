@@ -96,7 +96,8 @@
 
 /obj/item/device/assembly/signaler/proc/signal()
 	if(!radio_connection) return
-
+	if(within_jamming_range(src))
+		return
 	var/datum/signal/signal = new
 	signal.source = src
 	signal.encryption = code
@@ -127,6 +128,8 @@
 
 /obj/item/device/assembly/signaler/receive_signal(datum/signal/signal)
 	if(!signal)	return 0
+	if(within_jamming_range(src))
+		return FALSE
 	if(signal.encryption != code)	return 0
 	if(!(src.wires & WIRE_RADIO_RECEIVE))	return 0
 	pulse(1)

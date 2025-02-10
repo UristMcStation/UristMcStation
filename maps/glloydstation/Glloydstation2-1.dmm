@@ -3542,13 +3542,13 @@
 /area/maintenance/fpmaint)
 "ahH" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "ahI" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/fpmaint)
 "ahJ" = (
@@ -6816,8 +6816,8 @@
 /area/bridge/blueshield)
 "aoT" = (
 /obj/structure/closet,
-/obj/effect/landmark/costume,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "aoU" = (
@@ -7686,7 +7686,7 @@
 /obj/item/storage/box/donut,
 /obj/item/clothing/under/urist/formal/hosformalmale,
 /obj/item/clothing/under/urist/formal/hosformalfem,
-/obj/item/storage/backpack/duffel/duffel_sec,
+/obj/item/storage/backpack/dufflebag/sec,
 /turf/simulated/floor/tiled/dark{
 	icon = 'icons/turf/flooring/plating.dmi';
 	icon_state = "cult"
@@ -13546,7 +13546,7 @@
 /obj/item/device/flashlight/seclite,
 /obj/item/clothing/under/urist/formal/hosformalfem,
 /obj/item/clothing/under/urist/formal/hosformalmale,
-/obj/item/storage/backpack/duffel/duffel_sec,
+/obj/item/storage/backpack/dufflebag/sec,
 /obj/machinery/alarm{
 	frequency = 1439;
 	pixel_y = 23
@@ -13680,7 +13680,7 @@
 	pixel_y = -22
 	},
 /obj/structure/closet/secure_closet/hop,
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /turf/simulated/floor/carpet/blue,
 /area/command/hop)
 "aDF" = (
@@ -19443,7 +19443,7 @@
 	},
 /obj/structure/closet/lawcloset,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/under/urist/rank/iaadress,
 /obj/item/clothing/under/urist/rank/iaadress,
 /turf/simulated/floor/wood/walnut,
@@ -19547,7 +19547,7 @@
 "aPG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/crew_quarters/sleeping)
 "aPH" = (
@@ -28854,7 +28854,7 @@
 /area/crew_quarters/sleeping)
 "bhY" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/crew_quarters/sleeping)
 "bhZ" = (
@@ -35394,7 +35394,7 @@
 /obj/structure/closet/wardrobe/grey,
 /obj/item/clothing/suit/urist/meido,
 /obj/item/clothing/suit/coat,
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/sleeping)
 "buC" = (
@@ -35841,7 +35841,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/table/standard,
-/obj/item/storage/backpack/duffel/duffel_med,
+/obj/item/storage/backpack/dufflebag/med,
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
@@ -44467,7 +44467,7 @@
 	name = "Station Intercom (General)";
 	pixel_y = 28
 	},
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/suit/storage/hooded/wintercoat/cargo,
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/effect/floor_decal/corner/yellow{
@@ -44480,7 +44480,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/suit/storage/hooded/wintercoat/cargo,
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/effect/floor_decal/corner/yellow{
@@ -46062,7 +46062,7 @@
 /obj/item/device/eftpos{
 	eftpos_name = "Bar EFTPOS scanner"
 	},
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /obj/machinery/camera/network/urist{
 	c_tag = "Bar Backroom";
 	dir = 8;
@@ -46833,7 +46833,7 @@
 /area/crew_quarters/theatre)
 "bRi" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
@@ -55638,7 +55638,7 @@
 /obj/machinery/alarm{
 	pixel_y = 23
 	},
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/suit/storage/hooded/wintercoat/cargo,
 /obj/effect/floor_decal/corner/yellow{
 	icon_state = "corner_white";
@@ -56466,7 +56466,7 @@
 /obj/item/device/eftpos{
 	eftpos_name = "Kitchen EFTPOS scanner"
 	},
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/head/urist/billydonka,
 /obj/item/clothing/suit/urist/billydonka,
 /obj/item/clothing/under/urist/billydonka,
@@ -57956,7 +57956,7 @@
 /area/rnd/xenobiology)
 "cnv" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/kitchen)
 "cnw" = (
@@ -59448,7 +59448,7 @@
 /area/quartermaster/miningdock)
 "cqq" = (
 /obj/structure/closet/secure_closet/miner,
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/item/clothing/suit/storage/hooded/wintercoat/miner,
 /turf/simulated/floor/tiled,
 /area/quartermaster/miningdock)
@@ -61360,7 +61360,7 @@
 	name = "Station Intercom (General)";
 	pixel_x = 22
 	},
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/machinery/camera/network/mining{
 	c_tag = "Mining Dock South";
 	dir = 8;
@@ -62352,7 +62352,7 @@
 	dir = 1
 	},
 /obj/item/holosign_creator,
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/under/urist/rank/janialt,
 /obj/item/clothing/head/urist/janihat,
 /obj/item/clothing/suit/urist/janicoat,
@@ -64239,8 +64239,8 @@
 	pixel_x = -32;
 	pixel_y = 0
 	},
-/obj/item/storage/backpack/duffel/duffel_norm,
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
+/obj/item/storage/backpack/dufflebag,
 /obj/item/clothing/suit/coat,
 /obj/item/clothing/suit/coat,
 /turf/simulated/floor/tiled,
@@ -64264,7 +64264,7 @@
 "cAE" = (
 /obj/structure/table/standard,
 /obj/structure/disposalpipe/segment,
-/obj/item/storage/backpack/duffel/duffel_norm,
+/obj/item/storage/backpack/dufflebag,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/locker)
@@ -65282,7 +65282,7 @@
 /area/maintenance/atmos_control)
 "cCE" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/atmos_control)
 "cCF" = (
@@ -67621,7 +67621,7 @@
 /area/maintenance/asmaint2)
 "cHN" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint2)
 "cHO" = (
@@ -68326,7 +68326,7 @@
 /area/maintenance/cargo)
 "cJt" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "cJu" = (
@@ -72018,10 +72018,10 @@
 /area/maintenance/aft)
 "cQw" = (
 /obj/structure/closet,
-/obj/effect/landmark/costume,
-/obj/effect/landmark/costume,
-/obj/effect/landmark/costume,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
+/obj/effect/landmark/costume/random,
+/obj/effect/landmark/costume/random,
+/obj/effect/landmark/costume/random,
 /obj/item/toy/katana,
 /obj/item/gun/projectile/revolver/capgun,
 /obj/item/toy/sword,
@@ -73138,7 +73138,7 @@
 	d2 = 2
 	},
 /obj/structure/closet/secure_closet/personal,
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/sleeping/engi)
 "cSF" = (
@@ -73567,7 +73567,7 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/effect/floor_decal/corner/blue,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8
@@ -73657,7 +73657,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/closet/secure_closet/personal,
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/sleeping/engi)
 "cTJ" = (
@@ -73919,7 +73919,7 @@
 "cUm" = (
 /obj/structure/closet/secure_closet/atmos_personal,
 /obj/item/tank/oxygen_emergency_extended,
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
@@ -73971,7 +73971,7 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
@@ -74131,7 +74131,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/closet/secure_closet/personal,
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering Dorms";
 	dir = 4;
@@ -74483,7 +74483,7 @@
 /area/engineering/atmos)
 "cVH" = (
 /obj/structure/closet/secure_closet/engineering_personal,
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
@@ -74714,7 +74714,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/closet/secure_closet/personal,
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/machinery/light_switch{
 	dir = 8;
 	pixel_x = -25;
@@ -75939,7 +75939,7 @@
 /area/hallway/primary/aft)
 "cYt" = (
 /obj/structure/closet/secure_closet/engineering_personal,
-/obj/item/storage/backpack/duffel/duffel_eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/effect/floor_decal/corner/yellow/three_quarters,
 /obj/item/clothing/suit/storage/hooded/wintercoat/engineering,
 /turf/simulated/floor/tiled,
@@ -76336,7 +76336,7 @@
 /area/maintenance/aft)
 "cZg" = (
 /obj/item/table_parts/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "cZh" = (
@@ -78970,7 +78970,7 @@
 /area/maintenance/disposal)
 "dei" = (
 /obj/structure/table/rack,
-/obj/effect/landmark/costume,
+/obj/effect/landmark/costume/random,
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "dej" = (

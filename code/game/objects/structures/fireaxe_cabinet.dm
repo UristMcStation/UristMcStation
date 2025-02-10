@@ -41,6 +41,8 @@
 	update_icon()
 
 /obj/structure/fireaxecabinet/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	toggle_lock(user)
 
 /obj/structure/fireaxecabinet/attack_hand(mob/user)

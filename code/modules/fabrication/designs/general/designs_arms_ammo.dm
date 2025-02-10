@@ -134,3 +134,19 @@
 /datum/fabricator_recipe/arms_ammo/hidden/rifleinternalclip
 	name = "ammunition (en-bloc clip)"
 	path = /obj/item/ammo_magazine/iclipr
+
+/datum/fabricator_recipe/arms_ammo/hidden/spaceak
+	name = "ammunition (U2442 magazine box)"
+	path = /obj/item/ammo_magazine/rifle/military/spaceak
+
+/datum/fabricator_recipe/arms_ammo/hidden/hi2521smglethal
+	name = "ammunition (HI-2521-SMG magazine)"
+	path = /obj/item/ammo_magazine/hi2521smg9mm
+
+/datum/fabricator_recipe/arms_ammo/hidden/hi2521smgrubber
+	name = "ammunition (HI-2521-SMG magazine - rubber)"
+	path = /obj/item/ammo_magazine/hi2521smg9mm/rubber
+
+/datum/fabricator_recipe/arms_ammo/hidden/hi2521pistol9mm
+	name = "ammunition (HI-2521-P pistol magazine)"
+	path = /obj/item/ammo_magazine/hi2521pistol9mm

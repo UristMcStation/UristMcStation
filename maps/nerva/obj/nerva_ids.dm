@@ -50,3 +50,9 @@
 
 /obj/item/card/id/medical/psychiatrist/nerva
 	job_access_type = /datum/job/psychiatrist
+
+/obj/item/card/id/civilian/nerva_assistant
+	name = "identification card"
+	desc = "A card issued to the ship's assistant"
+	detail_color = COLOR_CIVIE_GREEN
+	job_access_type = /datum/job/assistant

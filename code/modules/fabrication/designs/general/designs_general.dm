@@ -113,3 +113,18 @@
 
 /datum/fabricator_recipe/toolbox
 	path = /obj/item/storage/toolbox
+
+/datum/fabricator_recipe/warmincandescent // urist
+	path = /obj/item/light/tube/tinted/warmtint
+
+/datum/fabricator_recipe/coldtinted // urist
+	path = /obj/item/light/tube/tinted/coldtint
+
+/datum/fabricator_recipe/largewarmincandescent // urist
+	path = /obj/item/light/tube/large/tinted/warmtint
+
+/datum/fabricator_recipe/redtintedlight // urist
+	path = /obj/item/light/tube/tinted/redtint
+
+/datum/fabricator_recipe/greentintedlight // urist
+	path = /obj/item/light/tube/tinted/greentint

@@ -78,6 +78,7 @@
 	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "grass0"
 	initial_flooring = /singleton/flooring/grass
+	footstep_type = /singleton/footsteps/grass
 
 /turf/simulated/floor/carpet
 	name = "brown carpet"

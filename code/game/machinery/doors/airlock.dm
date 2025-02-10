@@ -792,6 +792,8 @@ About the new airlock wires panel:
 	ui_interact(user)
 
 /obj/machinery/door/airlock/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	ui_interact(user)
 
 /obj/machinery/door/airlock/attack_ghost(mob/user)

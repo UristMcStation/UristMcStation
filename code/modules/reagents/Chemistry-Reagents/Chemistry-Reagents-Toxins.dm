@@ -807,6 +807,7 @@
 		prob_proc = FALSE
 
 	M.add_chemical_effect(CE_PULSE, -1)
+	M.druggy = max(M.druggy, 30)
 
 	..()
 

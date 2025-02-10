@@ -546,6 +546,15 @@ ALLOW_DRONE_SPAWN
 ## Max amount of maintenance drones that can spawn. Default is 5
 #MAX_MAINT_DRONES 5
 
+## Uncomment this to bypass empty z-level checks in certain subsystems. For testing and development purposes only.
+## Not recommended for live use.
+#RUN_EMPTY_LEVELS
+
+## If RUN_EMPTY_LEVELS is NOT uncommented, what % of failing subsystem checks will bypass calls for empty levels.
+## At 100, empty levels will never run. At 0, you might as well uncomment RUN_EMPTY_LEVELS instead.
+## Anything in between balances CPU load and simulation responsiveness on empty Z-levels.
+RUN_EMPTY_LEVELS_THROTTLED_PERC 75
+
 ## 
 ## Bluespace Revenant antag balance stuff:
 ## 

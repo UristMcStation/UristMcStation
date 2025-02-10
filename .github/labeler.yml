@@ -1,39 +1,57 @@
 Repo:
-- .github/**/*
-- .vscode/**/*
-- docs/**/*
-- scripts/**/*
-- test/**/*
-- tools/**/*
-- .codebeatignore
-- .editorconfig
-- .git*
-- LICENSE
-- README.md
-- SpacemanDMM.toml
+- changed-files:
+  - any-glob-to-any-file:
+    - .github/**/*
+    - .vscode/**/*
+    - docs/**/*
+    - scripts/**/*
+    - test/**/*
+    - tools/**/*
+    - .codebeatignore
+    - .editorconfig
+    - .git*
+    - LICENSE
+    - README.md
+    - SpacemanDMM.toml
 
 Map:
-- '**/*.dmm'
+- changed-files:
+  - any-glob-to-any-file:
+    - '**/*.dmm'
 
 Icons:
-- '**/*.dmi'
+- changed-files:
+  - any-glob-to-any-file:
+    - '**/*.dmi'
 
 Sound:
-- '**/*.ogg'
-- '**/*.wav'
-- '**/*.mp3'
+- changed-files:
+  - any-glob-to-any-file:
+    - '**/*.ogg'
+    - '**/*.wav'
+    - '**/*.mp3'
 
 Config Update:
-- config/**/*
+- changed-files:
+  - any-glob-to-any-file:
+    - config/**/*
 
 Awaymaps:
-- maps/away/**/*
+- changed-files:
+  - any-glob-to-any-file:
+    - maps/away/**/*
 
 Nerva:
-- maps/nerva/**/*
+- changed-files:
+  - any-glob-to-any-file:
+    - maps/nerva/**/*
 
 Glloydstation:
-- maps/glloydstation/**/*
+- changed-files:
+  - any-glob-to-any-file:
+    - maps/glloydstation/**/*
 
 Wyrm:
-- maps/wyrm/**/*
+- changed-files:
+  - any-glob-to-any-file:
+    - maps/wyrm/**/*

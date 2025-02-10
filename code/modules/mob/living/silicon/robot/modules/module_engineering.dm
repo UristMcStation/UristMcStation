@@ -44,7 +44,6 @@
 		/obj/item/taperoll/engineering,
 		/obj/item/taperoll/atmos,
 		/obj/item/gripper,
-		/obj/item/gripper,
 		/obj/item/gripper/no_use/loader,
 		/obj/item/device/lightreplacer,
 		/obj/item/device/paint_sprayer,

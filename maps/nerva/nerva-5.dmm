@@ -5880,6 +5880,13 @@
 	},
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_chapel)
+"mE" = (
+/obj/effect/weather/invariant/mildsnow,
+/turf/unsimulated/floor{
+	icon = 'icons/turf/snow.dmi';
+	icon_state = "snowplating"
+	},
+/area/ninja_dojo/dojo)
 "mF" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5;
@@ -9158,6 +9165,7 @@
 /turf/unsimulated/wall,
 /area/ninja_dojo/dojo)
 "wa" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 9;
@@ -9165,22 +9173,26 @@
 	},
 /area/map_template/syndicate_mothership)
 "wb" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /area/map_template/syndicate_mothership)
 "wc" = (
 /obj/structure/flora/tree/pine,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/snow.dmi';
 	icon_state = "snow"
 	},
 /area/map_template/syndicate_mothership)
 "wd" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/snow.dmi';
 	icon_state = "snow"
 	},
 /area/map_template/syndicate_mothership)
 "we" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 5;
@@ -9202,17 +9214,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/transport1/centcom)
 "wk" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/snow.dmi';
 	icon_state = "snowwhite"
 	},
 /area/ninja_dojo/dojo)
 "wl" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor{
 	icon_state = "snow"
 	},
 /area/ninja_dojo/dojo)
 "wm" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 8;
@@ -9221,10 +9236,12 @@
 /area/map_template/syndicate_mothership)
 "wn" = (
 /obj/structure/flora/tree/pine,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /area/map_template/syndicate_mothership)
 "wo" = (
 /obj/structure/flora/grass/both,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /area/map_template/syndicate_mothership)
 "wp" = (
@@ -9243,6 +9260,7 @@
 /area/shuttle/transport1/centcom)
 "wr" = (
 /obj/effect/floor_decal/asteroid,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor{
 	icon_state = "snow"
 	},
@@ -9264,6 +9282,7 @@
 /area/space)
 "wu" = (
 /obj/effect/floor_decal/asteroid,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/snow.dmi';
 	icon_state = "snowwhite"
@@ -9271,12 +9290,14 @@
 /area/ninja_dojo/dojo)
 "wv" = (
 /obj/structure/flora/tree/dead,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor{
 	icon_state = "snow"
 	},
 /area/ninja_dojo/dojo)
 "ww" = (
 /obj/structure/flora/grass/both,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 6;
@@ -9345,15 +9366,18 @@
 /area/space)
 "wF" = (
 /obj/structure/flora/tree/pine,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor{
 	icon_state = "snow"
 	},
 /area/ninja_dojo/dojo)
 "wG" = (
 /obj/structure/flora/grass/brown,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /area/map_template/syndicate_mothership)
 "wH" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 6;
@@ -9391,6 +9415,7 @@
 /turf/simulated/floor/plating,
 /area/space)
 "wM" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 4;
@@ -9446,6 +9471,7 @@
 /area/space)
 "wS" = (
 /obj/structure/flora/tree/dead,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/snow.dmi';
 	icon_state = "snowwhite"
@@ -9527,6 +9553,7 @@
 "xf" = (
 /obj/structure/flora/grass/both,
 /obj/structure/flora/tree/pine,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /area/map_template/syndicate_mothership)
 "xg" = (
@@ -9828,12 +9855,14 @@
 /area/ninja_dojo/dojo)
 "xS" = (
 /obj/structure/flora/tree/pine,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "xT" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	icon_state = "gravsnow_corner"
@@ -9841,12 +9870,14 @@
 /area/map_template/syndicate_mothership)
 "xU" = (
 /obj/structure/flora/grass/both,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	icon_state = "gravsnow_corner"
 	},
 /area/map_template/syndicate_mothership)
 "xV" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 4;
@@ -9895,6 +9926,7 @@
 /area/map_template/wizard_station)
 "yb" = (
 /obj/structure/flora/tree/pine,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/snow.dmi';
 	icon_state = "snowwhite"
@@ -9982,6 +10014,7 @@
 /area/ninja_dojo/dojo)
 "yl" = (
 /obj/structure/flora/bush,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /area/map_template/syndicate_mothership)
 "ym" = (
@@ -10031,6 +10064,7 @@
 /area/ninja_dojo/dojo)
 "yu" = (
 /obj/effect/floor_decal/asteroid,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/snow.dmi';
 	icon_state = "snowplating"
@@ -10063,6 +10097,7 @@
 /area/ninja_dojo/dojo)
 "yx" = (
 /obj/structure/pit/closed/grave,
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor{
 	icon_state = "snow"
 	},
@@ -11749,6 +11784,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Co" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 1;
@@ -12549,6 +12585,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Eg" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 4;
@@ -12960,6 +12997,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Fc" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	icon_state = "gravsnow_surround"
@@ -16709,6 +16747,7 @@
 /turf/simulated/floor/shuttle/white,
 /area/syndicate_station/start)
 "Nx" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 1;
@@ -16801,6 +16840,7 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "NM" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow{
 	icon_state = "permafrost"
 	},
@@ -16810,11 +16850,13 @@
 	},
 /area/map_template/syndicate_mothership)
 "NN" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow{
 	icon_state = "permafrost"
 	},
 /area/map_template/syndicate_mothership)
 "NO" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow{
 	icon_state = "permafrost"
 	},
@@ -16830,6 +16872,7 @@
 /turf/simulated/floor/airless,
 /area/merchant_station)
 "NQ" = (
+/obj/effect/weather/invariant/mildsnow,
 /turf/unsimulated/floor/snow,
 /turf/unsimulated/floor/snow{
 	dir = 10;
@@ -16985,6 +17028,13 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/holodeck/source_basketball)
+"OS" = (
+/obj/effect/weather/invariant/mildsnow,
+/obj/effect/weather/invariant/mildsnow,
+/turf/unsimulated/floor{
+	icon_state = "snow"
+	},
+/area/ninja_dojo/dojo)
 "OU" = (
 /turf/simulated/floor/holofloor/desert,
 /area/holodeck/source_desert)
@@ -17056,6 +17106,14 @@
 	},
 /turf/simulated/floor/holofloor/tiled/old_tile,
 /area/holodeck/source_gym)
+"Pq" = (
+/obj/effect/floor_decal/snow,
+/obj/effect/weather/invariant/mildsnow,
+/turf/unsimulated/floor{
+	icon = 'icons/turf/snow.dmi';
+	icon_state = "snowplating"
+	},
+/area/ninja_dojo/dojo)
 "Pu" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/structure/flora/ausbushes/ywflowers,
@@ -31371,8 +31429,8 @@ wk
 wk
 wl
 wv
-Ad
-Ae
+mE
+Pq
 wl
 wv
 wk
@@ -31573,8 +31631,8 @@ wk
 wr
 wl
 wl
-Ae
-Ad
+Pq
+mE
 wl
 wl
 wl
@@ -31775,8 +31833,8 @@ wl
 wl
 wl
 wl
-Ad
-Ad
+mE
+mE
 wk
 wl
 wl
@@ -31977,8 +32035,8 @@ wl
 wl
 wl
 wl
-Ad
-Ae
+mE
+Pq
 wl
 wl
 wr
@@ -32179,8 +32237,8 @@ wr
 wk
 wk
 wv
-Ae
-Ad
+Pq
+mE
 wl
 wv
 wl
@@ -34411,8 +34469,8 @@ wl
 wl
 wr
 wl
-Ad
-Ad
+mE
+mE
 wl
 wk
 wk
@@ -34613,8 +34671,8 @@ wl
 wl
 wl
 wl
-Ad
-Ad
+mE
+mE
 wl
 wl
 wl
@@ -34815,8 +34873,8 @@ Ey
 wl
 wl
 wk
-Ad
-Ae
+mE
+Pq
 wl
 wr
 wl
@@ -35017,8 +35075,8 @@ Ey
 wl
 wl
 wk
-Ad
-Ad
+mE
+mE
 wl
 wl
 wk
@@ -35217,10 +35275,10 @@ Js
 IN
 Ey
 wl
-Ad
-Ad
-Ad
-Ad
+mE
+mE
+mE
+mE
 wl
 wl
 wk
@@ -35419,10 +35477,10 @@ Js
 LN
 yg
 wl
-Ae
-Ad
-Ad
-Ad
+Pq
+mE
+mE
+mE
 wl
 wl
 wl
@@ -35623,9 +35681,9 @@ yg
 wl
 wl
 wl
-Ad
-Ad
-Ad
+mE
+mE
+mE
 wl
 wl
 wl
@@ -35825,10 +35883,10 @@ yg
 wl
 wl
 wl
-Ad
-Ad
-Ad
-Ad
+mE
+mE
+mE
+mE
 wl
 wl
 wl
@@ -36029,9 +36087,9 @@ wl
 wl
 wl
 wl
-Ad
-Ad
-Ad
+mE
+mE
+mE
 wl
 wr
 wl
@@ -36232,9 +36290,9 @@ wl
 wl
 wl
 wl
-Ad
-Ad
-Ad
+mE
+mE
+mE
 wl
 wk
 wk
@@ -36435,10 +36493,10 @@ wl
 wl
 wl
 wl
-Ad
-Ad
-Ad
-Ad
+mE
+mE
+mE
+mE
 wl
 wk
 wl
@@ -36638,12 +36696,12 @@ wl
 wl
 wl
 wl
-Ad
-Ad
-Ad
-Ad
-Ad
-Ad
+mE
+mE
+mE
+mE
+mE
+mE
 af
 vX
 "}
@@ -36841,11 +36899,11 @@ wl
 wl
 wl
 wl
-Ad
-Ad
-Ad
+mE
+mE
+mE
 yu
-Ad
+mE
 af
 vX
 "}
@@ -37020,7 +37078,7 @@ wl
 wl
 wl
 wl
-wl
+OS
 wl
 wl
 wl
@@ -37045,8 +37103,8 @@ wl
 wl
 wl
 wl
-Ad
-Ad
+mE
+mE
 wl
 vZ
 vX
@@ -37222,7 +37280,7 @@ wl
 wl
 wl
 wl
-wl
+OS
 wl
 wl
 Ey

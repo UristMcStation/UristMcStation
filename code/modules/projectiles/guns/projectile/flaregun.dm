@@ -4,8 +4,8 @@
 	icon = 'icons/obj/guns/flaregun.dmi'
 	icon_state = "flaregun"
 	item_state = "flaregun"
-	fire_sound = 'sound/weapons/empty.ogg'
-	fire_sound_text = "a satisfying 'thump'"
+	fire_sound = 'sound/urist/guns/grenade_launcher_fire.ogg'
+	fire_sound_text = "a satisfying 'bloop'"
 	slot_flags = SLOT_BELT | SLOT_HOLSTER
 	w_class = ITEM_SIZE_SMALL
 	obj_flags = 0
@@ -16,7 +16,7 @@
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 1
-	load_sound = 'sound/weapons/guns/interaction/shotgun_instert.ogg'
+	load_sound = 'sound/urist/guns/grenade_launcher_load.ogg'
 
 /obj/item/gun/projectile/flare/loaded
 	ammo_type = /obj/item/ammo_casing/shotgun/flash

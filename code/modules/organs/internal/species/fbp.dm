@@ -156,9 +156,10 @@
 	stored_mmi.update_icon()
 	icon_state = stored_mmi.icon_state
 
-	owner.verbs += /mob/living/carbon/human/proc/eject_mmi
+	owner?.verbs += /mob/living/carbon/human/proc/eject_mmi
+	owner?.languages |= stored_mmi.brainmob.languages
 
-	if(owner && owner.stat == DEAD)
+	if(owner?.stat == DEAD)
 		owner.set_stat(CONSCIOUS)
 		owner.switch_from_dead_to_living_mob_list()
 		owner.visible_message(SPAN_DANGER("\The [owner] twitches visibly!"))

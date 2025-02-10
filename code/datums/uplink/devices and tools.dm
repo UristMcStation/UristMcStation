@@ -104,7 +104,7 @@
 
 /datum/uplink_item/item/tools/divinghelmet
 	name = "Diving Helmet"
-	desc = "An antique diver's helmet that was designed to withstand immense pressures. Works as a space helmet. Only fits humans."
+	desc = "An antique diver's helmet that was designed to withstand immense pressures. Works as a space helmet, hides your identity and provides good flash protection while worn."
 	item_cost = 12
 	path = /obj/item/clothing/head/helmet/divinghelmet
 
@@ -177,6 +177,12 @@
 	item_cost = 5
 	path = /obj/item/storage/box/handcuffs
 	desc = "A box of 7 handcuffs."
+
+/datum/uplink_item/item/tools/radio_jammer
+	name = "Radio Jammer"
+	item_cost = 32
+	path = /obj/item/device/radio_jammer
+	desc = "A small jammer that can fit inside a pocket. Capable of disrupting nearby radios and NTnet transmitters."
 
 /datum/uplink_item/item/tools/declumsifier
 	name = "De-Clumsy Device"

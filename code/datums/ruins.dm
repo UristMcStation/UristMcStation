@@ -10,7 +10,7 @@
 	var/player_cost = 0
 
 	var/prefix = null
-	var/suffixes = null
+	var/suffixes = null	 // Ensure you add a map_data landmark with your specified z-levels in the height var on the highest z-level of your map, so that they are all loaded, or you will only get one z-level of your ruin.
 	template_flags = 0 // No duplicates by default
 
 	// !! Currently only implemented for away sites

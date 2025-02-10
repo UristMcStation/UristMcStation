@@ -56,6 +56,7 @@
 //	accuracy = -1
 //	jam_chance = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	accuracy_power = 6
 	screen_shake = 1
 
 	var/scoped = 0
@@ -107,7 +108,7 @@
 	wielded_item_state = "scopedhuntrifle2"
 	icon_state = "scopedhuntrifle"
 	item_state = "scopedhuntrifle"
-	scoped_accuracy = 9
+	scoped_accuracy = 15
 	scope_zoom = 2
 
 /obj/item/gunattachment/scope/huntrifle

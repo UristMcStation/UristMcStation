@@ -413,6 +413,16 @@
 	l_hand = /obj/item/gun/energy/laser
 	flags = OUTFIT_HAS_BACKPACK
 
+/singleton/hierarchy/outfit/newpirate/elite
+	name = "New Pirate - Laser: Elite"
+	uniform = /obj/item/clothing/under/syndicate
+	suit = /obj/item/clothing/suit/space/void/syndistealth/pirate
+	shoes = /obj/item/clothing/shoes/jackboots
+	head = /obj/item/clothing/head/helmet/space/void/syndistealth/pirate
+	l_hand = /obj/item/gun/energy/laser
+	flags = OUTFIT_HAS_BACKPACK
+	suit_store = /obj/item/tank/oxygen
+
 /singleton/hierarchy/outfit/newpirate/melee
 	name = "New Pirate - Melee"
 	glasses = /obj/item/clothing/glasses/eyepatch
@@ -440,3 +450,15 @@
 	l_pocket = /obj/item/ammo_magazine/rifle/military/spaceak
 	uniform = /obj/item/clothing/under/syndicate/pirate
 	suit = null
+
+/singleton/hierarchy/outfit/newpirate/ballistic/space
+	name = "New Pirate - Ballistic: Space"
+	gloves = /obj/item/clothing/gloves/thick
+	glasses = /obj/item/clothing/glasses/tacgoggles
+	l_hand = /obj/item/gun/projectile/automatic/spaceak
+	r_pocket = /obj/item/ammo_magazine/rifle/military/spaceak
+	l_pocket = /obj/item/ammo_magazine/rifle/military/spaceak
+	uniform = /obj/item/clothing/under/syndicate/pirate
+	suit = /obj/item/clothing/suit/space/syndicate/black/pirate
+	head = /obj/item/clothing/head/helmet/space/syndicate/black/pirate
+	suit_store = /obj/item/tank/oxygen

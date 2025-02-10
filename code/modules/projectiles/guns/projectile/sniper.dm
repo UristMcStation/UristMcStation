@@ -18,7 +18,7 @@
 	one_hand_penalty = 6
 	accuracy = -2
 	bulk = 8
-	scoped_accuracy = 9 //increased accuracy over the LWAP because only one shot
+	scoped_accuracy = 19 //increased accuracy over the LWAP because only one shot
 	scope_zoom = 2
 	var/bolt_open = 0
 	wielded_item_state = "heavysniper-wielded" //sort of placeholder
@@ -50,8 +50,10 @@
 		if(chambered)
 			to_chat(user, SPAN_NOTICE("You work the bolt open, ejecting [chambered]!"))
 			unload_shell()
+
 		else
 			to_chat(user, SPAN_NOTICE("You work the bolt open."))
+			playsound(src.loc, 'sound/weapons/guns/interaction/rifle_boltback.ogg', 50, 1)
 	else
 		to_chat(user, SPAN_NOTICE("You work the bolt closed."))
 		playsound(src.loc, 'sound/weapons/guns/interaction/rifle_boltforward.ogg', 50, 1)

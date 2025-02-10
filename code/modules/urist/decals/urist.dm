@@ -10,6 +10,50 @@
 /obj/effect/paint/green_grey
 	color = "#8daf6a"
 
+/obj/effect/paint/red_deep
+	color = COLOR_DEEP_RED
+
+/obj/effect/paint_stripe/red_deep
+	color = COLOR_DEEP_RED
+
+//less washed out red
+
+/obj/effect/floor_decal/corner/red_deep
+	name = "red corner"
+	color = COLOR_DEEP_RED
+
+/obj/effect/floor_decal/corner/red_deep/diagonal
+	icon_state = "corner_white_diagonal"
+
+/obj/effect/floor_decal/corner/red_deep/three_quarters
+	icon_state = "corner_white_three_quarters"
+
+/obj/effect/floor_decal/corner/red_deep/full
+	icon_state = "corner_white_full"
+
+/obj/effect/floor_decal/corner/red_deep/border
+	icon_state = "bordercolor"
+
+/obj/effect/floor_decal/corner/red_deep/half
+	icon_state = "bordercolorhalf"
+
+/obj/effect/floor_decal/corner/red_deep/mono
+	icon_state = "bordercolormonofull"
+
+/obj/effect/floor_decal/corner/red_deep/bordercorner
+	icon_state = "bordercolorcorner"
+
+/obj/effect/floor_decal/corner/red_deep/bordercorner2
+	icon_state = "bordercolorcorner2"
+
+/obj/effect/floor_decal/corner/red_deep/borderfull
+	icon_state = "bordercolorfull"
+
+/obj/effect/floor_decal/corner/red_deep/bordercee
+	icon_state = "bordercolorcee"
+
+
+
 //trimline hell
 
 /obj/effect/floor_decal/trimline
@@ -91,6 +135,12 @@ TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/white)
 
 TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/red)
 
+/// deep red trimlines
+/obj/effect/floor_decal/trimline/red_deep
+	color = COLOR_DEEP_RED
+
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/red_deep)S
+
 /// pink trimlines
 /obj/effect/floor_decal/trimline/pink
 	color = COLOR_PALE_RED_GRAY
@@ -155,6 +205,6 @@ TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/grey)
 /obj/effect/floor_decal/trimline/lightgrey
 	color = "#a8b2b6"
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/grey)
+TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/lightgrey)
 
 #undef TRIMLINE_SUBTYPE_HELPER

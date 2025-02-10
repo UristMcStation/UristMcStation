@@ -14,6 +14,8 @@
 #define VERM_SPIDERS 2
 #define VERM_POSSUMS 3
 #define VERM_GEESE 4
+#define VERM_BIGRAT 5
+#define VERM_CORPSERAT 6
 
 /datum/event/infestation
 	announceWhen = 10
@@ -37,7 +39,7 @@
 
 	var/list/spawn_types = list()
 	var/max_number
-	vermin = rand(0,4)
+	vermin = rand(0,6)
 	switch(vermin)
 		if(VERM_MICE)
 			spawn_types = list(/mob/living/simple_animal/passive/mouse) // The base mouse type selects a random color for us
@@ -59,6 +61,14 @@
 			spawn_types = list(/mob/living/simple_animal/hostile/retaliate/goose)
 			max_number = 4
 			vermstring = "geese"
+		if(VERM_BIGRAT)
+			spawn_types = list(/mob/living/simple_animal/hostile/mutated_rat)
+			max_number = 5
+			vermstring = "mutated rats"
+		if(VERM_CORPSERAT)
+			spawn_types = list(/mob/living/simple_animal/hostile/mutated_rat/corpserat)
+			max_number = 3
+			vermstring = "biohazardous rats"
 
 	spawn(0)
 		var/num = 0
@@ -106,3 +116,5 @@
 #undef VERM_SPIDERS
 #undef VERM_POSSUMS
 #undef VERM_GEESE
+#undef VERM_BIGRAT
+#undef VERM_CORPSERAT

@@ -854,6 +854,17 @@
 				/obj/item/dice/d8
 				)
 
+/obj/random/saintsandsins_packs
+	name = "random Saints and Sins booster pack" // Builder pack not included.
+	desc = "This is a random booster pack."
+	icon = 'icons/urist/items/saintsandsins.dmi'
+	icon_state = "card_pack_saintsandsins"
+
+/obj/random/saintsandsins_packs/spawn_choices()
+	return list(pick(prob(6);/obj/item/pack/saintsandsins/booster,
+			prob(4);/obj/item/pack/saintsandsins/booster/alchemist,
+			prob(2);/obj/item/pack/saintsandsins/booster/fatebringer))
+
 /obj/item/bodyguardkit
 	name = "bodyguard plate carrier kit"
 	desc = "A secure box containing a plate carrier."
@@ -872,3 +883,24 @@
 		user.drop_from_inventory(src)
 		to_chat(user, SPAN_NOTICE("You take \the [new_armor] out of \the [src]. Remember to put an armor plate in!"))
 		qdel(src)
+
+/obj/item/device/flashlight/maglight/advanced// Essentially an upgraded maglight, good for seccies if techies/sci does their job
+	name = "advanced flashlight"
+	desc = "an advanced heavy duty flashlight, combining energy efficency and a strong light emitter."
+	icon = 'icons/urist/items/tools.dmi'
+	icon_state = "advlight"
+	item_state = "advlight"
+	force = 12
+	base_parry_chance = 15
+	attack_verb = list ("smacked", "thwacked", "thunked")
+	matter = list(MATERIAL_STEEL = 100, MATERIAL_GLASS = 100, MATERIAL_PLASTIC = 150)
+	hitsound = "swing_hit"
+	flashlight_max_bright = 0.75
+	flashlight_outer_range = 6
+
+//blueshield action figure
+/obj/item/toy/figure/blueshield
+	name = "Blueshield action figure"
+	desc = "A \"Space Life\" brand Blueshield action figure."
+	icon = 'icons/urist/items/misc.dmi'
+	icon_state = "blueshield"

@@ -60,22 +60,22 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/item/crowbar/nanotrasen //nt crowbar
 	item_icons = DEF_URIST_INHANDS
-	name = "Nanotrasen crowbar"
-	desc = "A crowbar in the Nanotrasen colours."
+	name = "NanoTrasen crowbar"
+	desc = "A crowbar in the NanoTrasen colours."
 	icon = 'icons/urist/items/tools.dmi'
 	icon_state = "ncrowbar"
 	item_state = "ncrowbar"
 
 /obj/item/device/flashlight/nanotrasen //nt flashlight
-	name = "Nanotrasen flashlight"
-	desc = "A hand-held emergency light in the Nanotrasen colours with a white NT embossed on the side."
+	name = "NanoTrasen flashlight"
+	desc = "A hand-held emergency light in the NanoTrasen colours with a white NT embossed on the side."
 	icon = 'icons/urist/items/tools.dmi'
 	icon_state = "flashlight"
 	item_state = "flashlight"
 
 /obj/item/storage/toolbox/nanotrasen //nt toolbox
-	name = "Nanotrasen toolbox"
-	desc = "A tooldbox in the Nanotrasen colours with a white NT emblazoned on the side."
+	name = "NanoTrasen toolbox"
+	desc = "A tooldbox in the NanoTrasen colours with a white NT emblazoned on the side."
 	icon = 'icons/urist/items/tools.dmi'
 	icon_state = "ntoolbox"
 	item_state = "toolbox_blue"
@@ -91,18 +91,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //light cigs
 
-/obj/item/storage/fancy/cigarettes/lights
-	name = "'lights' cigarette packet"
+/obj/item/storage/fancy/smokable/urist/lights
+	name = "pack of 'Lights' cigarettes"
 	desc = "The cigarettes for those who like things on the light side."
 	icon = 'icons/urist/uristicons.dmi'
 	icon_state = "Lpacket"
 	item_state = "Lpacket"
-	w_class = 1
-	throwforce = 2
-	slot_flags = SLOT_BELT
-	storage_slots = 6
-	can_hold = list(/obj/item/clothing/mask/smokable/cigarette)
-	key_type = /obj/item/clothing/mask/smokable/cigarette
 
 //watches
 

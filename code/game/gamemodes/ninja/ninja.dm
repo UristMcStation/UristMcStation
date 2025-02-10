@@ -9,7 +9,7 @@
 		carry is enough to turn heads far enough that they pop right off. Tread lightly and only hope this operative \
 		isn't here for you."
 	config_tag = "operative"
-	required_players = 10
+	required_players = 8
 	required_enemies = 1
 	end_on_antag_death = FALSE
 	antag_tags = list(MODE_NINJA)

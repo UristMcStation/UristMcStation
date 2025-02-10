@@ -674,7 +674,10 @@
 	// AI spec
 	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_generic
 	say_list_type = /datum/say_list/pirate
-
+	natural_armor = list(
+		bullet = ARMOR_BALLISTIC_MINOR,
+		melee = ARMOR_MELEE_MINOR
+	)
 
 /mob/living/simple_animal/hostile/urist/newpirate/laser
 	name = "Pirate Gunner"
@@ -688,6 +691,28 @@
 	corpse = /obj/effect/landmark/corpse/newpirate/laser
 	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
 
+/mob/living/simple_animal/hostile/urist/newpirate/laser/elite
+	name = "Pirate Gunner (elite)"
+	icon_state = "newpirate_laser"
+	icon_living = "newpirate_laser"
+	icon_dead = "newpirate_laser_dead"
+	projectilesound = 'sound/weapons/laser.ogg'
+	ranged = 1
+	rapid = 0
+	projectiletype = /obj/item/projectile/beam
+	corpse = /obj/effect/landmark/corpse/newpirate/laser/elite
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
+	maxHealth = 160
+	health = 160
+	unsuitable_atmos_damage = 0
+	min_gas = null
+	max_gas = null
+	minbodytemp = 0
+	natural_armor = list(
+		bullet	= ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_MINOR,
+		melee	= ARMOR_MELEE_VERY_HIGH,
+	)
 
 /mob/living/simple_animal/hostile/urist/newpirate/ballistic
 	name = "Pirate Gunner"
@@ -700,7 +725,26 @@
 	projectiletype = /obj/item/projectile/bullet/rifle
 	corpse = /obj/effect/landmark/corpse/newpirate/ballistic
 	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
+	maxHealth = 125
+	health = 125
+	natural_armor = list(
+		melee = ARMOR_MELEE_MINOR
+	)
 
+/mob/living/simple_animal/hostile/urist/newpirate/ballistic/space
+	name = "Pirate Gunner (Space)"
+	icon_state = "newpirate_ballistic_space"
+	icon_living = "newpirate_ballistic_space"
+	icon_dead = "newpirate_ballistic_space_dead"
+	corpse = /obj/effect/landmark/corpse/newpirate/ballistic/space
+	unsuitable_atmos_damage = 0
+	min_gas = null
+	max_gas = null
+	minbodytemp = 0
+	natural_armor = list(
+		bullet = ARMOR_BALLISTIC_MINOR,
+		melee = ARMOR_MELEE_MINOR
+	)
 
 /mob/living/simple_animal/hostile/urist/newpirate/death(gibbed, deathmessage, show_dead_message)
 	..(gibbed, deathmessage, show_dead_message)

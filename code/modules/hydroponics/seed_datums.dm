@@ -216,7 +216,7 @@
 	seed_name = "blue tomato"
 	display_name = "blue tomato plant"
 	mutants = list("bluespacetomato")
-	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/cryoxadone = list(1,5))
+	chems = list(/datum/reagent/nutriment = list(1,20), /datum/reagent/lube = list(1,5))
 
 /datum/seed/tomato/blue/New()
 	..()
@@ -236,6 +236,7 @@
 	set_trait(TRAIT_PRODUCT_COLOUR,"#00e5ff")
 	set_trait(TRAIT_BIOLUM,1)
 	set_trait(TRAIT_BIOLUM_COLOUR,"#4da4a8")
+	set_trait(TRAIT_POTENCY, 15)
 
 //Eggplants/varieties.
 /datum/seed/eggplant

@@ -431,14 +431,14 @@
 
 /mob/living/simple_animal/hostile/huntable/bear
 	name = "bear"
-	desc = "A big scary brown bear, probably best to stay away"
+	desc = "A big scary brown bear, probably best to stay away."
 	icon = 'icons/uristmob/64x64_mobs.dmi'
 	icon_state = "bigbear"
 	icon_living = "bigbear"
 	icon_dead = "bigbear_dead"
 	icon_gib = "bigbear_dead"
 	turns_per_move = 4
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/bearmeat
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "hits"
@@ -450,10 +450,12 @@
 	natural_weapon = /obj/item/natural_weapon/giant
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/bite.ogg'
-	meat_amount = 8
+	meat_amount = 10
 	bone_amount = 10
 	skin_amount = 15
 	skin_material = MATERIAL_SKIN_FUR
+	pixel_x = -32
+	default_pixel_x = -32
 
 //from civ13
 

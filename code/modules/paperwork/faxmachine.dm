@@ -125,7 +125,7 @@ GLOBAL_LIST_EMPTY(admin_departments)
 /obj/machinery/photocopier/faxmachine/interact(mob/user)
 	user.set_machine(src)
 
-	var/dat = "Fax Machine ([department])<BR>"
+	var/dat = ""
 
 	dat += "Linked PDAs: [LAZYLEN(linked_pdas)]<br />"
 
@@ -162,8 +162,9 @@ GLOBAL_LIST_EMPTY(admin_departments)
 		if(copyitem)
 			dat += "<a href ='byond://?src=\ref[src];remove=1'>Remove Item</a><br>"
 
-	show_browser(user, dat, "window=copier")
-	onclose(user, "copier")
+	var/datum/browser/popup = new(user, "Fax Machine", "[department]", 480, 300)
+	popup.set_content(dat)
+	popup.open()
 	return
 
 /obj/machinery/photocopier/faxmachine/OnTopic(mob/user, href_list, state)

@@ -123,6 +123,8 @@
 // Parameters: None
 // Description: AI requires the RCON wire to be intact to operate the SMES.
 /obj/machinery/power/smes/buildable/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	if(RCon)
 		..()
 	else // RCON wire cut
@@ -315,7 +317,7 @@
 		if(output_attempt || input_attempt)
 			to_chat(user, SPAN_WARNING("Turn \the [src] off first!"))
 			return FALSE
-		if(!do_after(user, 5 SECONDS, src, DO_REPAIR_CONSTRUCT) || check_total_system_failure(user))
+		if(!do_after(user, 0.1 SECONDS, src, DO_REPAIR_CONSTRUCT) || check_total_system_failure(user))
 			return FALSE
 
 /obj/machinery/power/smes/buildable/remove_part_and_give_to_user(path, mob/user)
@@ -326,7 +328,7 @@
 		if(output_attempt || input_attempt)
 			to_chat(user, SPAN_WARNING("Turn \the [src] off first!"))
 			return
-		if(!do_after(user, 5 SECONDS, src, DO_REPAIR_CONSTRUCT) || check_total_system_failure(user))
+		if(!do_after(user, 0.1 SECONDS, src, DO_REPAIR_CONSTRUCT) || check_total_system_failure(user))
 			return
 	..()
 

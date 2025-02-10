@@ -104,11 +104,39 @@
 	icon_override = 'icons/uristmob/clothes.dmi'
 	w_class = 3
 	armor = list(melee = 65, bullet = 45, laser = 30, energy = 20, bomb = 30, bio = 100, rad = 50)
-	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/tank)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 /obj/item/clothing/suit/space/void/syndistealth/New()
 	..()
 	slowdown_per_slot[slot_wear_suit] = 1
+
+/obj/item/clothing/head/helmet/space/void/syndistealth/pirate
+	name = "salvaged night-black hardsuit helmet"
+	desc = "A sleek, armored space helmet designed for work in covert operations. This one has been put into use by space pirates and has seen better days."
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+		)
+
+/obj/item/clothing/suit/space/void/syndistealth/pirate
+	name = "salvaged night-black hardsuit"
+	desc = "A sleek, armored space suit that theoretically protects the wearer against injuries during covert operations. This one has been put into use by space pirates and has seen better days."
+	w_class = ITEM_SIZE_LARGE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+		)
+
 
 // COLD RIGZ
 

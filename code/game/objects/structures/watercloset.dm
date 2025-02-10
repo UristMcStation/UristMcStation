@@ -506,7 +506,7 @@
 /obj/item/taperoll/bog
 	name = "toilet paper roll"
 	icon = 'icons/obj/watercloset.dmi'
-	desc = "A unbranded roll of standard issue two ply toilet paper. Refined from carefully rendered down sea shells due to SolGov's 'Abuse Of The Trees Act'."
+	desc = "A unbranded roll of standard issue two-ply toilet paper. Refined from carefully rendered-down seashells due to the Terran Confederacy's 'Abuse Of The Trees Act'."
 	tape_type = /obj/item/tape/bog
 	icon_state = "bogroll"
 	item_state = "mummy_poor"
@@ -553,7 +553,7 @@
 
 /obj/item/paper/crumpled/bog
 	name = "sheet of toilet paper"
-	desc = "A single sheet of toilet paper. Two ply."
+	desc = "A single sheet of toilet paper. Two-ply."
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "bogroll_sheet"
 

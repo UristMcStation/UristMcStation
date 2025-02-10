@@ -5,8 +5,8 @@
 	},
 /area/bluespaceriver/ground)
 "ab" = (
-/turf/unsimulated/mask{
-	temperature = 230
+/turf/simulated/mineral/random{
+	mined_turf = /turf/simulated/floor/planet/jungle/clear/underground
 	},
 /area/bluespaceriver/ground)
 "ac" = (
@@ -589,6 +589,8 @@
 /area/bluespaceriver/ship)
 "bQ" = (
 /obj/machinery/artifact_scanpad,
+/obj/machinery/anomaly_container,
+/obj/machinery/artifact,
 /turf/simulated/floor/reinforced,
 /area/bluespaceriver/ship)
 "bR" = (
@@ -836,12 +838,26 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
+"yi" = (
+/obj/structure/flora/tree/dead,
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 240
+	},
+/area/bluespaceriver/ground)
 "Co" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/wall/titanium,
 /area/bluespaceriver/ship)
 "Lk" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled,
+/area/bluespaceriver/ship)
+"RP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/stool/padded,
+/obj/structure/sign/painting/snow{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
 
@@ -2003,7 +2019,7 @@ ac
 ac
 ac
 ac
-ac
+ae
 ac
 ac
 ac
@@ -2395,7 +2411,7 @@ ac
 ac
 ac
 ac
-ac
+ae
 ac
 ac
 af
@@ -2812,7 +2828,7 @@ ac
 ac
 ac
 ac
-ac
+ae
 ac
 ac
 ac
@@ -3049,7 +3065,7 @@ ac
 ac
 ac
 ac
-ac
+ae
 ac
 ac
 ac
@@ -3113,7 +3129,7 @@ ac
 ac
 ac
 ac
-ac
+ae
 ac
 ac
 ac
@@ -3156,7 +3172,7 @@ ac
 ac
 ac
 ac
-ac
+af
 ac
 ac
 ac
@@ -3333,7 +3349,7 @@ an
 ar
 ax
 aA
-aJ
+RP
 aJ
 aX
 bi
@@ -3453,7 +3469,7 @@ cm
 ac
 ac
 ac
-ac
+af
 ac
 ac
 ac
@@ -3524,7 +3540,7 @@ ac
 ac
 ac
 ac
-ac
+yi
 ac
 ac
 ac
@@ -3974,7 +3990,7 @@ ac
 ac
 ac
 ac
-ac
+ae
 ac
 ac
 ac
@@ -4044,7 +4060,7 @@ ac
 ac
 ac
 ac
-ac
+yi
 ac
 ac
 ac
@@ -4160,6 +4176,7 @@ ac
 ac
 ac
 ac
+af
 ac
 ac
 ac
@@ -4169,8 +4186,7 @@ ac
 ac
 ac
 ac
-ac
-ac
+yi
 ac
 ac
 ac
@@ -4265,6 +4281,7 @@ ac
 ac
 ac
 ac
+ae
 ac
 ac
 ac
@@ -4297,8 +4314,7 @@ ac
 ac
 ac
 ac
-ac
-ac
+yi
 ac
 ac
 ac
@@ -4480,7 +4496,7 @@ ac
 ac
 ac
 ac
-ac
+af
 ac
 ac
 ac
@@ -4541,7 +4557,7 @@ ac
 ac
 af
 ac
-ac
+yi
 ac
 ac
 ac
@@ -4830,7 +4846,7 @@ ab
 ab
 ab
 ab
-ac
+ab
 ab
 ab
 ac
@@ -4932,7 +4948,7 @@ ab
 ab
 ab
 ab
-ac
+ab
 ac
 ac
 ac
@@ -4952,7 +4968,7 @@ ac
 ac
 ac
 ac
-ac
+ae
 ac
 ac
 ac
@@ -5034,7 +5050,7 @@ ab
 ab
 ab
 ab
-ac
+ab
 ac
 ac
 ac
@@ -5107,7 +5123,7 @@ ac
 ac
 ac
 ac
-ac
+af
 ac
 ac
 ac
@@ -6033,7 +6049,7 @@ ac
 ac
 ac
 ac
-ac
+yi
 ac
 ac
 ab
@@ -6603,7 +6619,7 @@ ac
 ac
 ac
 ac
-ac
+yi
 ac
 ac
 ac
@@ -7770,7 +7786,7 @@ ac
 ac
 ac
 ac
-ac
+ab
 ab
 ab
 ab
@@ -7972,7 +7988,7 @@ ac
 ac
 ac
 ac
-ac
+yi
 ac
 ac
 ab
@@ -8133,7 +8149,7 @@ ac
 ac
 ac
 ac
-ac
+yi
 ac
 ac
 ai
@@ -8403,7 +8419,7 @@ ab
 ab
 ab
 ac
-ac
+ae
 ac
 ac
 ac
@@ -8983,7 +8999,7 @@ ac
 ac
 ac
 ac
-ac
+ae
 ac
 ac
 ac
@@ -9227,7 +9243,7 @@ ab
 ab
 ac
 ac
-ac
+ae
 ac
 ac
 ac
@@ -9569,7 +9585,7 @@ ac
 ac
 ac
 ac
-ac
+yi
 ac
 ac
 ac
@@ -9793,7 +9809,7 @@ ac
 ac
 ac
 ac
-ac
+yi
 ac
 ac
 ab

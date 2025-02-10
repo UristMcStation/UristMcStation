@@ -6,7 +6,7 @@
 						/datum/job/hos, /datum/job/officer,
 						/datum/job/cmo, /datum/job/doctor, /datum/job/psychiatrist,
 						/datum/job/scientist, /datum/job/chaplain,
-						/datum/job/mime, /datum/job/clown,
+						/datum/job/mime, /datum/job/clown, /datum/job/passenger,
 						/datum/job/merchant, /datum/job/stowaway,
 						/datum/job/ai, /datum/job/cyborg
 						)
@@ -45,7 +45,7 @@
 	department = "Command"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the captain, who hired you to protect them. If the captain is not present, follow the chain of command as to who you will be protecting."
+	supervisors = "the captain, who hired you to protect them. If the captain is not present, follow the chain of command as to who you will be protecting"
 	selection_color = "#004a7f"
 	req_admin_notify = 1
 	minimal_player_age = 3
@@ -97,7 +97,7 @@
 	supervisors = "yourself, as you are the owner of this ship and the sole arbiter of its destiny. However, be careful not to anger NanoTrasen and the other factions that have set up outposts in this sector, or your own staff for that matter. It could lead to your undoing"
 	minimal_player_age = 14
 	outfit_type = /singleton/hierarchy/outfit/job/nerva/captain
-	economic_power = 24
+	economic_power = 3
 
 /datum/job/captain/get_description_blurb()
 	return "You are the Captain and owner of the ICS Nerva. You are the top dog. Your backstory and destiny is your own to decide, however, you are ultimately responsible for all that happens onboard. Your job is to make sure the that Nerva survives its time in this sector, and turns a profit for you. Delegate to your First Officer, the Second Officer, and your department heads to effectively manage the ship, and listen to and trust their expertise. It might be the difference between life and death. Oh, and watch out for pirates. The ICS Nerva only has a small complement of weapons at first, which can be upgraded either by your supply team, or by purchasing/salvaging additional weaponry. Good luck."
@@ -105,7 +105,7 @@
 /datum/job/hop
 	minimal_player_age = 5
 	title = "Second Officer"
-	supervisors = "the captain and the first officer."
+	supervisors = "the captain and the first officer"
 	department = "Civilian"
 	outfit_type = /singleton/hierarchy/outfit/job/nerva/secondofficer
 	hud_icon = "hudsecondofficer"
@@ -130,7 +130,7 @@
 	req_admin_notify = 1
 	economic_power = 15
 	title = "Senior Scientist"
-	supervisors = "NanoTrasen Central Command and the captain."
+	supervisors = "NanoTrasen Central Command and the captain"
 	hud_icon = "hudseniorscientist"
 	outfit_type = /singleton/hierarchy/outfit/job/nerva/seniorscientist
 	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network, access_seniornt,
@@ -144,7 +144,7 @@
 
 /datum/job/chief_engineer
 	minimal_player_age = 3
-	supervisors = "the captain and the first officer."
+	supervisors = "the captain and the first officer"
 	access = list(access_engine, access_engine_equip, access_tech_storage, access_maint_tunnels, access_heads,
 			            access_teleporter, access_external_airlocks, access_atmospherics, access_emergency_storage, access_eva,
 			            access_bridge, access_construction, access_sec_doors,
@@ -185,7 +185,7 @@
 	spawn_positions = 1
 	head_position = 1
 	department_flag = COM|SUP
-	supervisors = "the captain and the first officer."
+	supervisors = "the captain and the first officer"
 	outfit_type = /singleton/hierarchy/outfit/job/nerva/qm
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station,
 	access_expedition_shuttle_helm, access_expedition, access_robotics, access_research, access_teleporter,
@@ -230,7 +230,7 @@
 
 /datum/job/cmo
 	minimal_player_age = 1
-	supervisors = "the captain and the first officer."
+	supervisors = "the captain and the first officer"
 	access = list(access_medical, access_medical_equip, access_morgue, access_bridge, access_heads,
 			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
 			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels, access_external_airlocks,
@@ -271,7 +271,7 @@
 /datum/job/hos
 	minimal_player_age = 5
 	title = "Chief of Security"
-	supervisors = "the captain and the first officer."
+	supervisors = "the captain and the first officer"
 	outfit_type = /singleton/hierarchy/outfit/job/security/nervacos
 	hud_icon = "hudheadofsecurity"
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_heads,
@@ -286,7 +286,7 @@
 
 /datum/job/officer
 	minimal_player_age = 0
-	supervisors = "the chief of security."
+	supervisors = "the chief of security"
 	alt_titles = list("Detective")
 	outfit_type = /singleton/hierarchy/outfit/job/security/nervasecofficer
 	access = list(access_security, access_forensics_lockers, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_expedition, access_expedition_shuttle_helm, access_medical, access_hydroponics, access_gunnery, access_prim_tool)
@@ -299,7 +299,7 @@
 	minimal_player_age = 0
 	title = "NanoTrasen Scientist"
 	alt_titles = list("NanoTrasen Xenobiologist", "NanoTrasen Anomalist", "NanoTrasen Xenobotanist")
-	supervisors = "the senior scientist and NanoTrasen Central Command."
+	supervisors = "the senior scientist and NanoTrasen Central Command"
 	total_positions = 3
 	spawn_positions = 3
 	hud_icon = "hudscientist"
@@ -312,13 +312,16 @@
 //misc
 
 /datum/job/assistant
-	supervisors = "the second officer."
+	title = "Assistant"
+	supervisors = "everyone"
 	access = list(access_prim_tool)
+	outfit_type = /singleton/hierarchy/outfit/job/nerva/assistant
 	alt_titles = list(
 	"Technical Assistant","Medical Intern","Cargo Assistant",
 	"Botanist" = /singleton/hierarchy/outfit/job/service/gardener,
 	"Librarian" = /singleton/hierarchy/outfit/job/librarian,
-	"Journalist" = /singleton/hierarchy/outfit/job/librarian
+	"Journalist" = /singleton/hierarchy/outfit/job/librarian,
+	minimal_player_age = 0
 	)
 
 /datum/job/assistant/get_description_blurb()
@@ -328,7 +331,7 @@
 	economic_power = 3
 	access = list(access_hydroponics, access_kitchen, access_prim_tool)
 	alt_titles = list("Bartender" = /singleton/hierarchy/outfit/job/service/nervabartender)
-	supervisors = "the second officer."
+	supervisors = "the second officer"
 	minimal_player_age = 0
 
 /datum/job/chef/get_description_blurb()
@@ -338,7 +341,7 @@
 /datum/job/janitor
 	economic_power = 2
 	title = "Janitor"
-	supervisors = "the second officer."
+	supervisors = "the second officer"
 	total_positions = 1
 	spawn_positions = 1
 	minimal_player_age = 0
@@ -446,3 +449,15 @@
 
 /datum/job/submap
 	required_language = null
+
+//passenger. this has to be its own role for its own spawns.
+
+/datum/job/passenger
+	title = "Passenger"
+	department = "Civilian"
+	supervisors = "the Captain's tolerance"
+	department_flag = CIV
+	total_positions = -1
+	spawn_positions = -1
+	economic_power = 2
+	outfit_type = /singleton/hierarchy/outfit/job/nerva/passenger

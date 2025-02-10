@@ -64,9 +64,16 @@
 	consume_completion_trigger = FALSE
 	var/stack_material = MATERIAL_STEEL
 
+/singleton/crafting_stage/material/is_appropriate_tool(obj/item/thing, mob/user)
+	. = ..()
+	var/obj/item/stack/material/M = thing
+	if (!istype(M) || stack_material && M.material.name != stack_material)
+		to_chat(user, SPAN_WARNING("\The [thing] is not made of the right material for that."))
+		return FALSE
+
 /singleton/crafting_stage/material/consume(mob/user, obj/item/thing, obj/item/target)
 	var/obj/item/stack/material/M = thing
-	. = istype(M) && (!stack_material || M.material.name == stack_material) && ..()
+	. = istype(M) && ..()
 
 /singleton/crafting_stage/welding
 	consume_completion_trigger = FALSE

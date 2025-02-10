@@ -15,7 +15,7 @@
 	)
 
 /obj/structure/closet/secure_closet/nervacap
-	name = "captains's locker"
+	name = "captain's locker"
 	req_access = list(access_captain)
 	closet_appearance = /singleton/closet_appearance/secure_closet/command/nervacap
 
@@ -147,11 +147,11 @@
 		/obj/item/device/hailer,
 		/obj/item/clothing/accessory/storage/black_vest,
 		/obj/item/gun/energy/gun/secure,
-		/obj/item/device/megaphone,
 		/obj/item/clothing/gloves/thick,
 		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/device/holowarrant,
 		/obj/item/device/flashlight/maglight,
+		/obj/item/clothing/shoes/jackboots,
 		/obj/item/clothing/glasses/hud/security/prot/sunglasses,
 		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/security, /obj/item/storage/backpack/satchel/sec)),
 		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/dufflebag/sec, /obj/item/storage/backpack/messenger/sec))
@@ -177,7 +177,6 @@
 		/obj/item/storage/belt/holster/security,
 		/obj/item/storage/belt/security,
 		/obj/item/device/flash,
-		/obj/item/device/megaphone,
 		/obj/item/melee/baton/loaded,
 		/obj/item/gunbox,
 		/obj/item/clothing/accessory/storage/holster/thigh,
@@ -185,13 +184,11 @@
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/clothing/accessory/storage/black_vest,
 		/obj/item/device/hailer,
-		/obj/item/material/clipboard,
-		/obj/item/folder/red,
 		/obj/item/device/holowarrant,
 		/obj/item/clothing/gloves/thick,
 		/obj/item/device/flashlight/maglight,
 		/obj/item/device/taperecorder,
-		/obj/item/hand_labeler,
+		/obj/item/clothing/shoes/jackboots,
 		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/security, /obj/item/storage/backpack/satchel/sec)),
 		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/dufflebag/sec, /obj/item/storage/backpack/messenger/sec))
 	)

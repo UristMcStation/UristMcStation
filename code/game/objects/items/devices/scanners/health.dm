@@ -111,6 +111,17 @@
 		brain_result = SPAN_CLASS("scan_danger", "ERROR - Nonstandard biology")
 	dat += "Brain activity: [brain_result]."
 
+	var/breathing = "none"
+	if(H.should_have_organ(BP_LUNGS))
+		var/obj/item/organ/internal/lungs/lungs = H.internal_organs_by_name[BP_LUNGS]
+		if(!lungs || H.status_flags & FAKEDEATH)
+			breathing = SPAN_CLASS("scan_danger", "none")
+		else if(lungs.breath_fail_ratio < 0.3)
+			breathing = "normal"
+		else if(lungs.breath_fail_ratio < 1)
+			breathing = SPAN_CLASS("scan_warning", "shallow")
+	dat += "Breathing: [breathing]."
+
 	if(H.stat == DEAD || (H.status_flags & FAKEDEATH))
 		dat += SPAN_CLASS("scan_warning", "[b]Time of Death:[endb] [time2text(worldtime2stationtime(H.timeofdeath), "hh:mm")]")
 

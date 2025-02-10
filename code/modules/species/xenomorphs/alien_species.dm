@@ -363,7 +363,8 @@
 		/mob/living/carbon/human/proc/corrosive_acid,
 		/mob/living/carbon/human/proc/neurotoxin,
 		/mob/living/carbon/human/proc/resin,
-		/mob/living/carbon/human/proc/xeno_infest
+		/mob/living/carbon/human/proc/xeno_infest,
+		/mob/living/carbon/human/proc/pry_open
 		)
 
 	genders = list(FEMALE)
@@ -396,3 +397,6 @@
 		"storage1" =     list("loc" = ui_storage1,  "name" = "Left Pocket",  "slot" = slot_l_store,   "state" = "pocket"),
 		"storage2" =     list("loc" = ui_storage2,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket"),
 		)
+
+/datum/species/xenos/can_shred(mob/living/carbon/human/H, ignore_intent, ignore_antag)
+	return TRUE

@@ -25,6 +25,8 @@ var/global/datum/robolimb/basic_robolimb
 	var/list/restricted_to = list()
 	var/list/applies_to_part = list() //TODO.
 	var/list/allowed_bodytypes = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_RESOMI)
+	var/has_screen = FALSE
+	var/display_text
 
 /datum/robolimb/bishop
 	company = "Bishop"
@@ -50,6 +52,7 @@ var/global/datum/robolimb/basic_robolimb
 	icon = 'icons/mob/human_races/cyberlimbs/bishop/bishop_monitor.dmi'
 	allowed_bodytypes = list(SPECIES_IPC)
 	unavailable_at_fab = 1
+	has_screen = TRUE
 
 /datum/robolimb/hephaestus
 	company = "Hephaestus Industries"
@@ -80,6 +83,7 @@ var/global/datum/robolimb/basic_robolimb
 	allowed_bodytypes = list(SPECIES_IPC)
 	can_eat = null
 	unavailable_at_fab = 1
+	has_screen = TRUE
 
 /datum/robolimb/zenghu
 	company = "Zeng-Hu"
@@ -118,6 +122,7 @@ var/global/datum/robolimb/basic_robolimb
 	allowed_bodytypes = list(SPECIES_IPC)
 	can_eat = null
 	unavailable_at_fab = 1
+	has_screen = TRUE
 
 /datum/robolimb/nanotrasen
 	company = "NanoTrasen"
@@ -148,6 +153,7 @@ var/global/datum/robolimb/basic_robolimb
 	allowed_bodytypes = list(SPECIES_IPC)
 	can_eat = null
 	unavailable_at_fab = 1
+	has_screen = TRUE
 
 /datum/robolimb/morpheus
 	company = "Morpheus"
@@ -196,6 +202,7 @@ var/global/datum/robolimb/basic_robolimb
 	unavailable_at_fab = 1
 	has_eyes = FALSE
 	allowed_bodytypes = list(SPECIES_IPC)
+	has_screen = TRUE
 
 /datum/robolimb/veymed
 	company = "Vey-Med"
@@ -243,6 +250,7 @@ var/global/datum/robolimb/basic_robolimb
 	applies_to_part = list(BP_HEAD)
 	unavailable_at_fab = 1
 	allowed_bodytypes = list(SPECIES_IPC)
+	has_screen = TRUE
 
 /datum/robolimb/vox
 	company = "Arkmade"
@@ -253,3 +261,31 @@ var/global/datum/robolimb/basic_robolimb
 /datum/robolimb/vox/crap
 	company = "Improvised"
 	icon = 'icons/mob/human_races/cyberlimbs/vox/improvised.dmi'
+
+/datum/robolimb/unbranded_unathi
+	company = "Unbranded - Unathi"
+	desc = "A simple robotic limb with the familiar reptile-man design. Seems rather stiff."
+	icon = 'icons/uristmob/species/unathi/unbranded/unbranded.dmi'
+	allowed_bodytypes = list(SPECIES_UNATHI)
+
+/datum/robolimb/nanotrasen_unathi
+	company = "NanoTrasen - Unathi"
+	desc = "A robotic limb with the familiar reptile-man design. Made from a cheap polymer."
+	icon = 'icons/uristmob/species/unathi/nanotrasen/nanotrasen.dmi'
+	allowed_bodytypes = list(SPECIES_UNATHI)
+
+/datum/robolimb/uesseka
+	company = "Uesseka Prototyping"
+	desc = "This limb seems well crafted, and distinctly Unathi in design."
+	icon = 'icons/uristmob/species/unathi/uessekaprototyping/uessekaprototyping.dmi'
+	can_eat = 1
+	unavailable_at_fab = 1
+	allowed_bodytypes = list(SPECIES_UNATHI)
+
+/datum/robolimb/uessekared
+	company = "Uesseka Prototyping - Red"
+	desc = "This limb seems well crafted, and distinctly Unathi in design. This one's red!"
+	icon = 'icons/uristmob/species/unathi/uessekaprototyping/uessekaprototyping_red.dmi'
+	can_eat = 1
+	unavailable_at_fab = 1
+	allowed_bodytypes = list(SPECIES_UNATHI)

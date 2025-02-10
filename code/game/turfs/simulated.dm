@@ -179,3 +179,20 @@
 	if (HAS_FLAGS(damage_flags, DAMAGE_FLAG_TURF_BREAKER))
 		damage *= 4
 	. = ..()
+
+/turf/simulated/verb/engrave()
+	set name = "Engrave floor"
+	set desc = "Writes a message on the floor."
+	set category = "Object"
+	set src in oview(1)
+
+	var/obj/item/I = usr.get_active_hand()
+	if(!I)
+		to_chat(usr, "<span class='notice'>You aren't holding anything to write with.</span>")
+		return
+
+	if (!can_touch(usr))
+		return
+
+	try_graffiti(usr, I)
+	return

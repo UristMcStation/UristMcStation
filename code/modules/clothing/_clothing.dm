@@ -1087,6 +1087,7 @@ BLIND     // can't see anything
 	gender = NEUTER
 	species_restricted = list("exclude", SPECIES_NABBER, SPECIES_DIONA)
 	var/undergloves = 1
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
 
 /obj/item/clothing/get_pressure_weakness(pressure,zone)

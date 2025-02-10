@@ -179,7 +179,7 @@
 		return
 
 	user.set_machine(src)
-	var/dat = "<B><HR>[FONT_LARGE(name)]</B><BR><HR>"
+	var/dat = "<B>[FONT_LARGE(name)]</B>"
 
 	for(var/entry in species.hud.gear)
 		var/list/slot_ref = species.hud.gear[entry]
@@ -220,9 +220,10 @@
 	dat += "<BR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
 	dat += "<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>"
 
-	show_browser(user, dat, text("window=mob[name];size=340x540"))
-	onclose(user, "mob[name]")
-	return
+
+	var/datum/browser/popup = new(user, name, 540, 340)
+	popup.set_content(dat)
+	popup.open()
 
 // called when something steps onto a human
 // this handles mulebots and vehicles
@@ -619,6 +620,7 @@
 	var/obj/item/organ/internal/cell/potato = internal_organs_by_name[BP_CELL]
 	if(potato && potato.cell)
 		stat("Battery charge:", "[potato.get_charge()]/[potato.cell.maxcharge]")
+		stat("Operating temperature:", "[round(bodytemperature-T0C)]&deg;C")
 
 	if(back && istype(back,/obj/item/rig))
 		var/obj/item/rig/suit = back

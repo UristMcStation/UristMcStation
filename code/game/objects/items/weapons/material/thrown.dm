@@ -12,6 +12,7 @@
 	sharp = TRUE
 	edge =  TRUE
 	w_class = ITEM_SIZE_TINY
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
 /obj/item/material/star/New()
 	..()

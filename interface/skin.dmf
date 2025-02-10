@@ -693,6 +693,9 @@ macro "hotkeymode"
 	elem
 		name = "."
 		command = "move-down"
+	elem
+		name = "CTRL+T"
+		command = "scope"
 
 macro "borgmacro"
 	elem

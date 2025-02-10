@@ -48,18 +48,19 @@
 
 /datum/uplink_item/item/stealth_items/chameleon_kit
 	name = "Chameleon Kit"
-	desc = "Comes with a full set of appearance changing clothing you need to impersonate most people.  \
-	Accessories, backpack, and gun included!"
-	item_cost = 20
+	desc = "A discreet disguise kit, with a full set of appearance changing clothes, and a voice modulator mask, allowing you \
+	to impersonate most people"
+	item_cost = 24 // Increase for Mask included.
 	path = /obj/item/storage/backpack/chameleon/sydie_kit
 
-/datum/uplink_item/item/stealth_items/voice
+/*/datum/uplink_item/item/stealth_items/voice   Urist Specific - Changed to be available with the Chameleon Kit.
 	name = "Modified Gas Mask"
 	desc = "A fully functioning gas mask that is able to conceal your face and has a built in voice modulator, \
 	so you can become a true shadow operative!"
 	item_cost = 20
 	path = /obj/item/clothing/mask/chameleon/voice
 
+*/
 /datum/uplink_item/item/stealth_items/chameleon_projector
 	name = "Chameleon Projector"
 	desc = "Use this to scan a small, portable object in order to disguise yourself as said object."
@@ -73,8 +74,8 @@
 
 /datum/uplink_item/item/stealth_items/sneakies
 	name = "Sneakies"
-	desc = "A fashionable pair of polished dress shoes. The soles are made in a way so that any \
-	tracks you leave look like they are traveling in the opposite direction."
+	desc = "A fashionable pair of polished dress shoes. The soles are acousticly dampened to prevent audible footsteps \
+	and a non-stick backing has been applied to remove the chance of trailing bloody footprints behind you."
 	item_cost = 4
 	path = /obj/item/clothing/shoes/laceup/sneakies
 
@@ -82,5 +83,5 @@
 	name = "Smuggler's Satchel"
 	desc = "This satchel is thin enough to be hidden in the gap between plating and tiling, \
 	great for stashing your stolen goods. Comes with a crowbar and a floor tile."
-	item_cost = 20
+	item_cost = 16
 	path = /obj/item/storage/backpack/satchel/flat
