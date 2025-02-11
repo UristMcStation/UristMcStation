@@ -895,7 +895,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
+	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -6214,7 +6214,7 @@
 /obj/machinery/vending/assist{
 	contraband = null;
 	name = "AntagCorpVent";
-	products = list(/obj/item/device/assembly/prox_sensor=5,/obj/item/device/assembly/signaler=4,/obj/item/device/assembly/infra=4,/obj/item/device/assembly/prox_sensor=4,/obj/item/handcuffs=8,/obj/item/device/flash=4)
+	products = list(/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4, /obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4, /obj/item/handcuffs = 8, /obj/item/device/flash = 4)
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -6291,8 +6291,8 @@
 /obj/machinery/vending/cigarette{
 	contraband = newlist();
 	premium = newlist();
-	prices = list(/obj/item/storage/fancy/smokable=15,/obj/item/storage/box/matches=1,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=20);
-	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
+	prices = list(/obj/item/storage/fancy/smokable = 15, /obj/item/storage/box/matches = 1, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 20);
+	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -14186,7 +14186,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
+	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /turf/unsimulated/floor{
 	icon_state = "plating";
@@ -14898,7 +14898,7 @@
 	heat_proof = 1;
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
-/turf/space,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/naval1/centcom)
 "aKd" = (
 /obj/machinery/vending/props,
@@ -16938,13 +16938,19 @@
 /obj/structure/alien/node{
 	icon_state = "weeds2"
 	},
-/turf/space,
+/turf/unsimulated/floor{
+	icon = 'icons/turf/shuttle.dmi';
+	icon_state = "floor3"
+	},
 /area/space)
 "aPx" = (
 /obj/structure/alien/node{
 	icon_state = "weeds"
 	},
-/turf/space,
+/turf/unsimulated/floor{
+	icon = 'icons/turf/shuttle.dmi';
+	icon_state = "floor3"
+	},
 /area/space)
 "aPy" = (
 /obj/machinery/door/airlock/hatch,

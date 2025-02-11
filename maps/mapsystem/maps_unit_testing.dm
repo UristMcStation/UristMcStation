@@ -60,4 +60,6 @@
 
 	var/list/area_purity_test_exempt_areas = list()
 
+	var/ignore_shutter_test = FALSE
+
 /area/ship
