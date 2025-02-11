@@ -18,21 +18,21 @@ Please keep it tidy, by which I mean put comments describing the item before the
 // circuits
 /datum/design/circuit/carpentryplaner
 	name = "wood processor"
-	id = "wood processor"
+	id = "wood_processor"
 	req_tech = list(TECH_ENGINEERING = 1)
 	build_path = /obj/item/stock_parts/circuitboard/carpentryplaner
 	sort_string = "URSTC"
 
 /datum/design/circuit/woodprocessor
 	name = "pulp and paper processor"
-	id = "pulp and paper processor"
+	id = "paper_processor"
 	req_tech = list(TECH_ENGINEERING = 1)
 	build_path = /obj/item/stock_parts/circuitboard/woodprocessor
 	sort_string = "URSTD"
 
 /datum/design/circuit/drying_rack
 	name = "drying rack"
-	id = "drying rack"
+	id = "drying_rack"
 	req_tech = list(TECH_BIO = 1, TECH_ENGINEERING = 1)
 	build_path = /obj/item/stock_parts/circuitboard/drying_rack
 	sort_string = "URSTE"

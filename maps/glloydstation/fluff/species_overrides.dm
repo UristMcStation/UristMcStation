@@ -33,7 +33,7 @@
 	description = "Positronic intelligence is an emerging technology in the workforce, and you are one of the prototypes. \
 	IPCs (Integrated Positronic Chassis) are a loose category of self-willed robots with a humanoid form. They are \
 	reliable and dedicated workers, albeit more than slightly inhuman in outlook and perspective. <br><br> Typical positronic brains \
-	are roughly as intelligent as a human on the smarter side of average, and are fast learners.
+	are roughly as intelligent as a human on the smarter side of average, and are fast learners."
 
 /datum/species/machine
 	available_cultural_info = list(

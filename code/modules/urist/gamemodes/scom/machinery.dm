@@ -364,4 +364,3 @@
 /obj/machinery/telecomms/relay/preset/planet
 	id = "Planet Relay"
 	autolinkers = list("p_relay")
-	construct_state = null

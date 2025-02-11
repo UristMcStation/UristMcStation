@@ -151,7 +151,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/ship)
 "aw" = (
-/obj/machinery/constructable_frame/computerframe{
+/obj/machinery/constructable_frame/computerframe/deconstruct{
 	anchored = 1
 	},
 /turf/simulated/shuttle/floor{
@@ -623,7 +623,7 @@
 /area/derelict/ship)
 "bE" = (
 /obj/structure/cable,
-/obj/machinery/constructable_frame/computerframe{
+/obj/machinery/constructable_frame/computerframe/deconstruct{
 	anchored = 1
 	},
 /turf/simulated/shuttle/floor{
@@ -632,7 +632,7 @@
 /area/derelict/ship)
 "bF" = (
 /obj/structure/cable,
-/obj/machinery/constructable_frame/computerframe{
+/obj/machinery/constructable_frame/computerframe/deconstruct{
 	anchored = 1
 	},
 /obj/item/stack/cable_coil/cut,
@@ -906,7 +906,7 @@
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "cw" = (
-/obj/machinery/constructable_frame/computerframe,
+/obj/machinery/constructable_frame/computerframe/deconstruct,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "cx" = (
@@ -1615,7 +1615,7 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "eF" = (
-/obj/machinery/constructable_frame/computerframe,
+/obj/machinery/constructable_frame/computerframe/deconstruct,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "eG" = (
@@ -1630,7 +1630,7 @@
 /turf/simulated/wall/r_wall,
 /area/AIsattele)
 "eJ" = (
-/obj/machinery/constructable_frame/computerframe,
+/obj/machinery/constructable_frame/computerframe/deconstruct,
 /obj/structure/cable{
 	icon_state = "0-2";
 	d2 = 2

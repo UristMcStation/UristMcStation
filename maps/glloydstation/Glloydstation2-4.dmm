@@ -690,7 +690,7 @@
 /turf/simulated/floor/tiled,
 /area/djstation)
 "by" = (
-/obj/machinery/constructable_frame/computerframe{
+/obj/machinery/constructable_frame/computerframe/deconstruct{
 	anchored = 1
 	},
 /turf/simulated/floor/wood/walnut,
@@ -1422,11 +1422,11 @@
 /turf/simulated/floor,
 /area/derelict/bridge/access)
 "dy" = (
-/obj/machinery/constructable_frame/computerframe,
+/obj/machinery/constructable_frame/computerframe/deconstruct,
 /turf/simulated/floor,
 /area/derelict/bridge)
 "dz" = (
-/obj/machinery/constructable_frame/computerframe,
+/obj/machinery/constructable_frame/computerframe/deconstruct,
 /obj/structure/cable{
 	icon_state = "0-2";
 	d2 = 2
