@@ -510,10 +510,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/telecomms/relay/preset/planet{
-	circuitboard = null;
-	construct_state = null
-	},
+/obj/machinery/telecomms/relay/long_range_planetary/fake_jungle,
 /turf/simulated/floor/tiled/dark,
 /area/jungleoutpost/comms)
 "bT" = (
