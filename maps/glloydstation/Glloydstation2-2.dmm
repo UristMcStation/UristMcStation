@@ -1027,7 +1027,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/machinery/constructable_frame/computerframe{
+/obj/machinery/constructable_frame/computerframe/deconstruct{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2330,7 +2330,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchant/home)
 "agn" = (
-/obj/machinery/constructable_frame/computerframe{
+/obj/machinery/constructable_frame/computerframe/deconstruct{
 	dir = 4
 	},
 /obj/machinery/light/small{
@@ -5431,7 +5431,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "anC" = (
-/obj/machinery/constructable_frame/computerframe,
+/obj/machinery/constructable_frame/computerframe/deconstruct,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "anD" = (
@@ -5549,7 +5549,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "anR" = (
-/obj/machinery/constructable_frame/computerframe,
+/obj/machinery/constructable_frame/computerframe/deconstruct,
 /obj/machinery/light{
 	dir = 4
 	},

@@ -35,7 +35,7 @@
 
 /obj/item/stock_parts/circuitboard/tcomms_relay
 	name = T_BOARD("telecomms relay")
-	build_path = /obj/machinery/telecomms/relay
+	build_path = /obj/machinery/telecomms/relay/preset
 	board_type = "machine"
 	origin_tech = list(TECH_ENGINEERING = 1)
 	req_components = list(
@@ -43,3 +43,8 @@
 							/obj/item/stack/material/wood = 4,
 							/obj/item/stack/cable_coil = 5,
 							/obj/item/stock_parts/console_screen = 1)
+
+/obj/item/stock_parts/circuitboard/telesci_control
+	name = T_BOARD("telepad control console")
+	build_path = /obj/machinery/computer/telescience
+	origin_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 3, TECH_POWER = 3)
