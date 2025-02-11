@@ -22470,15 +22470,6 @@
 	icon_state = "wood9"
 	},
 /area/centcom/antag)
-"bbx" = (
-/obj/machinery/constructable_frame/computerframe{
-	anchored = 1
-	},
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/centcom/antag)
 "bby" = (
 /obj/structure/filingcabinet/wood,
 /turf/unsimulated/floor{
@@ -22690,54 +22681,6 @@
 /area/centcom/antag)
 "bca" = (
 /turf/unsimulated/wall/stone,
-/area/centcom/antag)
-"bcb" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 9
-	},
-/turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "carpet"
-	},
-/area/centcom/antag)
-"bcc" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "carpet"
-	},
-/area/centcom/antag)
-"bcd" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 5
-	},
-/turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "carpet"
-	},
 /area/centcom/antag)
 "bce" = (
 /turf/unsimulated/wall/wood{
@@ -24225,42 +24168,6 @@
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
-	},
-/area/centcom/antag)
-"bfl" = (
-/obj/structure/bed/chair/comfy/brown,
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	dir = 10
-	},
-/turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "carpet"
-	},
-/area/centcom/antag)
-"bfm" = (
-/obj/structure/bed/chair/comfy/brown,
-/obj/effect/floor_decal/carpet,
-/turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "carpet"
-	},
-/area/centcom/antag)
-"bfn" = (
-/obj/structure/bed/chair/comfy/brown,
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	dir = 6
-	},
-/turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "carpet"
 	},
 /area/centcom/antag)
 "bfo" = (
@@ -64766,15 +64673,15 @@ aZv
 aZv
 baz
 baY
-bbx
-bcb
+bcM
+beY
 bcK
 bcM
 bcM
 bcM
 beY
-bfl
-bbx
+bcK
+bcM
 baY
 aZu
 aYV
@@ -65023,15 +64930,15 @@ aZw
 aZw
 baA
 baZ
-bbx
-bcc
+bcM
+aZz
 aZZ
 bdp
 bdS
 beE
 aZz
-bfm
-bbx
+aZZ
+bcM
 baZ
 aZu
 aYV
@@ -65537,15 +65444,15 @@ aZw
 aZw
 baA
 baY
-bbx
-bcc
+bcM
+aZz
 aZZ
 bdr
 bdU
 beG
 aZz
-bfm
-bbx
+aZZ
+bcM
 baY
 aZu
 aYV
@@ -65794,15 +65701,15 @@ aZx
 aZx
 baB
 baZ
-bbx
-bcd
+bcM
+beZ
 bcL
 bds
 bdV
 beH
 beZ
-bfn
-bbx
+bcL
+bcM
 baZ
 aZu
 aYV
