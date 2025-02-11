@@ -20944,12 +20944,6 @@
 	icon_state = "asteroid"
 	},
 /area/map_template/syndicate_mothership/raider_base)
-"aYf" = (
-/obj/item/organ/internal/stack,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/map_template/syndicate_mothership/raider_base)
 "aYg" = (
 /obj/structure/bed/chair,
 /turf/unsimulated/floor{
@@ -82399,7 +82393,7 @@ aWu
 aTh
 aTh
 aTh
-aYf
+aTh
 aTh
 aZj
 aSv
