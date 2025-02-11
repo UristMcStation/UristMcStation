@@ -16954,7 +16954,10 @@
 /area/space)
 "aPy" = (
 /obj/machinery/door/airlock/hatch,
-/turf/space,
+/turf/unsimulated/floor{
+	icon = 'icons/turf/shuttle.dmi';
+	icon_state = "floor3"
+	},
 /area/space)
 "aPz" = (
 /obj/effect/floor_decal/industrial/warning,

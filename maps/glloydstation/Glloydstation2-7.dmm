@@ -2919,7 +2919,7 @@
 /obj/machinery/power/smes/buildable{
 	capacity = 1e+007;
 	charge = 1e+007;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=2);
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 2);
 	input_attempt = 1;
 	input_level = 500000;
 	inputting = 1;
@@ -11043,8 +11043,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	frequency = 1441;
-	pixel_y = 22
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
@@ -11925,7 +11924,7 @@
 /obj/machinery/power/smes/buildable{
 	capacity = 1e+007;
 	charge = 1e+007;
-	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak=2);
+	uncreated_component_parts = list(/obj/item/stock_parts/smes_coil/weak = 2);
 	input_attempt = 1;
 	input_level = 500000;
 	inputting = 1;
