@@ -388,7 +388,8 @@
 
 /obj/machinery/telecomms/relay/preset
 	network = "tcommsat"
-	circuitboard = /obj/item/stock_parts/circuitboard/tcomms_relay
+//	circuitboard = /obj/item/stock_parts/circuitboard/tcomms_relay
+
 /obj/machinery/telecomms/relay/preset/station
 	id = "Primary Relay"
 	autolinkers = list("s_relay")
