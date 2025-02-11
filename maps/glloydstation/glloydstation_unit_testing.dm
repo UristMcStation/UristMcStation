@@ -29,7 +29,7 @@
 		/area/maintenance/library = NO_SCRUBBER|NO_AIR_ALARM|NO_FIRE_ALARM|NO_VENT,
 		/area/maintenance/medbay = NO_SCRUBBER|NO_AIR_ALARM|NO_FIRE_ALARM,
 		/area/maintenance/incinerator = NO_SCRUBBER|NO_AIR_ALARM|NO_FIRE_ALARM,
-		/area/maintenance/foresolar = NO_SCRUBBER|NO_AIR_ALARM|NO_FIRE_ALARM,
+		/area/maintenance/foresolar = NO_SCRUBBER|NO_VENT|NO_AIR_ALARM|NO_FIRE_ALARM,
 		/area/maintenance/portsolar = NO_SCRUBBER|NO_AIR_ALARM|NO_FIRE_ALARM|NO_VENT,
 		/area/maintenance/starboardsolar = NO_SCRUBBER|NO_VENT|NO_AIR_ALARM|NO_FIRE_ALARM,
 		/area/mine/explored = NO_SCRUBBER|NO_VENT,

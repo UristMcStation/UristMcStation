@@ -35,7 +35,7 @@
 
 /obj/item/stock_parts/circuitboard/tcomms_relay
 	name = T_BOARD("telecomms relay")
-	build_path = /obj/machinery/telecomms/relay/preset
+	build_path = /obj/machinery/telecomms/relay
 	board_type = "machine"
 	origin_tech = list(TECH_ENGINEERING = 1)
 	req_components = list(
