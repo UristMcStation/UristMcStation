@@ -1,11 +1,11 @@
 /obj/structure/closet/wardrobe
 	name = "wardrobe"
 	desc = "It's a storage unit for standard-issue attire."
-	closet_appearance = /decl/closet_appearance/wardrobe
+	closet_appearance = /singleton/closet_appearance/wardrobe
 
 /obj/structure/closet/wardrobe/red
 	name = "security wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/red
+	closet_appearance = /singleton/closet_appearance/wardrobe/red
 
 /obj/structure/closet/wardrobe/red/New()
 	..()
@@ -31,7 +31,7 @@
 
 /obj/structure/closet/wardrobe/pink
 	name = "pink wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/pink
+	closet_appearance = /singleton/closet_appearance/wardrobe/pink
 
 
 /obj/structure/closet/wardrobe/pink/New()
@@ -45,7 +45,7 @@
 
 /obj/structure/closet/wardrobe/black
 	name = "black wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/black
+	closet_appearance = /singleton/closet_appearance/wardrobe/black
 
 /obj/structure/closet/wardrobe/black/New()
 	..()
@@ -65,7 +65,7 @@
 /obj/structure/closet/wardrobe/chaplain_black
 	name = "chapel wardrobe"
 	desc = "It's a storage unit for approved religious attire."
-	closet_appearance = /decl/closet_appearance/wardrobe/black
+	closet_appearance = /singleton/closet_appearance/wardrobe/black
 
 /obj/structure/closet/wardrobe/chaplain_black/New()
 	..()
@@ -77,14 +77,14 @@
 	new /obj/item/clothing/head/chaplain_hood(src)
 	new /obj/item/clothing/suit/holidaypriest(src)
 	new /obj/item/clothing/under/wedding/bride_white(src)
-	new /obj/item/weapon/storage/backpack/cultpack (src)
-	new /obj/item/weapon/storage/candle_box(src)
-	new /obj/item/weapon/storage/candle_box(src)
-	new /obj/item/weapon/deck/tarot(src)
+	new /obj/item/storage/backpack/cultpack (src)
+	new /obj/item/storage/candle_box(src)
+	new /obj/item/storage/candle_box(src)
+	new /obj/item/deck/tarot(src)
 
 /obj/structure/closet/wardrobe/green
 	name = "green wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/green
+	closet_appearance = /singleton/closet_appearance/wardrobe/green
 
 /obj/structure/closet/wardrobe/green/New()
 	..()
@@ -97,7 +97,7 @@
 
 /obj/structure/closet/wardrobe/xenos
 	name = "xenos wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/green
+	closet_appearance = /singleton/closet_appearance/wardrobe/green
 
 /obj/structure/closet/wardrobe/xenos/New()
 	..()
@@ -106,13 +106,11 @@
 	new /obj/item/clothing/shoes/sandal(src)
 	new /obj/item/clothing/shoes/sandal(src)
 	new /obj/item/clothing/shoes/sandal(src)
-	new /obj/item/clothing/under/resomi(src)
-	new /obj/item/clothing/under/resomi/white(src)
 
 /obj/structure/closet/wardrobe/orange
 	name = "prison wardrobe"
 	desc = "It's a storage unit for regulation prisoner attire."
-	closet_appearance = /decl/closet_appearance/wardrobe/orange
+	closet_appearance = /singleton/closet_appearance/wardrobe/orange
 
 /obj/structure/closet/wardrobe/orange/New()
 	..()
@@ -128,7 +126,7 @@
 
 /obj/structure/closet/wardrobe/yellow
 	name = "yellow wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/yellow
+	closet_appearance = /singleton/closet_appearance/wardrobe/yellow
 
 /obj/structure/closet/wardrobe/yellow/New()
 	..()
@@ -141,7 +139,7 @@
 
 /obj/structure/closet/wardrobe/atmospherics_yellow
 	name = "atmospherics wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/yellow
+	closet_appearance = /singleton/closet_appearance/wardrobe/yellow
 
 /obj/structure/closet/wardrobe/atmospherics_yellow/New()
 	..()
@@ -160,7 +158,7 @@
 
 /obj/structure/closet/wardrobe/engineering_yellow
 	name = "engineering wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/yellow
+	closet_appearance = /singleton/closet_appearance/wardrobe/yellow
 
 /obj/structure/closet/wardrobe/engineering_yellow/New()
 	..()
@@ -179,7 +177,7 @@
 
 /obj/structure/closet/wardrobe/white
 	name = "white wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/white
+	closet_appearance = /singleton/closet_appearance/wardrobe/white
 
 /obj/structure/closet/wardrobe/white/New()
 	..()
@@ -192,7 +190,7 @@
 
 /obj/structure/closet/wardrobe/pjs
 	name = "pajama wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/white
+	closet_appearance = /singleton/closet_appearance/wardrobe/white
 
 /obj/structure/closet/wardrobe/pjs/New()
 	..()
@@ -207,7 +205,7 @@
 
 /obj/structure/closet/wardrobe/science_white
 	name = "science wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/white
+	closet_appearance = /singleton/closet_appearance/wardrobe/white
 
 /obj/structure/closet/wardrobe/science_white/New()
 	..()
@@ -223,7 +221,7 @@
 
 /obj/structure/closet/wardrobe/robotics_black
 	name = "robotics wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/black
+	closet_appearance = /singleton/closet_appearance/wardrobe/black
 
 /obj/structure/closet/wardrobe/robotics_black/New()
 	..()
@@ -238,7 +236,7 @@
 
 /obj/structure/closet/wardrobe/chemistry_white
 	name = "chemistry wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/white
+	closet_appearance = /singleton/closet_appearance/wardrobe/white
 
 /obj/structure/closet/wardrobe/chemistry_white/New()
 	..()
@@ -251,7 +249,7 @@
 
 /obj/structure/closet/wardrobe/genetics_white
 	name = "genetics wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/white
+	closet_appearance = /singleton/closet_appearance/wardrobe/white
 
 /obj/structure/closet/wardrobe/genetics_white/New()
 	..()
@@ -264,7 +262,7 @@
 
 /obj/structure/closet/wardrobe/virology_white
 	name = "virology wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/white
+	closet_appearance = /singleton/closet_appearance/wardrobe/white
 
 /obj/structure/closet/wardrobe/virology_white/New()
 	..()
@@ -279,7 +277,7 @@
 
 /obj/structure/closet/wardrobe/medic_white
 	name = "medical wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/white
+	closet_appearance = /singleton/closet_appearance/wardrobe/white
 
 /obj/structure/closet/wardrobe/medic_white/New()
 	..()
@@ -302,7 +300,7 @@
 
 /obj/structure/closet/wardrobe/grey
 	name = "grey wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/grey
+	closet_appearance = /singleton/closet_appearance/wardrobe/grey
 
 /obj/structure/closet/wardrobe/grey/New()
 	..()
@@ -318,7 +316,7 @@
 
 /obj/structure/closet/wardrobe/mixed
 	name = "mixed wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/mixed
+	closet_appearance = /singleton/closet_appearance/wardrobe/mixed
 
 /obj/structure/closet/wardrobe/mixed/New()
 	..()
@@ -341,26 +339,22 @@
 
 /obj/structure/closet/wardrobe/tactical
 	name = "tactical equipment"
-	closet_appearance = /decl/closet_appearance/tactical
+	closet_appearance = /singleton/closet_appearance/tactical
 
-/obj/structure/closet/wardrobe/tactical/WillContain()
-	return list(
-		/obj/item/clothing/suit/armor/pcarrier/green,
-		/obj/item/clothing/accessory/armorplate/medium,
-		/obj/item/clothing/under/tactical,
-		/obj/item/clothing/head/helmet/nt/tactical,
-		/obj/item/clothing/accessory/armguards/green,
-		/obj/item/clothing/accessory/legguards/green,
-		/obj/item/clothing/mask/balaclava/tactical,
-		/obj/item/clothing/glasses/sunglasses/sechud/goggles,
-		/obj/item/weapon/storage/belt/holster/security/tactical,
-		/obj/item/clothing/shoes/jackboots,
-		/obj/item/clothing/gloves/thick
-	)
+/obj/structure/closet/wardrobe/tactical/New()
+	..()
+	new /obj/item/clothing/under/tactical(src)
+	new /obj/item/clothing/suit/storage/vest/tactical(src)
+	new /obj/item/clothing/head/helmet/tactical(src)
+	new /obj/item/clothing/mask/balaclava/tactical(src)
+	new /obj/item/clothing/glasses/tacgoggles(src)
+	new /obj/item/storage/belt/holster/security/tactical(src)
+	new /obj/item/clothing/shoes/tactical(src)
+	new /obj/item/clothing/gloves/tactical(src)
 
 /obj/structure/closet/wardrobe/suit
 	name = "formal clothing locker"
-	closet_appearance = /decl/closet_appearance/wardrobe/mixed
+	closet_appearance = /singleton/closet_appearance/wardrobe/mixed
 
 /obj/structure/closet/wardrobe/suit/New()
 	..()
@@ -390,7 +384,7 @@
 
 /obj/structure/closet/wardrobe/lawyer_black
 	name = "internal affairs wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/black
+	closet_appearance = /singleton/closet_appearance/wardrobe/black
 
 /obj/structure/closet/wardrobe/lawyer_black/New()
 	..()
@@ -402,5 +396,5 @@
 	new /obj/item/clothing/shoes/brown(src)
 	new /obj/item/clothing/glasses/sunglasses/big(src)
 	new /obj/item/clothing/glasses/sunglasses/big(src)
-	new /obj/item/weapon/storage/briefcase(src)
-	new /obj/item/weapon/storage/briefcase(src)
+	new /obj/item/storage/briefcase(src)
+	new /obj/item/storage/briefcase(src)

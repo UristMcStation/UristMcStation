@@ -91,6 +91,7 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	siemens_coefficient = 2.0
 	body_parts_covered = HEAD|FACE|EYES
+	item_flags = null
 
 /obj/item/clothing/head/cueball
 	name = "cueball helmet"
@@ -99,6 +100,7 @@
 	item_state = "cueball"
 	flags_inv = BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
+	item_flags = null
 
 /obj/item/clothing/head/cardborg
 	name = "cardborg helmet"
@@ -107,10 +109,11 @@
 	item_state = "cardborg_h"
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = HEAD|FACE|EYES
+	item_flags = null
 
 /obj/item/clothing/head/cardborg/Initialize()
 	. = ..()
-	set_extension(src, /datum/extension/appearance, /datum/extension/appearance/cardborg)
+	set_extension(src, /datum/extension/appearance/cardborg)
 
 /obj/item/clothing/head/justice
 	name = "justice hat"
@@ -140,11 +143,18 @@
 /obj/item/clothing/head/flatcap
 	name = "flat cap"
 	desc = "A working man's cap."
-	icon_state = "flat_cap"
+	icon_state = "flatcap_white"
 	item_state_slots = list(
 		slot_l_hand_str = "det_hat",
 		slot_r_hand_str = "det_hat",
 		)
+	siemens_coefficient = 0.9
+
+
+/obj/item/clothing/head/mariner
+	name = "mariner's cap"
+	desc = "A cap loved by farmers, sailors and rabblerousers in the whole galaxy."
+	icon_state = "mariner_white"
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/head/pirate
@@ -162,19 +172,8 @@
 /obj/item/clothing/head/bandana
 	name = "pirate bandana"
 	desc = "Yarr."
-	icon_state = "bandana"
+	icon_state = "pirate_bandana"
 	body_parts_covered = 0
-
-/obj/item/clothing/head/bandana/green
-	name = "green bandana"
-	desc = "It's a green bandana with some fine nanotech lining."
-	icon_state = "greenbandana"
-	item_state = "greenbandana"
-
-/obj/item/clothing/head/bandana/orange //themij: Taryn Kifer
-	name = "orange bandana"
-	desc = "An orange piece of cloth, worn on the head."
-	icon_state = "orange_bandana"
 
 /obj/item/clothing/head/bowler
 	name = "bowler-hat"
@@ -190,6 +189,25 @@
 	desc = "For the gentleman of distinction."
 	body_parts_covered = 0
 
+/obj/item/clothing/head/bowlerhat/razor
+	name = "bowler-hat"
+	desc = "The brim of this hat is covered in thin razors."
+	sharp = TRUE
+	edge = TRUE
+	force = 10
+	throwforce = 60
+	throw_range = 9
+	throw_speed = 4
+	does_spin = FALSE
+	attack_verb = list("sliced", "torn", "cut")
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_RESISTANT,
+		laser = ARMOR_LASER_HANDGUNS,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
+		)
+
 /obj/item/clothing/head/beaverhat
 	name = "beaver hat"
 	icon_state = "beaver_hat"
@@ -204,6 +222,12 @@
 	name = "fedora"
 	icon_state = "fedora"
 	desc = "A sharp, stylish hat."
+
+/obj/item/clothing/head/panama
+	name = "panama hat"
+	icon_state = "panama"
+	desc = "A hat that makes you want to smuggle drugs."
+
 
 /obj/item/clothing/head/feathertrilby
 	name = "feather trilby"
@@ -255,6 +279,7 @@
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	siemens_coefficient = 2.0
 	body_parts_covered = HEAD|FACE|EYES
+	item_flags = null
 
 /obj/item/clothing/head/philosopher_wig
 	name = "natural philosopher's wig"
@@ -301,13 +326,24 @@
 	item_state = "taqiyah"
 	body_parts_covered = 0
 
+/obj/item/clothing/head/rastacap
+	name = "rastacap"
+	desc = "A round, crocheted cap, often worn to tuck hair away or for religious purposes."
+	icon_state = "rastacap"
+	item_state = "rastacap"
+	body_parts_covered = 0
+	flags_inv = BLOCKHEADHAIR
+
 /obj/item/clothing/head/tank
 	name = "padded cap"
 	desc = "A padded skullcup for those prone to bumping their heads against hard surfaces."
 	icon_state = "tank"
 	flags_inv = BLOCKHEADHAIR
 	color = "#5f5f5f"
-	armor = list(melee = 20)
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bomb = ARMOR_BOMB_PADDED
+		)
 
 /obj/item/clothing/head/tank/olive
 	color = "#727c58"
@@ -315,11 +351,61 @@
 /obj/item/clothing/head/tank/tan
 	color = "#ae9f79"
 
+/obj/item/clothing/head/beanie
+	name = "beanie"
+	desc = "A head-hugging brimless winter cap. This one is tight."
+	icon_state = "beanie"
+	item_state = "beanie"
+	body_parts_covered = 0
+
 /obj/item/clothing/head/helmet/facecover
 	name = "face cover"
 	desc = "A helmet made of plastic. It's completely opaque. This will stop the stare."
 	icon_state = "facecover"
+	valid_accessory_slots = null
 	tint = TINT_BLIND
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	flash_protection = FLASH_PROTECTION_MAJOR
+
+/obj/item/clothing/head/beret/pcrc
+	name = "\improper PCRC beret"
+	desc = "A navy beret with the emblem of Proxima Centauri Risk Control, a private security firm. For agents that are more inclined towards style than safety."
+	icon_state = "beret_corporate_pcrc"
+
+/obj/item/clothing/head/beret/saare
+	name = "\improper SAARE beret"
+	desc = "A gray beret with the emblem of Strategic Assault and Asset Retention Enterprises, a private military corporation. For mercenaries that are more inclined towards style than safety."
+	icon_state = "beret_corporate_saare"
+
+/obj/item/clothing/head/deckcrew
+	name = "deck crew helmet"
+	desc = "A helmet with ear protection and a visor, used in hangars on many ships."
+	icon_state = "deckcrew"
+	flags_inv = BLOCKHEADHAIR
+	volume_multiplier = 0.1
+
+/obj/item/clothing/head/deckcrew/green
+	name = "green deck crew helmet"
+	desc = "A helmet with ear protection and a visor, used by support staff in Fleet hangars."
+	icon_state = "deckcrew_g"
+
+/obj/item/clothing/head/deckcrew/blue
+	name = "blue deck crew helmet"
+	desc = "A helmet with ear protection and a visor, used by tug operators in Fleet hangars."
+	icon_state = "deckcrew_b"
+
+/obj/item/clothing/head/deckcrew/yellow
+	name = "yellow deck crew helmet"
+	desc = "A helmet with ear protection and a visor, used by traffic control in Fleet hangars."
+	icon_state = "deckcrew_y"
+
+/obj/item/clothing/head/deckcrew/purple
+	name = "purple deck crew helmet"
+	desc = "A helmet with ear protection and a visor, used by fueling personnel in Fleet hangars."
+	icon_state = "deckcrew_p"
+
+/obj/item/clothing/head/deckcrew/red
+	name = "red deck crew helmet"
+	desc = "A helmet with ear protection and a visor, used by munitions handlers in Fleet hangars."
+	icon_state = "deckcrew_r"

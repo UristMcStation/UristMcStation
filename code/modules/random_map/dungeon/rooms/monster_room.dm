@@ -2,8 +2,8 @@
 /datum/random_room/monster_room
 	var/list/available_mobs = list(/mob/living/simple_animal/hostile/carp)
 
-/datum/random_room/monster_room/apply_to_map(var/xorigin,var/yorigin,var/zorigin)
-	if(available_mobs.len == 0) //no mobs no problem
+/datum/random_room/monster_room/apply_to_map(xorigin,yorigin,zorigin)
+	if(length(available_mobs) == 0) //no mobs no problem
 		return 1
 	var truex = xorigin + x - 1
 	var truey = yorigin + y - 1

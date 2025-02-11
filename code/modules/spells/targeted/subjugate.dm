@@ -11,12 +11,13 @@
 	message = "<span class='danger'>You suddenly feel completely overwhelmed!</span>"
 
 	max_targets = 1
+	selection_type = "view"
 
 	level_max = list(Sp_TOTAL = 3, Sp_SPEED = 0, Sp_POWER = 3)
 
-	amt_dizziness = 100
-	amt_confused = 100
-	amt_stuttering = 100
+	amt_dizziness = 50
+	amt_confused = 50
+	amt_stuttering = 50
 
 	compatible_mobs = list(/mob/living/carbon/human)
 
@@ -29,7 +30,7 @@
 	if(spell_levels[Sp_POWER] == level_max[Sp_POWER])
 		max_targets = 0
 
-		return "[src] will now effect everyone in the area."
+		return "[src] will now effect everyone visible."
 	else
 		max_targets++
 		return "[src] will now effect [max_targets] people."

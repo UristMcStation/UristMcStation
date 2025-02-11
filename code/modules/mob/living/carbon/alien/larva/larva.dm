@@ -4,9 +4,10 @@
 
 	speak_emote = list("hisses")
 	icon_state = "larva"
-	language = "Hivemind"
+	language = LANGUAGE_XENOPHAGE_GLOBAL
 	maxHealth = 25
 	health = 25
+	faction = "alien"
 
 	var/adult_form = /mob/living/carbon/human
 	var/amount_grown = 0
@@ -18,9 +19,10 @@
 /mob/living/carbon/alien/larva/New()
 	..()
 	time_of_birth = world.time
-	add_language("Xenophage") //Bonus language.
+	add_language(LANGUAGE_XENOPHAGE) //Bonus language.
 	internal_organs |= new /obj/item/organ/internal/xeno/hivenode(src)
 	create_reagents(100)
+	verbs += /mob/living/proc/ventcrawl // Fuck it, we are forcing it.
 
 /mob/living/carbon/alien/larva/update_icons()
 

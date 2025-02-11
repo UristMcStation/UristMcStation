@@ -1,6 +1,6 @@
 //this file is full of all the racial spells/artifacts/etc that each species has.
 
-/obj/item/weapon/magic_rock
+/obj/item/magic_rock
 	name = "magical rock"
 	desc = "Legends say that this rock will unlock the true potential of anyone who touches it."
 	icon = 'icons/obj/wizard.dmi'
@@ -10,15 +10,15 @@
 	throw_range = 3
 	force = 15
 	var/list/potentials = list(
-		SPECIES_HUMAN = /obj/item/weapon/storage/bag/cash/infinite,
+		SPECIES_HUMAN = /obj/item/storage/bag/cash/infinite,
 		SPECIES_VOX = /spell/targeted/shapeshift/true_form,
 		SPECIES_UNATHI = /spell/moghes_blessing,
 		SPECIES_DIONA = /spell/aoe_turf/conjure/grove/gestalt,
-		SPECIES_SKRELL = /obj/item/weapon/contract/apprentice/skrell,
+		SPECIES_SKRELL = /obj/item/contract/apprentice/skrell,
 		SPECIES_IPC = /spell/camera_connection,
 		SPECIES_RESOMI = /spell/aoe_turf/conjure/summon/resomi)
 
-/obj/item/weapon/magic_rock/attack_self(mob/user)
+/obj/item/magic_rock/attack_self(mob/user)
 	if(!istype(user,/mob/living/carbon/human))
 		to_chat(user, "\The [src] can do nothing for such a simple being.")
 		return
@@ -40,18 +40,16 @@
 	qdel(src)
 
 //RESOMI
-/spell/aoe_turf/conjure/summon/resomi
-	name = "Summon Nano Machines"
-	desc = "This spell summons nano machines from the wizard's body to help them."
+/spell/aoe_turf/conjure/forcewall/resomi
+	name = "Invisible wall"
+	desc = "Create an invisible wall at your location."
 
 	school = "racial"
 	spell_flags = Z2NOCAST
 	invocation_type = SpI_EMOTE
-	invocation = "spasms a moment as nanomachines come out of a port on their back!"
+	invocation = "mimes placing their hands on a flat surfacing, and pushing against it."
 
 	level_max = list(Sp_TOTAL = 0, Sp_SPEED = 0, Sp_POWER = 0)
-
-	name_summon = 1
 
 	charge_type = Sp_HOLDVAR
 	holder_var_type = "shock_stage"
@@ -60,13 +58,13 @@
 	hud_state = "wiz_resomi"
 
 	summon_amt = 1
-	summon_type = list(/mob/living/simple_animal/hostile/commanded/nanomachine)
+	summon_type = list(/obj/effect/forcefield/mime)
 
 /spell/aoe_turf/conjure/summon/resomi/before_cast()
 	..()
 	newVars["master"] = holder
 
-/spell/aoe_turf/conjure/summon/resomi/take_charge(mob/user = user, var/skipcharge)
+/spell/aoe_turf/conjure/summon/resomi/take_charge(mob/user = user, skipcharge)
 	. = ..()
 	var/mob/living/carbon/human/H = user
 	if(H && H.shock_stage >= 30)
@@ -74,22 +72,22 @@
 		H.Paralyse(20)
 		H.adjustBrainLoss(10)
 
-/obj/item/weapon/storage/bag/cash/infinite
-	startswith = list(/obj/item/weapon/spacecash/bundle/c1000 = 1)
+/obj/item/storage/bag/cash/infinite
+	startswith = list(/obj/item/spacecash/bundle/c1000 = 1)
 
 
 //HUMAN
-/obj/item/weapon/storage/bag/cash/infinite/remove_from_storage(obj/item/W as obj, atom/new_location)
+/obj/item/storage/bag/cash/infinite/remove_from_storage(obj/item/W as obj, atom/new_location)
 	. = ..()
 	if(.)
-		if(istype(W,/obj/item/weapon/spacecash)) //only matters if its spacecash.
-			var/obj/item/I = new /obj/item/weapon/spacecash/bundle/c1000()
+		if(istype(W,/obj/item/spacecash)) //only matters if its spacecash.
+			var/obj/item/I = new /obj/item/spacecash/bundle/c1000()
 			src.handle_item_insertion(I,1)
 
 /spell/messa_shroud/choose_targets()
 	return list(get_turf(holder))
 
-/spell/messa_shroud/cast(var/list/targets, mob/user)
+/spell/messa_shroud/cast(list/targets, mob/user)
 	var/turf/T = targets[1]
 
 	if(!istype(T))
@@ -109,7 +107,7 @@
 	school = "racial"
 	spell_flags = INCLUDEUSER
 	invocation_type = SpI_EMOTE
-	range = -1
+	range = 0
 	invocation = "begins to grow!"
 	charge_max = 1200 //2 minutes
 	duration = 300 //30 seconds
@@ -117,7 +115,7 @@
 	smoke_amt = 5
 	smoke_spread = 1
 
-	possible_transformations = list(/mob/living/simple_animal/hostile/armalis)
+	possible_transformations = list(/mob/living/simple_animal/hostile/retaliate/parrot/space/lesser)
 
 	hud_state = "wiz_vox"
 
@@ -130,7 +128,7 @@
 //UNATHI
 /spell/moghes_blessing
 	name = "Moghes Blessing"
-	desc = "Imbue your weapon with memories of Moghes"
+	desc = "Imbue your weapon with memories of Moghes."
 
 	school = "racial"
 	spell_flags = 0
@@ -144,21 +142,22 @@
 
 /spell/moghes_blessing/choose_targets(mob/user = usr)
 	var/list/hands = list()
-	for(var/obj/item/I in list(user.l_hand, user.r_hand))
+	for (var/obj/item/item as anything in user.GetAllHeld())
 		//make sure it's not already blessed
-		if(istype(I) && !has_extension(I, /datum/extension/moghes_blessing))
-			hands += I
+		if (!has_extension(item, /datum/extension/moghes_blessing))
+			hands += item
 	return hands
 
-/spell/moghes_blessing/cast(var/list/targets, mob/user)
+/spell/moghes_blessing/cast(list/targets, mob/user)
 	for(var/obj/item/I in targets)
-		set_extension(I, /datum/extension/moghes_blessing, /datum/extension/moghes_blessing)
+		set_extension(I, /datum/extension/moghes_blessing)
 
 /datum/extension/moghes_blessing
+	base_type = /datum/extension/moghes_blessing
 	expected_type = /obj/item
 	flags = EXTENSION_FLAG_IMMEDIATE
 
-/datum/extension/moghes_blessing/New(var/datum/holder)
+/datum/extension/moghes_blessing/New(datum/holder)
 	..(holder)
 	apply_blessing(holder)
 
@@ -190,39 +189,39 @@
 	hud_state = "wiz_diona"
 
 //SKRELL
-/obj/item/weapon/contract/apprentice/skrell
+/obj/item/contract/apprentice/skrell
 	name = "skrellian apprenticeship contract"
-	var/obj/item/weapon/spellbook/linked
+	var/obj/item/spellbook/linked
 	color = "#3366ff"
 	contract_spells = list(/spell/contract/return_master) //somewhat of a necessity due to how many spells they would have after a while.
 
-/obj/item/weapon/contract/apprentice/skrell/New(var/newloc,var/spellbook, var/owner)
+/obj/item/contract/apprentice/skrell/New(newloc,spellbook, owner)
 	..()
-	if(istype(spellbook,/obj/item/weapon/spellbook))
+	if(istype(spellbook,/obj/item/spellbook))
 		linked = spellbook
 	if(istype(owner,/mob))
 		contract_master = owner
 
-/obj/item/weapon/contract/apprentice/skrell/attack_self(mob/user as mob)
+/obj/item/contract/apprentice/skrell/attack_self(mob/user as mob)
 	if(!linked)
-		to_chat(user, "<span class='warning'>This contract requires a link to a spellbook.</span>")
+		to_chat(user, SPAN_WARNING("This contract requires a link to a spellbook."))
 		return
 	..()
 
-/obj/item/weapon/contract/apprentice/skrell/afterattack(atom/A, mob/user as mob, proximity)
-	if(!linked && istype(A,/obj/item/weapon/spellbook))
+/obj/item/contract/apprentice/skrell/afterattack(atom/A, mob/user as mob, proximity)
+	if(!linked && istype(A,/obj/item/spellbook))
 		linked = A
-		to_chat(user, "<span class='notice'>You've linked \the [A] to \the [src]</span>")
+		to_chat(user, SPAN_NOTICE("You've linked \the [A] to \the [src]"))
 		return
 	..()
 
-/obj/item/weapon/contract/apprentice/skrell/contract_effect(mob/user as mob)
+/obj/item/contract/apprentice/skrell/contract_effect(mob/user as mob)
 	. = ..()
 	if(.)
 		linked.uses += 0.5
-		var/obj/item/I = new /obj/item/weapon/contract/apprentice/skrell(get_turf(src),linked,contract_master)
+		var/obj/item/I = new /obj/item/contract/apprentice/skrell(get_turf(src),linked,contract_master)
 		user.put_in_hands(I)
-		new /obj/item/weapon/contract/apprentice/skrell(get_turf(src),linked,contract_master)
+		new /obj/item/contract/apprentice/skrell(get_turf(src),linked,contract_master)
 
 //IPC
 /spell/camera_connection
@@ -258,7 +257,7 @@
 		return null
 	return list(holder)
 
-/spell/camera_connection/cast(var/list/targets, mob/user)
+/spell/camera_connection/cast(list/targets, mob/user)
 	var/mob/living/L = targets[1]
 
 	vision.possess(L)
@@ -266,7 +265,7 @@
 	GLOB.logged_out_event.register(L, src, /spell/camera_connection/proc/release)
 	L.verbs += /mob/living/proc/release_eye
 
-/spell/camera_connection/proc/release(var/mob/living/L)
+/spell/camera_connection/proc/release(mob/living/L)
 	vision.release(L)
 	L.verbs -= /mob/living/proc/release_eye
 	GLOB.destroyed_event.unregister(L, src)

@@ -8,7 +8,7 @@
 	var/flat = FALSE			// True for power falloff with distance.
 	var/range					// Cached maximum range, used for quick checks against mobs.
 
-/datum/radiation_source/New(var/source_turf, rad_power, decay = TRUE)
+/datum/radiation_source/New(source_turf, rad_power, decay = TRUE)
 	src.source_turf = source_turf
 	src.rad_power = rad_power
 	src.decay = decay
@@ -20,7 +20,7 @@
 	src.source_turf = null
 	. = ..()
 
-/datum/radiation_source/proc/update_rad_power(var/new_power = null)
+/datum/radiation_source/proc/update_rad_power(new_power = null)
 	if(new_power == null || new_power == rad_power)
 		return // No change
 	else if(new_power <= config.radiation_lower_limit)
@@ -30,19 +30,15 @@
 		if(!flat)
 			range = min(round(sqrt(rad_power / config.radiation_lower_limit)), 31)  // R = rad_power / dist**2 - Solve for dist
 
-/turf
-	var/cached_rad_resistance = 0
+/turf/var/cached_rad_resistance = 0
 
 /turf/proc/calc_rad_resistance()
 	cached_rad_resistance = 0
 	for(var/obj/O in src.contents)
-		if(O.rad_resistance) //Override
-			cached_rad_resistance += O.rad_resistance
-
-		else if(O.density) //So open doors don't get counted
+		if(!(O.rad_resistance_modifier <= 0) && O.density)
 			var/material/M = O.get_material()
 			if(!M)	continue
-			cached_rad_resistance += M.weight / config.radiation_material_resistance_divisor
+			cached_rad_resistance += (M.weight * O.rad_resistance_modifier) / config.radiation_material_resistance_divisor
 	// Looks like storing the contents length is meant to be a basic check if the cache is stale due to items enter/exiting.  Better than nothing so I'm leaving it as is. ~Leshana
 	SSradiation.resistance_cache[src] = (length(contents) + 1)
 
@@ -51,14 +47,34 @@
 	cached_rad_resistance = (density ? material.weight / config.radiation_material_resistance_divisor : 0)
 
 /obj
-	var/rad_resistance = 0  // Allow overriding rad resistance
+	var/rad_resistance_modifier = 1  // Allow overriding rad resistance
 
-// If people expand the system, this may be useful. Here as a placeholder until then
-/atom/proc/rad_act(var/severity)
+/**
+ * Retrieves the atom's current radiation level. By default, this will return `loc.get_rads()`.
+ *
+ * Returns integer.
+ */
+/atom/proc/get_rads()
+	if(loc)
+		return loc.get_rads()
+	return 0
+
+/turf/get_rads()
+	return SSradiation.get_rads_at_turf(src)
+
+/**
+ * Called when radiation affects the atom.
+ *
+ * **Parameters**:
+ * - `severity` - The amount of radiation being applied. Also see `RAD_LEVEL_*`.
+ *
+ * Returns boolean
+ */
+/atom/proc/rad_act(severity)
 	return 1
 
-/mob/living/rad_act(var/severity)
-	if(severity)
-		src.apply_effect(severity, IRRADIATE, src.getarmor(null, "rad"))
+/mob/living/rad_act(severity)
+	if(severity > RAD_LEVEL_LOW)
+		apply_damage(severity, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 		for(var/atom/I in src)
 			I.rad_act(severity)

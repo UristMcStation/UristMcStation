@@ -28,22 +28,22 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 	name = "Schrodinger's Crate"
 	desc = "What happens if you open it?"
 
-	attackby(obj/item/weapon/W as obj, mob/user as mob)
-		if(istype(W, /obj/item/weapon/crowbar))
-			var/mob/living/simple_animal/cat/Cat1 = new(loc)
-			Cat1.apply_damage(250)//,TOX)
-			Cat1.name = "Schrodinger's Cat"
-			Cat1.desc = "It seems it's been dead for a while."
+/obj/structure/largecrate/schrodinger/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W, /obj/item/crowbar))
+		var/mob/living/simple_animal/passive/cat/Cat1 = new(loc)
+		Cat1.apply_damage(250)//,TOX)
+		Cat1.name = "Schrodinger's Cat"
+		Cat1.desc = "It seems it's been dead for a while."
 
-			var/mob/living/simple_animal/cat/Cat2 = new(loc)
-			Cat2.name = "Schrodinger's Cat"
-			Cat2.desc = "It was alive the whole time!"
-			sleep(2)
-			if(prob(50))
-				del Cat1
-			else
-				del Cat2
-		..()
+		var/mob/living/simple_animal/passive/cat/Cat2 = new(loc)
+		Cat2.name = "Schrodinger's Cat"
+		Cat2.desc = "It was alive the whole time!"
+		sleep(2)
+		if(prob(50))
+			del Cat1
+		else
+			del Cat2
+	..()
 
 
 /* Boobytrapped secure crates, only legit access to disarm. */
@@ -68,8 +68,8 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 			if(istype(trap, /obj/effect/mine))
 				var/obj/effect/mine/M = trap
 				M.explode2()
-			else if(istype(trap, /obj/item/weapon/grenade))
-				var/obj/item/weapon/grenade/G = trap
+			else if(istype(trap, /obj/item/grenade))
+				var/obj/item/grenade/G = trap
 				G.detonate()
 		else
 			explosion(loc, 0, 2, 4, 5)
@@ -82,26 +82,33 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 				qdel(trap) //no frags for you!
 	..()
 
-/obj/structure/closet/crate/secure/boobytrapped/damage(var/damage)
+/*/obj/structure/closet/crate/secure/boobytrapped/damage(damage)
 	/* full override since I'd rather not touch qdel(), keep this updated with closet's damage() */
-	health -= damage
-	if(health <= 0)
+	health_current -= damage
+	if(health_current <= 0)
 		trigger_trap()
 		for(var/atom/movable/A in src)
 			A.forceMove(src.loc)
+		qdel(src)*/
+
+/obj/structure/closet/crate/secure/boobytrapped/on_death()
+	trigger_trap()
+	for(var/atom/movable/A in src)
+		A.forceMove(src.loc)
 		qdel(src)
+
 //CDN
 /obj/structure/closet/crate/secure/boobytrapped/weapon
 	name = "weapons crate"
 	desc = "A secure weapons crate outfitted with an anti-tamper trap."
-	trap = /obj/item/weapon/grenade/frag/high_yield
+	trap = /obj/item/grenade/frag/high_yield
 	trap_delete_on_open = 1
 //CDN
 /obj/structure/closet/crate/secure/boobytrapped/gear
 	name = "gear crate"
 	desc = "A secure gear crate outfitted with an anti-tamper trap."
 	icon_state = "secgearcrate"
-	trap = /obj/item/weapon/grenade/frag/high_yield
+	trap = /obj/item/grenade/frag/high_yield
 	trap_delete_on_open = 1
 
 /obj/structure/closet/crate/secure/boobytrapped/weapon/random/New()

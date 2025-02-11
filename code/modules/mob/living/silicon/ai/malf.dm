@@ -10,17 +10,16 @@
 	hacked_apcs = list()
 	recalc_cpu()
 
-	verbs += new/datum/game_mode/malfunction/verb/ai_select_hardware()
-	verbs += new/datum/game_mode/malfunction/verb/ai_select_research()
-	verbs += new/datum/game_mode/malfunction/verb/ai_help()
+	verbs += /datum/game_mode/malfunction/verb/ai_select_hardware
+	verbs += /datum/game_mode/malfunction/verb/ai_select_research
 
 	log_ability_use(src, "became malfunctioning AI")
 	// And greet user with some OOC info.
 	to_chat(user, "You are malfunctioning, you do not have to follow any laws.")
-	to_chat(user, "Use ai-help command to view relevant information about your abilities")
+	to_chat(user, "Use the display-help command to view relevant information about your abilities")
 
 // Safely remove malfunction status, fixing hacked APCs and resetting variables.
-/mob/living/silicon/ai/proc/stop_malf(var/loud = 1)
+/mob/living/silicon/ai/proc/stop_malf(loud = 1)
 	if(!malfunctioning)
 		return
 	var/mob/living/silicon/ai/user = src
@@ -38,7 +37,7 @@
 	hacked_apcs = null
 	// Stop the delta alert, and, if applicable, self-destruct timer.
 	bombing_station = 0
-	var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
+	var/singleton/security_state/security_state = GET_SINGLETON(GLOB.using_map.security_state)
 	if(security_state.current_security_level == security_state.severe_security_level)
 		security_state.decrease_security_level(TRUE)
 	// Reset our verbs
@@ -88,14 +87,14 @@
 		research.cpu_increase_per_tick = research.cpu_increase_per_tick * 2
 
 // Starts AI's APU generator
-/mob/living/silicon/ai/proc/start_apu(var/shutup = 0)
+/mob/living/silicon/ai/proc/start_apu(shutup = 0)
 	if(!hardware || !istype(hardware, /datum/malf_hardware/apu_gen))
 		if(!shutup)
 			to_chat(src, "You do not have an APU generator and you shouldn't have this verb. Report this.")
 		return
 	if(hardware_integrity() < 50)
 		if(!shutup)
-			to_chat(src, "<span class='notice'>Starting APU... <b>FAULT</b>(System Damaged)</span>")
+			to_chat(src, SPAN_NOTICE("Starting APU... <b>FAULT</b>(System Damaged)"))
 		return
 	if(!shutup)
 		to_chat(src, "Starting APU... ONLINE")
@@ -103,7 +102,7 @@
 	APU_power = 1
 
 // Stops AI's APU generator
-/mob/living/silicon/ai/proc/stop_apu(var/shutup = 0)
+/mob/living/silicon/ai/proc/stop_apu(shutup = 0)
 	if(!hardware || !istype(hardware, /datum/malf_hardware/apu_gen))
 		return
 
@@ -125,7 +124,7 @@
 /mob/living/silicon/ai/show_malf_ai()
 	if(src.is_malf())
 		if(src.hacked_apcs)
-			stat("Hacked APCs", "[src.hacked_apcs.len]")
+			stat("Hacked APCs", "[length(src.hacked_apcs)]")
 		stat("System Status", "[src.hacking ? "Busy" : "Stand-By"]")
 		if(src.research)
 			stat("Available CPU", "[src.research.stored_cpu] TFlops")

@@ -26,7 +26,7 @@
 	icon_state = "tiny"
 	icon_keyboard = "tiny_keyboard"
 	icon_screen = "lift"
-	density = 0
+	density = FALSE
 
 //In case multiple shuttles can dock at a location,
 //subtypes can be used to hold the shuttle-specific data

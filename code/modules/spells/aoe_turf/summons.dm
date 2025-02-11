@@ -42,8 +42,8 @@
 	hud_state = "wiz_creature"
 
 /spell/aoe_turf/conjure/mirage
-	name = "Summon Mirage"
-	desc = "This spell summons a harmless carp mirage for a few seconds."
+	name = "Summon Bigger Fish"
+	desc = "This spell summons a space carp for a minute."
 	feedback = "MR"
 	school = "illusion"
 	charge_max = 1200
@@ -53,15 +53,13 @@
 	range = 1
 	cast_sound = 'sound/magic/summon_carp.ogg'
 
-	duration = 600
-	cooldown_min = 600
-	level_max = list(Sp_TOTAL = 4, Sp_SPEED = 2, Sp_POWER = 3)
+	duration = 60 SECONDS
+
+	level_max = list(Sp_TOTAL = 3, Sp_SPEED = 0, Sp_POWER = 3)
 
 	summon_type = list(/mob/living/simple_animal/hostile/carp)
 
 	hud_state = "wiz_carp"
-
-	newVars = list("melee_damage_lower" = 0, "melee_damage_upper" = 0, "break_stuff_probability" = 0)
 
 /spell/aoe_turf/conjure/mirage/empower_spell()
 	if(!..())
@@ -69,4 +67,4 @@
 
 	summon_amt++
 
-	return "You now summon [summon_amt] mirages per spellcast."
+	return "You now summon [summon_amt] carps per spellcast."

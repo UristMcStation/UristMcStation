@@ -20,20 +20,19 @@
 	var/map_pad_id = "" as text //what's my name
 	var/map_pad_link_id = "" as text //who's my friend
 
-/obj/item/weapon/circuitboard/telepad
+/obj/item/stock_parts/circuitboard/telepad
 	name = T_BOARD("telepad")
 	build_path = /obj/machinery/power/quantumpad
 	board_type = "machine"
 	origin_tech = list(TECH_POWER = 6, TECH_ENGINEERING = 4, TECH_BLUESPACE = 4)
 	req_components = list(
-							/obj/item/weapon/stock_parts/subspace/crystal = 1,
-							/obj/item/weapon/stock_parts/capacitor = 2,
+							/obj/item/stock_parts/subspace/crystal = 1,
+							/obj/item/stock_parts/capacitor = 2,
 							/obj/item/stack/cable_coil = 5,
-							/obj/item/weapon/stock_parts/console_screen = 1)
+							/obj/item/stock_parts/console_screen = 1)
 
 /obj/machinery/power/quantumpad/New()
 	..()
-	build_default_parts(/obj/item/weapon/circuitboard/telepad)
 	connect_to_network()
 	if(map_pad_id)
 		mapped_quantum_pads[map_pad_id] = src
@@ -44,12 +43,12 @@
 
 /obj/machinery/power/quantumpad/RefreshParts()
 	var/E = 0
-	for(var/obj/item/weapon/stock_parts/manipulator/M in component_parts)
+	for(var/obj/item/stock_parts/manipulator/M in component_parts)
 		E += M.rating
 	power_efficiency = E
 
 	E = 0
-	for(var/obj/item/weapon/stock_parts/capacitor/C in component_parts)
+	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		E += C.rating
 
 	teleport_speed = initial(teleport_speed)
@@ -57,10 +56,7 @@
 	teleport_cooldown = initial(teleport_cooldown)
 	teleport_cooldown -= (E * 100)
 
-/obj/machinery/power/quantumpad/attackby(obj/item/I, mob/user, params)
-	if(default_deconstruction_screwdriver(user, I))
-		return
-
+/obj/machinery/power/quantumpad/use_tool(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/device/multitool))
 		if(panel_open)
 			var/obj/item/device/multitool/M = I
@@ -73,16 +69,11 @@
 				linked_pad = M.buffer_name
 				to_chat(user, "<span class='notice'>You link [src] to the one in [I]'s buffer.</span>")
 				return 1
-
-	if(default_part_replacement(user, I))
-		return
-
-	if(default_deconstruction_crowbar(user, I))
 		return
 
 	return ..()
 
-/obj/machinery/power/quantumpad/update_icon()
+/obj/machinery/power/quantumpad/on_update_icon()
 	. = ..()
 
 	if(inoperable() || panel_open)

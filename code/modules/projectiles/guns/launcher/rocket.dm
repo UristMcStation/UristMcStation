@@ -1,4 +1,4 @@
-/obj/item/weapon/gun/launcher/rocket
+/obj/item/gun/launcher/rocket
 	name = "rocket launcher"
 	desc = "MAGGOT."
 	icon_state = "rocket"
@@ -18,24 +18,24 @@
 	var/max_rockets = 1
 	var/list/rockets = new/list()
 
-/obj/item/weapon/gun/launcher/rocket/examine(mob/user)
-	if(!..(user, 2))
-		return
-	to_chat(user, "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>")
+/obj/item/gun/launcher/rocket/examine(mob/user, distance)
+	. = ..()
+	if(distance <= 2)
+		to_chat(user, SPAN_NOTICE("[length(rockets)] / [max_rockets] rockets."))
 
-/obj/item/weapon/gun/launcher/rocket/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/gun/launcher/rocket/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/ammo_casing/rocket))
-		if(rockets.len < max_rockets)
+		if(length(rockets) < max_rockets)
 			if(!user.unEquip(I, src))
 				return
 			rockets += I
-			to_chat(user, "<span class='notice'>You put the rocket in [src].</span>")
-			to_chat(user, "<span class='notice'>[rockets.len] / [max_rockets] rockets.</span>")
+			to_chat(user, SPAN_NOTICE("You put the rocket in [src]."))
+			to_chat(user, SPAN_NOTICE("[length(rockets)] / [max_rockets] rockets."))
 		else
-			to_chat(usr, "<span class='warning'>\The [src] cannot hold more rockets.</span>")
+			to_chat(usr, SPAN_WARNING("\The [src] cannot hold more rockets."))
 
-/obj/item/weapon/gun/launcher/rocket/consume_next_projectile()
-	if(rockets.len)
+/obj/item/gun/launcher/rocket/consume_next_projectile()
+	if(length(rockets))
 		var/obj/item/ammo_casing/rocket/I = rockets[1]
 		var/obj/item/missile/M = new (src)
 		M.primed = 1
@@ -43,6 +43,6 @@
 		return M
 	return null
 
-/obj/item/weapon/gun/launcher/rocket/handle_post_fire(mob/user, atom/target)
+/obj/item/gun/launcher/rocket/handle_post_fire(mob/user, atom/target)
 	log_and_message_admins("fired a rocket from a rocket launcher ([src.name]) at [target].")
 	..()

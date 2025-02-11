@@ -6,7 +6,7 @@
 	dir = SOUTH
 
 	load_item_visible = 1
-	buckle_pixel_shift = "x=0;y=5"
+	buckle_pixel_shift = list(0,0,5)
 	health = 100
 	maxhealth = 100
 
@@ -21,14 +21,12 @@
 
 	var/datum/effect/effect/system/trail/trail
 	var/kickstand = 1
-	var/obj/item/weapon/engine/engine = null
+	var/obj/item/engine/engine = null
 	var/engine_type
 	var/prefilled = 0
 
 /obj/vehicle/bike/New()
 	..()
-	layer = ABOVE_OBJ_LAYER
-	plane = ABOVE_OBJ_PLANE
 	if(engine_type)
 		load_engine(new engine_type(src.loc))
 		if(prefilled)
@@ -70,7 +68,7 @@
 	kickstand = !kickstand
 	anchored = (kickstand || on)
 
-/obj/vehicle/bike/proc/load_engine(var/obj/item/weapon/engine/E, var/mob/user)
+/obj/vehicle/bike/proc/load_engine(obj/item/engine/E, var/mob/user)
 	if(engine)
 		return
 	if(user && !user.unEquip(E))
@@ -92,24 +90,24 @@
 		qdel(trail)
 	trail = null
 
-/obj/vehicle/bike/load(var/atom/movable/C)
+/obj/vehicle/bike/load(atom/movable/C)
 	var/mob/living/M = C
-	if(!istype(C)) return 0
+	if(!istype(M)) return 0
 	if(M.buckled || M.restrained() || !Adjacent(M) || !M.Adjacent(src))
 		return 0
 	return ..(M)
 
-/obj/vehicle/bike/emp_act(var/severity)
+/obj/vehicle/bike/emp_act(severity)
 	if(engine)
 		engine.emp_act(severity)
 	..()
 
-/obj/vehicle/bike/insert_cell(var/obj/item/weapon/cell/C, var/mob/living/carbon/human/H)
+/obj/vehicle/bike/insert_cell(obj/item/cell/C, var/mob/living/carbon/human/H)
 	return
 
 /obj/vehicle/bike/attackby(obj/item/W as obj, mob/user as mob)
 	if(open)
-		if(istype(W, /obj/item/weapon/engine))
+		if(istype(W, /obj/item/engine))
 			if(engine)
 				to_chat(user, "<span class='warning'>There is already an engine block in \the [src].</span>")
 				return 1
@@ -124,12 +122,12 @@
 			return 1
 	return ..()
 
-/obj/vehicle/bike/MouseDrop_T(var/atom/movable/C, mob/user as mob)
+/obj/vehicle/bike/MouseDrop_T(atom/movable/C, mob/user as mob)
 	if(!load(C))
 		to_chat(user, "<span class='warning'> You were unable to load \the [C] onto \the [src].</span>")
 		return
 
-/obj/vehicle/bike/attack_hand(var/mob/user as mob)
+/obj/vehicle/bike/attack_hand(mob/user as mob)
 	if(user == load)
 		unload(load)
 		to_chat(user, "You unbuckle yourself from \the [src]")
@@ -143,7 +141,7 @@
 		return
 	return Move(get_step(src, direction))
 
-/obj/vehicle/bike/Move(var/turf/destination)
+/obj/vehicle/bike/Move(turf/destination)
 	if(kickstand || (world.time <= l_move_time + move_delay)) return
 	//these things like space, not turf. Dragging shouldn't weigh you down.
 	if(!pulledby)
@@ -167,7 +165,7 @@
 	engine.rev_engine(src)
 	if(trail)
 		trail.start()
-	anchored = 1
+	anchored = TRUE
 
 	update_icon()
 
@@ -190,7 +188,7 @@
 
 	..()
 
-/obj/vehicle/bike/bullet_act(var/obj/item/projectile/Proj)
+/obj/vehicle/bike/bullet_act(obj/item/projectile/Proj)
 	if(buckled_mob && prob((100-protection_percent)))
 		buckled_mob.bullet_act(Proj)
 		return
@@ -203,10 +201,7 @@
 		icon_state = "[bike_icon]_on"
 	else
 		icon_state = "[bike_icon]_off"
-	var/image/I = new(src.icon, "[icon_state]_overlay")
-	I.layer = ABOVE_HUMAN_LAYER
-	I.plane = ABOVE_HUMAN_PLANE
-	overlays += I
+	overlays += image('icons/obj/bike.dmi', "[icon_state]_overlay", MOB_LAYER + 1)
 	..()
 
 
@@ -217,11 +212,11 @@
 
 
 /obj/vehicle/bike/thermal
-	engine_type = /obj/item/weapon/engine/thermal
+	engine_type = /obj/item/engine/thermal
 	prefilled = 1
 
 /obj/vehicle/bike/electric
-	engine_type = /obj/item/weapon/engine/electric
+	engine_type = /obj/item/engine/electric
 	prefilled = 1
 
 /obj/vehicle/bike/gyroscooter
@@ -229,11 +224,11 @@
 	desc = "A fancy space scooter."
 	icon_state = "gyroscooter_off"
 
-	land_speed = 1.2
+	land_speed = 1.5
 	space_speed = 0
 	bike_icon = "gyroscooter"
 
 	trail = null
-	engine_type = /obj/item/weapon/engine/electric
+	engine_type = /obj/item/engine/electric
 	prefilled = 1
 	protection_percent = 5

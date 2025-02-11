@@ -5,16 +5,16 @@
 
 /*/obj/machinery/computer/shuttle_control/scom/attack_hand(mob/user as mob)
 	if(fuckoff)
-		user << "<span class='notice'>You're not on a mission yet!!</span>"
+		to_chat(user, "<span class='notice'>You're not on a mission yet!!</span>")
 		return
 	else
 		for(var/mob/living/simple_animal/hostile/M in world)
 			if(!M.stat)
-				user << "<span class='notice'>There are still aliens left alive!</span>"
+				to_chat(user, "<span class='notice'>There are still aliens left alive!</span>")
 				return
 		for(var/mob/living/carbon/human/H in /area/scom/mission)
 			if(H.stat)
-				user << "<span class='notice'>There are still S-COM operatives in the mission area!</span>"
+				to_chat(user, "<span class='notice'>There are still S-COM operatives in the mission area!</span>")
 				return
 
 
@@ -25,12 +25,12 @@
 	var/fuckoff = 1
 	icon_state = "shuttle"
 	icon = 'icons/obj/computer.dmi'
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 
 /obj/machinery/scom/shuttle_control/attack_hand(mob/user as mob)
 	if(fuckoff)
-		user << "<span class='notice'>You're not on a mission yet!</span>"
+		to_chat(user, "<span class='notice'>You're not on a mission yet!</span>")
 		return
 	else
 		for(var/datum/shuttle/autodock/ferry/scom/s1/C in SSshuttle.process_shuttles)
@@ -41,14 +41,14 @@
 
 				for(var/mob/living/simple_animal/hostile/M in GLOB.simple_mob_list)
 					if(!M.stat && M.faction != "neutral")
-						user << "<span class='notice'>There are still aliens left alive!</span>"
+						to_chat(user, "<span class='notice'>There are still aliens left alive!</span>")
 						return
 					else
 						break
 
 				for(var/mob/living/carbon/human/H in GLOB.player_list)
 					if(!H.stat && H.z != SCOM_ZLEVEL)
-						user << "<span class='notice'>There are still S-COM operatives in the mission area!</span>"
+						to_chat(user, "<span class='notice'>There are still S-COM operatives in the mission area!</span>")
 						return
 					else
 						C.launch()
@@ -166,7 +166,7 @@
 //			if(basemission == S.basemission)
 //				missionloc = S.missionloc2
 //				mission = S.mission
-		for(var/mob/living/carbon/C in GLOB.human_mob_list)
+		for(var/mob/living/carbon/C in GLOB.alive_mobs)
 			if(isscom(C) || find_scom_ghost(C)) //no need to teleport random non-operatives
 				if(C.z != 2) //already on-site, skip teleporting
 					if(C.z != 0 || (isobj(C.loc) && C.loc.z != 2)) //being in stuff sets coords to 0, so rechecks for holder
@@ -174,7 +174,7 @@
 						var/list/all_destinations = list()
 						for(var/obj/machinery/scom/teleporter2/T in SSmachines.machinery)
 							all_destinations += T
-						if(all_destinations.len)
+						if(length(all_destinations))
 							destination = pick(all_destinations)
 						if(destination)
 							destination.teleport_to(C)

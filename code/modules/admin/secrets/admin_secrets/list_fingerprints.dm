@@ -1,7 +1,7 @@
 /datum/admin_secret_item/admin_secret/list_fingerprints
 	name = "List Fingerprints"
 
-/datum/admin_secret_item/admin_secret/list_fingerprints/execute(var/mob/user)
+/datum/admin_secret_item/admin_secret/list_fingerprints/execute(mob/user)
 	. = ..()
 	if(!.)
 		return
@@ -16,4 +16,4 @@
 			else if(!H.dna)
 				dat += "<tr><td>[H]</td><td>H.dna = null</td></tr>"
 	dat += "</table>"
-	user << browse(dat, "window=fingerprints;size=440x410")
+	show_browser(user, dat, "window=fingerprints;size=440x410")

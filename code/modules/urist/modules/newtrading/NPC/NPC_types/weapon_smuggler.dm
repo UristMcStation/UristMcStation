@@ -1,5 +1,5 @@
 
-/mob/living/simple_animal/hostile/npc/colonist/weapon_smuggler
+/mob/living/simple_animal/passive/npc/colonist/weapon_smuggler
 	name = "NPC weapon smuggler"
 	suits = list(\
 		/obj/item/clothing/suit/leathercoat,\
@@ -10,6 +10,6 @@
 	hat_chance = 66
 	wander = 0
 
-/mob/living/simple_animal/hostile/npc/colonist/weapon_smuggler/New()
+/mob/living/simple_animal/passive/npc/colonist/weapon_smuggler/New()
 	speech_triggers.Add(new /datum/npc_speech_trigger/smuggler_response())
 	..()

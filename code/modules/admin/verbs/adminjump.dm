@@ -1,11 +1,11 @@
-/mob/proc/jumpTo(var/location)
+/mob/proc/jumpTo(location)
 	forceMove(location)
 
 /mob/observer/ghost/jumpTo()
 	stop_following()
 	..()
 
-/client/proc/Jump(var/selected_area in area_repository.get_areas_by_z_level())
+/client/proc/Jump(selected_area in area_repository.get_areas_by_z_level())
 	set name = "Jump to Area"
 	set desc = "Area to jump to"
 	set category = "Admin"
@@ -18,9 +18,8 @@
 	var/area/A = areas[selected_area]
 	mob.jumpTo(pick(get_area_turfs(A)))
 	log_and_message_admins("jumped to [A]")
-	SSstatistics.add_field_details("admin_verb","JA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/jumptoturf(var/turf/T)
+/client/proc/jumptoturf(turf/T)
 	set name = "Jump to Turf"
 	set category = "Admin"
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG))
@@ -30,9 +29,9 @@
 
 	log_and_message_admins("jumped to [T.x],[T.y],[T.z] in [T.loc]")
 	mob.jumpTo(T)
-	SSstatistics.add_field_details("admin_verb","JT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/jumptomob(var/mob/M in SSmobs.mob_list)
+/client/proc/jumptomob(mob/M in SSmobs.mob_list)
+	set popup_menu = FALSE
 	set category = "Admin"
 	set name = "Jump to Mob"
 
@@ -44,7 +43,6 @@
 		if(mob)
 			var/turf/T = get_turf(M)
 			if(T && isturf(T))
-				SSstatistics.add_field_details("admin_verb","JM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 				mob.jumpTo(T)
 			else
 				to_chat(mob, "This mob is not located in the game world.")
@@ -68,8 +66,6 @@
 	if(!T)
 		return
 	mob.jumpTo(T)
-
-	SSstatistics.add_field_details("admin_verb","JC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_and_message_admins("jumped to coordinates [tx], [ty], [tz]")
 
 /proc/sorted_client_keys()
@@ -90,11 +86,11 @@
 		var/mob/M = C.mob
 		log_and_message_admins("jumped to [key_name(M)]")
 		mob.jumpTo(get_turf(M))
-		SSstatistics.add_field_details("admin_verb","JK") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	else
 		alert("Admin jumping disabled")
 
-/client/proc/Getmob(var/mob/M in SSmobs.mob_list)
+/client/proc/Getmob(mob/M in SSmobs.mob_list)
+	set popup_menu = FALSE
 	set category = "Admin"
 	set name = "Get Mob"
 	set desc = "Mob to teleport"
@@ -103,7 +99,6 @@
 	if(config.allow_admin_jump)
 		log_and_message_admins("teleported [key_name(M)] to self.")
 		M.jumpTo(get_turf(mob))
-		SSstatistics.add_field_details("admin_verb","GM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	else
 		alert("Admin jumping disabled")
 
@@ -129,11 +124,10 @@
 		log_and_message_admins("teleported [key_name(M)] to self.")
 		if(M)
 			M.jumpTo(get_turf(mob))
-			SSstatistics.add_field_details("admin_verb","GK") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	else
 		alert("Admin jumping disabled")
 
-/client/proc/sendmob(var/mob/M in sortmobs())
+/client/proc/sendmob(mob/M in sortmobs())
 	set category = "Admin"
 	set name = "Send Mob"
 	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG))
@@ -147,6 +141,4 @@
 	A = A ? areas[A] : A
 	if(A)
 		M.jumpTo(pick(get_area_turfs(A)))
-		SSstatistics.add_field_details("admin_verb","SMOB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		log_and_message_admins("teleported [key_name(M)] to [A].")
-

@@ -1,6 +1,6 @@
 //This file contains only the basic mostly non-functional template for various conspiracies defined in conspiracies.dm
 
-var/datum/antagonist/agent/agents
+var/global/datum/antagonist/agent/agents
 
 /datum/antagonist/agent
 	id = "agent"
@@ -40,7 +40,7 @@ var/datum/antagonist/agent/agents
 	if(leader.current)
 		faction_welcome = "Follow [leader.current]'s orders. Cooperate with fellow agents - but trust no-one."
 
-/datum/antagonist/agent/get_indicator(var/datum/mind/recipient, var/datum/mind/other)
+/datum/antagonist/agent/get_indicator(datum/mind/recipient, var/datum/mind/other)
 	if(!antag_indicator || !other.current || !recipient.current)
 		return
 	var/indicator = (faction_indicator && (other == leader)) ? faction_indicator : antag_indicator
@@ -59,30 +59,30 @@ var/datum/antagonist/agent/agents
 	var/datum/antagonist/agent/conspiracy = M.get_mob_conspiracy(src)
 
 	if(!conspiracy)
-		src << "<span class='warning'>Something's wrong. You belong to too many conspiracies at once!</span>"
+		to_chat(src, "<span class='warning'>Something's wrong. You belong to too many conspiracies at once!</span>")
 		return
 	else if (conspiracy == -1)
-		src << "<span class='warning'>Something's wrong. You don't seem to be in a conspiracy!</span>"
+		to_chat(src, "<span class='warning'>Something's wrong. You don't seem to be in a conspiracy!</span>")
 
 	var/converteval = is_other_conspiracy(M.mind)
 	if(converteval == -1)
-		src << "<span class='warning'>[M] is already an agent of your conspiracy!</span>"
+		to_chat(src, "<span class='warning'>[M] is already an agent of your conspiracy!</span>")
 	else if(converteval)
 		var/choice = alert(M,"Asked by [src]: Do you want to abandon your current conspiracy?","Abandon the current conspiracy?","No!","Yes!")
 		if(choice == "Yes!")
-			src << "<span class='notice'>You convince [M] to abandon the cause of other conspiracies!</span>"
+			to_chat(src, "<span class='notice'>You convince [M] to abandon the cause of other conspiracies!</span>")
 			strip_all_other_conspiracies(M.mind,conspiracy)
 		else
-			src << "<span class='warning'>[M] refuses to abandon their cause!"
+			to_chat(src, "<span class='warning'>[M] refuses to abandon their cause!")
 			return
-	else if(0)
-		src << "span class='warning'>Something's wrong, yell at the coders!</span>"
+	else
+		to_chat(src, "span class='warning'>Something's wrong, yell at the coders!</span>")
 		return
 
 	convert_to_faction(M.mind, conspiracy)
-	M.mind.store_memory("You remember that <B>[conspiracy.leader] leads the [conspiracy.faction_descriptor]</B>", 0, 0)
+	M.mind.edit_memory("You remember that <B>[conspiracy.leader] leads the [conspiracy.faction_descriptor]</B>", 0, 0)
 
-/datum/antagonist/agent/get_extra_panel_options(var/datum/mind/player)
+/datum/antagonist/agent/get_extra_panel_options(datum/mind/player)
 	return "<a href='?src=\ref[player];common=crystals'>\[set crystals\]</a><a href='?src=\ref[src];spawn_uplink=\ref[player.current]'>\[spawn uplink\]</a>"
 
 /datum/antagonist/agent/Topic(href, href_list)
@@ -90,7 +90,7 @@ var/datum/antagonist/agent/agents
 		return
 	if(href_list["spawn_uplink"]) spawn_uplink(locate(href_list["spawn_uplink"]))
 
-/datum/antagonist/agent/equip(var/mob/living/carbon/human/agent_mob)
+/datum/antagonist/agent/equip(mob/living/carbon/human/agent_mob)
 
 	if(!..())
 		return 0
@@ -100,7 +100,7 @@ var/datum/antagonist/agent/agents
 	if(!(agent_mob.equip_to_storage(intel_laptop)))
 		agent_mob.put_in_hands(intel_laptop)
 
-/datum/antagonist/agent/proc/spawn_uplink(var/mob/living/carbon/human/agent_mob)
+/datum/antagonist/agent/proc/spawn_uplink(mob/living/carbon/human/agent_mob)
 	if(!istype(agent_mob))
 		return
 
@@ -111,36 +111,36 @@ var/datum/antagonist/agent/agents
 	if(agent_mob.client && agent_mob.client.prefs)
 		priority_order = agent_mob.client.prefs.uplink_sources
 
-	if(!priority_order || !priority_order.len)
+	if(!priority_order || !length(priority_order))
 		priority_order = list()
 		for(var/entry in GLOB.default_uplink_source_priority)
-			priority_order += decls_repository.get_decl(entry)
+			priority_order += GET_SINGLETON(entry)
 
 	if(priority_order[1] == "Headset")
 		R = locate(/obj/item/device/radio) in agent_mob.contents
 		if(!R)
 			R = locate(/obj/item/modular_computer/pda) in agent_mob.contents
-			agent_mob << "Could not locate a Radio, installing in PDA instead!"
+			to_chat(agent_mob, "Could not locate a Radio, installing in PDA instead!")
 		if (!R)
-			agent_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
+			to_chat(agent_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
 	else if(priority_order[1] == "PDA")
 		R = locate(/obj/item/modular_computer/pda) in agent_mob.contents
 		if(!R)
 			R = locate(/obj/item/device/radio) in agent_mob.contents
-			agent_mob << "Could not locate a PDA, installing into a Radio instead!"
+			to_chat(agent_mob, "Could not locate a PDA, installing into a Radio instead!")
 		if(!R)
-			agent_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
+			to_chat(agent_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
 	else if(priority_order[1] == "None")
-		agent_mob << "You have elected to not have an AntagCorp portable teleportation relay installed!"
+		to_chat(agent_mob, "You have elected to not have an AntagCorp portable teleportation relay installed!")
 		R = null
 	else
-		agent_mob << "You have not selected a location for your relay in the antagonist options! Defaulting to PDA!"
+		to_chat(agent_mob, "You have not selected a location for your relay in the antagonist options! Defaulting to PDA!")
 		R = locate(/obj/item/modular_computer/pda) in agent_mob.contents
 		if (!R)
 			R = locate(/obj/item/device/radio) in agent_mob.contents
-			agent_mob << "Could not locate a PDA, installing into a Radio instead!"
+			to_chat(agent_mob, "Could not locate a PDA, installing into a Radio instead!")
 		if (!R)
-			agent_mob << "Unfortunately, neither a radio or a PDA relay could be installed."
+			to_chat(agent_mob, "Unfortunately, neither a radio or a PDA relay could be installed.")
 
 	if(!R)
 		return
@@ -156,13 +156,13 @@ var/datum/antagonist/agent/agents
 			freq += 2
 			if ((freq % 2) == 0)
 				freq += 1
-		freq = freqlist[rand(1, freqlist.len)]
+		freq = freqlist[rand(1, length(freqlist))]
 		var/obj/item/device/uplink/T = new(R, agent_mob.mind)
 		target_radio.hidden_uplink = T
 		target_radio.traitor_frequency = freq
-		agent_mob << "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features."
-		agent_mob.mind.store_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [loc]).")
+		to_chat(agent_mob, "A portable object teleportation relay has been installed in your [R.name] [loc]. Simply dial the frequency [format_frequency(freq)] to unlock its hidden features.")
+		agent_mob.mind.edit_memory("<B>Radio Freq:</B> [format_frequency(freq)] ([R.name] [loc]).")
 
 	else if (istype(R, /obj/item/modular_computer/pda))
-		var/decl/uplink_source/pda/uplink_source = new
+		var/singleton/uplink_source/pda/uplink_source = new
 		uplink_source.setup_uplink_source(agent_mob, 0)

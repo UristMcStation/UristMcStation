@@ -32,8 +32,14 @@
 /obj/effect/urist/triggers/ai_defender_landmark/pirate
 	spawn_type = list(/mob/living/simple_animal/hostile/urist/newpirate, /mob/living/simple_animal/hostile/urist/newpirate/laser)
 
+/obj/effect/urist/triggers/ai_defender_landmark/pirate/elite
+	spawn_type = list(/mob/living/simple_animal/hostile/urist/newpirate/laser/elite)
+
 /obj/effect/urist/triggers/ai_defender_landmark/pirate/ballistic
 	spawn_type = list(/mob/living/simple_animal/hostile/urist/newpirate/ballistic)
+
+/obj/effect/urist/triggers/ai_defender_landmark/pirate/ballistic/space
+	spawn_type = list(/mob/living/simple_animal/hostile/urist/newpirate/ballistic/space)
 
 /obj/effect/urist/triggers/ai_defender_landmark/terran/space_marine
 	spawn_type = list(/mob/living/simple_animal/hostile/urist/terran/marine_space)
@@ -48,7 +54,7 @@
 	spawn_type = list(/mob/living/simple_animal/hostile/urist/rebel)
 
 /obj/effect/urist/triggers/ai_defender_landmark/lactera
-	spawn_type = list(,/mob/living/simple_animal/hostile/scom/lactera/medium, /mob/living/simple_animal/hostile/scom/lactera/light)
+	spawn_type = list(/mob/living/simple_animal/hostile/scom/lactera/medium, /mob/living/simple_animal/hostile/scom/lactera/light)
 
 /obj/effect/urist/triggers/ai_defender_landmark/lactera/heavy
 	spawn_type = list(/mob/living/simple_animal/hostile/scom/lactera/heavy)
@@ -106,29 +112,30 @@
 						var/datum/preferences/A = new()
 						A.sanitize_preferences()
 						A.randomize_appearance_and_body_for(M)
-						var/decl/cultural_info/culture/C = SSculture.get_culture(M.species.default_cultural_info[TAG_CULTURE])
+						var/singleton/cultural_info/culture/C = SSculture.get_culture(M.species.default_cultural_info[TAG_CULTURE])
 						if(istype(C))
 							M.real_name = C.get_random_name(gender)
 
 						else
 							M.real_name = random_name(gender)
 
-						var/decl/hierarchy/outfit/defender_outfit = outfit_by_type(D.defender_outfit)
+						var/singleton/hierarchy/outfit/defender_outfit = outfit_by_type(D.defender_outfit)
 						defender_outfit.equip(M)
+						M.add_language(LANGUAGE_GALCOM)
 
 						M.update_icon()
 
 /obj/effect/urist/triggers/defender_landmark/pirate
-	defender_outfit = /decl/hierarchy/outfit/newpirate
+	defender_outfit = /singleton/hierarchy/outfit/newpirate
 
 /obj/effect/urist/triggers/defender_landmark/terran
-	defender_outfit = /decl/hierarchy/outfit/terranmarine/space
+	defender_outfit = /singleton/hierarchy/outfit/terranmarine/space
 
 /obj/effect/urist/triggers/defender_landmark/rebel/miner
-	defender_outfit = /decl/hierarchy/outfit/grayson/miner
+	defender_outfit = /singleton/hierarchy/outfit/grayson/miner
 
 /obj/effect/urist/triggers/defender_landmark/lactera
-	defender_outfit = /decl/hierarchy/outfit/lactera
+	defender_outfit = /singleton/hierarchy/outfit/lactera
 
 //weapons
 
@@ -158,21 +165,21 @@
 
 //disk spawner
 
-/obj/item/weapon/disk/station_disk
+/obj/item/disk/station_disk
 	name = "Data Disk"
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "datadisk0"
 	item_state = "card-id"
 	w_class = ITEM_SIZE_SMALL
-	var/obj/effect/overmap/sector/station/master_station
+	var/obj/effect/overmap/visitable/sector/station/master_station
 
 /obj/effect/urist/triggers/station_disk
 	icon_state = "x3"
 	icon = 'icons/mob/screen1.dmi'
 	var/faction_id
 
-/obj/effect/urist/triggers/station_disk/proc/spawn_disk(var/obj/effect/overmap/sector/station/stored_station)
-	var/obj/item/weapon/disk/station_disk/D = new /obj/item/weapon/disk/station_disk(src.loc)
+/obj/effect/urist/triggers/station_disk/proc/spawn_disk(obj/effect/overmap/visitable/sector/station/stored_station)
+	var/obj/item/disk/station_disk/D = new /obj/item/disk/station_disk(src.loc)
 	D.master_station = stored_station
 	qdel(src)
 

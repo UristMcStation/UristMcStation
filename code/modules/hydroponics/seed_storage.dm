@@ -5,14 +5,14 @@
 	var/list/obj/item/seeds/seeds = list() // Tracks actual objects contained in the pile
 	var/ID
 
-/datum/seed_pile/New(var/obj/item/seeds/O, var/ID)
+/datum/seed_pile/New(obj/item/seeds/O, ID)
 	name = O.name
 	amount = 1
 	seed_type = O.seed
 	seeds += O
 	src.ID = ID
 
-/datum/seed_pile/proc/matches(var/obj/item/seeds/O)
+/datum/seed_pile/proc/matches(obj/item/seeds/O)
 	if (O.seed == seed_type)
 		return 1
 	return 0
@@ -22,23 +22,102 @@
 	desc = "It stores, sorts, and dispenses seeds."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "seeds"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	idle_power_usage = 100
 
 	var/list/datum/seed_pile/piles = list()
-	var/list/starting_seeds = list()
+	var/list/starting_seeds = list(
+		/obj/item/seeds/affelerin = 15,
+		/obj/item/seeds/aghrassh = 15,
+		/obj/item/seeds/algaeseed = 15,
+		/obj/item/seeds/ambrosiavulgarisseed = 15,
+		/obj/item/seeds/appleseed = 15,
+		/obj/item/seeds/bamboo = 15,
+		/obj/item/seeds/bananaseed = 15,
+		/obj/item/seeds/berryseed = 15,
+		/obj/item/seeds/blueberryseed = 15,
+		/obj/item/seeds/cabbageseed = 15,
+		/obj/item/seeds/cocoapodseed = 15,
+		/obj/item/seeds/carrotseed = 15,
+		/obj/item/seeds/chantermycelium = 15,
+		/obj/item/seeds/cherryseed = 15,
+		/obj/item/seeds/chiliseed = 15,
+		/obj/item/seeds/cinnamon = 15,
+		/obj/item/seeds/clam = 5,
+		/obj/item/seeds/coconutseed = 15,
+		/obj/item/seeds/coffeeseed = 15,
+		/obj/item/seeds/cornseed = 15,
+		/obj/item/seeds/cotton = 15,
+		/obj/item/seeds/crab = 5,
+		/obj/item/seeds/replicapod = 15,
+		/obj/item/seeds/eggplantseed = 15,
+		/obj/item/seeds/amanitamycelium = 15,
+		/obj/item/seeds/garlicseed = 15,
+		/obj/item/seeds/glowshroom = 15,
+		/obj/item/seeds/grapeseed = 15,
+		/obj/item/seeds/grassseed = 15,
+		/obj/item/seeds/greengrapeseed = 15,
+		/obj/item/seeds/gukhe = 15,
+		/obj/item/seeds/gummen = 15,
+		/obj/item/seeds/harebell = 15,
+		/obj/item/seeds/hrukhza = 15,
+		/obj/item/seeds/iridast = 15,
+		/obj/item/seeds/kudzuseed = 15,
+		/obj/item/seeds/lavenderseed = 15,
+		/obj/item/seeds/lemonseed = 15,
+		/obj/item/seeds/lettuceseed = 15,
+		/obj/item/seeds/libertymycelium = 15,
+		/obj/item/seeds/limeseed = 15,
+		/obj/item/seeds/melonseed = 15,
+		/obj/item/seeds/mtearseed = 15,
+		/obj/item/seeds/mussel = 5,
+		/obj/item/seeds/nettleseed = 15,
+		/obj/item/seeds/okrri = 15,
+		/obj/item/seeds/olives = 15,
+		/obj/item/seeds/onionseed = 15,
+		/obj/item/seeds/orangeseed = 15,
+		/obj/item/seeds/oyster = 5,
+		/obj/item/seeds/peanutseed = 15,
+		/obj/item/seeds/pearseed = 15,
+		/obj/item/seeds/peppercornseed = 15,
+		/obj/item/seeds/pineappleseed = 15,
+		/obj/item/seeds/plastiseed = 15,
+		/obj/item/seeds/plumpmycelium = 15,
+		/obj/item/seeds/poppyseed = 15,
+		/obj/item/seeds/potatoseed = 15,
+		/obj/item/seeds/pumpkinseed = 15,
+		/obj/item/seeds/qokkloa = 15,
+		/obj/item/seeds/reishimycelium = 15,
+		/obj/item/seeds/riceseed = 15,
+		/obj/item/seeds/shandseed = 15,
+		/obj/item/seeds/shrimp = 5,
+		/obj/item/seeds/soyaseed = 15,
+		/obj/item/seeds/sugarcaneseed = 15,
+		/obj/item/seeds/sunflowerseed = 15,
+		/obj/item/seeds/tobaccoseed = 15,
+		/obj/item/seeds/tomatoseed = 15,
+		/obj/item/seeds/towermycelium = 15,
+		/obj/item/seeds/vanillaseed = 15,
+		/obj/item/seeds/watermelonseed = 15,
+		/obj/item/seeds/wheatseed = 15,
+		/obj/item/seeds/whitebeetseed = 15,
+		/obj/item/seeds/whitegrapeseed = 15,
+		/obj/item/seeds/ximikoa = 15
+	)
 	var/list/scanner = list() // What properties we can view
 
-/obj/machinery/seed_storage/Initialize(var/mapload)
+/obj/machinery/seed_storage/Initialize(mapload)
 	. = ..()
-	for(var/typepath in starting_seeds)
-		var/amount = starting_seeds[typepath]
-		if(isnull(amount))
-			amount = 1
-		for (var/i = 1 to amount)
-			var/O = new typepath
-			add(O)
+	if (LAZYLEN(starting_seeds))
+		for(var/typepath in starting_seeds)
+			var/amount = starting_seeds[typepath]
+			if(isnull(amount))
+				amount = 1
+			for (var/i = 1 to amount)
+				var/O = new typepath
+				add(O)
+		sort_piles()
 
 /obj/machinery/seed_storage/random // This is mostly for testing, but I guess admins could spawn it
 	name = "Random seed storage"
@@ -48,136 +127,38 @@
 /obj/machinery/seed_storage/garden
 	name = "Garden seed storage"
 	scanner = list("stats")
-	starting_seeds = list(
-		/obj/item/seeds/ambrosiavulgarisseed = 30,
-		/obj/item/seeds/appleseed = 30,
-		/obj/item/seeds/aghrassh = 30,
-		/obj/item/seeds/bananaseed = 30,
-		/obj/item/seeds/berryseed = 30,
-		/obj/item/seeds/blueberryseed = 30,
-		/obj/item/seeds/cabbageseed = 30,
-		/obj/item/seeds/carrotseed = 30,
-		/obj/item/seeds/chantermycelium = 30,
-		/obj/item/seeds/cherryseed = 30,
-		/obj/item/seeds/chiliseed = 30,
-		/obj/item/seeds/cinnamon = 30,
-		/obj/item/seeds/clam = 5,
-		/obj/item/seeds/cocoapodseed = 30,
-		/obj/item/seeds/coconutseed = 30,
-		/obj/item/seeds/coffeeseed = 30,
-		/obj/item/seeds/cornseed = 30,
-		/obj/item/seeds/crab = 5,
-		/obj/item/seeds/peanutseed = 30,
-		/obj/item/seeds/replicapod = 30,
-		/obj/item/seeds/eggplantseed = 30,
-		/obj/item/seeds/amanitamycelium = 30,
-		/obj/item/seeds/glowshroom = 30,
-		/obj/item/seeds/grapeseed = 30,
-		/obj/item/seeds/grassseed = 30,
-		/obj/item/seeds/gukhe = 30,
-		/obj/item/seeds/harebell = 30,
-		/obj/item/seeds/lavenderseed = 30,
-		/obj/item/seeds/lemonseed = 30,
-		/obj/item/seeds/libertymycelium = 30,
-		/obj/item/seeds/limeseed = 30,
-		/obj/item/seeds/mtearseed = 30,
-		/obj/item/seeds/mussel = 5,
-		/obj/item/seeds/nettleseed = 30,
-		/obj/item/seeds/orangeseed = 30,
-		/obj/item/seeds/plumpmycelium = 30,
-		/obj/item/seeds/poppyseed = 30,
-		/obj/item/seeds/potatoseed = 30,
-		/obj/item/seeds/olives = 30,
-		/obj/item/seeds/onionseed = 30,
-		/obj/item/seeds/oyster = 5,
-		/obj/item/seeds/garlicseed = 30,
-		/obj/item/seeds/pumpkinseed = 30,
-		/obj/item/seeds/reishimycelium = 30,
-		/obj/item/seeds/riceseed = 30,
-		/obj/item/seeds/soyaseed = 30,
-		/obj/item/seeds/pearseed = 30,
-		/obj/item/seeds/peppercornseed = 30,
-		/obj/item/seeds/pineappleseed = 30,
-		/obj/item/seeds/shrimp = 5,
-		/obj/item/seeds/sugarcaneseed = 30,
-		/obj/item/seeds/sunflowerseed = 30,
-		/obj/item/seeds/shandseed = 30,
-		/obj/item/seeds/tobaccoseed = 30,
-		/obj/item/seeds/tomatoseed = 30,
-		/obj/item/seeds/towermycelium = 30,
-		/obj/item/seeds/vanillaseed = 30,
-		/obj/item/seeds/watermelonseed = 30,
-		/obj/item/seeds/wheatseed = 30,
-		/obj/item/seeds/whitebeetseed = 30,
-		/obj/item/seeds/algaeseed = 30
-	)
+	icon_state = "seeds_generic"
 
 /obj/machinery/seed_storage/xenobotany
 	name = "Xenobotany seed storage"
 	scanner = list("stats", "produce", "soil", "temperature", "light")
-	starting_seeds = list(
-		/obj/item/seeds/appleseed = 30,
-		/obj/item/seeds/bananaseed = 30,
-		/obj/item/seeds/berryseed = 30,
-		/obj/item/seeds/blueberryseed = 30,
-		/obj/item/seeds/cabbageseed = 30,
-		/obj/item/seeds/carrotseed = 30,
-		/obj/item/seeds/chantermycelium = 30,
-		/obj/item/seeds/cherryseed = 30,
-		/obj/item/seeds/chiliseed = 30,
-		/obj/item/seeds/cocoapodseed = 30,
-		/obj/item/seeds/cornseed = 30,
-		/obj/item/seeds/peanutseed = 30,
-		/obj/item/seeds/replicapod = 30,
-		/obj/item/seeds/eggplantseed = 30,
-		/obj/item/seeds/amanitamycelium = 30,
-		/obj/item/seeds/glowshroom = 30,
-		/obj/item/seeds/grapeseed = 30,
-		/obj/item/seeds/grassseed = 30,
-		/obj/item/seeds/harebell = 30,
-		/obj/item/seeds/kudzuseed = 30,
-		/obj/item/seeds/lavenderseed = 30,
-		/obj/item/seeds/lemonseed = 30,
-		/obj/item/seeds/libertymycelium = 30,
-		/obj/item/seeds/limeseed = 30,
-		/obj/item/seeds/mtearseed = 30,
-		/obj/item/seeds/nettleseed = 30,
-		/obj/item/seeds/orangeseed = 30,
-		/obj/item/seeds/plastiseed = 30,
-		/obj/item/seeds/plumpmycelium = 30,
-		/obj/item/seeds/poppyseed = 30,
-		/obj/item/seeds/potatoseed = 30,
-		/obj/item/seeds/onionseed = 30,
-		/obj/item/seeds/garlicseed = 30,
-		/obj/item/seeds/pumpkinseed = 30,
-		/obj/item/seeds/reishimycelium = 30,
-		/obj/item/seeds/riceseed = 30,
-		/obj/item/seeds/soyaseed = 30,
-		/obj/item/seeds/peppercornseed = 30,
-		/obj/item/seeds/sugarcaneseed = 30,
-		/obj/item/seeds/sunflowerseed = 30,
-		/obj/item/seeds/shandseed = 30,
-		/obj/item/seeds/tobaccoseed = 30,
-		/obj/item/seeds/tomatoseed = 30,
-		/obj/item/seeds/towermycelium = 30,
-		/obj/item/seeds/watermelonseed = 30,
-		/obj/item/seeds/wheatseed = 30,
-		/obj/item/seeds/whitebeetseed = 30,
-		/obj/item/seeds/algaeseed = 30,
-		/obj/item/seeds/random = 2
-	)
 
-/obj/machinery/seed_storage/attack_hand(mob/user as mob)
-	user.set_machine(src)
+/obj/machinery/seed_storage/xenobotany/Initialize()
+	starting_seeds += list(/obj/item/seeds/random = 5)
+	. = ..()
+
+/obj/machinery/seed_storage/all
+	name = "Debug seed storage"
+	scanner = list("stats", "produce", "soil", "temperature", "light")
+	starting_seeds = list()
+
+/obj/machinery/seed_storage/all/Initialize(mapload)
+	for (var/typepath in subtypesof(/obj/item/seeds))
+		if (typepath == /obj/item/seeds/random || typepath == /obj/item/seeds/cutting)
+			continue
+		starting_seeds[typepath] = 5
+	. = ..()
+
+/obj/machinery/seed_storage/interface_interact(mob/user)
 	interact(user)
+	return TRUE
 
 /obj/machinery/seed_storage/interact(mob/user as mob)
-	if (..())
-		return
+	user.set_machine(src)
 
-	var/dat = "<center><h1>Seed storage contents</h1></center>"
-	if (piles.len == 0)
-		dat += "<font color='red'>No seeds</font>"
+	var/dat = ""
+	if (length(piles) == 0)
+		dat += SPAN_COLOR("red", "No seeds")
 	else
 		dat += "<table style='text-align:center;border-style:solid;border-width:1px;padding:4px'><tr><td>Name</td>"
 		dat += "<td>Variety</td>"
@@ -232,12 +213,12 @@
 				if(1)
 					dat += "CARN "
 				if(2)
-					dat	+= "<font color='red'>CARN </font>"
+					dat	+= SPAN_COLOR("red", "CARN ")
 			switch(seed.get_trait(TRAIT_SPREAD))
 				if(1)
 					dat += "VINE "
 				if(2)
-					dat	+= "<font color='red'>VINE </font>"
+					dat	+= SPAN_COLOR("red", "VINE ")
 			if ("pressure" in scanner)
 				if(seed.get_trait(TRAIT_LOWKPA_TOLERANCE) < 20)
 					dat += "LP "
@@ -280,10 +261,11 @@
 			dat += "</tr>"
 		dat += "</table>"
 
-	user << browse(dat, "window=seedstorage;size=800x500")
-	onclose(user, "seedstorage")
+	var/datum/browser/popup = new(user, "seedstorage", "Seed Storage", 500, 800)
+	popup.set_content(dat)
+	popup.open()
 
-/obj/machinery/seed_storage/Topic(var/href, var/list/href_list)
+/obj/machinery/seed_storage/Topic(href, list/href_list)
 	if (..())
 		return
 	var/task = href_list["task"]
@@ -296,9 +278,10 @@
 				if (O)
 					--N.amount
 					N.seeds -= O
-					if (N.amount <= 0 || N.seeds.len <= 0)
+					if (N.amount <= 0 || length(N.seeds) <= 0)
 						piles -= N
 						qdel(N)
+					flick("[initial(icon_state)]-vend", src)
 					O.dropInto(loc)
 				else
 					piles -= N
@@ -311,13 +294,14 @@
 			break
 	updateUsrDialog()
 
-/obj/machinery/seed_storage/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/seed_storage/attackby(obj/item/O as obj, mob/user as mob)
 	if (istype(O, /obj/item/seeds))
 		add(O)
+		sort_piles()
 		user.visible_message("[user] puts \the [O.name] into \the [src].", "You put \the [O] into \the [src].")
 		return
-	else if (istype(O, /obj/item/weapon/storage/plants))
-		var/obj/item/weapon/storage/P = O
+	else if (istype(O, /obj/item/storage/plants))
+		var/obj/item/storage/P = O
 		var/loaded = 0
 		for(var/obj/item/seeds/G in P.contents)
 			++loaded
@@ -325,23 +309,24 @@
 			add(G, 1)
 		P.finish_bulk_removal()
 		if (loaded)
+			sort_piles()
 			user.visible_message("[user] puts the seeds from \the [O.name] into \the [src].", "You put the seeds from \the [O.name] into \the [src].")
 		else
-			to_chat(user, "<span class='notice'>There are no seeds in \the [O.name].</span>")
+			to_chat(user, SPAN_NOTICE("There are no seeds in \the [O.name]."))
 		return
 	else if(isWrench(O))
 		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "wrench" : "unwrench"] \the [src].")
 
-/obj/machinery/seed_storage/proc/add(var/obj/item/seeds/O, bypass_removal = 0)
+/obj/machinery/seed_storage/proc/add(obj/item/seeds/O, bypass_removal = 0)
 	if(!bypass_removal)
 		if (istype(O.loc, /mob))
 			var/mob/user = O.loc
 			if(!user.unEquip(O, src))
 				return
-		else if(istype(O.loc,/obj/item/weapon/storage))
-			var/obj/item/weapon/storage/S = O.loc
+		else if(istype(O.loc,/obj/item/storage))
+			var/obj/item/storage/S = O.loc
 			S.remove_from_storage(O, src)
 
 	O.forceMove(src)
@@ -356,4 +341,10 @@
 			newID = N.ID + 1
 
 	piles += new /datum/seed_pile(O, newID)
+	flick("[initial(icon_state)]-vend", src)
 	return
+
+
+/// Handles sorting of the `piles` list.
+/obj/machinery/seed_storage/proc/sort_piles()
+	piles = sortAtom(piles)

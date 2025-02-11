@@ -15,14 +15,14 @@
 	desc = "only for the finest of art!"
 	icon = 'icons/urist/items/artstuff.dmi'
 	icon_state = "easel"
-	density = 1
-	var/obj/item/weapon/canvas/painting = null
+	density = TRUE
+	var/obj/item/canvas/painting = null
 
 
 //Adding canvases
-/obj/structure/easel/attackby(var/obj/item/I, var/mob/user, params)
-	if(istype(I, /obj/item/weapon/canvas))
-		var/obj/item/weapon/canvas/C = I
+/obj/structure/easel/attackby(obj/item/I, var/mob/user, params)
+	if(istype(I, /obj/item/canvas))
+		var/obj/item/canvas/C = I
 		user.unEquip(C)
 		painting = C
 		C.loc = get_turf(src)
@@ -52,31 +52,31 @@
 //To safe memory on making /icons we cache the blanks..
 var/global/list/globalBlankCanvases[AMT_OF_CANVASES]
 
-/obj/item/weapon/canvas
+/obj/item/canvas
 	name = "11px by 11px canvas"
 	desc = "Draw out your soul on this canvas! Only crayons can draw on it. Examine it to focus on the canvas."
 	icon = 'icons/urist/items/artstuff.dmi'
 	icon_state = "11x11"
 	var/whichGlobalBackup = 1 //List index
 
-/obj/item/weapon/canvas/nineteenXnineteen
+/obj/item/canvas/nineteenXnineteen
 	name = "19px by 19px canvas"
 	icon_state = "19x19"
 	whichGlobalBackup = 2
 
-/obj/item/weapon/canvas/twentythreeXnineteen
+/obj/item/canvas/twentythreeXnineteen
 	name = "23px by 19px canvas"
 	icon_state = "23x19"
 	whichGlobalBackup = 3
 
-/obj/item/weapon/canvas/twentythreeXtwentythree
+/obj/item/canvas/twentythreeXtwentythree
 	name = "23px by 23px canvas"
 	icon_state = "23x23"
 	whichGlobalBackup = 4
 
 
 //Find the right size blank canvas
-/obj/item/weapon/canvas/proc/getGlobalBackup()
+/obj/item/canvas/proc/getGlobalBackup()
 	. = null
 	if(globalBlankCanvases[whichGlobalBackup])
 		. = globalBlankCanvases[whichGlobalBackup]
@@ -88,7 +88,7 @@ var/global/list/globalBlankCanvases[AMT_OF_CANVASES]
 
 
 //One pixel increments
-/obj/item/weapon/canvas/attackby(var/obj/item/I, var/mob/user, params)
+/obj/item/canvas/attackby(obj/item/I, var/mob/user, params)
 	//Click info
 	var/list/click_params = params2list(params)
 	var/pixX = text2num(click_params["icon-x"])
@@ -100,7 +100,7 @@ var/global/list/globalBlankCanvases[AMT_OF_CANVASES]
 
 	var/icon/masterpiece = icon(icon,icon_state)
 	//Cleaning one pixel with a soap or rag
-	if(istype(I, /obj/item/weapon/soap) || istype(I, /obj/item/weapon/reagent_containers/glass/rag))
+	if(istype(I, /obj/item/soap) || istype(I, /obj/item/reagent_containers/glass/rag))
 		//Pixel info created only when needed
 		var/thePix = masterpiece.GetPixel(pixX,pixY)
 		var/icon/Ico = getGlobalBackup()
@@ -115,8 +115,8 @@ var/global/list/globalBlankCanvases[AMT_OF_CANVASES]
 		return
 
 	//Drawing one pixel with a crayon
-	if(istype(I, /obj/item/weapon/pen/crayon))
-		var/obj/item/weapon/pen/crayon/C = I
+	if(istype(I, /obj/item/pen/crayon))
+		var/obj/item/pen/crayon/C = I
 		if(masterpiece.GetPixel(pixX, pixY)) // if the located pixel isn't blank (null))
 			DrawPixelOn(C.colour, pixX, pixY)
 		return
@@ -124,7 +124,7 @@ var/global/list/globalBlankCanvases[AMT_OF_CANVASES]
 	..()
 
 //Clean the whole canvas
-/obj/item/weapon/canvas/attack_self(var/mob/user)
+/obj/item/canvas/attack_self(mob/user)
 	if(!user)
 		return
 	var/icon/blank = getGlobalBackup()
@@ -134,19 +134,19 @@ var/global/list/globalBlankCanvases[AMT_OF_CANVASES]
 		user.visible_message("<span class='notice'>[user] cleans the canvas.</span>","<span class='notice'>You clean the canvas.</span>")
 
 //Examine to enlarge
-/obj/item/weapon/canvas/examine(var/mob/user = usr)
+/obj/item/canvas/examine(mob/user = usr)
 	..()
 	if(in_range(user, src) && get_turf(src) && user.client && ishuman(user)) //Let only humans be the robust zoominators. I'm too spooked other mobs trying to use it may get broken huds.
 		if(src.loc == user || get_turf(src) == get_turf(user))
-			user << "<span class='notice'>[src] has to be on the ground to focus on it!</span>"
+			to_chat(user, "<span class='notice'>[src] has to be on the ground to focus on it!</span>")
 			return
-		user << "<span class='notice'>You focus on \the [src].</span>"
+		to_chat(user, "<span class='notice'>You focus on \the [src].</span>")
 		user.client.screen = list() //This is because screen objects go way past the view bounds we set, therefore not allowing stretch to fit to zoom in properly.
 		user.client.reset_stretch = winget(user.client, "mapwindow.map", "icon-size") //Remember previous icon-size
 		user.client.view = 3 //Decrease view
 		winset(user.client, "mapwindow.map", "icon-size=0") //Enable stretch-to-fit
 		user.client.viewingCanvas = 1 //Reset everything we just changed as soon as client tries to move
 	else
-		user << "<span class='notice'>It is too far away.</span>"
+		to_chat(user, "<span class='notice'>It is too far away.</span>")
 
 #undef AMT_OF_CANVASES

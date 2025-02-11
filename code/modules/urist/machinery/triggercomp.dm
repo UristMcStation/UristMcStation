@@ -4,7 +4,7 @@
 	name = "Blast Door Computer" //let's just do blast doors for now all this does is condense buttons down so the warden/CE isn't shitting himself.
 	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "trig"
-	density = 0
+	density = FALSE
 
 	var/id = null
 	var/id1 = null
@@ -15,18 +15,16 @@
 	var/id6 = null
 	var/id7 = null
 
-/*	circuit = /obj/item/weapon/circuitboard/merch
-
-/obj/item/weapon/circuitboard/trigger/blast
+/obj/item/stock_parts/circuitboard/blast_comp
 	name = "\improper Blast Door Computer Circuitboard"
-	build_path = /obj/machinery/computer/trigger/blast*/
+	build_path = /obj/machinery/computer/trigger/blast
 
 /obj/machinery/computer/trigger/attackby(obj/O, mob/user)
 	return
 
 /obj/machinery/computer/trigger/blast/proc/trigger()
 	for(var/obj/machinery/door/blast/M in SSmachines.machinery)
-		if(M.id == src.id)
+		if(M.id_tag == src.id)
 			if(M.density)
 				spawn(0)
 					M.open()
@@ -57,10 +55,10 @@
 				t += "<A href='?src=\ref[src];on6=[id6]'>[id6]</A><br>"
 				t += "<A href='?src=\ref[src];on7=[id7]'>[id7]</A><br>"
 
-			user << browse(t, "window=computer;size=420x700")
+			show_browser(user, t, "window=computer;size=420x700")
 
 	else
-		user << "<span class='warning'>Access denied.</span>"
+		to_chat(user, "<span class='warning'>Access denied.</span>")
 		return
 
 /obj/machinery/computer/trigger/blast/Topic(href, href_list) //come back to this

@@ -6,7 +6,7 @@ GLOBAL_DATUM_INIT(wizards, /datum/antagonist/wizard, new)
 	role_text_plural = ANTAG_WIZARD + "s"
 	landmark_id = "wizard"
 	welcome_text = "You will find a list of available spells in your spell book. Choose your magic arsenal carefully.<br>In your pockets you will find a teleport scroll. Use it as needed."
-	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE
+	flags = ANTAG_OVERRIDE_JOB | ANTAG_OVERRIDE_MOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE
 	antaghud_indicator = "hudwizard"
 
 	hard_cap = 1
@@ -16,8 +16,12 @@ GLOBAL_DATUM_INIT(wizards, /datum/antagonist/wizard, new)
 	min_player_age = 18
 
 	faction = "wizard"
+	no_prior_faction = TRUE
+//	base_to_load = /datum/map_template/ruin/antag_spawn/wizard
 
-/datum/antagonist/wizard/create_objectives(var/datum/mind/wizard)
+	required_language = LANGUAGE_GALCOM
+
+/datum/antagonist/wizard/create_objectives(datum/mind/wizard)
 
 	if(!..())
 		return
@@ -60,41 +64,29 @@ GLOBAL_DATUM_INIT(wizards, /datum/antagonist/wizard, new)
 		wizard.objectives |= hijack_objective
 	return
 
-/datum/antagonist/wizard/update_antag_mob(var/datum/mind/wizard)
+/datum/antagonist/wizard/update_antag_mob(datum/mind/wizard)
 	..()
-	wizard.store_memory("<B>Remember:</B> do not forget to prepare your spells.")
+	wizard.StoreMemory("<B>Remember:</B> do not forget to prepare your spells.", /singleton/memory_options/system)
 	wizard.current.real_name = "[pick(GLOB.wizard_first)] [pick(GLOB.wizard_second)]"
 	wizard.current.SetName(wizard.current.real_name)
 
-/datum/antagonist/wizard/equip(var/mob/living/carbon/human/wizard_mob)
+/datum/antagonist/wizard/equip(mob/living/carbon/human/wizard_mob)
 
 	if(!..())
 		return 0
 
-	var/outfit_type = pick(subtypesof(/decl/hierarchy/outfit/wizard))
-	var/decl/hierarchy/outfit/wizard_outfit = outfit_by_type(outfit_type)
+	var/outfit_type = pick(subtypesof(/singleton/hierarchy/outfit/wizard))
+	var/singleton/hierarchy/outfit/wizard_outfit = outfit_by_type(outfit_type)
 	wizard_outfit.equip(wizard_mob)
 
 	return 1
-
-/datum/antagonist/wizard/check_victory()
-	var/survivor
-	for(var/datum/mind/player in current_antagonists)
-		if(!player.current || player.current.stat)
-			continue
-		survivor = 1
-		break
-	if(!survivor)
-		SSstatistics.set_field_details("round_end_result","loss - wizard killed")
-		to_world("<span class='danger'><font size = 3>The [(current_antagonists.len>1)?"[role_text_plural] have":"[role_text] has"] been killed by the crew! The Space Wizards Federation has been taught a lesson they will not soon forget!</font></span>")
-
 
 /datum/antagonist/wizard/print_player_summary()
 	..()
 	for(var/p in current_antagonists)
 		var/datum/mind/player = p
 		var/text = "<b>[player.name]'s spells were:</b>"
-		if(!player.learned_spells || !player.learned_spells.len)
+		if(!player.learned_spells || !length(player.learned_spells))
 			text += "<br>None!"
 		else
 			for(var/s in player.learned_spells)
@@ -112,12 +104,11 @@ GLOBAL_DATUM_INIT(wizards, /datum/antagonist/wizard, new)
 	for(var/spell/spell_to_remove in mind.learned_spells)
 		remove_spell(spell_to_remove)
 
-obj/item/clothing
-	var/wizard_garb = 0
+/obj/item/clothing/var/wizard_garb = FALSE
 
 // Does this clothing slot count as wizard garb? (Combines a few checks)
-/proc/is_wiz_garb(var/obj/item/clothing/C)
-	return C && C.wizard_garb
+/proc/is_wiz_garb(obj/item/clothing/C)
+	return istype(C) && C.wizard_garb
 
 /*Checks if the wizard is wearing the proper attire.
 Made a proc so this is not repeated 14 (or more) times.*/
@@ -128,12 +119,12 @@ Made a proc so this is not repeated 14 (or more) times.*/
 // Humans can wear clothes.
 /mob/living/carbon/human/wearing_wiz_garb()
 	if(!is_wiz_garb(src.wear_suit) && (!src.species.hud || (slot_wear_suit in src.species.hud.equip_slots)))
-		to_chat(src, "<span class='warning'>I don't feel strong enough without my robe.</span>")
+		to_chat(src, SPAN_WARNING("I don't feel strong enough without my robe."))
 		return 0
 	if(!is_wiz_garb(src.shoes) && (!species.hud || (slot_shoes in src.species.hud.equip_slots)))
-		to_chat(src, "<span class='warning'>I don't feel strong enough without my sandals.</span>")
+		to_chat(src, SPAN_WARNING("I don't feel strong enough without my sandals."))
 		return 0
 	if(!is_wiz_garb(src.head) && (!species.hud || (slot_head in src.species.hud.equip_slots)))
-		to_chat(src, "<span class='warning'>I don't feel strong enough without my hat.</span>")
+		to_chat(src, SPAN_WARNING("I don't feel strong enough without my hat."))
 		return 0
 	return 1

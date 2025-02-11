@@ -2,7 +2,7 @@
 //INSERT	PAINTKITS	HERE//
 //File	by	TGameCo			//
 //////////////////////////////
-
+/* rip old mechs
 //Clownply - TGameCo
 /obj/item/device/kit/paint/clownply
 	name = "Ripley customization kit - Honk"
@@ -50,3 +50,4 @@
 	new_desc = "Looks like an over worked, under maintained Ripley with some horrific damage."
 	new_icon = "earth"
 	allowed_types = list("ripley","firefighter")
+	*/

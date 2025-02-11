@@ -31,13 +31,13 @@ If the spell_projectile is seeking, it will update its target every process and 
 		projectile.current = projectile.original
 		projectile.yo = target.y - user.y
 		projectile.xo = target.x - user.x
-		projectile.kill_count = src.duration
+		projectile.life_span = src.duration
 		projectile.hitscan = !proj_step_delay
 		projectile.step_delay = proj_step_delay
 		projectile.launch(target)
 	return
 
-/spell/targeted/projectile/proc/choose_prox_targets(mob/user = usr, var/atom/movable/spell_holder)
+/spell/targeted/projectile/proc/choose_prox_targets(mob/user = usr, atom/movable/spell_holder)
 	var/list/targets = list()
 	for(var/mob/living/M in range(spell_holder, cast_prox_range))
 		if(M == user && !(spell_flags & INCLUDEUSER))
@@ -45,5 +45,5 @@ If the spell_projectile is seeking, it will update its target every process and 
 		targets += M
 	return targets
 
-/spell/targeted/projectile/proc/prox_cast(var/list/targets, var/atom/movable/spell_holder)
+/spell/targeted/projectile/proc/prox_cast(list/targets, atom/movable/spell_holder)
 	return targets

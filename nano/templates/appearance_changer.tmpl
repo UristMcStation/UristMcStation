@@ -24,6 +24,19 @@
     </div>
 {{/if}}
 
+{{if data.change_pronouns}}
+	<div class="item">
+        <div class="itemLabelNarrow">
+           Pronouns:
+        </div>
+        <div class="itemContentWide">
+            {{for data.pronouns_list}}
+				{{:helper.link(value.pronouns_name, null, { 'pronouns' : value.pronouns_name}, null, data.pronouns == value.pronouns_key ? 'selected' : null)}}
+			{{/for}}
+        </div>
+    </div>
+{{/if}}
+
 {{if data.change_eye_color || data.change_skin_tone || data.change_skin_color || data.change_hair_color || data.change_facial_hair_color}}
     <div class="item">
         <div class="itemLabelNarrow">
@@ -70,6 +83,18 @@
         <div class="itemContentWide">
             {{for data.facial_hair_styles}}
                 {{:helper.link(value.facialhairstyle, null, { 'facial_hair' : value.facialhairstyle}, null, data.facial_hair_style == value.facialhairstyle ? 'selected' : null)}}
+            {{/for}}
+        </div>
+    </div>
+{{/if}}
+{{if data.change_languages}}
+    <div class="item">
+        <div class="itemLabelNarrow">
+            Languages:
+        </div>
+        <div class="itemContentWide">
+            {{for data.languages}}
+                {{:helper.link(value.language, null, {'language': value.language, 'language_mode': value.selected ? 'rem': 'add'}, null, value.selected ? 'selected' : null )}}
             {{/for}}
         </div>
     </div>

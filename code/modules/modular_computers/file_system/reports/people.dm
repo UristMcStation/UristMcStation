@@ -7,8 +7,17 @@
 	var/attach_report = (alert(user, "Do you wish to attach [owner.display_name()]?","Document Email", "Yes.", "No.") == "Yes.") ? 1 : 0
 	if(alert(user, "Are you sure you want to send this email?","Document Email", "Yes.", "No.") == "No.")
 		return
-	if(perform_send(subject, body, attach_report))
-		to_chat(user, "<span class='notice'>The email has been sent.</span>")
+	var/datum/computer_file/data/text/report_file
+	if(attach_report)
+		var/list/user_access = list()
+		var/obj/item/card/id/I = user.GetIdCard()
+		if(I)
+			user_access |= I.access
+		report_file = new
+		report_file.stored_data = owner.generate_pencode(user_access, no_html = 1) //TXT files can't have html; they use pencode only.
+		report_file.filename = owner.filename
+	if(perform_send(subject, body, report_file))
+		to_chat(user, SPAN_NOTICE("The email has been sent."))
 
 //Helper procs.
 /datum/report_field/people/proc/perform_send(subject, body, attach_report)
@@ -20,8 +29,7 @@
 	message.title = subject
 	message.stored_data = body
 	message.source = server.login
-	if(attach_report)
-		message.attachment = owner.clone()
+	message.attachment = attach_report
 	server.send_mail(recipient, message)
 
 /datum/report_field/people/proc/format_output(name, rank, milrank)
@@ -75,7 +83,7 @@
 		if(in_line && (GLOB.using_map.flags & MAP_HAS_RANK))
 			var/datum/computer_file/report/crew_record/CR = get_crewmember_record(entry["name"])
 			if(CR)
-				var/datum/mil_rank/rank_obj = mil_branches.get_rank(CR.get_branch(), CR.get_rank())
+				var/datum/mil_rank/rank_obj = GLOB.mil_branches.get_rank(CR.get_branch(), CR.get_rank())
 				milrank = (rank_obj ? rank_obj.name_short : "")
 		dat += format_output(entry["name"], in_line ? null : entry["rank"], milrank)
 	return jointext(dat, in_line ? ", " : "<br>")
@@ -91,7 +99,7 @@
 		if(in_as_list(entry, new_value))
 			continue //ignore repeats
 		new_value += list(entry)
-	value = new_value	
+	value = new_value
 
 /datum/report_field/people/list_from_manifest/ask_value(mob/user)
 	var/alert = alert(user, "Would you like to add or remove a name?", "Form Input", "Add", "Remove")

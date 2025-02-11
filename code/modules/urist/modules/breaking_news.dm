@@ -1,4 +1,4 @@
-/var/global/BNews = null
+var/global/BNews = null
 
 /hook/startup/proc/updateBNews()
 	Get_BNews()
@@ -117,8 +117,8 @@
 
 /proc/BNews_Game_Start()
 	if(BNews)
-		world << "<font color='blue'>and...</font>"
-		world << "<h4>Breaking News from NNN! [BNews]</h4>"
+		to_world("<font color='blue'>and...</font>")
+		to_world("<h4>Breaking News from NNN! [BNews]</h4>")
 
 	return
 
@@ -127,4 +127,3 @@
 
 		if(" ",null)
 			return
-

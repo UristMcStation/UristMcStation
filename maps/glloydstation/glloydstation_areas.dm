@@ -157,14 +157,14 @@
 
 //SYNDICATES
 
-/area/syndicate_mothership
+/area/map_template/syndicate_mothership
 	name = "\improper Mercenary Base"
 	icon_state = "syndie-ship"
 	requires_power = 0
 	dynamic_lighting = 0
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
-/area/syndicate_mothership/ninja
+/area/map_template/syndicate_mothership/ninja
 	name = "\improper Ninja Base"
 
 //RESCUE
@@ -362,7 +362,7 @@
 
 /*
 /area/maintenance/sub
-	turf_initializer = /decl/turf_initializer/maintenance/heavy
+	turf_initializer = /singleton/turf_initializer/maintenance/heavy
 	ambience = list(
 		'sound/ambience/ambiatm1.ogg',
 		'sound/ambience/ambigen3.ogg',
@@ -385,7 +385,7 @@
 
 // Hallway
 
-/area/hallway/primary/
+/area/hallway/primary
 	sound_env = LARGE_ENCLOSED
 
 /area/hallway/primary/fore
@@ -422,6 +422,34 @@
 	name = "\improper Command - Captain's Office"
 	icon_state = "captain"
 	sound_env = MEDIUM_SOFTFLOOR
+
+/area/command
+	req_access = list(access_bridge)
+	icon_state = "heads"
+/area/command/ce
+	name = "\improper Chief Engineer's Office"
+	icon_state = "heads_ce"
+
+/area/command/cmo
+	name = "\improper Chief Medical Officer's Office"
+	icon_state = "heads_cmo"
+
+/area/command/rd
+	name = "\improper Research Director's Office"
+	icon_state = "heads_rd"
+
+/area/command/hos
+	name = "\improper Head of Security's Office"
+	icon_state = "heads_hos"
+
+/area/command/hop
+	name = "\improper Head of Personnel's Office"
+	icon_state = "heads_hop"
+
+/area/command/quarters
+	name = "\improper Command Quarters"
+	icon_state = "heads"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 // Crew
 
@@ -476,7 +504,7 @@
 
 //Engineering
 
-/area/engineering/
+/area/engineering
 	name = "\improper Engineering"
 	icon_state = "engineering"
 	ambience = list('sound/ambience/ambisin1.ogg','sound/ambience/ambisin2.ogg','sound/ambience/ambisin3.ogg','sound/ambience/ambisin4.ogg')
@@ -686,7 +714,7 @@
 	name = "\improper Toxins Storage"
 	icon_state = "toxstorage"
 
-area/rnd/test_area
+/area/rnd/test_area
 	name = "\improper Toxins Test Area"
 	icon_state = "toxtest"
 
@@ -911,7 +939,7 @@ area/rnd/test_area
 	name = "Medbay Maintenance"
 	icon_state = "maint_medbay"
 
-/area/hallway/primary/
+/area/hallway/primary
 	sound_env = LARGE_ENCLOSED
 
 /area/hallway/primary/fore
@@ -1100,7 +1128,7 @@ area/rnd/test_area
 	icon_state = "maint_security_starboard"
 	area_flags = AREA_FLAG_EXTERNAL
 	has_gravity = FALSE
-	turf_initializer = /decl/turf_initializer/maintenance/space
+	turf_initializer = /singleton/turf_initializer/maintenance/space
 
 // CentCom
 
@@ -1429,7 +1457,7 @@ area/rnd/test_area
 	icon_state = "janitor"
 
 // Tcomm
-/area/tcommsat/
+/area/tcommsat
 	ambience = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg')
 
 /area/tcommsat/chamber
@@ -1498,7 +1526,7 @@ area/rnd/test_area
 
 // Syndicate
 
-/area/syndicate_mothership/raider_base
+/area/map_template/syndicate_mothership/raider_base
 	name = "\improper Raider Base"
 
 // ACTORS GUILD
@@ -1547,6 +1575,7 @@ area/rnd/test_area
 	icon_state = "mining"
 	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg')
 	sound_env = ASTEROID
+	base_turf = /turf/simulated/floor/asteroid/glloydplanet
 
 /area/mine/explored
 	name = "Mine"
@@ -1566,9 +1595,9 @@ area/rnd/test_area
 
 /area/outpost/abandoned/base_turf = /turf/simulated/floor/asteroid
 
-/area/outpost/mining_main/eva/base_turf = /turf/simulated/floor/asteroid
+/area/outpost/mining_main/eva/base_turf = /turf/simulated/floor/asteroid/glloydplanet
 
-/area/outpost/research/eva/base_turf = /turf/simulated/floor/asteroid
+/area/outpost/research/eva/base_turf = /turf/simulated/floor/asteroid/glloydplanet
 
 /area/shuttle/elevator/base_turf = /turf/simulated/floor/plating
 

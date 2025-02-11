@@ -12,8 +12,8 @@
 	desc = "Science!"
 	icon = 'icons/urist/structures&machinery/scomscience.dmi'
 	icon_state = "science"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	bound_width = 64
 	var/animation_state = "science_o"
 	var/list/machine_recipes
@@ -70,16 +70,16 @@
 
 	dat += "</table><hr>"
 
-	user << browse(dat, "window=autolathe")
+	show_browser(user, dat, "window=autolathe")
 	onclose(user, "autolathe")
 
-/obj/machinery/scom/scomscience/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/scom/scomscience/attackby(obj/item/O as obj, var/mob/user as mob)
 	if (busy)
-		user << "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
 		return
 
 	if(!science_capable)
-		user << "<span class='notice'>\The [src] is not designed for deconstruction!.</span>"
+		to_chat(user, "<span class='notice'>\The [src] is not designed for deconstruction!.</span>")
 		return
 
 	if(O.scomtechlvl > scomtechlvl)
@@ -119,7 +119,7 @@
 	usr.set_machine(src)
 
 	if(busy)
-		usr << "<span class='notice'>The autolathe is busy. Please wait for completion of previous operation.</span>"
+		to_chat(usr, "<span class='notice'>The autolathe is busy. Please wait for completion of previous operation.</span>")
 		return
 
 	if(href_list["change_category"])
@@ -134,7 +134,7 @@
 		var/multiplier = text2num(href_list["multiplier"])
 		var/datum/scomscience/recipe/making
 
-		if(index > 0 && index <= machine_recipes.len)
+		if(index > 0 && index <= length(machine_recipes))
 			making = machine_recipes[index]
 
 		//Exploit detection, not sure if necessary after rewrite.
@@ -148,12 +148,12 @@
 
 
 		if(making.scomtechlvl > scomtechlvl)
-			usr << "<span class='notice'>You don't have the tech level for that!</span>"
+			to_chat(usr, "<span class='notice'>You don't have the tech level for that!</span>")
 			busy = 0
 			return
 
 		if(making.resources > scommoney)
-			usr << "<span class='notice'>You don't have the money for that!</span>"
+			to_chat(usr, "<span class='notice'>You don't have the money for that!</span>")
 			busy = 0
 			return
 
@@ -218,11 +218,11 @@
 	desc = "This allows you to choose your class as an S-COM operative"
 	icon = 'icons/urist/structures&machinery/machinery.dmi'
 	icon_state = "squad"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	var/list/already_picked = list() //stores mobs who used it to limit reuse
 
-/obj/machinery/scom/classchanger/attack_hand(var/mob/living/carbon/user)
+/obj/machinery/scom/classchanger/attack_hand(mob/living/carbon/user)
 	if(!(user in already_picked))
 		if(user.mind && isscom(user))
 			var/want = input("Which class would you like to be?", "Your Choice", "Cancel") in list ("Cancel", "Heavy", "Assault", "Medic", "Sniper")
@@ -233,45 +233,45 @@
 				if("Heavy")
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/armor/heavy(user), slot_wear_suit)
 					new /obj/item/clothing/accessory/storage/black_vest(src.loc)
-					new /obj/item/ammo_magazine/c45m(src.loc)
-					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
-					new /obj/item/weapon/gun/projectile/automatic/l6_saw(src.loc)
-					new /obj/item/weapon/storage/box/large/lmgammo(src.loc)
+					new /obj/item/ammo_magazine/pistol(src.loc)
+					new /obj/item/reagent_containers/hypospray/autoinjector(src.loc)
+					new /obj/item/gun/projectile/automatic/l6_saw(src.loc)
+					new /obj/item/storage/box/large/lmgammo(src.loc)
 
-					for (var/obj/item/weapon/card/id/W in user)
+					for (var/obj/item/card/id/W in user)
 						if(W.assignment == "S-COM Operative")
 							W.assignment = "S-COM Heavy Operative"
 
 				if("Assault")
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/armor/vest(user), slot_wear_suit)
 					new /obj/item/clothing/accessory/storage/black_vest(src.loc)
-					new /obj/item/ammo_magazine/c45m(src.loc)
-					new /obj/item/weapon/gun/projectile/shotgun/pump/combat(src.loc)
-					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
-					new /obj/item/weapon/storage/box/ammo/shotgunammo(src.loc)
-					new /obj/item/weapon/storage/box/ammo/shotgunammo(src.loc)
-					new /obj/item/weapon/storage/box/ammo/shotgunammo(src.loc)
+					new /obj/item/ammo_magazine/pistol(src.loc)
+					new /obj/item/gun/projectile/shotgun/pump/combat(src.loc)
+					new /obj/item/reagent_containers/hypospray/autoinjector(src.loc)
+					new /obj/item/storage/box/ammo/shotgunammo(src.loc)
+					new /obj/item/storage/box/ammo/shotgunammo(src.loc)
+					new /obj/item/storage/box/ammo/shotgunammo(src.loc)
 
-					for (var/obj/item/weapon/card/id/W in user)
+					for (var/obj/item/card/id/W in user)
 						if(W.assignment == "S-COM Operative")
 							W.assignment = "S-COM Assault Operative"
 
 				if("Medic")
 					user.equip_to_slot_or_del(new /obj/item/clothing/suit/urist/armor/medic(user), slot_wear_suit)
 					user.equip_to_slot_or_del(new /obj/item/clothing/glasses/hud/health(user), slot_glasses)
-					user.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/ert/medical(user), slot_back)
-					user.equip_to_slot_or_del(new /obj/item/weapon/defibrillator/compact/combat/loaded(user.back), slot_in_backpack)
-					user.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/fire(user.back), slot_in_backpack)
-					user.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/adv(user.back), slot_in_backpack)
+					user.equip_to_slot_or_del(new /obj/item/storage/backpack/ert/medical(user), slot_back)
+					user.equip_to_slot_or_del(new /obj/item/defibrillator/compact/combat/loaded(user.back), slot_in_backpack)
+					user.equip_to_slot_or_del(new /obj/item/storage/firstaid/fire(user.back), slot_in_backpack)
+					user.equip_to_slot_or_del(new /obj/item/storage/firstaid/adv(user.back), slot_in_backpack)
 					user.equip_to_slot_or_del(new /obj/item/bodybag/cryobag(user.back), slot_in_backpack)
 					new /obj/item/bodybag/cryobag(src.loc)
 					new /obj/item/clothing/accessory/storage/black_vest(src.loc)
-					new /obj/item/weapon/gun/projectile/automatic/c20r(src.loc)
-					new /obj/item/weapon/storage/box/c20ammo(src.loc)
-					new /obj/item/weapon/grenade/chem_grenade/heal2(src.loc)
-					new /obj/item/ammo_magazine/c45m(src.loc)
-					new /obj/item/weapon/storage/firstaid/adv(src.loc)
-					for (var/obj/item/weapon/card/id/W in user)
+					new /obj/item/gun/projectile/automatic/c20r(src.loc)
+					new /obj/item/storage/box/c20ammo(src.loc)
+					new /obj/item/grenade/chem_grenade/heal2(src.loc)
+					new /obj/item/ammo_magazine/pistol(src.loc)
+					new /obj/item/storage/firstaid/adv(src.loc)
+					for (var/obj/item/card/id/W in user)
 						if(W.assignment == "S-COM Operative")
 							W.assignment = "S-COM Combat Medic"
 
@@ -280,11 +280,11 @@
 					new /obj/item/ammo_magazine/a50(src.loc)
 					new /obj/item/ammo_magazine/a50(src.loc)
 					new /obj/item/clothing/accessory/storage/black_vest(src.loc)
-					new /obj/item/weapon/reagent_containers/hypospray/autoinjector(src.loc)
-					new /obj/item/weapon/storage/box/sniperammo(src.loc)
-					new /obj/item/weapon/gun/projectile/sniper(src.loc)
-					new /obj/item/weapon/gun/projectile/magnum_pistol(src.loc)
-					for (var/obj/item/weapon/card/id/W in user)
+					new /obj/item/reagent_containers/hypospray/autoinjector(src.loc)
+					new /obj/item/storage/box/sniperammo(src.loc)
+					new /obj/item/gun/projectile/svd(src.loc)
+					new /obj/item/gun/projectile/pistol/magnum_pistol(src.loc)
+					for (var/obj/item/card/id/W in user)
 						if(W.assignment == "S-COM Operative")
 							W.assignment = "S-COM Sniper"
 
@@ -299,20 +299,20 @@
 /obj/machinery/scom/teleporter1
 	icon_state = "tele1"
 	name = "teleporter"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 
-/obj/machinery/scom/teleporter1/attack_hand(var/mob/living/carbon/A)
+/obj/machinery/scom/teleporter1/attack_hand(mob/living/carbon/A)
 	. = ..()
 	if(A)
 		handle_teleport(A)
 
-/obj/machinery/scom/teleporter1/Bumped(var/mob/living/carbon/A)
+/obj/machinery/scom/teleporter1/Bumped(mob/living/carbon/A)
 	if(A)
 		handle_teleport(A)
 	. = ..()
 
-/obj/machinery/scom/teleporter1/proc/handle_teleport(var/mob/living/carbon/A)
+/obj/machinery/scom/teleporter1/proc/handle_teleport(mob/living/carbon/A)
 	if(A)
 		var/obj/machinery/scom/teleporter2/destination = get_paired_destination()
 		if(destination)
@@ -323,11 +323,11 @@
 	var/list/all_destinations = list()
 	for(var/obj/machinery/scom/teleporter2/T in SSmachines.machinery)
 		all_destinations += T
-	if(all_destinations.len)
+	if(length(all_destinations))
 		destination = pick(all_destinations)
 	return destination
 
-/obj/machinery/scom/teleporter2/proc/teleport_to(var/atom/movable/A)
+/obj/machinery/scom/teleporter2/proc/teleport_to(atom/movable/A)
 	if(A && src.loc)
 		if(isturf(src.loc))
 			var/turf/destination = src.loc
@@ -339,13 +339,13 @@
 /obj/machinery/scom/teleporter2
 	icon_state = "tele1"
 	name = "teleporter"
-	anchored = 1
+	anchored = TRUE
 
 /obj/machinery/telecomms/relay/preset/scom1
 	id = "Centcom1 Relay"
 	hide = 1
 	toggled = 1
-	//anchored = 1
+	//anchored = TRUE
 	//use_power = 0
 	//idle_power_usage = 0
 	produces_heat = 0
@@ -355,7 +355,7 @@
 	id = "Centcom2 Relay"
 	hide = 1
 	toggled = 1
-	//anchored = 1
+	//anchored = TRUE
 	//use_power = 0
 	//idle_power_usage = 0
 	produces_heat = 0

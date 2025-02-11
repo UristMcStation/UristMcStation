@@ -25,12 +25,12 @@
 	item_state = "ranger2"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	armor = list(melee = 55, bullet = 40, laser = 30, energy = 10, bomb = 25, bio = 0, rad = 0)
-	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank/emergency,/obj/item/device/flashlight)
+	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/tank/oxygen_emergency,/obj/item/device/flashlight)
 
 /obj/item/clothing/suit/space/void/tdfrangerarmor
 	item_icons = URIST_ALL_ONMOBS
 	icon = 'icons/urist/items/clothes/clothes.dmi'
-	allowed = list(/obj/item/device/suit_cooling_unit,/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank,/obj/item/device/flashlight)
+	allowed = list(/obj/item/device/suit_cooling_unit,/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/tank,/obj/item/device/flashlight)
 	armor = list(melee = 65, bullet = 50, laser = 40,energy = 15, bomb = 35, bio = 100, rad = 30)
 	name = "Defence Force ranger voidsuit"
 	desc = "A heavily reinforced voidsuit used by the Terran Defence Force Rangers in extenuating circumstances, such as chasing down pirate vessels. The Rangers are an elite branch of the Terran Defence Forces that are stationed in colonies on the edge of colonized space. Although they mainly defend against local wildlife and the occasional pirate attack, they are well armed and well equipped."
@@ -43,7 +43,7 @@
 	icon_state = "ncr_vest"
 	item_state = "ncr_vest"
 	armor = list(melee = 45, bullet = 15, laser = 40, energy = 10, bomb = 25, bio = 0, rad = 0)
-	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank/emergency,/obj/item/device/flashlight)
+	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/tank/oxygen_emergency,/obj/item/device/flashlight)
 
 /obj/item/clothing/suit/urist/terran/tdfreinfarmor
 	name = "Defence Force reinforced armour vest"
@@ -51,7 +51,7 @@
 	icon_state = "ncr_mantle"
 	item_state = "ncr_mantle"
 	armor = list(melee = 50, bullet = 20, laser = 50, energy = 15, bomb = 25, bio = 0, rad = 0)
-	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank/emergency,/obj/item/device/flashlight)
+	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/tank/oxygen_emergency,/obj/item/device/flashlight)
 
 /obj/item/clothing/suit/urist/terran/tdfrangerpatrol
 	name = "ranger patrol armor"
@@ -60,7 +60,7 @@
 	item_state = "ncr_patrol"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	armor = list(melee = 50, bullet = 25, laser = 40, energy = 15, bomb = 25, bio = 0, rad = 0)
-	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank/emergency,/obj/item/device/flashlight)
+	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/tank/oxygen_emergency,/obj/item/device/flashlight)
 
 //head
 
@@ -85,7 +85,7 @@
 	item_state = "drill_hat"
 	armor = list(melee = 15, bullet = 5, laser = 15, energy = 10, bomb = 5, bio = 0, rad = 0)
 
-/obj/item/clothing/head/helmet/urist/terran/tdfhelmet
+/obj/item/clothing/head/helmet/urist/terran/tdfrangerhelmet
 	name = "Defence Force Ranger helmet"
 	desc = "A standard issue Terran Defence Force Ranger combat helmet. It's relatively strong, and covers the whole face."
 	icon_state = "ranger"
@@ -103,19 +103,19 @@
 	armor = list(melee = 65, bullet = 50, laser = 40,energy = 15, bomb = 35, bio = 100, rad = 30)
 
 /obj/item/ammo_magazine/c10mm
-	name = "TD-10 SMG magazine (10mm)"
+	name = "TD-10 SMG magazine"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "smg10mm"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
-	caliber = "10mm"
+	caliber = CALIBER_PISTOL
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
-	ammo_type = /obj/item/ammo_casing/a10mm
+	ammo_type = /obj/item/ammo_casing/pistol
 	max_ammo = 24
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/c10mm/TD10
-	name = "TD-10 Pistol magazine (10mm)"
+	name = "TD-10 Pistol magazine"
 	icon_state = "10mmadv"
 	max_ammo = 12
 	multiple_sprites = 1
@@ -123,21 +123,21 @@
 /obj/item/ammo_magazine/c10mm/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/td10_pistol
+/obj/item/gun/projectile/td10_pistol
 	name = "\improper TD-10 Pistol"
 	desc = "The standard 10mm service pistol of the Terran Defence Force. It shares a number of parts with the SMG version of the TD-10 series. Rugged and durable, the TD-10 pistol is the best choice for frontier rangers."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "pistol10mm"
 	item_state = "gun"
 	w_class = 2
-	caliber = "10mm"
+	caliber = CALIBER_PISTOL
 	fire_sound = 'sound/weapons/gunshot/Gunshot_pistol.ogg'
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c10mm/TD10
 	allowed_magazines = list(/obj/item/ammo_magazine/c10mm/TD10)
 
-/obj/item/weapon/gun/projectile/td10_pistol/update_icon()
+/obj/item/gun/projectile/td10_pistol/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "pistol10mm"
@@ -145,7 +145,7 @@
 		icon_state = "pistol10mm-empty"
 	return
 
-/obj/item/weapon/gun/projectile/automatic/td10_smg
+/obj/item/gun/projectile/automatic/td10_smg
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper TD-10 SMG"
 	desc = "The standard 10mm submachine gun of the Terran Defence Force. It shares many parts with the pistol version of the TD-10, and even accepts TD-10 pistol magazines. This is handy for far flung frontier worlds where parts may be scarce."
@@ -154,7 +154,7 @@
 	item_state = "smg10mm-fo"
 	w_class = 3
 	force = 10
-	caliber = "10mm"
+	caliber = CALIBER_PISTOL
 	origin_tech = "combat=4;materials=1;syndicate=1"
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
@@ -169,17 +169,17 @@
 		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/td10_smg/update_icon()
+/obj/item/gun/projectile/automatic/td10_smg/on_update_icon()
 	if(ammo_magazine)
 		icon_state = "smg10mm-fo"
 	else
 		icon_state = "smg10mm-fo-empty"
 
-/obj/item/weapon/card/id/terran
+/obj/item/card/id/terran
 	color = COLOR_GRAY40
 	detail_color = COLOR_VIOLET
 
-/obj/item/weapon/card/id/terran/tdf
+/obj/item/card/id/terran/tdf
 	name = "\improper Terran Defence Force ID"
 	desc = "An ID worn by someone in the Terran Defence Force"
 	registered_name = "Terran Defence Force"
@@ -196,7 +196,7 @@
 	icon_state = "terran_void_marine"
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
-	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency,/obj/item/weapon/melee/energy/sword)
+	allowed = list(/obj/item/gun,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/oxygen_emergency,/obj/item/melee/energy/sword)
 	armor = list(melee = 65, bullet = 65, laser = 40,energy = 20, bomb = 40, bio = 100, rad = 30)
 	can_breach = 0
 
@@ -211,7 +211,7 @@
 	item_state = "terran_armour"
 	armor = list(melee = 60, bullet = 55, laser = 40, energy = 10, bomb = 25, bio = 0, rad = 0)
 
-	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank)
+	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/tank)
 
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	item_flags = ITEM_FLAG_THICKMATERIAL
@@ -228,7 +228,7 @@
 	item_state = "terran_armour_officer"
 	armor = list(melee = 55, bullet = 40, laser = 35, energy = 10, bomb = 15, bio = 0, rad = 0)
 
-	allowed = list(/obj/item/weapon/gun/energy,/obj/item/device/radio,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/weapon/gun/magnetic,/obj/item/weapon/tank)
+	allowed = list(/obj/item/gun/energy,/obj/item/device/radio,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/gun/magnetic,/obj/item/tank)
 
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	item_flags = ITEM_FLAG_THICKMATERIAL
@@ -262,9 +262,9 @@
 	desc = "A grey protective helmet, standard issue for all Terran Confederacy Marines serving aboard Naval vessels."
 	icon_state = "terran_helm"
 	armor = list(melee = 50, bullet = 55, laser = 30, energy = 25, bomb = 30, bio = 0, rad = 0)
-	var/obj/item/weapon/storage/fancy/cigarettes/cigs
+	var/obj/item/storage/fancy/smokable/cigs
 
-/obj/item/weapon/card/id/terran/marine
+/obj/item/card/id/terran/marine
 	name = "\improper Terran Marine ID"
 	desc = "An ID worn by someone in the Terran Confederacy Marines, the land service branch of the powerful Terran Navy, and the primary land service branch of the Terran Confederacy Armed Forces."
 	registered_name = "Terran Confederacy Marine Corps."

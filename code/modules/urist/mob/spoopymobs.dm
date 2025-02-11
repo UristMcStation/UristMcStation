@@ -8,23 +8,27 @@
 	simplify_dead_icon = 1
 	health = 40
 	maxHealth = 40
-	melee_damage_lower = 5
-	melee_damage_upper = 10
+	natural_weapon = /obj/item/natural_weapon/bite
 	attacktext = "bit"
 	attack_sound = 'sound/weapons/bite.ogg'
 	faction = "undead"
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
-	idle_vision_range = 3
-	aggro_vision_range = 15 //fairly easy to evade a single one, but DO NOT PISS THEM OFF
 	move_to_delay = 7
-	stat_attack = 1
 	ranged = 0
 	environment_smash = 1
 	var/plague = 0 //whether biting dead people spawns new zombies
 	var/regen = 0 //if true, they won't stay down, but revive after a delay
 	var/regen_delay = 90 //delay for regen revive
+	ai_holder = /datum/ai_holder/simple_animal/melee/zombie
+	say_list_type = /datum/say_list/monster_generic
+
+/datum/ai_holder/simple_animal/melee/zombie
+	vision_range = 3 // fairly easy to evade a single one
+	can_breakthrough = TRUE
+	violent_breakthrough = TRUE
+	destructive = TRUE
 
 /datum/reagent/xenomicrobes/uristzombie
 	metabolism = REM
@@ -57,21 +61,21 @@
 		"Your tongue swells up and turns black."
 	)
 
-/datum/reagent/xenomicrobes/uristzombie/affect_touch(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/xenomicrobes/uristzombie/affect_touch(mob/living/carbon/M, var/alien, var/removed)
 	affect_blood(M, alien, removed * 0.5)
 
-/datum/reagent/xenomicrobes/uristzombie/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/xenomicrobes/uristzombie/affect_blood(mob/living/carbon/M, var/alien, var/removed)
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/true_dose = H.chem_doses[type] + volume
 		var/idlemsg_proba = 10
 
-		if(true_dose > 10 && prob(Clamp(50*(true_dose-10)/(true_dose+15), 0, 100)))
+		if(true_dose > 10 && prob(clamp(50*(true_dose-10)/(true_dose+15), 0, 100)))
 			if(prob(1))
 				// psych!
 				to_chat(H, "<span class='warning'>[pick(transformation_msgs)]</span>")
 
-			else if(prob(Clamp(true_dose+0.1*H.getBrainLoss(), 0, 25)))
+			else if(prob(clamp(true_dose+0.1*H.getBrainLoss(), 0, 25)))
 				idlemsg_proba = 5 // symptom spam avoidance
 				var/organs = list(BP_R_ARM,BP_L_LEG,BP_L_ARM,BP_R_LEG,BP_GROIN,BP_CHEST)
 				var/undecayed_ctr = length(organs) // make your own immature joke here
@@ -100,7 +104,7 @@
 
 				H.update_body(1)
 
-				if(prob(Clamp(100-100*(undecayed_ctr/length(organs)), 0, 100)))
+				if(prob(clamp(100-100*(undecayed_ctr/length(organs)), 0, 100)))
 					// NOTE: this *deliberately* does not care if the mob lost the limb.
 					// So, reverse necromorph - less limbs => less tissue to infect.
 					var/obj/item/organ/external/Head = H.organs_by_name[BP_HEAD]
@@ -113,30 +117,29 @@
 							H.uZombify(1, 1, transformation_msgs)
 		else
 			// almost straight copy of plain reagent/toxin/affect_blood()
-			if(alien != IS_DIONA)
-				M.add_chemical_effect(CE_TOXIN, 5)
-				var/dam = 0.05 * rand(1, 20)
-				if(target_organ)
-					var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
-					if(I)
-						var/can_damage = I.max_damage - I.damage
-						if(can_damage > 0)
-							if(dam > can_damage)
-								I.take_internal_damage(can_damage, silent=TRUE)
-								dam -= can_damage
-							else
-								I.take_internal_damage(dam, silent=TRUE)
-								dam = 0
-				if(dam)
-					// nerfed damage w/ target_organ here -scr
-					M.adjustToxLoss(target_organ ? (dam * 0.25) : dam)
+			M.add_chemical_effect(CE_TOXIN, 5)
+			var/dam = 0.05 * rand(1, 20)
+			if(target_organ)
+				var/obj/item/organ/internal/I = H.internal_organs_by_name[target_organ]
+				if(I)
+					var/can_damage = I.max_damage - I.damage
+					if(can_damage > 0)
+						if(dam > can_damage)
+							I.take_internal_damage(can_damage, silent=TRUE)
+							dam -= can_damage
+						else
+							I.take_internal_damage(dam, silent=TRUE)
+							dam = 0
+			if(dam)
+				// nerfed damage w/ target_organ here -scr
+				M.adjustToxLoss(target_organ ? (dam * 0.25) : dam)
 			// endcopy
 
 		// custom sadism
-		if(prob(Clamp(idlemsg_proba, 0, 100)))
+		if(prob(clamp(idlemsg_proba, 0, 100)))
 			to_chat(H, "<span class='warning'>[pick(symptom_msgs)]</span>")
 
-		if(prob(Clamp(true_dose, 0, 100)))
+		if(prob(clamp(true_dose, 0, 100)))
 			H.reagents.add_reagent(src.type, rand(removed, 0.1*true_dose))
 
 		H.add_chemical_effect(CE_PAINKILLER, 40)
@@ -145,13 +148,12 @@
 		H.add_chemical_effect(CE_PULSE, 4)
 		H.nutrition -= min(H.nutrition, true_dose)
 		H.bodytemperature = max(H.bodytemperature, H.species.heat_discomfort_level + rand(5, 15))
-		if(prob(Clamp(5+true_dose, 0, 20)))
+		if(prob(clamp(5+true_dose, 0, 20)))
 			H.make_jittery(5)
 
-/mob/living/simple_animal/hostile/urist/zombie/Aggro()
+/mob/living/simple_animal/hostile/urist/zombie/proc/Aggro()
 	if(prob(35))
 		playsound(src.loc, pick('sound/hallucinations/wail.ogg', 'sound/hallucinations/screech.ogg', 'sound/hallucinations/growl1.ogg', 'sound/hallucinations/growl2.ogg', 'sound/hallucinations/growl3.ogg'))
-	..()
 
 /mob/living/simple_animal/hostile/urist/zombie/say()
 	var/acount = rand(2,8)
@@ -172,10 +174,10 @@
 	if(regen)
 		to_chat(src, "You begin to regenerate. This will take about [regen_delay/60] minutes.")
 		to_chat(src, "If you ghost, you can re-enter the mob assuming it still exists.")
-		addtimer(CALLBACK(src, /mob/living/simple_animal/hostile/urist/zombie/proc/deathregen), regen_delay SECONDS, TIMER_STOPPABLE)
+		addtimer(new Callback(src, /mob/living/simple_animal/hostile/urist/zombie/proc/deathregen), regen_delay SECONDS, TIMER_STOPPABLE)
 
 	if(src.contents)
-		var/inv_size = contents.len
+		var/inv_size = length(contents)
 		for(var/obj/O in src.contents)
 			if (!(regen) || prob(100 * (1 / inv_size)))
 				drop_from_inventory(O)
@@ -183,7 +185,7 @@
 			src.desc += "\n \n It seems to have dropped everything it had." //shitty hack for now
 		update_icons()
 
-/mob/living/simple_animal/hostile/urist/zombie/ghostize(var/can_reenter_corpse=1)
+/mob/living/simple_animal/hostile/urist/zombie/ghostize(can_reenter_corpse=1)
 	return ..(max(1, can_reenter_corpse)) // always re-enterable
 
 /mob/living/simple_animal/hostile/urist/zombie/proc/deathregen()
@@ -205,17 +207,15 @@
 	desc = "This zombie SIMPLY. WON'T. STAY. DEAD. Run!"
 	health = 60
 	maxHealth = 60
-	idle_vision_range = 3
 	regen = 1
 	icon_dead = "zombie_s" //ugly, but effective, workaround to use sprite rotation instead of having a custom death icon
 
 /mob/living/simple_animal/hostile/urist/zombie/plague //Because non-infectious unkillable zombies weren't bad enough. Round-ender.
 	desc = "A bloodthirsty and brain-hungry corpse revived by an unknown infectious pathogen with extreme regenerative abilities."
-	stat_attack = 2
 	regen = 1
 	plague = 1
 
-/mob/living/simple_animal/hostile/urist/zombie/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/urist/zombie/UnarmedAttack(atom/A, var/proximity)
 	. = ..()
 
 	if(plague)
@@ -223,8 +223,8 @@
 			var/mob/living/carbon/human/victim = A
 
 			if(victim.reagents)
-				var/biosafety = victim.getarmor(null, "bio")
-				if(!prob(Clamp(biosafety, 0, 100)))
+				var/biosafety = victim.get_armors_by_zone(null, "bio")
+				if(!prob(clamp(biosafety, 0, 100)))
 					victim.reagents.add_reagent(/datum/reagent/xenomicrobes/uristzombie, rand(5, 10))
 
 			uZombieInfect(victim)
@@ -236,15 +236,15 @@
 	return
 
 // do excuse the weird naming convention, but Bay *already* broke this proc once so I'm not taking chances.
-/mob/living/simple_animal/hostile/urist/zombie/proc/uZombieInfect(var/mob/living/infectee)
+/mob/living/simple_animal/hostile/urist/zombie/proc/uZombieInfect(mob/living/infectee)
 	if(!src || src.stat)
 		return
 
 	if(!infectee || infectee.stat != DEAD)
 		return
 
-	var/munch_msg_ext = "<span class = 'warning'> <b>[src]</b> chomps at [infectee]'s brain!</span>",
-	var/munch_msg_self = "<span class = 'warning'>You chomps at [infectee]'s brain!</span>"
+	var/munch_msg_ext = SPAN_WARNING("[src] chomps at [infectee]'s brain!")
+	var/munch_msg_self = SPAN_WARNING("You chomp at [infectee]'s brain!")
 
 	if(ishuman(infectee))
 		var/mob/living/carbon/human/victim = infectee
@@ -259,7 +259,7 @@
 			victim.uZombify(src.regen, src.plague, src.maxHealth)
 
 
-/mob/living/carbon/human/proc/uZombify(var/regens=0, var/infects=0, var/transformation_msgs, var/time=60, var/hitpoints=40)
+/mob/living/carbon/human/proc/uZombify(regens=0, var/infects=0, var/transformation_msgs, var/time=60, var/hitpoints=40)
 	if(!src)
 		return
 
@@ -268,10 +268,10 @@
 
 	// unless the odds are messing with you, as soon as you get the message your only hope is a *good* death
 	to_chat(src, "<span class='warning'>[pick(transformation_msgs)]</span>")
-	addtimer(CALLBACK(src, /mob/living/carbon/human/proc/uZombifyInstant, regens, infects, hitpoints), time SECONDS, TIMER_STOPPABLE)
+	addtimer(new Callback(src, /mob/living/carbon/human/proc/uZombifyInstant, regens, infects, hitpoints), time SECONDS, TIMER_STOPPABLE)
 
 
-/mob/living/carbon/human/proc/uZombifyInstant(var/regens = 0, var/infects = 0, var/hitpoints = 40) //I swear officer, that Animalize() proc fell out the back of a truck.
+/mob/living/carbon/human/proc/uZombifyInstant(regens = 0, var/infects = 0, var/hitpoints = 40) //I swear officer, that Animalize() proc fell out the back of a truck.
 	if(!src)
 		return
 
@@ -354,7 +354,7 @@
 	return
 
 
-/mob/living/simple_animal/hostile/scom/civ/proc/uZombify(var/regens = 0, var/infects = 0, var/hitpoints = 40)
+/mob/living/simple_animal/hostile/scom/civ/proc/uZombify(regens = 0, var/infects = 0, var/hitpoints = 40)
 	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie/plague
 	var/mob/living/simple_animal/hostile/urist/zombie/new_mob = new mobpath(src.loc)
 
@@ -372,6 +372,7 @@
 		qdel(src)
 	return
 
+
 /mob/living/simple_animal/hostile/urist/vampire
 	name = "vampire"
 	desc = "A bloodthirsty undead abomination."
@@ -381,8 +382,7 @@
 	icon_dead = "vampire_m_d"
 	health = 100
 	maxHealth = 100
-	melee_damage_lower = 15
-	melee_damage_upper = 20
+	natural_weapon = /obj/item/natural_weapon/bite
 	attacktext = "bit"
 	attack_sound = 'sound/items/drink.ogg'
 	faction = "undead"
@@ -391,6 +391,12 @@
 	minbodytemp = 0
 	ranged = 0
 	simplify_dead_icon = 1
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_slippery
+
+	natural_armor = list(
+		melee = ARMOR_MELEE_RESISTANT
+	)
+
 
 /mob/living/simple_animal/hostile/urist/vampire/New()
 	var/danglybits = pick(0, 1) //random gender
@@ -416,11 +422,17 @@
 	resistance = 10 //but not much to hit either unless you use a heavy object
 	ranged = 0
 	attacktext = "stabbed"
-	melee_damage_lower = 10
-	melee_damage_upper = 20
+	natural_weapon = /obj/item/material/twohanded/spear
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_generic
+	say_list_type = /datum/say_list/monster_generic
+
+	natural_armor = list(
+		bullet = ARMOR_BALLISTIC_RESISTANT,
+		melee = ARMOR_MELEE_SMALL
+	)
 
 //not-faceless that split on death into weaker clones
 /mob/living/simple_animal/hostile/urist/amorph
@@ -435,6 +447,8 @@
 	health = 200
 	ranged = 0
 	move_to_delay = 7
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_generic
+	say_list_type = /datum/say_list/monster_generic
 
 /mob/living/simple_animal/hostile/urist/amorph/death() //splits into two
 	var/nextgen = (1 + src.generation)
@@ -459,14 +473,15 @@
 	faction = "biohorror"
 	icon_state = "hybrid"
 	icon_living = "hybrid"
+	icon_dead = "hybrid_dead"
 	maxHealth = 80
 	health = 80
 	ranged = 0
-	retreat_distance = 0
-	melee_damage_lower = 10
-	melee_damage_upper = 15
+	natural_weapon = /obj/item/natural_weapon/claws
 	attacktext = "hacked"
 	attack_sound = 'sound/weapons/slice.ogg'
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_generic
+	say_list_type = /datum/say_list/monster_generic
 
 /mob/living/simple_animal/hostile/urist/mutant/Life()
 	if(IsInRange(src.health, 1, (maxHealth - 1)))
@@ -478,26 +493,27 @@
 	desc = "Despite physical and mental degradation, he can still operate a shotgun."
 	icon_state = "mutant_ranged"
 	icon_living = "mutant_ranged"
+	icon_dead = "mutant_dead"
 	ranged = 1
 	projectilesound = 'sound/weapons/gunshot/shotgun.ogg'
 	projectiletype = /obj/item/projectile/bullet/pellet/shotgun //check balance
-	ranged_cooldown_cap = 10
 	attacktext = "kicked"
 	attack_sound = 'sound/weapons/genhit3.ogg'
-	minimum_distance = 2
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
+
 
 /mob/living/simple_animal/hostile/urist/mutant/melee
 	desc = "Homicidal, tough bastard wielding a heavy axe."
 	icon_state = "mutant_melee"
 	icon_living = "mutant_melee"
+	icon_dead = "mutant_dead"
 	environment_smash = 2
 	ranged = 0
-	minimum_distance = 1
-	melee_damage_lower = 15
-	melee_damage_upper = 25
+	natural_weapon = /obj/item/material/hatchet
 	resistance = 5
 	attacktext = "hacked"
 	attack_sound = 'sound/weapons/slice.ogg'
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_generic
 
 /mob/living/simple_animal/hostile/urist/mutant/hybrid
 	name = "Xenohybrid"
@@ -506,13 +522,12 @@
 	maxHealth = 120
 	health = 120
 	ranged = 0
-	minimum_distance = 1
-	melee_damage_lower = 10
-	melee_damage_upper = 15
-	vision_range = 12
-	aggro_vision_range = 18
+	movement_cooldown = 2
+	natural_weapon = /obj/item/natural_weapon/claws
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/rapidslice.ogg'
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_slippery
+	say_list_type = /datum/say_list/monster_generic
 
 //A surreal alien with a massive mouth for a face, sprite by Nienhaus
 /mob/living/simple_animal/hostile/urist/devourer
@@ -521,17 +536,27 @@
 	icon_state = "eyelien"
 	icon_living = "eyelien"
 	icon_dead = "eyelien_dead"
-	simplify_dead_icon = 0
 	faction = "biohorror"
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bite.ogg'
 	maxHealth = 100
 	health = 100
 	ranged = 1
-	ranged_message = "spits"
+	fire_desc = "spits"
 	projectiletype = /obj/item/projectile/energy/neurotoxin
 	projectilesound = 'sound/weapons/bite.ogg'
-	minimum_distance = 1
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/melee_slippery
+	say_list_type = /datum/say_list/monster_generic
+
+
+/obj/item/projectile/energy/fireball
+	name = "fireball"
+	icon_state = "fireball"
+	fire_sound = 'sound/effects/squelch1.ogg'
+	damage_type = DAMAGE_BURN
+	damage = 20
+	agony = 10
+
 
 //even more blatant...
 /mob/living/simple_animal/hostile/urist/imp
@@ -540,129 +565,110 @@
 	icon_state = "imp"
 	icon_living = "imp"
 	icon_dead = "imp_dead"
-	simplify_dead_icon = 0 //because fancy dead icon
 	faction = "cult"
-	minimum_distance = 2
 	ranged = 1
 	maxHealth = 75
 	health = 75
-	projectiletype = /obj/item/projectile/energy/phoron
-	projectilesound = 'sound/effects/squelch1.ogg'
-	melee_damage_lower = 5
-	melee_damage_upper = 15
+	projectiletype = /obj/item/projectile/energy/fireball
+
+	natural_weapon = /obj/item/natural_weapon/bite
 	attacktext = "slashed"
 	attack_sound = 'sound/weapons/rapidslice.ogg'
+	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
+	say_list_type = /datum/say_list/monster_generic
 
-//TOUGH bastard, teleports around to follow a victim (random if none, varedit to set)
-/mob/living/simple_animal/hostile/urist/stalker
-	name = "psycho"
-	desc = "Implacable killer."
-	icon_state = "psycho"
-	icon_living = "psycho"
-	environment_smash = 1
-	maxHealth = 500
-	health = 500
-	resistance = 6
-	ranged = 0
-	move_to_delay = 6
-	melee_damage_lower = 10
-	melee_damage_upper = 15
-	attacktext = "slashed"
-	attack_sound = 'sound/weapons/rapidslice.ogg'
-	attack_same = 1
-	var/caution = 1 //hit and run if low on health
-	var/mob/stalkee //who he stalks
-	var/flickerlights = 0 //for more fun - can fuck with lights around the victim to get a TP zone.
-	var/datum/effect/effect/system/tele_effect = null //something to spawn when teleporting/disappearing, presumably effects
+//Angels, old testament style
 
-/mob/living/simple_animal/hostile/urist/stalker/New()
+/mob/living/simple_animal/hostile/urist/angel
+	name = "\improper angel"
+	desc = "A supposedly divine being known to bring the wrath of their deity."
+	response_help = "tries to poke"
+	response_disarm = "tries to shove"
+	response_harm = "tries to hit"
+	attacktext = "smites down"
+	icon= 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "bluespace-angel"
+	icon_living = "bluespace-angel"
+	icon_dead = ""
+	faction = "divine"
+	maxHealth = 50
+	health = 50
+	natural_weapon = /obj/item/natural_weapon/angel
+	projectiletype = /obj/item/projectile/energy/holy
+	projectilesound = 'sound/magic/fireball.ogg'
+	harm_intent_damage = 0
+	needs_reload = TRUE
+	reload_time = 2.5 SECONDS
+	reload_sound = null
+
+
+/obj/item/natural_weapon/angel
+	name = "holy aura"
+	hitsound = 'sound/weapons/slash.ogg'
+	attack_verb = list("smited")
+	damtype = DAMAGE_BURN
+	force = 15
+
+/mob/living/simple_animal/hostile/urist/angel/death()
 	..()
-	GetNewStalkee()
-
-/mob/living/simple_animal/hostile/urist/stalker/proc/GetNewStalkee(var/mindplease = 1)
-	var/attempts = 3
-	while(!(stalkee))
-		stalkee = pick(GLOB.player_list)
-		attempts--
-		var/recheck = 0
-		if(stalkee)
-			if(!(isliving(stalkee))) //for some reason new_players *were* being picked
-				recheck = 1
-			if((!(stalkee.mind)) && mindplease) //not much fun if they can't fight back
-				recheck = 1
-		if(recheck) //ugly but prevents trying to read a property of a null without parenthesis cancer
-			stalkee = null
-		if(attempts <= 0) //infinite loop prevention in case there are no
-			break
-
-/mob/living/simple_animal/hostile/urist/stalker/Found(var/atom/A)
-	if(A == stalkee)
-		return 1
-	return 0
-
-/mob/living/simple_animal/hostile/urist/stalker/Life()
-	if(..())
-		if(stalkee)
-			if(stalkee.stat == DEAD)
-				GetNewStalkee()
-			else if(stance == HOSTILE_STANCE_IDLE)
-				if(!client && prob(25))
-					HuntingTeleport()
-		else
-			GetNewStalkee()
-
-/mob/living/simple_animal/hostile/urist/stalker/death()
-	if(tele_effect)
-		HandleTeleFX(src.loc)
-	..(0, "disappears!")
+	visible_message("<span class='danger'>The [src.name] wails and disappears!</span>")
+	playsound(src.loc, 'sound/effects/angel-reveal.ogg', 50, 1)
+	flick("forgotten_die", src)
+	//sleep(4)
 	qdel(src)
-
-/mob/living/simple_animal/hostile/urist/stalker/LostTarget()
-	..()
-	if(!client)
-		if(prob(25))
-			HuntingTeleport()
-
-/mob/living/simple_animal/hostile/urist/stalker/proc/HuntingTeleport()
-	var/list/destinations = new/list()
-
-	for(var/turf/T in range(5, stalkee))
-		if(istype(T,/turf/space)) continue
-		if(T.density) continue
-		if(T in range(src, 9)) continue //so they don't teleport pointlessly while in range
-		if(shadow_check(T, 1))
-			destinations += T
-
-	if(destinations.len)
-		var/turf/picked = pick(destinations)
-
-		if(!picked || !isturf(picked))
-			return
-
-		if(tele_effect)
-			HandleTeleFX(src.loc)
-			HandleTeleFX(picked)
-
-		src.forceMove(picked)
-
-	if(flickerlights)
-		if(stalkee)
-			if(isturf(stalkee.loc))
-				var/turf/stalkeeturf = stalkee.loc
-				for(var/datum/light_source/LS in stalkeeturf.affecting_lights)
-					if(istype(LS.source_atom, /obj/machinery/light))
-						var/obj/machinery/light/FL = LS.source_atom
-						if(prob(10))
-							FL.flicker(3)
 	return
 
-/mob/living/simple_animal/hostile/urist/stalker/proc/HandleTeleFX(var/atom/fxloc)
-	if(tele_effect)
-		var/datum/effect/effect/system/fx_instance = new tele_effect()
-		fx_instance.set_up(3, 0, fxloc)
-		fx_instance.start()
+/obj/item/projectile/energy/holy
+	name = "holy fire"
+	icon = 'icons/obj/projectiles.dmi'
+	icon_state = "fireball"
+	fire_sound = 'sound/magic/fireball.ogg'
+	pass_flags = PASS_FLAG_TABLE | PASS_FLAG_GLASS | PASS_FLAG_GRILLE
+	damage = 15
+	damage_type = DAMAGE_BURN
 
-/mob/living/simple_animal/hostile/urist/stalker/UnarmedAttack(var/atom/A, var/proximity)
+/obj/item/projectile/energy/holy/strong
+	damage = 25
+
+/mob/living/simple_animal/hostile/urist/angel/angry
+	name = "\improper angel"
+	icon_state = "angel-angry"
+	icon_living = "angel-angry"
+	maxHealth = 75
+	health = 75
+	projectiletype = /obj/item/projectile/energy/holy/strong
+
+
+/mob/living/simple_animal/hostile/urist/angel/bronze
+	name = "\improper angel"
+	icon_state = "bronze-angel"
+	icon_living = "bronze-angel"
+	maxHealth = 200
+	health = 200
+	projectiletype = /obj/item/projectile/energy/holy/strong
+
+//skeletons
+
+/mob/living/simple_animal/hostile/urist/skeleton/ancient
+	name = "ancient skeleton"
+	desc = "an ancient risen corpse."
+	icon= 'icons/uristmob/simpleanimals.dmi'
+	icon_state = "draugr1"
+	icon_living = "draugr1"
+	icon_dead = "skeleton_dead"
+	var/body_color
+
+/mob/living/simple_animal/hostile/urist/skeleton/ancient/New()
 	..()
-	if(!client && caution) //run awaaaay!
-		HuntingTeleport()
+	if(!body_color)
+		body_color = pick( list("1","2","3","4","5","6") )
+	icon_state = "draugr[body_color]"
+	icon_living = "draugr[body_color]"
+
+/mob/living/simple_animal/hostile/urist/skeleton/ancient/ranged
+	projectiletype = /obj/item/projectile/energy/dart
+	projectilesound = 'sound/urist/gotabone.ogg'
+	harm_intent_damage = 0
+	needs_reload = TRUE
+	reload_time = 2.5 SECONDS
+	reload_sound = null

@@ -5,20 +5,16 @@
 	icon_living = "syndicate"
 	icon_dead = "syndicate_dead"
 	icon_gib = "syndicate_gib"
-	speak_chance = 0
 	turns_per_move = 5
 	response_help = "pokes"
 	response_disarm = "shoves"
 	response_harm = "hits"
 	speed = 4
-	stop_automated_movement_when_pulled = 0
 	maxHealth = 100
 	health = 100
 	harm_intent_damage = 5
-	melee_damage_lower = 10
-	melee_damage_upper = 10
-	can_escape = 1
-	attacktext = "punched"
+	natural_weapon = /obj/item/natural_weapon/punch
+	can_escape = TRUE
 	a_intent = I_HURT
 	var/corpse = /obj/effect/landmark/corpse/syndicate
 	var/weapon1
@@ -37,51 +33,63 @@
 	if(weapon2)
 		new weapon2 (src.loc)
 	qdel(src)
+	return
 
 ///////////////Sword and shield////////////
 
 /mob/living/simple_animal/hostile/syndicate/melee
-	melee_damage_lower = 20
-	melee_damage_upper = 25
 	icon_state = "syndicatemelee"
 	icon_living = "syndicatemelee"
-	weapon1 = /obj/item/weapon/melee/energy/sword/red
-	weapon2 = /obj/item/weapon/shield/energy
-	attacktext = "slashed"
+	natural_weapon = /obj/item/melee/energy/sword/red/activated
+	weapon1 = /obj/item/melee/energy/sword/red/activated
+	weapon2 = /obj/item/shield/energy
 	status_flags = 0
 
-/mob/living/simple_animal/hostile/syndicate/melee/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	/*if(O.force)
-		if(prob(80))
-			var/damage = O.force
-			if (O.damtype == PAIN)
-				damage = 0
-			health -= damage
-			visible_message("<span class='danger'>\The [src] has been attacked with \the [O] by \the [user].</span>")
-		else
-			visible_message("<span class='danger'>\The [src] blocks the [O] with its shield!</span>")
-		//user.do_attack_animation(src)
-	else
-		to_chat(usr, "<span class='warning'>This weapon is ineffective, it does no damage.</span>")
-		visible_message("<span class='warning'>\The [user] gently taps \the [src] with \the [O].</span>")*/
 
-	if(prob(20))
-		visible_message("<span class='danger'>\The [src] blocks the [O] with its shield!</span>")
-	else
-		. = ..(O, user)
+/mob/living/simple_animal/hostile/syndicate/melee/use_weapon(obj/item/weapon, mob/user, list/click_params)
+	if (!weapon.force)
+		return ..()
+
+	// Shield check
+	if (!prob(80))
+		user.visible_message(
+			SPAN_WARNING("\The [user] swings \a [weapon] at \the [src], but they block it with their shield!"),
+			SPAN_WARNING("You swing \the [weapon] at \the [src], but they block it with their shield!"),
+			exclude_mobs = list(src)
+		)
+		to_chat(src, SPAN_WARNING("\The [user] swings \a [weapon] at you, but you block it with your shield!"))
+		return TRUE
+
+	// Block pain damage
+	if (weapon.damtype == DAMAGE_PAIN)
+		user.visible_message(
+			SPAN_WARNING("\The [user] swings \a [weapon] at \the [src], but it has no effect!"),
+			SPAN_WARNING("You swing \the [weapon] at \the [src], but it has no effect!"),
+			exclude_mobs = list(src)
+		)
+		to_chat(src, SPAN_WARNING("\The [user] swings \a [weapon] at you, but it has no effect!"))
+		return TRUE
+
+	// Apply damage
+	health -= weapon.force
+	user.visible_message(
+		SPAN_WARNING("\The [user] swings \a [weapon] at \the [src]!"),
+		SPAN_DANGER("You swing \the [weapon] at \the [src]!"),
+		exclude_mobs = list(src)
+	)
+	to_chat(src, SPAN_DANGER("\The [user] swings \a [weapon] at you!"))
+	return TRUE
 
 
-/mob/living/simple_animal/hostile/syndicate/melee/bullet_act(var/obj/item/projectile/Proj)
-	/*if(!Proj)	return
+/mob/living/simple_animal/hostile/syndicate/melee/bullet_act(obj/item/projectile/Proj)
+	if(!Proj)	return
+	if (status_flags & GODMODE)
+		return PROJECTILE_FORCE_MISS
 	if(prob(65))
 		src.health -= Proj.damage
 	else
-		visible_message("<span class='danger'>\The [src] blocks \the [Proj] with its shield!</span>")
-	return 0*/
-	if(prob(35))
-		visible_message("<span class='danger'>\The [src] blocks \the [Proj] with its shield!</span>")
-	else
-		. = ..(Proj)
+		visible_message(SPAN_DANGER("\The [src] blocks \the [Proj] with its shield!"))
+	return 0
 
 
 /mob/living/simple_animal/hostile/syndicate/melee/space
@@ -96,14 +104,14 @@
 
 /mob/living/simple_animal/hostile/syndicate/ranged
 	ranged = 1
-	rapid = 2
+	rapid = 1
 	icon_state = "syndicateranged"
 	icon_living = "syndicateranged"
-	casingtype = /obj/item/ammo_casing/a10mm
+	casingtype = /obj/item/ammo_casing/pistol
 	projectilesound = 'sound/weapons/gunshot/gunshot_smg.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/medium
+	projectiletype = /obj/item/projectile/bullet/pistol
 
-	weapon1 = /obj/item/weapon/gun/projectile/automatic/c20r
+	weapon1 = /obj/item/gun/projectile/automatic/c20r
 
 /mob/living/simple_animal/hostile/syndicate/ranged/space
 	icon_state = "syndicaterangedpsace"
@@ -118,21 +126,35 @@
 /mob/living/simple_animal/hostile/viscerator
 	name = "viscerator"
 	desc = "A small, twin-bladed machine capable of inflicting very deadly lacerations."
-	icon = 'icons/mob/critter.dmi'
+	icon = 'icons/mob/simple_animal/critter.dmi'
 	icon_state = "viscerator_attack"
 	icon_living = "viscerator_attack"
 	pass_flags = PASS_FLAG_TABLE
 	health = 15
 	maxHealth = 15
-	melee_damage_lower = 15
-	melee_damage_upper = 15
-	attacktext = "cut"
-	attack_sound = 'sound/weapons/bladeslice.ogg'
+	natural_weapon = /obj/item/natural_weapon/rotating_blade
 	faction = "syndicate"
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
 
+	meat_type =     null
+	meat_amount =   0
+	bone_material = null
+	bone_amount =   0
+	skin_material = null
+	skin_amount =   0
+/obj/item/natural_weapon/rotating_blade
+	name = "rotating blades"
+	attack_verb = list("sliced", "cut")
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	force = 15
+	edge = 1
+	sharp = 1
+
 /mob/living/simple_animal/hostile/viscerator/death(gibbed, deathmessage, show_dead_message)
 	..(null,"is smashed into pieces!", show_dead_message)
 	qdel(src)
+
+/mob/living/simple_animal/hostile/viscerator/hive
+	faction = "hivebot"

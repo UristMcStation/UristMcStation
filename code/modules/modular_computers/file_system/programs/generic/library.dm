@@ -14,9 +14,8 @@ The answer was five and a half years -ZeroBits
 	program_key_state = "atmos_key"
 	program_menu_icon = "note"
 	size = 6
-	requires_ntnet = 1
-	available_on_ntnet = 1
-	usage_flags = PROGRAM_ALL
+	requires_ntnet = TRUE
+	available_on_ntnet = TRUE
 
 	nanomodule_path = /datum/nano_module/library
 
@@ -27,7 +26,7 @@ The answer was five and a half years -ZeroBits
 	var/obj/machinery/libraryscanner/scanner
 	var/sort_by = "id"
 
-/datum/nano_module/library/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/library/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = GLOB.default_state)
 	var/list/data = host.initial_data()
 
 	if(error_message)
@@ -89,7 +88,7 @@ The answer was five and a half years -ZeroBits
 			error_message = "Interface Error: Scanner cache does not contain any data. Please scan a book."
 			return 1
 
-		var/obj/item/weapon/book/B = scanner.cache
+		var/obj/item/book/B = scanner.cache
 
 		if(B.unique)
 			error_message = "Interface Error: Cached book is copy-protected."
@@ -144,7 +143,7 @@ The answer was five and a half years -ZeroBits
 		for(var/d in GLOB.cardinal)
 			var/obj/machinery/bookbinder/bndr = locate(/obj/machinery/bookbinder, get_step(nano_host(), d))
 			if(bndr && bndr.anchored)
-				var/obj/item/weapon/book/B = new(bndr.loc)
+				var/obj/item/book/B = new(bndr.loc)
 				B.SetName(current_book["title"])
 				B.title = current_book["title"]
 				B.author = current_book["author"]
@@ -168,7 +167,7 @@ The answer was five and a half years -ZeroBits
 			error_message = ""
 		return 1
 
-/datum/nano_module/library/proc/view_book(var/id)
+/datum/nano_module/library/proc/view_book(id)
 	if(current_book || !id)
 		return 0
 

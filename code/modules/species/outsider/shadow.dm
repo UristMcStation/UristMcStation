@@ -5,6 +5,10 @@
 	icobase = 'icons/mob/human_races/species/shadow/body.dmi'
 	deform = 'icons/mob/human_races/species/shadow/body.dmi'
 
+	meat_type = null
+	bone_material = null
+	skin_material = null
+
 	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/sharp)
 	darksight_range = 8
 	darksight_tint = DARKTINT_GOOD
@@ -18,7 +22,7 @@
 
 	species_flags = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED
 
-/datum/species/starlight/shadow/handle_environment_special(var/mob/living/carbon/human/H)
+/datum/species/starlight/shadow/handle_environment_special(mob/living/carbon/human/H)
 	if(H.InStasis() || H.stat == DEAD || H.isSynthetic())
 		return
 	var/light_amount = 0

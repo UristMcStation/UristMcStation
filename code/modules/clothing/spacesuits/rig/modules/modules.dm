@@ -16,7 +16,8 @@
 	matter = list(MATERIAL_STEEL = 20000, MATERIAL_PLASTIC = 30000, MATERIAL_GLASS = 5000)
 
 	var/damage = 0
-	var/obj/item/weapon/rig/holder
+	var/obj/item/rig/holder
+	var/list/banned_modules = list()
 
 	var/module_cooldown = 10
 	var/next_use = 0
@@ -55,15 +56,15 @@
 
 	var/list/stat_rig_module/stat_modules = new()
 
-/obj/item/rig_module/examine()
+/obj/item/rig_module/examine(mob/user)
 	. = ..()
 	switch(damage)
 		if(0)
-			to_chat(usr, "It is undamaged.")
+			to_chat(user, "It is undamaged.")
 		if(1)
-			to_chat(usr, "It is badly damaged.")
+			to_chat(user, "It is badly damaged.")
 		if(2)
-			to_chat(usr, "It is almost completely destroyed.")
+			to_chat(user, "It is almost completely destroyed.")
 
 /obj/item/rig_module/attackby(obj/item/W as obj, mob/user as mob)
 
@@ -75,7 +76,7 @@
 
 		to_chat(user, "You start mending the damaged portions of \the [src]...")
 
-		if(!do_after(user,30,src) || !W || !src)
+		if(!do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE) || !W || !src)
 			return
 
 		var/obj/item/stack/nanopaste/paste = W
@@ -95,12 +96,12 @@
 				return
 
 		var/obj/item/stack/cable_coil/cable = W
-		if(!cable.amount >= 5)
+		if(!cable.can_use(5))
 			to_chat(user, "You need five units of cable to repair \the [src].")
 			return
 
 		to_chat(user, "You start mending the damaged portions of \the [src]...")
-		if(!do_after(user,30,src) || !W || !src)
+		if(!do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE) || !W || !src)
 			return
 
 		damage = 1
@@ -114,7 +115,7 @@
 	if(suit_overlay_inactive)
 		suit_overlay = suit_overlay_inactive
 
-	if(charges && charges.len)
+	if(charges && length(charges))
 		var/list/processed_charges = list()
 		for(var/list/charge in charges)
 			var/datum/rig_charge/charge_dat = new
@@ -140,42 +141,80 @@
 	. = ..()
 
 // Called when the module is installed into a suit.
-/obj/item/rig_module/proc/installed(var/obj/item/weapon/rig/new_holder)
+/obj/item/rig_module/proc/installed(obj/item/rig/new_holder)
 	holder = new_holder
 	return
+
+/**
+ * Whether or not the module can be installed in the given rig.
+ *
+ * **Parameters**:
+ * - `new_holder` - The rig the module is attempting to be installed to.
+ * - `user` - The user attempting to install the module. Used for feedback messages. Omit for silent checks.
+ *
+ * Returns boolean.
+ */
+/obj/item/rig_module/proc/can_install(obj/item/rig/rig, mob/user = null)
+	if (is_type_in_list(src, rig.banned_modules))
+		if (user)
+			to_chat(user, SPAN_WARNING("\The [rig] cannot mount this type of module."))
+		return FALSE
+
+	if (LAZYLEN(rig.installed_modules))
+		for (var/obj/item/rig_module/installed_module as anything in rig.installed_modules)
+			if (!installed_module.redundant && installed_module.type == type)
+				if (user)
+					to_chat(user, SPAN_WARNING("\The [rig] already has \a [installed_module] installed."))
+				return FALSE
+			if (LAZYLEN(banned_modules) && is_type_in_list(installed_module, banned_modules))
+				if (user)
+					to_chat(user, SPAN_WARNING("\The [installed_module] already installed in \the [rig] is not compatible with \the [src]."))
+				return FALSE
+			if (LAZYLEN(installed_module.banned_modules) && is_type_in_list(src, installed_module.banned_modules))
+				if (user)
+					to_chat(user, SPAN_WARNING("\The [installed_module] already installed in \the [rig] is not compatible with \the [src]."))
+				return FALSE
+
+	return TRUE
+
+/obj/item/rig_module/proc/check(charge = 50)
+
+	if(damage >= 2)
+		to_chat(usr, SPAN_WARNING("The [interface_name] is damaged beyond use!"))
+		return 0
+
+	if(world.time < next_use)
+		to_chat(usr, SPAN_WARNING("You cannot use the [interface_name] again so soon."))
+		return 0
+
+	if(!holder || holder.canremove)
+		to_chat(usr, SPAN_WARNING("The suit is not initialized."))
+		return 0
+
+	if(usr.lying || usr.stat || usr.stunned || usr.paralysis || usr.weakened)
+		to_chat(usr, SPAN_WARNING("You cannot use the suit in this state."))
+		return 0
+
+	if(holder.wearer && holder.wearer.lying)
+		to_chat(usr, SPAN_WARNING("The suit cannot function while the wearer is prone."))
+		return 0
+
+	if(holder.security_check_enabled && !holder.check_suit_access(usr))
+		to_chat(usr, SPAN_DANGER("Access denied."))
+		return 0
+
+	if(!holder.check_power_cost(usr, charge, 0, src, (istype(usr,/mob/living/silicon ? 1 : 0) ) ) )
+		return 0
+
+	return 1
 
 //Proc for one-use abilities like teleport.
 /obj/item/rig_module/proc/engage()
 
-	if(damage >= 2)
-		to_chat(usr, "<span class='warning'>The [interface_name] is damaged beyond use!</span>")
-		return 0
-
-	if(world.time < next_use)
-		to_chat(usr, "<span class='warning'>You cannot use the [interface_name] again so soon.</span>")
-		return 0
-
-	if(!holder || holder.canremove)
-		to_chat(usr, "<span class='warning'>The suit is not initialized.</span>")
-		return 0
-
-	if(usr.lying || usr.stat || usr.stunned || usr.paralysis || usr.weakened)
-		to_chat(usr, "<span class='warning'>You cannot use the suit in this state.</span>")
-		return 0
-
-	if(holder.wearer && holder.wearer.lying)
-		to_chat(usr, "<span class='warning'>The suit cannot function while the wearer is prone.</span>")
-		return 0
-
-	if(holder.security_check_enabled && !holder.check_suit_access(usr))
-		to_chat(usr, "<span class='danger'>Access denied.</span>")
-		return 0
-
-	if(!holder.check_power_cost(usr, use_power_cost, 0, src, (istype(usr,/mob/living/silicon ? 1 : 0) ) ) )
+	if(!check(use_power_cost))
 		return 0
 
 	next_use = world.time + module_cooldown
-
 	return 1
 
 // Proc for toggling on active abilities.
@@ -186,12 +225,11 @@
 
 	active = 1
 
-	spawn(1)
-		if(suit_overlay_active)
-			suit_overlay = suit_overlay_active
-		else
-			suit_overlay = null
-		holder.update_icon()
+	if(suit_overlay_active)
+		suit_overlay = suit_overlay_active
+	else
+		suit_overlay = null
+	holder.update_icon()
 
 	return 1
 
@@ -203,14 +241,33 @@
 
 	active = 0
 
-	spawn(1)
-		if(suit_overlay_inactive)
-			suit_overlay = suit_overlay_inactive
-		else
-			suit_overlay = null
-		if(holder)
-			holder.update_icon()
+	if(suit_overlay_inactive)
+		suit_overlay = suit_overlay_inactive
+	else
+		suit_overlay = null
+	if(holder)
+		holder.update_icon()
 
+	return 1
+
+//Proc for selecting module
+/obj/item/rig_module/proc/select()
+
+	if(!check())
+		return 0
+
+	if(holder.selected_module)
+		if(holder.selected_module.suit_overlay_inactive)
+			holder.selected_module.suit_overlay = holder.selected_module.suit_overlay_inactive
+		else
+			holder.selected_module.suit_overlay = null
+
+	holder.selected_module = src
+	if(suit_overlay_active)
+		suit_overlay = suit_overlay_active
+	else
+		suit_overlay = null
+	holder.update_icon()
 	return 1
 
 // Called when the module is uninstalled from a suit.
@@ -218,6 +275,9 @@
 	deactivate()
 	holder = null
 	return
+
+/obj/item/rig_module/get_cell()
+	return holder && holder.get_cell()
 
 // Called by the hardsuit each rig process tick.
 /obj/item/rig_module/Process()
@@ -228,37 +288,44 @@
 
 // Called by holder rigsuit attackby()
 // Checks if an item is usable with this module and handles it if it is
-/obj/item/rig_module/proc/accepts_item(var/obj/item/input_device)
+/obj/item/rig_module/proc/accepts_item(obj/item/input_device)
 	return 0
 
 /mob/living/carbon/human/Stat()
 	. = ..()
 
-	if(. && istype(back,/obj/item/weapon/rig))
-		var/obj/item/weapon/rig/R = back
+	if(. && istype(back,/obj/item/rig))
+		var/obj/item/rig/R = back
 		SetupStat(R)
 
-/mob/proc/SetupStat(var/obj/item/weapon/rig/R)
-	if(R && !R.canremove && R.installed_modules.len && statpanel("Hardsuit Modules"))
+/mob/proc/SetupStat(obj/item/rig/R)
+	if(R && !R.canremove && length(R.installed_modules) && statpanel("Hardsuit Modules"))
 		var/cell_status = R.cell ? "[R.cell.charge]/[R.cell.maxcharge]" : "ERROR"
-		stat("Suit charge", cell_status)
+		stat("Suit Charge:", cell_status)
+		var/air_tank
+		if(R.air_supply)//makes sure you have tank
+			if(R.air_supply.air_contents)//make sure your tank has air
+				air_tank = "[round(R.air_supply.air_contents.return_pressure())] kPa"
+			else
+				air_tank = "0 kPa"
+		else
+			air_tank = "NOT FOUND"
+		stat("Tank Pressure:", air_tank)
 		for(var/obj/item/rig_module/module in R.installed_modules)
-		{
 			for(var/stat_rig_module/SRM in module.stat_modules)
 				if(SRM.CanUse())
 					stat(SRM.module.interface_name,SRM)
-		}
 
 /stat_rig_module
 	parent_type = /atom/movable
 	var/module_mode = ""
 	var/obj/item/rig_module/module
 
-/stat_rig_module/New(var/obj/item/rig_module/module)
+/stat_rig_module/New(obj/item/rig_module/module)
 	..()
 	src.module = module
 
-/stat_rig_module/proc/AddHref(var/list/href_list)
+/stat_rig_module/proc/AddHref(list/href_list)
 	return
 
 /stat_rig_module/proc/CanUse()
@@ -276,7 +343,7 @@
 /stat_rig_module/DblClick()
 	return Click()
 
-/stat_rig_module/activate/New(var/obj/item/rig_module/module)
+/stat_rig_module/activate/New(obj/item/rig_module/module)
 	..()
 	name = module.activate_string
 	if(module.active_power_cost)
@@ -286,7 +353,7 @@
 /stat_rig_module/activate/CanUse()
 	return module.toggleable && !module.active
 
-/stat_rig_module/deactivate/New(var/obj/item/rig_module/module)
+/stat_rig_module/deactivate/New(obj/item/rig_module/module)
 	..()
 	name = module.deactivate_string
 	// Show cost despite being 0, if it means changing from an active cost.
@@ -298,7 +365,7 @@
 /stat_rig_module/deactivate/CanUse()
 	return module.toggleable && module.active
 
-/stat_rig_module/engage/New(var/obj/item/rig_module/module)
+/stat_rig_module/engage/New(obj/item/rig_module/module)
 	..()
 	name = module.engage_string
 	if(module.use_power_cost)
@@ -324,17 +391,17 @@
 	name = "Change Charge"
 	module_mode = "select_charge_type"
 
-/stat_rig_module/charge/AddHref(var/list/href_list)
+/stat_rig_module/charge/AddHref(list/href_list)
 	var/charge_index = module.charges.Find(module.charge_selected)
 	if(!charge_index)
 		charge_index = 0
 	else
-		charge_index = charge_index == module.charges.len ? 1 : charge_index+1
+		charge_index = charge_index == length(module.charges) ? 1 : charge_index+1
 
 	href_list["charge_type"] = module.charges[charge_index]
 
 /stat_rig_module/charge/CanUse()
-	if(module.charges && module.charges.len)
+	if(module.charges && length(module.charges))
 		var/datum/rig_charge/charge = module.charges[module.charge_selected]
 		name = "[charge.display_name] ([charge.charges]C) - Change"
 		return 1

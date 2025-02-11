@@ -6,10 +6,9 @@
 /obj/structure/transit_tube
 	icon = 'icons/obj/pipes/transit_tube.dmi'
 	icon_state = "E-W"
-	density = 1
-	plane = ABOVE_HUMAN_PLANE
+	density = TRUE
 	layer = ABOVE_HUMAN_LAYER
-	anchored = 1.0
+	anchored = TRUE
 	var/list/tube_dirs = null
 	var/exit_delay = 2
 	var/enter_delay = 1
@@ -18,7 +17,7 @@
 	//  the specific order matters to get a usable icon_state, it is
 	//  copied here so that, in the unlikely case that alldirs is changed,
 	//  this continues to work.
-	var/global/list/tube_dir_list = list(NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+	var/static/list/tube_dir_list = list(NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
 
 
 // A place where tube pods stop, and people can get in or out.
@@ -41,8 +40,8 @@
 	icon = 'icons/obj/pipes/transit_tube_pod.dmi'
 	icon_state = "pod"
 	animate_movement = FORWARD_STEPS
-	anchored = 1.0
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	var/moving = 0
 	var/datum/gas_mixture/air_contents = new()
 
@@ -57,16 +56,16 @@
 
 
 // When destroyed by explosions, properly handle contents.
-obj/structure/ex_act(severity)
+/obj/structure/transit_tube_pod/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(EX_ACT_DEVASTATING)
 			for(var/atom/movable/AM in contents)
 				AM.dropInto(loc)
 				AM.ex_act(severity++)
 
 			qdel(src)
 			return
-		if(2.0)
+		if(EX_ACT_HEAVY)
 			if(prob(50))
 				for(var/atom/movable/AM in contents)
 					AM.dropInto(loc)
@@ -74,7 +73,7 @@ obj/structure/ex_act(severity)
 
 				qdel(src)
 				return
-		if(3.0)
+		if(EX_ACT_LIGHT)
 			return
 
 
@@ -82,7 +81,7 @@ obj/structure/ex_act(severity)
 /obj/structure/transit_tube_pod/New(loc)
 	..(loc)
 
-	air_contents.adjust_multi("oxygen", MOLES_O2STANDARD * 2, "nitrogen", MOLES_N2STANDARD)
+	air_contents.adjust_multi(GAS_OXYGEN, MOLES_O2STANDARD * 2, GAS_NITROGEN, MOLES_N2STANDARD)
 	air_contents.temperature = T20C
 
 	// Give auto tubes time to align before trying to start moving
@@ -102,11 +101,11 @@ obj/structure/ex_act(severity)
 /obj/structure/transit_tube/Bumped(mob/AM as mob|obj)
 	var/obj/structure/transit_tube/T = locate() in AM.loc
 	if(T)
-		to_chat(AM, "<span class='warning'>The tube's support pylons block your way.</span>")
+		to_chat(AM, SPAN_WARNING("The tube's support pylons block your way."))
 		return ..()
 	else
 		AM.dropInto(loc)
-		to_chat(AM, "<span class='info'>You slip under the tube.</span>")
+		to_chat(AM, SPAN_INFO("You slip under the tube."))
 
 /obj/structure/transit_tube/station/New(loc)
 	..(loc)
@@ -114,16 +113,16 @@ obj/structure/ex_act(severity)
 /obj/structure/transit_tube/station/Bumped(mob/AM as mob|obj)
 	if(!pod_moving && icon_state == "open" && istype(AM, /mob))
 		for(var/obj/structure/transit_tube_pod/pod in loc)
-			if(pod.contents.len)
-				to_chat(AM, "<span class='notice'>The pod is already occupied.</span>")
+			if(length(pod.contents))
+				to_chat(AM, SPAN_NOTICE("The pod is already occupied."))
 				return
-			else if(!pod.moving && pod.dir in directions())
+			else if(!pod.moving && (pod.dir in directions()))
 				AM.forceMove(pod)
 
 /obj/structure/transit_tube/station/attack_hand(mob/user as mob)
 	if(!pod_moving)
 		for(var/obj/structure/transit_tube_pod/pod in loc)
-			if(!pod.moving && pod.dir in directions())
+			if(!pod.moving && (pod.dir in directions()))
 				if(icon_state == "closed")
 					open_animation()
 
@@ -152,7 +151,7 @@ obj/structure/ex_act(severity)
 
 /obj/structure/transit_tube/station/proc/launch_pod()
 	for(var/obj/structure/transit_tube_pod/pod in loc)
-		if(!pod.moving && pod.dir in directions())
+		if(!pod.moving && (pod.dir in directions()))
 			spawn(5)
 				pod_moving = 1
 				close_animation()
@@ -532,7 +531,7 @@ obj/structure/ex_act(severity)
 //  but it is probably safer to assume the existence of, and
 //  rely on, a sufficiently smart compiler/optimizer.
 /obj/structure/transit_tube/proc/parse_dirs(text)
-	var/global/list/direction_table = list()
+	var/static/list/direction_table = list()
 
 	if(text in direction_table)
 		return direction_table[text]

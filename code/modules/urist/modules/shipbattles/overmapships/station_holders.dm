@@ -1,11 +1,9 @@
 //holder objects for station battles, and other stuff for stations
 
-/
-
 /mob/living/simple_animal/hostile/overmapship/station_holder
-	wander = 0
 	icon_state = null
 	can_board = FALSE
+	ai_holder = /datum/ai_holder/simple_animal/inert
 
 /mob/living/simple_animal/hostile/overmapship/station_holder/shipdeath() //todo: damage the station
 	if(!dying)

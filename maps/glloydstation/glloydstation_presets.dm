@@ -1,21 +1,21 @@
-var/const/NETWORK_MAINTENANCE         = "Maintenance Deck"
-var/const/NETWORK_PRISON              = "Prison"
-var/const/NETWORK_RESEARCH_OUTPOST    = "Research Outpost"
-var/const/NETWORK_TELECOM             = "Tcomsat"
-var/const/NETWORK_URIST               = "Urist"
-var/const/NETWORK_COMMAND             = "Command"
-var/const/NETWORK_ENGINE              = "Engine"
-var/const/NETWORK_ENGINEERING_OUTPOST = "Engineering Outpost"
-var/const/NETWORK_EXPLO  	          = "Exploration"
+var/global/const/NETWORK_MAINTENANCE         = "Maintenance Deck"
+var/global/const/NETWORK_PRISON              = "Prison"
+var/global/const/NETWORK_RESEARCH_OUTPOST    = "Research Outpost"
+var/global/const/NETWORK_TELECOM             = "Tcomsat"
+var/global/const/NETWORK_URIST               = "Urist"
+var/global/const/NETWORK_COMMAND             = "Command"
+var/global/const/NETWORK_ENGINE              = "Engine"
+var/global/const/NETWORK_ENGINEERING_OUTPOST = "Engineering Outpost"
+var/global/const/NETWORK_EXPLO  	          = "Exploration"
 
-/datum/map/proc/get_shared_network_access(var/network)
+/datum/map/proc/get_shared_network_access(network)
 	switch(network)
 		if(NETWORK_COMMAND)
 			return access_heads
 		if(NETWORK_ENGINE, NETWORK_ENGINEERING_OUTPOST)
 			return access_engine
 
-/datum/map/glloydstation/get_network_access(var/network)
+/datum/map/glloydstation/get_network_access(network)
 	switch(network)
 		if(NETWORK_RESEARCH_OUTPOST)
 			return access_research
@@ -37,7 +37,6 @@ var/const/NETWORK_EXPLO  	          = "Exploration"
 		NETWORK_MINE,
 		NETWORK_RESEARCH,
 		NETWORK_RESEARCH_OUTPOST,
-		NETWORK_ROBOTS,
 		NETWORK_PRISON,
 		NETWORK_SECURITY,
 		NETWORK_ALARM_ATMOS,

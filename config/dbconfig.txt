@@ -1,5 +1,8 @@
 # MySQL Connection Configuration
 
+# First of all, should SQL be used at all. Unhash next line, if yes
+# ENABLED
+
 # Server the MySQL database can be found at
 # Examples: localhost, 200.135.5.43, www.mysqldb.com, etc.
 ADDRESS localhost
@@ -8,19 +11,15 @@ ADDRESS localhost
 PORT 3306
 
 # Database the population, death, karma, etc. tables may be found in
-# DATABASE tgstation
+DATABASE tgstation
 
 # Username/Login used to access the database
-LOGIN AndroidSFV
+LOGIN mylogin
 
 # Password used to access the database
-PASSWORD droid500
+PASSWORD mypassword
 
 # The following information is for feedback tracking via the blackbox server
-FEEDBACK_DATABASE feedback
-FEEDBACK_LOGIN AndroidSFV
-FEEDBACK_PASSWORD droid500
-
-# Track population and death statistics
-# Comment this out to disable
-#ENABLE_STAT_TRACKING
+FEEDBACK_DATABASE test
+FEEDBACK_LOGIN mylogin
+FEEDBACK_PASSWORD mypassword

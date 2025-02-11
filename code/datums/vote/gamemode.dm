@@ -1,11 +1,12 @@
 /datum/vote/gamemode
 	name = "game mode"
-	additional_header = "<td align = 'center'><b>Minimum Players</b></td></tr>"
+	additional_header = "<th>Required Players / Antags</th>"
 	win_x = 500
-	win_y = 1100
+	win_y = 800
+	result_length = 3
 
 /datum/vote/gamemode/can_run(mob/creator, automatic)
-	if(!automatic && (!config.allow_vote_mode || !is_admin(creator)))
+	if(!automatic && (!config.allow_vote_mode || !isadmin(creator)))
 		return FALSE // Admins and autovotes bypass the config setting.
 	if(GAME_STATE >= RUNLEVEL_GAME)
 		return FALSE
@@ -17,26 +18,41 @@
 		return VOTE_PROCESS_ABORT
 	return ..()
 
+
 /datum/vote/gamemode/setup_vote(mob/creator, automatic)
 	..()
-	choices += config.votable_modes
-	for (var/F in choices)
-		var/datum/game_mode/M = gamemode_cache[F]
-		if(!M)
+	var/list/lobby_players = SSticker.lobby_players()
+	log_debug("MODE VOTE: Lobby Players: [length(lobby_players)]")
+	var/list/skipped = list()
+	for (var/tag in SSticker.votable_modes)
+		var/datum/game_mode/mode = SSticker.mode_cache[tag]
+		var/cause = mode.check_votable(lobby_players)
+		if (cause)
+			skipped[tag] = cause
 			continue
-		display_choices[F] = capitalize(M.name)
-		additional_text[F] ="<td align = 'center'>[M.required_players]</td>"
-	display_choices["secret"] = "Secret"
+		choices += tag
+	log_debug("MODE VOTE: Non-Votable Modes: [json_encode(skipped)]")
+	for (var/tag in choices)
+		var/datum/game_mode/mode = SSticker.mode_cache[tag]
+		var/text = " / <span style='color:red;font-weight:bold'>[mode.required_enemies]</span>"
+		additional_text[tag] = "<td align='center'><span style='font-weight:bold'>[mode.required_players]</span> [text]</td>"
+		display_choices[tag] = capitalize(mode.name)
+	if (!config.secret_disabled)
+		display_choices["secret"] = "Secret"
+		choices += "secret"
+	log_debug("MODE VOTE: Votable Modes: [json_encode(choices)]")
+
 
 /datum/vote/gamemode/handle_default_votes()
 	var/non_voters = ..()
 	if(SSticker.master_mode in choices)
 		choices[SSticker.master_mode] += non_voters
 
+
 /datum/vote/gamemode/report_result()
 	if(!SSticker.round_progressing) //Unpause any holds. If the vote failed, SSticker is responsible for fielding the result.
 		SSticker.round_progressing = 1
-		to_world("<font color='red'><b>The round will start soon.</b></font>")
+		to_world(SPAN_COLOR("red", "<b>The round will start soon.</b>"))
 	if(..())
 		SSticker.gamemode_vote_results = list() //This signals to SSticker that the vote is over but there were no winners.
 		return 1
@@ -52,5 +68,5 @@
 	return config.allow_vote_mode ? "Allowed" : "Disallowed"
 
 /datum/vote/gamemode/toggle(mob/user)
-	if(is_admin(user))
+	if(isadmin(user))
 		config.allow_vote_mode = !config.allow_vote_mode

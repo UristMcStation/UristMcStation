@@ -318,7 +318,7 @@
 /turf/simulated/floor/plating,
 /area/djstation)
 "aG" = (
-/obj/item/weapon/storage/toolbox/mechanical{
+/obj/item/storage/toolbox/mechanical{
 	pixel_x = -2;
 	pixel_y = -1
 	},
@@ -381,7 +381,7 @@
 /turf/simulated/floor/plating/airless,
 /area/djstation)
 "aK" = (
-/obj/item/weapon/extinguisher,
+/obj/item/extinguisher,
 /turf/simulated/floor/plating,
 /area/djstation)
 "aL" = (
@@ -456,7 +456,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/item/weapon/storage/box/lights/mixed,
+/obj/item/storage/box/lights/mixed,
 /obj/structure/sign/warning/secure_area{
 	desc = "A warning sign which reads 'HIGH VOLTAGE'";
 	icon_state = "shock";
@@ -551,7 +551,7 @@
 /area/djstation)
 "bf" = (
 /obj/structure/bed/nice,
-/obj/item/weapon/bedsheet,
+/obj/item/bedsheet,
 /turf/simulated/floor/wood/walnut,
 /area/djstation)
 "bg" = (
@@ -684,13 +684,13 @@
 /area/djstation)
 "bx" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper{
+/obj/item/paper{
 	info = "<B>Welcome new owner!</B><BR><BR>You have purchased the latest in listening equipment. The telecommunication setup we created is the best in listening to common and private radio fequencies. Here is a step by step guide to start listening in on those saucy radio channels:<br><ol><li>Equip yourself with a multi-tool</li><li>Use the multitool on each machine, that is the broadcaster, receiver and the relay.</li><li>Turn all the machines on, it has already been configured for you to listen on.</li></ol> Simple as that. Now to listen to the private channels, you'll have to configure the intercoms, located on the front desk. Here is a list of frequencies for you to listen on.<br><ul><li>145.7 - Common Channel</li><li>144.7 - Private AI Channel</li><li>135.9 - Security Channel</li><li>135.7 - Engineering Channel</li><li>135.5 - Medical Channel</li><li>135.3 - Command Channel</li><li>135.1 - Science Channel</li><li>134.7 - Supply Channel</li>"
 	},
 /turf/simulated/floor/tiled,
 /area/djstation)
 "by" = (
-/obj/structure/computerframe{
+/obj/machinery/constructable_frame/computerframe/deconstruct{
 	anchored = 1
 	},
 /turf/simulated/floor/wood/walnut,
@@ -721,7 +721,6 @@
 /area/djstation)
 "bE" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32;
 	pixel_y = 0
 	},
@@ -779,18 +778,17 @@
 /area/djstation)
 "bM" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor/tiled,
 /area/djstation)
 "bN" = (
 /obj/structure/sign/warning/secure_area{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_x = 0;
 	pixel_y = -32
@@ -847,7 +845,7 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 5;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/simulated/floor/plating,
 /area/derelict/solar_control)
@@ -1219,7 +1217,7 @@
 /area/derelict/bridge/access)
 "cR" = (
 /obj/structure/table/rack,
-/obj/item/weapon/melee/classic_baton,
+/obj/item/melee/classic_baton,
 /turf/simulated/floor,
 /area/derelict/armory)
 "cS" = (
@@ -1323,7 +1321,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/armory)
 "de" = (
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/derelict/bridge/access)
 "df" = (
@@ -1352,7 +1350,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/bridge/access)
 "dk" = (
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 8;
 	name = "Firelock West"
 	},
@@ -1363,7 +1361,7 @@
 /turf/simulated/floor,
 /area/derelict/bridge/access)
 "dm" = (
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /turf/simulated/floor,
 /area/derelict/bridge/access)
 "dn" = (
@@ -1424,11 +1422,11 @@
 /turf/simulated/floor,
 /area/derelict/bridge/access)
 "dy" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe/deconstruct,
 /turf/simulated/floor,
 /area/derelict/bridge)
 "dz" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe/deconstruct,
 /obj/structure/cable{
 	icon_state = "0-2";
 	d2 = 2
@@ -1440,7 +1438,7 @@
 /turf/simulated/floor,
 /area/derelict/bridge)
 "dB" = (
-/obj/item/modular_computer/console/preset/security,
+/obj/machinery/computer/modular/preset/security,
 /turf/simulated/floor,
 /area/derelict/bridge)
 "dC" = (
@@ -1453,14 +1451,14 @@
 /area/derelict/bridge)
 "dD" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper_bin{
+/obj/item/paper_bin{
 	pixel_x = -3;
 	pixel_y = 7
 	},
 /turf/simulated/floor,
 /area/derelict/bridge)
 "dE" = (
-/obj/item/weapon/grenade/empgrenade,
+/obj/item/grenade/empgrenade,
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
 	dir = 4
@@ -1481,7 +1479,7 @@
 /turf/simulated/wall,
 /area/derelict/singularity_engine)
 "dJ" = (
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /turf/simulated/floor,
 /area/derelict/bridge)
 "dK" = (
@@ -1492,7 +1490,7 @@
 /area/derelict/bridge)
 "dM" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper/crumpled,
+/obj/item/paper/crumpled,
 /turf/simulated/floor,
 /area/derelict/bridge)
 "dN" = (
@@ -1513,8 +1511,8 @@
 /area/derelict/singularity_engine)
 "dQ" = (
 /obj/structure/window/reinforced,
-/obj/item/weapon/table_parts/reinforced,
-/obj/item/weapon/table_parts/reinforced,
+/obj/item/table_parts/reinforced,
+/obj/item/table_parts/reinforced,
 /turf/simulated/floor/plating,
 /area/derelict/singularity_engine)
 "dR" = (
@@ -1546,7 +1544,7 @@
 "dV" = (
 /obj/structure/window/reinforced{
 	dir = 5;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/simulated/floor,
 /area/derelict/bridge/access)
@@ -1612,19 +1610,19 @@
 /turf/simulated/floor,
 /area/derelict/bridge)
 "ef" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor,
 /area/derelict/bridge)
 "eg" = (
 /obj/structure/table/standard,
-/obj/item/weapon/cell,
+/obj/item/cell/standard,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /turf/simulated/floor,
 /area/derelict/bridge)
 "eh" = (
-/obj/item/weapon/storage/toolbox/syndicate,
+/obj/item/storage/toolbox/syndicate,
 /turf/simulated/floor/plating,
 /area/derelict/singularity_engine)
 "ei" = (
@@ -1697,7 +1695,7 @@
 /turf/simulated/floor,
 /area/derelict/bridge)
 "ep" = (
-/obj/item/weapon/paper{
+/obj/item/paper{
 	info = "<b>Objective #1</b>: Destroy the station with a nuclear device.";
 	name = "Objectives of a Nuclear Operative"
 	},
@@ -1724,12 +1722,12 @@
 /area/derelict/bridge)
 "et" = (
 /obj/structure/table/standard,
-/obj/item/weapon/screwdriver,
+/obj/item/screwdriver,
 /turf/simulated/floor,
 /area/derelict/bridge)
 "eu" = (
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -1750,7 +1748,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/singularity_engine)
 "ex" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/structure/grille{
 	density = 0;
 	icon_state = "brokengrille"
@@ -1771,7 +1769,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/singularity_engine)
 "eA" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating,
 /area/derelict/singularity_engine)
 "eB" = (
@@ -1797,7 +1795,7 @@
 /area/derelict/singularity_engine)
 "eE" = (
 /obj/structure/table/standard,
-/obj/item/weapon/table_parts/rack,
+/obj/item/table_parts/rack,
 /turf/simulated/floor,
 /area/derelict/bridge)
 "eF" = (
@@ -1835,7 +1833,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/singularity_engine)
 "eL" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/plating,
@@ -1923,7 +1921,7 @@
 /area/derelict/bridge/access)
 "eX" = (
 /obj/structure/table/standard,
-/obj/item/weapon/aicard,
+/obj/item/aicard,
 /turf/simulated/floor/airless,
 /area/derelict/bridge/access)
 "eY" = (
@@ -1940,7 +1938,7 @@
 /area/derelict/bridge/access)
 "fa" = (
 /obj/structure/table/standard,
-/obj/item/weapon/cell{
+/obj/item/cell/hyper{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -1961,7 +1959,7 @@
 /turf/simulated/floor/plating/airless,
 /area/derelict/singularity_engine)
 "fe" = (
-/obj/item/weapon/storage/toolbox/electrical{
+/obj/item/storage/toolbox/electrical{
 	pixel_x = 1;
 	pixel_y = -1
 	},
@@ -2040,13 +2038,13 @@
 /turf/simulated/floor/plating,
 /area/derelict/singularity_engine)
 "fo" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/plating/airless,
 /area/derelict/singularity_engine)
 "fp" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/plating,
@@ -2083,11 +2081,11 @@
 /turf/simulated/floor/plating,
 /area/derelict/singularity_engine)
 "fu" = (
-/obj/item/weapon/screwdriver,
+/obj/item/screwdriver,
 /turf/simulated/floor/plating/airless,
 /area/derelict/singularity_engine)
 "fv" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /obj/item/stack/cable_coil/cut,
@@ -2118,15 +2116,15 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/primary)
 "fB" = (
-/obj/item/weapon/table_parts/reinforced,
+/obj/item/table_parts/reinforced,
 /turf/simulated/floor/plating,
 /area/derelict/singularity_engine)
 "fC" = (
-/obj/item/weapon/ore/slag,
+/obj/item/ore/slag,
 /turf/simulated/floor/plating,
 /area/derelict/singularity_engine)
 "fD" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating/airless,
 /area/derelict/singularity_engine)
 "fE" = (
@@ -2154,7 +2152,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/plating,
@@ -2246,7 +2244,7 @@
 /turf/simulated/floor/plating/airless,
 /area/derelict/hallway/primary)
 "fU" = (
-/obj/item/weapon/crowbar,
+/obj/item/crowbar,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/primary)
 "fV" = (
@@ -2254,10 +2252,10 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/primary)
 "fW" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/plating,
@@ -2335,7 +2333,7 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor,
 /area/derelict/arrival)
 "gl" = (
@@ -2348,7 +2346,7 @@
 /turf/simulated/wall,
 /area/derelict/medical/chapel)
 "gn" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/space,
 /area/space)
 "go" = (
@@ -2392,7 +2390,7 @@
 /turf/simulated/floor/plating/airless,
 /area/derelict/medical)
 "gx" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/structure/grille{
 	density = 0;
 	icon_state = "brokengrille"
@@ -2403,7 +2401,7 @@
 /turf/simulated/floor/plating/airless,
 /area/derelict/medical)
 "gz" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/plating/airless,
@@ -2424,7 +2422,8 @@
 /turf/simulated/floor/plating,
 /area/derelict/medical)
 "gD" = (
-/obj/item/weapon/firstaid_arm_assembly,
+/obj/random/firstaid,
+/obj/item/robot_parts/l_arm,
 /turf/simulated/floor/plating,
 /area/derelict/medical)
 "gE" = (
@@ -2495,7 +2494,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/medical/chapel)
 "gP" = (
-/obj/item/weapon/storage/box/lights/mixed,
+/obj/item/storage/box/lights/mixed,
 /turf/simulated/floor/plating/airless,
 /area/derelict/singularity_engine)
 "gQ" = (
@@ -2560,7 +2559,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/medical/chapel)
 "ha" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/plating,
@@ -2583,7 +2582,7 @@
 /turf/simulated/floor/plating/airless,
 /area/space)
 "he" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/space,
@@ -2601,7 +2600,7 @@
 "hh" = (
 /obj/machinery/door/airlock/glass{
 	name = "Med-Sci";
-	req_access = list("ACCESS_GENETICS")
+	req_access = list("ACCESS_MEDICAL")
 	},
 /turf/simulated/floor/plating/airless,
 /area/derelict/medical)
@@ -2733,11 +2732,11 @@
 /turf/simulated/floor/plating/airless,
 /area/space)
 "hy" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating/airless,
 /area/space)
 "hz" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/plating/airless,
@@ -2757,12 +2756,12 @@
 /turf/simulated/floor/plating,
 /area/derelict/hallway/primary)
 "hC" = (
-/obj/item/weapon/pen,
+/obj/item/pen,
 /turf/simulated/floor,
 /area/derelict/arrival)
 "hD" = (
 /obj/machinery/door/blast/regular{
-	id = "derelict_gun";
+	id_tag = "derelict_gun";
 	name = "Derelict Mass Driver"
 	},
 /turf/simulated/floor/plating,
@@ -2771,11 +2770,11 @@
 /obj/machinery/mass_driver{
 	dir = 8;
 	icon_state = "mass_driver";
-	id = "derelict_gun"
+	id_tag = "derelict_gun"
 	},
 /obj/machinery/door/window{
 	dir = 4;
-	req_access = list("ACCESS_BAR")
+	req_access = list("ACCESS_KITCHEN")
 	},
 /obj/structure/closet/coffin,
 /turf/simulated/floor/plating,
@@ -3166,10 +3165,9 @@
 /area/derelict/arrival)
 "iE" = (
 /obj/structure/table/standard,
-/obj/machinery/computer/pod/old{
-	name = "ProComp IIe";
+/obj/machinery/button/blast_door{
 	pixel_y = 7;
-	id = "derelict_gun"
+	id_tag = "derelict_gun"
 	},
 /turf/simulated/floor/plating,
 /area/derelict/medical/chapel)
@@ -3335,7 +3333,7 @@
 /area/derelict/hallway/primary)
 "jb" = (
 /obj/structure/table/standard,
-/obj/item/weapon/cell,
+/obj/item/cell/standard,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/primary)
 "jc" = (
@@ -3379,7 +3377,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/arrival)
 "jj" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/primary)
 "jk" = (
@@ -3443,7 +3441,7 @@
 /area/derelict/arrival)
 "ju" = (
 /obj/structure/table/standard,
-/obj/item/device/healthanalyzer,
+/obj/item/device/scanner/health,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/primary)
 "jv" = (
@@ -3475,7 +3473,7 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 5;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/simulated/floor/plating,
 /area/derelict/arrival)
@@ -3546,8 +3544,8 @@
 /area/derelict/hallway/secondary)
 "jJ" = (
 /obj/structure/grille,
-/obj/item/weapon/material/shard,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard,
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/plating/airless,
@@ -3562,7 +3560,7 @@
 /obj/structure/grille,
 /obj/structure/window/reinforced{
 	dir = 5;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/simulated/floor/plating/airless,
 /area/space)
@@ -3580,7 +3578,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/secondary)
 "jO" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/space,
@@ -3591,7 +3589,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/item/weapon/wirecutters,
+/obj/item/wirecutters,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/secondary)
 "jQ" = (
@@ -3742,7 +3740,7 @@
 /turf/simulated/floor/plating/airless,
 /area/derelict/hallway/secondary)
 "kl" = (
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 4;
 	name = "Firelock East"
 	},
@@ -3766,7 +3764,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/airless,
 /area/derelict/bridge/ai_upload)
 "kp" = (
@@ -3860,7 +3858,7 @@
 /turf/simulated/floor/plating/airless,
 /area/derelict/bridge/ai_upload)
 "kC" = (
-/obj/item/weapon/storage/toolbox/syndicate,
+/obj/item/storage/toolbox/syndicate,
 /turf/simulated/floor/airless,
 /area/derelict/bridge/ai_upload)
 "kD" = (
@@ -3891,7 +3889,7 @@
 /turf/simulated/floor/plating/airless,
 /area/derelict/bridge/ai_upload)
 "kF" = (
-/obj/item/weapon/paper{
+/obj/item/paper{
 	desc = "";
 	info = "The Syndicate have cunningly disguised a Syndicate Uplink as your PDA. Simply enter the code \"678 Bravo\" into the ringtone select to unlock its hidden features. <br><br><b>Objective #1</b>. Kill the God damn AI in a fire blast that it rocks the station. <b>Success!</b>  <br><b>Objective #2</b>. Escape alive. <b>Failed.</b>";
 	name = "Mission Objectives"
@@ -4112,12 +4110,8 @@
 /obj/machinery/computer/teleporter,
 /turf/simulated/floor/airless,
 /area/derelict/teleporter)
-"lh" = (
-/obj/machinery/teleport/station,
-/turf/simulated/floor/airless,
-/area/derelict/teleporter)
 "li" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/tele_pad,
 /turf/simulated/floor/airless,
 /area/derelict/teleporter)
 "lj" = (
@@ -4128,7 +4122,7 @@
 /area/derelict/teleporter)
 "lk" = (
 /obj/structure/table/standard,
-/obj/item/weapon/cell{
+/obj/item/cell/hyper{
 	charge = 100;
 	maxcharge = 15000
 	},
@@ -31327,7 +31321,7 @@ bR
 lc
 ld
 ld
-lh
+lg
 ld
 ld
 lb

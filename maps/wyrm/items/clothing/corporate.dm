@@ -6,24 +6,18 @@
 	name = "\improper Ward-Takahashi labcoat"
 	desc = "A labcoat decorated with the logo and scheme of Ward-Takahashi GMB."
 	icon_state = "wardt_lab"
-	icon_open = "wardt_lab"
-	icon_closed = "wardt_lab_closed"
-	starting_accessories = list(/obj/item/clothing/accessory/armband/wardt)
+	accessories = list(/obj/item/clothing/accessory/armband/wardt)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/corp/veymed
 	name = "\improper Vey-Med labcoat"
 	desc = "A sterile white labcoat with Vey-Med's star on its back"
 	icon_state = "veymed_lab"
-	icon_open = "veymed_lab"
-	icon_closed = "veymed_lab_closed"
-	starting_accessories = list(/obj/item/clothing/accessory/armband/veymed)
+	accessories = list(/obj/item/clothing/accessory/armband/veymed)
 
 /obj/item/clothing/suit/storage/toggle/labcoat/corp/veymed/head
 	name = "project director's labcoat"
 	desc = "A sterile white labcoat with gilded seams and cufflinks."
 	icon_state = "veymed_head_lab"
-	icon_open = "veymed_head_lab"
-	icon_closed = "veymed_head_lab_closed"
 
 /obj/item/clothing/accessory/armband/veymed
 	name = "Vey-Med armband"

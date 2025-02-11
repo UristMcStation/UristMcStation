@@ -87,34 +87,6 @@
 	icon = 'icons/uristmob/hair.dmi'
 	icon_state = "hair_emofringe"
 
-/datum/sprite_accessory/hair/himecutalt
-	name = "Himecut Alt"
-	icon = 'icons/uristmob/hair.dmi'
-	icon_state = "hair_himecut_alt"
-
-/datum/sprite_accessory/hair/himecutlong
-	name = "Himecut Long"
-	icon = 'icons/uristmob/hair.dmi'
-	icon_state = "hair_himecut_long_ponytail"
-	flags = HAIR_TIEABLE
-
-/datum/sprite_accessory/hair/himecutponytail
-	name = "Himecut Ponytail"
-	icon = 'icons/uristmob/hair.dmi'
-	icon_state = "hair_himecut_ponytail"
-	flags = HAIR_TIEABLE
-
-/datum/sprite_accessory/hair/himecutponyup
-	name = "Himecut Ponytail Up"
-	icon = 'icons/uristmob/hair.dmi'
-	icon_state = "hair_himecut_ponytail_up"
-	flags = HAIR_TIEABLE
-
-/datum/sprite_accessory/hair/himecut
-	name = "Himecut Short"
-	icon = 'icons/uristmob/hair.dmi'
-	icon_state = "hair_himecut_short"
-
 /datum/sprite_accessory/hair/modern
 	name = "Modern"
 	icon = 'icons/uristmob/hair.dmi'

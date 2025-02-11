@@ -1,6 +1,6 @@
 //Energy pistol, Energy gun with less shots. Can be put in player's pockets.
 
-/obj/item/weapon/gun/energy/gun/tiny
+/obj/item/gun/energy/gun/tiny
 	item_icons = DEF_URIST_INHANDS
 	name = "energy pistol"
 	desc = "An energy pistol with a wooden handle."
@@ -13,7 +13,7 @@
 	projectile_type = /obj/item/projectile/energy/electrode
 	origin_tech = "combat=2;magnets=2"
 	modifystate = "senergystun"
-	cell_type = /obj/item/weapon/cell/device/standard
+	cell_type = /obj/item/cell/device/standard
 
 	firemodes = list(
 		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="senergystun", fire_sound='sound/weapons/Taser.ogg', fire_delay=null, charge_cost=null),
@@ -21,12 +21,12 @@
 		)
 
 	/*suicide_act(mob/user)
-		viewers(user) << "<span class='danger'>[user] is unloading the [src.name] into their head!</span>"
+		viewers(user)to_target(, "<span class='danger'>[user] is unloading the [src.name] into their head!</span>")
 		return(BRUTELOSS)*/
 
 //umbrella gun
 
-/obj/item/weapon/gun/projectile/umbrellagun
+/obj/item/gun/projectile/umbrellagun
 	item_icons = DEF_URIST_INHANDS
 	name = "Umbrella"
 	desc = "An umbrella with a small hole at the end, doesn't seem to open."
@@ -35,15 +35,15 @@
 	item_state = "umbrellagun"
 	w_class = 2
 	max_shells = 2
-	caliber = "9mm"
+	caliber = CALIBER_PISTOL_SMALL
 	silenced = 1
 	origin_tech = "combat=2;materials=2"
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/pistol/small
 	load_method = 2
 
 //BANG BANG BANG, BANG BANG
 
-/obj/item/weapon/gag/BANG
+/obj/item/gag/BANG
 	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/guns.dmi'
 	name = "BANG gun"
@@ -53,7 +53,7 @@
 	var/on = 0
 	w_class = 2
 
-/obj/item/weapon/gag/BANG/attack_self(mob/user as mob)
+/obj/item/gag/BANG/attack_self(mob/user as mob)
 	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/guns.dmi'
 	on = !on
@@ -86,7 +86,7 @@
 The point is that theirs is closer to the X-COM plasma pistol, despite the fact that all depictions of plasma in SS13 are purple, thus my choice to edit
 the sprite and make my own projectile -Glloyd*/
 
-/obj/item/weapon/gun/energy/plasmapistol
+/obj/item/gun/energy/plasmapistol
 	item_icons = DEF_URIST_INHANDS
 	name = "phoron pistol"
 	desc = "An experimental weapon that works by ionizing phoron and firing it in a particular direction, poisoning someone."
@@ -99,10 +99,10 @@ the sprite and make my own projectile -Glloyd*/
 	projectile_type = /obj/item/projectile/energy/plasma2
 	origin_tech = "combat=3;magnets=2"
 	modifystate = "plasmapistol"
-	cell_type = /obj/item/weapon/cell/device/premium
+	cell_type = /obj/item/cell/device/premium
 
 /*	suicide_act(mob/user)
-		viewers(user) << "<span class='danger'>[user] is unloading the [src.name] into their head! Their skin turns purple and starts to melt!</span>"
+		viewers(user)to_target(, "<span class='danger'>[user] is unloading the [src.name] into their head! Their skin turns purple and starts to melt!</span>")
 		return(BRUTELOSS)*/
 
 /obj/item/projectile/energy/plasma2
@@ -110,14 +110,14 @@ the sprite and make my own projectile -Glloyd*/
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "plasma"
 	damage = 20
-	damage_type = TOX
+	damage_type = DAMAGE_TOXIN
 	irradiate = 20
 
 //Knight .45 - suppressed PDW
 
-/obj/item/weapon/gun/projectile/silenced/knight
-	name = "Knight .45"
-	desc = "A lightweight, suppressed weapon. Uses .45 rounds and is intended for operations where subtlety is preferred, if only for a little while."
+/obj/item/gun/projectile/silenced/knight
+	name = "Knight-45"
+	desc = "A lightweight, suppressed weapon. Intended for operations where subtlety is preferred, if only for a little while."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "knight45"
 	item_state = "knight45"
@@ -128,12 +128,12 @@ the sprite and make my own projectile -Glloyd*/
 	max_shells = 7
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
-	caliber = ".45"
-	ammo_type = /obj/item/ammo_casing/c45
-	magazine_type = /obj/item/ammo_magazine/c45m
+	caliber = CALIBER_PISTOL
+	ammo_type = /obj/item/ammo_casing/pistol
+	magazine_type = /obj/item/ammo_magazine/pistol
 	auto_eject = 1
 
-/obj/item/weapon/gun/projectile/silenced/knight/update_icon()
+/obj/item/gun/projectile/silenced/knight/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "knight45"
@@ -141,38 +141,39 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "knight45-empty"
 
 ///// Deckard .44 - old Bay custom item rip for UMcS Blueshields
-/obj/item/weapon/gun/projectile/revolver/detective/deckard
+/obj/item/gun/projectile/revolver/detective/deckard
+	icon = 'icons/urist/items/revolvers.dmi'
 	item_icons = DEF_URIST_INHANDS
 	name = "Deckard .38" //changed from .44 for internal consistency - it takes .38 bullets
 	desc = "A custom autorevolver chambered in .38 Special issued to high-ranking specialists, based on the obsoleted Detective Special forensics issue models. For some reason, the caliber feels like it should be bigger..."
 	//what do you know, it was restored-ish in revolver.dm
 	icon_state = "deckard-empty"
 
-/obj/item/weapon/gun/projectile/revolver/detective/deckard/update_icon()
+/obj/item/gun/projectile/revolver/detective/deckard/on_update_icon()
 	..()
-	if(loaded.len)
+	if(length(loaded))
 		icon_state = "deckard-loaded"
 	else
 		icon_state = "deckard-empty"
 
-/obj/item/weapon/gun/projectile/revolver/detective/deckard/load_ammo(var/obj/item/A, mob/user)
+/obj/item/gun/projectile/revolver/detective/deckard/load_ammo(obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine))
 		flick("deckard-reloading",src)
 	..()
 
 //NamERT
 
-/obj/item/ammo_magazine/box/a762
-	caliber = "a762"
-	ammo_type = /obj/item/ammo_casing/a762
+/obj/item/ammo_magazine/box/rifle/military
+	caliber = CALIBER_RIFLE_MILITARY
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	mag_type = MAGAZINE
 
-/obj/item/ammo_magazine/a556
-	caliber = "a556"
-	ammo_type = /obj/item/ammo_casing/a556
+/obj/item/ammo_magazine/rifle
+	caliber = CALIBER_RIFLE
+	ammo_type = /obj/item/ammo_casing/rifle
 	mag_type = MAGAZINE
 
-/obj/item/weapon/gun/projectile/automatic/l6_saw/m60
+/obj/item/gun/projectile/automatic/l6_saw/m60
 	item_icons = DEF_URIST_INHANDS
 	name = "M60 Machinegun"
 	desc = "The general-purpose machinegun and the main firearm for the Machinegunner. Chambered in 7.62mm , it is fed through a 75-round belt. Fires in short and long bursts, perfect for support and suppresive fire."
@@ -180,27 +181,27 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "M60closed75"
 	item_state = "l6closedmag"
 	max_shells = 75
-	allowed_magazines = list(/obj/item/ammo_magazine/box/a762/m60)
-	magazine_type = /obj/item/ammo_magazine/box/a762/m60
-	ammo_type = /obj/item/ammo_casing/a762
+	allowed_magazines = list(/obj/item/ammo_magazine/box/rifle/military/m60)
+	magazine_type = /obj/item/ammo_magazine/box/rifle/military/m60
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	one_hand_penalty = 6
 	wielded_item_state = "genericLMG-wielded"
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 
-/obj/item/weapon/gun/projectile/automatic/l6_saw/m60/update_icon()
-	icon_state = "M60[cover_open ? "open" : "closed"][ammo_magazine ? round(ammo_magazine.stored_ammo.len, 15) : "-empty"]"
+/obj/item/gun/projectile/automatic/l6_saw/m60/on_update_icon()
+	icon_state = "M60[cover_open ? "open" : "closed"][ammo_magazine ? round(length(ammo_magazine.stored_ammo), 15) : "-empty"]"
 
-/obj/item/ammo_magazine/box/a762/m60
-	name = "M60 magazine box (7.62mm)"
+/obj/item/ammo_magazine/box/rifle/military/m60
+	name = "M60 magazine box"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M60MAG"
 	max_ammo = 75
 	multiple_sprites = 0
 
-/obj/item/ammo_magazine/box/a762/m60/empty
+/obj/item/ammo_magazine/box/rifle/military/m60/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/automatic/m14
+/obj/item/gun/projectile/automatic/m14
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper M14 Rifle"
 	desc = "A selective-fire rifle for when you need more stopping power. Has a 15-round magazine of 7.62mm. Unlike the M16s that have the ability to fire in bursts or semi-auto, the M14 can only fire in either long bursts or semi-auto."
@@ -209,13 +210,13 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "arifle"
 	w_class = 4
 	force = 10
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	origin_tech = "combat=6;materials=1;syndicate=2"
 	slot_flags = SLOT_BACK
-	ammo_type = "/obj/item/ammo_casing/a762"
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a762mm/m14
+	magazine_type = /obj/item/ammo_magazine/rifle/military/m14
 	one_hand_penalty = 4
 	wielded_item_state = "woodarifle-wielded"
 
@@ -224,7 +225,7 @@ the sprite and make my own projectile -Glloyd*/
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/m14/update_icon()
+/obj/item/gun/projectile/automatic/m14/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "M14"
@@ -232,16 +233,16 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "M14-empty"
 	return
 
-/obj/item/ammo_magazine/a762mm/m14
-	name = "M14 magazine box (7.62mm)"
+/obj/item/ammo_magazine/rifle/military/m14
+	name = "M14 magazine box"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M14MAG"
 	max_ammo = 15
 
-/obj/item/ammo_magazine/a762mm/m14/empty
+/obj/item/ammo_magazine/rifle/military/m14/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/automatic/m16
+/obj/item/gun/projectile/automatic/m16
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper M16 Assault Rifle"
 	desc = "25 rounds of 5.56mm. Staple rifle for the Nanotrasen Servicemen. A 2557AD spin on the classic rifle."
@@ -250,13 +251,13 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "arifle"
 	w_class = 4
 	force = 10
-	caliber = "a556"
+	caliber = CALIBER_RIFLE
 	origin_tech = "combat=6;materials=1;syndicate=4"
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	allowed_magazines = list(/obj/item/ammo_magazine/a556/m16)
-	magazine_type = /obj/item/ammo_magazine/a556/m16
-	ammo_type = /obj/item/ammo_casing/a556
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle/m16)
+	magazine_type = /obj/item/ammo_magazine/rifle/m16
+	ammo_type = /obj/item/ammo_casing/rifle
 	one_hand_penalty = 4
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 	wielded_item_state = "genericrifle-wielded"
@@ -267,7 +268,7 @@ the sprite and make my own projectile -Glloyd*/
 		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 6, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/m16/update_icon()
+/obj/item/gun/projectile/automatic/m16/on_update_icon()
 	..()
 	if(icon_state == "M16-GL")
 		icon_state = (ammo_magazine)? "M16-GL" : "M16-GL-empty"
@@ -275,7 +276,7 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = (ammo_magazine)? "M16" : "M16-empty"
 	update_held_icon()
 
-/obj/item/weapon/gun/projectile/automatic/m16/gl
+/obj/item/gun/projectile/automatic/m16/gl
 	name = "\improper M16-GL Assault Rifle"
 	desc = "25 rounds of 5.56mm. Staple rifle for the Nanotrasen Servicemen. A 2557AD spin on the classic rifle, complete with underslung grenade launcher."
 	icon_state = "M16-GL"
@@ -288,25 +289,25 @@ the sprite and make my own projectile -Glloyd*/
 		list(mode_name="fire grenades", burst=null, fire_delay=null, move_delay=null, use_launcher=1,  burst_accuracy=null, dispersion=null)
 		)
 
-	var/obj/item/weapon/gun/launcher/grenade/underslung/launcher
+	var/obj/item/gun/launcher/grenade/underslung/launcher
 
-/obj/item/weapon/gun/projectile/automatic/m16/gl/New()
+/obj/item/gun/projectile/automatic/m16/gl/New()
 	..()
 	launcher = new(src)
 
-/obj/item/weapon/gun/projectile/automatic/m16/gl/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/weapon/grenade)))
+/obj/item/gun/projectile/automatic/m16/gl/attackby(obj/item/I, mob/user)
+	if((istype(I, /obj/item/grenade)))
 		launcher.load(I, user)
 	else
 		..()
 
-/obj/item/weapon/gun/projectile/automatic/m16/gl/attack_hand(mob/user)
+/obj/item/gun/projectile/automatic/m16/gl/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src && src.use_launcher)
 		launcher.unload(user)
 	else
 		..()
 
-/obj/item/weapon/gun/projectile/automatic/m16/gl/Fire(atom/target, mob/living/user, params, pointblank=0, reflex=0)
+/obj/item/gun/projectile/automatic/m16/gl/Fire(atom/target, mob/living/user, params, pointblank=0, reflex=0, dual_wield=0)
 	if(src.use_launcher)
 		launcher.Fire(target, user, params, pointblank, reflex)
 		if(!launcher.chambered)
@@ -314,43 +315,43 @@ the sprite and make my own projectile -Glloyd*/
 	else
 		..()
 
-/obj/item/weapon/gun/projectile/automatic/m16/gl/examine(mob/user)
+/obj/item/gun/projectile/automatic/m16/gl/examine(mob/user)
 	..()
 	if(launcher.chambered)
-		user << "\The [launcher] has \a [launcher.chambered] loaded."
+		to_chat(user, "\The [launcher] has \a [launcher.chambered] loaded.")
 	else
-		user << "\The [launcher] is empty."
+		to_chat(user, "\The [launcher] is empty.")
 
-/obj/item/ammo_magazine/a556/m16
-	name = "M16 magazine (5.56mm)"
+/obj/item/ammo_magazine/rifle/m16
+	name = "M16 magazine"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M16MAG"
 	max_ammo = 25
 
-/obj/item/ammo_magazine/a556/m16/empty
+/obj/item/ammo_magazine/rifle/m16/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/shotgun/pump/combat/ithaca
+/obj/item/gun/projectile/shotgun/pump/combat/ithaca
 	name = "Ithaca 37 combat shotgun"
 	desc = "A standard Nanotrasen combat shotgun. Holds 7 rounds (8 with one in the chamber). Pump-action, it's perfect for CQB and tight hallway clearing."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "ithaca"
 
-/obj/item/weapon/gun/projectile/automatic/m3
+/obj/item/gun/projectile/automatic/m3
 	item_icons = DEF_URIST_INHANDS
 	name = "M3 Grease Gun"
-	desc = "The submachine gun for medical personnel and infantrymen. Only fires in short and long bursts. Takes magazines of 32 .45 rounds."
+	desc = "The submachine gun for medical personnel and infantrymen. Only fires in short and long bursts. Takes magazines of 32 rounds."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M3"
 	item_state = "mpistolen"
 	wielded_item_state = "mpistolen"
 	w_class = 3
 	force = 10
-	caliber = ".45"
+	caliber = CALIBER_PISTOL
 	origin_tech = "combat=6;materials=1;syndicate=4"
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/c45m/m3
+	magazine_type = /obj/item/ammo_magazine/pistol/m3
 	one_hand_penalty = 1
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	firemodes = list(
@@ -358,7 +359,7 @@ the sprite and make my own projectile -Glloyd*/
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/m3/update_icon()
+/obj/item/gun/projectile/automatic/m3/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "M3"
@@ -366,34 +367,34 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "M3-empty"
 	return
 
-/obj/item/ammo_magazine/c45m/m3
-	name = "M3 magazine (.45)"
+/obj/item/ammo_magazine/pistol/m3
+	name = "M3 magazine"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M3MAG"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/pistol
 	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
-	caliber = ".45"
+	caliber = CALIBER_PISTOL
 	max_ammo = 32
 
-/obj/item/ammo_magazine/c45m/m3/empty
+/obj/item/ammo_magazine/pistol/m3/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/bhp9mm
+/obj/item/gun/projectile/bhp9mm
 	name = "\improper Browning HP pistol"
-	desc = "The NCO's sidearm. 15 rounds of 9mm. Less power than a .45, but almost double the capacity. May be issued to medical units as well."
+	desc = "The NCO's sidearm. 15 rounds, almost double the usual capacity. May be issued to medical units as well."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "brownhp"
 	item_state = "pistol"
 	w_class = 2
-	caliber = "9mm"
+	caliber = CALIBER_PISTOL_SMALL
 	origin_tech = "combat=2;materials=2;syndicate=2"
 	fire_sound = 'sound/weapons/gunshot/Gunshot_pistol.ogg'
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/mc9mm/bhp
+	magazine_type = /obj/item/ammo_magazine/pistol/bhp
 
-/obj/item/weapon/gun/projectile/bhp9mm/update_icon()
+/obj/item/gun/projectile/bhp9mm/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "brownhp"
@@ -401,26 +402,26 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "brownhp-empty"
 	return
 
-/obj/item/ammo_magazine/mc9mm/bhp
+/obj/item/ammo_magazine/pistol/bhp
 	icon = 'icons/urist/items/guns.dmi'
-	name = "Browning HP magazine (10mm)"
+	name = "Browning HP magazine"
 	icon_state = "BROWNHPMAG"
 	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/pistol/small
 	max_ammo = 15
 
-/obj/item/ammo_magazine/mc9mm/bhp/empty
+/obj/item/ammo_magazine/pistol/bhp/empty
 	initial_ammo = 0
 
 //adminfuckery gun slash proof of concept
-/obj/item/weapon/gun/projectile/automatic/shotmachinegun
+/obj/item/gun/projectile/automatic/shotmachinegun
 	item_icons = DEF_URIST_INHANDS
 	name = "Shotmachinegun"
 	desc = "A product of a warped imagination, a fully automatic machine-shotgun."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "M60closed75"
 	item_state = "M60closed"
-	caliber = "shotgun"
+	caliber = CALIBER_SHOTGUN
 	max_shells = 75
 	allowed_magazines = list(/obj/item/ammo_magazine/shotmachinegun)
 	magazine_type = /obj/item/ammo_magazine/shotmachinegun
@@ -434,57 +435,57 @@ the sprite and make my own projectile -Glloyd*/
 		)
 
 /obj/item/ammo_magazine/shotmachinegun
-	caliber = "shotgun"
+	caliber = CALIBER_SHOTGUN
 	ammo_type = /obj/item/ammo_casing/shotgun
 	initial_ammo = 75
 	matter = list(DEFAULT_WALL_MATERIAL = 1200)
 	mag_type = MAGAZINE
 	multiple_sprites = 0
 
-/obj/item/weapon/gun/projectile/manualcycle
+/obj/item/gun/projectile/manualcycle
 	var/bolt_open = 0
 
-/obj/item/weapon/gun/projectile/manualcycle/update_icon()
+/obj/item/gun/projectile/manualcycle/on_update_icon()
 	..()
 	if(bolt_open)
 		icon_state = "[initial(icon_state)]_alt"
 	else
 		icon_state = "[initial(icon_state)]"
 
-/obj/item/weapon/gun/projectile/manualcycle/attack_self(mob/user as mob)
+/obj/item/gun/projectile/manualcycle/attack_self(mob/user as mob)
 	playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)
 	bolt_open = !bolt_open
 	if(bolt_open)
 		if(chambered)
-			user << "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>"
+			to_chat(user, "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>")
 			chambered.loc = get_turf(src)
 			loaded -= chambered
 			chambered = null
 		else
-			user << "<span class='notice'>You work the bolt open.</span>"
+			to_chat(user, "<span class='notice'>You work the bolt open.</span>")
 	else
-		user << "<span class='notice'>You work the bolt closed.</span>"
+		to_chat(user, "<span class='notice'>You work the bolt closed.</span>")
 		bolt_open = 0
 	add_fingerprint(user)
 	update_icon()
 
-/obj/item/weapon/gun/projectile/manualcycle/special_check(mob/user)
+/obj/item/gun/projectile/manualcycle/special_check(mob/user)
 	if(bolt_open)
-		user << "<span class='warning'>You can't fire [src] while the bolt is open!</span>"
+		to_chat(user, "<span class='warning'>You can't fire [src] while the bolt is open!</span>")
 		return 0
 	return ..()
 
-/obj/item/weapon/gun/projectile/manualcycle/load_ammo(var/obj/item/A, mob/user)
+/obj/item/gun/projectile/manualcycle/load_ammo(obj/item/A, mob/user)
 	if(!bolt_open)
 		return
 	..()
 
-/obj/item/weapon/gun/projectile/manualcycle/unload_ammo(mob/user, var/allow_dump=1)
+/obj/item/gun/projectile/manualcycle/unload_ammo(mob/user, allow_dump=1)
 	if(!bolt_open)
 		return
 	..()
 
-/obj/item/weapon/gun/projectile/manualcycle/imprifle
+/obj/item/gun/projectile/manualcycle/imprifle
 	item_icons = URIST_ALL_ONMOBS
 	name = "improvised rifle"
 	icon = 'icons/urist/items/guns.dmi'
@@ -497,16 +498,16 @@ the sprite and make my own projectile -Glloyd*/
 	force = 10
 	slot_flags = SLOT_BACK
 	origin_tech = "combat=2;materials=1"
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	//fire_sound = 'sound/weapons/sniper.ogg'
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING
 	max_shells = 3
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	accuracy = -1
 
 
-/obj/item/weapon/gun/projectile/manualcycle/imprifle/impriflesawn
+/obj/item/gun/projectile/manualcycle/imprifle/impriflesawn
 	item_icons = URIST_ALL_ONMOBS
 	name = "improvised short rifle"
 	icon = 'icons/urist/items/guns.dmi'
@@ -518,24 +519,24 @@ the sprite and make my own projectile -Glloyd*/
 	force = 4
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	origin_tech = "combat=1"
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	//fire_sound = 'sound/weapons/sniper.ogg'
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING
 	max_shells = 3
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	accuracy = -2
 
 //rifle construction
 
-/obj/item/weapon/imprifleframe/imprifleframesawn
+/obj/item/imprifleframe/imprifleframesawn
 	name = "unfinished improvised short rifle"
 	desc = "An almost-complete improvised short rifle."
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "308boltsawed"
 	item_state = "sawnshotgun"
 
-/obj/item/weapon/imprifleframe
+/obj/item/imprifleframe
 	name = "improvised rifle stock"
 	desc = "A half-finished improvised rifle."
 	icon = 'icons/urist/items/guns.dmi'
@@ -543,33 +544,33 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "sawnshotgun"
 	var/buildstate = 0
 
-/obj/item/weapon/imprifleframe/update_icon()
+/obj/item/imprifleframe/on_update_icon()
 	icon_state = "308boltframe[buildstate]"
 
-/obj/item/weapon/imprifleframe/examine(mob/user)
+/obj/item/imprifleframe/examine(mob/user)
 	..(user)
 	switch(buildstate)
-		if(1) user << "It has an unfinished pipe barrel in place on the wooden furniture."
-		if(2) user << "It has an unfinished pipe barrel wired in place."
-		if(3) user << "It has an unfinished reinforced pipe barrel wired in place."
-		if(4) user << "It has a reinforced pipe barrel secured on the wooden furniture."
-		if(5) user << "It has an unsecured reciever in place."
-		if(6) user << "It has a secured reciever in place."
-		if(7) user << "It has an unfinished pipe bolt in place."
-		if(8) user << "It has a finished unsecured pipe bolt in place."
-		if(9) user << "It has a finished secured bolt in place."
+		if(1) to_chat(user, "It has an unfinished pipe barrel in place on the wooden furniture.")
+		if(2) to_chat(user, "It has an unfinished pipe barrel wired in place.")
+		if(3) to_chat(user, "It has an unfinished reinforced pipe barrel wired in place.")
+		if(4) to_chat(user, "It has a reinforced pipe barrel secured on the wooden furniture.")
+		if(5) to_chat(user, "It has an unsecured reciever in place.")
+		if(6) to_chat(user, "It has a secured reciever in place.")
+		if(7) to_chat(user, "It has an unfinished pipe bolt in place.")
+		if(8) to_chat(user, "It has a finished unsecured pipe bolt in place.")
+		if(9) to_chat(user, "It has a finished secured bolt in place.")
 
-/obj/item/weapon/imprifleframe/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/imprifleframe/attackby(obj/item/W as obj, mob/user as mob)
 	switch(buildstate)
 		if(0)
-			if(istype(W,/obj/item/weapon/gunsmith/barrel/long))
-				var/obj/item/weapon/gunsmith/gun2/long/I = new()
+			if(istype(W,/obj/item/gunsmith/barrel/long))
+				var/obj/item/gunsmith/gun2/long/I = new()
 				I.forceMove(get_turf(src))
 				to_chat(user, "You put the barrel onto the stock.")
 				qdel(W)
 				qdel(src)
-			if(istype(W,/obj/item/weapon/gunsmith/barrel/short))
-				var/obj/item/weapon/gunsmith/gun2/short/I = new()
+			if(istype(W,/obj/item/gunsmith/barrel/short))
+				var/obj/item/gunsmith/gun2/short/I = new()
 				I.forceMove(get_turf(src))
 				to_chat(user, "You put the barrel onto the stock.")
 				qdel(W)
@@ -577,7 +578,7 @@ the sprite and make my own projectile -Glloyd*/
 			if(istype(W,/obj/item/pipe))
 				user.drop_from_inventory(W)
 				qdel(W)
-				user << "<span class='notice'>You place the piping on the stock.</span>"
+				to_chat(user, "<span class='notice'>You place the piping on the stock.</span>")
 				buildstate++
 				update_icon()
 			return
@@ -585,15 +586,15 @@ the sprite and make my own projectile -Glloyd*/
 			if(istype(W,/obj/item/stack/cable_coil))
 				var/obj/item/stack/cable_coil/C = W
 				if(C.use(10))
-					user << "<span class='notice'>You secure the barrel to the wooden furniture with wire.</span>"
+					to_chat(user, "<span class='notice'>You secure the barrel to the wooden furniture with wire.</span>")
 					buildstate++
 					update_icon()
 				else
-					user << "<span class='notice'>You need at least ten segments of cable coil to complete this task.</span>"
+					to_chat(user, "<span class='notice'>You need at least ten segments of cable coil to complete this task.</span>")
 			return
 		if(2)
-			if(istype(W,/obj/item/weapon/screwdriver))
-				user << "<span class='notice'>You further secure the barrel to the wooden furniture.</span>"
+			if(istype(W,/obj/item/screwdriver))
+				to_chat(user, "<span class='notice'>You further secure the barrel to the wooden furniture.</span>")
 				buildstate++
 				playsound(src.loc, 'sound/items/Screwdriver2.ogg', 100, 1)
 			return
@@ -601,15 +602,15 @@ the sprite and make my own projectile -Glloyd*/
 			if(istype(W,/obj/item/stack/material) && W.get_material_name() == "plasteel")
 				var/obj/item/stack/material/P = W
 				if(P.use(5))
-					user << "<span class='notice'>You reinforce the barrel with plasteel.</span>"
+					to_chat(user, "<span class='notice'>You reinforce the barrel with plasteel.</span>")
 					buildstate++
 					playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
 				else
-					user << "<span class='notice'>You need at least five plasteel sheets to complete this task.</span>"
+					to_chat(user, "<span class='notice'>You need at least five plasteel sheets to complete this task.</span>")
 			return
 		if(4)
-			if(istype(W,/obj/item/weapon/wrench))
-				user << "<span class='notice'>You secure the reinforced barrel.</span>"
+			if(istype(W,/obj/item/wrench))
+				to_chat(user, "<span class='notice'>You secure the reinforced barrel.</span>")
 				buildstate++
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
 			return
@@ -617,16 +618,16 @@ the sprite and make my own projectile -Glloyd*/
 			if(istype(W,/obj/item/stack/material) && W.get_material_name() == DEFAULT_WALL_MATERIAL)
 				var/obj/item/stack/material/P = W
 				if(P.use(10))
-					user << "<span class='notice'>You assemble and install a metal reciever onto the frame</span>"
+					to_chat(user, "<span class='notice'>You assemble and install a metal reciever onto the frame</span>")
 					buildstate++
 					update_icon()
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 			else
-				user << "<span class='notice'>You need at least ten steel sheets to complete this task.</span>"
+				to_chat(user, "<span class='notice'>You need at least ten steel sheets to complete this task.</span>")
 			return
 		if(6)
-			if(istype(W,/obj/item/weapon/screwdriver))
-				user << "<span class='notice'>You secure the metal reciever.</span>"
+			if(istype(W,/obj/item/screwdriver))
+				to_chat(user, "<span class='notice'>You secure the metal reciever.</span>")
 				buildstate++
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			return
@@ -634,7 +635,7 @@ the sprite and make my own projectile -Glloyd*/
 			if(istype(W,/obj/item/pipe))
 				user.drop_from_inventory(W)
 				qdel(W)
-				user << "<span class='notice'>You install a bolt on the frame.</span>"
+				to_chat(user, "<span class='notice'>You install a bolt on the frame.</span>")
 				buildstate++
 				playsound(src.loc, 'sound/items/syringeproj.ogg', 100, 1)
 				update_icon()
@@ -643,45 +644,45 @@ the sprite and make my own projectile -Glloyd*/
 			if(istype(W,/obj/item/stack/material/rods))
 				var/obj/item/stack/material/rods/R = W
 				if(R.use(3))
-					user << "<span class='notice'>You attach the rods to the bolt.</span>"
+					to_chat(user, "<span class='notice'>You attach the rods to the bolt.</span>")
 					buildstate++
 					playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 				else
-					user << "<span class='notice'>You need at least 3 rods to complete this task.</span>"
+					to_chat(user, "<span class='notice'>You need at least 3 rods to complete this task.</span>")
 			return
 		if(9)
-			if(istype(W,/obj/item/weapon/weldingtool))
-				var/obj/item/weapon/weldingtool/T = W
+			if(istype(W,/obj/item/weldingtool))
+				var/obj/item/weldingtool/T = W
 				if(T.remove_fuel(5,user))
 					if(!src || !T.isOn()) return
 					playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
-				user << "<span class='notice'>You secure the improvised rifle's various parts.</span>"
-				var/obj/item/weapon/gun/projectile/manualcycle/imprifle/emptymag = new /obj/item/weapon/gun/projectile/manualcycle/imprifle(get_turf(src))
+				to_chat(user, "<span class='notice'>You secure the improvised rifle's various parts.</span>")
+				var/obj/item/gun/projectile/manualcycle/imprifle/emptymag = new /obj/item/gun/projectile/manualcycle/imprifle(get_turf(src))
 				emptymag.loaded = list()
 				qdel(src)
 				return
-			if(istype(W,/obj/item/weapon/circular_saw))
-				user << "<span class='notice'>You saw the barrel on the unfinished improvised rifle down.</span>"
-				new /obj/item/weapon/imprifleframe/imprifleframesawn(get_turf(src))
+			if(istype(W,/obj/item/circular_saw))
+				to_chat(user, "<span class='notice'>You saw the barrel on the unfinished improvised rifle down.</span>")
+				new /obj/item/imprifleframe/imprifleframesawn(get_turf(src))
 				playsound(src.loc, 'sound/weapons/circsawhit.ogg', 100, 1)
 				qdel(src)
 			return
 		else
-/obj/item/weapon/imprifleframe/imprifleframesawn/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weapon/weldingtool))
+/obj/item/imprifleframe/imprifleframesawn/attackby(obj/item/W as obj, mob/user as mob)
+	if(istype(W,/obj/item/weldingtool))
 		if(buildstate == 0)
-			var/obj/item/weapon/weldingtool/T = W
+			var/obj/item/weldingtool/T = W
 			if(T.remove_fuel(5,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
-			user << "<span class='notice'>You secure the improvised rifle's various parts.</span>"
-			var/obj/item/weapon/gun/projectile/manualcycle/imprifle/impriflesawn/emptymag = new /obj/item/weapon/gun/projectile/manualcycle/imprifle/impriflesawn(get_turf(src))
+			to_chat(user, "<span class='notice'>You secure the improvised rifle's various parts.</span>")
+			var/obj/item/gun/projectile/manualcycle/imprifle/impriflesawn/emptymag = new /obj/item/gun/projectile/manualcycle/imprifle/impriflesawn(get_turf(src))
 			emptymag.loaded = list()
 			qdel(src)
 		return
 	..()
 /*
-/obj/item/weapon/gun/projectile/revolver/shotrevolver
+/obj/item/gun/projectile/revolver/shotrevolver
 	name = "shot revolver"
 	desc = "The Lumoco Arms HE Colt is a choice revolver for when you absolutely, positively need to put a hole in the other guy. Uses .357 ammo."
 	icon_state = "revolver"
@@ -690,21 +691,21 @@ the sprite and make my own projectile -Glloyd*/
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	handle_casings = CYCLE_CASINGS
 	max_shells = 4
-	ammo_type = /obj/item/ammo_casing/shotgun/
+	ammo_type = /obj/item/ammo_casing/shotgun
 
 
-/obj/item/weapon/gun/projectile/revolver/shotrevolver/consume_next_projectile()
+/obj/item/gun/projectile/revolver/shotrevolver/consume_next_projectile()
 	if(chamber_offset)
 		chamber_offset--
 		return
 	return ..()
 
-/obj/item/weapon/gun/projectile/revolver/shotrevolver/load_ammo(var/obj/item/A, mob/user)
+/obj/item/gun/projectile/revolver/shotrevolver/load_ammo(obj/item/A, mob/user)
 	chamber_offset = 0
 	return ..()
 */
 
-/obj/item/weapon/gun/projectile/manualcycle/mosinnagant
+/obj/item/gun/projectile/manualcycle/mosinnagant
 	item_icons = DEF_URIST_INHANDS
 	name = "Mosin-Nagant"
 	icon = 'icons/urist/items/guns.dmi'
@@ -716,28 +717,28 @@ the sprite and make my own projectile -Glloyd*/
 	one_hand_penalty = 4
 	force = 10
 	slot_flags = SLOT_BACK
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	handle_casings = HOLD_CASINGS
 //	load_method = SINGLE_CASING
 	max_shells = 5
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/rifle/military
 //	accuracy = -1
 //	jam_chance = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 /*
-/obj/item/weapon/gun/projectile/
+/obj/item/gun/projectile
 	name = ""
 	desc = ""
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = ""
-	caliber = "c45m"
-	ammo_type = /obj/item/ammo_casing/c45m
+	caliber = "pistol"
+	ammo_type = /obj/item/ammo_casing/pistol
 */
 
 
 //nerva guns
 
-/obj/item/weapon/gun/projectile/automatic/spaceak
+/obj/item/gun/projectile/automatic/spaceak
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper U2442 Assault Rifle"
 	desc = "A bullpup assault rifle loosely based on the AK-47. Originally manufactured by the USSSR, the design has since become popular among pirates and traders for its affordability, reliability and ease of use."
@@ -746,14 +747,15 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "sexyrifle"
 	w_class = 4
 	force = 10
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 	origin_tech = "combat=4;materials=1;syndicate=1"
 	slot_flags = SLOT_BACK
-	ammo_type = "/obj/item/ammo_casing/a762"
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a762mm/spaceak
-	one_hand_penalty = 4
+	magazine_type = /obj/item/ammo_magazine/rifle/military/spaceak
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle/military/spaceak)
+	one_hand_penalty = 6
 	wielded_item_state = "sexyrifle-wielded"
 
 	firemodes = list(
@@ -762,22 +764,36 @@ the sprite and make my own projectile -Glloyd*/
 		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/spaceak/update_icon()
+/obj/item/gun/projectile/automatic/spaceak/on_update_icon()
 	..()
-	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+	if(ammo_magazine && length(ammo_magazine.stored_ammo))
 		icon_state = "sexyrifle"
 	else
 		icon_state = "sexyrifle_empty"
 	return
 
-/obj/item/ammo_magazine/a762mm/spaceak
-	name = "U2442 magazine box (7.62mm)"
+/obj/item/ammo_magazine/rifle/military/spaceak
+	name = "U2442 magazine box"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "sexyrifle-mag"
 	max_ammo = 30
 
+/obj/item/gun/projectile/automatic/spaceak/gold
+	item_icons = DEF_URIST_INHANDS
+	name = "\improper Gold Plated U2442 Assault Rifle"
+	desc = "A bullpup assault rifle loosely based on the AK-47. Originally manufactured by the USSSR, the design has since become popular among pirates and traders for its affordability, reliability and ease of use. This one has been in the hands of someone with incredibly tacky tastes."
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "goldspaceak"
+	item_state = "goldspaceak"
+	wielded_item_state = "goldspaceak-wielded"
 
-/obj/item/weapon/gun/projectile/automatic/hi2521smg
+/obj/item/gun/projectile/automatic/spaceak/gold/on_update_icon()
+	if(ammo_magazine?.stored_ammo.len)
+		icon_state = "goldspaceak"
+	else
+		icon_state = "goldspaceak-empty"
+
+/obj/item/gun/projectile/automatic/hi2521smg
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper HI-2521-SMG"
 	desc = "A light, compact bullpup SMG chambered in 9mm with a sleek design. Manufactured by Hephaestus Industries as part of the 2521 series, this model is a relatively recent design, popular among wealthier spacers."
@@ -787,7 +803,7 @@ the sprite and make my own projectile -Glloyd*/
 	wielded_item_state = "combatSMG"
 	w_class = 3
 	force = 10
-	caliber = "9mm"
+	caliber = CALIBER_PISTOL_SMALL
 	origin_tech = "combat=4;materials=1;syndicate=1"
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
@@ -795,6 +811,7 @@ the sprite and make my own projectile -Glloyd*/
 	allowed_magazines = /obj/item/ammo_magazine/hi2521smg9mm
 	one_hand_penalty = 3
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	jam_chance = 0
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 1, move_delay=null, burst_accuracy=null, dispersion=null),
@@ -802,87 +819,85 @@ the sprite and make my own projectile -Glloyd*/
 		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/weapon/gun/projectile/automatic/hi2521smg/update_icon()
+/obj/item/gun/projectile/automatic/hi2521smg/on_update_icon()
 	..()
-	if(ammo_magazine && ammo_magazine.stored_ammo.len)
+	if(ammo_magazine && length(ammo_magazine.stored_ammo))
 		icon_state = "combatSMG"
 	else
 		icon_state = "combatSMG_empty"
 
 /obj/item/ammo_magazine/hi2521smg9mm
-	name = "HI-2521-SMG magazine (9mm)"
+	name = "HI-2521-SMG magazine"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "combatSMG-mag"
 	mag_type = MAGAZINE
-	caliber = "9mm"
+	caliber = CALIBER_PISTOL_SMALL
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/pistol/small
 	max_ammo = 15
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/hi2521smg9mm/empty
 	initial_ammo = 0
 
-/obj/item/weapon/gun/projectile/revolver/coltsaa
+/obj/item/gun/projectile/revolver/coltsaa
 	icon = 'icons/urist/items/guns.dmi'
 	item_icons = DEF_URIST_INHANDS
 	name = "Colt Single Action Army"
-	desc = "An antique Colt Single Action Army revolver dating from the late 19th century. Sometimes referred to as 'the gun that won the west,' this piece is the pride and joy of any 26th century gun collector. Uses .45 magnum rounds."
+	desc = "An antique Colt Single Action Army revolver dating from the late 19th century. Sometimes referred to as 'the gun that won the west,' this piece is the pride and joy of any 26th century gun collector."
 	icon_state = "antiquerevolver"
 	item_state = "antiquerevolver"
 	wielded_item_state = "antiquerevolver"
 	max_shells = 6
-	caliber = ".45"
+	caliber = CALIBER_PISTOL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/pistol
 
-/obj/item/weapon/gun/projectile/revolver/coltsaa/update_icon()
+/obj/item/gun/projectile/revolver/coltsaa/on_update_icon()
 	..()
-	if(loaded.len)
+	if(length(loaded))
 		icon_state = "antiquerevolver"
 	else
 		icon_state = "antiquerevolver_empty"
 
-/obj/item/ammo_magazine/c45r
-	name = "speed loader (.45 magnum)"
+/obj/item/ammo_magazine/a45r
+	name = "speed loader"
 	desc = "A speed loader for revolvers."
+	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "38"
-	ammo_type = /obj/item/ammo_casing/c45
+	ammo_type = /obj/item/ammo_casing/pistol
 	matter = list(DEFAULT_WALL_MATERIAL = 450)
-	caliber = ".45"
+	caliber = CALIBER_PISTOL
 	max_ammo = 6
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/c45r/rubber
-	name = "speed loader (.45 magnum, rubber)"
+/obj/item/ammo_magazine/a45r/rubber
+	name = "speed loader (rubber)"
 	icon_state = "R38"
-	ammo_type = /obj/item/ammo_casing/c45/rubber
+	ammo_type = /obj/item/ammo_casing/pistol/rubber
 
-/obj/item/weapon/gun/projectile/revolver/hi2521r
+/obj/item/gun/projectile/revolver/hi2521r
 	icon = 'icons/urist/items/guns.dmi'
 	item_icons = DEF_URIST_INHANDS
 	name = "HI-2521-R revolver"
-	desc = "A sleek modern revolver manufactured by Hephaestus Industries as part of the 2521 series. Chambered in .44, this sucker packs a punch."
+	desc = "A sleek modern revolver manufactured by Hephaestus Industries as part of the 2521 series."
 	icon_state = "combatrevolver"
 	item_state = "combatrevolver"
 	wielded_item_state = "combatrevolver"
 	max_shells = 6
-	caliber = ".44"
+	caliber = CALIBER_PISTOL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/c44
+	ammo_type = /obj/item/ammo_casing/pistol
 
-/obj/item/weapon/gun/projectile/revolver/hi2521r/update_icon()
+/obj/item/gun/projectile/revolver/hi2521r/on_update_icon()
 	..()
-	if(loaded.len)
+	if(length(loaded))
 		icon_state = "combatrevolver"
 	else
 		icon_state = "combatrevolver_empty"
 
-/obj/item/weapon/gun/projectile/revolver/hi2521r/rubber
-	ammo_type = /obj/item/ammo_casing/c44/rubber
-
-/obj/item/weapon/gun/projectile/hi2521pistol
+/obj/item/gun/projectile/hi2521pistol
 	item_icons = URIST_ALL_ONMOBS
 	name = "\improper HI-2521-P pistol"
 	desc = "A light, compact pistol chambered in 9mm with a sleek design. Manufactured by Hephaestus Industries as part of the 2521 series, this model is a relatively recent design, popular among wealthier spacers."
@@ -891,32 +906,56 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "crewpistol"
 	wielded_item_state = "crewpistol"
 	w_class = 2
-	caliber = "9mm"
+	caliber = CALIBER_PISTOL_SMALL
 	origin_tech = "combat=2;materials=2;syndicate=1"
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_BELT | SLOT_HOLSTER
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/hi2521pistol9mm
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 
-/obj/item/weapon/gun/projectile/hi2521pistol/update_icon()
+/obj/item/gun/projectile/hi2521pistol/on_update_icon()
 	..()
 	if(ammo_magazine)
-		icon_state = "crewpistol-[round(ammo_magazine.stored_ammo.len, 2)]"
-		item_state = "crewpistol-[round(ammo_magazine.stored_ammo.len, 2)]"
-		wielded_item_state = "crewpistol-[round(ammo_magazine.stored_ammo.len, 2)]"
+		icon_state = "crewpistol-[round(length(ammo_magazine.stored_ammo), 2)]"
+		item_state = "crewpistol-[round(length(ammo_magazine.stored_ammo), 2)]"
+		wielded_item_state = "crewpistol-[round(length(ammo_magazine.stored_ammo), 2)]"
 	else
 		icon_state = "crewpistol-empty"
 		item_state = "crewpistol-0"
 		wielded_item_state = "crewpistol-0"
 
 /obj/item/ammo_magazine/hi2521pistol9mm
-	name = "HI-2521-P pistol magazine (9mm)"
+	name = "HI-2521-P pistol magazine"
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "crewpistol-mag"
 	mag_type = MAGAZINE
-	caliber = "9mm"
+	caliber = CALIBER_PISTOL_SMALL
 	origin_tech = "combat=2"
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
-	ammo_type = /obj/item/ammo_casing/c9mm
+	ammo_type = /obj/item/ammo_casing/pistol/small
+	max_ammo = 10
+	multiple_sprites = 1
+
+/obj/item/gun/energy/taser/old
+	name = "antique taser"
+	desc = "An old model taser. They don't make 'em like they used to"
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "taser"
+	max_shots = 8
+
+/obj/item/gun/energy/laser/old
+	name = "vintage laser carbine"
+	desc = "a pre-Crisis model laser carbine formerly deployed broadly by human forces."
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "oldlaser"
+
+/obj/item/ammo_magazine/speedloader/broomstick
+	name = "broomstick stripper clip"
+	desc = "A stripper clip for antique broomstick pistols."
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "broomclip"
+	caliber = CALIBER_PISTOL_SMALL
+	ammo_type = /obj/item/ammo_casing/pistol/small
+	matter = list(MATERIAL_STEEL = 1300)
 	max_ammo = 10
 	multiple_sprites = 1

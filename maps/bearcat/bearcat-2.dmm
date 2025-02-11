@@ -51,7 +51,7 @@
 /turf/space,
 /area/space)
 "ak" = (
-/obj/effect/overmap/ship/bearcat,
+/obj/effect/overmap/visitable/ship/bearcat,
 /turf/space,
 /area/space)
 "ar" = (
@@ -77,15 +77,15 @@
 /turf/simulated/floor/bluegrid,
 /area/ship/scrap/comms)
 "aI" = (
-/obj/item/weapon/bedsheet/captain,
+/obj/item/bedsheet/captain,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/item/weapon/gun/projectile/pistol/holdout,
+/obj/item/gun/projectile/pistol/holdout,
 /obj/structure/bed/padded,
 /turf/simulated/floor/wood,
 /area/ship/scrap/command/captain)
 "aJ" = (
-/obj/item/weapon/paper_bin,
-/obj/item/weapon/pen,
+/obj/item/paper_bin,
+/obj/item/pen,
 /obj/structure/table/woodentable,
 /obj/machinery/alarm{
 	dir = 8;
@@ -189,7 +189,7 @@
 	pixel_x = 0;
 	pixel_y = -24
 	},
-/obj/item/modular_computer/console/preset/engineering{
+/obj/machinery/computer/modular/preset/engineering{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -219,7 +219,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /turf/simulated/floor/carpet/blue,
@@ -228,8 +227,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/walllocker/emerglocker/north,
 /obj/machinery/floodlight,
-/obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -258,7 +256,6 @@
 "bq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
-	layer = 2.4;
 	level = 2
 	},
 /obj/structure/bed/chair{
@@ -308,8 +305,7 @@
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -657,8 +653,7 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -669,7 +664,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scrap/shuttle/outgoing)
 "cs" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/atmospherics/unary/tank/air,
 /turf/simulated/floor/plating,
 /area/ship/scrap/shuttle/outgoing)
 "ct" = (
@@ -708,8 +703,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -762,7 +756,6 @@
 /obj/structure/closet/crate/uranium,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /turf/simulated/floor/plating,
@@ -863,7 +856,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
@@ -887,7 +880,7 @@
 	pixel_y = 0
 	},
 /obj/item/trash/tray,
-/obj/item/weapon/circular_saw,
+/obj/item/circular_saw,
 /turf/simulated/floor/tiled,
 /area/ship/scrap/crew/saloon)
 "dc" = (
@@ -895,7 +888,7 @@
 	icon_state = "bulb1";
 	dir = 8
 	},
-/obj/item/weapon/crowbar,
+/obj/item/crowbar,
 /turf/simulated/floor/tiled/techmaint,
 /area/ship/scrap/crew/hallway/starboard)
 "dd" = (
@@ -935,7 +928,7 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 1
 	},
-/obj/item/weapon/soap,
+/obj/item/soap,
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/scrap/crew/toilets)
@@ -976,15 +969,14 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/ship/scrap/crew/saloon)
 "dm" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled,
 /area/ship/scrap/crew/saloon)
 "dp" = (
@@ -995,7 +987,6 @@
 "dr" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 2;
-	layer = 2.4;
 	level = 2
 	},
 /obj/effect/landmark{
@@ -1036,7 +1027,7 @@
 	icon_state = "bulb1";
 	dir = 8
 	},
-/obj/item/weapon/towel,
+/obj/item/towel,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/scrap/crew/toilets)
 "dv" = (
@@ -1132,7 +1123,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
-	layer = 2.4;
 	level = 2
 	},
 /turf/simulated/floor/tiled,
@@ -1155,7 +1145,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
@@ -1397,7 +1387,7 @@
 	pixel_x = -25
 	},
 /obj/structure/closet/wardrobe/mixed,
-/obj/item/weapon/storage/backpack/dufflebag/med,
+/obj/item/storage/backpack/dufflebag/med,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/cryo)
 "dX" = (
@@ -1524,15 +1514,14 @@
 	pixel_y = 28
 	},
 /obj/structure/closet/walllocker/emerglocker/west,
-/obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/medbay)
 "et" = (
-/obj/item/roller,
+/obj/item/roller_bed,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/medbay)
 "ev" = (
@@ -1560,21 +1549,19 @@
 "ez" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/weapon/reagent_containers/glass/beaker{
+/obj/item/reagent_containers/glass/beaker{
 	pixel_x = 5
 	},
-/obj/item/weapon/book/manual/chef_recipes,
-/obj/item/weapon/reagent_containers/food/condiment/small/peppermill{
+/obj/item/book/manual/chef_recipes,
+/obj/item/reagent_containers/food/condiment/small/peppermill{
 	pixel_x = 3
 	},
-/obj/item/weapon/reagent_containers/food/condiment/enzyme{
-	layer = 5
-	},
-/obj/item/weapon/reagent_containers/glass/rag,
+/obj/item/reagent_containers/food/condiment/enzyme,
+/obj/item/reagent_containers/glass/rag,
 /turf/simulated/floor/tiled,
 /area/ship/scrap/crew/kitchen)
 "eA" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/landmark/start{
@@ -1627,8 +1614,7 @@
 	icon_state = "alarm0";
 	pixel_x = -24
 	},
-/obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -1640,7 +1626,6 @@
 /obj/structure/closet/crate/hydroponics/prespawned,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
-	layer = 2.4;
 	level = 2
 	},
 /obj/structure/cable{
@@ -1671,8 +1656,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -1704,23 +1688,21 @@
 "eL" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 2;
-	layer = 2.4;
 	level = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/medbay)
 "eM" = (
-/obj/structure/iv_drip,
+/obj/structure/iv_stand,
 /obj/structure/closet/medical_wall{
 	name = "pill cabinet";
 	pixel_x = 26
 	},
-/obj/item/weapon/storage/pill_bottle/antidexafen,
-/obj/item/weapon/storage/pill_bottle/tramadol,
-/obj/item/weapon/storage/pill_bottle/antitox,
-/obj/item/weapon/storage/pill_bottle/kelotane,
-/obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
+/obj/item/storage/pill_bottle/antidexafen,
+/obj/item/storage/pill_bottle/tramadol,
+/obj/item/storage/pill_bottle/antitox,
+/obj/item/storage/pill_bottle/kelotane,
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -1736,10 +1718,10 @@
 	icon_state = "bulb1";
 	dir = 8
 	},
-/obj/item/weapon/storage/box/donkpockets,
+/obj/item/storage/box/donkpocket_mixed,
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/weapon/material/kitchen/rollingpin,
-/obj/item/weapon/reagent_containers/food/condiment/small/saltshaker{
+/obj/item/material/kitchen/rollingpin,
+/obj/item/reagent_containers/food/condiment/small/saltshaker{
 	pixel_x = -3;
 	pixel_y = 0
 	},
@@ -1927,9 +1909,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/glass_extra/straw,
+/obj/item/glass_extra/straw,
 /obj/item/toy/therapy_blue,
-/obj/item/weapon/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/spray/cleaner,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/medbay)
 "ff" = (
@@ -1948,7 +1930,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scrap/crew/medbay)
 "fg" = (
-/obj/item/weapon/storage/pill_bottle/happy,
+/obj/item/storage/pill_bottle/happy,
 /obj/machinery/power/apc{
 	dir = 1
 	},
@@ -2025,14 +2007,13 @@
 /obj/random/bomb_supply,
 /obj/random/bomb_supply,
 /obj/random/bomb_supply,
-/obj/item/weapon/storage/box/syringes,
+/obj/item/storage/box/syringes,
 /obj/structure/catwalk,
 /turf/simulated/open,
 /area/ship/scrap/cargo)
 "fs" = (
 /obj/structure/catwalk,
-/obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -2067,9 +2048,9 @@
 /obj/structure/closet/medical_wall/filled{
 	pixel_y = -32
 	},
-/obj/item/weapon/tape_roll,
-/obj/item/weapon/retractor,
-/obj/item/weapon/scalpel,
+/obj/item/tape_roll,
+/obj/item/retractor,
+/obj/item/scalpel,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/medbay)
 "fw" = (
@@ -2083,11 +2064,11 @@
 /obj/structure/sign/goldenplaque/medical{
 	pixel_x = 32
 	},
-/obj/item/weapon/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
 /obj/random/medical,
 /obj/item/stack/medical/advanced/bruise_pack,
-/obj/item/weapon/reagent_containers/syringe/antiviral,
-/obj/item/device/healthanalyzer,
+/obj/item/reagent_containers/syringe/antiviral,
+/obj/item/device/scanner/health,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/medbay)
 "fz" = (
@@ -2095,8 +2076,8 @@
 	icon_state = "bulb1";
 	dir = 1
 	},
-/obj/item/weapon/material/coin/gold,
-/obj/item/weapon/material/coin/silver,
+/obj/item/material/coin/gold,
+/obj/item/material/coin/silver,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -2125,8 +2106,7 @@
 	icon_state = "intact";
 	dir = 6
 	},
-/obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -2143,8 +2123,7 @@
 "fD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice,
-/obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -2167,7 +2146,6 @@
 "fK" = (
 /obj/structure/catwalk,
 /obj/machinery/light/spot{
-	tag = "icon-tube_map (EAST)";
 	icon_state = "tube_map";
 	dir = 4
 	},
@@ -2176,8 +2154,7 @@
 "fM" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -2201,8 +2178,7 @@
 	icon_state = "intact";
 	dir = 10
 	},
-/obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -2300,7 +2276,6 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped{
-	tag = "icon-railing0 (WEST)";
 	icon_state = "railing0";
 	dir = 8
 	},
@@ -2374,7 +2349,7 @@
 	icon_state = "intact";
 	dir = 4
 	},
-/obj/item/modular_computer/console/preset/library,
+/obj/machinery/computer/modular/preset/library,
 /obj/structure/table/standard,
 /turf/simulated/floor/plating,
 /area/ship/scrap/unused)
@@ -2449,7 +2424,7 @@
 	icon_state = "intact";
 	dir = 9
 	},
-/obj/item/weapon/storage/backpack/dufflebag,
+/obj/item/storage/backpack/dufflebag,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/scrap/crew/wash)
 "gp" = (
@@ -2465,8 +2440,7 @@
 /obj/machinery/light_switch{
 	pixel_x = 28
 	},
-/obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -2500,13 +2474,11 @@
 	icon_state = "warning";
 	dir = 8
 	},
-/obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 8
 	},
 /obj/structure/railing/mapped{
-	tag = "icon-railing0 (WEST)";
 	icon_state = "railing0";
 	dir = 8
 	},
@@ -2582,15 +2554,14 @@
 /obj/random/clothing,
 /obj/random/clothing,
 /obj/random/clothing,
-/obj/item/weapon/reagent_containers/glass/rag,
-/obj/item/weapon/clothingbag/rubbermask,
+/obj/item/reagent_containers/glass/rag,
+/obj/item/clothingbag/rubbermask,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/scrap/crew/wash)
 "gB" = (
 /obj/machinery/washing_machine,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -2598,8 +2569,8 @@
 "gC" = (
 /obj/structure/table/standard,
 /obj/machinery/light/small,
-/obj/item/weapon/reagent_containers/spray/cleaner,
-/obj/item/weapon/storage/laundry_basket,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/storage/laundry_basket,
 /obj/random_multi/single_item/captains_spare_id,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/scrap/crew/wash)
@@ -2613,7 +2584,6 @@
 	pixel_x = 32
 	},
 /obj/structure/railing/mapped{
-	tag = "icon-railing0 (WEST)";
 	icon_state = "railing0";
 	dir = 8
 	},
@@ -2621,7 +2591,7 @@
 /area/ship/scrap/cargo)
 "gI" = (
 /obj/random/maintenance,
-/obj/item/weapon/clothingbag/rubbersuit,
+/obj/item/clothingbag/rubbersuit,
 /turf/simulated/floor/plating,
 /area/ship/scrap/unused)
 "gL" = (
@@ -2698,7 +2668,6 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped{
-	tag = "icon-railing0 (NORTH)";
 	icon_state = "railing0";
 	dir = 1
 	},
@@ -2718,7 +2687,7 @@
 	pixel_y = 25
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/item/weapon/storage/backpack/dufflebag/syndie,
+/obj/item/storage/backpack/dufflebag/syndie,
 /turf/simulated/floor/plating,
 /area/ship/scrap/hidden)
 "hb" = (
@@ -2796,7 +2765,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scrap/hidden)
 "hm" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -2882,7 +2851,6 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	tag = "icon-map-scrubbers (NORTH)";
 	icon_state = "map-scrubbers";
 	dir = 1
 	},
@@ -2929,7 +2897,7 @@
 	icon_state = "bulb1";
 	dir = 1
 	},
-/obj/item/weapon/crowbar,
+/obj/item/crowbar,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -2975,7 +2943,6 @@
 "hB" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /turf/simulated/floor/plating,
@@ -3080,7 +3047,7 @@
 	dir = 1
 	},
 /obj/machinery/disposal,
-/obj/structure/handrai,
+/obj/structure/handrail,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/maintenance/engineering)
 "hU" = (
@@ -3118,12 +3085,12 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/reagent_containers/food/drinks/coffeecup/metal,
-/obj/item/weapon/reagent_containers/food/drinks/coffeecup/metal,
-/obj/item/weapon/reagent_containers/chem_disp_cartridge/coffee{
+/obj/item/reagent_containers/food/drinks/coffeecup/metal,
+/obj/item/reagent_containers/food/drinks/coffeecup/metal,
+/obj/item/reagent_containers/chem_disp_cartridge/coffee{
 	name = "coffee canister"
 	},
-/obj/structure/handrai,
+/obj/structure/handrail,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/maintenance/engineering)
 "hW" = (
@@ -3138,8 +3105,8 @@
 /obj/structure/closet/hydrant{
 	pixel_y = 32
 	},
-/obj/item/weapon/storage/firstaid/regular,
-/obj/structure/handrai,
+/obj/item/storage/firstaid/regular,
+/obj/structure/handrail,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/maintenance/engineering)
 "hX" = (
@@ -3156,7 +3123,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/toy/prize/ripley,
-/obj/item/weapon/material/ashtray/plastic,
+/obj/item/material/ashtray/plastic,
 /obj/machinery/recharger,
 /obj/item/blueprints,
 /obj/structure/sign/poster{
@@ -3306,7 +3273,7 @@
 	icon_state = "1-4"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
@@ -3491,7 +3458,6 @@
 /obj/structure/closet/secure_closet/engineering_welding,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /turf/simulated/floor/tiled/techfloor,
@@ -3514,7 +3480,7 @@
 	dir = 10
 	},
 /obj/structure/table/standard,
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	id = "engwindow";
 	name = "Engine Observation";
 	pixel_x = 6
@@ -3533,12 +3499,12 @@
 	dir = 10
 	},
 /obj/machinery/light/small,
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	id = "scram";
 	name = "CORE SCRAM";
 	pixel_y = -26
 	},
-/obj/item/modular_computer/console/preset/engineering{
+/obj/machinery/computer/modular/preset/engineering{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techfloor,
@@ -3572,7 +3538,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /turf/simulated/floor/plating,
@@ -3834,7 +3799,7 @@
 /area/ship/scrap/maintenance/engine/aft)
 "jk" = (
 /obj/structure/closet/radiation,
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	id = "radaway";
 	name = "Radiation shields";
 	pixel_x = -24
@@ -3944,7 +3909,6 @@
 "jx" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /turf/simulated/floor/plating,
@@ -3979,7 +3943,6 @@
 	dir = 2;
 	icon_state = "pdoor0";
 	id = "radaway";
-	layer = 5;
 	opacity = 0
 	},
 /obj/structure/sign{
@@ -4155,7 +4118,6 @@
 	dir = 2;
 	icon_state = "pdoor0";
 	id = "radaway";
-	layer = 5;
 	opacity = 0
 	},
 /obj/machinery/meter/turf,
@@ -4179,7 +4141,7 @@
 /obj/machinery/meter/turf,
 /obj/structure/window/reinforced{
 	dir = 2;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/ship/scrap/maintenance/atmos)
@@ -4194,7 +4156,7 @@
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/structure/window/reinforced{
 	dir = 2;
-	health = 1e+007
+	health_max = 1e+007
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/ship/scrap/maintenance/atmos)
@@ -4537,7 +4499,7 @@
 	pixel_x = 24;
 	pixel_y = 0
 	},
-/obj/item/modular_computer/console/preset/command{
+/obj/machinery/computer/modular/preset/cardslot/command{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4626,7 +4588,7 @@
 	icon_state = "bulb1";
 	dir = 8
 	},
-/obj/item/weapon/storage/mirror{
+/obj/item/storage/mirror{
 	pixel_y = 29
 	},
 /obj/structure/hygiene/sink{
@@ -4654,10 +4616,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 2;
-	layer = 2.4;
 	level = 2
 	},
-/obj/item/weapon/hemostat,
+/obj/item/hemostat,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/scrap/crew/toilets)
 "nj" = (
@@ -4723,8 +4684,8 @@
 "oo" = (
 /obj/machinery/light,
 /obj/machinery/optable,
-/obj/item/weapon/reagent_containers/food/drinks/coffeecup/britcup,
-/obj/item/weapon/reagent_containers/glass/rag,
+/obj/item/reagent_containers/food/drinks/coffeecup/britcup,
+/obj/item/reagent_containers/glass/rag,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/medbay)
 "or" = (
@@ -4794,17 +4755,16 @@
 	dir = 5
 	},
 /obj/structure/closet/toolcloset,
-/obj/item/weapon/storage/backpack/dufflebag/eng,
+/obj/item/storage/backpack/dufflebag/eng,
 /obj/item/stack/material/glass/reinforced/fifty,
 /obj/item/stack/material/steel/fifty,
-/obj/structure/handrai,
+/obj/structure/handrail,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/maintenance/engineering)
 "qb" = (
 /obj/effect/decal/cleanable/cobweb2,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 2;
-	layer = 2.4;
 	level = 2
 	},
 /obj/machinery/alarm{
@@ -4821,7 +4781,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /obj/structure/cable{
@@ -4857,7 +4816,7 @@
 "qO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/modular_computer/console/preset/merchant,
+/obj/machinery/computer/modular/preset/merchant,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/cargo)
 "qS" = (
@@ -4914,7 +4873,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
-	layer = 2.4;
 	level = 2
 	},
 /turf/simulated/floor/tiled/monotile,
@@ -4989,7 +4947,6 @@
 /obj/structure/catwalk,
 /obj/structure/railing/mapped,
 /obj/machinery/light/spot{
-	tag = "icon-tube_map (WEST)";
 	icon_state = "tube_map";
 	dir = 8
 	},
@@ -5007,7 +4964,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /obj/structure/cable{
@@ -5120,21 +5076,21 @@
 	icon_state = "tube1";
 	dir = 8
 	},
-/obj/item/weapon/gun/energy/stunrevolver,
+/obj/item/gun/energy/stunrevolver,
 /obj/structure/closet/cabinet,
-/obj/item/weapon/storage/secure/briefcase,
+/obj/item/storage/secure/briefcase,
 /obj/item/device/taperecorder,
 /obj/item/device/camera,
-/obj/item/weapon/storage/backpack/dufflebag/syndie,
-/obj/item/weapon/storage/box/ammo/shotgunshells,
-/obj/item/weapon/handcuffs,
+/obj/item/storage/backpack/dufflebag/syndie,
+/obj/item/storage/box/ammo/shotgunshells,
+/obj/item/handcuffs,
 /obj/item/device/boombox,
 /turf/simulated/floor/wood,
 /area/ship/scrap/command/captain)
 "vW" = (
 /obj/structure/table/standard,
 /obj/random/smokes,
-/obj/item/weapon/material/ashtray/glass,
+/obj/item/material/ashtray/glass,
 /obj/effect/landmark{
 	name = "Observer-Start"
 	},
@@ -5144,7 +5100,7 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/item/weapon/board,
+/obj/item/board,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
@@ -5219,7 +5175,6 @@
 "xZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4;
-	layer = 2.4;
 	level = 2
 	},
 /obj/machinery/computer/ship/engines,
@@ -5254,7 +5209,7 @@
 "yS" = (
 /obj/structure/closet/crate,
 /obj/random/coin,
-/obj/item/weapon/spacecash/bundle/c1000,
+/obj/item/spacecash/bundle/c1000,
 /turf/simulated/floor/plating,
 /area/ship/scrap/hidden)
 "zb" = (
@@ -5263,8 +5218,7 @@
 	frequency = 1383;
 	id_tag = "bearcat_shuttle_pump_out_external"
 	},
-/obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -5333,7 +5287,7 @@
 	icon_state = "tube1";
 	dir = 1
 	},
-/obj/item/weapon/deck/tarot,
+/obj/item/deck/tarot,
 /obj/machinery/cell_charger,
 /turf/simulated/floor/tiled,
 /area/ship/scrap/shuttle/outgoing)
@@ -5402,7 +5356,7 @@
 /obj/item/device/multitool{
 	pixel_x = 5
 	},
-/obj/item/device/pipe_painter,
+/obj/item/device/paint_sprayer,
 /obj/item/clamp,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/maintenance/atmos)
@@ -5420,7 +5374,6 @@
 "Cc" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 2;
-	layer = 2.4;
 	level = 2
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -5438,7 +5391,7 @@
 /area/ship/scrap/crew/cryo)
 "Cq" = (
 /obj/structure/table/standard,
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	id = "scraplock";
 	name = "External Lockdown"
 	},
@@ -5452,7 +5405,7 @@
 "CG" = (
 /obj/structure/table/standard,
 /obj/item/toy/figure/captain,
-/obj/machinery/button/remote/blast_door{
+/obj/machinery/button/blast_door{
 	id = "sensor";
 	name = "Sensor Shroud"
 	},
@@ -5555,7 +5508,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/cargo)
 "EK" = (
-/obj/structure/handrai,
+/obj/structure/handrail,
 /turf/space,
 /area/space)
 "EQ" = (
@@ -5633,8 +5586,8 @@
 /obj/structure/table/reinforced,
 /obj/item/device/flashlight/lamp,
 /obj/random_multi/single_item/captains_spare_id,
-/obj/item/weapon/spacecash/bundle/c1000,
-/obj/item/weapon/storage/bible/booze,
+/obj/item/spacecash/bundle/c1000,
+/obj/item/storage/bible/booze,
 /turf/simulated/floor/plating,
 /area/ship/scrap/hidden)
 "Gb" = (
@@ -5691,20 +5644,18 @@
 	icon_state = "alarm0";
 	pixel_x = 24
 	},
-/obj/item/weapon/bedsheet/medical,
+/obj/item/bedsheet/medical,
 /obj/structure/curtain/open/privacy,
 /obj/structure/bed/padded,
 /obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/medbay)
 "HO" = (
-/obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
-/obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -5724,7 +5675,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/maintenance/atmos)
 "Ic" = (
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/structure/hygiene/sink{
 	dir = 8;
 	icon_state = "sink";
@@ -5743,8 +5694,7 @@
 /turf/simulated/floor/bluegrid,
 /area/ship/scrap/command/bridge)
 "Is" = (
-/obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -5757,7 +5707,7 @@
 "Jb" = (
 /obj/structure/table/standard,
 /obj/machinery/cell_charger,
-/obj/item/weapon/storage/toolbox/electrical{
+/obj/item/storage/toolbox/electrical{
 	pixel_x = 7;
 	pixel_y = 4
 	},
@@ -5782,8 +5732,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/item/weapon/reagent_containers/ivbag/blood/OMinus,
-/obj/item/weapon/reagent_containers/ivbag/blood/OMinus,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
+/obj/item/reagent_containers/ivbag/blood/human/oneg,
 /obj/random/drinkbottle,
 /turf/simulated/floor/tiled,
 /area/ship/scrap/crew/kitchen)
@@ -5810,8 +5760,7 @@
 /obj/random/voidsuit,
 /obj/random/voidsuit,
 /obj/random/voidsuit,
-/obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -5842,13 +5791,13 @@
 /obj/machinery/newscaster{
 	pixel_x = -32
 	},
-/obj/machinery/media/jukebox,
+/obj/machinery/jukebox,
 /turf/simulated/floor/tiled,
 /area/ship/scrap/crew/saloon)
 "Kb" = (
 /obj/structure/table/standard,
 /obj/machinery/cell_charger,
-/obj/item/weapon/defibrillator/compact/loaded,
+/obj/item/defibrillator/compact/loaded,
 /obj/item/device/flashlight,
 /obj/structure/cable{
 	d1 = 1;
@@ -5885,8 +5834,7 @@
 	pixel_x = -25
 	},
 /obj/structure/catwalk,
-/obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -5928,7 +5876,6 @@
 "Lb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 2;
-	layer = 2.4;
 	level = 2
 	},
 /obj/effect/floor_decal/corner/beige{
@@ -5980,15 +5927,14 @@
 /turf/simulated/wall/r_wall/hull,
 /area/ship/scrap/comms)
 "Lx" = (
-/obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 8
 	},
 /turf/space,
 /area/space)
 "LY" = (
-/obj/item/weapon/screwdriver,
+/obj/item/screwdriver,
 /obj/structure/cable{
 	icon_state = "5-8"
 	},
@@ -6106,7 +6052,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
-	layer = 2.4;
 	level = 2
 	},
 /obj/item/device/radio/intercom{
@@ -6122,7 +6067,6 @@
 /obj/effect/decal/cleanable/cobweb2,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
-	layer = 2.4;
 	level = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -6177,11 +6121,11 @@
 /area/ship/scrap/command/bridge)
 "OI" = (
 /obj/structure/lattice,
-/obj/structure/handrai,
+/obj/structure/handrail,
 /turf/space,
 /area/space)
 "Pb" = (
-/obj/item/weapon/gun/projectile/shotgun/pump/combat{
+/obj/item/gun/projectile/shotgun/pump/combat{
 	desc = "When words don't strike hard enough.";
 	name = "Solid Argument"
 	},
@@ -6251,7 +6195,7 @@
 /turf/simulated/floor/airless,
 /area/ship/scrap/command/captain)
 "Qb" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/machinery/computer/modular/preset/cardslot/command,
 /turf/simulated/floor/bluegrid,
 /area/ship/scrap/command/bridge)
 "Qc" = (
@@ -6280,7 +6224,7 @@
 	dir = 4;
 	name = "Captain's Quarters APC"
 	},
-/obj/item/weapon/reagent_containers/food/drinks/coffeecup/one,
+/obj/item/reagent_containers/food/drinks/coffeecup/one,
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -24
@@ -6295,7 +6239,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /obj/machinery/firealarm{
 	dir = 8;
 	pixel_x = -24;
@@ -6315,8 +6259,8 @@
 "RL" = (
 /obj/structure/closet/walllocker/emerglocker/north,
 /obj/structure/bed/chair/wood,
-/obj/item/weapon/deck/tarot,
-/obj/structure/handrai,
+/obj/item/deck/tarot,
+/obj/structure/handrail,
 /turf/simulated/floor/tiled,
 /area/ship/scrap/crew/saloon)
 "RW" = (
@@ -6392,8 +6336,7 @@
 	dir = 10;
 	icon_state = "intact"
 	},
-/obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -6403,9 +6346,9 @@
 /obj/structure/closet/crate,
 /obj/random/loot,
 /obj/random/loot,
-/obj/item/weapon/disk/tech_disk,
-/obj/item/weapon/disk/tech_disk,
-/obj/item/weapon/disk/design_disk,
+/obj/item/disk/tech_disk,
+/obj/item/disk/tech_disk,
+/obj/item/disk/design_disk,
 /obj/machinery/alarm{
 	dir = 4;
 	icon_state = "alarm0";
@@ -6436,7 +6379,7 @@
 /area/ship/scrap/crew/saloon)
 "Ub" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/weapon/storage/backpack/dufflebag,
+/obj/item/storage/backpack/dufflebag,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating,
 /area/ship/scrap/shuttle/outgoing)
@@ -6493,8 +6436,7 @@
 	dir = 4;
 	pixel_x = -22
 	},
-/obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},
@@ -6507,7 +6449,7 @@
 	name = "south bump";
 	pixel_y = -24
 	},
-/obj/item/weapon/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled,
 /area/ship/scrap/garden)
@@ -6526,8 +6468,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/structure/handrai{
-	tag = "icon-handrail (WEST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 8
 	},
@@ -6620,7 +6561,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/item/weapon/stool/padded,
+/obj/item/stool/padded,
 /turf/simulated/floor/tiled/techfloor,
 /area/ship/scrap/cargo)
 "Ya" = (
@@ -6724,8 +6665,8 @@
 /area/ship/scrap/shuttle/outgoing)
 "Zc" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
-/obj/item/weapon/cell/device/standard,
-/obj/item/weapon/cell/device/standard,
+/obj/item/cell/device/standard,
+/obj/item/cell/device/standard,
 /obj/machinery/power/apc{
 	dir = 8
 	},
@@ -6740,8 +6681,7 @@
 /area/ship/scrap/maintenance/power)
 "Zv" = (
 /obj/structure/lattice,
-/obj/structure/handrai{
-	tag = "icon-handrail (EAST)";
+/obj/structure/handrail{
 	icon_state = "handrail";
 	dir = 4
 	},

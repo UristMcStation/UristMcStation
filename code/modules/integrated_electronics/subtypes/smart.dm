@@ -18,8 +18,8 @@
 	var/datum/integrated_io/I = inputs[1]
 	set_pin_data(IC_OUTPUT, 1, null)
 	if(!isweakref(I.data))
-		return
 		activate_pin(3)
+		return
 	var/atom/A = I.data.resolve()
 	if(!A)
 		activate_pin(3)
@@ -57,8 +57,8 @@
 		activate_pin(3)
 		return
 	var/turf/T = get_turf(assembly)
-	var/target_x = Clamp(get_pin_data(IC_INPUT, 1), 0, world.maxx)
-	var/target_y = Clamp(get_pin_data(IC_INPUT, 2), 0, world.maxy)
+	var/target_x = clamp(get_pin_data(IC_INPUT, 1), 0, world.maxx)
+	var/target_y = clamp(get_pin_data(IC_INPUT, 2), 0, world.maxy)
 	var/turf/A = locate(target_x, target_y, T.z)
 	set_pin_data(IC_OUTPUT, 1, null)
 	if(!A||A==T)
@@ -85,7 +85,7 @@
 	activators = list("calculate path" = IC_PINTYPE_PULSE_IN, "on calculated" = IC_PINTYPE_PULSE_OUT,"not calculated" = IC_PINTYPE_PULSE_OUT)
 	spawn_flags = IC_SPAWN_RESEARCH
 	power_draw_per_use = 80
-	var/obj/item/weapon/card/id/idc
+	var/obj/item/card/id/idc
 
 /obj/item/integrated_circuit/smart/advanced_pathfinder/Initialize()
 	.=..()
@@ -104,6 +104,10 @@
 		return
 
 	var/list/signature_and_data = splittext(Ps, ":")
+
+	if(length(signature_and_data) < 2)
+		return
+
 	var/signature = signature_and_data[1]
 	var/result = signature_and_data[2]
 
@@ -115,16 +119,16 @@
 	if(Pl&&islist(Pl))
 		idc.access = Pl
 	var/turf/a_loc = get_turf(assembly)
-	var/list/P = AStar(a_loc, locate(get_pin_data(IC_INPUT, 1), get_pin_data(IC_INPUT, 2), a_loc.z), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 200, id=idc, exclude=get_turf(get_pin_data_as_type(IC_INPUT, 3, /atom)))
+	var/list/P = AStar(a_loc, locate(get_pin_data(IC_INPUT, 1), get_pin_data(IC_INPUT, 2), a_loc.z), /turf/proc/CardinalTurfsWithAccessWithZ, /turf/proc/Manhattan3dDistance, 0, 200, id=idc, exclude=get_turf(get_pin_data_as_type(IC_INPUT, 3, /atom)))
 
 	if(!P)
 		activate_pin(3)
 		return
 	else
-		var/list/Xn =  new/list(P.len)
-		var/list/Yn =  new/list(P.len)
+		var/list/Xn =  new/list(length(P))
+		var/list/Yn =  new/list(length(P))
 		var/turf/T
-		for(var/i =1 to P.len)
+		for(var/i =1 to length(P))
 			T=P[i]
 			Xn[i] = T.x
 			Yn[i] = T.y

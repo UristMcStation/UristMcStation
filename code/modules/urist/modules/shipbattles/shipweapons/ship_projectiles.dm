@@ -6,9 +6,9 @@
 	heavy_effect_range = 4
 	light_effect_range = 7
 	ship = 1
-	kill_count = 300
+	life_span = 300
 
-/obj/item/projectile/ion/ship/on_hit(var/atom/target, var/blocked = 0)
+/obj/item/projectile/ion/ship/on_hit(atom/target, var/blocked = 0)
 	var/flicker_range = light_effect_range * 2 //16 for the base ion pulse
 	for(var/obj/machinery/light/L in range(flicker_range, target))
 		L.flicker(rand(5,15))
@@ -21,7 +21,7 @@
 
 /obj/item/projectile/bullet/ship
 	ship = 1
-	kill_count = 300
+	life_span = 300
 	var/shake_range = 0 //what's the range that we shake people's screens
 
 /obj/item/projectile/bullet/ship/cannon //don't get hit by this
@@ -29,7 +29,7 @@
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "cannon"
 	damage = 100
-	check_armour = "bullet"
+	damage_flags = DAMAGE_FLAG_BULLET
 	sharp = 1
 	edge = 1
 	stun = 1
@@ -39,130 +39,132 @@
 	penetration_modifier = 1.5
 	shake_range = 6
 
-/obj/item/projectile/bullet/ship/cannon/on_impact(var/atom/A)
+/obj/item/projectile/bullet/ship/cannon/on_impact(atom/A)
 	if(isturf(A))
-		explosion(A, -1, 0, 2, 0, 0)
-
+		explosion(A, 2, EX_ACT_LIGHT, adminlog = 0, turf_breaker = FALSE)
 	..()
 
 ///obj/item/projectile/bullet/ship/cannon/on_impact(var/atom/A)
 //	explosion(A, -1, 0, 2)
 //	..()
 
-/obj/item/projectile/bullet/ship/missile
-	var/ex_devestation = 0
-	var/ex_heavy = 0
-	var/ex_light = 0
+/obj/effect/meteor/shipmissile
+	meteordrop = null
+	ismissile = TRUE
+	dropamt = 0
+	icon = 'icons/urist/items/ship_projectiles.dmi'
+	hits = 1
+	var/ex_range
 	var/wall_decon = FALSE
 
-/obj/item/projectile/bullet/ship/missile/on_hit(var/atom/target, var/blocked = 0)
-	for(var/mob/M in range(shake_range, target))
-		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
-			shake_camera(M, 3, 1)
+/obj/effect/meteor/shipmissile/meteor_effect()
+	..()
+	explosion(src.loc, ex_range, hitpwr, adminlog = 0, turf_breaker = wall_decon)
 
-	for(var/obj/machinery/light/L in range(ex_light, target))
-		L.flicker(rand(5,15))
+//missiles
 
-	missile_explosion(target)
-
-	return 1
-
-/obj/item/projectile/bullet/ship/missile/proc/missile_explosion(var/atom/target)
-	var/location = (get_turf(target))
-
-	if (istype(target, /turf/simulated/wall) && wall_decon)
-		var/turf/simulated/wall/W = target
-
-		W.dismantle_wall(1)
-
-	explosion(location, ex_devestation, ex_heavy, ex_light, 0, 0)
-
-/obj/item/projectile/bullet/ship/missile/smallmissile
+/obj/effect/meteor/shipmissile/smallmissile
 	name = "small missile"
-	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smallmissile"
-	damage = 10
+	shield_damage_override = 10
 	shake_range = 15
-	ex_devestation = 0
-	ex_heavy = 2
-	ex_light = 6
+	hitpwr = EX_ACT_LIGHT
+	ex_range = 8
+	flicker_range = 12
 
-/obj/item/projectile/bullet/ship/missile/smallalienmissile
+/obj/effect/meteor/shipmissile/smallalienmissile
 	name = "small alien missile"
-	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smallalienmissile"
 	wall_decon = TRUE
-	damage = 100
+	shield_damage_override = 100
 	shake_range = 20
-	ex_devestation = 0
-	ex_heavy = 3
-	ex_light = 7
+	hitpwr = EX_ACT_HEAVY
+	ex_range = 11
+	flicker_range = 15
 
-/obj/item/projectile/bullet/ship/missile/bigmissile
+/obj/effect/meteor/shipmissile/bigmissile
 	name = "big missile"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigmissile"
-	damage = 10
+	shield_damage_override = 10
 	shake_range = 25
 	wall_decon = TRUE
-	ex_devestation = 1
-	ex_heavy = 4
-	ex_light = 9
+	hitpwr = EX_ACT_HEAVY
+	ex_range = 12
+	flicker_range = 15
 
-/obj/item/projectile/bullet/ship/missile/bigalienmissile
+/obj/effect/meteor/shipmissile/bigalienmissile
 	name = "big alien missile"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigalienmissile"
-	damage = 150
+	shield_damage_override = 150
 	shake_range = 30
 	wall_decon = TRUE
-	ex_devestation = 1
-	ex_heavy = 5
-	ex_light = 10
+	hitpwr = EX_ACT_DEVASTATING
+	ex_range = 11
+	flicker_range = 15
 
-/obj/item/projectile/bullet/ship/missile/smalltorpedo
+//torpedoes
+
+/obj/effect/meteor/shipmissile/smalltorpedo
 	name = "small torpedo"
-	icon = 'icons/urist/items/ship_projectiles.dmi'
 	icon_state= "smalltorpedo"
-	damage = 10
+	shield_damage_override = 10
 	shake_range = 20
 	wall_decon = TRUE
-	ex_devestation = 6
-	ex_heavy = 7
-	ex_light = 8
+	hitpwr = EX_ACT_HEAVY
+	ex_range = 15
+	flicker_range = 20
 
-/obj/item/projectile/bullet/ship/missile/bigtorpedo
+/obj/effect/meteor/shipmissile/bigtorpedo
 	name = "big torpedo"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigtorpedo"
-	damage = 10
+	shield_damage_override = 10
 	shake_range = 30
 	wall_decon = TRUE
-	ex_devestation = 7
-	ex_heavy = 8
-	ex_light = 9
+	hitpwr = EX_ACT_DEVASTATING
+	ex_range = 20
+	flicker_range = 25
 
-/obj/item/projectile/bullet/ship/missile/alientorpedo
+/obj/effect/meteor/shipmissile/alientorpedo
 	name = "alien torpedo"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "alientorpedo"
-	damage = 150
+	shield_damage_override = 150
 	shake_range = 25
 	wall_decon = TRUE
-	ex_devestation = 7
-	ex_heavy = 8
-	ex_light = 9
+	hitpwr = EX_ACT_DEVASTATING
+	ex_range = 20
+	flicker_range = 25
 
-/obj/item/projectile/bullet/ship/missile/bigalientorpedo
+/obj/effect/meteor/shipmissile/bigalientorpedo
 	name = "alien torpedo"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "alientorpedo"
-	damage = 200
+	shield_damage_override = 200
 	shake_range = 30
 	wall_decon = TRUE
-	ex_devestation = 8
-	ex_heavy = 9
-	ex_light = 10
+	hitpwr = EX_ACT_DEVASTATING
+	ex_range = 25
+	flicker_range = 30
+
+//misc "missiles"
+/obj/effect/meteor/shipmissile/mininuke
+	name = "mininuke"
+	icon_state = "minibomb-nuke"
+	shield_damage_override = 10
+	shake_range = 20
+	wall_decon = TRUE
+	hitpwr = EX_ACT_DEVASTATING
+	ex_range = 6
+	flicker_range = 30
+
+/obj/effect/meteor/shipmissile/mininuke/meteor_effect()
+	..()
+	new /obj/effect/decal/cleanable/greenglow(get_turf(src))
+	SSradiation.radiate(src, 50)
+
 
 //beam weapons
 
@@ -185,14 +187,13 @@
 //	var/life = 20
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 	ship = 1
-	kill_count = 300
+	life_span = 300
 	var/wall_decon = FALSE
+	var/severity = EX_ACT_LIGHT
+	var/ex_range = 2
 	var/shake_range = 10
-	var/ex_devestation = 0
-	var/ex_heavy = 0
-	var/ex_light = 2
 
-/obj/item/projectile/beam/ship/on_hit(var/atom/target, var/blocked = 0)
+/obj/item/projectile/beam/ship/on_hit(atom/target, var/blocked = 0)
 	for(var/mob/M in range(shake_range, target))
 		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
 			shake_camera(M, 3, 1)
@@ -208,7 +209,7 @@
 	for(var/obj/machinery/light/L in range(shake_range, target))
 		L.flicker(rand(5,15))
 
-	explosion(location, ex_devestation, ex_heavy, ex_light, 1, 0)
+	explosion(location, ex_range, severity, 0, 0)
 
 	return 1
 
@@ -256,8 +257,8 @@
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 	damage = 2000
 	armor_penetration = 200
-	ex_heavy = 1
-	ex_light = 3
+	severity = EX_ACT_HEAVY
+	ex_range = 4
 
 /obj/item/projectile/beam/ship/pulse
 	icon_state = "pulse"
@@ -269,14 +270,12 @@
 
 /obj/item/projectile/beam/ship/pulse/light
 	damage = 100
-	ex_devestation = 3
-	ex_heavy = 3
-	ex_light = 3
-	shake_range = 12
+	severity = EX_ACT_DEVASTATING
+	ex_range = 9
+	shake_range = 15
 
 /obj/item/projectile/beam/ship/pulse/heavy
 	damage = 100
-	ex_devestation = 5
-	ex_heavy = 5
-	ex_light = 5
-	shake_range = 15
+	severity = EX_ACT_DEVASTATING
+	ex_range = 15
+	shake_range = 20

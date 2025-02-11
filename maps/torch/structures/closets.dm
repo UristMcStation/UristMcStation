@@ -5,33 +5,32 @@
 /obj/structure/closet/toolcloset/excavation
 	name = "excavation equipment closet"
 	desc = "It's a storage unit for excavation equipment."
-	closet_appearance = /decl/closet_appearance/secure_closet/engineering/tools
+	closet_appearance = /singleton/closet_appearance/secure_closet/engineering/tools
 
 /obj/structure/closet/toolcloset/excavation/WillContain()
 	return list(
-		/obj/item/weapon/storage/belt/archaeology,
-		/obj/item/weapon/storage/excavation,
+		/obj/item/storage/belt/archaeology,
+		/obj/item/storage/excavation,
 		/obj/item/device/flashlight/lantern,
 		/obj/item/device/ano_scanner,
 		/obj/item/device/depth_scanner,
 		/obj/item/device/core_sampler,
 		/obj/item/device/gps,
-		/obj/item/weapon/pinpointer/radio,
-		/obj/item/device/radio/beacon,
+		/obj/item/pinpointer/radio,
 		/obj/item/clothing/glasses/meson,
 		/obj/item/clothing/glasses/science,
-		/obj/item/weapon/pickaxe,
+		/obj/item/pickaxe,
 		/obj/item/device/measuring_tape,
-		/obj/item/weapon/pickaxe/xeno/hand,
-		/obj/item/weapon/storage/bag/fossils,
-		/obj/item/weapon/hand_labeler,
+		/obj/item/pickaxe/xeno/hand,
+		/obj/item/storage/bag/fossils,
+		/obj/item/hand_labeler,
 		/obj/item/taperoll/research,
 		/obj/item/device/spaceflare
 	)
 
 /obj/structure/closet/wardrobe/ptgear
 	name = "pt gear wardrobe"
-	closet_appearance = /decl/closet_appearance/wardrobe/white
+	closet_appearance = /singleton/closet_appearance/wardrobe/white
 
 /obj/structure/closet/wardrobe/ptgear/WillContain()
 	return list(
@@ -66,5 +65,65 @@
 				/obj/structure/largecrate,
 				/obj/structure/closet/wardrobe/xenos,
 				/obj/structure/closet/wardrobe/mixed,
-				/obj/structure/closet/wardrobe/suit,
-				/obj/structure/closet/wardrobe/orange)
+				/obj/structure/closet/wardrobe/suit)
+
+/obj/structure/closet/secure_closet/brig/WillContain()
+	return null
+
+///Ninja equipment loadouts. Placed here because it relies on Torch evil.
+/obj/structure/closet/crate/ninja/sol
+	name = "sol equipment crate"
+	desc = "A tactical equipment crate."
+
+/obj/structure/closet/crate/ninja/sol/WillContain()
+	return list(
+		/obj/item/rig/light/ninja/sol,
+		/obj/item/gun/projectile/pistol/m22f,
+		/obj/item/ammo_magazine/pistol/double = 2,
+		/obj/item/clothing/under/scga/utility/urban,
+		/obj/item/clothing/shoes/swat,
+		/obj/item/clothing/accessory/scga_rank/e6
+	)
+
+/obj/structure/closet/crate/ninja/gcc
+	name = "gcc equipment crate"
+	desc = "A heavy equipment crate."
+
+/obj/structure/closet/crate/ninja/gcc/WillContain()
+	return list(
+		/obj/item/rig/light/ninja/gcc,
+		/obj/item/gun/projectile/pistol/optimus,
+		/obj/item/ammo_magazine/pistol/double = 2,
+		/obj/item/ammo_magazine/box/minigun = 2,
+		/obj/item/clothing/under/iccgn/utility,
+		/obj/item/clothing/shoes/iccgn/utility,
+		/obj/item/clothing/accessory/iccgn_rank/or6
+	)
+
+/obj/structure/closet/crate/ninja/corpo
+	name = "corporate equipment crate"
+	desc = "A patented equipment crate."
+
+/obj/structure/closet/crate/ninja/corpo/WillContain()
+	return list(
+		/obj/item/rig/light/ninja/corpo,
+		/obj/item/gun/energy/gun,
+		/obj/item/inducer,
+		/obj/item/clothing/under/rank/security/corp,
+		/obj/item/clothing/shoes/swat,
+		/obj/item/clothing/accessory/badge/holo
+	)
+
+/obj/structure/closet/crate/ninja/merc
+	name = "mercenary equipment crate"
+	desc = "A traitorous equipment crate."
+
+/obj/structure/closet/crate/ninja/merc/WillContain()
+	return list(
+		/obj/item/rig/merc/ninja,
+		/obj/item/gun/projectile/revolver/medium,
+		/obj/item/ammo_magazine/speedloader = 2,
+		/obj/item/clothing/under/syndicate/combat,
+		/obj/item/clothing/shoes/swat,
+		/obj/item/clothing/mask/gas/syndicate
+	)

@@ -17,7 +17,7 @@
 //				crash_with("[src] at [x],[y],[z] failed to find reagent '[id]'!")
 				dispense_reagents -= id
 				continue
-			var/obj/item/weapon/reagent_containers/chem_disp_cartridge/C = cartridges[R.name]
+			var/obj/item/reagent_containers/chem_disp_cartridge/C = cartridges[R.name]
 			if(C && C.reagents.total_volume < C.reagents.maximum_volume)
 				var/to_restore = min(C.reagents.maximum_volume - C.reagents.total_volume, 5)
 				use_power(to_restore * 500)
@@ -29,7 +29,7 @@
 /obj/machinery/chemical_dispenser
 	dispense_reagents = list(
 		"hydrogen", "lithium", "carbon", "nitrogen", "oxygen", "fluorine", "sodium",
-		"aluminum", "silicon", "phosphorus", "sulfur", "chlorine", "potassium", "iron",
+		"aluminium", "silicon", "phosphorus", "sulfur", "chlorine", "potassium", "iron",
 		"copper", "mercury", "radium", "water", "ethanol", "sugar", "sacid", "tungsten"
 		)
 

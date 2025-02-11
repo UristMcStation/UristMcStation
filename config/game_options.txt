@@ -73,3 +73,19 @@ SLIME_DELAY 0
 
 ## Uncomment to allow loyalty implants
 #USE_LOYALTY_IMPLANTS
+
+### URIST STUFF ###
+
+# Baseline (i.e. not accounting for Suppression) rate of Distortion increase per tick for Bluespace Revenants
+BLUESPACE_REVENANT_DISTORTION_RATE 100
+
+# Deciseconds between Bluespace Revenant ticker ticks
+BLUESPACE_REVENANT_TICKRATE 50
+
+# Amount of Distortion accumulated to trigger the radius increases (starting from 1, to 3/5/7)
+BLUESPACE_REVENANT_RADIUS_THREE_DISTORTION_THRESHOLD 12000
+BLUESPACE_REVENANT_RADIUS_FIVE_DISTORTION_THRESHOLD 36000
+BLUESPACE_REVENANT_RADIUS_SEVEN_DISTORTION_THRESHOLD 98000
+
+# Should Distortion spread across adjacent station z-levels
+BLUESPACE_REVENANT_RADIUS_ZLEVEL_SPREAD_ENABLED 1

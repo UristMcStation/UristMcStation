@@ -2,19 +2,37 @@
 	var/name = "unknown"
 	var/effect = EFFECT_TOUCH
 	var/effectrange = 4
-	var/trigger = TRIGGER_TOUCH
 	var/atom/holder
-	var/activated = 0
+	var/activated = FALSE
 	var/chargelevel = 0
 	var/chargelevelmax = 10
 	var/artifact_id = ""
 	var/effect_type = 0
+	var/toggled = FALSE
+	var/on_time //time artifact should stay on for when toggled
 
-/datum/artifact_effect/New(var/atom/location)
+	var/datum/artifact_trigger/trigger
+	var/effect_icon = 'icons/urist/effects.dmi'
+	var/effect_state = "sparkles"
+	var/last_activation = 0
+
+	var/image/active_effect
+
+/datum/artifact_effect/New(atom/location)
 	..()
 	holder = location
 	effect = rand(0, MAX_EFFECT)
-	trigger = rand(0, MAX_TRIGGER)
+	var/triggertype = pick(subtypesof(/datum/artifact_trigger))
+	if (effect == EFFECT_TOUCH && !istype(triggertype, /datum/artifact_trigger/touch)) // touch effect and touch trigger only work when paired
+		triggertype = pick(typesof(/datum/artifact_trigger/touch))
+	trigger = new triggertype
+
+	on_time = rand(5, 20) SECONDS
+
+	if (effect_icon && effect_state)
+		if (effect_state == "sparkles")
+			effect_state = "sparkles_[rand(1,4)]"
+		active_effect = image(effect_icon, effect_state)
 
 	//this will be replaced by the excavation code later, but it's here just in case
 	artifact_id = "[pick("kappa","sigma","antaeres","beta","omicron","iota","epsilon","omega","gamma","delta","tau","alpha")]-[rand(100,999)]"
@@ -34,30 +52,49 @@
 			chargelevelmax = rand(20, 120)
 			effectrange = rand(20, 200)
 
-/datum/artifact_effect/proc/ToggleActivate(var/reveal_toggle = 1)
-	//so that other stuff happens first
-	spawn(0)
-		if(activated)
-			activated = 0
-		else
-			activated = 1
-		if(reveal_toggle && holder)
-			if(istype(holder, /obj/machinery/artifact))
-				var/obj/machinery/artifact/A = holder
-				A.icon_state = "ano[A.icon_num][activated]"
-			var/display_msg
-			if(activated)
-				display_msg = pick("momentarily glows brightly!","distorts slightly for a moment!","flickers slightly!","vibrates!","shimmers slightly for a moment!")
-			else
-				display_msg = pick("grows dull!","fades in intensity!","suddenly becomes very still!","suddenly becomes very quiet!")
-			var/atom/toplevelholder = holder
-			while(!istype(toplevelholder.loc, /turf))
-				toplevelholder = toplevelholder.loc
-			toplevelholder.visible_message("<span class='warning'>\icon[toplevelholder] [toplevelholder] [display_msg]</span>")
+/datum/artifact_effect/Destroy()
+	QDEL_NULL(trigger)
+	. = ..()
 
-/datum/artifact_effect/proc/DoEffectTouch(var/mob/user)
-/datum/artifact_effect/proc/DoEffectAura(var/atom/holder)
-/datum/artifact_effect/proc/DoEffectPulse(var/atom/holder)
+/datum/artifact_effect/proc/ToggleActivate(reveal_toggle = 1)
+	addtimer(new Callback(src, .proc/DoActivation, reveal_toggle), 0)
+
+/datum/artifact_effect/proc/DoActivation(reveal_toggle = 1)
+	if (toggled && activated)
+		return
+
+	if(activated)
+		activated = FALSE
+	else
+		addtimer(new Callback(src, /datum/artifact_effect/proc/toggle_off), on_time)
+		activated = TRUE
+		toggled = TRUE
+	if(reveal_toggle && holder)
+		if(istype(holder, /obj/machinery/artifact))
+			var/obj/machinery/artifact/A = holder
+			A.icon_state = "ano[A.icon_num][activated]"
+
+		var/display_msg
+		if(activated)
+			display_msg = pick("momentarily glows brightly!","distorts slightly for a moment!","flickers slightly!","vibrates!","shimmers slightly for a moment!")
+		else
+			display_msg = pick("grows dull!","fades in intensity!","suddenly becomes very still!","suddenly becomes very quiet!")
+
+		if (active_effect)
+			if (activated)
+				holder.underlays.Add(active_effect)
+			else
+				holder.underlays.Remove(active_effect)
+
+		var/atom/toplevelholder = holder
+		while(!isnull(toplevelholder.loc) && !istype(toplevelholder.loc, /turf))
+			toplevelholder = toplevelholder.loc
+		toplevelholder.visible_message(SPAN_WARNING("[icon2html(toplevelholder, viewers(get_turf(toplevelholder)))] [toplevelholder] [display_msg]"))
+
+
+/datum/artifact_effect/proc/DoEffectTouch(mob/user)
+/datum/artifact_effect/proc/DoEffectAura(atom/holder)
+/datum/artifact_effect/proc/DoEffectPulse(atom/holder)
 /datum/artifact_effect/proc/UpdateMove()
 
 /datum/artifact_effect/proc/process()
@@ -70,6 +107,7 @@
 		else if(effect == EFFECT_PULSE && chargelevel >= chargelevelmax)
 			chargelevel = 0
 			DoEffectPulse()
+
 
 /datum/artifact_effect/proc/getDescription()
 	. = "<b>"
@@ -105,44 +143,51 @@
 
 	. += "</b>"
 
-	switch(trigger)
-		if(TRIGGER_TOUCH, TRIGGER_WATER, TRIGGER_ACID, TRIGGER_VOLATILE, TRIGGER_TOXIN)
-			. += " Activation index involves <b>physical interaction</b> with artifact surface."
-		if(TRIGGER_FORCE, TRIGGER_ENERGY, TRIGGER_HEAT, TRIGGER_COLD)
-			. += " Activation index involves <b>energetic interaction</b> with artifact surface."
-		if(TRIGGER_PHORON, TRIGGER_OXY, TRIGGER_CO2, TRIGGER_NITRO)
-			. += " Activation index involves <b>precise local atmospheric conditions</b>."
-		else
-			. += " Unable to determine any data about activation trigger."
+	. += " Activation index involves [trigger]."
 
-//returns 0..1, with 1 being no protection and 0 being fully protected
-/proc/GetAnomalySusceptibility(var/mob/living/carbon/human/H)
-	if(!istype(H))
+/datum/artifact_effect/proc/toggle_off()
+	toggled = FALSE
+	ToggleActivate(TRUE)
+
+
+/// A value denoting how much this item should protect against the effects of anomalies when worn.
+/obj/item/var/anomaly_protection = 0
+
+/obj/item/rig/hazmat/anomaly_protection = 1
+
+/obj/item/clothing/suit/bio_suit/anomaly/anomaly_protection = 0.7
+
+/obj/item/clothing/suit/space/void/excavation/anomaly_protection = 0.6
+
+/obj/item/clothing/head/bio_hood/anomaly/anomaly_protection = 0.3
+
+/obj/item/clothing/head/helmet/space/void/excavation/anomaly_protection = 0.2
+
+/obj/item/clothing/gloves/latex/anomaly_protection = 0.1
+
+/obj/item/clothing/glasses/science/anomaly_protection = 0.1
+
+
+/// returns 0..1, with 1 being no protection and 0 being fully protected
+/proc/GetAnomalySusceptibility(mob/living/carbon/human/human)
+	if (!istype(human))
 		return 1
+	var/susceptibility = 1
+	var/list/items = list(human.w_uniform, human.wear_suit, human.head, human.gloves, human.shoes, human.glasses)
+	if (istype(human.back, /obj/item/rig))
+		var/obj/item/rig/rig = human.back
+		if (!rig.offline && rig.suit_is_deployed())
+			items += rig
+	for (var/obj/item/item in items)
+		susceptibility -= item.anomaly_protection
+	return clamp(susceptibility, 0, 1)
 
-	var/protected = 0
 
-	//anomaly suits give best protection, but excavation suits are almost as good
-	if(istype(H.back,/obj/item/weapon/rig/hazmat) || istype(H.back, /obj/item/weapon/rig/hazard))
-		var/obj/item/weapon/rig/rig = H.back
-		if(rig.suit_is_deployed() && !rig.offline)
-			protected += 1
+/// When an artifact is destroyed, this will be run first.
+/datum/artifact_effect/proc/destroyed_effect()
+	return
 
-	if(istype(H.wear_suit,/obj/item/clothing/suit/bio_suit/anomaly))
-		protected += 0.7
-	else if(istype(H.wear_suit,/obj/item/clothing/suit/space/void/excavation))
-		protected += 0.6
 
-	if(istype(H.head,/obj/item/clothing/head/bio_hood/anomaly))
-		protected += 0.3
-	else if(istype(H.head,/obj/item/clothing/head/helmet/space/void/excavation))
-		protected += 0.2
-
-	//latex gloves and science goggles also give a bit of bonus protection
-	if(istype(H.gloves,/obj/item/clothing/gloves/latex))
-		protected += 0.1
-
-	if(istype(H.glasses,/obj/item/clothing/glasses/science))
-		protected += 0.1
-
-	return 1 - protected
+/// Called by the artifact the effect is attached to whenever it takes damage
+/datum/artifact_effect/proc/holder_damaged()
+	return

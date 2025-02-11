@@ -1,10 +1,10 @@
-/mob/living/carbon/human/lactera/New(var/new_loc)
-	h_style = "Bald"
+/mob/living/carbon/human/lactera/New(new_loc)
+	head_hair_style = "Bald"
 	..(new_loc, "Lactera")
 
 	faction = "alien"
 
-/mob/living/carbon/human/lactera/bullet_act(var/obj/item/projectile/Proj)
+/mob/living/carbon/human/lactera/bullet_act(obj/item/projectile/Proj)
 	Proj.embed = 0
 
 	..()
@@ -66,7 +66,7 @@
 	limb_flags = null
 	dislocated = -1
 	arterial_bleed_severity = 0
-	eye_icon_location = 'icons/uristmob/species/lactera/eyes.dmi'
+	draw_eyes = 'icons/uristmob/species/lactera/eyes.dmi'
 
 /*/datum/hud_data/lactera //work on this //just make the lactera clothing unremovable, delete this
 	has_internals = 0
@@ -126,7 +126,9 @@
 	species_flags	 = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE | SPECIES_FLAG_NO_MINOR_CUT
 	spawn_flags = SPECIES_IS_RESTRICTED
 
-	reagent_tag = IS_XENOS
+	traits = list(
+	/singleton/trait/general/metabolically_inert = TRAIT_LEVEL_MAJOR,
+	)
 
 	blood_color = "#a10808"
 
@@ -152,7 +154,7 @@
 		TAG_CULTURE =   CULTURE_LACTERA,
 		TAG_HOMEWORLD = HOME_SYSTEM_GALACTIC_CRISIS,
 		TAG_FACTION =   FACTION_GALACTIC_CRISIS,
-		TAG_RELIGION =  RELIGION_OTHER
+		TAG_RELIGION =  RELIGION_UNSTATED
 	)
 
 	has_organ = list(
@@ -176,12 +178,12 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/lactera)
 		)
 
-/datum/species/xenos/lactera/handle_death(var/mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
+/datum/species/xenos/lactera/handle_death(mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
 	var/image/flicker = image('icons/uristmob/scommobs.dmi',"fire")
 	flick(flicker, H)
 	spawn(5)
 		qdel(H)
 	return
 
-/datum/species/xenos/lactera/get_bodytype(var/mob/living/carbon/human/H)
+/datum/species/xenos/lactera/get_bodytype(mob/living/carbon/human/H)
 	return name

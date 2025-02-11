@@ -1,37 +1,43 @@
 
-/mob/living/simple_animal/hostile/npc/verb/interact()
+/mob/living/simple_animal/passive/npc/verb/interact()
 	set src in view(1)
 	set name = "Interact with NPC"
 	set category = "NPC"
 
 	attack_hand(usr)
 
-/mob/living/simple_animal/hostile/npc/attack_hand(var/mob/living/user)
-	if(user && istype(user) && can_use(user))
+/mob/living/simple_animal/passive/npc/attack_hand(mob/living/user)
+	if(src.stat != CONSCIOUS)
+		to_chat(user, "[src] doesn't look like he's in any shape to trade right now...")
+		interacting_mob = null
+		return
 
-		if(interacting_mob && !can_use(interacting_mob))
-			interacting_mob = null
+	if(!can_use(user))
+		return
 
-		if(interacting_mob && interacting_mob != user)
-			to_chat(user, "[src] is already dealing with [interacting_mob]!")
+	if(interacting_mob && !can_use(interacting_mob))
+		interacting_mob = null
 
-		else
-			current_greeting_index = rand(1, greetings.len)
-			say(greetings[current_greeting_index])
-			speak_chance = 0
+	if(interacting_mob && interacting_mob != user)
+		to_chat(user, "[src] is already dealing with [interacting_mob]!")
+		return
 
-			add_fingerprint(user)
-			user.set_machine(src)
-			interacting_mob = user
-			ui_interact(user)
+	current_greeting_index = rand(1, length(greetings))
+	say(greetings[current_greeting_index])
+	ai_holder.speak_chance = 0
 
-/mob/living/simple_animal/hostile/npc/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
+	add_fingerprint(user)
+	user.set_machine(src)
+	interacting_mob = user
+	ui_interact(user)
+
+/mob/living/simple_animal/passive/npc/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, var/force_open = 1)
 
 	if(!can_use(user))
 		close_ui(ui)
 		return
 
-	wander = 0
+	ai_holder.wander = 0
 	/*spawn(600)
 		wander = 1
 		interacting_mob = null*/
@@ -41,7 +47,7 @@
 	data["npc_name"] = src.name
 	data["interact_icon"] = interact_icon
 	data["interact_screen"] = interact_screen
-	if(interact_inventory.len)
+	if(length(interact_inventory))
 		data["can_trade"] = 1
 	else
 		data["can_trade"] = 0
@@ -87,10 +93,10 @@
 			data["r_sellable"] = 0
 
 		data["l_is_bag"] = 0
-		if(istype(M.l_hand, /obj/item/weapon/storage))
+		if(istype(M.l_hand, /obj/item/storage))
 			data["l_is_bag"] = 1
 		data["r_is_bag"] = 0
-		if(istype(M.r_hand, /obj/item/weapon/storage))
+		if(istype(M.r_hand, /obj/item/storage))
 			data["r_is_bag"] = 1
 
 	data["user"] = "\ref[user]"
@@ -102,14 +108,14 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/mob/living/simple_animal/hostile/npc/proc/close_ui(var/datum/nanoui/ui = null)
+/mob/living/simple_animal/passive/npc/proc/close_ui(datum/nanoui/ui = null)
 	if(ui)
 		ui.close()
 	interacting_mob = null
 	say(pick(goodbyes))
-	speak_chance = initial(speak_chance)
+	ai_holder.speak_chance = initial(ai_holder.speak_chance)
 
-/mob/living/simple_animal/hostile/npc/Topic(href, href_list)
+/mob/living/simple_animal/passive/npc/Topic(href, href_list)
 	if(href_list["sell_item_l"])
 		var/mob/living/carbon/M = locate(href_list["user"])
 		if(M && istype(M))
@@ -142,7 +148,7 @@
 	if(href_list["close"])
 		close_ui()
 
-/mob/living/simple_animal/hostile/npc/proc/handle_question(var/mob/living/carbon/user)
+/mob/living/simple_animal/passive/npc/proc/handle_question(mob/living/carbon/user)
 	for(var/trigger in src.speech_triggers)
 
 		var/datum/npc_speech_trigger/S = new trigger

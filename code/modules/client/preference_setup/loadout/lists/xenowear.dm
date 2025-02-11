@@ -1,9 +1,9 @@
 // Alien clothing.
 
 // Unathi clothing
-/datum/gear/suit/unathi/
+/datum/gear/suit/unathi
 	sort_category = "Xenowear"
-	category = /datum/gear/suit/unathi/
+	category = /datum/gear/suit/unathi
 	whitelisted = list(SPECIES_UNATHI, SPECIES_YEOSA)
 
 /datum/gear/suit/unathi/mantle
@@ -34,9 +34,9 @@
 	cost = 2
 
 //Skrell Chains
-/datum/gear/ears/skrell/
+/datum/gear/ears/skrell
 	sort_category = "Xenowear"
-	category = /datum/gear/ears/skrell/
+	category = /datum/gear/ears/skrell
 	whitelisted = list(SPECIES_SKRELL)
 
 /datum/gear/ears/skrell/chains
@@ -85,7 +85,6 @@
 	whitelisted = list(SPECIES_SKRELL)
 	sort_category = "Xenowear"
 
-
 /datum/gear/suit/lab_veymed_skrell
 	display_name = "Vey-Med labcoat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/corp/veymed
@@ -93,13 +92,6 @@
 	whitelisted = list(SPECIES_SKRELL)
 
 // IPC clothing
-/datum/gear/mask/ipc_monitor
-	display_name = "display monitor (IPC)"
-	path = /obj/item/clothing/mask/monitor
-	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_IPC)
-	cost = 0
-
 /datum/gear/suit/lab_xyn_machine
 	display_name = "Xynergy labcoat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/xyn_machine
@@ -170,7 +162,7 @@
 	whitelisted = list(SPECIES_UNATHI, SPECIES_YEOSA)
 
 // Vox clothing
-/datum/gear/mask/gas/vox
+/datum/gear/vox_mask
 	display_name = "vox breathing mask"
 	path = /obj/item/clothing/mask/gas/vox
 	sort_category = "Xenowear"

@@ -52,7 +52,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/plating/airless,
@@ -96,7 +96,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "aq" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /obj/structure/alien/node{
@@ -119,7 +119,7 @@
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "at" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "au" = (
@@ -130,7 +130,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "aw" = (
@@ -141,7 +141,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "ax" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/asteroid,
@@ -202,7 +202,7 @@
 /turf/simulated/floor/asteroid,
 /area/mine/unexplored)
 "aG" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /obj/item/stack/rods,
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
@@ -242,7 +242,7 @@
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "aN" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/item/clothing/suit/space/syndicate,
@@ -266,11 +266,11 @@
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "aQ" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/asteroid,
 /area/mine/unexplored)
 "aR" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/plating/airless,
@@ -298,11 +298,11 @@
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "aW" = (
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "aX" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/asteroid,
@@ -356,7 +356,7 @@
 /turf/simulated/floor/airless,
 /area/outpost/abandoned)
 "bh" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /turf/simulated/floor/airless,
@@ -370,13 +370,13 @@
 /area/outpost/abandoned)
 "bj" = (
 /obj/structure/table/standard,
-/obj/item/weapon/paper/crumpled,
+/obj/item/paper/crumpled,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "bk" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/plating/airless,
@@ -449,7 +449,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating/airless{
 	icon_state = "asteroidplating"
 	},
@@ -475,11 +475,11 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "bx" = (
-/obj/item/weapon/table_parts,
+/obj/item/table_parts,
 /turf/simulated/floor/airless,
 /area/outpost/abandoned)
 "by" = (
-/obj/item/weapon/table_parts/rack,
+/obj/item/table_parts/rack,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "bz" = (
@@ -513,14 +513,14 @@
 	density = 0;
 	icon_state = "brokengrille"
 	},
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "small"
 	},
 /obj/item/stack/rods,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "bE" = (
-/obj/item/weapon/material/shard{
+/obj/item/material/shard{
 	icon_state = "medium"
 	},
 /turf/simulated/floor/plating,
@@ -537,7 +537,7 @@
 	icon_state = "brokengrille"
 	},
 /obj/item/stack/rods,
-/obj/item/weapon/material/shard,
+/obj/item/material/shard,
 /turf/simulated/floor/plating/airless{
 	icon_state = "asteroidplating"
 	},
@@ -582,14 +582,13 @@
 /area/outpost/research/eva)
 "bO" = (
 /obj/machinery/door/blast/shutters{
-	id = "planet_research";
+	id_tag = "planet_research";
 	name = "Elevator Shutters"
 	},
 /turf/simulated/floor/plating,
 /area/outpost/research/eva)
 "bP" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	tag = "icon-warningcorner (EAST)";
 	icon_state = "warningcorner";
 	dir = 4
 	},
@@ -623,7 +622,6 @@
 	pressure_checks = 1
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -656,17 +654,14 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -678,12 +673,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -699,17 +692,15 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/archaeology,
+/obj/item/storage/belt/archaeology,
 /obj/item/clothing/suit/space/void/excavation,
 /obj/item/clothing/head/helmet/space/void/excavation,
 /obj/item/clothing/mask/breath,
@@ -717,7 +708,7 @@
 /area/outpost/research/eva)
 "cb" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/belt/archaeology,
+/obj/item/storage/belt/archaeology,
 /obj/item/clothing/suit/space/void/excavation,
 /obj/item/clothing/head/helmet/space/void/excavation,
 /obj/item/clothing/mask/breath,
@@ -726,12 +717,10 @@
 	},
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -744,12 +733,10 @@
 "cd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -763,7 +750,6 @@
 	pixel_y = 24
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -771,7 +757,6 @@
 /area/outpost/research/eva)
 "cf" = (
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -786,7 +771,6 @@
 /area/outpost/research/eva)
 "cg" = (
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -796,12 +780,10 @@
 "ch" = (
 /obj/structure/closet/excavation,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -814,7 +796,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -822,7 +803,7 @@
 /area/outpost/research/eva)
 "ck" = (
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 2
 	},
 /turf/simulated/floor/plating,
@@ -835,7 +816,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -861,7 +841,6 @@
 	pixel_x = 24
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -873,12 +852,10 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -904,7 +881,6 @@
 	},
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -930,11 +906,9 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 8;
-	icon_state = "1-8";
-	tag = ""
+	icon_state = "1-8"
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -945,7 +919,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -954,7 +927,6 @@
 "cu" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -969,29 +941,25 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
 /obj/structure/table/rack,
-/obj/item/weapon/rig/hazmat/equipped,
+/obj/item/rig/hazmat/equipped,
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "cw" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
-	icon_state = "1-2";
-	tag = ""
+	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -1016,12 +984,10 @@
 /area/outpost/research/eva)
 "cy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1030,25 +996,22 @@
 "cz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10;
-	icon_state = "intact";
-	tag = "icon-intact-f (SOUTHWEST)"
+	icon_state = "intact"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "cA" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/samplebags,
-/obj/item/weapon/pickaxe,
+/obj/item/storage/box/samplebags,
+/obj/item/pickaxe,
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32;
 	pixel_y = 0
 	},
-/obj/item/weapon/wrench,
+/obj/item/wrench,
 /obj/item/device/measuring_tape,
 /obj/item/stack/flag/yellow,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -1057,12 +1020,10 @@
 "cB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1074,7 +1035,6 @@
 /obj/machinery/suspension_gen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1084,7 +1044,6 @@
 "cD" = (
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1096,17 +1055,14 @@
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
-	icon_state = "1-2";
-	tag = ""
+	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -1130,7 +1086,7 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1379;
-	master_tag = "research_airlock";
+	master_tag = "research";
 	name = "interior access button";
 	pixel_x = -25;
 	pixel_y = -25;
@@ -1138,11 +1094,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4;
-	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
+	icon_state = "map"
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1150,18 +1104,16 @@
 /area/outpost/research/eva)
 "cH" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/box/samplebags,
-/obj/item/weapon/pickaxe,
-/obj/item/weapon/wrench,
+/obj/item/storage/box/samplebags,
+/obj/item/pickaxe,
+/obj/item/wrench,
 /obj/item/device/measuring_tape,
 /obj/item/stack/flag/green,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1194,13 +1146,13 @@
 /area/outpost/research/eva)
 "cL" = (
 /obj/effect/wallframe_spawn/reinforced,
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "cM" = (
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 2
 	},
 /obj/machinery/door/airlock/external{
@@ -1236,7 +1188,7 @@
 	pixel_x = -5;
 	pixel_y = 30
 	},
-/obj/item/weapon/storage/box/lights/bulbs,
+/obj/item/storage/box/lights/bulbs,
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
@@ -1249,52 +1201,49 @@
 	dir = 8
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	tag_airpump = "research_pump";
-	tag_exterior_door = "research_outer";
+	cycle_to_external_air = 1;
 	frequency = 1379;
-	id_tag = "research_airlock";
-	tag_interior_door = "research_inner";
+	id_tag = "research";
 	pixel_x = -25;
 	pixel_y = 0;
-	tag_chamber_sensor = "research_sensor"
+	tag_airpump = null;
+	tag_chamber_sensor = "research_sensor";
+	tag_exterior_door = "research_outer";
+	tag_exterior_sensor = "research_sensor_external";
+	tag_interior_door = "research_inner"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 4;
-	frequency = 1379;
 	id_tag = "research_pump"
 	},
 /obj/effect/floor_decal/corner/mauve/three_quarters{
-	tag = "icon-corner_white_three_quarters (WEST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "cR" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/floor_decal/corner/mauve{
-	tag = "icon-corner_white (NORTHEAST)";
 	icon_state = "corner_white";
 	dir = 5
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "cS" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 8;
-	frequency = 1379;
 	id_tag = "research_pump"
 	},
 /obj/structure/closet/walllocker/emerglocker/east,
 /obj/effect/floor_decal/corner/mauve/three_quarters{
-	tag = "icon-corner_white_three_quarters (NORTH)";
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "cT" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1;
 	initialize_directions = 0;
 	level = 1
@@ -1348,37 +1297,37 @@
 	pixel_x = -25;
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 4;
-	frequency = 1379;
-	id_tag = "research_pump"
+	id_tag = "research_pump_out_internal"
 	},
 /obj/effect/floor_decal/corner/mauve/three_quarters,
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "cZ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1;
+	icon_state = "map"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "da" = (
 /obj/structure/ore_box,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 8;
-	frequency = 1379;
-	id_tag = "research_pump"
+	id_tag = "research_pump_out_internal"
 	},
 /obj/effect/floor_decal/corner/mauve/three_quarters{
-	tag = "icon-corner_white_three_quarters (EAST)";
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "db" = (
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 2
 	},
 /obj/machinery/door/airlock/external{
@@ -1389,6 +1338,7 @@
 	name = "Research Outpost External Access";
 	req_access = list("ACCESS_ENGINEERING","ACCESS_EXTERNAL")
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
 "dc" = (
@@ -1398,14 +1348,14 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/anomaly_container,
+/obj/machinery/anomaly_container,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
 "dd" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/anomaly_container,
+/obj/machinery/anomaly_container,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
 "de" = (
@@ -1426,19 +1376,20 @@
 /obj/machinery/camera/network/research_outpost{
 	c_tag = "Research Airlock External"
 	},
-/turf/simulated/floor/asteroid,
-/area/mine/explored)
+/turf/simulated/floor/plating/glloydplanet,
+/area/outpost/research/eva)
 "dh" = (
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1379;
-	master_tag = "research_airlock";
+	master_tag = "research";
 	name = "exterior access button";
 	pixel_x = 25;
 	pixel_y = 25
 	},
-/turf/simulated/floor/asteroid,
-/area/mine/explored)
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/plating/glloydplanet,
+/area/outpost/research/eva)
 "di" = (
 /obj/machinery/light{
 	dir = 1
@@ -1499,12 +1450,12 @@
 /area/mine/explored)
 "du" = (
 /obj/structure/table/rack,
-/obj/item/weapon/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
 "dv" = (
 /obj/structure/table/rack,
-/obj/item/weapon/pickaxe,
+/obj/item/pickaxe,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
 "dw" = (
@@ -1521,47 +1472,45 @@
 /area/mine/unexplored)
 "dy" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
 /obj/structure/table/reinforced,
-/obj/item/weapon/wrench,
-/obj/item/weapon/screwdriver,
-/obj/item/weapon/crowbar,
-/turf/simulated/floor/plating,
+/obj/item/wrench,
+/obj/item/screwdriver,
+/obj/item/crowbar,
+/turf/simulated/floor/plating/glloydplanet,
 /area/mine/explored)
 "dz" = (
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/glloydplanet,
 /area/mine/explored)
 "dA" = (
 /obj/machinery/mining/drill,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/glloydplanet,
 /area/mine/explored)
 "dB" = (
 /obj/machinery/light{
-	tag = "icon-tube1 (NORTH)";
 	icon_state = "tube1";
 	dir = 1
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/glloydplanet,
 /area/mine/explored)
 "dC" = (
 /obj/structure/table/reinforced,
-/obj/item/weapon/cell/super,
-/obj/item/weapon/cell/super,
-/turf/simulated/floor/plating,
+/obj/item/cell/super,
+/obj/item/cell/super,
+/turf/simulated/floor/plating/glloydplanet,
 /area/mine/explored)
 "dD" = (
 /obj/machinery/mining/brace,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/glloydplanet,
 /area/mine/explored)
 "dE" = (
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/glloydplanet,
 /area/mine/explored)
 "dF" = (
 /turf/simulated/wall,
@@ -1633,9 +1582,8 @@
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/mining,
-/obj/item/weapon/mining_scanner,
+/obj/item/device/scanner/mining,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1646,9 +1594,8 @@
 /obj/item/clothing/suit/space/void/mining/cold,
 /obj/item/clothing/mask/breath,
 /obj/item/clothing/head/helmet/space/void/mining/cold,
-/obj/item/weapon/mining_scanner,
+/obj/item/device/scanner/mining,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1657,7 +1604,6 @@
 "dT" = (
 /obj/machinery/suit_cycler/mining,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1683,7 +1629,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1706,7 +1651,7 @@
 /area/outpost/mining_main/eva)
 "dY" = (
 /obj/machinery/door/blast/shutters{
-	id = "planet_mining";
+	id_tag = "planet_mining";
 	name = "Elevator Shutters"
 	},
 /turf/simulated/floor/plating,
@@ -1716,7 +1661,6 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1734,7 +1678,7 @@
 	pixel_y = 24
 	},
 /obj/structure/table/standard,
-/obj/item/weapon/storage/toolbox/mechanical{
+/obj/item/storage/toolbox/mechanical{
 	pixel_x = -2;
 	pixel_y = -1
 	},
@@ -1744,7 +1688,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1753,7 +1696,6 @@
 "eb" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1761,12 +1703,11 @@
 /area/outpost/mining_main/eva)
 "ec" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/backpack/satchel,
+/obj/item/storage/backpack/satchel,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1774,14 +1715,13 @@
 /area/outpost/mining_main/eva)
 "ed" = (
 /obj/structure/table/standard,
-/obj/item/weapon/storage/belt/utility,
-/obj/item/weapon/pickaxe,
+/obj/item/storage/belt/utility,
+/obj/item/pickaxe,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1792,7 +1732,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1814,37 +1753,30 @@
 /area/outpost/mining_main/eva)
 "ej" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 0;
 	pixel_y = 32
 	},
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	frequency = 1379;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "mining_east_pump"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "ek" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	frequency = 1379;
-	id_tag = "mining_east_pump"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "mining_east_pump_out_internal"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "em" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1858,7 +1790,6 @@
 /area/outpost/mining_main/eva)
 "en" = (
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},
@@ -1869,7 +1800,6 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},
@@ -1880,7 +1810,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	tag = "icon-warning (NORTH)";
 	icon_state = "warning";
 	dir = 1
 	},
@@ -1901,7 +1830,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1938,8 +1866,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1;
-	icon_state = "map";
-	tag = "icon-manifold-f (NORTH)"
+	icon_state = "map"
 	},
 /obj/effect/floor_decal/corner/beige,
 /turf/simulated/floor/tiled,
@@ -1956,7 +1883,6 @@
 	req_access = list("ACCESS_MINING_EVA")
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -1974,12 +1900,10 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1987,7 +1911,6 @@
 /area/outpost/mining_main/eva)
 "ex" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -2002,13 +1925,12 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1379;
-	master_tag = "mining_east_airlock";
+	master_tag = "mining_east";
 	name = "interior access button";
 	pixel_x = 25;
 	pixel_y = 25
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -2021,7 +1943,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "ez" = (
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 2
 	},
 /obj/machinery/door/airlock/external{
@@ -2032,7 +1954,6 @@
 	name = "Mining External Access"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	tag = "icon-intact (EAST)";
 	icon_state = "intact";
 	dir = 4
 	},
@@ -2044,29 +1965,31 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "eA" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4;
+	icon_state = "map"
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "eB" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
-	icon_state = "map";
-	tag = "icon-manifold-f (EAST)"
-	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8;
+	icon_state = "map"
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "eC" = (
-/obj/machinery/door/firedoor/border_only{
+/obj/machinery/door/firedoor{
 	dir = 2
 	},
 /obj/machinery/door/airlock/external{
@@ -2082,29 +2005,38 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4;
+	icon_state = "intact"
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
 "eD" = (
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
-	icon_state = "2-8";
-	tag = ""
+	icon_state = "2-8"
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1379;
-	master_tag = "mining_east_airlock";
+	master_tag = "mining_east";
 	name = "exterior access button";
 	pixel_x = -25;
 	pixel_y = -25
 	},
-/turf/simulated/floor/plating,
-/area/mine/explored)
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4;
+	icon_state = "map"
+	},
+/obj/machinery/air_sensor{
+	id_tag = "mining_east"
+	},
+/turf/simulated/floor/plating/glloydplanet,
+/area/outpost/mining_main/eva)
 "eE" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -2113,7 +2045,6 @@
 "eF" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -2121,12 +2052,10 @@
 /area/outpost/mining_main/eva)
 "eH" = (
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (WEST)";
 	icon_state = "corner_white";
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (EAST)";
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -2135,7 +2064,6 @@
 "eI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -2146,8 +2074,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
@@ -2169,7 +2096,6 @@
 	},
 /obj/effect/floor_decal/corner/beige,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -2185,19 +2111,20 @@
 /area/outpost/mining_main/eva)
 "eQ" = (
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	tag_airpump = "mining_east_pump";
-	tag_exterior_door = "mining_east_outer";
+	cycle_to_external_air = 1;
 	frequency = 1379;
-	id_tag = "mining_east_airlock";
-	tag_interior_door = "mining_east_inner";
+	id_tag = "mining_east";
 	pixel_x = 0;
 	pixel_y = -25;
-	tag_chamber_sensor = "mining_east_sensor"
+	tag_airpump = null;
+	tag_chamber_sensor = "mining_east_sensor";
+	tag_exterior_door = "mining_east_outer";
+	tag_exterior_sensor = "mining_east_airlock_sensor_external";
+	tag_interior_door = "mining_east_inner"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1379;
-	id_tag = "mining_east_pump"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "mining_east_pump";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/eva)
@@ -2209,10 +2136,9 @@
 	pixel_x = 0;
 	pixel_y = -25
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 1;
-	frequency = 1379;
-	id_tag = "mining_east_pump"
+	id_tag = "mining_east_pump_out_internal"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
@@ -2222,15 +2148,23 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
+	pixel_y = 0
 	},
-/turf/simulated/floor/plating,
-/area/mine/explored)
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	dir = 1;
+	id_tag = "mining_east_pump_out_external"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1379;
+	id_tag = "mining_east_sensor_external";
+	pixel_x = -25;
+	pixel_y = -2
+	},
+/turf/simulated/floor/plating/glloydplanet,
+/area/outpost/mining_main/eva)
 "eT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/beige{
-	tag = "icon-corner_white (NORTH)";
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -2247,8 +2181,7 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
+	pixel_y = 0
 	},
 /obj/effect/floor_decal/corner/beige,
 /turf/simulated/floor/tiled,
@@ -2268,16 +2201,15 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2";
-	pixel_y = 0;
-	tag = ""
+	pixel_y = 0
 	},
 /obj/machinery/camera/network/mining{
 	c_tag = "Mining Airlock External";
 	dir = 4;
 	icon_state = "camera"
 	},
-/turf/simulated/floor/plating,
-/area/mine/explored)
+/turf/simulated/floor/plating/glloydplanet,
+/area/outpost/mining_main/eva)
 "eY" = (
 /obj/machinery/light{
 	dir = 4
@@ -2320,7 +2252,7 @@
 	icon_state = "0-4";
 	d2 = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/glloydplanet,
 /area/mine/explored)
 "fd" = (
 /obj/structure/cable{
@@ -2328,7 +2260,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating/glloydplanet,
 /area/mine/explored)
 "fe" = (
 /obj/machinery/meter,
@@ -2357,7 +2289,7 @@
 	pixel_x = -5;
 	pixel_y = 30
 	},
-/obj/item/weapon/storage/box/lights/bulbs,
+/obj/item/storage/box/lights/bulbs,
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
@@ -2366,7 +2298,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/eva)
 "fi" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/unary/tank/air{
 	dir = 1;
 	initialize_directions = 0;
 	level = 1
@@ -2415,6 +2347,35 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space,
 /area/space)
+"mg" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	dir = 8;
+	id_tag = "research_pump_out_external"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1379;
+	id_tag = "research_sensor_external";
+	pixel_x = 5;
+	pixel_y = 25
+	},
+/turf/simulated/floor/plating/glloydplanet,
+/area/outpost/research/eva)
+"mh" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "mining_east_pump_out_external"
+	},
+/turf/simulated/floor/plating/glloydplanet,
+/area/outpost/mining_main/eva)
+"Bw" = (
+/turf/simulated/floor/plating/glloydplanet,
+/area/outpost/mining_main/eva)
+"EW" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	dir = 4;
+	id_tag = "research_pump_out_external"
+	},
+/turf/simulated/floor/plating/glloydplanet,
+/area/outpost/research/eva)
 
 (1,1,1) = {"
 aa
@@ -13798,7 +13759,7 @@ bL
 cQ
 cY
 ck
-bK
+EW
 bK
 bK
 bK
@@ -14312,7 +14273,7 @@ cc
 cS
 da
 bL
-bK
+mg
 bK
 bK
 bK
@@ -17803,8 +17764,8 @@ bK
 bK
 bK
 bK
-dz
-dz
+Bw
+mh
 eD
 eS
 eX

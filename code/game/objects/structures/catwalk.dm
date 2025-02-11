@@ -3,24 +3,17 @@
 	desc = "Cats really don't like these things."
 	icon = 'icons/obj/catwalks.dmi'
 	icon_state = "catwalk"
-	density = 0
-	anchored = 1.0
-	var/obj/item/stack/tile/mono/plated_tile
-	plane = UNDER_OBJ_PLANE
+	density = FALSE
+	anchored = TRUE
 	layer = CATWALK_LAYER
+	footstep_type = /singleton/footsteps/catwalk
+	obj_flags = OBJ_FLAG_NOFALL
 	var/hatch_open = FALSE
-	footstep_sounds= list(
-		'sound/effects/footstep/catwalk1.ogg',
-		'sound/effects/footstep/catwalk2.ogg',
-		'sound/effects/footstep/catwalk3.ogg',
-		'sound/effects/footstep/catwalk4.ogg',
-		'sound/effects/footstep/catwalk5.ogg')
+	var/obj/item/stack/tile/mono/plated_tile
 
 /obj/structure/catwalk/Initialize()
 	. = ..()
-	for(var/obj/structure/catwalk/C in get_turf(src))
-		if(C != src)
-			qdel(C)
+	DELETE_IF_DUPLICATE_OF(/obj/structure/catwalk)
 	update_connections(1)
 	update_icon()
 
@@ -44,21 +37,19 @@
 	var/image/I
 	if(!hatch_open)
 		for(var/i = 1 to 4)
-			I = image('icons/obj/catwalks.dmi', "catwalk[connections[i]]", dir = 1<<(i-1))
+			I = image('icons/obj/catwalks.dmi', "catwalk[connections[i]]", dir = SHIFTL(1, i - 1))
 			overlays += I
 	if(plated_tile)
 		I = image('icons/obj/catwalks.dmi', "plated")
 		I.color = plated_tile.color
 		overlays += I
 
-
-
 /obj/structure/catwalk/ex_act(severity)
 	switch(severity)
-		if(1)
+		if(EX_ACT_DEVASTATING)
 			new /obj/item/stack/material/rods(src.loc)
 			qdel(src)
-		if(2)
+		if(EX_ACT_HEAVY)
 			new /obj/item/stack/material/rods(src.loc)
 			qdel(src)
 
@@ -67,46 +58,62 @@
 		do_pull_click(user, src)
 	..()
 
+/obj/structure/catwalk/attack_robot(mob/user)
+	if(Adjacent(user))
+		attack_hand(user)
+
+/obj/structure/catwalk/proc/deconstruct(mob/user)
+	playsound(src, 'sound/items/Welder.ogg', 100, 1)
+	to_chat(user, SPAN_NOTICE("Slicing \the [src] joints ..."))
+	new /obj/item/stack/material/rods(src.loc)
+	new /obj/item/stack/material/rods(src.loc)
+	//Lattice would delete itself, but let's save ourselves a new obj
+	if(istype(src.loc, /turf/space) || istype(src.loc, /turf/simulated/open))
+		new /obj/structure/lattice/(src.loc)
+	if(plated_tile)
+		new plated_tile.build_type(src.loc)
+	qdel(src)
+
 /obj/structure/catwalk/attackby(obj/item/C as obj, mob/user as mob)
 	if(isWelder(C))
-		var/obj/item/weapon/weldingtool/WT = C
+		var/obj/item/weldingtool/WT = C
 		if(WT.remove_fuel(0, user))
-			playsound(src, 'sound/items/Welder.ogg', 100, 1)
-			to_chat(user, "<span class='notice'>Slicing \the [src] joints ...</span>")
-			new /obj/item/stack/material/rods(src.loc)
-			new /obj/item/stack/material/rods(src.loc)
-			//Lattice would delete itself, but let's save ourselves a new obj
-			if(istype(src.loc, /turf/space) || istype(src.loc, /turf/simulated/open))
-				new /obj/structure/lattice/(src.loc)
-			if(plated_tile)
-				new plated_tile.build_type(src.loc)
-			qdel(src)
+			deconstruct(user)
+		return
+	if(istype(C, /obj/item/gun/energy/plasmacutter))
+		var/obj/item/gun/energy/plasmacutter/cutter = C
+		if(!cutter.slice(user))
+			return
+		deconstruct(user)
 		return
 	if(isCrowbar(C) && plated_tile)
+		if(user.a_intent != I_HELP)
+			return
 		hatch_open = !hatch_open
 		if(hatch_open)
 			playsound(src, 'sound/items/Crowbar.ogg', 100, 2)
-			to_chat(user, "<span class='notice'>You pry open \the [src]'s maintenance hatch.</span>")
+			to_chat(user, SPAN_NOTICE("You pry open \the [src]'s maintenance hatch."))
 		else
 			playsound(src, 'sound/items/Deconstruct.ogg', 100, 2)
-			to_chat(user, "<span class='notice'>You shut \the [src]'s maintenance hatch.</span>")
+			to_chat(user, SPAN_NOTICE("You shut \the [src]'s maintenance hatch."))
 		update_icon()
 		return
 	if(istype(C, /obj/item/stack/tile/mono) && !plated_tile)
 		var/obj/item/stack/tile/floor/ST = C
 		if(!ST.in_use)
-			to_chat(user, "<span class='notice'>Placing tile...</span>")
+			to_chat(user, SPAN_NOTICE("Placing tile..."))
 			ST.in_use = 1
-			if (!do_after(user, 10))
+			if (!do_after(user, 1 SECOND, src, DO_REPAIR_CONSTRUCT))
 				ST.in_use = 0
 				return
-			to_chat(user, "<span class='notice'>You plate \the [src]</span>")
+			to_chat(user, SPAN_NOTICE("You plate \the [src]"))
 			name = "plated catwalk"
 			ST.in_use = 0
 			src.add_fingerprint(user)
 			if(ST.use(1))
-				for(var/flooring_type in flooring_types)
-					var/decl/flooring/F = flooring_types[flooring_type]
+				var/list/singletons = GET_SINGLETON_SUBTYPE_MAP(/singleton/flooring)
+				for(var/flooring_type in singletons)
+					var/singleton/flooring/F = singletons[flooring_type]
 					if(!F.build_type)
 						continue
 					if(ispath(C.type, F.build_type))
@@ -114,15 +121,18 @@
 						break
 				update_icon()
 
+/obj/structure/catwalk/refresh_neighbors()
+	return
+
 /obj/effect/catwalk_plated
 	name = "plated catwalk spawner"
 	icon = 'icons/obj/catwalks.dmi'
 	icon_state = "catwalk_plated"
-	density = 1
-	anchored = 1.0
+	density = TRUE
+	anchored = TRUE
 	var/activated = FALSE
-	layer = ABOVE_TURF_PLANE
-	var/plating_type = /decl/flooring/tiling/mono
+	layer = CATWALK_LAYER
+	var/plating_type = /singleton/flooring/tiling/mono
 
 /obj/effect/catwalk_plated/Initialize(mapload)
 	. = ..()
@@ -160,8 +170,8 @@
 
 /obj/effect/catwalk_plated/dark
 	icon_state = "catwalk_plateddark"
-	plating_type = /decl/flooring/tiling/mono/dark
+	plating_type = /singleton/flooring/tiling/mono/dark
 
 /obj/effect/catwalk_plated/white
 	icon_state = "catwalk_platedwhite"
-	plating_type = /decl/flooring/tiling/mono/white
+	plating_type = /singleton/flooring/tiling/mono/white

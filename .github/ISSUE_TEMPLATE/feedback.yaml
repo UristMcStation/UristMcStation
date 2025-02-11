@@ -1,0 +1,17 @@
+# Docs - https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema
+name: Feedback
+description: Provide general feedback for gameplay features
+labels: ["Feedback"]
+
+body:
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Feedback
+      description: |
+        Provide feedback about a gameplay feature. Be sure to include as much detail and reasoning as possible.
+
+        Have a problem but also specific ideas on how to solve it? [Raise a feature request](https://github.com/UristMcStation/UristMcStation/issues/new/choose) instead.
+      placeholder: I feel like geese aren't strong enough, they should be stronger than they are now.
+    validations:
+      required: true

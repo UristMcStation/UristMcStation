@@ -25,7 +25,6 @@
 		/area/exoplanet/desert   = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/exoplanet/grass    = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/exoplanet/snow     = NO_SCRUBBER|NO_VENT|NO_APC,
-		/area/exoplanet/garbage  = NO_SCRUBBER|NO_VENT|NO_APC
 	)
 
 	area_usage_test_exempted_areas = list(
@@ -43,9 +42,9 @@
 		/area/shuttle/escape/centcom,
 		/area/shuttle/specops/centcom,
 		/area/shuttle/syndicate_elite/mothership,
-		/area/skipjack_station/start,
-		/area/syndicate_mothership/elite_squad,
-		/area/wizard_station,
+		/area/map_template/skipjack_station/start,
+		/area/syndicate_elite_squad,
+		/area/map_template/wizard_station,
 		/area/beach,
 		/area/template_noop,
 		/area/overmap,

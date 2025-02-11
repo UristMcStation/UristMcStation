@@ -2,7 +2,16 @@
 	announceWhen = 0		// Warn them shortly before it begins.
 	startWhen = 30
 	endWhen = 60			// Set in start()
+	has_skybox_image = TRUE
 	var/list/valid_apcs		// Shuffled list of valid APCs.
+	var/static/lightning_color
+
+/datum/event/electrical_storm/get_skybox_image()
+	if(!lightning_color)
+		lightning_color = pick("#ffd98c", "#ebc7ff", "#bdfcff", "#bdd2ff", "#b0ffca", "#ff8178", "#ad74cc")
+	var/image/res = overlay_image('icons/skybox/electrobox.dmi', "lightning", lightning_color, RESET_COLOR)
+	res.blend_mode = BLEND_ADD
+	return res
 
 /datum/event/electrical_storm/announce()
 	..()
@@ -29,13 +38,13 @@
 	for(var/obj/machinery/power/shield_generator/G in SSmachines.machinery)
 		if((G.z in affecting_z) && G.running && G.check_flag(MODEFLAG_EM))
 			shields += G
-	if(shields.len)
+	if(length(shields))
 		var/obj/machinery/power/shield_generator/shield_gen = pick(shields)
 		//Minor breaches aren't enough to let through frying amounts of power
 		if(shield_gen.take_damage(30 * severity, SHIELD_DAMTYPE_EM) <= SHIELD_BREACHED_MINOR)
 			return
-	if(!valid_apcs.len)
-		CRASH("No valid APCs found for electrical storm event! This is likely a bug.")
+	if(!length(valid_apcs))
+		CRASH("No valid APCs found for electrical storm event! This is likely a bug. Location: [location_name()] - Z Level: [affecting_z]")
 	var/list/picked_apcs = list()
 	for(var/i=0, i< severity*2, i++) // up to 2/4/6 APCs per tick depending on severity
 		picked_apcs |= pick(valid_apcs)
@@ -51,7 +60,7 @@
 
 		// Relatively small chance to emag the apc as apc_damage event does.
 		if(prob(0.2 * severity))
-			T.emagged = 1
+			T.emagged = TRUE
 			T.update_icon()
 
 		if(T.is_critical)

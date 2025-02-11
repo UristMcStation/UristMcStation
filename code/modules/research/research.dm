@@ -65,8 +65,8 @@ research holder datum.
 
 //Checks to see if design has all the required pre-reqs.
 //Input: datum/design; Output: 0/1 (false/true)
-/datum/research/proc/DesignHasReqs(var/datum/design/D)
-	if(D.req_tech.len == 0)
+/datum/research/proc/DesignHasReqs(datum/design/D)
+	if(length(D.req_tech) == 0)
 		return 1
 
 	var/list/k_tech = list()
@@ -82,7 +82,7 @@ research holder datum.
 
 //Adds a tech to known_tech list. Checks to make sure there aren't duplicates and updates existing tech's levels if needed.
 //Input: datum/tech; Output: Null
-/datum/research/proc/AddTech2Known(var/datum/tech/T)
+/datum/research/proc/AddTech2Known(datum/tech/T)
 	for(var/datum/tech/known in known_tech)
 		if(T.id == known.id)
 			if(T.level > known.level)
@@ -90,11 +90,11 @@ research holder datum.
 			return
 	return
 
-/datum/research/proc/AddDesign2Known(var/datum/design/D)
-	if(!known_designs.len) // Special case
+/datum/research/proc/AddDesign2Known(datum/design/D)
+	if(!length(known_designs)) // Special case
 		known_designs.Add(D)
 		return
-	for(var/i = 1 to known_designs.len)
+	for(var/i = 1 to length(known_designs))
 		var/datum/design/A = known_designs[i]
 		if(A.id == D.id) // We are guaranteed to reach this if the ids are the same, because sort_string will also be the same
 			return
@@ -111,19 +111,25 @@ research holder datum.
 		if(DesignHasReqs(PD))
 			AddDesign2Known(PD)
 	for(var/datum/tech/T in known_tech)
-		T = between(0, T.level, 20)
+		T = clamp(T.level, 0, 20)
 	return
 
 //Refreshes the levels of a given tech.
 //Input: Tech's ID and Level; Output: null
-/datum/research/proc/UpdateTech(var/ID, var/level)
+/datum/research/proc/UpdateTech(ID, level)
+	// If a "brain expansion" event is active, we gain 1 extra level
+	for(var/datum/event/E in SSevent.active_events)
+		if(istype(E, /datum/event/brain_expansion))
+			level += 1
+			break
+
 	for(var/datum/tech/KT in known_tech)
 		if(KT.id == ID && KT.level <= level)
 			KT.level = max(KT.level + 1, level - 1)
 	return
 
 // A simple helper proc to find the name of a tech with a given ID.
-/proc/CallTechName(var/ID)
+/proc/CallTechName(ID)
 	for(var/T in subtypesof(/datum/tech))
 		var/datum/tech/check_tech = T
 		if(initial(check_tech.id) == ID)
@@ -185,19 +191,13 @@ research holder datum.
 	desc = "Computer and artificial intelligence and data storage systems."
 	id = TECH_DATA
 
-/datum/tech/syndicate
-	name = "ILLEGAL"
-	desc = "WARNING: Controlled technology detected. Fabrication of items using this technology is a direct violation of Federal Law 352-C part II and is a serious crime."
-	id = TECH_ILLEGAL
+/datum/tech/esoteric
+	name = "Esoteric Technology"
+	desc = "A miscellaneous tech category filled with information on non-standard designs, personal projects and half-baked ideas."
+	id = TECH_ESOTERIC
 	level = 0
 
-/datum/tech/arcane
-	name = "Arcane"
-	desc = "Techniques not explained by the mainstream science, commonly regarded as 'occult'."
-	id = TECH_ARCANE
-	level = 0
-
-/obj/item/weapon/disk/tech_disk
+/obj/item/disk/tech_disk
 	name = "fabricator data disk"
 	desc = "A disk for storing fabricator learning data for backup."
 	icon = 'icons/obj/cloning.dmi'
@@ -208,7 +208,7 @@ research holder datum.
 	var/datum/tech/stored
 
 
-/obj/item/weapon/disk/design_disk
+/obj/item/disk/design_disk
 	name = "component design disk"
 	desc = "A disk for storing device design data for construction in lathes."
 	icon = 'icons/obj/cloning.dmi'

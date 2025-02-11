@@ -6,22 +6,34 @@
  * Defines the behavior of hardsuits/rigs/power armour.
  */
 
-/obj/item/weapon/rig
+/obj/item/rig
 
 	name = "hardsuit control module"
 	icon = 'icons/obj/rig_modules.dmi'
 	desc = "A back-mounted hardsuit deployment and control mechanism."
 	slot_flags = SLOT_BACK
 	w_class = ITEM_SIZE_HUGE
-	center_of_mass = null
 
 	// These values are passed on to all component pieces.
-	armor = list(melee = 40, bullet = 5, laser = 20,energy = 5, bomb = 35, bio = 100, rad = 20)
+	armor_type = /datum/extension/armor/rig
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR
+		)
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+	max_pressure_protection = RIG_MAX_PRESSURE
+	min_pressure_protection = 0
+
 	siemens_coefficient = 0.2
 	permeability_coefficient = 0.1
-	unacidable = 1
+	unacidable = TRUE
+	equip_delay = 5 SECONDS
 
 	var/equipment_overlay_icon = 'icons/mob/onmob/onmob_rig_modules.dmi'
 	var/hides_uniform = 1 	//used to determinate if uniform should be visible whenever the suit is sealed or not
@@ -39,16 +51,16 @@
 	var/helm_type =  /obj/item/clothing/head/helmet/space/rig
 	var/boot_type =  /obj/item/clothing/shoes/magboots/rig
 	var/glove_type = /obj/item/clothing/gloves/rig
-	var/cell_type =  /obj/item/weapon/cell/high
-	var/air_type =   /obj/item/weapon/tank/oxygen
+	var/cell_type =  /obj/item/cell/high
+	var/air_type =   /obj/item/tank/oxygen
 
 	//Component/device holders.
-	var/obj/item/weapon/tank/air_supply                       // Air tank, if any.
+	var/obj/item/tank/air_supply                       // Air tank, if any.
 	var/obj/item/clothing/shoes/boots = null                  // Deployable boots, if any.
 	var/obj/item/clothing/suit/space/rig/chest                // Deployable chestpiece, if any.
 	var/obj/item/clothing/head/helmet/space/rig/helmet = null // Deployable helmet, if any.
 	var/obj/item/clothing/gloves/rig/gloves = null            // Deployable gauntlets, if any.
-	var/obj/item/weapon/cell/cell                             // Power supply, if any.
+	var/obj/item/cell/cell                             // Power supply, if any.
 	var/obj/item/rig_module/selected_module = null            // Primary system (used with middle-click)
 	var/obj/item/rig_module/vision/visor                      // Kinda shitty to have a var for a module, but saves time.
 	var/obj/item/rig_module/voice/speech                      // As above.
@@ -74,12 +86,13 @@
 	var/seal_delay = SEAL_DELAY
 	var/sealing                                               // Keeps track of seal status independantly of canremove.
 	var/offline = 1                                           // Should we be applying suit maluses?
-	var/online_slowdown = 0                                   // If the suit is deployed and powered, it sets slowdown to this.
+	var/online_slowdown = 1                                   // If the suit is deployed and powered, it sets slowdown to this.
 	var/offline_slowdown = 3                                  // If the suit is deployed and unpowered, it sets slowdown to this.
 	var/vision_restriction = TINT_NONE
 	var/offline_vision_restriction = TINT_HEAVY               // tint value given to helmet
-	var/airtight = 1 //If set, will adjust ITEM_FLAG_AIRTIGHT and ITEM_FLAG_STOPPRESSUREDAMAGE flags on components. Otherwise it should leave them untouched.
+	var/airtight = 1 //If set, will adjust ITEM_FLAG_AIRTIGHT flags on components. Otherwise it should leave them untouched.
 	var/visible_name
+	var/update_visible_name = FALSE
 
 	var/emp_protection = 0
 
@@ -89,24 +102,76 @@
 
 	var/banned_modules = list()
 
-/obj/item/weapon/rig/examine()
+/obj/item/rig/get_mechanics_info()
+	. = ..()
+	. += {"
+		<p>A Hardsuit Control Module, or HCM, is a large device that goes into your backpack slot and can be deployed into a full powered hardsuit.</p>
+		<p>HCM oxygen tanks must be refilled like a normal void suit's tank.</p>
+		<p>HCM power cells must be recharged.</p>
+		<p>HCMs and their components are susceptible to damage from EMPs.</p>
+		<p>HCMs rely on an internal power cell to function, and will de-activate themselves if the power cell fully drains. Using modules increases the speed at which the HCM's cell drains.</p>
+
+		<h4>ACTIVATION</h4>
+		<p>To deploy and activate an HCM, follow these steps:</p>
+		<ol>
+			<li>Put the HCM onto your backpack slot. This is a timed action that will require you to remain still while you put it on.</li>
+			<li>Ensure you are not wearing anything on your head, suit, or glove slots, and ensure you are not wearing any magboots. These items will block the HCM from fully deploying.</li>
+			<li>Use the <code>toggle-hardsuit</code> verb in the chat bar, the <code>Toggle Hardsuit</code> option under the <code>Hardsuit</code> tab in the upper right, or the <code>Toggle</code> button next to the Suit status in the Hardsuit Interface. This is a timed action that will require you to remain still until all components of the suit are deployed and sealed.</li>
+			<li>Monitor your chat log - You'll know it's done when you see bold blue text stating the suit tightens around you.</li>
+		</ol>
+
+		<h4>DE-ACTIVATION</h4>
+		<p>You can de-activate the HCM so you can take it off by following these steps:</p>
+		<ol>
+			<li>Use the <code>toggle-hardsuit</code> verb in the chat bar, the <code>Toggle Hardsuit</code> option under the <code>Hardsuit</code> tab in the upper right, or the <code>Toggle</code> button next to the Suit status in the Hardsuit Interface. This is a timed action that will require you to remain still until all components of the suit are retracted and unsealed.</li>
+			<li>Monitor your chat log - You'll know it's done when you see bold blue text stating the suit loosens around you.</li>
+			<li>Click on the HCM with an empty hand to remove it from your back.</li>
+		</ol>
+
+		<h4>HARDSUIT INTERFACE</h4>
+		<p>The HCM's Hardsuit Interface can be accessed by using the <code>Open Hardsuit Interface</code> option under the <code>Hardsuit</code> tab in the top right, or using the <code>open-hardsuit-interface`</code>verb in the chat bar.</p>
+		<ul>
+			<li><b>Power Supply</b> tells you how much charge is remaining in the HCM's power cell.</li>
+			<li><b>AI Control</b> displays and allows you to toggle an inserted pAI or AI intellicard's ability to control movement (CURRENTLY BROKEN, DO NOT USE).</li>
+			<li><b>Cover Status</b> displays and allows you to toggle the HCM's access panel lock.</li>
+			<li><b>Suit Pieces</b> displays the name and status of the major components of the hardsuit, and allows you to toggle the helmet on or off.</li>
+			<li>Additional HCM modules and their controls are displayed in the HCM's interface as well.</li>
+		</ul>
+	"}
+
+/obj/item/rig/get_interactions_info()
+	. = ..()
+	.["Crowbar"] += "<p>Toggles the maintenance panel open and closed if it is unlocked.</p>"
+	.["ID Card"] += "<p>Toggle the maintenance panel's access lock with an ID that has the required access. A locked panel cannot be crowbarred open.</p>"
+	.["Nanopaste"] += "<p>While the maintenance panel is open, repairs the HCM's internal components.</p>"
+	.["Screwdriver"] += "<p>Toggles the wiring panel open and closed.</p>"
+	.["Wrench"] += "<p>While the maintenance panel is open, allows you to remove specific components from the HCM, such as oxygen tanks, power cells, or HCM modules.</p>"
+	.["Miscellaneous"] += {"
+		<p>While the maintenance panel is open, oxygen tanks, power cells, and HCM modules can be inserted.</p>
+		<p>WYou can repair damage to the chest piece by using a stack of the relevant material or a welder on the HCM or the chest piece while the chest piece is deployed.</p>
+	"}
+
+/obj/item/rig/get_cell()
+	return cell
+
+/obj/item/rig/examine(mob/user)
 	. = ..()
 	if(wearer)
 		for(var/obj/item/piece in list(helmet,gloves,chest,boots))
 			if(!piece || piece.loc != wearer)
 				continue
-			to_chat(usr, "\icon[piece] \The [piece] [piece.gender == PLURAL ? "are" : "is"] deployed.")
+			to_chat(user, "[icon2html(piece, user)] \The [piece] [piece.gender == PLURAL ? "are" : "is"] deployed.")
 
-	if(src.loc == usr)
-		to_chat(usr, "The access panel is [locked? "locked" : "unlocked"].")
-		to_chat(usr, "The maintenance panel is [open ? "open" : "closed"].")
-		to_chat(usr, "The wire panel is [p_open ? "open" : "closed"].")
-		to_chat(usr, "Hardsuit systems are [offline ? "<font color='red'>offline</font>" : "<font color='green'>online</font>"].")
+	if(src.loc == user)
+		to_chat(user, "The access panel is [locked? "locked" : "unlocked"].")
+		to_chat(user, "The maintenance panel is [open ? "open" : "closed"].")
+		to_chat(user, "The wire panel is [p_open ? "open" : "closed"].")
+		to_chat(user, "Hardsuit systems are [offline ? SPAN_COLOR("red", "offline") : SPAN_COLOR("green", "online")].")
 
 		if(open)
-			to_chat(usr, "It's equipped with [english_list(installed_modules)].")
+			to_chat(user, "It's equipped with [english_list(installed_modules)].")
 
-/obj/item/weapon/rig/Initialize()
+/obj/item/rig/Initialize()
 	. = ..()
 
 	item_state = icon_state
@@ -121,9 +186,13 @@
 
 	START_PROCESSING(SSobj, src)
 
-	if(initial_modules && initial_modules.len)
+	if(initial_modules && length(initial_modules))
 		for(var/path in initial_modules)
 			var/obj/item/rig_module/module = new path(src)
+			if (!module.can_install(src))
+				crash_with("\A [module] ([module.type]) failed to initialize within \a [src].")
+				qdel(module)
+				continue
 			installed_modules += module
 			module.installed(src)
 
@@ -134,18 +203,15 @@
 		air_supply = new air_type(src)
 	if(glove_type)
 		gloves = new glove_type(src)
-		verbs |= /obj/item/weapon/rig/proc/toggle_gauntlets
 	if(helm_type)
 		helmet = new helm_type(src)
-		verbs |= /obj/item/weapon/rig/proc/toggle_helmet
+		verbs |= /obj/item/rig/proc/toggle_helmet
 	if(boot_type)
 		boots = new boot_type(src)
-		verbs |= /obj/item/weapon/rig/proc/toggle_boots
 	if(chest_type)
 		chest = new chest_type(src)
 		if(allowed)
 			chest.allowed = allowed
-		verbs |= /obj/item/weapon/rig/proc/toggle_chest
 
 	for(var/obj/item/piece in list(gloves,helmet,boots,chest))
 		if(!istype(piece))
@@ -160,12 +226,15 @@
 			piece.siemens_coefficient = siemens_coefficient
 		piece.permeability_coefficient = permeability_coefficient
 		piece.unacidable = unacidable
-		if(islist(armor)) piece.armor = armor.Copy()
+		if(islist(armor))
+			piece.armor = armor.Copy() // codex reads the armor list, not extensions. this list does not have any effect on in game mechanics
+			remove_extension(piece, /datum/extension/armor)
+			set_extension(piece, armor_type, armor, armor_degradation_speed)
 
 	set_slowdown_and_vision(!offline)
 	update_icon(1)
 
-/obj/item/weapon/rig/Destroy()
+/obj/item/rig/Destroy()
 	for(var/obj/item/piece in list(gloves,boots,helmet,chest))
 		qdel(piece)
 	STOP_PROCESSING(SSobj, src)
@@ -175,7 +244,7 @@
 	spark_system = null
 	return ..()
 
-/obj/item/weapon/rig/get_mob_overlay(mob/user_mob, slot)
+/obj/item/rig/get_mob_overlay(mob/user_mob, slot)
 	var/image/ret = ..()
 	if(icon_override)
 		ret.icon = icon_override
@@ -183,14 +252,14 @@
 		ret.icon = mob_icon
 	return ret
 
-/obj/item/weapon/rig/proc/set_slowdown_and_vision(var/active)
+/obj/item/rig/proc/set_slowdown_and_vision(active)
 	if(chest)
 		chest.slowdown_per_slot[slot_wear_suit] = (active? online_slowdown : offline_slowdown)
 	if(helmet)
 		helmet.tint = (active? vision_restriction : offline_vision_restriction)
 		helmet.update_vision()
 
-/obj/item/weapon/rig/proc/suit_is_deployed()
+/obj/item/rig/proc/suit_is_deployed()
 	if(!istype(wearer) || src.loc != wearer || wearer.back != src)
 		return 0
 	if(helm_type && !(helmet && wearer.head == helmet))
@@ -203,7 +272,7 @@
 		return 0
 	return 1
 
-/obj/item/weapon/rig/proc/reset()
+/obj/item/rig/proc/reset()
 	canremove = 1
 	if(istype(chest))
 		chest.check_limb_support(wearer)
@@ -211,16 +280,18 @@
 		if(!piece) continue
 		piece.icon_state = "[initial(icon_state)]"
 		if(airtight)
-			piece.item_flags &= ~(ITEM_FLAG_STOPPRESSUREDAMAGE|ITEM_FLAG_AIRTIGHT)
+			piece.max_pressure_protection = initial(piece.max_pressure_protection)
+			piece.min_pressure_protection = initial(piece.min_pressure_protection)
+			piece.item_flags &= ~ITEM_FLAG_AIRTIGHT
 	update_icon(1)
 
-/obj/item/weapon/rig/proc/toggle_seals(var/mob/initiator,var/instant)
+/obj/item/rig/proc/toggle_seals(mob/initiator,instant)
 
 	if(sealing) return
 
 	// Seal toggling can be initiated by the suit AI, too
 	if(!wearer)
-		to_chat(initiator, "<span class='danger'>Cannot toggle suit: The suit is currently not being worn by anyone.</span>")
+		to_chat(initiator, SPAN_DANGER("Cannot toggle suit: The suit is currently not being worn by anyone."))
 		return 0
 
 	if(!check_power_cost(wearer, 1))
@@ -235,15 +306,20 @@
 	sealing = 1
 
 	if(!seal_target && !suit_is_deployed())
-		wearer.visible_message("<span class='danger'>[wearer]'s suit flashes an error light.</span>","<span class='danger'>Your suit flashes an error light. It can't function properly without being fully deployed.</span>")
+		wearer.visible_message(\
+		SPAN_DANGER("[wearer]'s suit flashes an error light."), \
+		SPAN_DANGER("Your suit flashes an error light. It can't function properly without being fully deployed."))
+
 		failed_to_seal = 1
 
 	if(!failed_to_seal)
 
 		if(!instant)
-			wearer.visible_message("<font color='blue'>[wearer]'s suit emits a quiet hum as it begins to adjust its seals.</font>","<font color='blue'>With a quiet hum, the suit begins running checks and adjusting components.</font>")
-			if(seal_delay && !do_after(wearer,seal_delay, src))
-				if(wearer) to_chat(wearer, "<span class='warning'>You must remain still while the suit is adjusting the components.</span>")
+			wearer.visible_message(\
+			SPAN_INFO("[wearer]'s suit emits a quiet hum as it begins to adjust its seals."), \
+			SPAN_INFO("With a quiet hum, the suit begins running checks and adjusting components."))
+
+			if(seal_delay && !instant && !do_after(wearer,seal_delay, src))
 				failed_to_seal = 1
 
 		if(!wearer)
@@ -260,37 +336,37 @@
 					continue
 
 				if(!istype(wearer) || !istype(piece) || !istype(compare_piece) || !msg_type)
-					if(wearer) to_chat(wearer, "<span class='warning'>You must remain still while the suit is adjusting the components.</span>")
+					if(wearer) to_chat(wearer, SPAN_WARNING("You must remain still while the suit is adjusting the components."))
 					failed_to_seal = 1
 					break
 
 				if(!failed_to_seal && wearer.back == src && piece == compare_piece)
 
-					if(seal_delay && !instant && !do_after(wearer,seal_delay,src,needhand=0))
+					if(seal_delay && !instant && !do_after(wearer, seal_delay, src, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 						failed_to_seal = 1
 
 					piece.icon_state = "[initial(icon_state)][!seal_target ? "_sealed" : ""]"
 					switch(msg_type)
 						if("boots")
-							to_chat(wearer, "<font color='blue'>\The [piece] [!seal_target ? "seal around your feet" : "relax their grip on your legs"].</font>")
+							to_chat(wearer, SPAN_INFO("\The [piece] [!seal_target ? "seal around your feet" : "relax their grip on your legs"]."))
 							wearer.update_inv_shoes()
 						if("gloves")
-							to_chat(wearer, "<font color='blue'>\The [piece] [!seal_target ? "tighten around your fingers and wrists" : "become loose around your fingers"].</font>")
+							to_chat(wearer, SPAN_INFO("\The [piece] [!seal_target ? "tighten around your fingers and wrists" : "become loose around your fingers"]."))
 							wearer.update_inv_gloves()
 						if("chest")
-							to_chat(wearer, "<font color='blue'>\The [piece] [!seal_target ? "cinches tight again your chest" : "releases your chest"].</font>")
+							to_chat(wearer, SPAN_INFO("\The [piece] [!seal_target ? "cinches tight again your chest" : "releases your chest"]."))
 							wearer.update_inv_wear_suit()
 						if("helmet")
-							to_chat(wearer, "<font color='blue'>\The [piece] hisses [!seal_target ? "closed" : "open"].</font>")
+							to_chat(wearer, SPAN_INFO("\The [piece] hisses [!seal_target ? "closed" : "open"]."))
 							wearer.update_inv_head()
 							if(helmet)
 								helmet.update_light(wearer)
 
 					//sealed pieces become airtight, protecting against diseases
-					if (!seal_target)
-						piece.armor["bio"] = 100
-					else
-						piece.armor["bio"] = src.armor["bio"]
+					var/datum/extension/armor/rig/armor_datum = get_extension(piece, /datum/extension/armor)
+					if(istype(armor_datum))
+						armor_datum.sealed = !seal_target
+					playsound(src, 'sound/machines/suitstorage_lockdoor.ogg', 10, 0)
 
 				else
 					failed_to_seal = 1
@@ -312,10 +388,12 @@
 
 	// Success!
 	canremove = seal_target
-	to_chat(wearer, "<font color='blue'><b>Your entire suit [canremove ? "loosens as the components relax" : "tightens around you as the components lock into place"].</b></font>")
+	to_chat(wearer, SPAN_INFO("<b>Your entire suit [canremove ? "loosens as the components relax" : "tightens around you as the components lock into place"].</b>"))
+	if(!canremove && update_visible_name)
+		visible_name = wearer.real_name
 
 	if(wearer != initiator)
-		to_chat(initiator, "<font color='blue'>Suit adjustment complete. Suit is now [canremove ? "unsealed" : "sealed"].</font>")
+		to_chat(initiator, SPAN_INFO("Suit adjustment complete. Suit is now [canremove ? "unsealed" : "sealed"]."))
 
 	if(canremove)
 		for(var/obj/item/rig_module/module in installed_modules)
@@ -325,12 +403,16 @@
 	update_icon(1)
 
 
-/obj/item/weapon/rig/proc/update_component_sealed()
+/obj/item/rig/proc/update_component_sealed()
 	for(var/obj/item/piece in list(helmet,boots,gloves,chest))
 		if(canremove)
-			piece.item_flags &= ~(ITEM_FLAG_STOPPRESSUREDAMAGE|ITEM_FLAG_AIRTIGHT)
+			piece.max_pressure_protection = initial(piece.max_pressure_protection)
+			piece.min_pressure_protection = initial(piece.min_pressure_protection)
+			piece.item_flags &= ~ITEM_FLAG_AIRTIGHT
 		else
-			piece.item_flags |=  (ITEM_FLAG_STOPPRESSUREDAMAGE|ITEM_FLAG_AIRTIGHT)
+			piece.max_pressure_protection = max_pressure_protection
+			piece.min_pressure_protection = min_pressure_protection
+			piece.item_flags |=  ITEM_FLAG_AIRTIGHT
 	if (hides_uniform && chest)
 		if(canremove)
 			chest.flags_inv &= ~(HIDEJUMPSUIT)
@@ -343,7 +425,7 @@
 			helmet.flags_inv |= HIDEMASK
 	update_icon(1)
 
-/obj/item/weapon/rig/Process()
+/obj/item/rig/Process()
 
 	// If we've lost any parts, grab them back.
 	var/mob/living/M
@@ -360,13 +442,13 @@
 			//notify the wearer
 			if(!canremove)
 				if (offline_slowdown < 3)
-					to_chat(wearer, "<span class='danger'>Your suit beeps stridently, and suddenly goes dead.</span>")
+					to_chat(wearer, SPAN_DANGER("Your suit beeps stridently, and suddenly goes dead."))
 				else
-					to_chat(wearer, "<span class='danger'>Your suit beeps stridently, and suddenly you're wearing a leaden mass of metal and plastic composites instead of a powered suit.</span>")
+					to_chat(wearer, SPAN_DANGER("Your suit beeps stridently, and suddenly you're wearing a leaden mass of metal and plastic composites instead of a powered suit."))
 			if(offline_vision_restriction >= TINT_MODERATE)
-				to_chat(wearer, "<span class='danger'>The suit optics flicker and die, leaving you with restricted vision.</span>")
+				to_chat(wearer, SPAN_DANGER("The suit optics flicker and die, leaving you with restricted vision."))
 			else if(offline_vision_restriction >= TINT_BLIND)
-				to_chat(wearer, "<span class='danger'>The suit optics drop out completely, drowning you in darkness.</span>")
+				to_chat(wearer, SPAN_DANGER("The suit optics drop out completely, drowning you in darkness."))
 
 			if(electrified > 0)
 				electrified = 0
@@ -391,17 +473,18 @@
 			malfunction()
 
 		for(var/obj/item/rig_module/module in installed_modules)
-			cell.use(module.Process() * CELLRATE)
+			if(!cell.checked_use(module.Process() * CELLRATE))
+				module.deactivate()//turns off modules when your cell is dry
 
 //offline should not change outside this proc
-/obj/item/weapon/rig/proc/update_offline()
+/obj/item/rig/proc/update_offline()
 	var/go_offline = (!istype(wearer) || loc != wearer || wearer.back != src || canremove || sealing || !cell || cell.charge <= 0)
 	if(offline != go_offline)
 		offline = go_offline
 		return 1
 	return 0
 
-/obj/item/weapon/rig/proc/check_power_cost(var/mob/living/user, var/cost, var/use_unconcious, var/obj/item/rig_module/mod, var/user_is_ai)
+/obj/item/rig/proc/check_power_cost(mob/living/user, cost, use_unconcious, obj/item/rig_module/mod, user_is_ai)
 
 	if(!istype(user))
 		return 0
@@ -411,15 +494,15 @@
 	if(!user_is_ai)
 		var/mob/living/carbon/human/H = user
 		if(istype(H) && H.back != src)
-			fail_msg = "<span class='warning'>You must be wearing \the [src] to do this.</span>"
+			fail_msg = SPAN_WARNING("You must be wearing \the [src] to do this.")
 	if(sealing)
-		fail_msg = "<span class='warning'>The hardsuit is in the process of adjusting seals and cannot be activated.</span>"
+		fail_msg = SPAN_WARNING("The hardsuit is in the process of adjusting seals and cannot be activated.")
 	else if(!fail_msg && ((use_unconcious && user.stat > 1) || (!use_unconcious && user.stat)))
-		fail_msg = "<span class='warning'>You are in no fit state to do that.</span>"
+		fail_msg = SPAN_WARNING("You are in no fit state to do that.")
 	else if(!cell)
-		fail_msg = "<span class='warning'>There is no cell installed in the suit.</span>"
+		fail_msg = SPAN_WARNING("There is no cell installed in the suit.")
 	else if(cost && !cell.check_charge(cost * CELLRATE))
-		fail_msg = "<span class='warning'>Not enough stored power.</span>"
+		fail_msg = SPAN_WARNING("Not enough stored power.")
 
 	if(fail_msg)
 		to_chat(user, "[fail_msg]")
@@ -434,7 +517,7 @@
 	cell.use(cost * CELLRATE)
 	return 1
 
-/obj/item/weapon/rig/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/nano_state = GLOB.inventory_state)
+/obj/item/rig/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, nano_state = GLOB.inventory_state)
 	if(!user)
 		return
 
@@ -465,6 +548,22 @@
 	data["securitycheck"] = security_check_enabled
 	data["malf"] =          malfunction_delay
 
+	if(wearer) //Internals below!!!
+		data["valveOpen"] = (wearer.internal == air_supply)
+
+		if(!wearer.internal || wearer.internal == air_supply)	// if they have no active internals or if tank is current internal
+			if(wearer.wear_mask && (wearer.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))// mask
+				data["maskConnected"] = 1
+			else if(wearer.head && (wearer.head.item_flags & ITEM_FLAG_AIRTIGHT)) // Make sure they have a helmet and its airtight
+				data["maskConnected"] = 1
+			else
+				data["maskConnected"] = 0
+
+	data["tankPressure"] = round(air_supply && air_supply.air_contents && air_supply.air_contents.return_pressure() ? air_supply.air_contents.return_pressure() : 0)
+	data["releasePressure"] = round(air_supply && air_supply.distribute_pressure ? air_supply.distribute_pressure : 0)
+	data["defaultReleasePressure"] = air_supply ? round(initial(air_supply.distribute_pressure)) : 0
+	data["maxReleasePressure"] = air_supply ? round(TANK_MAX_RELEASE_PRESSURE) : 0
+	data["tank"] = air_supply ? 1 : 0
 
 	var/list/module_list = list()
 	var/i = 1
@@ -486,11 +585,10 @@
 			"damage" =            module.damage
 			)
 
-		if(module.charges && module.charges.len)
+		if(module.charges && length(module.charges))
 
 			module_data["charges"] = list()
-			var/datum/rig_charge/selected = module.charges[module.charge_selected]
-			module_data["chargetype"] = selected ? "[selected.display_name]" : "none"
+			module_data["chargetype"] = module.charge_selected
 
 			for(var/chargetype in module.charges)
 				var/datum/rig_charge/charge = module.charges[chargetype]
@@ -499,7 +597,7 @@
 		module_list += list(module_data)
 		i++
 
-	if(module_list.len)
+	if(length(module_list))
 		data["modules"] = module_list
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
@@ -509,7 +607,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/item/weapon/rig/on_update_icon(var/update_mob_icon)
+/obj/item/rig/on_update_icon(update_mob_icon)
 
 	//TODO: Maybe consider a cache for this (use mob_icon as blank canvas, use suit icon overlay).
 	overlays.Cut()
@@ -536,7 +634,7 @@
 		wearer.update_inv_back()
 	return
 
-/obj/item/weapon/rig/get_mob_overlay(mob/user_mob, slot)
+/obj/item/rig/get_mob_overlay(mob/user_mob, slot)
 	var/image/ret = ..()
 	if(slot != slot_back_str || offline)
 		return ret
@@ -547,7 +645,12 @@
 				ret.overlays += image("icon" = equipment_overlay_icon, "icon_state" = "[module.suit_overlay]")
 	return ret
 
-/obj/item/weapon/rig/proc/check_suit_access(var/mob/living/carbon/human/user)
+/obj/item/rig/get_req_access()
+	if(!security_check_enabled || !locked)
+		return list()
+	return ..()
+
+/obj/item/rig/proc/check_suit_access(mob/living/carbon/human/user)
 
 	if(!security_check_enabled)
 		return 1
@@ -560,17 +663,17 @@
 		if(user.back != src)
 			return 0
 		else if(!src.allowed(user))
-			to_chat(user, "<span class='danger'>Unauthorized user. Access denied.</span>")
+			to_chat(user, SPAN_DANGER("Unauthorized user. Access denied."))
 			return 0
 
 	else if(!ai_override_enabled)
-		to_chat(user, "<span class='danger'>Synthetic access disabled. Please consult hardware provider.</span>")
+		to_chat(user, SPAN_DANGER("Synthetic access disabled. Please consult hardware provider."))
 		return 0
 
 	return 1
 
 //TODO: Fix Topic vulnerabilities for malfunction and AI override.
-/obj/item/weapon/rig/Topic(href,href_list)
+/obj/item/rig/Topic(href,href_list)
 	if(!check_suit_access(usr))
 		return 0
 
@@ -584,7 +687,7 @@
 
 		var/module_index = text2num(href_list["interact_module"])
 
-		if(module_index > 0 && module_index <= installed_modules.len)
+		if(module_index > 0 && module_index <= length(installed_modules))
 			var/obj/item/rig_module/module = installed_modules[module_index]
 			switch(href_list["module_mode"])
 				if("activate")
@@ -594,7 +697,10 @@
 				if("engage")
 					module.engage()
 				if("select")
-					selected_module = module
+					if(selected_module == module)
+						deselect_module()
+					else
+						module.select()
 				if("select_charge_type")
 					module.charge_selected = href_list["charge_type"]
 		return 1
@@ -605,32 +711,36 @@
 	if(href_list["toggle_suit_lock"])
 		locked = !locked
 		return 1
+	if(href_list["air_supply"])
+		air_supply.OnTopic(wearer,href_list)
+		return 1
 
-/obj/item/weapon/rig/proc/notify_ai(var/message)
+/obj/item/rig/proc/notify_ai(message)
 	for(var/obj/item/rig_module/ai_container/module in installed_modules)
 		if(module.integrated_ai && module.integrated_ai.client && !module.integrated_ai.stat)
 			to_chat(module.integrated_ai, "[message]")
 			. = 1
 
-/obj/item/weapon/rig/equipped(mob/living/carbon/human/M)
-	..()
+/obj/item/rig/equip_delay_before(mob/user, slot, equip_flags)
+	user.setClickCooldown(1 SECOND)
+	user.visible_message(
+		SPAN_ITALIC("\The [user] begins to struggle into \the [src]."),
+		SPAN_ITALIC("You begin to struggle into \the [src]."),
+		SPAN_ITALIC("You can hear metal clicking and fabric rustling."),
+		range = 5
+	)
+	wearer = user
+	wearer.wearing_rig = src
+	update_icon()
 
-	if(seal_delay > 0 && istype(M) && M.back == src)
-		M.visible_message("<font color='blue'>[M] starts putting on \the [src]...</font>", "<font color='blue'>You start putting on \the [src]...</font>")
-		if(!do_after(M,seal_delay,src))
-			if(M && M.back == src)
-				if(!M.unEquip(src))
-					return
-			src.dropInto(loc)
-			return
+/obj/item/rig/space/equip_delay_after(mob/user, slot, equip_flags)
+	user.visible_message(
+		SPAN_ITALIC("\The [user] finishes putting on \the [src]."),
+		SPAN_NOTICE("You finish putting on \the [src]."),
+		range = 5
+	)
 
-	if(istype(M) && M.back == src)
-		M.visible_message("<font color='blue'><b>[M] struggles into \the [src].</b></font>", "<font color='blue'><b>You struggle into \the [src].</b></font>")
-		wearer = M
-		wearer.wearing_rig = src
-		update_icon()
-
-/obj/item/weapon/rig/proc/toggle_piece(var/piece, var/mob/initiator, var/deploy_mode)
+/obj/item/rig/proc/toggle_piece(piece, mob/initiator, deploy_mode)
 
 	if(sealing || !cell || !cell.charge)
 		return
@@ -675,7 +785,7 @@
 				holder = use_obj.loc
 				if(istype(holder))
 					if(use_obj && check_slot == use_obj)
-						to_chat(wearer, "<font color='blue'><b>Your [use_obj.name] [use_obj.gender == PLURAL ? "retract" : "retracts"] swiftly.</b></font>")
+						to_chat(wearer, SPAN_INFO("<b>Your [use_obj.name] [use_obj.gender == PLURAL ? "retract" : "retracts"] swiftly.</b>"))
 						use_obj.canremove = 1
 						holder.drop_from_inventory(use_obj, src)
 						use_obj.canremove = 0
@@ -684,18 +794,18 @@
 			if(check_slot && check_slot == use_obj)
 				return
 			use_obj.forceMove(wearer)
-			if(!wearer.equip_to_slot_if_possible(use_obj, equip_to, 0, 1))
+			if(!wearer.equip_to_slot_if_possible(use_obj, equip_to, TRYEQUIP_REDRAW | TRYEQUIP_SILENT))
 				use_obj.forceMove(src)
 				if(check_slot)
-					to_chat(initiator, "<span class='danger'>You are unable to deploy \the [piece] as \the [check_slot] [check_slot.gender == PLURAL ? "are" : "is"] in the way.</span>")
+					to_chat(initiator, SPAN_CLASS("danger", "You are unable to deploy \the [piece] as \the [check_slot] [check_slot.gender == PLURAL ? "are" : "is"] in the way."))
 					return
 			else
-				to_chat(wearer, "<span class='notice'>Your [use_obj.name] [use_obj.gender == PLURAL ? "deploy" : "deploys"] swiftly.</span>")
+				to_chat(wearer, SPAN_NOTICE("Your [use_obj.name] [use_obj.gender == PLURAL ? "deploy" : "deploys"] swiftly."))
 
 	if(piece == "helmet" && helmet)
 		helmet.update_light(wearer)
 
-/obj/item/weapon/rig/proc/deploy(mob/M,var/sealed)
+/obj/item/rig/proc/deploy(mob/M,sealed)
 
 	var/mob/living/carbon/human/H = M
 
@@ -728,7 +838,7 @@
 	for(var/piece in list("helmet","gauntlets","chest","boots"))
 		toggle_piece(piece, H, ONLY_DEPLOY)
 
-/obj/item/weapon/rig/dropped(var/mob/user)
+/obj/item/rig/dropped(mob/user)
 	..()
 	for(var/piece in list("helmet","gauntlets","chest","boots"))
 		toggle_piece(piece, user, ONLY_RETRACT)
@@ -736,11 +846,20 @@
 		wearer.wearing_rig = null
 		wearer = null
 
+/obj/item/rig/proc/deselect_module()
+	if (selected_module)
+		if(selected_module.suit_overlay_inactive)
+			selected_module.suit_overlay = selected_module.suit_overlay_inactive
+		else
+			selected_module.suit_overlay = null
+		selected_module = null
+		update_icon()
+
 //Todo
-/obj/item/weapon/rig/proc/malfunction()
+/obj/item/rig/proc/malfunction()
 	return 0
 
-/obj/item/weapon/rig/emp_act(severity_class)
+/obj/item/rig/emp_act(severity_class)
 	//set malfunctioning
 	if(emp_protection < 30) //for ninjas, really.
 		malfunctioning += 10
@@ -752,17 +871,18 @@
 
 	//possibly damage some modules
 	take_hit((100/severity_class), "electrical pulse", 1)
+	..()
 
-/obj/item/weapon/rig/proc/shock(mob/user)
+/obj/item/rig/proc/shock(mob/user)
 	if (electrocute_mob(user, cell, src)) //electrocute_mob() handles removing charge from the cell, no need to do that here.
 		spark_system.start()
 		if(user.stunned)
 			return 1
 	return 0
 
-/obj/item/weapon/rig/proc/take_hit(damage, source, is_emp=0)
+/obj/item/rig/proc/take_hit(damage, source, is_emp=0)
 
-	if(!installed_modules.len)
+	if(!length(installed_modules))
 		return
 
 	var/chance
@@ -774,7 +894,7 @@
 	else
 		//Want this to be roughly independant of the number of modules, meaning that X emp hits will disable Y% of the suit's modules on average.
 		//that way people designing hardsuits don't have to worry (as much) about how adding that extra module will affect emp resiliance by 'soaking' hits for other modules
-		chance = 2*max(0, damage - emp_protection)*min(installed_modules.len/15, 1)
+		chance = 2*max(0, damage - emp_protection)*min(length(installed_modules)/15, 1)
 
 	if(!prob(chance))
 		return
@@ -790,9 +910,9 @@
 				damaged_modules |= module
 
 	var/obj/item/rig_module/dam_module = null
-	if(damaged_modules.len)
+	if(length(damaged_modules))
 		dam_module = pick(damaged_modules)
-	else if(valid_modules.len)
+	else if(length(valid_modules))
 		dam_module = pick(valid_modules)
 
 	if(!dam_module) return
@@ -804,21 +924,21 @@
 
 	if(wearer)
 		if(dam_module.damage >= 2)
-			to_chat(wearer, "<span class='danger'>The [source] has disabled your [dam_module.interface_name]!</span>")
+			to_chat(wearer, SPAN_DANGER("The [source] has disabled your [dam_module.interface_name]!"))
 		else
-			to_chat(wearer, "<span class='warning'>The [source] has damaged your [dam_module.interface_name]!</span>")
+			to_chat(wearer, SPAN_WARNING("The [source] has damaged your [dam_module.interface_name]!"))
 	dam_module.deactivate()
 
-/obj/item/weapon/rig/proc/malfunction_check(var/mob/living/carbon/human/user)
+/obj/item/rig/proc/malfunction_check(mob/living/carbon/human/user)
 	if(malfunction_delay)
 		if(offline)
-			to_chat(user, "<span class='danger'>The suit is completely unresponsive.</span>")
+			to_chat(user, SPAN_DANGER("The suit is completely unresponsive."))
 		else
-			to_chat(user, "<span class='danger'>ERROR: Hardware fault. Rebooting interface...</span>")
+			to_chat(user, SPAN_DANGER("ERROR: Hardware fault. Rebooting interface..."))
 		return 1
 	return 0
 
-/obj/item/weapon/rig/proc/ai_can_move_suit(var/mob/user, var/check_user_module = 0, var/check_for_ai = 0)
+/obj/item/rig/proc/ai_can_move_suit(mob/user, check_user_module = 0, check_for_ai = 0)
 
 	if(check_for_ai)
 		if(!(locate(/obj/item/rig_module/ai_container) in contents))
@@ -838,27 +958,27 @@
 			return 0
 		var/obj/item/rig_module/ai_container/module = user.loc.loc
 		if(!istype(module) || module.damage >= 2)
-			to_chat(user, "<span class='warning'>Your host module is unable to interface with the suit.</span>")
+			to_chat(user, SPAN_WARNING("Your host module is unable to interface with the suit."))
 			return 0
 
 	if(offline || !cell || !cell.charge || locked_down)
-		if(user) to_chat(user, "<span class='warning'>Your host rig is unpowered and unresponsive.</span>")
+		if(user) to_chat(user, SPAN_WARNING("Your host rig is unpowered and unresponsive."))
 		return 0
 	if(!wearer || wearer.back != src)
-		if(user) to_chat(user, "<span class='warning'>Your host rig is not being worn.</span>")
+		if(user) to_chat(user, SPAN_WARNING("Your host rig is not being worn."))
 		return 0
 	if(!wearer.stat && !control_overridden && !ai_override_enabled)
-		if(user) to_chat(user, "<span class='warning'>You are locked out of the suit servo controller.</span>")
+		if(user) to_chat(user, SPAN_WARNING("You are locked out of the suit servo controller."))
 		return 0
 	return 1
 
-/obj/item/weapon/rig/proc/force_rest(var/mob/user)
+/obj/item/rig/proc/force_rest(mob/user)
 	if(!ai_can_move_suit(user, check_user_module = 1))
 		return
 	wearer.lay_down()
-	to_chat(user, "<span class='notice'>\The [wearer] is now [wearer.resting ? "resting" : "getting up"].</span>")
+	to_chat(user, SPAN_NOTICE("\The [wearer] is now [wearer.resting ? "resting" : "getting up"]."))
 
-/obj/item/weapon/rig/proc/forced_move(var/direction, var/mob/user)
+/obj/item/rig/proc/forced_move(direction, mob/user)
 	if(malfunctioning)
 		direction = pick(GLOB.cardinal)
 
@@ -874,13 +994,17 @@
 	cell.use(aimove_power_usage * CELLRATE)
 	wearer.DoMove(direction, user)
 
-// This returns the rig if you are contained inside one, but not if you are wearing it
+/**
+ * Retrieves the rig the atom is located inside of, recursively checking parent locs until it find one.
+ *
+ * Returns instead of `/obj/item/rig`.
+ */
 /atom/proc/get_rig()
 	if(loc)
 		return loc.get_rig()
 	return null
 
-/obj/item/weapon/rig/get_rig()
+/obj/item/rig/get_rig()
 	return src
 
 /mob/living/carbon/human/get_rig()

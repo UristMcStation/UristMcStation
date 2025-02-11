@@ -3,7 +3,7 @@
 	desc = "There's something alien about this."
 	icon = 'icons/mob/alien.dmi'
 	layer = ABOVE_OBJ_LAYER
-	health = 50
+	var/health = 50
 
 /obj/structure/alien/proc/healthcheck()
 	if(health <=0)
@@ -11,7 +11,7 @@
 		qdel(src)
 	return
 
-/obj/structure/alien/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/alien/bullet_act(obj/item/projectile/Proj)
 	health -= Proj.damage
 	..()
 	healthcheck()
@@ -48,7 +48,7 @@
 /obj/structure/alien/attack_generic()
 	attack_hand(usr)
 
-/obj/structure/alien/attackby(var/obj/item/weapon/W, var/mob/user)
+/obj/structure/alien/attackby(obj/item/W, var/mob/user)
 	health = max(0, health - W.force)
 	playsound(loc, 'sound/effects/attackblob.ogg', 100, 1)
 	healthcheck()

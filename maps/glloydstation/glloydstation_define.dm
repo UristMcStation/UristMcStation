@@ -10,8 +10,9 @@
 	boss_short    = "Centcomm"
 	company_name  = "NanoTrasen"
 	company_short = "NT"
-
-	lobby_icon = 'maps/glloydstation/glloydstation_lobby.dmi'
+	ert_context = "NanoTrasen"
+	lobby_screens = list('maps/glloydstation/glloydstation_lobby.png')
+	current_lobby_screen = 'maps/glloydstation/glloydstation_lobby.png'
 
 	station_levels = list(1)
 	admin_levels = list(2)
@@ -19,7 +20,7 @@
 	player_levels = list(1,3,4,5,6,7)
 	sealed_levels = list(6)
 	empty_levels = list(6)
-	base_turf_by_z = list("5" = /turf/simulated/floor/asteroid, "7" = /turf/simulated/floor/planet/jungle/clear)
+	base_turf_by_z = list("5" = /turf/simulated/floor/asteroid/glloydplanet, "7" = /turf/simulated/floor/planet/jungle/clear)
 	accessible_z_levels = list("1"=15, "3"=15, "4"=25, "6"=35)
 
 	id_hud_icons = 'maps/glloydstation/icons/assignment_hud.dmi'
@@ -37,37 +38,34 @@
 	evac_controller_type = /datum/evacuation_controller/shuttle
 	allowed_spawns = list("Cryogenic Storage", "Cyborg Storage", "Arrivals Shuttle")
 
+	has_skybox_image = TRUE
+
 	blacklisted_programs = list(/datum/computer_file/program/deck_management,/datum/computer_file/program/docking)
 
-	date_offset = 535 //i need to fix the function for this
+	game_year = 2556 //forever trapped in time
 
 	objective_items = list(
-		"the captain's antique laser gun" = /obj/item/weapon/gun/energy/captain,
+		"the captain's antique laser gun" = /obj/item/gun/energy/captain,
 		"a bluespace rift generator" = /obj/item/integrated_circuit/manipulation/bluespace_rift,
 		"a captain's jumpsuit" = /obj/item/clothing/under/rank/captain,
-		"a functional AI" = /obj/item/weapon/aicard,
+		"a functional AI" = /obj/item/aicard,
 		"the NSS Urist blueprints" = /obj/item/blueprints,
-		"a piece of corgi meat" = /obj/item/weapon/reagent_containers/food/snacks/meat/corgi,
+		"a piece of corgi meat" = /obj/item/reagent_containers/food/snacks/meat/corgi,
 		"a research director's jumpsuit" = /obj/item/clothing/under/rank/research_director,
 		"a chief engineer's jumpsuit" = /obj/item/clothing/under/rank/chief_engineer,
 		"a head of security's jumpsuit" = /obj/item/clothing/under/rank/head_of_security,
 		"a head of personnel's jumpsuit" = /obj/item/clothing/under/rank/head_of_personnel,
-		"the captain's pinpointer" = /obj/item/weapon/pinpointer
+		"the captain's pinpointer" = /obj/item/pinpointer
 		)
 
-/datum/map/glloydstation/perform_map_generation()
-	new /datum/random_map/automata/cave_system(null, 1, 1, 5, 255, 255) // Create the mining Z-level.
-	new /datum/random_map/noise/ore(null, 1, 1, 5, 64, 64)         // Create the mining ore distribution map.
-	return 1
-
-/obj/effect/overmap/sector/urist
+/obj/effect/overmap/visitable/urist
 	name = "NSS Urist"
 	desc = "Starbase records report: NT owned, unknown crew status."
 	base = TRUE
 	start_x = 11
 	start_y = 12
 
-/obj/effect/overmap/sector/uristplanet
+/obj/effect/overmap/visitable/uristplanet
 	name = "Nyx Phi III"
 	desc = "Geneseeded world detected, possible intelligent life detected."
 	base = TRUE

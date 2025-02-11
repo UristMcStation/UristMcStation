@@ -36,25 +36,34 @@
 	return ser
 
 /////////////////////////// DNA MACHINES
+/obj/item/stock_parts/circuitboard/clonescanner
+	name = T_BOARD("cloning scanner")
+	build_path = /obj/machinery/dna_scannernew
+	board_type = "machine"
+	origin_tech = list(TECH_DATA = 3, TECH_BIO = 3)
+	req_components = list(
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stock_parts/manipulator = 1,
+		/obj/item/stock_parts/micro_laser = 1,
+		/obj/item/stock_parts/console_screen = 1)
+
+
 /obj/machinery/dna_scannernew
-	name = "\improper DNA modifier"
+	name = "\improper DNA scanner"
 	desc = "It scans DNA structures."
 	icon = 'icons/obj/Cryogenic2.dmi'
 	icon_state = "scanner_0"
-	density = 1
-	anchored = 1.0
+	density = TRUE
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 50
 	active_power_usage = 300
 	interact_offline = 1
-	var/locked = 0
+	construct_state = /singleton/machine_construction/default/panel_closed
+	var/locked = FALSE
 	var/mob/living/carbon/occupant = null
-	var/obj/item/weapon/reagent_containers/glass/beaker = null
+	var/obj/item/reagent_containers/glass/beaker = null
 	var/opened = 0
-
-/obj/machinery/dna_scannernew/Initialize()
-	. = ..()
-	build_default_parts(/obj/item/weapon/circuitboard/clonescanner)
 
 /obj/machinery/dna_scannernew/relaymove(mob/user as mob)
 	if (user.stat)
@@ -78,7 +87,7 @@
 /obj/machinery/dna_scannernew/proc/eject_occupant()
 	src.go_out()
 	for(var/atom/movable/O in contents)
-		if(!(O in component_parts))
+		if(!(O in component_parts) && O != occupant)
 			O.forceMove(loc)
 	if(!occupant)
 		for(var/mob/M in src)//Failsafe so you can get mobs out
@@ -108,8 +117,8 @@
 	src.add_fingerprint(usr)
 	return
 
-/obj/machinery/dna_scannernew/attackby(var/obj/item/weapon/item as obj, var/mob/user as mob)
-	if(istype(item, /obj/item/weapon/reagent_containers/glass))
+/obj/machinery/dna_scannernew/attackby(var/obj/item/item as obj, var/mob/user as mob)
+	if(istype(item, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
 			return
@@ -179,10 +188,10 @@
 	return
 
 /obj/machinery/dna_scannernew/proc/go_out()
-	if ((!( src.occupant ) || src.locked))
+	if (!src.occupant)
 		return
 	src.occupant.reset_view(null)
-	src.occupant.loc = src.loc
+	src.occupant.loc = get_turf(src)
 	src.occupant = null
 	src.icon_state = "scanner_0"
 	return
@@ -217,15 +226,14 @@
 				return
 		else
 	return
-
+/*
 /obj/machinery/computer/scan_consolenew
 	name = "DNA Modifier Access Console"
 	desc = "Scan DNA."
 	icon = 'icons/obj/computer.dmi'
 	icon_keyboard = "med_key"
 	icon_screen = "dna"
-	density = 1
-	circuit = /obj/item/weapon/circuitboard/scan_consolenew
+	density = TRUE
 	var/selected_ui_block = 1.0
 	var/selected_ui_subblock = 1.0
 	var/selected_se_block = 1.0
@@ -238,16 +246,16 @@
 	var/irradiating = 0
 	var/injector_ready = 0	//Quick fix for issue 286 (screwdriver the screen twice to restore injector)	-Pete
 	var/obj/machinery/dna_scannernew/connected = null
-	var/obj/item/weapon/disk/data/disk = null
+	var/obj/item/disk/data/disk = null
 	var/selected_menu_key = null
-	anchored = 1
+	anchored = TRUE
 	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 400
 	var/waiting_for_user_input=0 // Fix for #274 (Mash create block injector without answering dialog to make unlimited injectors) - N3X
 
 /obj/machinery/computer/scan_consolenew/attackby(obj/item/I as obj, mob/user as mob)
-	if (istype(I, /obj/item/weapon/disk/data)) //INSERT SOME diskS
+	if (istype(I, /obj/item/disk/data)) //INSERT SOME diskS
 		if (!src.disk)
 			user.drop_item()
 			I.loc = src
@@ -295,7 +303,7 @@
 		arr += "[i]:[EncodeDNABlock(buffer[i])]"
 	return arr
 
-/obj/machinery/computer/scan_consolenew/proc/setInjectorBlock(var/obj/item/weapon/dnainjector/I, var/blk, var/datum/dna2/record/buffer)
+/obj/machinery/computer/scan_consolenew/proc/setInjectorBlock(var/obj/item/dnainjector/I, var/blk, var/datum/dna2/record/buffer)
 	var/pos = findtext(blk,":")
 	if(!pos) return 0
 	var/id = text2num(copytext(blk,1,pos))
@@ -649,7 +657,7 @@
 
 	if(href_list["ejectBeaker"])
 		if(connected.beaker)
-			var/obj/item/weapon/reagent_containers/glass/B = connected.beaker
+			var/obj/item/reagent_containers/glass/B = connected.beaker
 			B.loc = connected.loc
 			connected.beaker = null
 		return 1
@@ -764,7 +772,7 @@
 			if (src.injector_ready || waiting_for_user_input)
 
 				var/success = 1
-				var/obj/item/weapon/dnainjector/I = new /obj/item/weapon/dnainjector
+				var/obj/item/dnainjector/I = new /obj/item/dnainjector
 				var/datum/dna2/record/buf = src.buffers[bufferId]
 				if(href_list["createBlockInjector"])
 					waiting_for_user_input=1
@@ -814,3 +822,4 @@
 
 
 /////////////////////////// DNA MACHINES
+*/

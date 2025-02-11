@@ -6,35 +6,51 @@
 	..()
 	effect_type = pick(EFFECT_ELECTRO, EFFECT_PARTICLE)
 
-/datum/artifact_effect/robohurt/DoEffectTouch(var/mob/user)
+/datum/artifact_effect/robohurt/DoEffectTouch(mob/living/user)
 	if(user)
-		if (istype(user, /mob/living/silicon/robot))
-			var/mob/living/silicon/robot/R = user
-			to_chat(R, "<span class='danger'>Your systems report severe damage has been inflicted!</span>")
-			R.adjustBruteLoss(rand(10,50))
-			R.adjustFireLoss(rand(10,50))
-			return 1
+		if ((istype(user)) && (user.isSynthetic()))
+			var/mob/living/R = user
+			to_chat(R, SPAN_DANGER("Your systems report severe damage has been inflicted!"))
+			R.adjustBruteLoss(rand(25,50))
+			R.adjustFireLoss(rand(25,50))
+		return 1
 
 /datum/artifact_effect/robohurt/DoEffectAura()
 	if(holder)
 		var/turf/T = get_turf(holder)
-		for (var/mob/living/silicon/robot/M in range(src.effectrange,T))
-			if(world.time - last_message > 200)
-				to_chat(M, "<span class='danger'>SYSTEM ALERT: Harmful energy field detected!</span>")
-				last_message = world.time
-			M.adjustBruteLoss(1)
-			M.adjustFireLoss(1)
-			M.updatehealth()
+		for (var/mob/living/M in range(src.effectrange,T))
+			if(M.isSynthetic())
+				if(world.time - last_message > 200)
+					to_chat(M, SPAN_DANGER("SYSTEM ALERT: Harmful energy field detected!"))
+					last_message = world.time
+				M.adjustBruteLoss(10)
+				M.adjustFireLoss(10)
+				M.updatehealth()
 		return 1
 
 /datum/artifact_effect/robohurt/DoEffectPulse()
 	if(holder)
 		var/turf/T = get_turf(holder)
-		for (var/mob/living/silicon/robot/M in range(src.effectrange,T))
-			if(world.time - last_message > 200)
-				to_chat(M, "<span class='danger'>SYSTEM ALERT: Structural damage inflicted by energy pulse!</span>")
-				last_message = world.time
-			M.adjustBruteLoss(10)
-			M.adjustFireLoss(10)
-			M.updatehealth()
+		for (var/mob/living/M in range(src.effectrange,T))
+			if(M.isSynthetic())
+				if(world.time - last_message > 200)
+					to_chat(M, SPAN_DANGER("SYSTEM ALERT: Structural damage inflicted by energy pulse!"))
+					last_message = world.time
+				M.adjustBruteLoss(20)
+				M.adjustFireLoss(20)
+				M.updatehealth()
 		return 1
+
+/datum/artifact_effect/robohurt/destroyed_effect()
+	. = ..()
+
+	if(holder)
+		var/turf/T = get_turf(holder)
+		for (var/mob/living/M in range(src.effectrange,T))
+			if(M.isSynthetic())
+				if(world.time - last_message > 200)
+					to_chat(M, SPAN_DANGER("SYSTEM ALERT: Extreme structural damage detected from foreign energy pulse!"))
+					last_message = world.time
+				M.adjustBruteLoss(50)
+				M.adjustFireLoss(50)
+				M.updatehealth()

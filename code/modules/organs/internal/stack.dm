@@ -1,6 +1,6 @@
 /mob/living/carbon/human/proc/create_stack()
 	internal_organs_by_name[BP_STACK] = new /obj/item/organ/internal/stack(src,1)
-	to_chat(src, "<span class='notice'>You feel a faint sense of vertigo as your neural lace boots.</span>")
+	to_chat(src, SPAN_NOTICE("You feel a faint sense of vertigo as your neural lace boots."))
 
 /obj/item/organ/internal/stack
 	name = "neural lace"
@@ -21,13 +21,14 @@
 
 /obj/item/organ/internal/stack/examine(var/mob/user)
 	. = ..(user)
-	if(istype(backup)) // Do we have a backup?
-		if(find_dead_player(ownerckey, 1)) // Is the player still around and dead?
-			to_chat(user, "<span class='notice'>The light on [src] is blinking rapidly. Someone might have a second chance.</span>")
-		else
-			to_chat(user, "The light on [src] is blinking slowly. Maybe wait a while...")
+	if(!istype(backup)) // Do we not have a backup?
+		to_chat(user, "The light on \the [src] is off, it doesn't have a backup.")
+		return
+
+	if(find_dead_player(ownerckey, 1)) // Is the player still around and dead?
+		to_chat(user, SPAN_NOTICE("The light on \the [src] is blinking rapidly. Someone might have a second chance."))
 	else
-		to_chat(user, "The light on [src] is off, it doesn't have a backup.")
+		to_chat(user, "The light on \the [src] is blinking slowly. Maybe wait a while...")
 
 /obj/item/organ/internal/stack/emp_act()
 	return
@@ -36,7 +37,7 @@
 	return 0
 
 /obj/item/organ/internal/stack/proc/do_backup()
-	if(owner && owner.stat != DEAD && !is_broken() && owner.mind)
+	if(owner?.stat != DEAD && !is_broken() && owner.mind)
 		languages = owner.languages.Copy()
 		backup = owner.mind
 		default_language = owner.default_language
@@ -45,11 +46,11 @@
 
 /obj/item/organ/internal/stack/New()
 	..()
-	do_backup()
 	robotize()
+	addtimer(new Callback(src, .proc/do_backup), 2 SECONDS)
 
 /obj/item/organ/internal/stack/proc/backup_inviable()
-	return 	(!istype(backup) || backup == owner.mind || (backup.current && backup.current.stat != DEAD))
+	return 	(!istype(backup) || backup == owner.mind || backup.current?.stat != DEAD)
 
 /obj/item/organ/internal/stack/replaced()
 	if(!..()) return 0
@@ -75,9 +76,9 @@
 	if(owner.mind && owner.ckey) //Someone is already in this body!
 		if(owner.mind == backup) // Oh, it's the same mind in the backup. Someone must've spammed the 'Start Procedure' button in a panic.
 			return
-		owner.visible_message("<span class='danger'>\The [owner] spasms violently!</span>")
-		if(prob(66))
-			to_chat(owner, "<span class='danger'>You fight off the invading tendrils of another mind, holding onto your own body!</span>")
+		owner.visible_message(SPAN_DANGER("\The [owner] spasms violently!"))
+		if(!invasive && prob(66))
+			to_chat(owner, SPAN_DANGER("You fight off the invading tendrils of another mind, holding onto your own body!"))
 			return
 		owner.ghostize() // Remove the previous owner to avoid their client getting reset.
 	//owner.dna.real_name = backup.name
@@ -86,7 +87,8 @@
 	//The above three lines were commented out for
 	backup.active = 1
 	backup.transfer_to(owner)
-	if(default_language) owner.default_language = default_language
+	if(default_language)
+		owner.default_language = default_language
 	owner.languages = languages.Copy()
-	to_chat(owner, "<span class='notice'>Consciousness slowly creeps over you as your new body awakens.</span>")
-	to_chat(owner, "<span class='warning'>All memories from 5 minutes before your death to the moment you died have been lost.</span>")
+	to_chat(owner, SPAN_NOTICE("Consciousness slowly creeps over you as your new body awakens."))
+	to_chat(owner, SPAN_WARNING("All memories from 5 minutes before your death to the moment you died have been lost."))

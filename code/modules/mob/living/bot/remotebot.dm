@@ -20,14 +20,14 @@
 	return tally
 
 /mob/living/bot/remotebot/examine(mob/user)
-	. = ..(user)
+	. = ..()
 	if(holding)
-		to_chat(user, "<span class='notice'>It is holding \the \icon[holding] [holding].</span>")
+		to_chat(user, SPAN_NOTICE("It is holding \the [icon2html(holding, user)] [holding]."))
 
 /mob/living/bot/remotebot/explode()
 	on = 0
 	new /obj/effect/decal/cleanable/blood/oil(get_turf(src.loc))
-	visible_message("<span class='danger'>[src] blows apart!</span>")
+	visible_message(SPAN_DANGER("[src] blows apart!"))
 	if(controller)
 		controller.bot = null
 		controller = null
@@ -41,14 +41,36 @@
 	s.start()
 	qdel(src)
 
-/mob/living/bot/remotebot/attackby(var/obj/item/I, var/mob/living/user)
-	if(istype(I, /obj/item/device/bot_controller) && !controller)
-		user.visible_message("\The [user] waves \the [I] over \the [src].")
-		to_chat(user, "<span class='notice'>You link \the [src] to \the [I].</span>")
-		var/obj/item/device/bot_controller/B = I
-		B.bot = src
-		controller = B
+
+/mob/living/bot/remotebot/get_interactions_info()
+	. = ..()
+	.["Remote Control"] = "<p>Syncs the remote control to the bot, allowing it to be controlled. Only one remote control can be synced to a given bot.</p>"
+
+
+/mob/living/bot/remotebot/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Remove Control - Link controller to bot
+	if (istype(tool, /obj/item/device/bot_controller))
+		if (controller)
+			USE_FEEDBACK_FAILURE("\The [src] is already connected to a remote control.")
+			return TRUE
+		var/obj/item/device/bot_controller/bot_controller = tool
+		bot_controller.bot = src
+		controller = bot_controller
+		GLOB.destroyed_event.register(bot_controller, src, .proc/controller_deleted)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] syncs \a [tool] to \the [src]."),
+			SPAN_NOTICE("You sync \the [tool] to \the [src].")
+		)
+		return TRUE
+
 	return ..()
+
+
+/mob/living/bot/remotebot/proc/controller_deleted(obj/item/device/bot_controller/bot_controller)
+	if (controller == bot_controller)
+		controller = null
+	GLOB.destroyed_event.unregister(bot_controller, src, .proc/controller_deleted)
+
 
 /mob/living/bot/remotebot/update_icons()
 	icon_state = "fetchbot[on]"
@@ -59,7 +81,7 @@
 		holding = null
 	return ..()
 
-/mob/living/bot/remotebot/proc/pickup(var/obj/item/I)
+/mob/living/bot/remotebot/proc/pickup(obj/item/I)
 	if(holding || get_dist(src,I) > 1)
 		return
 	src.visible_message("<b>\The [src]</b> picks up \the [I].")
@@ -76,14 +98,14 @@
 	holding.forceMove(loc)
 	holding = null
 
-/mob/living/bot/remotebot/proc/hit(var/atom/movable/a)
+/mob/living/bot/remotebot/proc/hit(atom/movable/a)
 	src.visible_message("<b>\The [src]</b> taps \the [a] with its claw.")
 	flick("fetchbot-c", src)
 	working = 1
 	sleep(10)
 	working = 0
 
-/mob/living/bot/remotebot/proc/command(var/atom/a)
+/mob/living/bot/remotebot/proc/command(atom/a)
 	if(working || stat || !on || a == src) //can't touch itself
 		return
 	if(isturf(a) || get_dist(src,a) > 1)
@@ -102,13 +124,13 @@
 	item_state = "electronic"
 	var/mob/living/bot/remotebot/bot
 
-/obj/item/device/bot_controller/attack_self(var/mob/user)
+/obj/item/device/bot_controller/attack_self(mob/user)
 	src.interact(user)
 
-/obj/item/device/bot_controller/interact(var/mob/user)
+/obj/item/device/bot_controller/interact(mob/user)
 	user.set_machine(src)
 	if(!(src in user) || !bot)
-		user << browse(null, "window=bot_controller")
+		close_browser(user, "window=bot_controller")
 		return
 	var/dat = "<center><TT><b>Remote Control: [bot.name]</b></TT><br>"
 	dat += "Currently Holding: [bot.holding ? bot.holding.name : "Nothing"]<br><br>"
@@ -116,7 +138,7 @@
 	dat += "<a href='byond://?src=\ref[src];look=[is_looking];'>[is_looking ? "Stop" : "Start"] Looking</a><br>"
 	dat += "<a href='byond://?src=\ref[src];drop=1;'>Drop Item</a><br></center>"
 
-	user << browse(dat, "window=bot_controller")
+	show_browser(user, dat, "window=bot_controller")
 	onclose(user, "botcontroller")
 
 /obj/item/device/bot_controller/check_eye()
@@ -140,7 +162,7 @@
 	src.interact(usr)
 
 
-/obj/item/device/bot_controller/dropped(var/mob/living/user)
+/obj/item/device/bot_controller/dropped(mob/living/user)
 	if(user.client.eye == bot)
 		user.client.eye = user
 	return ..()
@@ -152,7 +174,7 @@
 
 /obj/item/device/bot_controller/Destroy()
 	if(bot)
-		bot.controller = null
+		bot.controller_deleted(src)
 		bot = null
 	return ..()
 
@@ -162,7 +184,7 @@
 	icon = 'icons/obj/storage.dmi'
 	icon_state = "remotebot"
 
-/obj/item/device/bot_kit/attack_self(var/mob/living/user)
+/obj/item/device/bot_kit/attack_self(mob/living/user)
 	to_chat(user, "You quickly dismantle the box and retrieve the controller and the remote bot itself.")
 	var/turf/T = get_turf(src.loc)
 	new /mob/living/bot/remotebot(T)

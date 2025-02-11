@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/npc/colonist/contract
+/mob/living/simple_animal/passive/npc/colonist/contract
 	angryprob = 0
 	randomize_value = 0
 	randomize_quantity = 0
@@ -8,7 +8,7 @@
 
 //nt scientist
 
-/mob/living/simple_animal/hostile/npc/colonist/contract/ntscientist
+/mob/living/simple_animal/passive/npc/colonist/contract/ntscientist
 	name = "scientist"
 	npc_job_title = "NanoTrasen Chief Scientist"
 	desc = "A human from one of Earth's diverse cultures. They are a Chief Scientist."
@@ -22,7 +22,6 @@
 	suit_chance = 100
 	hat_chance = 0
 	glove_chance = 0
-	wander = 0
 
 	angryprob = 0
 	npc_item_amount = 5
@@ -33,7 +32,7 @@
 
 //nt hos
 
-/mob/living/simple_animal/hostile/npc/colonist/contract/nthos
+/mob/living/simple_animal/passive/npc/colonist/contract/nthos
 	name = "security"
 	npc_job_title = "NanoTrasen Head of Security"
 	desc = "A human from one of Earth's diverse cultures. They are a Head of Security."
@@ -53,10 +52,9 @@
 	suit_chance = 100
 	hat_chance = 100
 	glove_chance = 100
-	wander = 0
 
 	angryprob = 0
-	npc_item_amount = 7
+	npc_item_amount = 4
 	randomize_value = 0
 	randomize_quantity = 0
 	no_resell = 1
@@ -64,7 +62,7 @@
 
 //nt chef
 
-/mob/living/simple_animal/hostile/npc/colonist/contract/ntchef
+/mob/living/simple_animal/passive/npc/colonist/contract/ntchef
 	name = "chef"
 	npc_job_title = "NanoTrasen Head Chef"
 	desc = "A human from one of Earth's diverse cultures. They are a Head Chef."
@@ -81,7 +79,6 @@
 	suit_chance = 100
 	hat_chance = 100
 	glove_chance = 0
-	wander = 0
 
 	angryprob = 0
 	npc_item_amount = 4
@@ -90,7 +87,7 @@
 	no_resell = 1
 	interact_screen = 2
 
-/mob/living/simple_animal/hostile/npc/colonist/contract/terran_doctor
+/mob/living/simple_animal/passive/npc/colonist/contract/terran_doctor
 	name = "Chief Doctor"
 	npc_job_title = "Chief Doctor"
 	desc = "A human from one of Earth's diverse cultures. They are the colony's chief doctor. They look stressed and very tired."
@@ -104,7 +101,6 @@
 	suit_chance = 100
 	hat_chance = 0
 	glove_chance = 0
-	wander = 0
 
 	angryprob = 0
 	npc_item_amount = 1

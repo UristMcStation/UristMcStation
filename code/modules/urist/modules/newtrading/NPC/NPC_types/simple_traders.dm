@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/npc/colonist/trader
+/mob/living/simple_animal/passive/npc/colonist/trader
 	interact_screen = 2
 	angryprob = 0
 	speech_triggers = list(/datum/npc_speech_trigger/colonist/colonist_pirate, /datum/npc_speech_trigger/colonist/colonist_lactera)
@@ -6,7 +6,7 @@
 
 //tool trader
 
-/mob/living/simple_animal/hostile/npc/colonist/trader/tool_trader
+/mob/living/simple_animal/passive/npc/colonist/trader/tool_trader
 	name = "Tool Trader"
 	npc_job_title = "Tool Trader"
 	desc = "A human from one of Earth's diverse cultures. They are a trader who buys and sells tools for cash"
@@ -20,12 +20,11 @@
 		)
 	hat_chance = 50
 	glove_chance = 50
-	wander = 0
 	interact_screen = 2
 
 //crop trader
 
-/mob/living/simple_animal/hostile/npc/colonist/trader/crop_trader
+/mob/living/simple_animal/passive/npc/colonist/trader/crop_trader
 	name = "Crop Trader"
 	npc_job_title = "Crop Trader"
 	desc = "A human from one of Earth's diverse cultures. They are a trader who buys crops for cash"
@@ -39,19 +38,18 @@
 	suit_chance = 100
 	hat_chance = 50
 	glove_chance = 50
-	wander = 0
 	interact_screen = 2
 
-/mob/living/simple_animal/hostile/npc/colonist/trader/crop_trader/get_trade_value(var/obj/O)
+/mob/living/simple_animal/passive/npc/colonist/trader/crop_trader/get_trade_value(obj/O)
 	. = get_value(O) * 25
 
-/mob/living/simple_animal/hostile/npc/colonist/trader/crop_trader/player_sell(var/obj/O, var/mob/M, var/resell = 1)
+/mob/living/simple_animal/passive/npc/colonist/trader/crop_trader/player_sell(obj/O, var/mob/M, var/resell = 1)
 	return ..(O, M, 0)
 
 
 //mineral trader
 /*
-/mob/living/simple_animal/hostile/npc/colonist/mineral_trader
+/mob/living/simple_animal/passive/npc/colonist/mineral_trader
 	name = "Ore Trader"
 	npc_job_title = "Ore Trader"
 	desc = "A human from one of Earth's diverse cultures. They are a trader who buys and sells ore for cash"
@@ -70,7 +68,7 @@
 
 //bartender
 
-/mob/living/simple_animal/hostile/npc/colonist/trader/bartender_trader
+/mob/living/simple_animal/passive/npc/colonist/trader/bartender_trader
 	name = "Bartender"
 	npc_job_title = "Bartender"
 	desc = "A human from one of Earth's diverse cultures. They are a bartender."
@@ -81,7 +79,6 @@
 	suit_chance = 0
 	hat_chance = 0
 	glove_chance = 0
-	wander = 0
 
 	npc_item_amount = 26
 	randomize_value = 0
@@ -90,7 +87,7 @@
 
 //TC guy
 
-/mob/living/simple_animal/hostile/npc/colonist/trader/terran_assistant_doctor
+/mob/living/simple_animal/passive/npc/colonist/trader/terran_assistant_doctor
 	name = "doctor"
 	npc_job_title = "doctor"
 	desc = "A human from one of Earth's diverse cultures. They are a doctor. They look stressed and very tired."
@@ -104,7 +101,6 @@
 	suit_chance = 100
 	hat_chance = 0
 	glove_chance = 0
-	wander = 0
 
 	angryprob = 0
 	npc_item_amount = 1
@@ -115,7 +111,7 @@
 
 //organ smuggler
 
-/mob/living/simple_animal/hostile/npc/colonist/trader/organsmuggler
+/mob/living/simple_animal/passive/npc/colonist/trader/organsmuggler
 	name = "organ smuggler"
 	npc_job_title = "organ smuggler"
 	desc = "A human from one of Earth's diverse cultures. They buy and sell organs for cash."
@@ -143,7 +139,7 @@
 		/obj/item/clothing/glasses/science,\
 		/obj/item/clothing/glasses/eyepatch,\
 		/obj/item/clothing/glasses/monocle,\
-		/obj/item/clothing/glasses/regular/hipster)
+		/obj/item/clothing/glasses)
 	glasses_chance = 50
 	suits = list(\
 		/obj/item/clothing/suit/storage/det_trench,\
@@ -171,5 +167,3 @@
 		/obj/item/clothing/mask/breath/medical,\
 		/obj/item/clothing/mask/surgical)
 	mask_chance = 50
-
-	wander = 0

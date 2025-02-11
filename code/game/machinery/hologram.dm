@@ -28,7 +28,6 @@ Revised by CPU_Blanc.
 -Visible emotes now only pass through the pad if the source is visible to the user (Either as a hologram, or if the player's eye is in that location)
 */
 
-
 /*
  * Holopad
  */
@@ -36,14 +35,13 @@ Revised by CPU_Blanc.
 #define RANGE_BASED 4
 #define AREA_BASED 6
 
-var/const/HOLOPAD_MODE = RANGE_BASED
+var/global/const/HOLOPAD_MODE = RANGE_BASED
 
 /obj/machinery/hologram/holopad
-	name = "\improper AI holopad"
+	name = "\improper holopad"
 	desc = "It's a floor-mounted device for projecting holographic images."
 	icon_state = "holopad-B0"
 
-	plane = ABOVE_TURF_PLANE
 	layer = ABOVE_TILE_LAYER
 
 	var/power_per_hologram = 500 //per usage per hologram
@@ -52,7 +50,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 
 	var/conference = FALSE
 	var/scan_range = 2	//Range of mobs to capture for conference calls
-	var/list/masters = new() //List of mobs that are projecting on the holopad
+	var/list/masters = new() //List of mobs that are projecting on the holopad	var/last_request = 0 //to prevent request spam. ~Carn
 	var/last_request = 0 //to prevent request spam. ~Carn
 	var/holo_range = 5 // Change to change how far the AI can move away from the holopad before deactivating.
 
@@ -61,102 +59,118 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	var/obj/machinery/hologram/holopad/connected
 	var/list/tracked = list()
 
-	var/map_range = -1 //how far on overmap can it connect, -1 for local zlevels only
+	var/list/recent_calls = list()
 
 	var/holopadType = HOLOPAD_SHORT_RANGE //Whether the holopad is short-range or long-range.
 	var/base_icon = "holopad-B"
+
+	var/allow_ai = TRUE
+
+	construct_state = /singleton/machine_construction/default/panel_closed
+
+	var/list/linked_pdas
 
 /obj/machinery/hologram/holopad/New()
 	..()
 	desc = "It's a floor-mounted device for projecting holographic images. Its ID is '[loc.loc]'"
 
-/obj/machinery/hologram/holopad/power_change()
+/obj/machinery/hologram/holopad/examine(mob/user)
 	. = ..()
-	if(stat & NOPOWER)
-		for(var/mob/M in masters)
-			remove_holo(M)
-		if(connected)
-			end_call()
-		update_use_power(POWER_USE_OFF)
-	else
-		update_use_power(POWER_USE_IDLE)
+	if (connected)
+		to_chat(user, SPAN_NOTICE("There is currently an incoming call from [get_area(connected)]!"))
+	var/callstring = "Recent incoming calls:"
+	for (var/id in recent_calls)
+		callstring += "\n[id]"
+	callstring = SPAN_NOTICE(callstring)
+	to_chat(user, callstring)
 
-/obj/machinery/hologram/holopad/attack_hand(var/mob/living/carbon/human/user) //Carn: Hologram requests.
-	if(!istype(user) && !isrobot(user))
-		return
-	if(stat & NOPOWER)
-		return
+/obj/machinery/hologram/holopad/interface_interact(mob/living/carbon/human/user) //Carn: Hologram requests.
+	if(!CanInteract(user, DefaultTopicState()))
+		return FALSE
+	if(stat)
+		return FALSE
 	if(incoming_connection)
 		if(QDELETED(connected)) // If the sourcepad was deleted, most likely.
 			end_call()
-			return
+			return FALSE
 		visible_message("The pad hums quietly as it establishes a connection.")
 		if(caller_id && caller_id.loc != connected.loc)
 			visible_message("The pad flashes an error message. The caller has left their holopad.")
-			return
+			return FALSE
 		take_call()
-		return
+		return TRUE
 	else if(connected && !incoming_connection)
 		visible_message("Severing connection to distant holopad.")
 		end_call()
-		return
-	switch(alert(user,"Would you like to request an AI's presence or establish communications with another pad?", "Holopad","AI","Holocomms","Cancel"))
+		return FALSE
+
+	. = TRUE
+	var/handle_type = "Holocomms"
+	var/ai_exists = FALSE
+
+	for(var/mob/living/silicon/ai/AI in GLOB.alive_mobs)
+		if(!AI.client)	continue
+		ai_exists = TRUE
+		break
+
+	if(allow_ai && ai_exists)
+		handle_type = alert(user,"Would you like to request an AI's presence or establish communications with another pad?", "Holopad","AI","Holocomms","Cancel")
+
+	switch(handle_type)
 		if("AI")
 			if(last_request + 200 < world.time) //don't spam the AI with requests you jerk!
 				last_request = world.time
-				to_chat(user, "<span class='notice'>You request an AI's presence.</span>")
+				to_chat(user, SPAN_NOTICE("You request an AI's presence."))
 				var/area/area = get_area(src)
-				for(var/mob/living/silicon/ai/AI in GLOB.living_mob_list_)
+				for(var/mob/living/silicon/ai/AI in GLOB.alive_mobs)
 					if(!AI.client)	continue
-					to_chat(AI, "<span class='info'>Your presence is requested at <a href='?src=\ref[AI];jumptoholopad=\ref[src]'>\the [area]</a>.</span>")
+					if (holopadType != HOLOPAD_LONG_RANGE && !AreConnectedZLevels(AI.z, src.z))
+						continue
+					to_chat(AI, SPAN_INFO("Your presence is requested at <a href='?src=\ref[AI];jumptoholopad=\ref[src]'>\the [area]</a>."))
 			else
-				to_chat(user, "<span class='notice'>A request for AI presence was already sent recently.</span>")
+				to_chat(user, SPAN_NOTICE("A request for AI presence was already sent recently."))
 		if("Holocomms")
 			var/call_type = alert(user, "Would you like to make it a conference call?", "Holopad", "Yes", "No")
 			if(call_type == "Yes")
 				conference = TRUE
 			if(user.loc != src.loc && !conference)
-				to_chat(user, "<span class='info'>Please step onto the holopad.</span>")
+				to_chat(user, SPAN_INFO("Please step onto the holopad."))
 				return
 			if(last_request + 200 < world.time) //don't spam other people with requests either, you jerk!
-				last_request = world.time
 				var/list/holopadlist = list()
 				var/zlevels = GetConnectedZlevels(z)
-				if(GLOB.using_map.use_overmap && map_range >= 0)
-					var/obj/effect/overmap/baseOM = map_sectors["[z]"]
-					for(var/obj/machinery/hologram/holopad/H in SSmachines.machinery)
-						if(!H.operable())
-							continue
-						if(H.map_range >= 0)
-							var/obj/effect/overmap/targetOM = map_sectors["[H.z]"]
-							if(targetOM == baseOM || ((targetOM in range(baseOM,map_range)) && (baseOM in range(targetOM,H.map_range))))
-								holopadlist["[H.loc.loc.name]"] = H
-						else if(H.z in zlevels)
+				var/zlevels_long = list()
+				if(GLOB.using_map.use_overmap && holopadType == HOLOPAD_LONG_RANGE)
+					for(var/zlevel in map_sectors)
+						var/obj/effect/overmap/visitable/O = map_sectors["[zlevel]"]
+						if(!isnull(O))
+							zlevels_long |= O.map_z
+				for(var/obj/machinery/hologram/holopad/H in SSmachines.machinery)
+					if (H.operable())
+						if(H.z in zlevels)
+							holopadlist["[H.loc.loc.name]"] = H	//Define a list and fill it with the area of every holopad in the world
+						if (H.holopadType == HOLOPAD_LONG_RANGE && (H.z in zlevels_long))
 							holopadlist["[H.loc.loc.name]"] = H
-				else
-					for(var/obj/machinery/hologram/holopad/H in SSmachines.machinery)
-						if((H.z in zlevels) && H.operable())
-							holopadlist["[H.loc.loc.name]"] = H	//Define a list and fill it with the area of every holopad in the world			
 				holopadlist = sortAssoc(holopadlist)
 				var/temppad = input(user, "Which holopad would you like to contact?", "holopad list") as null|anything in holopadlist
 				var/obj/machinery/hologram/holopad/targetpad = holopadlist["[temppad]"]
 				if(!targetpad)
 					return
 				if(targetpad == src)
-					to_chat(user, "<span class='info'>Using such sophisticated technology, just to talk to yourself seems a bit silly.</span>")
+					to_chat(user, SPAN_INFO("Using such sophisticated technology, just to talk to yourself seems a bit silly."))
+					targetpad = null //Clean up the mess after an unsuccessful call
 					return
 				if(targetpad.connected)
-					to_chat(user, "<span class='info'>The pad flashes a busy sign. Maybe you should try again later..</span>")
+					to_chat(user, SPAN_INFO("The pad flashes a busy sign. Maybe you should try again later.."))
+					targetpad = null //Clean up the mess after an unsuccessful call
 					return
+				last_request = world.time
 				make_call(targetpad, conference ? null : user)
 			else
-				to_chat(user, "<span class='notice'>A request for holographic communication was already sent recently.</span>")
+				to_chat(user, SPAN_NOTICE("A request for holographic communication was already sent recently."))
 
-/obj/machinery/hologram/holopad/attack_robot(var/mob/user)
-	if(Adjacent(user))
-		attack_hand(user)
 
-/obj/machinery/hologram/holopad/proc/make_call(var/obj/machinery/hologram/holopad/targetpad, var/mob/living/carbon/user)
+/obj/machinery/hologram/holopad/proc/make_call(obj/machinery/hologram/holopad/targetpad, mob/living/carbon/user)
 	connected = targetpad
 	set_pad_effects()
 	targetpad.connected = src //This marks the holopad you are making the call from
@@ -164,14 +178,21 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	targetpad.last_request = world.time
 	targetpad.conference = conference
 	playsound(targetpad.loc, 'sound/machines/chime.ogg', 25, 5)
+	targetpad.addrecentcall(get_area(src))
 	targetpad.set_pad_effects()
 	if(user)
-		targetpad.caller_id = user //This marks you as the caller	
+		targetpad.caller_id = user //This marks you as the caller
 		targetpad.audible_message("<b>\The [connected]</b> announces, \"Incoming communications request from [connected.connected.loc.loc].\"")
-		to_chat(user, "<span class='notice'>Trying to establish a connection to the holopad in [connected.loc.loc]... Please await confirmation from recipient.</span>")
+		to_chat(user, SPAN_NOTICE("Trying to establish a connection to the holopad in [connected.loc.loc]... Please await confirmation from recipient."))
+	// Notify any linked PDAs
+	if (LAZYLEN(targetpad.linked_pdas))
+		for (var/obj/item/modular_computer/pda/pda as anything in targetpad.linked_pdas)
+			if (!AreConnectedZLevels(get_z(targetpad), get_z(pda)))
+				continue
+			pda.receive_notification("Call at [targetpad.loc.loc] holopad.")
 	else
 		targetpad.audible_message("<b>\The [connected]</b> announces, \"Incoming holo-conference request from [connected.connected.loc.loc].\"")
-		visible_message("<span class='notice'>Trying to establish a connection to the holopad in [connected.loc.loc]... Please await confirmation from recipient.</span>")
+		visible_message(user, SPAN_NOTICE("Trying to establish a connection to the holopad in [connected.loc.loc]... Please await confirmation from recipient."))
 
 /obj/machinery/hologram/holopad/proc/take_call()
 	incoming_connection = FALSE
@@ -182,7 +203,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 			add_hologram(caller_id)
 		log_admin("[key_name(caller_id)] just established a holopad connection from [connected.loc.loc] to [src.loc.loc]")
 
-/obj/machinery/hologram/holopad/proc/end_call(var/ended = TRUE)
+/obj/machinery/hologram/holopad/proc/end_call(ended = TRUE)
 	if(ended && connected)
 		connected.end_call(FALSE)
 	else
@@ -204,30 +225,45 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	if(!length(masters))
 		set_pad_effects(FALSE)
 
+/obj/machinery/hologram/holopad/proc/addrecentcall(id)
+	recent_calls += id
+	if (length(recent_calls) > 5)
+		recent_calls -= recent_calls[1]
+
 /obj/machinery/hologram/holopad/check_eye(mob/user)
 	return 0
 
 /obj/machinery/hologram/holopad/attack_ai(mob/living/silicon/ai/user)
 	if (!istype(user))
 		return
+	if(!ai_can_interact(user))
+		return
 	/*There are pretty much only three ways to interact here.
 	I don't need to check for client since they're clicking on an object.
 	This may change in the future but for now will suffice.*/
 	if(user.eyeobj && (user.eyeobj.loc != src.loc))//Set client eye on the object if it's not already.
 		user.eyeobj.setLoc(get_turf(src))
+	else if (!allow_ai)
+		to_chat(user, SPAN_WARNING("Access denied."))
+	else if (holopadType != HOLOPAD_LONG_RANGE && !AreConnectedZLevels(user.z, src.z))
+		to_chat(user, SPAN_WARNING("Out of range."))
 	else if(!masters[user])//If there is no hologram, possibly make one.
 		add_hologram(user)
 	else//If there is a hologram, remove it.
 		remove_holo(user)
 	return
 
-
-//HOLOGRAM STUFF//
-
+/obj/machinery/hologram/holopad/proc/activate_holocall(mob/living/carbon/caller_id)
+	if(caller_id)
+		src.visible_message("A holographic image of [caller_id] flicks to life right before your eyes!")
+		create_holo(0,caller_id)//Create one.
+	else
+		to_chat(caller_id, "[SPAN_DANGER("ERROR:")] Unable to project hologram.")
+	return
 /obj/machinery/hologram/holopad/proc/add_hologram(mob/living/user)
 	if(isAI(user))
 		var/mob/living/silicon/ai/AI = user
-		if(!(stat & NOPOWER) && AI.eyeobj && AI.eyeobj.loc == src.loc)
+		if(!(stat) && AI.eyeobj && AI.eyeobj.loc == src.loc)
 			if(AI.holo)
 				to_chat(AI, "<span class='danger'>ERROR:</span> Image feed in progress.")
 				return
@@ -237,9 +273,35 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	else if(isliving(user))
 		create_holo(user)
 
+/obj/machinery/hologram/holopad/use_tool(obj/item/O, mob/user)
+	if (istype(O, /obj/item/modular_computer/pda))
+		if (LAZYISIN(linked_pdas, O))
+			unlink_pda(O)
+			to_chat(user, SPAN_NOTICE("You remove \the [O] from \the [src]'s notifications list."))
+			return TRUE
+		link_pda(O)
+		to_chat(user, SPAN_NOTICE("You add \the [O] to \the [src]'s notifications list. It will now be pinged whenever a call is received."))
+		return TRUE
+
+	..()
+
+/**
+ * Proc to link/unlink PDAs
+ */
+
+/obj/machinery/hologram/holopad/proc/link_pda(obj/item/modular_computer/pda/pda)
+	if (!istype(pda))
+		return
+	LAZYADD(linked_pdas, pda)
+	GLOB.destroyed_event.register(pda, src, .proc/unlink_pda)
+
+
+/obj/machinery/hologram/holopad/proc/unlink_pda(obj/item/modular_computer/pda/pda)
+	LAZYREMOVE(linked_pdas, pda)
+	GLOB.destroyed_event.unregister(pda, src, .proc/unlink_pda)
+
 /obj/machinery/hologram/holopad/proc/create_holo(mob/living/user, isAI = FALSE, turf/T = loc)
 	var/obj/effect/overlay/hologram = new(T)//Spawn a blank effect at the location.
-
 	if(isAI)
 		var/mob/living/silicon/ai/AI = user
 		hologram.overlays += holopadType == HOLOPAD_LONG_RANGE ? AI.holo_icon_longrange : AI.holo_icon
@@ -252,9 +314,8 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 		hologram.forceMove(get_step(src,1))
 
 	hologram.mouse_opacity = 0//So you can't click on it.
-	hologram.plane = ABOVE_HUMAN_PLANE
 	hologram.layer = ABOVE_HUMAN_LAYER //Above all the other objects/mobs. Or the vast majority of them.
-	hologram.anchored = 1//So space wind cannot drag it.
+	hologram.anchored = TRUE//So space wind cannot drag it.
 	hologram.SetName("[user.name] (Hologram)")
 	masters[user] = hologram
 	hologram.set_light(1, 0.1, 2)	//hologram lighting
@@ -278,7 +339,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 			end_call()
 	return 1
 
-/obj/machinery/hologram/holopad/proc/move_hologram(mob/living/user, var/x, var/y, var/dir)
+/obj/machinery/hologram/holopad/proc/move_hologram(mob/living/user, x, var/y, var/dir)
 	if(masters[user])
 		if(isAI(user))
 			step_to(masters[user], user.eyeobj) // So it turns.
@@ -313,7 +374,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 		var/obj/effect/overlay/hologram = masters[user]
 		hologram.dir = new_dir
 
-/obj/machinery/hologram/holopad/proc/set_pad_effects(var/on = TRUE)
+/obj/machinery/hologram/holopad/proc/set_pad_effects(on = TRUE)
 	if(on)
 		set_light(1, 0.1, 2)
 		update_use_power(POWER_USE_ACTIVE)
@@ -329,7 +390,7 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 /obj/machinery/hologram/holopad/Process()
 	for(var/mob/living/silicon/ai/master in masters)
 		var/active_ai = (master && !master.incapacitated() && master.client && master.eyeobj)//If there is an AI with an eye attached, it's not incapacitated, and it has a client
-		if((stat & NOPOWER) || !active_ai)
+		if(!is_powered() || !active_ai)
 			remove_holo(master)
 			continue
 
@@ -337,17 +398,17 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 			remove_holo(master)
 			continue
 
-	if(last_request + 200 < world.time && incoming_connection == TRUE)
-		if(connected)
-			connected.visible_message("<i><span class='game say'>The holopad connection timed out.</span></i>")
-			connected.end_call()
-		incoming_connection = FALSE
+		if(last_request + 200 < world.time && incoming_connection == TRUE)
+			if(connected)
+				connected.visible_message("<i><span class='game say'>The holopad connection timed out.</span></i>")
+				connected.end_call()
+			incoming_connection = FALSE
 
 	if(caller_id && connected)
 		if(caller_id.loc != connected.loc)
 			connected.visible_message("<span class='notice'>Severing connection to distant holopad.</span>")
 			connected.end_call()
-	
+
 	if(conference && connected)
 		process_mobs()
 
@@ -457,24 +518,26 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 		if(O != src)	//Prevents echoes
 			O.show_message(understood,2,null,1)
 
+
+
 /*
  * Hologram
  */
 
 /obj/machinery/hologram
-	anchored = 1
+	anchored = TRUE
 	idle_power_usage = 5
 	active_power_usage = 100
 
 //Destruction procs.
 /obj/machinery/hologram/ex_act(severity)
 	switch(severity)
-		if(1.0)
+		if(EX_ACT_DEVASTATING)
 			qdel(src)
-		if(2.0)
+		if(EX_ACT_HEAVY)
 			if (prob(50))
 				qdel(src)
-		if(3.0)
+		if(EX_ACT_LIGHT)
 			if (prob(5))
 				qdel(src)
 	return
@@ -483,6 +546,11 @@ var/const/HOLOPAD_MODE = RANGE_BASED
 	for(var/mob/living/master in masters)
 		remove_holo(master)
 	end_call()
+	if (LAZYLEN(linked_pdas))
+		for (var/obj/item/modular_computer/pda/pda as anything in linked_pdas)
+			unlink_pda(pda)
+		linked_pdas = null
+
 	return ..()
 
 /*
@@ -520,10 +588,14 @@ Holographic project of everything else.
 	name = "long range holopad"
 	desc = "It's a floor-mounted device for projecting holographic images. This one utilizes a bluespace transmitter to communicate with far away locations."
 	icon_state = "holopad-Y0"
-	map_range = 2
 	power_per_hologram = 1000 //per usage per hologram
 	holopadType = HOLOPAD_LONG_RANGE
 	base_icon = "holopad-Y"
+
+// Used for overmap capable ships that should have communications, but not be AI accessible
+/obj/machinery/hologram/holopad/longrange/remoteship
+	allow_ai = FALSE
+	construct_state = null
 
 #undef RANGE_BASED
 #undef AREA_BASED

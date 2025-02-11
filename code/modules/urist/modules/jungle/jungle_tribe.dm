@@ -1,8 +1,8 @@
 
-
+/*
 /obj/item/projectile/jungle_spear
 	damage = 10
-	damage_type = TOX
+	damage_type = DAMAGE_TOXIN
 	icon_state = "bullet"
 
 /obj/effect/jungle_tribe_spawn
@@ -10,7 +10,7 @@
 	desc = "Looks cosy, in an alien sort of way."
 	icon = 'icons/jungle.dmi'
 	icon_state = "campfire"
-	anchored = 1
+	anchored = TRUE
 	var/list/tribesmen = list()
 	var/list/enemy_players = list()
 	var/tribe_type = 1
@@ -88,3 +88,4 @@
 	visible_message("<span class='warning'> <b>[src]</b> throws a spear at [target_mob]!</span>", 1)
 	flick(src, "native[my_type]_act")
 	..()
+*/

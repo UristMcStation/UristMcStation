@@ -6,8 +6,8 @@
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "portal"
 	var/block_pirate_teleport = TRUE
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	layer = 3.1
 
 /obj/structure/boarding/shipportal/Bumped(atom/movable/M as mob|obj)
@@ -41,12 +41,38 @@
 	var/tele_z = GLOB.using_map.overmap_ship.evac_z
 
 	do_teleport(M, locate(tele_x,tele_y,tele_z), 0)
-	M << "<span class='warning'>You teleport back to the ship!</span>"
+	to_chat(M, "<span class='warning'>You teleport back to the ship!</span>")
 
 /obj/effect/step_trigger/teleporter/urist/nerva
 	teleport_x = 89
 	teleport_y = 90
 	teleport_z = 1
+
+/obj/structure/boarding/shipportal/shipside
+	var/source_x
+	var/source_y
+	var/source_z
+
+/obj/structure/boarding/shipportal/shipside/Initialize()
+	for(var/obj/structure/boarding/shipportal/sp)
+		if(!isPlayerLevel(sp.z))
+			source_x = sp.x
+			source_y = sp.y
+			source_z = sp.z
+			break
+	QDEL_IN(src, 15 MINUTES)
+	. = ..()
+
+/obj/structure/boarding/shipportal/shipside/teleport(atom/movable/M as mob|obj)
+	if(istype(M, /obj/effect)) //sparks don't teleport
+		return
+	if(block_pirate_teleport && istype(M, /mob/living))
+		var/mob/living/H = M
+		if(H.faction != "neutral")
+			return
+
+	do_teleport(M, locate(source_x,source_y,source_z), 0)
+	to_chat(M, "<span class='warning'>You teleport to the attacking ship!</span>")
 
 //self destruct for boarding
 
@@ -55,8 +81,8 @@
 	name = "self destruct mechanism"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "bus"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	var/shipid = null
 
 /obj/structure/boarding/self_destruct/ex_act()
@@ -143,7 +169,7 @@
 
 
 
-					for(var/obj/effect/overmap/sector/station/S in SStrade_controller.overmap_stations)
+					for(var/obj/effect/overmap/visitable/sector/station/S in SStrade_controller.overmap_stations)
 						if(src.z in S.map_z)
 							for(var/datum/contract/station_destroy/A in GLOB.using_map.contracts)
 								if(A.neg_faction == S.faction)

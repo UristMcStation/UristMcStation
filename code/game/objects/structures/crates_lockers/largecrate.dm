@@ -3,7 +3,7 @@
 	desc = "A hefty wooden crate."
 	icon = 'icons/obj/shipping_crates.dmi'
 	icon_state = "densecrate"
-	density = 1
+	density = TRUE
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
 
 /obj/structure/largecrate/Initialize()
@@ -14,40 +14,24 @@
 		I.forceMove(src)
 
 /obj/structure/largecrate/attack_hand(mob/user as mob)
-	to_chat(user, "<span class='notice'>You need a crowbar to pry this open!</span>")
+	to_chat(user, SPAN_NOTICE("You need a crowbar to pry this open!"))
 	return
 
-/obj/structure/largecrate/attackby(obj/item/weapon/W as obj, mob/user as mob)
+/obj/structure/largecrate/attackby(obj/item/W as obj, mob/user as mob)
 	if(isCrowbar(W))
 		new /obj/item/stack/material/wood(src)
 		var/turf/T = get_turf(src)
 		for(var/atom/movable/AM in contents)
 			if(AM.simulated) AM.forceMove(T)
-		user.visible_message("<span class='notice'>[user] pries \the [src] open.</span>", \
-							 "<span class='notice'>You pry open \the [src].</span>", \
-							 "<span class='notice'>You hear splitting wood.</span>")
+		user.visible_message(SPAN_NOTICE("[user] pries \the [src] open."), \
+							 SPAN_NOTICE("You pry open \the [src]."), \
+							 SPAN_NOTICE("You hear splitting wood."))
 		qdel(src)
 	else
 		return attack_hand(user)
 
 /obj/structure/largecrate/mule
 	name = "MULE crate"
-
-/obj/structure/largecrate/hoverpod
-	name = "\improper Hoverpod assembly crate"
-	desc = "It comes in a box for the fabricator's sake. Where does the wood come from? ... And why is it lighter?"
-	icon_state = "mulecrate"
-
-/obj/structure/largecrate/hoverpod/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if(isCrowbar(W))
-		var/obj/item/mecha_parts/mecha_equipment/ME
-		var/obj/mecha/working/hoverpod/H = new (loc)
-
-		ME = new /obj/item/mecha_parts/mecha_equipment/tool/hydraulic_clamp
-		ME.attach(H)
-		ME = new /obj/item/mecha_parts/mecha_equipment/tool/passenger
-		ME.attach(H)
-	..()
 
 /obj/structure/largecrate/animal
 	icon_state = "mulecrate"
@@ -66,27 +50,31 @@
 
 /obj/structure/largecrate/animal/corgi
 	name = "corgi carrier"
-	held_type = /mob/living/simple_animal/corgi
+	held_type = /mob/living/simple_animal/passive/corgi
 
 /obj/structure/largecrate/animal/cow
 	name = "cow crate"
-	held_type = /mob/living/simple_animal/cow
+	held_type = /mob/living/simple_animal/passive/cow
 
 /obj/structure/largecrate/animal/goat
 	name = "goat crate"
 	held_type = /mob/living/simple_animal/hostile/retaliate/goat
 
+/obj/structure/largecrate/animal/goose
+	name = "goose containment unit"
+	held_type = /mob/living/simple_animal/hostile/retaliate/goose
+
 /obj/structure/largecrate/animal/cat
 	name = "cat carrier"
-	held_type = /mob/living/simple_animal/cat
+	held_type = /mob/living/simple_animal/passive/cat
 
 /obj/structure/largecrate/animal/cat/bones
-	held_type = /mob/living/simple_animal/cat/fluff/bones
+	held_type = /mob/living/simple_animal/passive/cat/fluff/bones
 
 /obj/structure/largecrate/animal/chick
 	name = "chicken crate"
 	held_count = 5
-	held_type = /mob/living/simple_animal/chick
+	held_type = /mob/living/simple_animal/passive/chick
 
 /obj/structure/largecrate/animal/goose
 	name = "goose containment unit"
@@ -95,4 +83,9 @@
 /obj/structure/largecrate/animal/crab
 	name = "crab crate"
 	held_count = 3
-	held_type = /mob/living/simple_animal/crab
+	held_type = /mob/living/simple_animal/passive/crab
+
+/obj/structure/largecrate/animal/opossum
+	name = "opossum crate"
+	held_count = 1
+	held_type = /mob/living/simple_animal/passive/opossum

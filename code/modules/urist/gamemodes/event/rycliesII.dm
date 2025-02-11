@@ -11,11 +11,12 @@
 			return
 		if(2.0)
 			if(prob(75))
-				take_damage(rand(150, 250))
+				src.ChangeTurf(/turf/unsimulated/floor)
 			else
 				dismantle_wall(1,1)
 		if(3.0)
-			take_damage(rand(0, 250))
+			if(prob(10))
+				src.ChangeTurf(/turf/unsimulated/floor)
 		else
 	return
 
@@ -125,8 +126,8 @@
 	name = "bluespace artillery control"
 	icon_state = "control_boxp1"
 	icon = 'icons/obj/machines/particle_accelerator2.dmi'
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	var/artillery = 0
 	var/fire = 0
 
@@ -177,7 +178,7 @@
 		if("Cancel")
 			return
 		if("Yes")
-			world << "<FONT size = 3><span class='danger'> Mothership self-destruct sequence activated.</span></FONT>"
+			to_world(FONT_LARGE(SPAN_DANGER("Mothership self-destruct sequence activated.")))
 			for(var/obj/effect/landmark/scom/bomb/B in landmarks_list)
 				B.incomprehensibleprocname()
 				sploded = 0
@@ -229,7 +230,7 @@
 	item_state = "ryclieshelm"
 	armor = list(melee = 60, bullet = 80, laser = 40,energy = 35, bomb = 10, bio = 2, rad = 0)
 
-/obj/item/weapon/gun/projectile/automatic/kh50
+/obj/item/gun/projectile/automatic/kh50
 	item_icons = DEF_URIST_INHANDS
 	name = "KH50"
 	desc = "A compact rifle chambered in 12.7x54mm Caseless. Heavy and inaccurate, but hard-hitting and reliable. The stamped text on the side reads, 'Kayman-Hale KH-50'"
@@ -244,7 +245,7 @@
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 
 
-/obj/item/weapon/gun/projectile/automatic/kh50/update_icon()
+/obj/item/gun/projectile/automatic/kh50/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "KH50"
@@ -278,15 +279,15 @@
 /obj/item/projectile/bullet/rifle/a127
 	damage = 25 //low-ish for 12.7, equal with 7.62, but it's what it used to inflict pre-0.1.19 - balance this
 
-/obj/item/weapon/storage/box/kh50ammo
+/obj/item/storage/box/kh50ammo
 	name = "box of KH-50 ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 
-	New()
-		..()
-		new /obj/item/ammo_magazine/a127x54mm(src)
-		new /obj/item/ammo_magazine/a127x54mm(src)
-		new /obj/item/ammo_magazine/a127x54mm(src)
+/obj/item/storage/box/kh50ammo/New()
+	..()
+	new /obj/item/ammo_magazine/a127x54mm(src)
+	new /obj/item/ammo_magazine/a127x54mm(src)
+	new /obj/item/ammo_magazine/a127x54mm(src)
 
 /obj/structure/scom/shieldgen
 	name = "shield generator"
@@ -315,11 +316,11 @@
 	desc = "Impenetrable field of energy, capable of blocking anything as long as it's active."
 	icon = 'icons/obj/machines/shielding.dmi'
 	icon_state = "shieldsparkles"
-	anchored = 1
+	anchored = TRUE
 	layer = 4.1		//just above mobs
-	density = 1
+	density = TRUE
 
-/obj/structure/scom/shieldwall/shieldwall1/Bumped(var/obj/mecha/working/hoverpod/fighter/small/alien/M)
+/obj/structure/scom/shieldwall/shieldwall1/Bumped(mob/living/exosuit/premade/hoverpod/fighter/M)
 	M.x = src.x
 	M.y = src.y
 
@@ -328,11 +329,11 @@
 	desc = "Impenetrable field of energy, capable of blocking anything as long as it's active."
 	icon = 'icons/obj/machines/shielding.dmi'
 	icon_state = "shieldsparkles"
-	anchored = 1
+	anchored = TRUE
 	layer = 4.1		//just above mobs
-	density = 1
+	density = TRUE
 
-/obj/structure/scom/shieldwall/shieldwall2/Bumped(var/obj/mecha/working/hoverpod/fighter/M)
+/obj/structure/scom/shieldwall/shieldwall2/Bumped(mob/living/exosuit/premade/hoverpod/fighter/M)
 	M.x = src.x
 	M.y = src.y
 
@@ -355,5 +356,5 @@
 	desc = "A twisted X of steel designed to stop a tank in its tracks."
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "tanktrap"
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE

@@ -1,56 +1,73 @@
-/decl/hierarchy/outfit/job/torch/passenger/passenger
+/singleton/hierarchy/outfit/job/torch/passenger/passenger
 	name = OUTFIT_JOB_NAME("Passenger - Torch")
 	uniform = /obj/item/clothing/under/color/grey
 	l_ear = /obj/item/device/radio/headset
 	shoes = /obj/item/clothing/shoes/black
 	pda_type = /obj/item/modular_computer/pda
-	id_type = /obj/item/weapon/card/id/torch/passenger
+	id_types = list(/obj/item/card/id/torch/passenger)
 
-/decl/hierarchy/outfit/job/torch/passenger/passenger/journalist
+/singleton/hierarchy/outfit/job/torch/passenger/passenger/journalist
 	name = OUTFIT_JOB_NAME("Journalist - Torch")
 	backpack_contents = list(/obj/item/device/camera/tvcamera = 1,
 	/obj/item/clothing/accessory/badge/press = 1)
 
-/decl/hierarchy/outfit/job/torch/passenger/passenger/investor
+/singleton/hierarchy/outfit/job/torch/passenger/passenger/investor
 	name = OUTFIT_JOB_NAME("Investor - Torch")
 
-/decl/hierarchy/outfit/job/torch/passenger/passenger/investor/post_equip(var/mob/living/carbon/human/H)
+/singleton/hierarchy/outfit/job/torch/passenger/passenger/investor/post_equip(mob/living/carbon/human/H)
 	..()
-	var/obj/item/weapon/storage/secure/briefcase/money/case = new(H.loc)
+	var/obj/item/storage/secure/briefcase/money/case = new(H.loc)
 	H.put_in_hands(case)
 
-/decl/hierarchy/outfit/job/torch/merchant
+/singleton/hierarchy/outfit/job/torch/merchant
 	name = OUTFIT_JOB_NAME("Merchant - Torch")
 	uniform = /obj/item/clothing/under/color/black
 	l_ear = null
 	shoes = /obj/item/clothing/shoes/black
 	pda_type = /obj/item/modular_computer/pda
-	id_type = /obj/item/weapon/card/id/torch/merchant
+	id_types = list(/obj/item/card/id/torch/merchant)
 
-/decl/hierarchy/outfit/job/torch/stowaway
-	name = OUTFIT_JOB_NAME("Stowaway - Torch")
-	id_type = null
-	pda_type = null
-	l_ear = null
-	l_pocket = /obj/item/weapon/wrench
-	r_pocket = /obj/item/weapon/crowbar
-
-/decl/hierarchy/outfit/job/torch/stowaway/post_equip(var/mob/living/carbon/human/H)
-	..()
-	var/obj/item/weapon/card/id/torch/stowaway/ID = new(H.loc)
-	H.put_in_hands(ID)
-
-/decl/hierarchy/outfit/job/torch/ert
+/singleton/hierarchy/outfit/job/torch/ert
 	name = OUTFIT_JOB_NAME("ERT - Torch")
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/combat
 	head = /obj/item/clothing/head/beret/solgov/fleet
 	gloves = /obj/item/clothing/gloves/thick
-	id_type = /obj/item/weapon/card/id/centcom/ERT
+	id_types = list(/obj/item/card/id/centcom/ERT)
 	pda_type = /obj/item/modular_computer/pda/ert
 	l_ear = /obj/item/device/radio/headset/ert
 	shoes = /obj/item/clothing/shoes/dutyboots
 
-/decl/hierarchy/outfit/job/torch/ert/leader
+/singleton/hierarchy/outfit/job/torch/ert/leader
 	name = OUTFIT_JOB_NAME("ERT Leader - Torch")
 	uniform = /obj/item/clothing/under/solgov/utility/fleet/combat/command
 	head = /obj/item/clothing/head/beret/solgov/fleet/command
+
+/singleton/hierarchy/outfit/job/torch/ert/suit
+	name = OUTFIT_JOB_NAME("ERT Heavy - Torch")
+	back = /obj/item/rig/ert/fleet
+	flags = OUTFIT_RESET_EQUIPMENT | OUTFIT_ADJUSTMENT_SKIP_BACKPACK
+	head = null
+	gloves = null
+
+/singleton/hierarchy/outfit/job/torch/ert/hostile
+	name = OUTFIT_JOB_NAME("Fleet - Hostile")
+	uniform = /obj/item/clothing/under/solgov/utility/fleet/combat
+	suit = /obj/item/clothing/suit/armor/pcarrier/light/sol
+	head = /obj/item/clothing/head/helmet
+	mask = /obj/item/clothing/mask/gas/half
+	glasses = /obj/item/clothing/glasses/tacgoggles
+	flags = OUTFIT_RESET_EQUIPMENT | OUTFIT_ADJUSTMENT_ALL_SKIPS
+	l_ear = null
+
+/singleton/hierarchy/outfit/job/torch/ert/hostile/leader
+	name = OUTFIT_JOB_NAME("Fleet Leader - Hostile")
+	uniform = /obj/item/clothing/under/solgov/utility/fleet/combat
+	suit = /obj/item/clothing/suit/armor/bulletproof/armsman
+	head = /obj/item/clothing/head/helmet/armsman
+
+/singleton/hierarchy/outfit/job/torch/ert/hostile/suit
+	name = OUTFIT_JOB_NAME("Fleet Heavy - Hostile")
+	back = /obj/item/rig/ert/fleet
+	gloves = null
+	suit = null
+	head = null

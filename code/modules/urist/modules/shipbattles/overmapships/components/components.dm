@@ -21,7 +21,7 @@
 /datum/shipcomponents/proc/DoActivate()
 	return
 
-/datum/shipcomponents/proc/GetInitial(var/initial_thing)
+/datum/shipcomponents/proc/GetInitial(initial_thing)
 	return initial(initial_thing)
 
 //shields
@@ -93,6 +93,14 @@
 	health = 100
 	recharge_rate = 50
 	recharge_delay = 5 SECONDS
+	recovery_threashold = 60
+
+/datum/shipcomponents/shield/fighter/pirate
+	name = "salvaged ultralight shield"
+	strength = 520
+	health = 100
+	recharge_rate = 50
+	recharge_delay = 6 SECONDS
 	recovery_threashold = 60
 
 /datum/shipcomponents/shield/combat
@@ -180,6 +188,11 @@
 	health = 250
 	turns_per_move = 8
 
+/datum/shipcomponents/engines/pod // nimble but weak
+	name = "escape pod engines"
+	evasion_chance = 20
+	health = 60
+
 //point defence
 
 /datum/shipcomponents/point_defence
@@ -219,4 +232,3 @@
 	name = "advanced alien point defence systems"
 	intercept_chance = 25
 	health = 250
-

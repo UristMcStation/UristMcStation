@@ -1,10 +1,9 @@
 //trees
 /obj/structure/flora/tree
 	name = "tree"
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	pixel_x = -16
-	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/flora/tree/pine
@@ -34,12 +33,11 @@
 	..()
 	icon_state = "tree_[rand(1, 6)]"
 
-
 //grass
 /obj/structure/flora/grass
 	name = "grass"
 	icon = 'icons/obj/flora/snowflora.dmi'
-	anchored = 1
+	anchored = TRUE
 
 /obj/structure/flora/grass/brown
 	icon_state = "snowgrass1bb"
@@ -47,7 +45,6 @@
 /obj/structure/flora/grass/brown/New()
 	..()
 	icon_state = "snowgrass[rand(1, 3)]bb"
-
 
 /obj/structure/flora/grass/green
 	icon_state = "snowgrass1gb"
@@ -63,13 +60,12 @@
 	..()
 	icon_state = "snowgrassall[rand(1, 3)]"
 
-
 //bushes
 /obj/structure/flora/bush
 	name = "bush"
 	icon = 'icons/obj/flora/snowflora.dmi'
 	icon_state = "snowbush1"
-	anchored = 1
+	anchored = TRUE
 
 /obj/structure/flora/bush/New()
 	..()
@@ -79,16 +75,14 @@
 	name = "potted plant"
 	icon = 'icons/obj/plants.dmi'
 	icon_state = "plant-26"
-	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_HUMAN_LAYER
 
 //newbushes
-
 /obj/structure/flora/ausbushes
 	name = "bush"
 	icon = 'icons/obj/flora/ausflora.dmi'
 	icon_state = "firstbush_1"
-	anchored = 1
+	anchored = TRUE
 
 /obj/structure/flora/ausbushes/New()
 	..()
@@ -199,7 +193,6 @@
 	..()
 	icon_state = "fullgrass_[rand(1, 3)]"
 
-
 //potted plants credit: Flashkirby
 //potted plants 27-30: Cajoes
 /obj/structure/flora/pottedplant
@@ -207,7 +200,6 @@
 	desc = "Really brings the room together."
 	icon = 'icons/obj/plants.dmi'
 	icon_state = "plant-01"
-	plane = ABOVE_HUMAN_PLANE
 	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/flora/pottedplant/fern
@@ -279,11 +271,6 @@
 	desc = "This is some kind of tropical plant. It reeks of rotten eggs."
 	icon_state = "plant-14"
 
-/obj/structure/flora/pottedplant/small
-	name = "small potted plant"
-	desc = "This is a pot of assorted small flora. Some look familiar."
-	icon_state = "plant-15"
-
 /obj/structure/flora/pottedplant/aquatic
 	name = "aquatic potted plant"
 	desc = "This is apparently an aquatic plant. It's probably fake."
@@ -348,34 +335,7 @@
 	desc = "This is a decorative shrub. It's been trimmed into the shape of an apple."
 	icon_state = "applebush"
 
-/obj/structure/flora/pottedplant/deskfern
-	name = "fancy ferny potted plant"
-	desc = "This leafy desk fern could do with a trim."
-	icon_state = "plant-27"
-
 /obj/structure/flora/pottedplant/floorleaf
 	name = "fancy leafy floor plant"
 	desc = "This plant has remarkably waxy leaves."
 	icon_state = "plant-28"
-
-/obj/structure/flora/pottedplant/deskleaf
-	name = "fancy leafy potted desk plant"
-	desc = "A tiny waxy leafed plant specimen."
-	icon_state = "plant-29"
-
-/obj/structure/flora/pottedplant/deskferntrim
-	name = "fancy trimmed ferny potted plant"
-	desc = "This leafy desk fern seems to have been trimmed too much."
-	icon_state = "plant-30"
-
-/obj/structure/flora/shimmering_orb
-	name = "bioluminescent orb"
-	desc = "A floating vaguely translucent orb, small cracks of bioluminescent growths within give off a calming light."
-	icon = 'icons/urist/asteroidflora.dmi'
-	icon_state = "shimmering_orb"
-	plane = ABOVE_HUMAN_PLANE
-	layer = ABOVE_HUMAN_LAYER
-
-/obj/structure/flora/shimmering_orb/Initialize()
-	. = ..()
-	set_light(1, 3, 5, 2, "#0066ff")

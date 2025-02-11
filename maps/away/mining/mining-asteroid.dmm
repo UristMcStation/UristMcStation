@@ -20,25 +20,27 @@
 /turf/simulated/floor/tiled/airless,
 /area/djstation)
 "am" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe,
 /turf/simulated/floor/airless,
 /area/djstation)
 "an" = (
-/obj/machinery/teleport/station,
+/obj/machinery/tele_projector,
 /turf/simulated/floor/airless,
 /area/djstation)
 "ao" = (
-/obj/machinery/teleport/hub,
+/obj/machinery/tele_pad,
 /turf/simulated/floor/airless,
 /area/djstation)
 "ap" = (
 /obj/structure/table/glass,
 /obj/random/maintenance,
+/obj/item/stock_parts/keyboard,
 /turf/simulated/floor/airless,
 /area/djstation)
 "aq" = (
 /obj/structure/table/glass,
 /obj/random/maintenance,
+/obj/item/stock_parts/console_screen,
 /turf/simulated/floor/tiled/airless,
 /area/djstation)
 "ar" = (
@@ -57,17 +59,26 @@
 /turf/simulated/floor/airless,
 /area/djstation)
 "aw" = (
-/obj/random/closet,
 /obj/random/loot,
-/obj/item/weapon/circuitboard/teleporter,
+/obj/item/stock_parts/circuitboard/teleporter,
+/obj/structure/table/glass,
 /turf/simulated/floor/tiled/airless,
 /area/djstation)
 "ax" = (
 /obj/random/junk,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	id_tag = "lp_north_airlock";
+	pixel_x = 22;
+	tag_airpump = "lp_north_pump";
+	tag_chamber_sensor = "lp_north_sensor";
+	tag_exterior_door = "lp_north_outer";
+	tag_interior_door = "lp_north_inner";
+	dir = 8
+	},
 /turf/simulated/floor/airless,
 /area/djstation)
 "ay" = (
-/obj/structure/computerframe,
+/obj/machinery/constructable_frame/computerframe,
 /turf/simulated/floor/tiled/airless,
 /area/djstation)
 "az" = (
@@ -147,9 +158,8 @@
 /turf/simulated/floor/tiled/airless,
 /area/djstation)
 "aS" = (
-/obj/machinery/door/airlock/glass,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
+/turf/unsimulated/mask,
+/area/mine/explored)
 "aT" = (
 /obj/random/loot,
 /turf/simulated/floor/tiled/airless,
@@ -174,14 +184,15 @@
 /area/djstation)
 "aY" = (
 /obj/random/closet,
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
 /obj/structure/cable{
+	d1 = 0;
 	d2 = 8;
 	icon_state = "0-8"
-	},
-/obj/machinery/power/apc/derelict{
-	dir = 1;
-	icon_state = "apc0";
-	pixel_y = 24
 	},
 /turf/simulated/floor/airless,
 /area/djstation)
@@ -217,12 +228,9 @@
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
 "bf" = (
-/obj/effect/overmap/sector/cluster,
+/obj/effect/overmap/visitable/sector/cluster,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
-"bI" = (
-/turf/simulated/floor/asteroid,
-/area/mine/unexplored)
 "cb" = (
 /obj/effect/shuttle_landmark/cluster/nav5,
 /turf/simulated/floor/asteroid,
@@ -239,41 +247,30 @@
 /obj/effect/shuttle_landmark/cluster/nav2,
 /turf/space,
 /area/space)
+"fh" = (
+/obj/structure/table/steel,
+/obj/random/maintenance,
+/obj/item/stack/material/tritium/ten,
+/obj/item/stack/material/tritium/ten,
+/obj/random/tech_supply,
+/obj/random/tool,
+/obj/item/storage/belt/utility/full,
+/obj/item/device/radio,
+/obj/item/device/spaceflare,
+/turf/simulated/floor/tiled/airless,
+/area/djstation)
 "gb" = (
 /obj/effect/shuttle_landmark/cluster/nav3,
 /turf/space,
 /area/space)
-"gO" = (
-/obj/machinery/power/smes/buildable,
-/turf/simulated/floor/airless,
-/area/djstation)
 "hb" = (
 /obj/effect/shuttle_landmark/cluster/nav1,
 /turf/space,
 /area/space)
-"hi" = (
-/obj/machinery/power/port_gen/pacman/mrs{
-	sheets = 0
-	},
-/obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/airless,
-/area/djstation)
 "ib" = (
 /obj/effect/shuttle_landmark/cluster/nav7,
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
-"iy" = (
-/obj/structure/cable{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4";
-	tag = ""
-	},
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
 "jb" = (
 /obj/machinery/access_button/airlock_exterior{
 	master_tag = "lp_north_airlock";
@@ -282,6 +279,11 @@
 	},
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
+"jY" = (
+/obj/machinery/power/smes/buildable,
+/obj/structure/cable,
+/turf/simulated/floor/tiled/airless,
+/area/djstation)
 "kb" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -292,28 +294,22 @@
 /turf/simulated/floor/airless,
 /area/djstation)
 "lb" = (
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	id_tag = "lp_north_airlock";
-	pixel_x = 24;
-	tag_airpump = "lp_north_pump";
-	tag_chamber_sensor = "lp_north_sensor";
-	tag_exterior_door = "lp_north_outer";
-	tag_interior_door = "lp_north_inner"
-	},
-/turf/simulated/floor/airless,
+/turf/unsimulated/mask,
 /area/djstation)
 "mb" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	frequency = 1379;
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	id_tag = "lp_north_pump"
 	},
-/turf/simulated/floor/airless,
-/area/djstation)
-"nb" = (
 /obj/machinery/airlock_sensor{
 	id_tag = "lp_north_sensor";
 	master_tag = "lp_north_airlock";
 	pixel_x = 24
+	},
+/turf/simulated/floor/airless,
+/area/djstation)
+"nb" = (
+/obj/machinery/door/airlock/multi_tile{
+	name = "Glass Airlock"
 	},
 /turf/simulated/floor/airless,
 /area/djstation)
@@ -327,27 +323,25 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/airless,
 /area/djstation)
-"pb" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "closed";
-	id_tag = "lp_north_inner";
-	locked = 1
-	},
-/turf/simulated/floor/airless,
-/area/djstation)
-"pU" = (
-/obj/random/junk,
+"pA" = (
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/tiled/airless,
 /area/djstation)
 "qb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/djstation)
+"qH" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/airless,
 /area/djstation)
@@ -368,35 +362,20 @@
 	},
 /turf/simulated/floor/airless,
 /area/djstation)
-"tb" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
-	dir = 9
+"sx" = (
+/obj/machinery/power/port_gen/pacman/mrs{
+	anchored = 1
+	},
+/obj/structure/cable/orange{
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/djstation)
-"th" = (
-/obj/structure/table/rack,
-/obj/structure/cable/cyan{
-	d2 = 4;
-	icon_state = "0-4"
+"tb" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9
 	},
-/obj/item/device/spaceflare,
-/obj/item/device/radio,
-/obj/item/weapon/storage/belt/utility/full,
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/random/tool,
-/obj/random/tech_supply,
-/obj/item/stack/material/tritium/ten,
-/obj/item/stack/material/tritium/ten,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
-	},
-/obj/random/maintenance,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/djstation)
 "ub" = (
 /obj/machinery/access_button{
@@ -405,7 +384,6 @@
 	master_tag = "lp_east_airlock";
 	name = "interior access button";
 	pixel_x = 24;
-	pixel_y = 0;
 	req_access = null
 	},
 /turf/simulated/floor/tiled/airless,
@@ -417,19 +395,10 @@
 	master_tag = "lp_east_airlock";
 	name = "exterior access button";
 	pixel_x = -24;
-	pixel_y = 0;
 	req_access = null
 	},
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
-"vN" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/airless,
-/area/djstation)
 "wb" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
@@ -437,15 +406,20 @@
 	id_tag = "lp_east_inner";
 	locked = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/djstation)
 "xb" = (
 /obj/random/trash,
 /obj/machinery/airlock_sensor{
-	frequency = 1379;
 	id_tag = "lp_east_sensor";
-	pixel_x = 0;
 	pixel_y = 24
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	dir = 8;
+	id_tag = "lp_east_pump"
 	},
 /turf/simulated/floor/airless,
 /area/djstation)
@@ -453,7 +427,6 @@
 /obj/random/maintenance,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "lp_east_airlock";
-	pixel_x = 0;
 	pixel_y = 24;
 	tag_airpump = "lp_east_pump";
 	tag_chamber_sensor = "lp_east_sensor";
@@ -473,29 +446,14 @@
 /area/djstation)
 "Ab" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6;
-	icon_state = "intact"
+	dir = 6
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/tiled/airless,
 /area/djstation)
-"Bb" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "closed";
-	id_tag = "lp_east_inner";
-	locked = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/visible{
-	icon_state = "intact";
+"Ar" = (
+/obj/structure/cable/orange,
+/obj/machinery/power/terminal{
 	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/djstation)
-"Cb" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	frequency = 1379;
-	id_tag = "lp_east_pump"
 	},
 /turf/simulated/floor/airless,
 /area/djstation)
@@ -509,36 +467,18 @@
 	},
 /turf/simulated/floor/airless,
 /area/djstation)
-"Fb" = (
-/obj/effect/landmark/random_gen/asteroid{
-	generation_height = 200;
-	generation_width = 200
-	},
-/turf/space,
-/area/space)
-"Gy" = (
-/obj/machinery/power/terminal,
+"Il" = (
 /obj/structure/cable,
+/obj/machinery/power/terminal,
 /turf/simulated/floor/airless,
 /area/djstation)
-"Rn" = (
-/obj/machinery/power/terminal{
-	dir = 4
-	},
-/obj/structure/cable/yellow,
-/turf/simulated/floor/airless,
-/area/djstation)
-"SF" = (
+"Ua" = (
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/airless,
-/area/djstation)
-"TD" = (
-/obj/effect/wallframe_spawn/reinforced,
-/turf/simulated/floor/airless,
 /area/djstation)
 
 (1,1,1) = {"
@@ -741,7 +681,7 @@ aa
 aa
 aa
 aa
-Fb
+aa
 "}
 (2,1,1) = {"
 aa
@@ -23305,11 +23245,11 @@ af
 af
 ab
 ab
-bI
-bI
-bI
-bI
-bI
+ab
+ab
+ab
+ab
+ab
 ab
 aj
 qb
@@ -23329,7 +23269,7 @@ aX
 aZ
 ba
 bb
-th
+fh
 aj
 ab
 ab
@@ -23505,15 +23445,15 @@ af
 af
 af
 af
-bI
-bI
-bI
-bI
-bI
-bI
-bI
-bI
-TD
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aj
 rb
 al
 ar
@@ -23707,15 +23647,15 @@ af
 af
 af
 af
-bI
-bI
-bI
-bI
-bI
-bI
-bI
-bI
-TD
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aj
 rb
 ar
 at
@@ -23735,8 +23675,8 @@ aO
 ar
 ar
 at
-hi
-Rn
+sx
+Ar
 aj
 ab
 ab
@@ -23931,14 +23871,14 @@ ar
 ar
 ar
 aK
-iy
-SF
-pU
-SF
-vN
-SF
-Gy
-gO
+pA
+Ua
+qH
+Ua
+qH
+Ua
+Il
+jY
 aj
 ab
 ab
@@ -24128,8 +24068,8 @@ ar
 aL
 aP
 aM
-aS
-aS
+aM
+aP
 aH
 aP
 aL
@@ -24317,11 +24257,11 @@ af
 af
 af
 ak
-af
-kb
-lb
-nb
-pb
+aS
+aj
+aj
+aj
+aj
 ar
 ar
 ar
@@ -24335,7 +24275,7 @@ ar
 aT
 aV
 aL
-aI
+as
 at
 ub
 ar
@@ -24518,18 +24458,18 @@ af
 af
 af
 af
-af
-af
-aj
-aj
-aj
+aS
+aS
+lb
+lb
+lb
 aj
 aA
 aC
 aE
 ar
 al
-aM
+nb
 aQ
 at
 as
@@ -24537,11 +24477,11 @@ ar
 at
 aj
 aj
-TD
-TD
 aj
-ar
+aj
+aj
 Ab
+Db
 Db
 Db
 Eb
@@ -24731,19 +24671,19 @@ at
 aF
 at
 ar
-aM
+at
 ar
 ar
 at
 aG
 ar
 aj
-bI
-bI
-bI
+ab
+ab
+ab
 aj
 wb
-Bb
+aj
 aj
 aj
 aj
@@ -24940,13 +24880,13 @@ al
 ar
 ar
 aj
-bI
-bI
-bI
+ab
+ab
+ab
 aj
 xb
-Cb
 aj
+lb
 ab
 ab
 ab
@@ -25142,13 +25082,13 @@ ar
 aR
 aU
 aj
-bI
-bI
-bI
+ab
+ab
+ab
 aj
 yb
-at
 aj
+lb
 ab
 ab
 ab
@@ -25344,13 +25284,13 @@ aj
 aj
 aj
 aj
-bI
-bI
-bI
+ab
+ab
+ab
 aj
 zb
-zb
 aj
+lb
 ab
 ab
 ab
@@ -25547,12 +25487,12 @@ ab
 ab
 ab
 ab
-bI
-bI
+ab
+ab
 vb
 af
 af
-af
+aS
 ab
 ab
 ab
@@ -25749,8 +25689,8 @@ ab
 ab
 ab
 ab
-bI
-bI
+ab
+ab
 af
 af
 af
@@ -25952,7 +25892,7 @@ ab
 ab
 ab
 ab
-bI
+ab
 af
 af
 af

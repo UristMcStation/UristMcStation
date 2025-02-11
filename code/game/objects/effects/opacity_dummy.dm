@@ -3,9 +3,9 @@
 	name = null
 	icon = null
 	icon_state = null
-	anchored = 1
+	anchored = TRUE
 	unacidable = 1
 	mouse_opacity = 0
-	density = 0
+	density = FALSE
 	opacity = 0
-	simulated = 0
+	simulated = FALSE

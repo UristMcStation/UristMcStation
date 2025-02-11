@@ -60,7 +60,7 @@
 	if(!client)
 		return
 	client.color = null
-	if(!client_colors.len)
+	if(!length(client_colors))
 		return
 	var/list/c = list(1,0,0, 0,1,0, 0,0,1) //Star at normal
 	for(var/datum/client_color/CC in client_colors)
@@ -90,7 +90,7 @@
 	priority = 200
 
 /datum/client_color/thirdeye
-	client_color = list(0.1, 0.1, 0.1, 0.2, 0.2, 0.2, 0.05, 0.05, 0.05)
+	client_color = list(0.1, 0.1, 0.1, 0.3, 0.3, 0.3, 0.3, 0.3, 0.7)
 	priority = 300
 
 //Disabilities, could be hooked to brain damage or chargen if so desired.

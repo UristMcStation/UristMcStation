@@ -1,8 +1,9 @@
 /datum/extension/penetration
+	base_type = /datum/extension/penetration
 	expected_type = /atom
 
 // Returns a value between 0 and 100
-/datum/extension/penetration/proc/PenetrationProbability(var/base_probability, var/damage, var/damage_type)
+/datum/extension/penetration/proc/PenetrationProbability(base_probability, damage, damage_type)
 	return 100
 
 
@@ -24,5 +25,5 @@
 	..()
 	src.proc_call = proc_call
 
-/datum/extension/penetration/proc_call/PenetrationProbability(var/base_probability, var/damage, var/damage_type)
+/datum/extension/penetration/proc_call/PenetrationProbability(base_probability, damage, damage_type)
 	return call(holder, proc_call)(base_probability, damage, damage_type)

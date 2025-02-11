@@ -3,8 +3,9 @@ var/global/gamemode_endstate = 0
 var/global/remaininggens = 6
 
 /datum/game_mode/assault
-	name = "assault"
+	name = "Assault"
 	config_tag = "assault"
+	round_description = "Nyx has been threatened by the ongoing Galactic Crisis, and a large lactera strike force stands ready to assault Urist McStation. As a member of the station, it's your job to defend the station's shield generator against the strike force until all lactera are defeated. For those who late-join, you will be lactera, whose goal is to destroy the shield generator, or wipe out all the station's crew. This is a team gamemode, work with your team to accomplish your goal."
 	required_players = 1 //15
 	var/humansurvivors = 0
 	var/aliensurvivors = 0
@@ -13,13 +14,8 @@ var/global/remaininggens = 6
 	var/maptype = 0 //0 = station, 1 = planet
 	var/defencearea = "the station"
 
-/datum/game_mode/assault/announce()
-	world << "<B>The current game mode is - Assault!</B>"
-	world << "<B>Nyx has been threatened by the ongoing Galactic Crisis, and a large lactera strike force stands ready to assault Urist McStation. As a member of the station, it's your job to defend the station's shield generator against the strike force until all lactera are defeated. For those who late-join, you will be lactera, whose goal is to destroy the shield generator, or wipe out all the station's crew. This is a team gamemode, work with your team to accomplish your goal.</B>"
-
-
 /datum/game_mode/assault/pre_setup()
-	world << "<span class='warning'> Setting up Assault, this may take a minute or two.</span>"
+	report_progress("Setting up Assault, this may take a minute or two.")
 	if(maptype == 1)
 		defencearea = "the planet"
 	return 1
@@ -40,12 +36,12 @@ var/global/remaininggens = 6
 	for(var/obj/structure/reagent_dispensers/fueltank/S in world) //what we've done here is remove the consoles that can get people off the station. All of assault takes place on the station.
 		qdel(S)
 
-	for(var/mob/living/carbon/human/M in GLOB.living_mob_list_)
+	for(var/mob/living/carbon/human/M in GLOB.living_players)
 		if(prob(16))
 	//		if(M.Species == "Human")
 
 			for (var/obj/item/I in M)
-				if (istype(I, /obj/item/weapon/implant) || istype(I, /obj/item/organ) || istype(I, /obj/item/clothing/glasses))
+				if (istype(I, /obj/item/implant) || istype(I, /obj/item/organ) || istype(I, /obj/item/clothing/glasses))
 					continue
 
 				else
@@ -58,22 +54,22 @@ var/global/remaininggens = 6
 			M.equip_to_slot_or_del(new /obj/item/clothing/gloves/thick/swat(M), slot_gloves)
 			M.equip_to_slot_or_del(new /obj/item/clothing/head/helmet/urist/anfor(M), slot_head)
 
-			M.equip_to_slot_or_del(new /obj/item/weapon/storage/backpack/security(M), slot_back)
-			M.equip_to_slot_or_del(new /obj/item/weapon/storage/box/survival(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/storage/backpack/security(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/storage/box/survival(M), slot_in_backpack)
 
-			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/c45m/a7(M), slot_in_backpack)
-			M.equip_to_slot_or_del(new /obj/item/weapon/storage/firstaid/regular(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/a7(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/storage/firstaid/regular(M), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/device/flashlight(M), slot_in_backpack)
-			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/a556/a22(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/a22(M), slot_in_backpack)
 			M.equip_to_slot_or_del(new /obj/item/device/radio(M), slot_in_backpack)
-			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/a556/a22(M), slot_in_backpack)
-			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/a556/a22(M), slot_l_store)
-			M.equip_to_slot_or_del(new /obj/item/weapon/material/hatchet/tacknife(M), slot_r_store)
-			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/colt/a7(M), slot_s_store)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/a22(M), slot_in_backpack)
+			M.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/a22(M), slot_l_store)
+			M.equip_to_slot_or_del(new /obj/item/material/knife/combat(M), slot_r_store)
+			M.equip_to_slot_or_del(new /obj/item/gun/projectile/colt/a7(M), slot_s_store)
 
-			M.equip_to_slot_or_del(new /obj/item/weapon/gun/projectile/automatic/a22(M), slot_r_hand)
+			M.equip_to_slot_or_del(new /obj/item/gun/projectile/automatic/a22(M), slot_r_hand)
 
-			var/obj/item/weapon/card/id/W = new(M)
+			var/obj/item/card/id/W = new(M)
 			W.name = "[M.real_name]'s ID Card"
 			W.icon_state = "centcom"
 			W.access = get_all_accesses()
@@ -86,7 +82,7 @@ var/global/remaininggens = 6
 				M.loc = H.loc
 //				qdel(H)
 
-			M << "<span class='warning'>You are an ANFOR (Allied Naval Forces) marine, part of a joint Nanotrasen/Terran Confederacy task force sent here to defend the station at all costs. It is your job to rally the remaining crewmembers and to stave off the impending attack. Good luck soldier.</span>"
+			to_chat(M, "<span class='warning'>You are an ANFOR (Allied Naval Forces) marine, part of a joint Nanotrasen/Terran Confederacy task force sent here to defend the station at all costs. It is your job to rally the remaining crewmembers and to stave off the impending attack. Good luck soldier.</span>")
 
 	//		else
 	//			return
@@ -105,7 +101,7 @@ var/global/remaininggens = 6
 	aliensurvivors = 0
 
 	//For each survivor, add one to the count. Should work accurately enough.
-	for(var/mob/living/carbon/human/H in GLOB.living_mob_list_)
+	for(var/mob/living/carbon/human/H in GLOB.living_players)
 		if(H) //Prevent any runtime errors
 			if(H.client && H.stat != DEAD && H.z == 1) // If they're connected/unghosted and alive, not debrained and on the station z
 				if(H.species == "Xenomorph")
@@ -137,36 +133,21 @@ var/global/remaininggens = 6
 /datum/game_mode/assault/declare_completion()
 	if(sploded == 0)
 		if(gamemode_endstate == 1)
-			SSstatistics.add_field_details("round_end_result","alien major victory - station crew eliminated")
-			world << "<span class='danger'> <FONT size = 4>Alien major victory!</font></span>"
-			world << "<span class='danger'> <FONT size = 3>The aliens have successfully wiped out the station crew and will make short work of the rest of Nyx!</font></span>"
+			to_world(FONT_LARGE("<B>Alien major victory!</B>"))
+			to_world("<B>The aliens have successfully wiped out the station crew and will make short work of the rest of Nyx!</B>")
 		else if(gamemode_endstate == 2)
-			SSstatistics.add_field_details("round_end_result","station major victory - lactera strike force eradicated")
-			world << "<span class='danger'> <FONT size = 4>Station major victory!</FONT></span>"
-			world << "<span class='danger'> <FONT size = 3>The station has managed to kill all of the invading lactera strike force, giving ANFOR a secure location in Nyx to defend against the alien threat.</FONT></span>"
+			to_world(FONT_LARGE("<B>Station major victory!</B>"))
+			to_world("The station has managed to kill all of the invading lactera strike force, giving ANFOR a secure location in Nyx to defend against the alien threat.")
 		else if(gamemode_endstate == 3)
-			SSstatistics.add_field_details("round_end_result","alien major victory - the station shield generators have been destroyed.")
-			world << "<span class='danger'> <FONT size = 3>Alien major victory.</FONT></span>"
-			world << "<span class='danger'> <FONT size = 3>The station's shield generators have been destroyed! The alien battlecruisers will make short work of the station now.</FONT></span>"
+			to_world(FONT_LARGE("<B>Alien major victory.</B>"))
+			to_world("The station's shield generators have been destroyed! The alien battlecruisers will make short work of the station now.")
 		else if(gamemode_endstate == 4)
-			SSstatistics.add_field_details("round_end_result","draw - the station has been nuked")
-			world << "<span class='danger'> <FONT size = 3>Draw.</FONT></span>"
-			world << "<span class='danger'> <FONT size = 3>The station has blown by a nuclear fission device... there are no winners!</FONT></span>"
-
-	..()
-
+			to_world(FONT_LARGE("<B>Draw.</B>"))
+			to_world("The station has blown by a nuclear fission device... there are no winners!")
 	sploded = 1
 
-	spawn(5)
-		world << "<span class='notice'> Rebooting in fourty five seconds.</span>"
-
-		spawn(450)
-			if(!SSticker.delay_end)
-				world.Reboot()
-			else
-				world << "<span class='notice'> <B>An admin has delayed the round end</B></span>"
-
-	return 1
+	..()
+	return
 
 /obj/effect/landmark/assault/marinespawn
 	name = "marinespawn"
@@ -177,14 +158,14 @@ var/global/remaininggens = 6
 	invisibility = 101
 
 
-/*/mob/new_player/proc/AssaultRobotLateJoin(var/mob/living/silicon/L)
+/*/mob/new_player/proc/AssaultRobotLateJoin(mob/living/silicon/L)
 	if(L.mind.assigned_role == "Cyborg")
 		L.loc = pick(scomspawn3)
-		for(var/obj/item/weapon/cell/cell in L)
+		for(var/obj/item/cell/cell in L)
 			cell.maxcharge = INFINITY
 			cell.charge = INFINITY*/
 
-/mob/new_player/proc/AssaultLateJoin(var/mob/living/L)
+/mob/new_player/proc/AssaultLateJoin(mob/living/L)
 	if(remaininglactera <= 0)
 		for(var/obj/effect/landmark/assault/lacteraspawn/S in landmarks_list)
 			var/mob/observer/H = new /mob/observer(S.loc)
@@ -199,25 +180,25 @@ var/global/remaininggens = 6
 				H.equip_to_slot_or_del(new /obj/item/clothing/under/lactera(H), slot_w_uniform)
 				H.equip_to_slot_or_del(new /obj/item/clothing/suit/lactera/officer(H), slot_wear_suit)
 				H.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/lactera(H), slot_shoes)
-				H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a1(H), slot_belt)
-				H.equip_to_slot_or_del(new /obj/item/weapon/plastique/alienexplosive(H), slot_l_store)
-				H.equip_to_slot_or_del(new /obj/item/weapon/grenade/aliengrenade(H), slot_r_store)
-				H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a3(H), slot_r_hand)
+				H.equip_to_slot_or_del(new /obj/item/gun/energy/lactera/a1(H), slot_belt)
+				H.equip_to_slot_or_del(new /obj/item/plastique/alienexplosive(H), slot_l_store)
+				H.equip_to_slot_or_del(new /obj/item/grenade/aliengrenade(H), slot_r_store)
+				H.equip_to_slot_or_del(new /obj/item/gun/energy/lactera/a3(H), slot_r_hand)
 				H.equip_to_slot_or_del(new /obj/item/clothing/glasses/night(H), slot_glasses)
 
-				H << "<B>You are a lactera officer. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must lead your fellow lactera to destroy the humans and their shield generator.</B>"
+				to_chat(H, "<B>You are a lactera officer. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must lead your fellow lactera to destroy the humans and their shield generator.</B>")
 
 			else
 				H.equip_to_slot_or_del(new /obj/item/clothing/under/lactera(H), slot_w_uniform)
 				H.equip_to_slot_or_del(new /obj/item/clothing/suit/lactera/regular(H), slot_wear_suit)
 				H.equip_to_slot_or_del(new /obj/item/clothing/shoes/magboots/lactera(H), slot_shoes)
-				H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a1(H), slot_belt)
-				H.equip_to_slot_or_del(new /obj/item/weapon/plastique/alienexplosive(H), slot_l_store)
-				H.equip_to_slot_or_del(new /obj/item/weapon/grenade/aliengrenade(H), slot_r_store)
-				H.equip_to_slot_or_del(new /obj/item/weapon/gun/energy/lactera/a2(H), slot_r_hand)
+				H.equip_to_slot_or_del(new /obj/item/gun/energy/lactera/a1(H), slot_belt)
+				H.equip_to_slot_or_del(new /obj/item/plastique/alienexplosive(H), slot_l_store)
+				H.equip_to_slot_or_del(new /obj/item/grenade/aliengrenade(H), slot_r_store)
+				H.equip_to_slot_or_del(new /obj/item/gun/energy/lactera/a2(H), slot_r_hand)
 				H.equip_to_slot_or_del(new /obj/item/clothing/glasses/night(H), slot_glasses)
 
-				H << "<B>You are a lactera soldier. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must work with your fellow lactera to destroy the humans and their shield generator.</B>"
+				to_chat(H, "<B>You are a lactera soldier. Born in a laboratory and raised for the sole purpose of killing, you are a creature genetically modified to be an ideal soldier. You do not feel pain, you do not need to breathe and your feet are implanted with a magnetic traction system. You are a slave to your hivemind, and must work with your fellow lactera to destroy the humans and their shield generator.</B>")
 
 			remaininglactera -= 1
 
@@ -236,4 +217,3 @@ var/global/remaininggens = 6
 	remaininglactera = rl
 
 	message_admins("[key_name_admin(usr)] changed the remaining lactera to [rl].")
-

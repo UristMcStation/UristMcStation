@@ -8,10 +8,10 @@
 /obj/machinery/drone_fabricator
 	name = "drone fabricator"
 	desc = "A large automated factory for producing maintenance drones."
-	appearance_flags = 0
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS
 
-	density = 1
-	anchored = 1
+	density = TRUE
+	anchored = TRUE
 	idle_power_usage = 20
 	active_power_usage = 5000
 
@@ -20,6 +20,8 @@
 	var/produce_drones = 1
 	var/time_last_drone = 500
 	var/drone_type = /mob/living/silicon/robot/drone
+	/// Boolean. Whether or not spawned drones should be locked to the machinery's z-level.
+	var/z_locked = TRUE
 
 	icon = 'icons/obj/machines/drone_fab.dmi'
 	icon_state = "drone_fab_idle"
@@ -29,37 +31,24 @@
 	fabricator_tag = "Derelict"
 	drone_type = /mob/living/silicon/robot/drone/construction
 
-/obj/machinery/drone_fabricator/blob
-	fabricator_tag = "Simulation"
-
-/obj/machinery/drone_fabricator/construction
-	fabricator_tag = "Station - Construction"
+/obj/machinery/drone_fabricator/derelict
+	name = "construction drone fabricator"
+	fabricator_tag = "Derelict"
 	drone_type = /mob/living/silicon/robot/drone/construction
 
-/obj/machinery/drone_fabricator/blob/create_drone(var/client/player) //Just needs to be simple
-	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src))
-	new_drone.transfer_personality(player)
-	return new_drone
-
-/obj/machinery/drone_fabricator/Initialize()
-	. = ..()
-	build_default_parts(/obj/item/weapon/circuitboard/drone_fab)
-
-/obj/machinery/drone_fabricator/construction/Initialize()
-	. = ..()
-	build_default_parts(/obj/item/weapon/circuitboard/adv_drone_fab)
+/obj/machinery/drone_fabricator/New()
+	..()
 
 /obj/machinery/drone_fabricator/power_change()
 	. = ..()
-	if (stat & NOPOWER)
+	if (!is_powered())
 		icon_state = "drone_fab_nopower"
 
 /obj/machinery/drone_fabricator/Process()
-
 	if(GAME_STATE < RUNLEVEL_GAME)
 		return
 
-	if(stat & NOPOWER || !produce_drones)
+	if(!is_powered() || !produce_drones)
 		if(icon_state != "drone_fab_nopower") icon_state = "drone_fab_nopower"
 		return
 
@@ -75,13 +64,13 @@
 		visible_message("\The [src] voices a strident beep, indicating a drone chassis is prepared.")
 
 /obj/machinery/drone_fabricator/examine(mob/user)
-	. = ..(user)
+	. = ..()
 	if(produce_drones && drone_progress >= 100 && isghost(user) && config.allow_drone_spawn && count_drones() < config.max_maint_drones)
 		to_chat(user, "<BR><B>A drone is prepared. Select 'Join As Drone' from the Ghost tab to spawn as a maintenance drone.</B>")
 
-/obj/machinery/drone_fabricator/proc/create_drone(var/client/player)
+/obj/machinery/drone_fabricator/proc/create_drone(client/player)
 
-	if(stat & NOPOWER)
+	if(!is_powered())
 		return
 
 	if(!produce_drones || !config.allow_drone_spawn || count_drones() >= config.max_maint_drones)
@@ -95,7 +84,7 @@
 	drone_progress = 0
 	time_last_drone = world.time
 
-	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src))
+	var/mob/living/silicon/robot/drone/new_drone = new drone_type(get_turf(src), z_locked)
 	if(player)
 		announce_ghost_joinleave(player, 0, "They have taken control over a maintenance drone.")
 		if(player.mob && player.mob.mind) player.mob.mind.reset()
@@ -103,12 +92,6 @@
 
 	return new_drone
 
-/obj/machinery/drone_fabricator/attackby(var/obj/item/I as obj, var/mob/user as mob)
-	if(default_deconstruction_screwdriver(user, I))
-		return
-	if(default_deconstruction_crowbar(user, I))
-		return
-	..(I, user)
 
 /mob/observer/ghost/verb/join_as_drone()
 	set category = "Ghost"
@@ -116,23 +99,23 @@
 	set desc = "If there is a powered, enabled fabricator in the game world with a prepared chassis, join as a maintenance drone."
 	try_drone_spawn(src)
 
-/proc/try_drone_spawn(var/mob/user, var/obj/machinery/drone_fabricator/fabricator)
+/proc/try_drone_spawn(mob/user, obj/machinery/drone_fabricator/fabricator)
 
 	if(GAME_STATE < RUNLEVEL_GAME)
-		to_chat(user, "<span class='danger'>The game hasn't started yet!</span>")
+		to_chat(user, SPAN_DANGER("The game hasn't started yet!"))
 		return
 
 	if(!(config.allow_drone_spawn))
-		to_chat(user, "<span class='danger'>That verb is not currently permitted.</span>")
+		to_chat(user, SPAN_DANGER("That verb is not currently permitted."))
 		return
 
 	if(jobban_isbanned(user,"Robot"))
-		to_chat(user, "<span class='danger'>You are banned from playing synthetics and cannot spawn as a drone.</span>")
+		to_chat(user, SPAN_DANGER("You are banned from playing synthetics and cannot spawn as a drone."))
 		return
 
 	if(config.use_age_restriction_for_jobs && isnum(user.client.player_age))
-		if(user.client.player_age <= 0)
-			to_chat(user, "<span class='danger'> Your account is not old enough to play as a maintenance drone.</span>")
+		if(user.client.player_age <= 3)
+			to_chat(user, SPAN_DANGER(" Your account is not old enough to play as a maintenance drone."))
 			return
 
 	if(!user.MayRespawn(1, DRONE_SPAWN_DELAY))
@@ -142,12 +125,12 @@
 
 		var/list/all_fabricators = list()
 		for(var/obj/machinery/drone_fabricator/DF in SSmachines.machinery)
-			if((DF.stat & NOPOWER) || !DF.produce_drones || DF.drone_progress < 100)
+			if(!DF.is_powered() || !DF.produce_drones || DF.drone_progress < 100)
 				continue
 			all_fabricators[DF.fabricator_tag] = DF
 
-		if(!all_fabricators.len)
-			to_chat(user, "<span class='danger'>There are no available drone spawn points, sorry.</span>")
+		if(!length(all_fabricators))
+			to_chat(user, SPAN_DANGER("There are no available drone spawn points, sorry."))
 			return
 
 		var/choice = input(user,"Which fabricator do you wish to use?") as null|anything in all_fabricators
@@ -155,7 +138,7 @@
 			return
 		fabricator = all_fabricators[choice]
 
-	if(user && fabricator && !((fabricator.stat & NOPOWER) || !fabricator.produce_drones || fabricator.drone_progress < 100))
+	if(user && fabricator && !(!fabricator.is_powered() || !fabricator.produce_drones || fabricator.drone_progress < 100))
 		log_and_message_admins("has joined the round as a maintenance drone.")
 		var/mob/drone = fabricator.create_drone(user.client)
 		if(drone)

@@ -1,0 +1,42 @@
+name: Generate Worths
+
+on:
+  workflow_dispatch:
+    inputs:
+      map:
+        description: 'Map includes to generate worths from'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+        - all
+        - nerva
+        - away_sites_testing
+        - example
+        - none
+
+env:
+  BYOND_MAJOR: "514"
+  BYOND_MINOR: "1589"
+  MAP_PATH: ${{ inputs.map }}
+
+jobs:
+  export-worths:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Setup Cache
+        uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57
+        with:
+          path: ~/BYOND-${{ env.BYOND_MAJOR }}.${{ env.BYOND_MINOR }}
+          key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
+      - name: Generate Worths
+        run: test/generate-worths.sh
+      - name: Upload JSON
+        if: ${{ success() && !env.ACT }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: Worths Lists (${{ inputs.map }}) - [${{ github.repository_owner }} - ${{ github.ref_name }}]
+          path: |
+            objects_worth.json
+            materials_worth.json

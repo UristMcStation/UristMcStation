@@ -19,19 +19,19 @@
 
 /spell/tear_veil/choose_targets()
 	var/turf/T = get_turf(holder)
-	holder.visible_message("<span class='notice'>A strange portal rips open underneath \the [holder]!</span>")
+	holder.visible_message(SPAN_NOTICE("A strange portal rips open underneath \the [holder]!"))
 	var/obj/effect/gateway/hole = new(get_turf(T))
-	hole.density = 0
+	hole.density = FALSE
 	return list(hole)
 
-/spell/tear_veil/cast(var/list/targets, var/mob/holder, var/channel_count)
+/spell/tear_veil/cast(list/targets, mob/holder, channel_count)
 	if(channel_count == 1)
 		return
 	var/type = pick(possible_spawns)
 	var/mob/living/L = new type(get_turf(targets[1]))
 	L.faction = holder.faction
-	L.visible_message("<span class='warning'>\A [L] escapes from the portal!</span>")
+	L.visible_message(SPAN_WARNING("\A [L] escapes from the portal!"))
 
-/spell/tear_veil/after_spell(var/list/targets)
+/spell/tear_veil/after_spell(list/targets)
 	qdel(targets[1])
 	return

@@ -11,7 +11,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	cold_protection = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	min_cold_protection_temperature = 243.15
-	allowed = list(/obj/item/device/analyzer,/obj/item/stack/medical,/obj/item/weapon/reagent_containers/dropper,/obj/item/weapon/reagent_containers/syringe,/obj/item/weapon/reagent_containers/hypospray,/obj/item/device/healthanalyzer,/obj/item/device/flashlight/pen,/obj/item/weapon/reagent_containers/glass/bottle,/obj/item/weapon/reagent_containers/glass/beaker,/obj/item/weapon/reagent_containers/pill,/obj/item/weapon/storage/pill_bottle,/obj/item/weapon/paper,/obj/item/weapon/gun/energy,/obj/item/weapon/reagent_containers/spray/pepper,/obj/item/weapon/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/handcuffs,/obj/item/device/flashlight/seclite)
+	allowed = list(/obj/item/device/scanner/gas,/obj/item/stack/medical,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/syringe,/obj/item/reagent_containers/hypospray,/obj/item/device/scanner/health,/obj/item/device/flashlight/pen,/obj/item/reagent_containers/glass/bottle,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/pill,/obj/item/storage/pill_bottle,/obj/item/paper,/obj/item/gun/energy,/obj/item/reagent_containers/spray/pepper,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/device/flashlight/seclite)
 	armor = list(melee = 0, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 10, rad = 0)
 
 /obj/item/clothing/suit/coat/jacket
@@ -104,11 +104,39 @@
 	icon_override = 'icons/uristmob/clothes.dmi'
 	w_class = 3
 	armor = list(melee = 65, bullet = 45, laser = 30, energy = 20, bomb = 30, bio = 100, rad = 50)
-	allowed = list(/obj/item/weapon/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/weapon/melee/baton,/obj/item/weapon/melee/energy/sword,/obj/item/weapon/handcuffs,/obj/item/weapon/tank/emergency)
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 
 /obj/item/clothing/suit/space/void/syndistealth/New()
 	..()
 	slowdown_per_slot[slot_wear_suit] = 1
+
+/obj/item/clothing/head/helmet/space/void/syndistealth/pirate
+	name = "salvaged night-black hardsuit helmet"
+	desc = "A sleek, armored space helmet designed for work in covert operations. This one has been put into use by space pirates and has seen better days."
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+		)
+
+/obj/item/clothing/suit/space/void/syndistealth/pirate
+	name = "salvaged night-black hardsuit"
+	desc = "A sleek, armored space suit that theoretically protects the wearer against injuries during covert operations. This one has been put into use by space pirates and has seen better days."
+	w_class = ITEM_SIZE_LARGE
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SMALL
+		)
+
 
 // COLD RIGZ
 
@@ -161,10 +189,20 @@
 	desc = "A special suit that protects against hazardous, cold, low pressure environments. Has thermal shielding."
 	icon = 'icons/urist/items/clothes/nt-tgclothing.dmi'
 	icon_state = "cryo-atmos"
-	item_state = "atmo_coldsuit"
+	item_state = "cryo-atmos"
 	item_icons = URIST_ALL_ONMOBS
 
 //Mining
+/obj/item/clothing/head/helmet/space/void/mining/old_nt
+	desc = "A vintage helmet designed for miners on NanoTrasen stations."
+	icon = 'icons/urist/restored/hats.dmi'
+	item_icons = URIST_ALL_ONMOBS
+
+/obj/item/clothing/suit/space/void/mining/old_nt
+	desc = "A vintage suit designed for miners on NanoTrasen stations."
+	icon = 'icons/urist/restored/suits.dmi'
+	item_icons = URIST_ALL_ONMOBS
+
 /obj/item/clothing/head/helmet/space/void/mining/cold
 	name = "mining cryo hardsuit helmet"
 	desc = "A special helmet designed for work in a hazardous, cold, low pressure environment. Has reinforced plating."

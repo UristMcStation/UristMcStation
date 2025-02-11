@@ -3,21 +3,21 @@
 	desc = "Controls a tram."
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "airlock_control_standby"
-	anchored = 1
+	anchored = TRUE
 	var/obj/tram/tram_controller/tram_linked
 
-/obj/tram/controlpad/attack_hand(var/mob/user)
+/obj/tram/controlpad/attack_hand(mob/user)
 	usr.set_machine(src)
 	if(!tram_linked)	return
 	var/dat = "Tram Controller"
 	dat += "<br>Tram engine: <a href=?src=\ref[src];engine_toggle=1>[tram_linked.automode ? "<font color='green'>On</font>" : "<font color='red'>Off</font>"]</a>"
 	dat += "<br><A href='?src=\ref[src];close=1'>Close console</A>"
-	user << browse(dat, "window=trampad")
+	show_browser(user, dat, "window=trampad")
 	onclose(user,"trampad")
 
 /obj/tram/controlpad/Topic(href, href_list)
 	if(..())
-		usr << browse(null, "window=publiclibrary")
+		show_browser(usr, null, "window=publiclibrary")
 		onclose(usr, "publiclibrary")
 		return
 
@@ -27,7 +27,7 @@
 		else	tram_linked.killLoop()
 	else if(href_list["close"])
 		usr.unset_machine()
-		usr << browse(null, "window=trampad")
+		show_browser(usr, null, "window=trampad")
 
 	src.add_fingerprint(usr)
 	src.updateUsrDialog()

@@ -1,7 +1,7 @@
 // READ: Don't use the apostrophe in name or desc. Causes script errors.
 
-var/list/powers = typesof(/datum/power/changeling) - /datum/power/changeling	//needed for the badmin verb for now
-var/list/datum/power/changeling/powerinstances = list()
+var/global/list/powers = typesof(/datum/power/changeling) - /datum/power/changeling	//needed for the badmin verb for now
+var/global/list/datum/power/changeling/powerinstances = list()
 
 /datum/power			//Could be used by other antags too
 	var/name = "Power"
@@ -177,7 +177,7 @@ var/list/datum/power/changeling/powerinstances = list()
 	if(!usr || !usr.mind || !usr.mind.changeling)	return
 	src = usr.mind.changeling
 
-	if(!powerinstances.len)
+	if(!length(powerinstances))
 		for(var/P in powers)
 			powerinstances += new P()
 
@@ -250,9 +250,9 @@ var/list/datum/power/changeling/powerinstances = list()
 
 					body += "</td><td align='center'>";
 
-					body += "<font size='2'><b>"+desc+"</b></font> <BR>"
+					body += "<span style='font-size: 13px'><b>"+desc+"</b></span> <BR>"
 
-					body += "<font size='2'><font color = 'red'><b>"+helptext+"</b></font></font><BR>"
+					body += "<span style='font-size: 13px; color: red'><b>"+helptext+"</b></span><BR>"
 
 					if(!ownsthis)
 					{
@@ -318,7 +318,7 @@ var/list/datum/power/changeling/powerinstances = list()
 						return;
 					locked_tabs.push(id);
 					var notice_span = document.getElementById(notice_span_id);
-					notice_span.innerHTML = "<font color='red'>Locked</font> ";
+					notice_span.innerHTML = "<span style='color: red'>Locked</span> ";
 					//link.setAttribute("onClick","attempt('"+id+"','"+link_id+"','"+notice_span_id+"');");
 					//document.write("removeFromLocked('"+id+"','"+link_id+"','"+notice_span_id+"')");
 					//document.write("aa - "+link.getAttribute("onClick"));
@@ -369,7 +369,7 @@ var/list/datum/power/changeling/powerinstances = list()
 		<table width='560' align='center' cellspacing='0' cellpadding='5' id='maintable'>
 			<tr id='title_tr'>
 				<td align='center'>
-					<font size='5'><b>Changling Evolution Menu</b></font><br>
+					<span styly='font-size: 24px'><b>Changling Evolution Menu</b></span><br>
 					Hover over a power to see more information<br>
 					Current evolution points left to evolve with: [geneticpoints]<br>
 					Absorb genomes to acquire more evolution points
@@ -434,7 +434,7 @@ var/list/datum/power/changeling/powerinstances = list()
 	</body></html>
 	"}
 
-	usr << browse(dat, "window=powers;size=900x480")
+	show_browser(usr, dat, "window=powers;size=900x480")
 
 
 /datum/changeling/Topic(href, href_list)
@@ -451,7 +451,7 @@ var/list/datum/power/changeling/powerinstances = list()
 
 
 
-/datum/changeling/proc/purchasePower(var/datum/mind/M, var/Pname, var/remake_verbs = 1)
+/datum/changeling/proc/purchasePower(datum/mind/M, Pname, remake_verbs = 1)
 	if(!M || !M.changeling)
 		return
 
@@ -487,4 +487,3 @@ var/list/datum/power/changeling/powerinstances = list()
 		call(M.current, Thepower.verbpath)()
 	else if(remake_verbs)
 		M.current.make_changeling()
-

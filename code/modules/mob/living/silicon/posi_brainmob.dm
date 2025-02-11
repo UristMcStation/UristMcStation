@@ -1,9 +1,11 @@
 /mob/living/silicon/sil_brainmob
-	var/obj/item/organ/internal/posibrain/container = null
-	var/emp_damage = 0//Handles a type of MMI damage
-	var/alert = null
-	var/list/owner_channels = list()
-	var/list/law_channels = list()
+
+	meat_type = null
+	meat_amount = 0
+	skin_material = null
+	skin_amount = 0
+	bone_material = null
+	bone_amount = 0
 
 	use_me = 0 //Can't use the me verb, it's a freaking immobile brain
 	icon = 'icons/obj/surgery.dmi'
@@ -12,11 +14,18 @@
 		/datum/nano_module/law_manager
 	)
 
+	var/obj/item/organ/internal/posibrain/container = null
+	var/emp_damage = 0//Handles a type of MMI damage
+	var/alert = null
+	var/list/owner_channels = list()
+	var/list/law_channels = list()
+
 /mob/living/silicon/sil_brainmob/New()
 	reagents = new/datum/reagents(1000, src)
 	if(istype(loc, /obj/item/organ/internal/posibrain))
 		container = loc
-	add_language("Robot Talk")
+	add_language(LANGUAGE_ROBOT_GLOBAL)
+	add_language(LANGUAGE_EAL)
 	..()
 
 /mob/living/silicon/sil_brainmob/Destroy()
@@ -27,9 +36,7 @@
 	return ..()
 
 /mob/living/silicon/sil_brainmob/UpdateLyingBuckledAndVerbStatus()
-	if(in_contents_of(/obj/mecha))
-		use_me = 1
-	else if(container && istype(container, /obj/item/organ/internal/posibrain) && istype(container.loc, /turf))
+	if(container && istype(container, /obj/item/organ/internal/posibrain) && istype(container.loc, /turf))
 		use_me = 1
 
 /mob/living/silicon/sil_brainmob/isSynthetic()
@@ -47,7 +54,7 @@
 		src.laws_sanity_check()
 		src.laws.show_laws(M)
 
-/mob/living/silicon/sil_brainmob/open_subsystem(var/subsystem_type, var/mob/given = src)
+/mob/living/silicon/sil_brainmob/open_subsystem(subsystem_type, mob/given = src)
 	update_owner_channels()
 	return ..(subsystem_type, given)
 
@@ -67,14 +74,14 @@
 
 	var/list/new_channels = list()
 	new_channels["Common"] = ";"
-	for(var/i = 1 to R.channels.len)
+	for(var/i = 1 to length(R.channels))
 		var/channel = R.channels[i]
 		var/key = get_radio_key_from_channel(channel)
 		new_channels[channel] = key
 	owner_channels = new_channels
 	return 1
 
-/mob/living/silicon/sil_brainmob/statelaw(var/law, var/mob/living/L = src)
+/mob/living/silicon/sil_brainmob/statelaw(law, mob/living/L = src)
 	if(container && container.owner)
 		L = container.owner
 	return ..(law, L)
@@ -89,10 +96,10 @@
 /mob/living/silicon/sil_brainmob/law_channels()
 	return law_channels
 
-/mob/living/silicon/sil_brainmob/statelaws(var/datum/ai_laws/laws)
+/mob/living/silicon/sil_brainmob/statelaws(datum/ai_laws/laws)
 	update_law_channels()
 	if(isnull(law_channels[lawchannel]))
-		to_chat(src, "<span class='danger'>[lawchannel]: Unable to state laws. Communication method unavailable.</span>")
+		to_chat(src, SPAN_DANGER("[lawchannel]: Unable to state laws. Communication method unavailable."))
 		return 0
 
 	dostatelaws(lawchannel, law_channels[lawchannel], laws)

@@ -5,7 +5,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //Welder machete, icons by ShoesandHats, object by Cozarctan
 
-/obj/item/weapon/material/sword/machete
+/obj/item/material/sword/machete
 	item_icons = DEF_URIST_INHANDS
 	name = "machete"
 	desc = "a large blade beloved by sugar farmers and mass murderers"
@@ -15,56 +15,56 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	sharp = 1
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT | SLOT_BACK
-	force_divisor = 0.34 // 20-ish when wielded with hardness 60 (steel), same as before
-	thrown_force_divisor = 0.5 // 10 when thrown with weight 20 (steel)
+	force_multiplier = 0.34 // 20-ish when wielded with hardness 60 (steel), same as before
+	thrown_force_multiplier = 0.5 // 10 when thrown with weight 20 (steel)
 	w_class = 3
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("cleaved", "slashed", "sliced", "torn", "ripped", "diced", "cut")
 
 	/*suicide_act(mob/user)
-		viewers(user) << "<span class='danger'>[user] is slitting \his stomach open with the [src.name]! It looks like \he's trying to commit suicide.</span>"
+		viewers(user)to_target(, "<span class='danger'>[user] is slitting \his stomach open with the [src.name]! It looks like \he's trying to commit suicide.</span>")
 		return (BRUTELOSS)*/
 
 //dual saber proc
 
-/obj/item/weapon/melee/energy/sword/attackby(obj/item/weapon/W, mob/living/user)
+/obj/item/melee/energy/sword/attackby(obj/item/W, mob/living/user)
 	..()
-	if(istype(W, /obj/item/weapon/melee/energy/sword))
+	if(istype(W, /obj/item/melee/energy/sword))
 		if(W == src)
-			user << "<span class='notice'>You try to attach the end of the energy sword to... itself. You're not very smart, are you?</span>"
+			to_chat(user, "<span class='notice'>You try to attach the end of the energy sword to... itself. You're not very smart, are you?</span>")
 			if(ishuman(user))
 				user.adjustBrainLoss(10)
 		else
-			user << "<span class='notice'>You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool.</span>"
+			to_chat(user, "<span class='notice'>You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool.</span>")
 			if(src.blade_color == "red")
-				if(istype(W, /obj/item/weapon/melee/energy/sword/blue))
-					new /obj/item/weapon/melee/energy/sword/dualsaber/purple(user.loc)
-				else if(istype(W, /obj/item/weapon/melee/energy/sword/yellow))
-					new /obj/item/weapon/melee/energy/sword/dualsaber/orange(user.loc)
+				if(istype(W, /obj/item/melee/energy/sword/blue))
+					new /obj/item/melee/energy/sword/dualsaber/purple(user.loc)
+				else if(istype(W, /obj/item/melee/energy/sword/yellow))
+					new /obj/item/melee/energy/sword/dualsaber/orange(user.loc)
 				else
-					new /obj/item/weapon/melee/energy/sword/dualsaber/red(user.loc)
+					new /obj/item/melee/energy/sword/dualsaber/red(user.loc)
 			if(src.blade_color == "blue")
-				if(istype(W, /obj/item/weapon/melee/energy/sword/red))
-					new /obj/item/weapon/melee/energy/sword/dualsaber/purple(user.loc)
-				else if(istype(W, /obj/item/weapon/melee/energy/sword/yellow))
-					new /obj/item/weapon/melee/energy/sword/dualsaber/green(user.loc)
+				if(istype(W, /obj/item/melee/energy/sword/red))
+					new /obj/item/melee/energy/sword/dualsaber/purple(user.loc)
+				else if(istype(W, /obj/item/melee/energy/sword/yellow))
+					new /obj/item/melee/energy/sword/dualsaber/green(user.loc)
 				else
-					new /obj/item/weapon/melee/energy/sword/dualsaber/blue(user.loc)
+					new /obj/item/melee/energy/sword/dualsaber/blue(user.loc)
 			if(src.blade_color == "yellow")
-				if(istype(W, /obj/item/weapon/melee/energy/sword/red))
-					new /obj/item/weapon/melee/energy/sword/dualsaber/orange(user.loc)
-				else if(istype(W, /obj/item/weapon/melee/energy/sword/blue))
-					new /obj/item/weapon/melee/energy/sword/dualsaber/green(user.loc)
+				if(istype(W, /obj/item/melee/energy/sword/red))
+					new /obj/item/melee/energy/sword/dualsaber/orange(user.loc)
+				else if(istype(W, /obj/item/melee/energy/sword/blue))
+					new /obj/item/melee/energy/sword/dualsaber/green(user.loc)
 				else
-					new /obj/item/weapon/melee/energy/sword/dualsaber/yellow(user.loc)
+					new /obj/item/melee/energy/sword/dualsaber/yellow(user.loc)
 			if(src.blade_color == "green")
-				new /obj/item/weapon/melee/energy/sword/dualsaber/green(user.loc)
+				new /obj/item/melee/energy/sword/dualsaber/green(user.loc)
 			if(src.blade_color == "purple")
-				new /obj/item/weapon/melee/energy/sword/dualsaber/purple(user.loc)
+				new /obj/item/melee/energy/sword/dualsaber/purple(user.loc)
 			if(src.blade_color == "orange")
-				new /obj/item/weapon/melee/energy/sword/dualsaber/orange(user.loc)
+				new /obj/item/melee/energy/sword/dualsaber/orange(user.loc)
 			if(src.blade_color == "black")
-				new /obj/item/weapon/melee/energy/sword/dualsaber(user.loc)
+				new /obj/item/melee/energy/sword/dualsaber(user.loc)
 			user.remove_from_mob(W)
 			user.remove_from_mob(src)
 			qdel(W)
@@ -72,54 +72,54 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //misc melee weapons
 
-/obj/item/weapon/material/knife/hook
+/obj/item/material/knife/hook
 	name = "meat hook"
 	desc = "A sharp, metal hook what sticks into things."
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "hook_knife"
 	item_state = "hook_knife"
 
-/obj/item/weapon/material/sword/urist
+/obj/item/material/sword/urist
 	icon = 'icons/urist/items/uristweapons.dmi'
 
-/obj/item/weapon/material/sword/urist/basic
+/obj/item/material/sword/urist/basic
 	name = "sword"
 	icon_state = "longsword"
 
-/obj/item/weapon/material/sword/urist/gladius
+/obj/item/material/sword/urist/gladius
 	name = "gladius"
 	desc = "Are you not entertained!?"
 	icon_state = "gladius"
 
-/obj/item/weapon/material/sword/urist/khopesh
+/obj/item/material/sword/urist/khopesh
 	name = "khopesh"
 	icon_state = "khopesh"
 	item_state = "katana"
 
-/obj/item/weapon/material/sword/urist/sabre
+/obj/item/material/sword/urist/sabre
 	name = "sabre"
 	icon_state = "sabre"
 	item_state = "katana"
 
-/obj/item/weapon/material/sword/urist/dao
+/obj/item/material/sword/urist/dao
 	name = "dao"
 	icon_state = "dao"
 	item_state = "katana"
 
-/obj/item/weapon/material/sword/urist/rapier
+/obj/item/material/sword/urist/rapier
 	name = "rapier"
 	desc = "En guarde!"
 	icon_state = "rapier"
 	item_state = "katana"
 
-/obj/item/weapon/material/sword/urist/trench
+/obj/item/material/sword/urist/trench
 	name = "trench knife"
 	icon_state = "trench"
 	item_state = "katana"
 
 //bow and arrow shit
 
-/obj/item/weapon/arrow/improv
+/obj/item/arrow/improv
 	name = "improvised arrow"
 	desc = "It's a shitty improvised arrow. It has a wooden shaft and a makeshift glass arrowhead."
 	icon = 'icons/urist/items/guns.dmi'
@@ -131,7 +131,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	edge = 0
 	lock_picking_level = 1
 
-/obj/item/weapon/arrow/woodarrow
+/obj/item/arrow/woodarrow
 	name = "arrow"
 	desc = "It's a regular arrow, wooden shaft, metal arrowhead. You get the deal."
 	icon = 'icons/urist/items/guns.dmi'
@@ -143,7 +143,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	edge = 0
 	lock_picking_level = 2
 
-/obj/item/weapon/gun/launcher/crossbow/bow
+/obj/item/gun/launcher/crossbow/bow
 	name = "wooden bow"
 	desc = "The age old design for when you don't want to get hit."
 	icon = 'icons/urist/items/improvised.dmi'
@@ -154,13 +154,13 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //RS Weapons
 
-/obj/item/weapon/urist/blade
+/obj/item/urist/blade
 	sharp = 1
 	edge = 1
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 
-/obj/item/weapon/urist/blade/bronzedagger
+/obj/item/urist/blade/bronzedagger
 	name = "Bronze Dagger"
 	desc = "Short but pointy."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -171,7 +171,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	w_class = 2.0
 
 
-/obj/item/weapon/urist/blade/addydagger
+/obj/item/urist/blade/addydagger
 	name = "Adamantite Dagger"
 	desc = "Short but pointy."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -182,7 +182,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	w_class = 2.0
 
 
-/obj/item/weapon/urist/blade/runedagger
+/obj/item/urist/blade/runedagger
 	name = "Runite Dagger"
 	desc = "Short but pointy."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -192,7 +192,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	throwforce = 15
 	w_class = 2.0
 
-/obj/item/weapon/urist/blade/bronzesword
+/obj/item/urist/blade/bronzesword
 	name = "Bronze Sword"
 	desc = "A razor sharp sword."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -203,7 +203,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	w_class = 4.0
 	slot_flags = SLOT_BELT|SLOT_BACK
 
-/obj/item/weapon/urist/blade/addysword
+/obj/item/urist/blade/addysword
 	name = "Adamantite  Sword"
 	desc = "A razor sharp sword."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -215,7 +215,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	slot_flags = SLOT_BELT|SLOT_BACK
 
 
-/obj/item/weapon/urist/blade/runesword
+/obj/item/urist/blade/runesword
 	name = "Runeite Sword"
 	desc = "A razor sharp sword."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -228,7 +228,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //a simple crutch, with a more medical look then the gentleman's cane
 
-/obj/item/weapon/cane/crutch
+/obj/item/cane/crutch
 	name ="crutch"
 	desc = "A long stick with a crosspiece at the top, used to help with walking."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -241,7 +241,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //a white cane for the blind or visually impared
 
-/obj/item/weapon/cane/white
+/obj/item/cane/white
 	name = "white cane"
 	desc = "A white cane. They are commonly used by the blind or visually impaired as a mobility tool or as a courtesy to others."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -254,7 +254,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //the code for tapping someone with the cane
 
-/obj/item/weapon/cane/white/attack(mob/M as mob, mob/user as mob)
+/obj/item/cane/white/attack(mob/M as mob, mob/user as mob)
 	if(user.a_intent == I_HELP)
 		user.visible_message("<span class='notice'>\The [user] has lightly tapped [M] on the ankle with their white cane!</span>")
 		return TRUE
@@ -265,7 +265,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //a telescopic white cane, click on it in hand to extend and retract it
 //Code for Telescopic White Cane writen by Gozulio
 
-/obj/item/weapon/cane/white/collapsible
+/obj/item/cane/white/collapsible
 	name = "telescopic white cane"
 	desc = "A telescopic white cane. They are commonly used by the blind or visually impaired as a mobility tool or as a courtesy to others."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -282,7 +282,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //the code to make the cane extend and retract
 
-/obj/item/weapon/cane/white/collapsible/attack_self(mob/user as mob)
+/obj/item/cane/white/collapsible/attack_self(mob/user as mob)
 	on = !on
 	if(on)
 		user.visible_message("<span class='notice'>\The [user] extends the white cane.</span>",\
@@ -312,3 +312,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 	add_fingerprint(user)
 	return TRUE
+
+//nerva knife needed to not be called master at arms
+/obj/item/material/knife/folding/swiss/sec/nerva
+	name = "security officer's combi-knife"

@@ -1,15 +1,15 @@
-/obj/item/weapon/camera_assembly
+/obj/item/camera_assembly
 	name = "camera assembly"
 	desc = "A pre-fabricated security camera kit, ready to be assembled and mounted to a surface."
 	icon = 'icons/obj/monitors.dmi'
 	icon_state = "cameracase"
 	w_class = ITEM_SIZE_SMALL
-	anchored = 0
+	anchored = FALSE
 
 	matter = list(MATERIAL_ALUMINIUM = 700, MATERIAL_GLASS = 300)
 
 	//	Motion, EMP-Proof, X-Ray
-	var/list/obj/item/possible_upgrades = list(/obj/item/device/assembly/prox_sensor, /obj/item/stack/material/osmium, /obj/item/weapon/stock_parts/scanning_module)
+	var/list/obj/item/possible_upgrades = list(/obj/item/device/assembly/prox_sensor, /obj/item/stack/material/osmium, /obj/item/stock_parts/scanning_module)
 	var/list/upgrades = list()
 	var/camera_name
 	var/camera_network
@@ -23,7 +23,7 @@
 				4 = Screwdriver panel closed and is fully built (you cannot attach upgrades)
 	*/
 
-/obj/item/weapon/camera_assembly/attackby(obj/item/W as obj, mob/living/user as mob)
+/obj/item/camera_assembly/attackby(obj/item/W as obj, mob/living/user as mob)
 
 	switch(state)
 
@@ -32,7 +32,7 @@
 			if(isWrench(W) && isturf(src.loc))
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 				to_chat(user, "You wrench the assembly into place.")
-				anchored = 1
+				anchored = TRUE
 				state = 1
 				update_icon()
 				auto_turn()
@@ -43,14 +43,14 @@
 			if(isWelder(W))
 				if(weld(W, user))
 					to_chat(user, "You weld the assembly securely into place.")
-					anchored = 1
+					anchored = TRUE
 					state = 2
 				return
 
 			else if(isWrench(W))
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 				to_chat(user, "You unattach the assembly from its place.")
-				anchored = 0
+				anchored = FALSE
 				update_icon()
 				state = 0
 				return
@@ -60,10 +60,10 @@
 			if(isCoil(W))
 				var/obj/item/stack/cable_coil/C = W
 				if(C.use(2))
-					to_chat(user, "<span class='notice'>You add wires to the assembly.</span>")
+					to_chat(user, SPAN_NOTICE("You add wires to the assembly."))
 					state = 3
 				else
-					to_chat(user, "<span class='warning'>You need 2 coils of wire to wire the assembly.</span>")
+					to_chat(user, SPAN_WARNING("You need 2 coils of wire to wire the assembly."))
 				return
 
 			else if(isWelder(W))
@@ -71,7 +71,7 @@
 				if(weld(W, user))
 					to_chat(user, "You unweld the assembly from its place.")
 					state = 1
-					anchored = 1
+					anchored = TRUE
 				return
 
 
@@ -86,7 +86,7 @@
 					return
 
 				var/list/tempnetwork = splittext(input, ",")
-				if(tempnetwork.len < 1)
+				if(length(tempnetwork) < 1)
 					to_chat(usr, "No network found please hang up and try your call again.")
 					return
 
@@ -131,7 +131,7 @@
 		return
 
 	// Taking out upgrades
-	else if(isCrowbar(W) && upgrades.len)
+	else if(isCrowbar(W) && length(upgrades))
 		var/obj/U = locate(/obj) in upgrades
 		if(U)
 			to_chat(user, "You unattach an upgrade from the assembly.")
@@ -142,31 +142,29 @@
 
 	..()
 
-/obj/item/weapon/camera_assembly/on_update_icon()
+/obj/item/camera_assembly/on_update_icon()
 	if(anchored)
 		icon_state = "camera1"
 	else
 		icon_state = "cameracase"
 
-/obj/item/weapon/camera_assembly/attack_hand(mob/user as mob)
+/obj/item/camera_assembly/attack_hand(mob/user as mob)
 	if(!anchored)
 		..()
 
-/obj/item/weapon/camera_assembly/proc/weld(var/obj/item/weapon/weldingtool/WT, var/mob/user)
+/obj/item/camera_assembly/proc/weld(obj/item/weldingtool/WT, mob/user)
 
 	if(busy)
 		return 0
-	if(!WT.isOn())
-		return 0
 
-	to_chat(user, "<span class='notice'>You start to weld \the [src]..</span>")
-	playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
-	WT.eyecheck(user)
-	busy = 1
-	if(do_after(user, 20, src))
-		busy = 0
-		if(!WT.isOn())
-			return 0
-		return 1
+	if(WT.remove_fuel(0, user))
+		to_chat(user, SPAN_NOTICE("You start to weld \the [src].."))
+		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+		busy = 1
+		if(do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) && WT.isOn())
+			playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
+			busy = 0
+			return 1
+
 	busy = 0
 	return 0

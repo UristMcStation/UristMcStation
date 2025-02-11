@@ -22,4 +22,4 @@
 
 /datum/hallucination/mirage/monsters/generate_mirage()
 	var/icon/T = new('icons/uristmob/monsters.dmi')
-	return image(T, pick(T.IconStates()), layer = ABOVE_HUMAN_PLANE)
+	return image(T, pick(T.IconStates()), layer = ABOVE_HUMAN_LAYER)

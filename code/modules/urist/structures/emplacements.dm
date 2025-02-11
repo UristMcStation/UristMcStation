@@ -1,15 +1,15 @@
 /mob/living/carbon/human
 	var/obj/structure/emplacement/mounted
 
-	ClickOn(var/atom/A, params)
-		if(mounted)
-			if(mounted.loc == src.loc)
-				if(A && mounted.nextshot <= world.time && mounted.anchored)
-					mounted.shoot(get_turf(A))
-			else
-				mounted = null
+/mob/living/carbon/human/ClickOn(atom/A, params)
+	if(mounted)
+		if(mounted.loc == src.loc)
+			if(A && mounted.nextshot <= world.time && mounted.anchored)
+				mounted.shoot(get_turf(A))
 		else
-			..()
+			mounted = null
+	else
+		..()
 
 
 /obj/structure/emplacement
@@ -19,7 +19,7 @@
 	icon_state = "mgun+barrier"
 	var/fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	var/empty_sound = 'sound/weapons/empty.ogg'
-	var/ammo_type = /obj/item/projectile/bullet/rifle/a762
+	var/ammo_type = /obj/item/projectile/bullet/rifle
 	var/ammo = 500
 	var/ammomax = 500
 	var/list/row1 = list()
@@ -28,10 +28,10 @@
 	var/mob/living/carbon/human/User
 	var/nextshot = 0
 	var/FIRETIME = 1 //tenths of seconds
-	density = 1
-	anchored = 0
+	density = TRUE
+	anchored = FALSE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
-	health = 500
+	health_max = 500
 
 /obj/structure/emplacement/AT
 	name = "anti-tank gun"
@@ -42,7 +42,7 @@
 	ammo = 25
 	ammomax = 25
 	FIRETIME = 250
-	anchored = 1
+	anchored = TRUE
 	ammo_type = /obj/item/missile
 	fire_sound = 'sound/effects/Explosion1.ogg'
 
@@ -81,11 +81,11 @@
 	..()
 	START_PROCESSING(SSobj, src)
 
-/obj/structure/emplacement/proc/shoot(var/turf/T)
+/obj/structure/emplacement/proc/shoot(turf/T)
 	if(ammo <= 0)
 		if(User)
 			playsound(src, empty_sound, 70, 1)
-			User << "This [src] is out of ammo!"
+			to_chat(User, "This [src] is out of ammo!")
 
 		return
 	if(T && User && User.stat == CONSCIOUS && !User.stunned && !User.weakened)
@@ -167,14 +167,14 @@
 
 /obj/structure/emplacement/machinegun/attackby(obj/item/W as obj, mob/user as mob)
 	var/obj/item/machinegunammo/Ammo = W
-	if(istype(W, /obj/item/weapon/wrench))
+	if(istype(W, /obj/item/wrench))
 		if(anchored)
 			user.visible_message("<span class='notice'> \The [user] starts to unbolt \the [src] from the plating...</span>")
 			if(!do_after(user,40))
 				user.visible_message("<span class='notice'> \The [user] decides not to unbolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'> \The [user] finishes unfastening \the [src]!</span>")
-			anchored = 0
+			anchored = FALSE
 			return
 		else
 			user.visible_message("<span class='notice'> \The [user] starts to bolt \the [src] to the plating...</span>")
@@ -182,7 +182,7 @@
 				user.visible_message("<span class='notice'> \The [user] decides not to bolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'> \The [user] finishes fastening down \the [src]!</span>")
-			anchored = 1
+			anchored = TRUE
 			update_rows()
 			return
 	else if(Ammo)
@@ -200,14 +200,14 @@
 		return ..()
 
 /obj/structure/emplacement/laser/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/weapon/wrench))
+	if(istype(W, /obj/item/wrench))
 		if(anchored)
 			user.visible_message("<span class='notice'> \The [user] starts to unbolt \the [src] from the plating...</span>")
 			if(!do_after(user,40))
 				user.visible_message("<span class='notice'> \The [user] decides not to unbolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'> \The [user] finishes unfastening \the [src]!</span>")
-			anchored = 0
+			anchored = FALSE
 			return
 		else
 			user.visible_message("<span class='notice'> \The [user] starts to bolt \the [src] to the plating...</span>")
@@ -215,7 +215,7 @@
 				user.visible_message("<span class='notice'> \The [user] decides not to bolt \the [src].</span>")
 				return
 			user.visible_message("<span class='notice'> \The [user] finishes fastening down \the [src]!</span>")
-			anchored = 1
+			anchored = TRUE
 			update_rows()
 			return
 	else
@@ -229,7 +229,6 @@
 		return !density
 	else
 		return 1
-	return 0
 
 //checks if projectile 'P' from turf 'from' can hit whatever is behind the table. Returns 1 if it can, 0 if bullet stops.
 /obj/structure/emplacement/proc/check_cover(obj/item/projectile/P, turf/from)
@@ -250,8 +249,8 @@
 		else
 			return 1					//But only from one side
 		if(prob(chance))
-			health -= P.damage/2
-			if (health > 0)
+			health_current -= P.damage/2
+			if (health_current > 0)
 				visible_message("<span class='warning'>[P] hits \the [src]!</span>")
 				return 0
 			else
@@ -266,7 +265,6 @@
 		return !density
 	else
 		return 1
-	return 1
 
 /obj/item/machinegunammo
 	icon = 'icons/urist/structures&machinery/emplacements.dmi'

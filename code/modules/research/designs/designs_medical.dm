@@ -1,6 +1,5 @@
 /datum/design/item/medical
 	materials = list(MATERIAL_STEEL = 30, MATERIAL_GLASS = 20)
-	category = BIOMEDICAL_DEVICES
 
 /datum/design/item/medical/AssembleDesignName()
 	..()
@@ -11,7 +10,7 @@
 	id = "slime_scanner"
 	req_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 	materials = list(MATERIAL_STEEL = 200, MATERIAL_GLASS = 100, MATERIAL_PLASTIC = 150)
-	build_path = /obj/item/device/slime_scanner
+	build_path = /obj/item/device/scanner/xenobio
 	sort_string = "MACFA"
 
 /datum/design/item/medical/robot_scanner
@@ -26,28 +25,28 @@
 	desc = "A device for analyzing chemicals in blood."
 	id = "mass_spectrometer"
 	req_tech = list(TECH_BIO = 2, TECH_MAGNET = 2)
-	build_path = /obj/item/device/mass_spectrometer
+	build_path = /obj/item/device/scanner/spectrometer
 	sort_string = "MACAA"
 
 /datum/design/item/medical/adv_mass_spectrometer
 	desc = "A device for analyzing chemicals in blood and their quantities."
 	id = "adv_mass_spectrometer"
 	req_tech = list(TECH_BIO = 2, TECH_MAGNET = 4)
-	build_path = /obj/item/device/mass_spectrometer/adv
+	build_path = /obj/item/device/scanner/spectrometer/adv
 	sort_string = "MACAB"
 
 /datum/design/item/medical/reagent_scanner
 	desc = "A device for identifying chemicals."
 	id = "reagent_scanner"
 	req_tech = list(TECH_BIO = 2, TECH_MAGNET = 2)
-	build_path = /obj/item/device/reagent_scanner
+	build_path = /obj/item/device/scanner/reagent
 	sort_string = "MACBA"
 
 /datum/design/item/medical/adv_reagent_scanner
 	desc = "A device for identifying chemicals and their proportions."
 	id = "adv_reagent_scanner"
 	req_tech = list(TECH_BIO = 2, TECH_MAGNET = 4)
-	build_path = /obj/item/device/reagent_scanner/adv
+	build_path = /obj/item/device/scanner/reagent/adv
 	sort_string = "MACBB"
 
 /datum/design/item/medical/nanopaste
@@ -59,18 +58,27 @@
 	sort_string = "MADAA"
 
 /datum/design/item/medical/hypospray
-	desc = "A sterile, air-needle autoinjector for rapid administration of drugs"
+	desc = "A sterile, air-needle autoinjector for rapid administration of drugs."
 	id = "hypospray"
 	req_tech = list(TECH_MATERIAL = 4, TECH_BIO = 5)
 	materials = list(MATERIAL_STEEL = 8000, MATERIAL_GLASS = 8000, MATERIAL_SILVER = 2000)
-	build_path = /obj/item/weapon/reagent_containers/hypospray/vial
+	build_path = /obj/item/reagent_containers/hypospray/vial
 	sort_string = "MAEAA"
+
+/datum/design/item/weapon/storage/box/freezer
+	name = "Portable Freezer"
+	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."
+	id = "freezer"
+	req_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2)
+	materials = list(MATERIAL_PLASTIC = 350)
+	build_path = /obj/item/storage/box/freezer
+	sort_string = "MAFAA"
 
 /datum/design/item/medical/cryobag
 	desc = "A folded, reusable bag designed to prevent additional damage to an occupant, especially useful if short on time or in \
-	a hostile enviroment."
+	a hostile environment."
 	id = "cryobag"
 	req_tech = list(TECH_MATERIAL = 6, TECH_BIO = 6)
 	materials = list(MATERIAL_PLASTIC = 15000, MATERIAL_GLASS = 15000, MATERIAL_SILVER = 5000, MATERIAL_GOLD = 1000)
 	build_path = /obj/item/bodybag/cryobag
-	sort_string = "MAFAA"
+	sort_string = "MAGAA"

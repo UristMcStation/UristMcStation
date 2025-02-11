@@ -10,7 +10,7 @@
 	var/obj/structure/lift/panel/control_panel_interior // Lift control panel.
 	var/doors_closing = 0								// Whether doors are in the process of closing
 
-	var/tmp/moving_upwards
+	var/moving_upwards
 	var/busy_state                                      // Used for controller processing.
 	var/next_process
 
@@ -19,18 +19,18 @@
 	target_floor = null
 	open_doors()
 
-/datum/turbolift/proc/doors_are_open(var/datum/turbolift_floor/use_floor = current_floor)
+/datum/turbolift/proc/doors_are_open(datum/turbolift_floor/use_floor = current_floor)
 	for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
 		if(!door.density)
 			return 1
 	return 0
 
-/datum/turbolift/proc/open_doors(var/datum/turbolift_floor/use_floor = current_floor)
+/datum/turbolift/proc/open_doors(datum/turbolift_floor/use_floor = current_floor)
 	for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
 		door.command("open")
 	return
 
-/datum/turbolift/proc/close_doors(var/datum/turbolift_floor/use_floor = current_floor)
+/datum/turbolift/proc/close_doors(datum/turbolift_floor/use_floor = current_floor)
 	for(var/obj/machinery/door/airlock/door in (use_floor ? (doors + use_floor.doors) : doors))
 		door.command("close")
 	return
@@ -45,6 +45,7 @@
 	switch(busy_state)
 		if(LIFT_MOVING)
 			if(!do_move())
+				queued_floors.Cut()
 				return PROCESS_KILL
 			else if(!next_process)
 				next_process = world.time + move_delay
@@ -54,8 +55,11 @@
 			next_process = world.time + floor_wait_delay
 			busy_state = LIFT_WAITING_B
 		if(LIFT_WAITING_B)
-			busy_state = null
-			return PROCESS_KILL
+			if(length(queued_floors))
+				busy_state = LIFT_MOVING
+			else
+				busy_state = null
+				return PROCESS_KILL
 
 /datum/turbolift/proc/do_move()
 	next_process = null
@@ -63,7 +67,7 @@
 	var/current_floor_index = floors.Find(current_floor)
 
 	if(!target_floor)
-		if(!queued_floors || !queued_floors.len)
+		if(!queued_floors || !length(queued_floors))
 			return 0
 		target_floor = queued_floors[1]
 		queued_floors -= target_floor
@@ -128,7 +132,7 @@
 
 	return 1
 
-/datum/turbolift/proc/queue_move_to(var/datum/turbolift_floor/floor)
+/datum/turbolift/proc/queue_move_to(datum/turbolift_floor/floor)
 	if(!floor || !(floor in floors) || (floor in queued_floors))
 		return // STOP PRESSING THE BUTTON.
 	floor.pending_move(src)

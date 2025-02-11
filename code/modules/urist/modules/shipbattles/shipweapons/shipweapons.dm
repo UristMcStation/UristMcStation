@@ -4,8 +4,8 @@
 	idle_power_usage = 10
 	active_power_usage = 1000
 	use_power = 1
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	var/pass_shield = FALSE
 	var/shield_damage = 0
 	var/hull_damage = 0
@@ -18,10 +18,10 @@
 	var/component_hit = 0 //chance to hit components
 	var/component_modifier_low = 0.2 //component damage modifier for untargeted shots
 	var/component_modifier_high = 0.5 //component damage modifier for targeted shots
-	var/obj/item/projectile/projectile_type
+	var/atom/movable/projectile_type
 	var/fire_anim = 0
 	var/fire_sound = null
-	var/obj/effect/overmap/ship/combat/homeship = null
+	var/obj/effect/overmap/visitable/ship/combat/homeship = null
 	var/obj/machinery/computer/combatcomputer/linkedcomputer = null
 	var/status = CHARGED
 	var/datum/shipcomponents/targeted_component
@@ -37,13 +37,13 @@
 	update_icon()
 
 /obj/machinery/shipweapons/Process()
-	if(!status & (CHARGED|RECHARGING))
+	if(!status && (CHARGED|RECHARGING))
 		Charging()
 
 	..()
 
 /obj/machinery/shipweapons/proc/Charging() //maybe do this with powercells
-	if(stat & (BROKEN|NOPOWER))
+	if(stat & (inoperable()))
 		return
 	if(status & FIRING)	//If we're firing, we shouldn't recharge until it's done.
 		return
@@ -66,7 +66,7 @@
 
 	status &= ~FIRING	//If power was lost mid-fire, let's reset the flag so status updates correctly
 
-	if(!status & (CHARGED|RECHARGING)) //if we're not charged, we'll try charging when the power changes. that way, if the power is off, and we didn't charge, we'll try again when it comes on
+	if(!status && (CHARGED|RECHARGING)) //if we're not charged, we'll try charging when the power changes. that way, if the power is off, and we didn't charge, we'll try again when it comes on
 		Charging()
 
 /obj/machinery/shipweapons/attack_hand(mob/user as mob) //we can fire it by hand in a pinch
@@ -78,10 +78,10 @@
 			switch(want)
 				if("Yes")
 					if(status == CHARGED) //just in case, we check again
-						user << "<span class='warning'>You fire the [src.name].</span>"
+						to_chat(user, "<span class='warning'>You fire the [src.name].</span>")
 						Fire()
-					else if(!status & CHARGED)
-						user << "<span class='warning'>The [src.name] needs to charge!</span>"
+					else if(!status && CHARGED)
+						to_chat(user, "<span class='warning'>The [src.name] needs to charge!</span>")
 
 
 				if("Cancel")
@@ -89,13 +89,13 @@
 			return
 
 		else
-			user << "<span class='warning'>There is nothing to shoot at...</span>"
+			to_chat(user, "<span class='warning'>There is nothing to shoot at...</span>")
 
-	else if(!status & CHARGED)
-		user << "<span class='warning'>The [src.name] needs to charge!</span>"
+	else if(!status && CHARGED)
+		to_chat(user, "<span class='warning'>The [src.name] needs to charge!</span>")
 
 	else if(!target)
-		user << "<span class='warning'>There is nothing to shoot at...</span>"
+		to_chat(user, "<span class='warning'>There is nothing to shoot at...</span>")
 
 
 /obj/machinery/shipweapons/proc/Fire() //this proc is a mess //next task is refactor this proc
@@ -106,7 +106,7 @@
 		ConnectWeapons()
 		return FALSE
 
-	if(status == CHARGED && !(stat & BROKEN))		//If any flags other than CHARGED is set, we shouldn't be able to fire.
+	if(status == CHARGED && !(stat & inoperable()))		//If any flags other than CHARGED is set, we shouldn't be able to fire.
 		status |= FIRING
 
 		playsound(src, fire_sound, 40, 1)
@@ -124,7 +124,7 @@
 			update_icon()
 			Charging() //time to recharge
 
-		if(istype(target, /obj/effect/overmap/ship/combat))
+		if(istype(target, /obj/effect/overmap/visitable/ship/combat))
 			MapFire()	//PVP combat just lobs projectiles at the other ship, no need for further calculations.
 			return TRUE
 
@@ -233,15 +233,11 @@
 					homeship.dam_announced = 1
 					homeship.autoannounce("<b>The attacking [OM.ship_category]'s hull integrity is below 50%.</b>", "private")
 
-			if(!OM.boarding && OM.can_board && !OM.shields)
-				if(homeship.can_board)
-					OM.boarded()
-
 		return TRUE
 	else
 		return FALSE
 
-/obj/machinery/shipweapons/proc/HitComponents(var/targetship)
+/obj/machinery/shipweapons/proc/HitComponents(targetship)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
 
 //	for(var/datum/shipcomponents/SC in OM.components)
@@ -254,7 +250,7 @@
 		if(targetcomponent.health <= 0)
 			targetcomponent.BlowUp()
 
-/obj/machinery/shipweapons/proc/TargetedHit(var/targetship, var/hull_damage, var/oc = FALSE)
+/obj/machinery/shipweapons/proc/TargetedHit(targetship, var/hull_damage, var/oc = FALSE)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
 	if(!targeted_component.broken)
 		targeted_component.health -= (hull_damage * component_modifier_high) //we do more damage for aimed shots
@@ -265,7 +261,7 @@
 	if(!oc)	//Overcharged shields allow no hull damage
 		OM.health = max(OM.health - (hull_damage * 0.5), 0) //but we also do less damage to the hull in general if we're aiming at systems
 
-/obj/machinery/shipweapons/update_icon()
+/obj/machinery/shipweapons/on_update_icon()
 	..()
 	if(status & CHARGED)
 		icon_state = "[initial(icon_state)]-charged"
@@ -273,17 +269,35 @@
 	if(status & RECHARGING)
 		icon_state = "[initial(icon_state)]-charging"
 
-	if(!status & (CHARGED|RECHARGING))
+	if(!status && (CHARGED|RECHARGING))
 		icon_state = "[initial(icon_state)]-empty"
 
 /obj/machinery/shipweapons/proc/MapFire()
-	if(istype(target, /obj/effect/overmap/ship/combat))
-		var/obj/effect/overmap/ship/combat/T = target
-		var/obj/effect/urist/projectile_landmark/ship/P = pick(T.landmarks)
-		P.Fire(projectile_type)
-	else
-		var/obj/effect/urist/projectile_landmark/target/P = pick(GLOB.target_projectile_landmarks)
-		P.Fire(projectile_type)
+	if(!projectile_type)
+		return
+
+	if(istype(target, /obj/effect/overmap/visitable/ship/combat))
+		HandlePvpFire()
+
+	else if(istype(target, /mob/living/simple_animal/hostile/overmapship))
+		var/mob/living/simple_animal/hostile/overmapship/target_ship = target
+		if(target_ship.boarding && target_ship.map_spawned)
+			homeship.pve_mapfire(projectile_type)
+
+/obj/machinery/shipweapons/proc/HandlePvpFire() //come back to this to add handling for burst fire
+	var/obj/effect/overmap/visitable/ship/combat/target_ship = target
+	if(!target_ship)
+		return
+
+	var/target_x = rand(target_ship.target_x_bounds[1],target_ship.target_x_bounds[2])
+	var/target_y = rand(target_ship.target_y_bounds[1],target_ship.target_y_bounds[2])
+	var/target_z = pick(target_ship.target_zs)
+	var/target_edge = pick(target_ship.target_dirs) || pick(GLOB.cardinal)
+
+	var/turf/start_turf = spaceDebrisStartLoc(target_edge, target_z)
+	var/turf/target_turf = locate(target_x, target_y, target_z)
+
+	launch_atom(projectile_type, start_turf, target_turf)
 
 /obj/machinery/shipweapons/proc/ConnectWeapons()
 	if(!linkedcomputer)
@@ -297,18 +311,18 @@
 		target = linkedcomputer.target
 
 	if(!homeship)
-		for(var/obj/effect/overmap/ship/combat/C in GLOB.overmap_ships)
+		for(var/obj/effect/overmap/visitable/ship/combat/C in GLOB.overmap_ships)
 			if(C.shipid == src.shipid)
 				homeship = C
 
 /obj/machinery/shipweapons/proc/getStatusString()
 	if(status & FIRING)
 		return "Firing"
-	if(stat & BROKEN)
+	if(stat & inoperable())
 		return "Destroyed"
 	if(status & RECHARGING)
 		return "Recharging"
-	if(!status & (CHARGED|RECHARGING))
+	if(!status && (CHARGED|RECHARGING))
 		return "Unable to Fire"
 	if(status & LOADING) //no need to yell at cargo yet, we're reloading
 		return "Reloading"
@@ -344,7 +358,7 @@
 		S.update_icon()
 		S.state = 4
 		S.shipid = src.shipid
-		S.anchored = 1
+		S.anchored = TRUE
 		S.external = src.external
 		S.pixel_x = src.pixel_x
 		S.pixel_y = src.pixel_y

@@ -1,6 +1,6 @@
 //we're using pre-existing stuff for the most part, but here's some stuff to complete the three tiers
 
-/obj/item/weapon/gun/energy/sniperrifle/pulse
+/obj/item/gun/energy/sniperrifle/pulse
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper pulse sniper rifle"
 	desc = "A pulse rifle constructed of lightweight materials, fitted with a SMART aiming-system scope."
@@ -15,7 +15,7 @@
 	w_class = 3.0
 	one_hand_penalty = 8
 
-/obj/item/weapon/gun/energy/pulse_rifle/pistol
+/obj/item/gun/energy/pulse_rifle/pistol
 	item_icons = DEF_URIST_INHANDS
 	name = "pulse pistol"
 	desc = "A heavy-duty, pulse-based energy pistol, preferred as a sidearm by front-line combat personnel."
@@ -26,7 +26,7 @@
 	fire_sound = 'sound/weapons/pulse.ogg'
 	charge_cost = 150
 	projectile_type = /obj/item/projectile/beam/pulse/light
-	cell_type = /obj/item/weapon/cell/super
+	cell_type = /obj/item/cell/super
 	w_class = 2.0
 
 	firemodes = list(
@@ -36,7 +36,7 @@
 		)
 
 
-/obj/item/weapon/gun/energy/pulse_rifle/cannon
+/obj/item/gun/energy/pulse_rifle/cannon
 	item_icons = DEF_URIST_INHANDS
 	name = "pulse cannon"
 	desc = "A heavy-duty, pulse-based energy cannon, preferred by front-line heavy infantry."
@@ -47,14 +47,14 @@
 	fire_sound = 'sound/weapons/marauder.ogg'
 	charge_cost = 250
 	projectile_type = /obj/item/projectile/beam/pulse/heavy/h2
-	cell_type = /obj/item/weapon/cell/super
+	cell_type = /obj/item/cell/super
 	w_class = 4.0
 	one_hand_penalty = 8
 
-/obj/item/weapon/gun/energy/pulse_rifle/cannon/attack_self(mob/living/user as mob)
-	user << "<span class='warning'>[src.name] only has one setting.</span>"
+/obj/item/gun/energy/pulse_rifle/cannon/attack_self(mob/living/user as mob)
+	to_chat(user, "<span class='warning'>[src.name] only has one setting.</span>")
 
-/obj/item/weapon/gun/energy/laser/pistol
+/obj/item/gun/energy/laser/pistol
 	item_icons = DEF_URIST_INHANDS
 	name = "laser pistol"
 	desc = "A basic pistol designed to kill with concentrated energy bolts."
@@ -64,7 +64,7 @@
 	w_class = 2.0
 	projectile_type = /obj/item/projectile/beam/light
 
-/obj/item/weapon/gun/energy/laser/rifle
+/obj/item/gun/energy/laser/rifle
 	item_icons = DEF_URIST_INHANDS
 	name = "laser rifle"
 	desc = "A basic weapon designed to kill with concentrated energy bolts."
@@ -75,7 +75,7 @@
 	projectile_type = /obj/item/projectile/beam //maybe change this
 	one_hand_penalty = 4
 
-/obj/item/weapon/gun/projectile/sniper
+/obj/item/gun/projectile/svd
 	item_icons = DEF_URIST_INHANDS
 	name = "semi automatic sniper"
 	desc = "A powerful semi automatic sniper, perfect for long-range warfare."
@@ -83,9 +83,9 @@
 	item_state = "SVD"
 	icon = 'icons/urist/items/guns.dmi'
 	force = 10
-	caliber = "a762"
-	ammo_type = /obj/item/ammo_casing/a762/sniper
-	magazine_type = /obj/item/ammo_magazine/a762mm/sniper
+	caliber = CALIBER_RIFLE_MILITARY
+	ammo_type = /obj/item/ammo_casing/rifle/military/sniper
+	magazine_type = /obj/item/ammo_magazine/rifle/military/sniper
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	zoomdevicename = "scope"
@@ -100,44 +100,34 @@
 	scoped_accuracy = 4 //increased accuracy over the LWAP because only one shot
 	scope_zoom = 2
 
-/obj/item/weapon/gun/projectile/sniper/update_icon()
+/obj/item/gun/projectile/svd/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "SVD"
 	else
 		icon_state = "SVD-empty"
 
-/obj/item/ammo_magazine/a762mm
-	name = "magazine (7.62mm)"
+/obj/item/ammo_magazine/rifle/military
+	name = "rifle magazine"
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/guns.dmi'
 	origin_tech = "combat=2"
-	ammo_type = /obj/item/ammo_casing/a762
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	mag_type = MAGAZINE
-	caliber = "a762"
+	caliber = CALIBER_RIFLE_MILITARY
 
-/obj/item/ammo_magazine/a762mm/sniper
-	name = "magazine (7.62mm)"
-	icon_state = "7.62mm"
-	icon = 'icons/urist/items/guns.dmi'
-	origin_tech = "combat=2"
-	ammo_type = /obj/item/ammo_casing/a762/sniper
+/obj/item/ammo_magazine/rifle/military/sniper
+	name = "ten-round rifle magazine"
+	ammo_type = /obj/item/ammo_casing/rifle/military
 	max_ammo = 10
-	mag_type = MAGAZINE
 	multiple_sprites = 1
-	caliber = "a762"
 
-/obj/item/ammo_magazine/a762mm/sniper/empty
-	name = "magazine (7.62mm)"
-	icon_state = "7.62mm"
-	icon = 'icons/urist/items/guns.dmi'
-	ammo_type = /obj/item/ammo_casing/a762/sniper
-	mag_type = MAGAZINE
+/obj/item/ammo_magazine/rifle/military/sniper/empty
 	initial_ammo = 0
 
-/obj/item/ammo_casing/a762/sniper
-	desc = "A 7.62mm bullet casing."
-	caliber = "a762"
+/obj/item/ammo_casing/rifle/military/sniper
+	desc = "A military rifle bullet casing."
+	caliber = CALIBER_RIFLE_MILITARY
 	projectile_type = /obj/item/projectile/bullet/rifle/sniper
 
 /obj/item/projectile/bullet/rifle/sniper
@@ -162,50 +152,50 @@
 
 //ammo
 
-/obj/item/weapon/storage/box/c20ammo
+/obj/item/storage/box/c20ammo
 	name = "box of smg ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 
-	New()
-		..()
-		new /obj/item/ammo_magazine/a10mm(src)
-		new /obj/item/ammo_magazine/a10mm(src)
-		new /obj/item/ammo_magazine/a10mm(src)
+/obj/item/storage/box/c20ammo/New()
+	..()
+	new /obj/item/ammo_magazine/pistol(src)
+	new /obj/item/ammo_magazine/pistol(src)
+	new /obj/item/ammo_magazine/pistol(src)
 
-/obj/item/weapon/storage/box/sniperammo
+/obj/item/storage/box/sniperammo
 	name = "box of sniper ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 
-	New()
-		..()
-		new /obj/item/ammo_magazine/a762(src)
-		new /obj/item/ammo_magazine/a762(src)
-		new /obj/item/ammo_magazine/a762(src)
+/obj/item/storage/box/sniperammo/New()
+	..()
+	new /obj/item/ammo_magazine/rifle/military(src)
+	new /obj/item/ammo_magazine/rifle/military(src)
+	new /obj/item/ammo_magazine/rifle/military(src)
 
-/obj/item/weapon/storage/box/large/lmgammo
+/obj/item/storage/box/large/lmgammo
 	name = "box of l6 saw ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 
-	New()
-		..()
-		new /obj/item/ammo_magazine/box/a762(src)
-		new /obj/item/ammo_magazine/box/a762(src)
-		new /obj/item/ammo_magazine/box/a762(src)
+/obj/item/storage/box/large/lmgammo/New()
+	..()
+	new /obj/item/ammo_magazine/box/rifle/military(src)
+	new /obj/item/ammo_magazine/box/rifle/military(src)
+	new /obj/item/ammo_magazine/box/rifle/military(src)
 
-/obj/item/weapon/storage/box/knightammo
+/obj/item/storage/box/knightammo
 	name = "box of Knight ammo"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
 
-	New()
-		..()
-		new /obj/item/ammo_magazine/c45m(src)
-		new /obj/item/ammo_magazine/c45m(src)
-		new /obj/item/ammo_magazine/c45m(src)
-		new /obj/item/ammo_magazine/c45m(src)
+/obj/item/storage/box/knightammo/New()
+	..()
+	new /obj/item/ammo_magazine/pistol(src)
+	new /obj/item/ammo_magazine/pistol(src)
+	new /obj/item/ammo_magazine/pistol(src)
+	new /obj/item/ammo_magazine/pistol(src)
 
 //armour (first heavy tier and first medic tier. possibly 2nd/3rd sniper tier.
 
-/obj/item/weapon/rig/ert/medical/scom
+/obj/item/rig/ert/medical/scom
 	name = "Combat Medic suit control module"
 	desc = "A suit worn by the medical division of a NanoTrasen Emergency Response Team. Has white highlights. Armoured and space ready."
 	suit_type = "ERT medic"
@@ -220,7 +210,7 @@
 		/obj/item/rig_module/chem_dispenser/injector
 		)
 
-/obj/item/weapon/rig/ert/security/scom
+/obj/item/rig/ert/security/scom
 	name = "Assault suit control module"
 	desc = "A suit worn by the security division of a NanoTrasen Emergency Response Team. Has red highlights. Armoured and space ready."
 	suit_type = "ERT security"
@@ -232,17 +222,17 @@
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/grenade_launcher,
-		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/mounted/energy/egun,
 		)
 
-/obj/item/weapon/rig/ert/scomlead
+/obj/item/rig/ert/scomlead
 	req_access = null
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
-		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/mounted/energy/egun,
 		/obj/item/rig_module/device/healthscanner,
-		/obj/item/rig_module/mounted/energy_blade
+		/obj/item/rig_module/mounted/energy/energy_blade
 		)
 
 /obj/item/clothing/suit/urist/armor
@@ -257,7 +247,7 @@
 /obj/item/clothing/suit/urist/armor/medic
 	icon_state = "ltvest"
 
-/obj/item/weapon/rig/scomsniper
+/obj/item/rig/scomsniper
 	name = "cybersuit control module"
 	suit_type = "cyber"
 	desc = "An advanced powered armour suit with many cyberwarfare enhancements."
@@ -268,17 +258,17 @@
 	initial_modules = list(
 		/obj/item/rig_module/grenade_launcher,
 		/obj/item/rig_module/stealth_field,
-		/obj/item/rig_module/mounted/energy_blade,
-		/obj/item/rig_module/mounted/egun
+		/obj/item/rig_module/mounted/energy/energy_blade,
+		/obj/item/rig_module/mounted/energy/egun
 		)
 
-	allowed = list(/obj/item/weapon/storage/backpack,/obj/item/device/flashlight, /obj/item/weapon/tank, /obj/item/device/t_scanner, /obj/item/weapon/rcd, /obj/item/weapon/crowbar, \
-	/obj/item/weapon/screwdriver, /obj/item/weapon/weldingtool, /obj/item/weapon/wirecutters, /obj/item/weapon/wrench, /obj/item/device/multitool, \
-	/obj/item/device/radio, /obj/item/device/analyzer, /obj/item/weapon/gun/energy/laser, /obj/item/weapon/gun/energy/pulse_rifle, \
-	/obj/item/weapon/gun/energy/taser, /obj/item/weapon/melee/baton, /obj/item/weapon/gun, /obj/item/weapon/storage/firstaid, /obj/item/weapon/reagent_containers/hypospray, /obj/item/roller)
+	allowed = list(/obj/item/storage/backpack,/obj/item/device/flashlight, /obj/item/tank, /obj/item/device/t_scanner, /obj/item/rcd, /obj/item/crowbar, \
+	/obj/item/screwdriver, /obj/item/weldingtool, /obj/item/wirecutters, /obj/item/wrench, /obj/item/device/multitool, \
+	/obj/item/device/radio, /obj/item/device/scanner/gas, /obj/item/gun/energy/laser, /obj/item/gun/energy/pulse_rifle, \
+	/obj/item/gun/energy/taser, /obj/item/melee/baton, /obj/item/gun, /obj/item/storage/firstaid, /obj/item/reagent_containers/hypospray, /obj/structure/roller_bed)
 
 
-/obj/item/weapon/rig/light/scomsniper
+/obj/item/rig/light/scomsniper
 	name = "stealth suit control module"
 	suit_type = "stealth"
 	desc = "A highly advanced and expensive suit designed for covert operations."
@@ -286,7 +276,7 @@
 
 	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
 	initial_modules = list(
-		/obj/item/rig_module/mounted/energy_blade,
+		/obj/item/rig_module/mounted/energy/energy_blade,
 		/obj/item/rig_module/stealth_field
 		)
 

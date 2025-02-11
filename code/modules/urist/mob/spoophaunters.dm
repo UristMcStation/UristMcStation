@@ -1,4 +1,4 @@
-/proc/PlaySpoopysound(var/atom/location)
+/proc/PlaySpoopysound(atom/location)
 	if(!location)
 		return
 
@@ -29,7 +29,7 @@
 	name = "wight"
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost-narsie"
-	density = 0
+	density = FALSE
 
 	var/disappear_chance = 1
 
@@ -38,7 +38,7 @@
 	return get_turf(pick(orange(1,src)))
 
 
-/obj/effect/haunter/proc/AffectOverlappedMob(var/mob/M)
+/obj/effect/haunter/proc/AffectOverlappedMob(mob/M)
 	if(!M)
 		return
 
@@ -83,7 +83,7 @@
 // Unused by the base class, but factored out for common behavior in independent subclasses
 */
 
-/obj/effect/haunter/proc/ChaseMobTarget(var/mob/M, var/prob_random = 10, var/min_dist = 1)
+/obj/effect/haunter/proc/ChaseMobTarget(mob/M, var/prob_random = 10, var/min_dist = 1)
 	// factored out to reuse across different chasey types
 	var/turf/next_pos = null
 	var/clamped_odds = clamp(prob_random, 0, 100)
@@ -105,7 +105,7 @@
 	return next_pos
 
 
-/obj/effect/haunter/proc/StoreMobTarget(var/mob/M)
+/obj/effect/haunter/proc/StoreMobTarget(mob/M)
 	// factored out to reuse across different chasey types
 	var/weakref/mob_ref = null
 
@@ -115,7 +115,7 @@
 	return mob_ref
 
 
-/obj/effect/haunter/proc/GetMobTarget(var/weakref/mob_ref)
+/obj/effect/haunter/proc/GetMobTarget(weakref/mob_ref)
 	// factored out to reuse across different chasey types
 	if(isnull(mob_ref))
 		return
@@ -145,7 +145,7 @@
 	var/prob_random_chase = 1
 
 
-/obj/effect/haunter/chaser/AffectOverlappedMob(var/mob/M)
+/obj/effect/haunter/chaser/AffectOverlappedMob(mob/M)
 	if(!M)
 		return
 

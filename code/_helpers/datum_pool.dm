@@ -7,16 +7,16 @@
 #define MAINTAINING_OBJECT_POOL_COUNT 500
 
 // Read-only or compile-time vars and special exceptions.
-/var/list/exclude = list("inhand_states", "loc", "locs", "parent_type", "vars", "verbs", "type", "x", "y", "z","group", "animate_movement")
+var/global/list/exclude = list("inhand_states", "loc", "locs", "parent_type", "vars", "verbs", "type", "x", "y", "z","group", "animate_movement")
 
-/var/global/list/masterdatumPool = new
-/var/global/list/pooledvariables = new
+var/global/list/masterdatumPool = new
+var/global/list/pooledvariables = new
 
 /*
  * @args : datum type, normal arguments
  * Example call: getFromPool(/datum/pipeline, args)
  */
-/proc/getFromPool(var/type, ...)
+/proc/getFromPool(type, ...)
 	var/list/B = (args - type)
 
 	if(length(masterdatumPool[type]) <= 0)
@@ -30,7 +30,7 @@
 		if(isnull(masterdatumPool[type]))
 			masterdatumPool[type] = list()
 
-		if(B && B.len)
+		if(B && length(B))
 			return new type(arglist(B))
 		else
 			return new type()
@@ -45,11 +45,11 @@
 	if(!O || !istype(O))
 		O = new type(arglist(B))
 	else
-		if(istype(O, /atom/movable) && B.len) // B.len check so we don't OoB.
+		if(istype(O, /atom/movable) && length(B)) // length(B) check so we don't OoB.
 			var/atom/movable/AM = O
 			AM.forceMove(B[1], FALSE, TRUE)
 
-		if(B && B.len)
+		if(B && length(B))
 			O.New(arglist(B))
 		else
 			O.New()
@@ -143,8 +143,8 @@
 			L += "<br>[key] = [pooledvariables[type][key]]"
 		else
 			L += "<br>[key] = null"
-	usr << browse(jointext(L,""),"window=poolingvariablelogs")
+	show_browser(usr, jointext(L,""),"window=poolingvariablelogs")
 
 // Shim - this method doesn't natively exist in this implementation.
-/proc/IsPooled(var/datum/D)
+/proc/IsPooled(datum/D)
 	return "[D.type]" in masterdatumPool

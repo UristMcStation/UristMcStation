@@ -1,21 +1,34 @@
-/obj/item/weapon/forensics
+/obj/item/forensics
 	icon = 'icons/obj/forensics.dmi'
 	w_class = ITEM_SIZE_TINY
 
 //This is the output of the stringpercent(print) proc, and means about 80% of
 //the print must be there for it to be complete.  (Prints are 32 digits)
-var/const/FINGERPRINT_COMPLETE = 6
-proc/is_complete_print(var/print)
+var/global/const/FINGERPRINT_COMPLETE = 6
+/proc/is_complete_print(print)
 	return stringpercent(print) <= FINGERPRINT_COMPLETE
 
-atom/var/list/fingerprintshidden
-atom/var/fingerprintslast
+/// LAZYLIST of mobs that have touched/used the atom. Used for staff investigation. Each entry includes a timestamp and name of the mob that generated the fingerprint. Do not modify directly. See `add_hiddenprint()`.
+/atom/var/list/fingerprintshidden
+/// String. The last ckey to generate fingerprints on this atom. Used to reduce the number of duplicate `fingerprintshidden` entries.
+/atom/var/fingerprintslast
 
-atom/var/list/suit_fibers
-atom/var/list/fingerprints
-atom/var/list/gunshot_residue
-obj/item/var/list/trace_DNA
+/// LAZYLIST of clothing fibers persent on the atom. Do not modify directly. See `add_fibers()` and `transfer_fingerprints_to()`.
+/atom/var/list/suit_fibers
+/// LAZYLIST of fingerprints present on the atom. Index is the full print, value is either the full print or a starred version of the full print as a partial. Do not modify directly. See `add_fingerprint()`, `add_partial_print()`, and `transfer_fingerprints_to()`.
+/atom/var/list/fingerprints
+/// LAZYLIST of gunshot residue present on the atom. Each entry contains the caliber of ammunition that generated the residue. Updated by `/obj/item/ammo_casing/proc/put_residue_on()`.
+/atom/var/list/gunshot_residue
+/obj/item/var/list/trace_DNA
 
+/**
+ * Adds fingerprint logs to the atom's hidden prints.
+ *
+ * **Parameters**:
+ * - `M` - The mob to add fingerprints from.
+ *
+ * Returns boolean.
+ */
 /atom/proc/add_hiddenprint(mob/M)
 	if(!M || !M.key)
 		return
@@ -33,6 +46,17 @@ obj/item/var/list/trace_DNA
 	src.fingerprintshidden += "\[[time_stamp()]\] Real name: [M.real_name], Key: [M.key]"
 	return 1
 
+
+/**
+ * Adds fingerprints to an atom from a mob.
+ *
+ * **Parameters**:
+ * - `M` - The mob to add fingerprints from.
+ * - `ignoregloves` (boolean) - Whether or not the proc should ignore the presence of gloves on the mob.
+ * - `tool` - The tool in the mob's active hand. Used to check if the tool should prevent fingerprints.
+ *
+ * Returns boolean. `TRUE` if fingerprints were added, `FALSE` otherwise.
+ */
 /atom/proc/add_fingerprint(mob/M, ignoregloves, obj/item/tool)
 	if(isnull(M)) return
 	if(isAI(M)) return
@@ -73,7 +97,15 @@ obj/item/var/list/trace_DNA
 	add_partial_print(full_print)
 	return 1
 
-/atom/proc/add_partial_print(full_print)
+
+/**
+ * Adds a partial print to the atom's fingerprints list.
+ *
+ * **Parameters**:
+ * - `full_print` (string) - The full fingerprint to be converted to a partial.
+ * - `bonus` (int) - Additional bonus to the chance of a more complete print.
+ */
+/atom/proc/add_partial_print(full_print, bonus)
 	LAZYINITLIST(fingerprints)
 	if(!fingerprints[full_print])
 		fingerprints[full_print] = stars(full_print, rand(0, 20))	//Initial touch, not leaving much evidence the first time.
@@ -109,7 +141,13 @@ obj/item/var/list/trace_DNA
 				else
 					fingerprints[full_print] = full_print
 
-/atom/proc/transfer_fingerprints_to(var/atom/A)
+/**
+ * Transfers this atom's fingerprints, fibres, DNA, etc to the target atom.
+ *
+ * **Parameters**:
+ * - `A` - The atom to transfer data to.
+ */
+/atom/proc/transfer_fingerprints_to(atom/A)
 	if(fingerprints)
 		LAZYDISTINCTADD(A.fingerprints, fingerprints)
 	if(fingerprintshidden)
@@ -123,13 +161,20 @@ obj/item/var/list/trace_DNA
 		var/obj/item/clothing/C = A
 		LAZYDISTINCTADD(C.gunshot_residue, gunshot_residue)
 
-/obj/item/transfer_fingerprints_to(var/atom/A)
+/obj/item/transfer_fingerprints_to(atom/A)
 	..()
 	if(istype(A,/obj/item) && trace_DNA)
 		var/obj/item/I = A
 		LAZYDISTINCTADD(I.trace_DNA, trace_DNA)
 
-atom/proc/add_fibers(mob/living/carbon/human/M)
+
+/**
+ * Adds forensics fibers to the atom from clothing worn by a mob.
+ *
+ * **Parameters**:
+ * - `M` - The mob to pull fibers from.
+ */
+/atom/proc/add_fibers(mob/living/carbon/human/M)
 	if(!istype(M))
 		return
 	if(M.gloves && istype(M.gloves,/obj/item/clothing/gloves))

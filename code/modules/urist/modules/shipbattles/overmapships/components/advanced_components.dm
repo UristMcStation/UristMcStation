@@ -10,6 +10,7 @@
 	var/boarded_max = 3 //how many times do we board?
 	var/boarded_amount = 0 //how many times have we boarded
 	var/boarding_message = "Enemy teleporter locked on! Boarding imminient! Expected breach point:"
+	var/boarding_hint = "Counterboarding possible; residual portal detected at breach point."
 	var/initial_delay = FALSE
 	var/bypass_shields = FALSE
 	var/counterboarding = FALSE
@@ -38,20 +39,21 @@
 					boarding_failure_chance += 25 // four shield generators to TOTALLY block boarding.
 
 	if(!boarding_turf) //Locate where we're boarding, give them a warning.
-		var/obj/item/device/radio/beacon/active_beacon //what beacon are we locking onto?
+		var/obj/machinery/tele_beacon/active_beacon //what beacon are we locking onto?
 		var/list/beacon_list = list()
-		for(var/obj/item/device/radio/beacon/B in GLOB.listening_objects)
+		for(var/obj/machinery/tele_beacon/B in world)
 			if(B.z in mastership.target_ship.map_z)
 				beacon_list += B
 		active_beacon = pick(beacon_list)
 		boarding_turf = get_turf(active_beacon)
 		var/area/boarding_area = get_area(active_beacon)
 		mastership.target_ship.autoannounce("<b>[boarding_message] [boarding_area.name].</b>", "public")
+		mastership.target_ship.autoannounce("<b>[boarding_hint]</b>", "public")
 
 	if(prob(boarding_failure_chance))
 		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery) //Calculate our failure chance.
 			if(S.z in mastership.target_ship.map_z)
-				S.current_energy -= S.max_energy * 0.15 //knock a little power off the shields, we're knocking at the damn door.
+				S.current_energy -= S.max_energy * 0.05 //knock a little power off the shields, we're knocking at the damn door.
 				if(S.hacked) //if it's hacked, the engineers get a small surprise
 					var/EMP_turf = get_turf(S)
 					empulse(EMP_turf, 0, 2, 0)
@@ -68,7 +70,7 @@
 			if(!istype(T, /turf/simulated/floor))
 				continue
 			turfs_in_range.Add(T)
-
+		new /obj/structure/boarding/shipportal/shipside(boarding_turf)
 		for(var/S = 1 to boarding_number)
 			var/boarding_type = pick(boarding_mobs)
 			var/spawnturf = pick(turfs_in_range)
@@ -228,7 +230,7 @@
 		if(mastership.health < mastership.maxHealth)
 			var/mastership_after_repair = mastership.health + repair_amount
 			if(mastership_after_repair > mastership.maxHealth) //don't want to exceed the health value
-				var/new_rep_amount = Clamp(repair_amount, 0, mastership.maxHealth)
+				var/new_rep_amount = clamp(repair_amount, 0, mastership.maxHealth)
 				mastership.health += new_rep_amount
 				did_repair = TRUE
 			else //if we good, just add a lump sum of health
@@ -245,7 +247,7 @@
 			if(M.health < mod_start_health)
 				var/module_after_repair = M.health + repair_amount
 				if(module_after_repair > mod_start_health)
-					var/new_mod_rep_amt = Clamp(repair_amount, 0, mod_start_health)
+					var/new_mod_rep_amt = clamp(repair_amount, 0, mod_start_health)
 					M.health = new_mod_rep_amt
 					did_repair = TRUE
 				else
@@ -260,7 +262,7 @@
 					continue
 				if(did_repair)
 					break
-				M.health = Clamp(repair_amount, 0, M.GetInitial(health)) //incase we're repairing more than a module has in terms of health
+				M.health = clamp(repair_amount, 0, M.GetInitial(health)) //incase we're repairing more than a module has in terms of health
 				M.broken = FALSE
 				M.name = M.GetInitial(name)
 				did_repair = TRUE
@@ -318,7 +320,7 @@
 	else
 		for(var/datum/shipcomponents/engines/E in mastership.components)
 			if((E.evasion_chance + evasion_increase) > 90)
-				var/new_evasion_chance = Clamp(evasion_increase, 0, 90)
+				var/new_evasion_chance = clamp(evasion_increase, 0, 90)
 				E.evasion_chance += new_evasion_chance
 				active = TRUE
 			else

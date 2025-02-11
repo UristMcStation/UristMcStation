@@ -1,0 +1,1 @@
+# define BSR_DEBUGGING_ENABLED 1

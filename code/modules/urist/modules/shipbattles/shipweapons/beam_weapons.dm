@@ -72,7 +72,7 @@
 	projectile_type = /obj/item/projectile/ion/ship
 	var/offline_delay = 30 SECONDS
 
-/obj/machinery/shipweapons/beam/ion/HitComponents(var/targetship)
+/obj/machinery/shipweapons/beam/ion/HitComponents(targetship)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
 
 //	for(var/datum/shipcomponents/SC in OM.components)

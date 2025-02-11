@@ -16,7 +16,7 @@
  	suffixes = list("../RandomZLevels/wildwest/wildwest.dmm")
  	cost = 2
 
-/obj/effect/overmap/sector/wild_west
+/obj/effect/overmap/visitable/wild_west
 	name = "desert planetoid"
 	desc = "System scans detect an ongoing quarantine alert; caution is well advised."
 	in_space = 0
@@ -28,7 +28,7 @@
 		"wild_west_3"
 	)
 
-/obj/effect/overmap/sector/wild_west/New(nloc, max_x, max_y)
+/obj/effect/overmap/visitable/wild_west/New(nloc, max_x, max_y)
 	name = "[generate_planet_name()], \a [name]"
 	..()
 
@@ -50,52 +50,72 @@
 
 //******Outfits for corpse spawners******
 
-/decl/hierarchy/outfit/wildwest/cowboy
+/obj/effect/landmark/corpse/wildwest/cowboy
+	genders_per_species = list(SPECIES_HUMAN = list(MALE))
+	damage = list("damage_all_brute" = 25)
+	corpse_outfits = list(/singleton/hierarchy/outfit/wildwest/cowboy)
+
+/obj/effect/landmark/corpse/wildwest/saloongirl
+	genders_per_species = list(SPECIES_HUMAN = list(FEMALE))
+	damage = list("damage_all_brute" = 25)
+	corpse_outfits = list(/singleton/hierarchy/outfit/wildwest/saloongirl)
+
+/obj/effect/landmark/corpse/wildwest/poncho
+	genders_per_species = list(SPECIES_HUMAN = list(MALE))
+	damage = list("damage_all_brute" = 25)
+	corpse_outfits = list(/singleton/hierarchy/outfit/wildwest/poncho)
+
+/obj/effect/landmark/corpse/wildwest/banker
+	genders_per_species = list(SPECIES_HUMAN = list(MALE))
+	damage = list("damage_all_brute" = 25)
+	corpse_outfits = list(/singleton/hierarchy/outfit/wildwest/banker)
+
+/singleton/hierarchy/outfit/wildwest/cowboy
 	name = "Wild West - Cowboy"
 	uniform = /obj/item/clothing/under/urist/cowboy
 	shoes = /obj/item/clothing/shoes/workboots
 	head = /obj/item/clothing/head/cowboy_hat
-	r_hand = /obj/item/weapon/gun/projectile/revolver
+	r_hand = /obj/item/gun/projectile/revolver
 
-/decl/hierarchy/outfit/wildwest/saloongirl
+/singleton/hierarchy/outfit/wildwest/saloongirl
 	name = "Wild West - Saloon Girl"
 	uniform = /obj/item/clothing/under/dress/dress_saloon
 	shoes = /obj/item/clothing/shoes/sandal
 
-/decl/hierarchy/outfit/wildwest/poncho
+/singleton/hierarchy/outfit/wildwest/poncho
 	name = "Wild West - Poncho"
 	uniform = /obj/item/clothing/under/casual_pants/classicjeans
 	shoes = /obj/item/clothing/shoes/leather
 	suit = /obj/item/clothing/suit/poncho/colored/green
 
-/decl/hierarchy/outfit/wildwest/banker
+/singleton/hierarchy/outfit/wildwest/banker
 	name = "Wild West - Banker"
 	uniform = /obj/item/clothing/under/gentlesuit
 	shoes = /obj/item/clothing/shoes/dress
 	head = /obj/item/clothing/head/bowlerhat
 
 //******Corpse Spawners******
-
+/*
 /obj/effect/spawner/carbon/human/wildwest/cowboy
 	new_gender = MALE
-	clothing = /decl/hierarchy/outfit/wildwest/cowboy
+	clothing = /singleton/hierarchy/outfit/wildwest/cowboy
 	killed = TRUE
 	damage = list("damage_all_brute" = 25)
 
 /obj/effect/spawner/carbon/human/wildwest/saloongirl
 	new_gender = FEMALE
-	clothing = /decl/hierarchy/outfit/wildwest/saloongirl
+	clothing = /singleton/hierarchy/outfit/wildwest/saloongirl
 	killed = TRUE
 	damage = list("damage_all_brute" = 25)
 
 /obj/effect/spawner/carbon/human/wildwest/poncho
 	new_gender = MALE
-	clothing = /decl/hierarchy/outfit/wildwest/poncho
+	clothing = /singleton/hierarchy/outfit/wildwest/poncho
 	killed = TRUE
 	damage = list("damage_all_brute" = 25)
 
 /obj/effect/spawner/carbon/human/wildwest/banker
 	new_gender = MALE
-	clothing = /decl/hierarchy/outfit/wildwest/banker
+	clothing = /singleton/hierarchy/outfit/wildwest/banker
 	killed = TRUE
-	damage = list("damage_all_brute" = 25)
+	damage = list("damage_all_brute" = 25)*/

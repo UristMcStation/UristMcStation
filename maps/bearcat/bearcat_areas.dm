@@ -39,7 +39,7 @@
 /area/ship/scrap/crew/toilets
 	name = "\improper Bathrooms"
 	icon_state = "toilet"
-	turf_initializer = /decl/turf_initializer/maintenance
+	turf_initializer = /singleton/turf_initializer/maintenance
 
 /area/ship/scrap/crew/wash
 	name = "\improper Washroom"
@@ -67,7 +67,7 @@
 /area/ship/scrap/unused
 	name = "\improper Compartment 2-B"
 	icon_state = "yellow"
-	turf_initializer = /decl/turf_initializer/maintenance
+	turf_initializer = /singleton/turf_initializer/maintenance
 	ambience = list('sound/ambience/ambigen3.ogg','sound/ambience/ambigen4.ogg','sound/ambience/ambigen5.ogg','sound/ambience/ambigen6.ogg','sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg')
 
 /area/ship/scrap/hidden

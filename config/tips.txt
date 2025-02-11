@@ -1,0 +1,194 @@
+You can use fire extinguishers as a makeshift jetpack in space.
+Coins can be reused on vending machines if you add cable coil to make it a coin on a string.
+When loading a shotgun, racking the shotgun lets you load one additional shell.
+Standing still before firing improves your hit chance with firearms.
+Going into Aim Mode before firing a weapon strongly increases your chance of hitting your target.
+Being chased up a ladder? You can block ladders with objects, or yourself to prevent people from climbing up.
+Paper can be held up to a camera to directly show the AI the contents, great for discreet messaging.
+Stuck in the center of a room with no gravity? Try throwing an object diagonally to move you in the opposite direction thrown.
+Autolathes can be hacked to print a variety of different lethal ammo.
+Thermite is the poor man's all-access, if you don't mind leaving a few holes in walls.
+Fuel and Water tanks can be manually wrenched open, leaking the contents onto the floor.
+The Supermatter's integrity can be repaired with duct tape!
+Duct Tape is great for patching suit punctures from combat.
+Splints are easier to attach to broken limbs if you have someone else do it.
+Coins let you buy a variety of premium vending goods.
+There is a variety of vendor goods that can only be obtained through hacking, or emagging.
+Experiment with Emagging! There is a huge variety of fun features unlocked by emagging items and equipment!
+Laptops and PDAs can install illicit software if emagged, giving you access to cameras, DDoSing NT Net, and manually brute-forcing ID access.
+Certain plants effects when thrown can be scaled with the Potency gene they have.
+Most shuttles on vessels have a teleporter beacon installed on them, which is easily removable...
+Explosive implants can be set to detonate specific limbs, instead of full-body explosions.
+If you are in a really bad spot, self-surgery is better than no-surgery. Just make sure you have painkillers and the right tools, or are close enough to the right tools.
+You can buy coagulent and combat stimulants from the uplink to help keep you going during a gunfight.
+Weapons may be operated differently depending on their loading method; some may be magazine-fed, pumped manually, bolt-action, et cetera.
+You can quickly aim down the scope of a weapon using CTRL + T.
+Signallers can be manually attached to doors, letting you trigger the input of one specific wire.
+Sunglasses aren't just for looking cool, they will protect you from a lot of different flash-based stuns.
+You can craft improvised armor vests using a hazard vest, metal sheets and cable coil.
+When dealing with a threat, consider what weaponry they have been seen with; ballistic, ablative and riot armor have different values that can increase your survivability.
+Painkillers can increase your survivability against injuries that may have otherwise put you into a pain-critical state, but be careful of overdose.
+Chemical reagents can be ground down into a powder using an ID card, and snorted using thaler notes.
+Spiders cocoon any deceased bodies they come across, remember to smash them open.
+Zipguns will take a random ammo cartridge when created, it may be wise to make another if you don't get the ammo type you want.
+Crossbows can impale people into walls!
+Synthetics do not feel pain, and cannot be put into a pain critical state.
+Synthetics, Mechs and Cyborgs can be easily dealt with using ionic weaponry.
+Some synthetics can still function without a head, as their brain may be located in their chest.
+Vox can consume a majority of commonly inedible chemicals and turn them into nutriment.
+Vox need nitrogen to breathe and will suffocate without it. Make sure to keep their air tank on them.
+Maintenance drones can be deactivated using your ID Card.
+Sometimes when the odds are stacked against you it's better to surrender than die.
+Toilet cisterns can store a plethora of different items if crowbarred open, just make sure to close them afterwards.
+Toilet mirrors can be opened using Alt + Click - you can store items discreetly inside.
+Disposal outlets make for great hidden storage provided you turn the pumps off.
+Riding down disposal chutes is a great way to end up in the Mourge.
+Enabling the neural lace option will allow you to be cloned, instead of being transferred to a synthetic body or borged.
+Pirate vessels come in various sizes and armament. It's good to consider how well-armed you are for a fight.
+Pirate vessels usually contain a vault full of materials and loot, it's always worthwhile boarding them.
+Critically low blood levels will cause brain damage. Iron + sugar pills, IV drips with blood, and eating food will help you restore blood levels faster.
+Lasers will cause burn damage and remove blood from your body.
+Exposure to low air environments will cause your lungs to collapse, always wear internals in low air environments to combat this.
+Not all exoplanets will have a breathable atmosphere or safe temperatures. Shuttles will often have a sensor console that will have data to reflect the atmosphere.
+Some exoplanets may have flammable atmospheres; laser weaponry, smoking, and gunfire may set areas, or the entire planet, on fire.
+Long-range Holocommunicators allow you to talk to other vessels in the sector, provided someone is around at the other end to reply. However, each hologram consumes twice as much power as their shorter-range counterparts.
+Short-wave radios allow you to communicate with each other in areas without telecommunications.
+Abandoned and derelict ruins may hold ancient treasures or horrors.
+No two alien anomalies will have the same activation state, use the anomaly computer to analyze and outline what you may need to do to activate them.
+Stowaways have a chance to be spawnable after the round starts, however as a Stowaway you won't be defined on the crew manifest or have any ID.
+Most ship AI will start with the manifest lawset, making it follow the orders of the crew on the ship manifest, as defined by the Captain.
+Ionospheric anomalies may cause AIs to gain new laws, making them act in unusual or fun manners.
+You can use Intellicards to card AIs into a portable state, allowing them to be repaired and have their lawsets visible.
+Nitpicking laws as an AI or Borg with lawsets or custom lawsets defined by antagonists is not fun for anyone.
+Nitpicking laws as an imprint-implanted person is not fun for anyone, especially the antagonist who used it on you.
+When you are revived, you forget the last 5 minutes of the events leading up to your death.
+Find a bug, want to give feedback or a feature suggestion? Go to our Github Page - https://github.com/UristMcStation/UristMcStation/issues and write it up!
+The best antagonist rounds usually tend to include most players in someway.
+Losing is !FUN!, each round lost is a lesson to learn and apply for the next round.
+Changelings can assume people's voices, appearance and memories.
+Bluespace Revenants will slowly distort over time without quelling their hunger.
+Fire extinguishers can be used to wet floors to slip people with.
+You can remove fingerprints on objects by using a rag on them.
+You may leave partial fingerprints with specific types of gloves.
+You may leave fibers of identifiable clothing on any object you interact with; swapping to less identifiable clothing is always wise before doing something nefarious.
+Flashers can repeatedly stun cyborgs and disable their movement and tools.
+Emagging a cyborg only unlocks their access panel, and does not upload custom laws.
+You can redirect package-wrapped items using the delivery tagger and deliver them to a specific area.
+Items can be thrown down Z-levels to unsuspecting people below.
+Screwdrivers allow you to change the timers on a grenade to detonate at different times.
+Insulated gloves can be redyed to another colour using a crayon in the washing machine.
+Budget insulated gloves will either reduce or multiply the amount of electrical shock damage you get.
+Leaving the Emitter on in the Engine Room is usually an unwise decision.
+Emagging a fax machine lets you send messages to syndicate contacts.
+Praying to the gods may grant you all sorts of boons, or just a cookie.
+The best judgements are always made on the decision of a magic 8-ball.
+It is good practice to remove a victim's headset and turn off their suit sensors while they are still alive, to avoid medbay or security noticing.
+You can disguise yourself to look like a cyborg by wearing a cardboard helmet and cardboard suit; you can control what sprite is used depending on your backpack.
+Gunshots and cleaned blood will leave a residue which can be found using the Detective's luminol sprayer.
+You can put your PDA in your ID slot and insert your ID into it to save space.
+You can delete emails sent to you on your PDA, but they will still be visible on the PDA Messenger Server in Telecommunications.
+The camera is the AI's eyes, if the AI is rogue, it is wise to disable any cameras nearby to prevent them from seeing you.
+You can replace the pen in your PDA with other pens, such as para-pens.
+You can replace walls with false walls, these walls however will not carry over any paint applied above it.
+You can fill bottles with welding fuel and stuff them with a rag to create a molotov.
+The Bluespace Drive is destructible and can create horrible anomalies if destroyed when the ship is jumping.
+You can respawn back into the round after 10 minutes, but remember to spawn as a different character which has not already died in the round. You must not use the memories of your dead characters to your advantage, doing so will result in staff action.
+Torpedo Warheads can be re-wired into a portable IED with a time delay; make sure you find the detonator wire before disabling the safeties.
+Always tuck the nuclear authentication into bed, sleep tight disky.
+You can use an E-Sword to saw through secured suitcases.
+You can use a multi-tool to reset secure devices if you need to access them without the code.
+You will always spawn with an oxygen mask and tank, use this in emergencies with low air.
+The cryo-chambers will always contain a crowbar in the lockers to allow you to escape if the doors are unpowered.
+You will always spawn with an inaprovaline auto-injector and gauze. Use this to keep yourself awake and staunch bleeding if attacked until you go to medbay.
+You can escape welded lockers by resisting inside of them.
+You can add metal into soda-can IEDs to increase the amount of shrapnel created when detonated.
+The best hiding spaces for stolen or illicit items can often be in plain sight: O2 lockers, disposals, toolboxes and closets can all serve as great places to store items.
+Smugglers Satchels can be hidden underneath a floor tile, making a great small stash for supplies.
+The Nuclear Authentication disk can be tracked with the pinpointer device, making stealing it incredibly risky.
+Smart weaponry can be location-tracked using the use-of-force computer software, always be careful when stealing smart weapons.
+Taking a GPS with you when going on away missions will increase the likelihood of being found if deceased.
+Going into space while an EVA ban is in effect is a good way to go missing for the rest of the round.
+The Trajan, Antonine and Hadrian can all independently explore sectors without the ICS Nerva, just ensure to bring a canister for thrust fuel.
+There is an emergency entrance somewhat far from the Permanent Brig - if prepared well enough, you could just reach it.
+It is good to plan to get caught, especially if committing a grand crime, as this gives you time to stash escape items.
+The Singularity and Supermatter should never touch.
+Dionae are unable to commit violent acts.
+Unathi are negatively affected by consuming food or drinks that contain sugar.
+Lifts are great at going up and down Z-levels, but it's a good idea not to put anything below them.
+Different gas mixes will affect how the Supermatter generates heat and cools, it's always good to ask the Chief Engineer how it works.
+Hacking the access wire on a vending machine will allow you to purchase items without the needed access level.
+Chameleon projectors are most effective when projecting a small or tiny item, such as a cigarette butt, try to match the environment you are in.
+Glass shards will cause pain and knock you down if you aren't wearing shoes.
+Certain gloves won't fit species without being manually adjusted with wirecutters.
+Use the ship's holomaps if you want to get your bearings.
+The AI cannot AI if you take its power...
+The Clown's Noisemaker can make a variety of discreet or annoying sounds, use this to distract someone, make a panic or just have fun!
+You can disable lobby music, ship hum ambience, and admin MIDIs from within the preference tab.
+Using your PDA in front of someone will make an audible sound and emote, so it's unwise to use it in a dangerous situation.
+Traitors will spawn with codewords, you can use these words with potential collaborators to identify if they are syndicate agents.
+As a team antagonist, always work together with your fellow antagonists; selling your team out or stating who they are over comms immediately is against the rules.
+Traitors do not have to mutually work together and could easily backstab one another.
+Changelings can spawn as jobs that might otherwise not be spawn-able as a Traitor antagonist; such as Detectives, Second Officers, etc.
+Floor Tiles can be sharpened using a wirecutter to create a more deadly thrown projectile.
+Spacesuits have injection ports to administer medicine safely while in low pressure environments. These however take extra time to use.
+Setting your suit sensors to maximum isn't a good idea if you are an antagonist, as medbay can track wherever you go.
+Wrapping a bedsheet around a glass shard makes it easier to hold.
+If you don't have a hazard vest, you can make armor using rail assemblies to hold together steel sheets - be aware of electrical conduction.
+A rag can hold some liquid - smothering someone's mouth will force them to breathe it in...
+You can take apart scissors with a screwdriver.
+Roll two newspapers together to swat away pests - then put a shard or a scissor blade in it...
+Syringes are delicate - do not harmfully stab someone with one, or you may transfer some bad reagents into them!
+Touching the Supermatter shard is good for health.
+Be polite. Be efficient. Have a plan to slip everyone you meet.
+Don't forget. You're here forever.
+A lot of things can be ground up to make chemicals and materials. Try and grind up a Danitos package, if you dare!
+Modular computers have a lot of utility. Buy some programs for it, or use the wall computers to send everyone in a department a message if they're not listening to the radio! Some can even be health scanners!
+A character with Exploitables will show up with a red name in the Uplink. Fill out your Exploitable Information with a plausible story for your character - you are doing a public service for new antagonist players to work with.
+When there is no captain at the start, other heads of staff can become the acting-captain and secure important items such as the captain's spare and do job changes.
+Interacting with an alien artifact without proper protection can be hazardous for your health! Consider wearing anomaly protection gear before you end up in Medbay.
+The traditional Baystation 12 skill system has no effect here, everyone is on the same skills.
+As a Janitor, the way your vessel looks represents the psyche of the crew: Clean the blood trails, collect the glass shards, do what you can to keep up a clean apperance, before the crew go mad.
+Clumsy characters cannot safely operate firearms, and have poor skills in disarming and pushing people down. A good clown always knows a way around this.
+The declumsifier in the antagonist uplink can make the playing field equal for the clown. Arm up, and make them pay for what they did.
+Mimes should never break the vow of silence.
+Clicking the occupation name inside of character setup allows you to select alternative titles for the role.
+You have 12 loadout points to personalize your character's outfit and items, don't just pack a boot knife!
+Patients undergoing surgery may shake and flail around on the operating table in pain if not properly accommodated.
+Low strength infections can be fought with some cold medicine, but for stronger ones, nothing a visit from the antibiotics fairy can't fix.
+Doing gimmicks are fun as long as they're novel, but lose their shine quickly over time. Always try to innovate your storytelling methods, especially as a clown, mime, or antagonist.
+If you make at least 3 or 4 people remember the round by next week, you did better than most players.
+The players and the game masters have the same goal: to tell a good story. Ask for assistance in your ideas - trade for items not in the uplink, to creating fax messages for the ship and turning into a full blown mini-event.
+You don't have to kill everyone in a conflict: A drunken fist fight in the bar that results in brawlers reconciling and getting drunk together - a classic example that will be impossible if you escalate it into a saloon shootout.
+Does success really bring joy? Remember the rounds where the crew professionally neutralized all the traitors at the very beginning and nothing happened for an hour - the only real victory is a grand defeat for somebody.
+As an antagonist, you can Set Ambition with a summary of what you intended/set out on doing. This will show up on the Round End summary.
+Runechat (Floating chat messages) can be toggled off in the character setup menu, if you prefer the old-school system.
+You can ban somebody's device from the NTNet using the administration utility program.
+Writing in paper has a character limit of 6,000. NanoWord allows 30,000 characters. Good for writing books!
+Examining things shows a message about it to people in a 4 tile range. If you don't want to see this message, you can disable it with a preference.
+Constructing a barricade and then attaching rods to the barricade will hurt anyone who touches the barricade.
+CPR works - it helps with blood circulation even if you fail to restart the heart.
+Engraved graffiti, papers on notice boards, and sticky notes purchased from cargo will persist from round to round.
+As a dirty detective, you can remove the tape from a tape recorder and use wirecutters to manipulate it.
+Skrell and Tritonians handle water very easily.
+Maintenance drones will not disturb fellow synthetics.
+As an IPC or FBP, there is a verb to change your eye color using RGB at will.
+Lung damage occurs in a severe change in pressure. A space suit prevents this, but you will still need internals to avoid suffocation.
+Using a multitool on a smartgun will disable the tracker, but prevents it from firing. An emag works better...
+The deck management program will allow you to file a flight plan, giving some information on shuttle movements and automatically announcing them across the ship.
+Gas inhalation is reagent-based: treat yourself with dialysis/anti-toxin as your lungs send the phoron particles into your bloodstream.
+Melee weapons have different attack cooldowns. Generally small knifes are faster, big toolboxes and axes are slower.
+If you aren't wearing magboots, you will slip in zero-gravity.
+Accuracy also affects melee and disarms: you are a lot less likely to hit if you are blind, blurry eyes, confused, in pain (hearing audible heart beating sound), etc...
+Grabbing a limb and clicking with help intent will examine, checking for external injuries, bone fractures, or poorly concealed implants.
+Blood spraying out in shots from a limb is a rupture of a major blood vessel, causing a quick death - delay it by using gauze and applying pressure with your hand or a medical splint.
+Cut a hole in the elevator shaft and throw your enemies down it. Leave them to cringe and whimper in a pool of their own blood and bone fractures.
+In case of gravity fluctuations and turbulence, remain seated so you don't fall over!
+You can cut the orange muzzle off of a cap gun using wire cutters. Very dastardly.
+One drop of water, one wayward pinch of potassium, one errant twitch and KABLOOEY
+Don't like what someone is saying about you over the newscaster channel? You can censor it with the right access! Run your own dictatorship!
+You can distribute wanted posters for people of interest, which will create a loud noise and notification for anyone nearby a newscaster.
+Ian can be safely stored in the washing machine.
+You can avoid radiation storms by hiding inside of maintenance.
+Maintenance is always safe!
+You can tactical reload a weapon by holding the magazine in your active hand and GRAB Intent clicking your weapon, which will quick swap your magazine.
+You can speedreload a weapon by holding the magazine in your active ahdn and HARM Intent clicking your weapon, which will drop the magazine on the floor.

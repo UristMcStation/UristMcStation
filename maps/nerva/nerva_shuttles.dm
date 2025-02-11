@@ -6,8 +6,7 @@
 	name = "\improper Trajan"
 	icon_state = "shuttlered"
 	base_turf = /turf/simulated/floor/plating
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
-	req_access = list(access_expedition)
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/exploration_shuttle/cockpit
 	name = "\improper Trajan - Cockpit"
@@ -15,9 +14,11 @@
 
 /area/exploration_shuttle/atmos
 	name = "\improper Trajan - Atmos Compartment"
+	req_access = list(access_expedition_shuttle_helm)
 
 /area/exploration_shuttle/power
 	name = "\improper Trajan - Power Compartment"
+	req_access = list(access_expedition_shuttle_helm)
 
 /area/exploration_shuttle/main
 	name = "\improper Trajan - Main Compartment"
@@ -31,7 +32,7 @@
 
 /datum/shuttle/autodock/overmap/exploration_shuttle
 	name = "Trajan"
-	move_time = 90
+	move_time = 30
 	shuttle_area = list(/area/exploration_shuttle/cockpit, /area/exploration_shuttle/atmos, /area/exploration_shuttle/power, /area/exploration_shuttle/main, /area/exploration_shuttle/cargo)
 	dock_target = "calypso_shuttle"
 	current_location = "nav_hangar_trajan"
@@ -72,7 +73,7 @@
 /datum/shuttle/autodock/overmap/antonine
 	name = "Antonine"
 	warmup_time = 5
-	move_time = 30
+	move_time = 15
 	shuttle_area = /area/antonine_hangar/start
 	dock_target ="antonine_shuttle"
 	current_location = "nav_hangar_antonine"
@@ -113,8 +114,8 @@
 	icon_state = "shuttlered"
 	requires_power = 1
 	dynamic_lighting = 1
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
-	req_access = list(access_expedition)
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
+	req_access = list(access_expedition_shuttle_helm)
 
 /obj/machinery/computer/shuttle_control/explore/antonine
 	name = "Antonine control console"
@@ -127,7 +128,7 @@
 /datum/shuttle/autodock/overmap/hadrian
 	name = "Hadrian"
 	warmup_time = 5
-	move_time = 70
+	move_time = 15
 	shuttle_area = list(/area/hadrian/storage, /area/hadrian/main)
 	dock_target ="hadrian_shuttle"
 	current_location = "nav_hangar_hadrian"
@@ -171,7 +172,7 @@
 	icon_state = "shuttlered"
 	requires_power = 1
 	dynamic_lighting = 1
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 	req_access = list(access_research)
 
 /area/hadrian/main
@@ -209,7 +210,7 @@
 	base_area = /area/spacestations/nanotrasenspace
 	base_turf = /turf/simulated/floor/reinforced
 
-/datum/shuttle/autodock/ferry/supply/drone/attempt_move(var/obj/effect/shuttle_landmark/destination)
+/datum/shuttle/autodock/ferry/supply/drone/attempt_move(obj/effect/shuttle_landmark/destination)
 	if(!destination)
 		return FALSE
 
@@ -219,7 +220,7 @@
 /datum/shuttle/autodock/ferry/supply/drone/arrived()
 	if(location == 0)
 		for(var/obj/machinery/door/blast/M in SSmachines.machinery)
-			if(M.id == src.doorid)
+			if(M.id_tag == src.doorid)
 				if(M.density)
 					spawn(0)
 						M.open()
@@ -232,7 +233,7 @@
 /datum/shuttle/autodock/ferry/supply/drone/launch()
 	if(location == 0)
 		for(var/obj/machinery/door/blast/M in SSmachines.machinery)
-			if(M.id == src.doorid)
+			if(M.id_tag == src.doorid)
 				if(M.density)
 					spawn(0)
 						M.open()
@@ -347,18 +348,21 @@
 
 /area/shuttle/escape_pod1/station
 	name = "Escape Pod One"
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED | AREA_FLAG_IS_NOT_PERSISTENT
 	base_turf = /turf/simulated/floor/reinforced/airless
+	holomap_color = HOLOMAP_AREACOLOR_ESCAPE
 
 /area/shuttle/escape_pod2/station
 	name = "Escape Pod Two"
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED | AREA_FLAG_IS_NOT_PERSISTENT
 	base_turf = /turf/simulated/floor/plating
+	holomap_color = HOLOMAP_AREACOLOR_ESCAPE
 
 /area/shuttle/escape_pod3/station
 	name = "Escape Pod Three"
-	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED | AREA_FLAG_IS_NOT_PERSISTENT
 	base_turf = /turf/simulated/floor/plating
+	holomap_color = HOLOMAP_AREACOLOR_ESCAPE
 
 //Admin
 
@@ -453,13 +457,12 @@
 	name = "rescue shuttle console"
 	shuttle_tag = "Rescue"
 
-
 //ANTAGS
 
 
 //Ninja Shuttle.
-/datum/shuttle/autodock/multi/antag/ninja
-	name = "Ninja"
+/datum/shuttle/autodock/multi/antag/nervaninja
+	name = "Tremulous Intent"
 	warmup_time = 0
 	destination_tags = list(
 		"nav_ninja_deck1",
@@ -482,12 +485,13 @@
 	current_location = "nav_ninja_start"
 	landmark_transition = "nav_ninja_transition"
 	announcer = "ICS Nerva Sensor Array"
+	home_waypoint = "nav_ninja_start"
 	arrival_message = "Attention, anomalous sensor reading detected entering vessel proximity."
 	departure_message = "Attention, anomalous sensor reading detected leaving vessel proximity."
 
 
 /obj/effect/shuttle_landmark/ninja/start
-	name = "Clan Dojo"
+	name = "Operations Bunker"
 	landmark_tag = "nav_ninja_start"
 
 /obj/effect/shuttle_landmark/ninja/internim
@@ -512,18 +516,19 @@
 
 // Ninja areas
 /area/ninja_dojo
-	name = "\improper Ninja Base"
+	name = "\improper Operative Base"
 	icon_state = "green"
 	requires_power = 0
-	dynamic_lighting = 1
+	dynamic_lighting = TRUE
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	req_access = list(access_syndicate)
 
 /area/ninja_dojo/dojo
-	name = "\improper Clan Dojo"
+	name = "\improper Operations Bunker"
 	dynamic_lighting = 0
 
 /area/ninja_dojo/start
-	name = "\improper Clan Dojo"
+	name = "\improper Operations Bunker"
 	icon_state = "shuttlered"
 	base_turf = /turf/simulated/floor/plating
 
@@ -564,7 +569,7 @@
 	landmark_tag = "nav_merc_start"
 	docking_controller = "merc_home"
 	base_turf = /turf/unsimulated/floor/snow
-	base_area = /area/syndicate_mothership
+	base_area = /area/map_template/syndicate_mothership
 
 /obj/effect/shuttle_landmark/merc/internim
 	name = "In transit"
@@ -575,7 +580,7 @@
 	landmark_tag = "nav_merc_dock"
 	docking_controller = "nuke_shuttle_dock_airlock"
 	base_turf = /turf/simulated/floor/reinforced/airless
-	base_area = /area/space/
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/merc/deck1
 	name = "Northeast of the First Deck"
@@ -593,7 +598,7 @@
 	name = "South of the Fourth deck"
 	landmark_tag = "nav_merc_deck4"
 
-/area/syndicate_mothership
+/area/map_template/syndicate_mothership
 	name = "\improper Mercenary Base"
 	icon_state = "syndie-ship"
 	requires_power = 0
@@ -607,7 +612,7 @@
 
 //Skipjack
 
-/datum/shuttle/autodock/multi/antag/skipjack
+/datum/shuttle/autodock/multi/antag/nervaskipjack
 	name = "Skipjack"
 	warmup_time = 0
 	destination_tags = list(
@@ -628,11 +633,11 @@
 		"nav_yacht_antag",
 		"nav_slavers_base_antag",
 		)
-	shuttle_area =  /area/skipjack_station/start
+	shuttle_area =  /area/map_template/skipjack_station/start
 	dock_target = "skipjack_shuttle"
 	current_location = "nav_skipjack_start"
 	landmark_transition = "nav_skipjack_transition"
-	announcer = "SEV Torch Sensor Array"
+	announcer = "ICS Nerva Sensor Array"
 	home_waypoint = "nav_skipjack_start"
 	arrival_message = "Attention, vessel detected entering vessel proximity."
 	departure_message = "Attention, vessel detected leaving vessel proximity."
@@ -647,7 +652,7 @@
 	landmark_tag = "nav_skipjack_transition"
 
 /obj/effect/shuttle_landmark/skipjack/deck1
-	name = "Northwest of the Fourth First Deck"
+	name = "Northwest of the First Deck"
 	landmark_tag = "nav_skipjack_deck1"
 
 /obj/effect/shuttle_landmark/skipjack/deck2

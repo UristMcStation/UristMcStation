@@ -1,4 +1,4 @@
-/obj/item/weapon/grenade/chem_grenade/hhg
+/obj/item/grenade/chem_grenade/hhg
 	name = "The Holy Hand Grenade of Antioch"
 	desc = "The Holy Hand Grenade of Antioch."
 	icon = 'icons/urist/items/uristweapons.dmi'
@@ -8,57 +8,59 @@
 	stage = 2
 	item_icons = DEF_URIST_INHANDS
 
-/obj/item/weapon/grenade/chem_grenade/hhg/attack_self()
+/obj/item/grenade/chem_grenade/hhg/attack_self()
 	usr.client.mob.say("O LORD, bless this Thy hand grenade that with it Thou mayest blow Thine enemies to tiny bits, in Thy mercy")
 	..()
 
-/obj/item/weapon/grenade/chem_grenade/hhg/dumb
-	New()
-		..()
-		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
-		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
-		B1.reagents.add_reagent(/datum/reagent/space_drugs, 1)
-		B1.reagents.add_reagent(/datum/reagent/potassium, 32)
-		B1.reagents.add_reagent(/datum/reagent/sugar, 17)
-		B2.reagents.add_reagent(/datum/reagent/space_drugs, 3)
-		B2.reagents.add_reagent(/datum/reagent/sugar, 15)
-		B2.reagents.add_reagent(/datum/reagent/phosphorus, 32)
+/obj/item/grenade/chem_grenade/hhg/dumb
 
-		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+/obj/item/grenade/chem_grenade/hhg/dumb/New()
+	..()
+	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
+	B1.reagents.add_reagent(/datum/reagent/drugs/hextro, 1)
+	B1.reagents.add_reagent(/datum/reagent/potassium, 32)
+	B1.reagents.add_reagent(/datum/reagent/sugar, 17)
+	B2.reagents.add_reagent(/datum/reagent/drugs/hextro, 3)
+	B2.reagents.add_reagent(/datum/reagent/sugar, 15)
+	B2.reagents.add_reagent(/datum/reagent/phosphorus, 32)
 
-		beakers += B1
-		beakers += B2
+	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
-		icon_state = initial(icon_state) +"_locked"
+	beakers += B1
+	beakers += B2
+
+	icon_state = initial(icon_state) +"_locked"
 
 
-/obj/item/weapon/grenade/chem_grenade/hhg/good
-	New()
-		..()
-		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
-		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
-		B1.reagents.add_reagent(/datum/reagent/water/holywater, 1)
-		B1.reagents.add_reagent(/datum/reagent/potassium, 32)
-		B1.reagents.add_reagent(/datum/reagent/sugar, 17)
-		B2.reagents.add_reagent(/datum/reagent/water/holywater, 3)
-		B2.reagents.add_reagent(/datum/reagent/sugar, 15)
-		B2.reagents.add_reagent(/datum/reagent/phosphorus, 32)
+/obj/item/grenade/chem_grenade/hhg/good
 
-		detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
+/obj/item/grenade/chem_grenade/hhg/good/New()
+	..()
+	var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
+	var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
+	B1.reagents.add_reagent(/datum/reagent/water/holywater, 1)
+	B1.reagents.add_reagent(/datum/reagent/potassium, 32)
+	B1.reagents.add_reagent(/datum/reagent/sugar, 17)
+	B2.reagents.add_reagent(/datum/reagent/water/holywater, 3)
+	B2.reagents.add_reagent(/datum/reagent/sugar, 15)
+	B2.reagents.add_reagent(/datum/reagent/phosphorus, 32)
 
-		beakers += B1
-		beakers += B2
+	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 
-		icon_state = initial(icon_state) +"_locked"
+	beakers += B1
+	beakers += B2
+
+	icon_state = initial(icon_state) +"_locked"
 
 //Sonic Grenades: Shatter windows and stun people.
-/obj/item/weapon/grenade/sonic
+/obj/item/grenade/sonic
 	name = "sonic grenade"
 	origin_tech = "combat=2;illegal=1"
 	desc = "A grenade which blows out windows and stuns people. Probably illegal."
 	icon_state = "emp"
 	item_state = "emp"
-/obj/item/weapon/grenade/sonic/detonate()
+/obj/item/grenade/sonic/detonate()
 	..()
 
 	for(var/obj/structure/window/W in view(6, src.loc)) //Shatters windows
@@ -68,14 +70,14 @@
 		if(get_dist(W, src.loc) <= 1)
 			W.hit(40,0)
 	for(var/obj/machinery/door/window/D in view(4, src.loc)) //Busting windoors
-		D.take_damage(150)
+		D.damage_health(150)
 		if(get_dist(D, src.loc) <= 2)
-			D.take_damage(150)
+			D.damage_health(150)
 
 	for(var/mob/living/carbon/M in hearers(6, src.loc))
 		var/distance = get_dist(M, src.loc)
 		var/safety = 1
-		M << "<span class='warning'><font size='3'><b>You hear a tremendous bang!</font></b></span>"
+		to_chat(M, "<span class='warning'><font size='3'><b>You hear a tremendous bang!</font></b></span>")
 		if(ishuman(M))
 			if(M:is_on_ears(/obj/item/clothing/ears/earmuffs))
 				safety = 2
@@ -105,27 +107,27 @@
 	return
 
 //A box for them
-/obj/item/weapon/storage/box/sonics
+/obj/item/storage/box/sonics
 	name = "box of sonic grenades"
 	desc = "A box with 4 sonic grenades. WARNING: Wear ear protection!"
 	icon_state = "flashbang"
 
-/obj/item/weapon/storage/box/sonics/New()
+/obj/item/storage/box/sonics/New()
 		..()
-		new /obj/item/weapon/grenade/sonic(src)
-		new /obj/item/weapon/grenade/sonic(src)
-		new /obj/item/weapon/grenade/sonic(src)
-		new /obj/item/weapon/grenade/sonic(src)
+		new /obj/item/grenade/sonic(src)
+		new /obj/item/grenade/sonic(src)
+		new /obj/item/grenade/sonic(src)
+		new /obj/item/grenade/sonic(src)
 
-/obj/item/weapon/grenade/chem_grenade/heal
+/obj/item/grenade/chem_grenade/heal
 	name = "healing grenade"
 	path = 1
 	stage = 2
 
-/obj/item/weapon/grenade/chem_grenade/heal/New()
+/obj/item/grenade/chem_grenade/heal/New()
 		..()
-		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
-		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
+		var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
+		var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 		B1.reagents.add_reagent(/datum/reagent/tricordrazine, 10)
 		B1.reagents.add_reagent(/datum/reagent/potassium, 32)
 		B1.reagents.add_reagent(/datum/reagent/sugar, 17)
@@ -140,25 +142,25 @@
 
 		icon_state = "grenade"
 
-/obj/item/weapon/storage/box/cleangrenades
+/obj/item/storage/box/cleangrenades
 	name = "box of cleaner grenades"
 	desc = "A box of cleaner grenades"
 
-	New()
-		..()
-		new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
-		new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
-		new /obj/item/weapon/grenade/chem_grenade/cleaner(src)
+/obj/item/storage/box/cleangrenades/New()
+	..()
+	new /obj/item/grenade/chem_grenade/cleaner(src)
+	new /obj/item/grenade/chem_grenade/cleaner(src)
+	new /obj/item/grenade/chem_grenade/cleaner(src)
 
-/obj/item/weapon/grenade/chem_grenade/heal2
+/obj/item/grenade/chem_grenade/heal2
 	name = "light healing grenade"
 	path = 1
 	stage = 2
 
-/obj/item/weapon/grenade/chem_grenade/heal2/New()
+/obj/item/grenade/chem_grenade/heal2/New()
 		..()
-		var/obj/item/weapon/reagent_containers/glass/beaker/B1 = new(src)
-		var/obj/item/weapon/reagent_containers/glass/beaker/B2 = new(src)
+		var/obj/item/reagent_containers/glass/beaker/B1 = new(src)
+		var/obj/item/reagent_containers/glass/beaker/B2 = new(src)
 		B1.reagents.add_reagent(/datum/reagent/inaprovaline, 10)
 		B1.reagents.add_reagent(/datum/reagent/potassium, 32)
 		B1.reagents.add_reagent(/datum/reagent/sugar, 17)
@@ -173,9 +175,9 @@
 
 		icon_state = "grenade"
 
-//Syndie mini-bomb from /tg/
+//Syndie mini-bomb from tg
 
-/obj/item/weapon/grenade/syndieminibomb
+/obj/item/grenade/syndieminibomb
 	desc = "A syndicate manufactured explosive used to sow destruction and chaos"
 	name = "syndicate minibomb"
 	icon = 'icons/urist/items/tgitems.dmi'
@@ -183,6 +185,6 @@
 	item_state = "flashbang"
 	origin_tech = "materials=3;magnets=4;syndicate=4"
 
-/obj/item/weapon/grenade/syndieminibomb/detonate()
+/obj/item/grenade/syndieminibomb/detonate()
 	explosion(src.loc, 1, 2, 4, 4)
 	qdel(src)

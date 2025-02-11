@@ -30,7 +30,7 @@
 	if(!map)
 		return
 	if(copytext("[map]",-4) != ".dmm")
-		usr << "Bad map file: [map]"
+		to_chat(usr, "Bad map file: [map]")
 		return
 
 	var/datum/map_template/M = new(map=map, rename="[map]")

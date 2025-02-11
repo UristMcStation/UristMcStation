@@ -2,11 +2,11 @@
 	var/overlay
 	var/ckey
 
-/datum/ai_emotion/New(var/over, var/key)
+/datum/ai_emotion/New(over, key)
 	overlay = over
 	ckey = key
 
-var/list/ai_status_emotions = list(
+var/global/list/ai_status_emotions = list(
 	"Very Happy" 				= new /datum/ai_emotion("ai_veryhappy"),
 	"Happy" 					= new /datum/ai_emotion("ai_happy"),
 	"Neutral" 					= new /datum/ai_emotion("ai_neutral"),
@@ -33,7 +33,7 @@ var/list/ai_status_emotions = list(
 	"Diagnostics"				= new /datum/ai_emotion("ai_diagnostics")
 	)
 
-/proc/get_ai_emotions(var/ckey)
+/proc/get_ai_emotions(ckey)
 	var/list/emotions = new
 	for(var/emotion_name in ai_status_emotions)
 		var/datum/ai_emotion/emotion = ai_status_emotions[emotion_name]
@@ -63,8 +63,8 @@ var/list/ai_status_emotions = list(
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
 	name = "AI display"
-	anchored = 1
-	density = 0
+	anchored = TRUE
+	density = FALSE
 
 	var/mode = 0	// 0 = Blank
 					// 1 = AI emoticon
@@ -75,15 +75,14 @@ var/list/ai_status_emotions = list(
 	var/emotion = "Neutral"
 
 /obj/machinery/ai_status_display/attack_ai/(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	var/list/ai_emotions = get_ai_emotions(user.ckey)
 	var/emote = input("Please, select a status!", "AI Status", null, null) in ai_emotions
 	src.emotion = emote
 
-/obj/machinery/ai_status_display/Process()
-	return
-
 /obj/machinery/ai_status_display/on_update_icon()
-	if(stat & (NOPOWER|BROKEN))
+	if(inoperable())
 		overlays.Cut()
 		return
 
@@ -96,8 +95,9 @@ var/list/ai_status_emotions = list(
 		if(2) // BSOD
 			set_picture("ai_bsod")
 
-/obj/machinery/ai_status_display/proc/set_picture(var/state)
+/obj/machinery/ai_status_display/proc/set_picture(state)
 	picture_state = state
-	if(overlays.len)
+	if(length(overlays))
 		overlays.Cut()
-	overlays += image('icons/obj/status_display.dmi', icon_state=picture_state)
+	overlays += overlay_image('icons/obj/status_display.dmi', icon_state=picture_state, plane = EFFECTS_ABOVE_LIGHTING_PLANE, layer = ABOVE_LIGHTING_LAYER)
+	set_light(0.8, 0.1, 1, l_color = "#0093ff")

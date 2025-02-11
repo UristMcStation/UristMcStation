@@ -11,11 +11,11 @@
 /spell/hand/choose_targets(mob/user = usr)
 	return list(user)
 
-/spell/hand/cast_check(skipcharge = 0,mob/user = usr, var/list/targets)
+/spell/hand/cast_check(skipcharge = 0,mob/user = usr, list/targets)
 	if(!..())
 		return FALSE
 	if(user.get_active_hand())
-		to_chat(holder, "<span class='warning'>You need an empty hand to cast this spell.</span>")
+		to_chat(holder, SPAN_WARNING("You need an empty hand to cast this spell."))
 		return FALSE
 	return TRUE
 
@@ -23,9 +23,9 @@
 	if(current_hand)
 		cancel_hand()
 	if(user.get_active_hand())
-		to_chat(user, "<span class='warning'>You need an empty hand to cast this spell.</span>")
+		to_chat(user, SPAN_WARNING("You need an empty hand to cast this spell."))
 		return FALSE
-	current_hand = new(src)
+	current_hand = new(src,src)
 	if(!user.put_in_active_hand(current_hand))
 		QDEL_NULL(current_hand)
 		return FALSE
@@ -36,10 +36,11 @@
 		QDEL_NULL(current_hand)
 
 /spell/hand/Destroy()
-	qdel(current_hand)
+	if(!QDELETED(current_hand))
+		QDEL_NULL(current_hand)
 	. = ..()
 
-/spell/hand/proc/valid_target(var/atom/a,var/mob/user) //we use seperate procs for our target checking for the hand spells.
+/spell/hand/proc/valid_target(atom/a,mob/user) //we use separate procs for our target checking for the hand spells.
 	var/distance = get_dist(a,user)
 	if((min_range && distance < min_range) || (range && distance > range))
 		return FALSE
@@ -47,7 +48,7 @@
 		return FALSE
 	return TRUE
 
-/spell/hand/proc/cast_hand(var/atom/a,var/mob/user) //same for casting.
+/spell/hand/proc/cast_hand(atom/a,mob/user) //same for casting.
 	return TRUE
 
 /spell/hand/charges
@@ -63,8 +64,9 @@
 /spell/hand/charges/cast_hand()
 	if(..())
 		casts--
-		to_chat(holder, "<span class='notice'>The [name] spell has [casts] out of [max_casts] charges left</span>")
-		cancel_hand()
+		to_chat(holder, SPAN_NOTICE("The [name] spell has [casts] out of [max_casts] charges left"))
+		if(!casts)
+			cancel_hand()
 		return TRUE
 	return FALSE
 
@@ -72,10 +74,10 @@
 	var/hand_timer = null
 	var/hand_duration = 0
 
-/spell/hand/duration/cast(var/list/targets, var/mob/user)
+/spell/hand/duration/cast(list/targets, mob/user)
 	. = ..()
 	if(.)
-		hand_timer = addtimer(CALLBACK(src, .proc/cancel_hand), hand_duration, TIMER_STOPPABLE|TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_OVERRIDE)
+		hand_timer = addtimer(new Callback(src, .proc/cancel_hand), hand_duration, TIMER_STOPPABLE|TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_OVERRIDE)
 
 /spell/hand/duration/cancel_hand()
 	deltimer(hand_timer)

@@ -12,7 +12,7 @@
 
 /datum/trade_item/coal
 	name = "coal"
-	item_type = /obj/item/weapon/ore/coal
+	item_type = /obj/item/ore/coal
 	category = "ore"
 	quantity = 10
 	value = 25
@@ -20,7 +20,7 @@
 
 /datum/trade_item/iron
 	name = "iron"
-	item_type = /obj/item/weapon/ore/iron
+	item_type = /obj/item/ore/iron
 	category = "ore"
 	quantity = 10
 	value = 50
@@ -28,7 +28,7 @@
 
 /datum/trade_item/silver
 	name = "silver"
-	item_type = /obj/item/weapon/ore/silver
+	item_type = /obj/item/ore/silver
 	category = "ore"
 	quantity = 5
 	value = 200
@@ -36,7 +36,7 @@
 
 /datum/trade_item/gold
 	name = "gold"
-	item_type = /obj/item/weapon/ore/gold
+	item_type = /obj/item/ore/gold
 	category = "ore"
 	quantity = 5
 	value = 225
@@ -44,7 +44,7 @@
 
 /datum/trade_item/platinum
 	name = "platinum"
-	item_type = /obj/item/weapon/ore/osmium
+	item_type = /obj/item/ore/osmium
 	category = "ore"
 	quantity = 0
 	value = 750
@@ -52,7 +52,7 @@
 
 /datum/trade_item/diamond
 	name = "diamond"
-	item_type = /obj/item/weapon/ore/diamond
+	item_type = /obj/item/ore/diamond
 	category = "ore"
 	quantity = 0
 	value = 450
@@ -60,7 +60,7 @@
 
 /datum/trade_item/uranium
 	name = "uranium"
-	item_type = /obj/item/weapon/ore/uranium
+	item_type = /obj/item/ore/uranium
 	category = "ore"
 	quantity = 0
 	value = 360
@@ -68,7 +68,7 @@
 
 /datum/trade_item/phoron
 	name = "uranium"
-	item_type = /obj/item/weapon/ore/phoron
+	item_type = /obj/item/ore/phoron
 	category = "ore"
 	quantity = 0
 	value = 360
@@ -79,7 +79,7 @@
 
 /datum/trade_item/coal
 	name = "coal"
-	item_type = /obj/item/weapon/ore/coal
+	item_type = /obj/item/ore/coal
 	category = "ore"
 	quantity = 10
 	value = 25
@@ -87,7 +87,7 @@
 
 /datum/trade_item/iron
 	name = "iron"
-	item_type = /obj/item/weapon/ore/iron
+	item_type = /obj/item/ore/iron
 	category = "ore"
 	quantity = 10
 	value = 50
@@ -95,7 +95,7 @@
 
 /datum/trade_item/silver
 	name = "silver"
-	item_type = /obj/item/weapon/ore/silver
+	item_type = /obj/item/ore/silver
 	category = "ore"
 	quantity = 5
 	value = 200
@@ -103,7 +103,7 @@
 
 /datum/trade_item/gold
 	name = "gold"
-	item_type = /obj/item/weapon/ore/gold
+	item_type = /obj/item/ore/gold
 	category = "ore"
 	quantity = 5
 	value = 225
@@ -111,7 +111,7 @@
 
 /datum/trade_item/platinum
 	name = "platinum"
-	item_type = /obj/item/weapon/ore/osmium
+	item_type = /obj/item/ore/osmium
 	category = "ore"
 	quantity = 0
 	value = 750
@@ -119,7 +119,7 @@
 
 /datum/trade_item/diamond
 	name = "diamond"
-	item_type = /obj/item/weapon/ore/diamond
+	item_type = /obj/item/ore/diamond
 	category = "ore"
 	quantity = 0
 	value = 450
@@ -127,7 +127,7 @@
 
 /datum/trade_item/uranium
 	name = "uranium"
-	item_type = /obj/item/weapon/ore/uranium
+	item_type = /obj/item/ore/uranium
 	category = "ore"
 	quantity = 0
 	value = 360
@@ -135,7 +135,7 @@
 
 /datum/trade_item/phoron
 	name = "uranium"
-	item_type = /obj/item/weapon/ore/phoron
+	item_type = /obj/item/ore/phoron
 	category = "ore"
 	quantity = 0
 	value = 360

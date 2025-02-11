@@ -7,10 +7,15 @@
 	whose home system and burgeoning stellar empire was scoured to bedrock by a solar flare. \
 	Physically, they are large, floating squidlike machines made of a crystalline composite."
 	hidden_from_codex = FALSE
+	silent_steps = TRUE
+
+	meat_type = null
+	bone_material = null
+	skin_material = null
 
 	genders =                 list(PLURAL)
+	pronouns = 				  list(PRONOUNS_THEY_THEM)
 	cyborg_noun =             null
-	silent_steps =            TRUE // Antigravity squids.
 
 	icon_template =           'icons/mob/human_races/species/adherent/template.dmi'
 	icobase =                 'icons/mob/human_races/species/adherent/body.dmi'
@@ -42,17 +47,15 @@
 	heat_level_3 = SYNTH_HEAT_LEVEL_3
 
 	species_flags = SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_MINOR_CUT
-	spawn_flags =   SPECIES_IS_RESTRICTED | SPECIES_IS_WHITELISTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_LACE
+	spawn_flags =   SPECIES_IS_RESTRICTED | SPECIES_IS_WHITELISTED | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_FBP_CHARGEN | SPECIES_FLAG_NO_LACE
 
-	appearance_flags = HAS_EYE_COLOR | HAS_BASE_SKIN_COLOURS
+	appearance_flags = SPECIES_APPEARANCE_HAS_EYE_COLOR | SPECIES_APPEARANCE_HAS_BASE_SKIN_COLOURS
 	blood_color = "#2de00d"
 	flesh_color = "#90edeb"
-	virus_immune = 1
 	slowdown = -1
 	hud_type = /datum/hud_data/adherent
-	pixel_offset_y = -4
-/*
-	available_cultural_info = list(
+
+	/*available_cultural_info = list(
 		TAG_CULTURE = list(
 			CULTURE_ADHERENT
 		),
@@ -118,7 +121,7 @@
 	)
 	..()
 
-/datum/species/adherent/can_overcome_gravity(var/mob/living/carbon/human/H)
+/datum/species/adherent/can_overcome_gravity(mob/living/carbon/human/H)
 	. = FALSE
 	if(H && H.stat == CONSCIOUS)
 		for(var/obj/item/organ/internal/powered/float/float in H.internal_organs)
@@ -126,16 +129,29 @@
 				. = TRUE
 				break
 
-/datum/species/adherent/can_fall(var/mob/living/carbon/human/H)
+/datum/species/adherent/can_fall(mob/living/carbon/human/H)
 	. = !can_overcome_gravity(H)
 
-/datum/species/adherent/handle_fall_special(var/mob/living/carbon/human/H, var/turf/landing)
+/datum/species/adherent/can_float(mob/living/carbon/human/H)
+	return FALSE
 
-	if(can_overcome_gravity(H))
+/datum/species/adherent/get_slowdown(mob/living/carbon/human/H)
+	return slowdown
+
+/datum/species/adherent/handle_fall_special(mob/living/carbon/human/H, turf/landing)
+	var/float_is_usable = FALSE
+	if(H && H.stat == CONSCIOUS)
+		for(var/obj/item/organ/internal/powered/float/float in H.internal_organs)
+			if(float.is_usable())
+				float_is_usable = TRUE
+				break
+	if(float_is_usable)
 		if(istype(landing, /turf/simulated/open))
 			H.visible_message("\The [H] descends from \the [landing].", "You descend regally.")
 		else
 			H.visible_message("\The [H] floats gracefully down from \the [landing].", "You land gently on \the [landing].")
+		return TRUE
+	return FALSE
 
 /datum/species/adherent/get_blood_name()
 	return "coolant"
@@ -147,7 +163,7 @@
 		if(2000 to 8000) . =  4
 		else             . =  8
 
-/datum/species/adherent/get_additional_examine_text(var/mob/living/carbon/human/H)
+/datum/species/adherent/get_additional_examine_text(mob/living/carbon/human/H)
 	if(can_overcome_gravity(H)) return "\nThey are floating on a cloud of shimmering distortion."
 
 /datum/hud_data/adherent
@@ -160,5 +176,5 @@
 		"belt" =  list("loc" = ui_belt,      "name" = "Belt",     "slot" = slot_belt,    "state" = "belt")
 	)
 
-/datum/species/adherent/post_organ_rejuvenate(var/obj/item/organ/org, var/mob/living/carbon/human/H)
+/datum/species/adherent/post_organ_rejuvenate(obj/item/organ/org, mob/living/carbon/human/H)
 	org.status |= (ORGAN_BRITTLE|ORGAN_CRYSTAL|ORGAN_ROBOTIC)

@@ -4,8 +4,8 @@
 	icon = 'icons/urist/turf/uristturf.dmi'
 	icon_state = "tramwall"
 	var/obj/tram/tram_controller/controller
-	anchored = 1
-	density = 1
+	anchored = TRUE
+	density = TRUE
 	opacity = 1
 
 /obj/tram/wall/proc/spread_walls()

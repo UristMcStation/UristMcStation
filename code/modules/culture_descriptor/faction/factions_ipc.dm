@@ -1,4 +1,4 @@
-/decl/cultural_info/faction/positronic
+/singleton/cultural_info/faction/positronic
 	name = FACTION_POSITRONICS
 	description = "The Positronic Union, commonly referred to as the PU, is a stellar entity holding a small amount of territory on the edge \
 	of Sol controlled space. Once a shadowy group, they have recently revealed their existence to the rest of the galaxy. They mostly conduct \
@@ -9,5 +9,3 @@
 	performing various tasks for their government. This usually involves missions to recruit new members, as well as improve relations with neighbouring powers \
 	Of course, not all free synthetics are part of the Positronic Union. To this day, The Positronic Union represents approximately 68% of all free synthetics. \
 	The rest either remain citizens of their original government or declare no citizenship."
-	subversive_potential = 15
-	language = LANGUAGE_EAL

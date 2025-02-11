@@ -9,7 +9,7 @@
 	icon_state = "splash" //mapping indicator only!
 
 	layer = 5
-	anchored = 1 //prevents weather from being /draggable/
+	anchored = TRUE //prevents weather from being /draggable
 	mouse_opacity = 0 //doesn't need to be clickable and is less of an annoyance for players
 	var/weather_safe = 0 //1 makes it aesthetic-only
 	var/list/active_weathers = list()
@@ -22,7 +22,7 @@
 	/*if(weather_dynamic)
 		weather_report()*/
 
-	/*if(!(active_weathers) || !(active_weathers.len))
+	/*if(!(active_weathers) || !(length(active_weathers)))
 		active_weathers += get_climate_weather(get_area(src))
 	var/index = 0
 	for(var/i in active_weathers) //paths don't work with implicit types
@@ -60,11 +60,11 @@
 //If there's still processable objects, return 1
 /obj/effect/weather/proc/WActive()
 	if(!(weather_safe))
-		if(weather_tracker.len)
+		if(length(weather_tracker))
 			return 1
 	return 0
 
-/obj/effect/weather/update_icon()
+/obj/effect/weather/on_update_icon()
 	..()
 	update_weather_icon()
 
@@ -104,7 +104,7 @@ so that static new weathers can be mapped in easily by VVing it directly*/
 
 /obj/effect/weather/invariant/mildsnow
 	name = "snow"
-	icon_state = "bsnow"
+	icon_state = "msnow"
 	active_weathers = list(/obj/weathertype/snow)
 
 /obj/effect/weather/invariant/blowingsnow
@@ -166,6 +166,6 @@ so that static new weathers can be mapped in easily by VVing it directly*/
 
 /obj/effect/weather/invariant/holo_snow
 	name = "snow"
-	icon_state = "bsnow"
+	icon_state = "msnow"
 	weather_safe = 1
 	active_weathers = list(/obj/weathertype/holosnow)

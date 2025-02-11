@@ -18,6 +18,7 @@
 	var/shipid = "nerva"
 
 /datum/nano_module/ship_contact/New()
+	..()
 	for(var/obj/machinery/computer/combatcomputer/comp in SSmachines.machinery)
 		if(comp.shipid == src.shipid)
 			CC = comp
@@ -64,7 +65,7 @@
 		ship.despawnmap()
 		ship.incombat = 0
 		CC.homeship.set_targets()
-		ship.stop_automated_movement = 0
+		ship.ai_holder.wander = 0
 
 /datum/nano_module/ship_contact/proc/generate_categories()
 	category_contents = list()

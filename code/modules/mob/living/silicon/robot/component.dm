@@ -20,8 +20,14 @@
 /datum/robot_component/New(mob/living/silicon/robot/R)
 	src.owner = R
 
+/datum/robot_component/proc/accepts_component(obj/item/thing)
+	. = istype(thing, external_type)
+
 /datum/robot_component/proc/install()
+	return
+
 /datum/robot_component/proc/uninstall()
+	return
 
 /datum/robot_component/proc/destroy()
 	if (istype(wrapped, /obj/item/robot_parts/robot_component))
@@ -67,7 +73,6 @@
 	else
 		powered = 0
 
-
 // ARMOUR
 // Protects the cyborg from damage. Usually first module to be hit
 // No power usage
@@ -76,6 +81,15 @@
 	external_type = /obj/item/robot_parts/robot_component/armour
 	max_damage = 150
 
+// LIGHT ARMOUR
+// Same as armour, but for flying borgs - Less protection.
+/datum/robot_component/armour/light
+	name = "light armour plating"
+	external_type = /obj/item/robot_parts/robot_component/armour/light
+	max_damage = 75
+
+/datum/robot_component/armour/accepts_component(obj/item/thing)
+	. = (!istype(thing, /obj/item/robot_parts/robot_component/armour/exosuit) && ..())
 
 // ACTUATOR
 // Enables movement.
@@ -99,7 +113,7 @@
 /datum/robot_component/cell
 	name = "power cell"
 	max_damage = 50
-	var/obj/item/weapon/cell/stored_cell = null
+	var/obj/item/cell/stored_cell = null
 
 /datum/robot_component/cell/destroy()
 	..()
@@ -131,38 +145,6 @@
 	active_usage = 25
 	max_damage = 30
 
-
-// CAMERA
-// Enables cyborg vision. Can also be remotely accessed via consoles.
-// Uses 10J constantly
-/datum/robot_component/camera
-	name = "camera"
-	external_type = /obj/item/robot_parts/robot_component/camera
-	idle_usage = 10
-	max_damage = 40
-	var/obj/machinery/camera/camera
-
-/datum/robot_component/camera/New(mob/living/silicon/robot/R)
-	..()
-	camera = R.camera
-
-/datum/robot_component/camera/update_power_state()
-	..()
-	if (camera)
-		camera.status = powered
-
-/datum/robot_component/camera/install()
-	if (camera)
-		camera.status = 1
-
-/datum/robot_component/camera/uninstall()
-	if (camera)
-		camera.status = 0
-
-/datum/robot_component/camera/destroy()
-	if (camera)
-		camera.status = 0
-
 // SELF DIAGNOSIS MODULE
 // Analyses cyborg's modules, providing damage readouts and basic information
 // Uses 1kJ burst when analysis is done
@@ -185,7 +167,6 @@
 	components["radio"] = new/datum/robot_component/radio(src)
 	components["power cell"] = new/datum/robot_component/cell(src)
 	components["diagnosis unit"] = new/datum/robot_component/diagnosis_unit(src)
-	components["camera"] = new/datum/robot_component/camera(src)
 	components["comms"] = new/datum/robot_component/binary_communication(src)
 	components["armour"] = new/datum/robot_component/armour(src)
 
@@ -195,7 +176,7 @@
 	return C && C.installed == 1 && C.toggled && C.is_powered()
 
 // Returns component by it's string name
-/mob/living/silicon/robot/proc/get_component(var/component_name)
+/mob/living/silicon/robot/proc/get_component(component_name)
 	var/datum/robot_component/C = components[component_name]
 	return C
 
@@ -210,36 +191,67 @@
 /obj/item/robot_parts/robot_component
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "working"
+	matter = list(MATERIAL_STEEL = 5000)
 	var/brute = 0
 	var/burn = 0
 	var/icon_state_broken = "broken"
+	var/total_dam = 0
+	var/max_dam = 30
+
+/obj/item/robot_parts/robot_component/proc/take_damage(brute_amt, burn_amt)
+	brute += brute_amt
+	burn += burn_amt
+	total_dam = brute+burn
+	if(total_dam >= max_dam)
+		var/obj/item/stock_parts/circuitboard/broken/broken_device = new (get_turf(src))
+		if(icon_state_broken != "broken")
+			broken_device.icon = src.icon
+			broken_device.icon_state = icon_state_broken
+		broken_device.name = "broken [name]"
+		return broken_device
+	return 0
+
+/obj/item/robot_parts/robot_component/proc/is_functional()
+	return ((brute + burn) < max_dam)
 
 /obj/item/robot_parts/robot_component/binary_communication_device
 	name = "binary communication device"
+	desc = "A module used for binary communications over encrypted frequencies, commonly used by synthetic robots."
 	icon_state = "binradio"
 	icon_state_broken = "binradio_broken"
 
 /obj/item/robot_parts/robot_component/actuator
 	name = "actuator"
+	desc = "A modular, hydraulic actuator used by exosuits and robots alike for movement and manipulation."
 	icon_state = "motor"
 	icon_state_broken = "motor_broken"
 
 /obj/item/robot_parts/robot_component/armour
 	name = "armour plating"
+	desc = "A pair of flexible, adaptable armor plates, used to protect the internals of robots."
 	icon_state = "armor"
 	icon_state_broken = "armor_broken"
 
+/obj/item/robot_parts/robot_component/armour/light
+	name = "light-weight armour plating"
+	desc = "A pair of flexible, light armor plates, used to protect the internals of robots equipped with anti-gravity frames."
+	icon_state = "armor_l"
+	icon_state_broken = "armor_l_broken"
+
 /obj/item/robot_parts/robot_component/camera
 	name = "camera"
+	desc = "A modified camera module used as a visual receptor for robots and exosuits, also serving as a relay for wireless video feed."
 	icon_state = "camera"
 	icon_state_broken = "camera_broken"
 
 /obj/item/robot_parts/robot_component/diagnosis_unit
 	name = "diagnosis unit"
+	desc = "An internal computer and sensors used by robots and exosuits to accurately diagnose any system discrepancies on their components."
 	icon_state = "analyser"
 	icon_state_broken = "analyser_broken"
 
 /obj/item/robot_parts/robot_component/radio
 	name = "radio"
+	desc = "A modular, multi-frequency radio used by robots and exosuits to enable communication systems. Comes with built-in subspace receivers."
 	icon_state = "radio"
 	icon_state_broken = "radio_broken"

@@ -7,8 +7,8 @@
 	name = "window grille spawner"
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "wingrille"
-	density = 1
-	anchored = 1.0
+	density = TRUE
+	anchored = TRUE
 	var/win_path = /obj/structure/window/basic
 	var/activated = FALSE
 	var/fulltile = FALSE
@@ -47,12 +47,6 @@
 	if(locate(/obj/structure/window) in loc)
 		warning("Window Spawner: A window structure already exists at [loc.x]-[loc.y]-[loc.z]")
 
-	if(locate(/obj/structure/grille) in loc)
-		warning("Window Spawner: A grille already exists at [loc.x]-[loc.y]-[loc.z]")
-	else
-		var/obj/structure/grille/G = new /obj/structure/grille(loc)
-		handle_grille_spawn(G)
-
 	var/list/neighbours = list()
 	if(fulltile)
 		var/obj/structure/window/new_win = new win_path(loc)
@@ -74,16 +68,22 @@
 					handle_window_spawn(new_win)
 			else
 				neighbours |= other
+
+	if(locate(/obj/structure/grille) in loc)
+		warning("Window Spawner: A grille already exists at [loc.x]-[loc.y]-[loc.z]")
+	else
+		var/obj/structure/grille/G = new /obj/structure/grille(loc)
+		handle_grille_spawn(G)
+
 	activated = 1
 	for(var/obj/effect/wingrille_spawn/other in neighbours)
 		if(!other.activated) other.activate()
 
-/obj/effect/wingrille_spawn/proc/handle_window_spawn(var/obj/structure/window/W)
-	W.color = color
+/obj/effect/wingrille_spawn/proc/handle_window_spawn(obj/structure/window/W)
 	return
 
 // Currently unused, could be useful for pre-wired electrified windows.
-/obj/effect/wingrille_spawn/proc/handle_grille_spawn(var/obj/structure/grille/G)
+/obj/effect/wingrille_spawn/proc/handle_grille_spawn(obj/structure/grille/G)
 	return
 
 /obj/effect/wingrille_spawn/reinforced
@@ -127,6 +127,6 @@
 	fulltile = TRUE
 	win_path = /obj/structure/window/reinforced/polarized/full
 
-/obj/effect/wingrille_spawn/reinforced/polarized/handle_window_spawn(var/obj/structure/window/reinforced/polarized/P)
+/obj/effect/wingrille_spawn/reinforced/polarized/handle_window_spawn(obj/structure/window/reinforced/polarized/P)
 	if(id)
 		P.id = id

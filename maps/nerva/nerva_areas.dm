@@ -11,6 +11,7 @@
 /area/command
 	icon_state = "head_quarters"
 	req_access = list(access_bridge)
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 
 /area/command/bridge
 	name = "\improper ICS Nerva Bridge"
@@ -32,8 +33,24 @@
 	ambience = list()
 	sound_env = MEDIUM_SOFTFLOOR
 
-/area/command/headquarters
-	name = "\improper Officers' Quarters"
+///area/command/headquarters
+//	name = "\improper Officers' Quarters"
+
+/area/command/ce_dorm
+	name = "\improper Chief Engineer Dorm"
+	req_access = list(access_ce)
+
+/area/command/cos_dorm
+	name = "\improper Chief Security Dorm"
+	req_access = list(access_hos)
+
+/area/command/cmo_dorm
+	name = "\improper Chief Medical Dorm"
+	req_access = list(access_cmo)
+
+/area/command/so_dorm
+	name = "\improper Second Officers Dorm"
+	req_access = list(access_hop)
 
 /area/command/fo
 	name = "\improper First Officer's Office"
@@ -117,6 +134,7 @@
 
 /area/civilian
 	icon_state = "green"
+	holomap_color = HOLOMAP_AREACOLOR_CREW
 
 /area/civilian/observatory
 	name = "\improper Starboard Observatory"
@@ -191,6 +209,7 @@
 
 /area/civilian/counselor
 	name = "\improper Counselor's Office"
+	req_access = list(access_psychiatrist)
 
 /area/civilian/entertainer
 	name = "\improper Entertainer's Room"
@@ -284,26 +303,32 @@
 /area/security/portgun
 	name = "\improper Port Gunnery Room"
 	icon_state = "LP"
+	req_access = list(list(access_bridge, access_gunnery))
 
 /area/security/portexternalgun
 	name = "\improper Port External Gun Bay"
 	icon_state = "LP"
+	req_access = list(list(access_bridge, access_gunnery))
 
 /area/security/starboardgun
 	name = "\improper Starboard Gunnery Room"
 	icon_state = "LP"
+	req_access = list(list(access_bridge, access_gunnery))
 
 /area/security/starboardexternalgun
 	name = "\improper Starboard External Gun Bay"
 	icon_state = "LP"
+	req_access = list(list(access_bridge, access_gunnery))
 
 /area/security/bottomgun
 	name = "\improper Fourth Deck Gunnery Room"
 	icon_state = "LP"
+	req_access = list(list(access_bridge, access_gunnery))
 
 /area/security/topgun
 	name = "\improper First Deck Gunnery Room"
 	icon_state = "LP"
+	req_access = list(list(access_bridge, access_gunnery))
 
 //////////////////////////////////////
 //			SCIENCE					//
@@ -323,9 +348,9 @@
 //	name = "\improper Xenobiology Wing"
 //	icon_state = "xeno_lab"
 
-///area/rnd/xenoarch
-//	name = "\improper Xenoarcheology Lab"
-//	icon_state = "anomaly"
+/area/rnd/xenoarch
+	name = "\improper Xenoarcheology Lab"
+	icon_state = "anomaly"
 
 /area/rnd/dorms
 	name = "\improper Research Dormitory"
@@ -432,6 +457,12 @@
 	icon_state = "engineering_storage"
 	sound_env = SMALL_ENCLOSED
 
+/area/engineering/bluespace
+	name = "Bluespace Drive Containment"
+	icon_state = "engineering"
+	color = COLOR_BLUE_LIGHT
+	req_access = list(list(access_engine_equip, access_heads), access_engine, access_maint_tunnels)
+
 // Substations
 
 /area/engineering/substation
@@ -463,6 +494,8 @@
 
 /area/solar
 	req_access = list(access_maint_tunnels)
+	area_flags = AREA_FLAG_EXTERNAL
+	has_gravity = FALSE
 
 /area/solar/main
 	name = "\improper Main Solar Array"
@@ -476,11 +509,13 @@
 	name = "\improper Solar Maintenance - Main"
 	icon_state = "SolarcontrolS"
 	sound_env = SMALL_ENCLOSED
+	holomap_color = HOLOMAP_AREACOLOR_AIRLOCK
 
 /area/maintenance/aftsolar
 	name = "\improper Solar Maintenance - Aft Auxiliary"
 	icon_state = "SolarcontrolA"
 	sound_env = SMALL_ENCLOSED
+	holomap_color = HOLOMAP_AREACOLOR_AIRLOCK
 
 //////////////////////////////////////
 //			MEDICAL					//
@@ -544,7 +579,7 @@
 
 /area/medical/cloning
 	name = "\improper Cloning Bay"
-	req_access = list(access_genetics)
+	req_access = list(access_medical)
 
 /area/medical/extstorage
 	name = "\improper Medbay Extra Storage"
@@ -558,6 +593,7 @@
 /area/logistics
 	icon_state = "yellow"
 	req_access = list(access_cargo)
+	holomap_color = HOLOMAP_AREACOLOR_CARGO
 
 /area/logistics/qm
 	name = "\improper Quartermaster's Office"
@@ -570,7 +606,7 @@
 
 /area/logistics/primtool
 	name = "\improper General Storage"
-	req_access = list()
+	req_access = list(access_prim_tool)
 
 /area/logistics/auxtool
 	name = "\improper Auxiliary Storage"
@@ -606,6 +642,7 @@
 	name = "\improper General Expedition Prep"
 	icon_state = "exploration"
 	req_access = list(access_expedition)
+	holomap_color = HOLOMAP_AREACOLOR_EXPLORATION
 
 /area/logistics/robotics
 	name = "\improper Robotics Lab"
@@ -620,6 +657,7 @@
 /area/logistics/hangar
 	name = "\improper Hangar"
 	req_access = list()
+	holomap_color = HOLOMAP_AREACOLOR_EXPLORATION
 
 /area/supply/dock
 	name = "Supply Shuttle"
@@ -787,7 +825,7 @@
 /area/hallway/commandstarboard
 	name = "\improper Command Starboard Hallway"
 	icon_state = "hallS"
-	req_access = list(access_bridge)
+	req_access = list(list(access_bridge, access_gunnery))
 
 //bottom/fourth deck
 
@@ -810,6 +848,7 @@
 	dynamic_lighting = 0
 	requires_power = 0
 	sound_env = LARGE_ENCLOSED
+	holomap_color = HOLOMAP_AREACOLOR_CREW
 
 /area/holodeck/source_battle_arena
 	name = "\improper Holodeck - Battle Arena"
@@ -963,7 +1002,7 @@
 /area/merchant_station
 	name = "\improper Merchant Station"
 
-/area/syndicate_mothership/raider_base
+/area/map_template/syndicate_mothership/raider_base
 	name = "\improper Raider Base"
 
 /area/deity_spawn

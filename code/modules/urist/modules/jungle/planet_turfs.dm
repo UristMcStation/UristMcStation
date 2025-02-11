@@ -1,29 +1,30 @@
 /turf/simulated/floor/planet
-	var/animal_spawn_chance = 0
-	var/plants_spawn_chance = 0
-	var/small_trees_chance = 0
-	var/large_trees_chance = 0
-	var/misc_plant_spawn_chance = 0
-	var/trap_spawn_chance = 0
+	var/animal_spawn_chance = 0 //% chance to spawn animals. actual percentage is roughly divided in half bc i was an idiot 9 years ago
+	var/plants_spawn_chance = 0 //%chance to spawn plants from the general plant icon database. this includes fruit bearing plants
+	var/small_trees_chance = 0 //% chance to spawn small trees
+	var/large_trees_chance = 0 //% chance to spawn large trees
+	var/misc_plant_spawn_chance = 0 //misc plant spawn chance - this is a specifically defined type
+	var/trap_spawn_chance = 0 //trap spawns??? idfk. check below for the ancient trap code
 	name = "wet grass"
 	desc = "Thick, long wet grass"
 	icon = 'icons/jungle.dmi'
-	icon_state = "grass1"
-	light_max_bright = 0.4
+	icon_state = "grass1" //what the icon looks like when mapping/ingame if icon_spawn_state is not set
+	light_max_bright = 0.4 //these keep tiles lit. you can adjust this to make things more dim or remove lighting entirely.
 	light_inner_range = 0.1
 	light_outer_range = 1.5
 	light_falloff_curve = 0.5
-	var/icon_spawn_state = "grass1"
-	var/farmed = 0
+	footstep_type = /singleton/footsteps/grass
+	var/icon_spawn_state = "grass1" //what the icon looks like when it spawns. if this is not set it defaults to icon_state
+	var/farmed = 0 //has someone tilled this soil?
 	var/bushspawnchance = 0 //let's try it, why not
-	var/animal_spawn_list
+	var/animal_spawn_list //what animals types can spawn here?
 
 	var/misc_plant_type = /obj/structure/flora/reeds
 	var/bush_type = /obj/structure/bush
 	var/small_tree_type = /obj/structure/flora/tree/planet/jungle/small
 	var/large_tree_type = /obj/structure/flora/tree/planet/jungle/large
 
-	var/terrain_type = null
+	var/terrain_type = null //used for defining footstep sounds
 
 	var/spawn_scrap = 0
 
@@ -32,11 +33,8 @@
 /turf/simulated/floor/planet/update_air_properties() //No, you can't flood the jungle with phoron silly.
 	return
 
-/turf/simulated/floor/planet/get_footstep_sound()
-	if(terrain_type == "grass")
-		return safepick(footstep_sounds[FOOTSTEP_GRASS])
-	else
-		..()
+/turf/simulated/floor/planet/can_engrave()
+	return FALSE
 
 /turf/simulated/floor/planet/Initialize()
 	var/bushes = FALSE
@@ -99,7 +97,7 @@
 //	weather_enable() //Fog does some odd things with duplicating the turf, need to invesi //he died shortly thereafter
 
 	if(planet_light)
-		light_color = SSskybox.BGcolor
+		light_color = SSskybox.background_color
 
 	. = ..()
 
@@ -107,7 +105,7 @@
 	return
 
 /turf/simulated/floor/planet/border
-	density = 1
+	density = TRUE
 	opacity = 1
 	icon = 'icons/urist/turf/scomturfs.dmi'
 	icon_state = "border"
@@ -125,8 +123,8 @@
 	else
 		..()
 
-/turf/simulated/floor/planet/attackby(var/obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/weapon/shovel))
+/turf/simulated/floor/planet/attackby(obj/item/I as obj, mob/user as mob)
+	if(istype(I, /obj/item/shovel))
 		if(!farmed) //todo; add a way to remove the soil
 			user.visible_message("<span class='notice'>[user] starts to dig up some soil and prepare the ground for planting.</span>", \
 			"<span class='notice'>You start to dig up some soil and prepare the ground for planting.</span>")
@@ -188,7 +186,7 @@
 	terrain_type = "grass"
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot/jungle,
+		/mob/living/simple_animal/hostile/retaliate/parrot/jungle,
 		/mob/living/simple_animal/huntable/monkey
 	)
 
@@ -209,7 +207,7 @@
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot/jungle,
+		/mob/living/simple_animal/hostile/retaliate/parrot/jungle,
 		)
 
 /turf/simulated/floor/planet/jungle/thick
@@ -237,7 +235,7 @@
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot/jungle,
+		/mob/living/simple_animal/hostile/retaliate/parrot/jungle,
 		/mob/living/simple_animal/huntable/monkey
 		)
 
@@ -278,15 +276,15 @@
 	light_max_bright = 0.3
 	animal_spawn_chance = 0.15
 	animal_spawn_list = list(
-		/mob/living/simple_animal/parrot/jungle,
+		/mob/living/simple_animal/hostile/retaliate/parrot/jungle,
 		/mob/living/simple_animal/huntable/monkey
 		)
 
-/turf/simulated/floor/planet/jungle/proc/Spread(var/probability, var/prob_loss = 50)
+/turf/simulated/floor/planet/jungle/proc/Spread(probability, var/prob_loss = 50)
 	if(probability <= 0)
 		return
 
-	//world << "<span class='notice'> Spread([probability])</span>"
+	//to_world("<span class='notice'> Spread([probability])</span>")
 	for(var/turf/simulated/floor/planet/jungle/J in orange(1, src))
 		if(!J.bushspawnchance)
 			continue
@@ -338,7 +336,7 @@
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
-		/mob/living/simple_animal/parrot/jungle,
+		/mob/living/simple_animal/hostile/retaliate/parrot/jungle,
 		/mob/living/simple_animal/huntable/monkey
 		)
 
@@ -354,7 +352,7 @@
 	plants_spawn_chance = 0
 	animal_spawn_chance = 0
 	misc_plant_spawn_chance = 0
-	density = 1
+	density = TRUE
 	opacity = 1
 	name = "cliffside wall"
 	desc = "A massive wall of natural rock. No point in trying to mine it, try underground."
@@ -364,9 +362,16 @@
 	icon_spawn_state = null
 	terrain_type = null
 
+/turf/simulated/floor/planet/jungle/rock/underground
+	name = "rock wall"
+	desc = "An impossibly hard rock wall. No point in trying to mine it"
+	light_max_bright = 0
+	light_outer_range = 0
+	light_inner_range = 0
+
 //Rocks fall, you die
-/turf/simulated/floor/planet/jungle/rock/attackby(obj/item/weapon/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/weapon/pickaxe))
+/turf/simulated/floor/planet/jungle/rock/attackby(obj/item/W as obj, mob/user as mob)
+	if (istype(W, /obj/item/pickaxe))
 		to_chat(user, "You begin to mine into the [src]..")
 		if(do_after(user, 12 SECONDS))
 			new /obj/structure/boulder(user.loc)
@@ -426,8 +431,8 @@
 	. = ..()
 	fishleft = rand(1,6)
 
-/turf/simulated/floor/planet/jungle/water/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/fishingrod))
+/turf/simulated/floor/planet/jungle/water/attackby(obj/item/I, mob/user as mob)
+	if(istype(I, /obj/item/fishingrod))
 		if(bridge)
 			to_chat(user, "<span class='notice'>There's a bridge here, try fishing somewhere else.</span>")
 			return
@@ -439,7 +444,7 @@
 			else
 				to_chat(user, "<span class='notice'>You cast your line into the water. Hold still and hopefully you can catch some fish.</span>")
 
-			var/obj/item/weapon/fishingrod/F = I
+			var/obj/item/fishingrod/F = I
 			var/fishtime = (rand(40,140)) //test this shit
 			fishtime *= F.fishingpower //here we account for using shitty improvised fishing rods, which increase the time
 			fishing = 1
@@ -459,11 +464,11 @@
 			var/obj/item/F
 
 			if(prob(2))
-				F = new/obj/item/weapon/storage/belt/utility(user.loc)
+				F = new/obj/item/storage/belt/utility(user.loc)
 			else if(prob(1))
-				F = new	/obj/item/weapon/beartrap(user.loc)
+				F = new	/obj/item/beartrap(user.loc)
 			else if(prob(10))
-				F = new/obj/item/weapon/reagent_containers/food/drinks/cans/cola(user.loc)
+				F = new/obj/item/reagent_containers/food/drinks/cans/cola(user.loc)
 			else if(prob(3))
 				F = new/obj/item/clothing/suit/storage/hazardvest(user.loc)
 			else if(prob(5))
@@ -479,7 +484,7 @@
 			src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
 			fishleft -= 1
 			fishing = 0
-			user << "<span class='notice'>You yank on your line, pulling up [F]!</span>"
+			to_chat(user, "<span class='notice'>You yank on your line, pulling up [F]!</span>")
 
 		else if(!fishleft && !bridge)
 			to_chat(user, "<span class='notice'>You've fished too much in this area, try fishing somewhere else.</span>")
@@ -513,7 +518,7 @@
 			else
 				to_chat(user, "<span class='notice'>You do not have enough wood to build a bridge.</span>")
 
-	else if(istype(I, /obj/item/weapon/paddle))
+	else if(istype(I, /obj/item/paddle))
 		if(!bridge)
 			for(var/obj/structure/raft/R in user.loc)
 				if(!busy)
@@ -547,7 +552,7 @@
 						to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")
 
 
-	else if(istype(I, /obj/item/weapon/crowbar))
+	else if(istype(I, /obj/item/crowbar))
 		if(bridge)
 			to_chat(user, "<span class='notice'>You begin to disassemble the bridge.</span>")
 			if (do_after(user, rand(15,30), src))
@@ -567,7 +572,7 @@
 
 				bridge = 0
 
-	else if(istype(I, /obj/item/stack/hide/animalhide))
+/*	else if(istype(I, /obj/item/stack/hide/animalhide))
 		to_chat(user, "<span class='notice'>You immerse the hide in the water.</span>")
 		if (do_after(user, 30, src))
 			var/obj/item/stack/hide/animalhide/AH = I
@@ -576,8 +581,9 @@
 			user.remove_from_mob(AH)
 			user.put_in_hands(WL)
 			qdel(AH)
+*/
 
-	var/obj/item/weapon/reagent_containers/RG = I
+	var/obj/item/reagent_containers/RG = I
 	if (istype(RG) && RG.is_open_container())
 		RG.reagents.add_reagent(/datum/reagent/water, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
 		user.visible_message("<span class='notice'>[user] fills \the [RG] from the water.</span>","<span class='notice'> You fill \the [RG] from the water.</span>")
@@ -602,12 +608,12 @@
 			spawn(rand(25,50))
 				var/zone = pick(BP_R_LEG, BP_L_LEG)
 				to_chat(M, pick("<span class='warning'> Something sharp bites you!</span>","<span class='warning'> Sharp teeth grab hold of you!</span>","<span class='warning'> You feel something bite into your leg!</span>"))
-				M.apply_damage(rand(3,5), BRUTE, zone, 0, DAM_SHARP)
+				M.apply_damage(rand(3,5), DAMAGE_BRUTE, zone, 0, DAMAGE_FLAG_SHARP)
 
 
 /turf/simulated/floor/planet/jungle/water/deep
 	plants_spawn_chance = 0
-	density = 1
+	density = TRUE
 	misc_plant_spawn_chance = 0 //too deep for reeds
 	icon_state = "deepnew"
 //	icon_spawn_state = "deepnew"
@@ -618,8 +624,8 @@
 
 	else ..()
 
-/turf/simulated/floor/planet/jungle/water/deep/attackby(var/obj/item/I, mob/user as mob)
-	if(istype(I, /obj/item/weapon/paddle))
+/turf/simulated/floor/planet/jungle/water/deep/attackby(obj/item/I, mob/user as mob)
+	if(istype(I, /obj/item/paddle))
 		if(!bridge)
 			for(var/obj/structure/raft/R in user.loc)
 				if(!busy)
@@ -656,7 +662,7 @@
 /turf/simulated/floor/planet/jungle/temple_wall //again, what the fuck
 	name = "temple wall"
 	desc = ""
-	density = 1
+	density = TRUE
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "phoron0"
 	mineral = "phoron"
@@ -676,13 +682,11 @@
 	light_outer_range = 0
 	light_max_bright = 0
 	terrain_type = null
+	footstep_type = /singleton/footsteps/asteroid
 
-/turf/simulated/floor/planet/jungle/clear/underground/weather_enable(var/override = 0)
+/turf/simulated/floor/planet/jungle/clear/underground/weather_enable(override = 0)
 	if(override)
 		..()
-
-/turf/simulated/floor/planet/jungle/clear/underground/get_footstep_sound()
-	return safepick(footstep_sounds[FOOTSTEP_ASTEROID])
 
 //dirt
 
@@ -750,3 +754,118 @@
 	color = "#b75d0e"
 	desc = "Arid, sandy Martian dirt."
 	temperature = 288.15 //15C
+
+//temperate forest turfs
+
+/turf/simulated/floor/planet/temperate
+	temperature = T0C+10
+	animal_spawn_chance = 0
+	plants_spawn_chance = 0
+	small_trees_chance = 0
+	large_trees_chance = 0
+	misc_plant_spawn_chance = 0 //WHY WOULDNT YOU WORK!!
+	name = "forest floor"
+	desc = "Patchy bits of moss, grass, dirt, and leaves"
+	icon = 'icons/urist/turf/floors_borders.dmi'
+	icon_state = "browngrass0"
+	icon_spawn_state = "browngrass"
+	light_max_bright = 0.5
+	light_inner_range = 0.1
+	light_outer_range = 1.5
+	light_falloff_curve = 0.5
+	light_color = "#ffffff"
+	bushspawnchance = 0 //let's try it, why not
+	terrain_type = "grass"
+
+/turf/simulated/floor/planet/temperate/Initialize()
+	. = ..()
+	icon_state = "browngrass[rand(0,4)]"
+
+///turf/simulated/floor/planet/temperate/grass need to get more sprites for asteroid style tiling, not important ATM
+//	icon = 'icons/turf/floors.dmi'
+//	icon_state = "grass_dark"
+
+/turf/simulated/floor/planet/dirt/temperate
+	animal_spawn_chance = 0
+	plants_spawn_chance = 0
+	small_trees_chance = 0
+	large_trees_chance = 0
+	misc_plant_spawn_chance = 0
+	temperature = 283.15 //10C
+	icon = 'icons/urist/jungle/turfs.dmi'
+	icon_state = "dirt-rough0"
+	icon_spawn_state = "dirt-rough"
+	light_max_bright = 0.6
+	light_inner_range = 0.1
+	light_outer_range = 1.5
+	light_falloff_curve = 0.5
+	light_color = "#ffffff"
+
+/turf/simulated/floor/planet/dirt/temperate/Initialize()
+	. = ..()
+	icon_state = "dirt-rough[rand(0,4)]"
+
+/obj/effect/floor_decal/planet/border
+	temperature = 283.15 //10C
+	name = "forest floor"
+	desc = "Patchy bits of moss, grass, dirt, and leaves"
+	icon = 'icons/urist/turf/floors_borders.dmi'
+	light_max_bright = 0.5
+	light_inner_range = 0.1
+	light_outer_range = 1.5
+	light_falloff_curve = 0.5
+	light_color = "#ffffff"
+
+/obj/effect/floor_decal/planet/border/grasstodirt
+	icon_state = "grasstodirt_new"
+
+/obj/effect/floor_decal/planet/border/dirttograss
+	icon_state = "dirttograss_new"
+
+/obj/effect/floor_decal/planet/border/grasstosnow
+	icon_state = "grasstosnow"
+
+/obj/effect/floor_decal/planet/border/snowtograss
+	icon_state = "snowtograss"
+
+/turf/simulated/floor/planet/snow
+	temperature = 273.15 //0C
+	animal_spawn_chance = 0
+	plants_spawn_chance = 0
+	small_trees_chance = 0
+	large_trees_chance = 0
+	misc_plant_spawn_chance = 0
+	name = "snow"
+	desc = "Cold and white"
+	icon = 'icons/turf/snow.dmi'
+	icon_state = "snow0"
+	icon_spawn_state = "snow0"
+	light_max_bright = 0.7
+	light_inner_range = 0.1
+	light_outer_range = 1.5
+	light_falloff_curve = 0.5
+	light_color = "#ffffff"
+	bushspawnchance = 0 //let's try it, why not
+	terrain_type = "grass"
+	has_snow = TRUE
+	animal_spawn_list = list(
+		/mob/living/simple_animal/hostile/huntable/deer,
+	//	/mob/living/simple_animal/hostile/huntable/bear/polar,
+	//	/mob/living/simple_animal/hostile/huntable/wolf/white,
+	)
+
+
+/turf/simulated/floor/planet/snow/Initialize()
+	. = ..()
+	icon_state = "snow[rand(0,12)]"
+
+
+/turf/simulated/open/skylight/planet
+	light_max_bright = 0.3
+	light_inner_range = 0.5
+	light_outer_range = 1.0
+	light_color = "#ffffff"
+
+/turf/simulated/open/skylight/planet/Initialize()
+	light_color = SSskybox.background_color
+	. = ..()

@@ -29,6 +29,7 @@
 	var/obj/screen/l_hand_hud_object
 	var/obj/screen/action_intent
 	var/obj/screen/move_intent
+	var/obj/screen/stamina/stamina_bar
 
 	var/list/adding
 	var/list/other
@@ -44,6 +45,7 @@
 
 /datum/hud/Destroy()
 	. = ..()
+	stamina_bar = null
 	lingchemdisplay = null
 	r_hand_hud_object = null
 	l_hand_hud_object = null
@@ -53,6 +55,14 @@
 	other = null
 	hotkeybuttons = null
 	mymob = null
+
+/datum/hud/proc/update_stamina()
+	if(mymob && stamina_bar)
+		stamina_bar.invisibility = INVISIBILITY_MAXIMUM
+		var/stamina = mymob.get_stamina()
+		if(stamina < 100)
+			stamina_bar.invisibility = 0
+			stamina_bar.icon_state = "priv_prog_bar_[Floor(stamina/5)*5]"
 
 /datum/hud/proc/hidden_inventory_update()
 	if(!mymob) return
@@ -150,20 +160,20 @@
 
 	FinalizeInstantiation(ui_style, ui_color, ui_alpha)
 
-/datum/hud/proc/FinalizeInstantiation(var/ui_style, var/ui_color, var/ui_alpha)
+/datum/hud/proc/FinalizeInstantiation(ui_style, ui_color, ui_alpha)
 	return
 
 //Triggered when F12 is pressed (Unless someone changed something in the DMF)
-/mob/verb/button_pressed_F12(var/full = 0 as null)
+/mob/verb/button_pressed_F12(full = 0 as null)
 	set name = "F12"
 	set hidden = 1
 
 	if(!hud_used)
-		to_chat(usr, "<span class='warning'>This mob type does not use a HUD.</span>")
+		to_chat(usr, SPAN_WARNING("This mob type does not use a HUD."))
 		return
 
 	if(!ishuman(src))
-		to_chat(usr, "<span class='warning'>Inventory hiding is currently only supported for human mobs, sorry.</span>")
+		to_chat(usr, SPAN_WARNING("Inventory hiding is currently only supported for human mobs, sorry."))
 		return
 
 	if(!client) return
@@ -257,3 +267,10 @@
 
 /mob/new_player/add_click_catcher()
 	return
+
+/obj/screen/stamina
+	name = "stamina"
+	icon = 'icons/effects/progessbar.dmi'
+	icon_state = "prog_bar_100"
+	invisibility = INVISIBILITY_MAXIMUM
+	screen_loc = ui_stamina

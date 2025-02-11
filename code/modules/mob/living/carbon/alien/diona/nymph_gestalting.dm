@@ -1,4 +1,4 @@
-/mob/living/carbon/alien/diona/proc/do_merge(var/mob/living/carbon/human/H)
+/mob/living/carbon/alien/diona/proc/do_merge(mob/living/carbon/human/H)
 	if(!istype(H) || !src || !(src.Adjacent(H)) || src.incapacitated() || H.incapacitated())
 		return 0
 	to_chat(H, "You feel your being twine with that of \the [src] as it merges with your biomass.")
@@ -17,8 +17,8 @@
 
 	if(istype(loc, /obj/structure/diona_gestalt)) // Handle nymph katamari.
 		var/obj/structure/diona_gestalt/gestalt = loc
-		gestalt.visible_message("<span class='notice'>\The [src] wriggles out of \the [gestalt] and plops to the ground.</span>")
-		gestalt.shed_nymph(src, TRUE, FALSE)
+		gestalt.visible_message(SPAN_NOTICE("\The [src] wriggles out of \the [gestalt] and plops to the ground."))
+		gestalt.shed_atom(src, TRUE, FALSE)
 		return
 
 	if(ishuman(loc)) // Handle larger gestalts. If they are being held inhand, their loc will be a holder item, not the mob.
@@ -58,9 +58,8 @@
 		transfer_languages(src, S)
 
 		if(mind)
-			to_chat(src, "<span class='info'>You're now in control of [S].</span>")
+			to_chat(src, SPAN_INFO("You're now in control of [S]."))
 			mind.transfer_to(S)
-			message_admins("\The [src] has transfered to another nymph; player now controls [key_name_admin(S)]")
-			log_admin("\The [src] has transfered to another nymph; player now controls [key_name(S)]")
+			log_and_message_admins("has transfered to another nymph; player now controls [key_name_admin(S)]", src)
 	else
-		to_chat(src, "<span class='info'>There are no appropriate nymphs for you to jump into.</span>")
+		to_chat(src, SPAN_INFO("There are no appropriate nymphs for you to jump into."))

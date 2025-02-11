@@ -1,0 +1,15237 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/blue,
+/obj/structure/cable/blue{
+	icon_state = "4-5"
+	},
+/obj/structure/cable/blue{
+	icon_state = "8-9"
+	},
+/obj/effect/spider/stickyweb,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor,
+/area/planet/forest/cave/kitchen)
+"ab" = (
+/turf/simulated/mineral/random/high_chance/planet{
+	mined_turf = /turf/simulated/floor/planet/jungle/clear/underground
+	},
+/area/planet/forest/cave)
+"ac" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"ad" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"ae" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"af" = (
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor,
+/area/planet/forest/cave/dorms)
+"ag" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/cable/blue{
+	icon_state = "2-5"
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"ah" = (
+/obj/structure/table/standard,
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"ai" = (
+/turf/unsimulated/wall/urist/other/border,
+/area/space)
+"aj" = (
+/turf/simulated/floor/planet/jungle/rock/underground,
+/area/planet/forest/cave)
+"ak" = (
+/turf/unsimulated/mask,
+/area/planet/forest/cave)
+"al" = (
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"am" = (
+/obj/random/trash,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"an" = (
+/turf/simulated/wall/wood,
+/area/planet/forest/cave)
+"ao" = (
+/obj/structure/stairs/wood{
+	dir = 8
+	},
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"ap" = (
+/mob/living/simple_animal/hostile/scarybat{
+	faction = "undead"
+	},
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"aq" = (
+/obj/item/remains/human,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"ar" = (
+/obj/structure/table/marble,
+/obj/item/clothing/head/urist/historic/crown/silver,
+/obj/random/treasure/portrait,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"as" = (
+/obj/structure/table/marble,
+/obj/random/treasure,
+/obj/random/treasure,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"at" = (
+/obj/item/remains/human,
+/obj/item/urist/blade/bronzedagger,
+/obj/structure/closet/coffin/urist/stonecoffin,
+/obj/item/material/coin/challenge/loot,
+/obj/item/clothing/head/urist/historic/armor/medieval3,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"au" = (
+/obj/item/remains/human,
+/obj/item/clothing/head/urist/historic/light/cape,
+/obj/structure/closet/coffin/urist/stonecoffin,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"av" = (
+/obj/structure/boulder,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"aw" = (
+/mob/living/simple_animal/hostile/urist/skeleton/ancient,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"ax" = (
+/obj/structure/table/marble,
+/obj/random/treasure,
+/obj/random/treasure,
+/obj/random/treasure,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"ay" = (
+/obj/structure/table/marble,
+/obj/item/material/sword,
+/obj/item/treasure/gem/ruby,
+/obj/random/treasure,
+/obj/random/treasure,
+/obj/random/treasure,
+/obj/item/material/coin/challenge/loot,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"az" = (
+/obj/item/remains/human,
+/obj/item/clothing/suit/urist/armor/historic/chestplate/iron_chestplate,
+/obj/structure/closet/coffin/urist/stonecoffin,
+/obj/item/clothing/head/urist/historic/armor/medieval2,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"aA" = (
+/obj/item/remains/human,
+/obj/item/clothing/head/urist/historic/armor/medieval1,
+/obj/structure/closet/coffin/urist/stonecoffin,
+/obj/item/material/coin/challenge/loot/silver,
+/obj/item/clothing/suit/urist/armor/historic/chestplate/bronze_chestplate,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"aB" = (
+/obj/item/remains/human,
+/obj/structure/boulder,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"aC" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	frequency = 1441;
+	id = "d2_c_chamber_in";
+	injecting = 1;
+	use_power = 1
+	},
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"aD" = (
+/obj/structure/disposalpipe/trunk,
+/obj/structure/disposaloutlet{
+	dir = 1
+	},
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"aE" = (
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave)
+"aF" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red,
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave)
+"aG" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave)
+"aH" = (
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave/hall)
+"aI" = (
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave/med)
+"aJ" = (
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave/engie)
+"aK" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red,
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave/engie)
+"aL" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave/engie)
+"aM" = (
+/obj/structure/flora/pottedplant/stoutbush,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/hall)
+"aN" = (
+/obj/item/paper_bin,
+/obj/machinery/light/small{
+	dir = 1;
+	luminosity = 2
+	},
+/obj/structure/table/woodentable/ebony,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/hall)
+"aO" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/coatrack,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/hall)
+"aP" = (
+/obj/effect/wingrille_spawn/reinforced/full,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"aQ" = (
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"aR" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"aS" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/surgery,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"aT" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/adv,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/med)
+"aU" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/obj/machinery/vending/wallmed1{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"aV" = (
+/obj/structure/window/basic{
+	dir = 4;
+	icon_state = "window"
+	},
+/obj/structure/table/standard,
+/obj/item/tank/anesthetic,
+/obj/item/clothing/mask/breath/anesthetic,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"aW" = (
+/obj/machinery/atmospherics/unary/cryo_cell,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/med)
+"aX" = (
+/obj/machinery/atmospherics/unary/freezer{
+	dir = 2;
+	icon_state = "freezer"
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"aY" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"aZ" = (
+/obj/random/closet,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"ba" = (
+/obj/machinery/pipedispenser/disposal,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"bb" = (
+/obj/machinery/pipedispenser,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"bc" = (
+/obj/structure/table/rack,
+/obj/item/mop/wood,
+/obj/structure/mopbucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/spray/cleaner,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"bd" = (
+/obj/structure/table/rack,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/technology_scanner,
+/obj/item/stock_parts/console_screen,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"be" = (
+/obj/structure/table/rack,
+/obj/random/toolbox,
+/obj/random/toolbox,
+/obj/random/toolbox,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"bf" = (
+/obj/structure/grille/broken,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"bg" = (
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"bh" = (
+/obj/machinery/atmospherics/unary/tank/air,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"bi" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"bj" = (
+/obj/machinery/atmospherics/unary/tank/carbon_dioxide,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"bk" = (
+/turf/simulated/wall/ocp_wall,
+/area/planet/forest/cave/engie)
+"bl" = (
+/obj/structure/bed/chair/office/comfy/beige{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"bm" = (
+/obj/structure/table/woodentable/ebony,
+/obj/effect/decal/cleanable/filth,
+/obj/structure/salvageable/personal,
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"bn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/hall)
+"bo" = (
+/obj/machinery/door/unpowered/simple/wood,
+/obj/structure/cable/blue{
+	icon_state = "6-9"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"bp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"bq" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"br" = (
+/obj/structure/table/rack,
+/obj/random/projectile,
+/obj/random/energy,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"bs" = (
+/obj/structure/table/rack,
+/obj/machinery/light/small{
+	dir = 4;
+	luminosity = 2
+	},
+/obj/item/gun/energy/laser/old,
+/obj/item/gun/energy/laser/old,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"bt" = (
+/obj/structure/window/basic,
+/obj/machinery/optable,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"bu" = (
+/obj/structure/window/basic,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"bv" = (
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"bw" = (
+/obj/structure/window/basic,
+/obj/structure/window/basic{
+	dir = 4;
+	icon_state = "window"
+	},
+/obj/structure/closet/secure_closet/medical1,
+/turf/simulated/floor,
+/area/planet/forest/cave/med)
+"bx" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/med)
+"by" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4;
+	icon_state = "map"
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"bz" = (
+/obj/structure/table/standard,
+/obj/item/stack/material/steel/fifty,
+/obj/item/stack/material/plastic/fifty,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/aluminium/fifty,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"bA" = (
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"bB" = (
+/obj/effect/decal/cleanable/filth,
+/obj/item/cell/high,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"bC" = (
+/obj/random/trash,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"bD" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/random/trash,
+/obj/item/stock_parts/matter_bin,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"bE" = (
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/circuitboard/floodlight,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"bF" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 5;
+	level = 2
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"bG" = (
+/obj/machinery/atmospherics/pipe/manifold4w/visible/cyan,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"bH" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/cyan{
+	dir = 4;
+	initialize_directions = 11;
+	level = 2
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"bI" = (
+/obj/machinery/atmospherics/pipe/simple/visible/red{
+	dir = 5;
+	icon_state = "intact"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"bJ" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/red{
+	dir = 4;
+	icon_state = "map"
+	},
+/obj/item/stock_parts/manipulator/nano,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"bK" = (
+/obj/machinery/power/port_gen/pacman/super/potato,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"bL" = (
+/mob/living/simple_animal/hostile/giant_spider/hunter,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"bM" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"bN" = (
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/hall)
+"bO" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1;
+	icon_state = "map_scrubber_on"
+	},
+/obj/machinery/light_switch{
+	pixel_x = 5;
+	pixel_y = -27
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/hall)
+"bP" = (
+/obj/effect/wingrille_spawn/reinforced/full,
+/obj/random/trash,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"bQ" = (
+/obj/effect/floor_decal/rust/mono/medium,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"bR" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"bS" = (
+/obj/machinery/door/blast/regular{
+	dir = 2;
+	id_tag = "secretlab";
+	name = "Armory Blast Door"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"bT" = (
+/obj/structure/table/standard,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/item/reagent_containers/spray/cleaner,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"bU" = (
+/obj/machinery/sleeper,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"bV" = (
+/turf/simulated/floor,
+/area/planet/forest/cave/med)
+"bW" = (
+/obj/structure/roller_bed,
+/turf/simulated/floor,
+/area/planet/forest/cave/med)
+"bX" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor,
+/area/planet/forest/cave/med)
+"bY" = (
+/obj/machinery/atmospherics/binary/passive_gate/on{
+	dir = 1;
+	max_pressure_setting = 35000;
+	regulate_mode = 1;
+	target_pressure = 35000;
+	use_power = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"bZ" = (
+/obj/structure/table/standard,
+/obj/item/storage/toolbox/mechanical,
+/obj/machinery/fabricator/micro,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"ca" = (
+/obj/item/stool,
+/obj/random/trash,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"cb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"cc" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"cd" = (
+/obj/structure/disposalpipe/junction{
+	dir = 4;
+	icon_state = "pipe-j1"
+	},
+/obj/item/stock_parts/manipulator,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"ce" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/item/stock_parts/micro_laser,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"cf" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"cg" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/item/stock_parts/matter_bin,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"ch" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering Access";
+	req_access = list("ACCESS_ENGINEERING");
+	autoset_access = 0
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"ci" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"cj" = (
+/obj/machinery/atmospherics/binary/pump,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"ck" = (
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 5;
+	level = 2
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"cl" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"cm" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/omni/filter,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"cn" = (
+/obj/structure/disposalpipe/junction{
+	dir = 1;
+	icon_state = "pipe-j2"
+	},
+/obj/structure/salvageable/autolathe,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"cr" = (
+/turf/simulated/wall,
+/area/planet/forest/cave/hall)
+"cs" = (
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"ct" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"cu" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/obj/effect/floor_decal/rust/mono/medium,
+/obj/effect/decal/cleanable/filth,
+/obj/structure/closet/secure_closet/security,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"cv" = (
+/obj/random/trash,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"cw" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"cx" = (
+/obj/structure/bed/chair/office/light,
+/turf/simulated/floor,
+/area/planet/forest/cave/med)
+"cy" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	icon_state = "map_vent_out"
+	},
+/obj/structure/cable/blue{
+	dir = 4;
+	icon_state = "1-10"
+	},
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"cz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"cA" = (
+/obj/effect/floor_decal/rust/mono/medium,
+/obj/structure/cable/blue{
+	icon_state = "6-9"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"cB" = (
+/obj/machinery/portable_atmospherics/canister/oxygen/prechilled,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"cC" = (
+/obj/machinery/fabricator,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"cD" = (
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"cE" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	icon_state = "map_vent_out"
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"cF" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/decal/cleanable/filth,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"cG" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"cH" = (
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/circuitboard/floodlight,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"cI" = (
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"cJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"cK" = (
+/obj/effect/floor_decal/rust/mono/high,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"cL" = (
+/obj/structure/closet/crate/uranium,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"cM" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/item/stack/cable_coil/blue,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"cN" = (
+/obj/structure/flora/pottedplant/mysterious,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/hall)
+"cO" = (
+/obj/structure/table/woodentable/ebony,
+/obj/item/paper_bin,
+/obj/machinery/light/small{
+	dir = 1;
+	luminosity = 2
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/hall)
+"cP" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/hall)
+"cQ" = (
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"cR" = (
+/obj/structure/bed/chair/office/dark,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"cS" = (
+/obj/effect/decal/cleanable/filth,
+/obj/structure/table/woodentable_reinforced,
+/obj/structure/salvageable/radio,
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"cT" = (
+/obj/machinery/light/small{
+	dir = 4;
+	luminosity = 2
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"cU" = (
+/obj/machinery/chem_master,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/med)
+"cV" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_y = 7
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"cW" = (
+/obj/machinery/chemical_dispenser/full,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"cX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	req_access = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"cY" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/structure/cable/blue{
+	icon_state = "4-10"
+	},
+/obj/effect/spider/stickyweb,
+/obj/machinery/light_switch{
+	pixel_x = 0;
+	pixel_y = -27
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/med)
+"cZ" = (
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/closet/secure_closet/medical2,
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 10
+	},
+/obj/structure/cable/blue{
+	dir = 4
+	},
+/obj/item/stock_parts/circuitboard/bioprinter,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"da" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"db" = (
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22
+	},
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"dc" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"dd" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 1;
+	icon_state = "pipe-t"
+	},
+/obj/machinery/light_switch{
+	pixel_x = -7;
+	pixel_y = -27
+	},
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"de" = (
+/obj/structure/table/rack,
+/obj/item/stock_parts/circuitboard/arcade/battle,
+/obj/item/stock_parts/circuitboard/autolathe,
+/obj/item/stock_parts/circuitboard/batteryrack,
+/obj/item/stock_parts/circuitboard/bioprinter,
+/obj/item/stock_parts/circuitboard/comm_server,
+/obj/item/stock_parts/circuitboard/comm_monitor,
+/obj/item/stock_parts/circuitboard/pacman/super,
+/obj/item/stock_parts/circuitboard/woodprocessor,
+/obj/item/stock_parts/power/battery,
+/obj/item/stock_parts/circuitboard/washer,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"df" = (
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/scanning_module/adv,
+/obj/item/stock_parts/scanning_module/adv,
+/obj/item/stock_parts/keyboard,
+/obj/item/stock_parts/keyboard,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"dg" = (
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/manipulator/pico,
+/obj/item/stock_parts/manipulator/pico,
+/obj/item/stock_parts/console_screen,
+/obj/item/stock_parts/manipulator/nano,
+/obj/item/stock_parts/power/apc,
+/obj/item/stock_parts/power/apc,
+/obj/item/stock_parts/power/battery,
+/obj/item/stock_parts/circuitboard/arcade/battle,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"dh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/floodlight,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"di" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/floodlight,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"dj" = (
+/obj/random/trash,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"dk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"dl" = (
+/obj/structure/bed/chair/office/comfy/beige{
+	dir = 4
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/hall)
+"dm" = (
+/obj/structure/table/woodentable/ebony,
+/obj/structure/salvageable/personal,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/hall)
+"dn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6;
+	icon_state = "intact-scrubbers"
+	},
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/hall)
+"do" = (
+/obj/machinery/door/unpowered/simple/wood,
+/obj/structure/cable/blue{
+	icon_state = "6-9"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"dp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/rust/mono/medium,
+/obj/random/maintenance,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dq" = (
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dr" = (
+/obj/structure/sign/urist/deptsigns/med{
+	dir = 4
+	},
+/obj/structure/sign/urist/deptsigns/eng{
+	dir = 4;
+	pixel_y = -7
+	},
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave/hall)
+"ds" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/machinery/door/window/brigdoor/westright{
+	dir = 2
+	},
+/obj/item/device/radio/off/old,
+/obj/item/gun/energy/taser/old,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dt" = (
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"du" = (
+/obj/structure/sign/bluecross_2,
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave/med)
+"dv" = (
+/obj/structure/cable/blue{
+	icon_state = "2-5"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	req_access = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/med)
+"dw" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Fabrication and Storage"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/blue{
+	icon_state = "9-10"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/engie)
+"dx" = (
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -25
+	},
+/obj/structure/cable/blue{
+	icon_state = "0-6"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"dy" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"dz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/floodlight,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"dA" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"dB" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/salvageable/machine_os,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"dC" = (
+/obj/structure/sign/warning/radioactive,
+/turf/simulated/wall/ocp_wall,
+/area/planet/forest/cave/engie)
+"dD" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering Access";
+	req_access = list("ACCESS_ENGINEERING");
+	autoset_access = 0
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"dE" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/hall)
+"dF" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1;
+	icon_state = "map_scrubber_on"
+	},
+/obj/machinery/light_switch{
+	pixel_x = 5;
+	pixel_y = -27
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"dG" = (
+/obj/structure/grille/broken,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dH" = (
+/obj/random/trash,
+/obj/effect/spider/stickyweb,
+/obj/structure/cable/blue{
+	icon_state = "6-9"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dI" = (
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8;
+	icon_state = "map-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"dJ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/effect/spider/stickyweb,
+/obj/effect/floor_decal/corner/red/border{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dK" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/effect/floor_decal/rust,
+/obj/effect/floor_decal/corner/red/border{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dL" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/effect/floor_decal/corner/red/border{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dM" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/random/trash,
+/obj/effect/floor_decal/corner/red/border{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dN" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dO" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dP" = (
+/obj/structure/cable/blue{
+	icon_state = "1-6"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dQ" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dR" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/vending/snix,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dS" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/vending/cola,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dT" = (
+/obj/effect/floor_decal/corner/paleblue{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/random/trash,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dU" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dV" = (
+/obj/structure/disposalpipe/junction{
+	dir = 1;
+	icon_state = "pipe-j2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dX" = (
+/obj/effect/floor_decal/corner/gold/border{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"dY" = (
+/obj/structure/cable/blue{
+	icon_state = "6-9"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	icon_state = "map_vent_out"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"dZ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4;
+	icon_state = "map-supply"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"ea" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"eb" = (
+/obj/machinery/vending/engineering,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"ec" = (
+/obj/machinery/vending/engivend,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"ed" = (
+/obj/structure/cable/blue{
+	icon_state = "0-10"
+	},
+/obj/machinery/power/smes/batteryrack,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"ee" = (
+/obj/structure/cable/blue{
+	icon_state = "4-10"
+	},
+/obj/item/stock_parts/capacitor/adv,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"ef" = (
+/obj/structure/cable/blue{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"eg" = (
+/obj/structure/closet/radiation,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"eh" = (
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave/dorms)
+"ei" = (
+/turf/simulated/wall,
+/area/planet/forest/cave/dorms)
+"ej" = (
+/obj/structure/cable/blue{
+	icon_state = "2-4"
+	},
+/obj/structure/cable/blue{
+	icon_state = "2-9"
+	},
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8;
+	icon_state = "map-scrubbers"
+	},
+/obj/random/trash,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"ek" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/blue{
+	icon_state = "4-10"
+	},
+/obj/effect/spider/stickyweb,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"el" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"em" = (
+/obj/machinery/light,
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"en" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	icon_state = "map_vent_out"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"eo" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"ep" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/effect/spider/stickyweb,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"eq" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"er" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/effect/spider/stickyweb,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"es" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"et" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/blue{
+	icon_state = "4-9"
+	},
+/obj/effect/spider/stickyweb,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"eu" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/rust,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"ev" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/random/trash,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"ew" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"ex" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"ey" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"ez" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/rust/mono/high,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"eA" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1;
+	icon_state = "map-scrubbers"
+	},
+/obj/structure/cable/blue{
+	dir = 4;
+	icon_state = "2-10"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"eB" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8;
+	icon_state = "map-supply"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1;
+	icon_state = "map-scrubbers"
+	},
+/obj/effect/floor_decal/corner/gold/border{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"eC" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering Access";
+	req_access = list("ACCESS_ENGINEERING");
+	autoset_access = 0
+	},
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/engie)
+"eD" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 4;
+	icon_state = "pipe-j1"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"eE" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"eF" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/blue{
+	icon_state = "4-9"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"eG" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/random/trash,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"eH" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"eI" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	icon_state = "intact-supply"
+	},
+/obj/structure/disposalpipe/junction/yjunction{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"eJ" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"eK" = (
+/obj/structure/cable/blue{
+	icon_state = "5-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/item/stock_parts/capacitor/adv,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"eL" = (
+/obj/structure/cable/blue{
+	icon_state = "0-5"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"eM" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"eN" = (
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/dorms)
+"eO" = (
+/obj/structure/closet,
+/obj/random/accessory,
+/obj/random/cash,
+/obj/random/cash,
+/obj/random/clothing,
+/obj/random/clothing,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"eP" = (
+/obj/structure/closet,
+/obj/random/accessory,
+/obj/random/clothing,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"eQ" = (
+/obj/structure/closet,
+/obj/item/lipstick/random,
+/obj/random/accessory,
+/obj/random/advdevice,
+/obj/random/advdevice,
+/obj/random/clothing,
+/obj/random/hat,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"eR" = (
+/obj/structure/closet,
+/obj/random/accessory,
+/obj/random/action_figure,
+/obj/random/clothing,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor,
+/area/planet/forest/cave/dorms)
+"eS" = (
+/obj/structure/closet,
+/obj/random/accessory,
+/obj/random/contraband,
+/obj/random/clothing,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"eT" = (
+/obj/effect/floor_decal/rust,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/dorms)
+"eU" = (
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/blue{
+	icon_state = "5-10"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/dorms)
+"eV" = (
+/obj/effect/spider/stickyweb,
+/turf/simulated/wall,
+/area/planet/forest/cave/dorms)
+"eW" = (
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"eX" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"eY" = (
+/obj/machinery/light,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"eZ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"fa" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	icon_state = "map_vent_out"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"fb" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"fc" = (
+/obj/machinery/light,
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"fd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"fe" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/blue{
+	icon_state = "9-10"
+	},
+/obj/effect/floor_decal/corner/gold/border{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"ff" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = -22
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"fg" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"fh" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	icon_state = "map_vent_out"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"fi" = (
+/obj/item/cell/high,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"fj" = (
+/obj/structure/closet/secure_closet/engineering_welding,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"fk" = (
+/obj/random/trash,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"fl" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	icon_state = "map_vent_out"
+	},
+/turf/simulated/floor/carpet/blue2,
+/area/planet/forest/cave/dorms)
+"fm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/effect/spider/stickyweb,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/carpet/blue2,
+/area/planet/forest/cave/dorms)
+"fn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"fo" = (
+/obj/machinery/door/unpowered/simple/wood,
+/obj/structure/cable/blue{
+	icon_state = "4-10"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/dorms)
+"fp" = (
+/obj/structure/cable/blue{
+	icon_state = "5-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/dorms)
+"fq" = (
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/dorms)
+"fr" = (
+/obj/random/trash,
+/turf/simulated/wall,
+/area/planet/forest/cave/dorms)
+"fs" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/purple,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"ft" = (
+/obj/machinery/light/small{
+	dir = 1;
+	luminosity = 2
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"fu" = (
+/obj/machinery/light/small{
+	dir = 1;
+	luminosity = 2
+	},
+/obj/effect/floor_decal/rust/mono/medium,
+/turf/simulated/floor,
+/area/planet/forest/cave/dorms)
+"fv" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/yellow,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"fw" = (
+/obj/random/maintenance,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"fx" = (
+/obj/effect/floor_decal/rust/mono/high,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"fy" = (
+/turf/simulated/wall,
+/area/planet/forest/cave/kitchen)
+"fz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/blue{
+	icon_state = "2-5"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"fA" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/gold/border{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"fB" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 1;
+	icon_state = "pipe-t"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"fC" = (
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22
+	},
+/obj/structure/salvageable/machine,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"fD" = (
+/obj/structure/table/standard,
+/obj/machinery/cell_charger,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"fE" = (
+/obj/structure/table/rack,
+/obj/item/device/paint_sprayer,
+/obj/item/device/paint_sprayer,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"fF" = (
+/obj/structure/table/rack,
+/obj/random/toolbox,
+/obj/random/toolbox,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"fG" = (
+/obj/structure/closet/secure_closet/engineering_personal,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"fH" = (
+/obj/structure/closet/secure_closet/engineering_electrical,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"fJ" = (
+/obj/random/trash,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/carpet/blue2,
+/area/planet/forest/cave/dorms)
+"fK" = (
+/turf/simulated/floor,
+/area/planet/forest/cave/dorms)
+"fL" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1;
+	icon_state = "map_scrubber_on"
+	},
+/obj/effect/spider/stickyweb,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/carpet/blue2,
+/area/planet/forest/cave/dorms)
+"fM" = (
+/obj/machinery/power/apc{
+	dir = 4;
+	name = "east bump";
+	pixel_x = 24
+	},
+/obj/structure/cable/blue{
+	icon_state = "0-5"
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"fN" = (
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/dorms)
+"fO" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"fP" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
+	},
+/obj/effect/floor_decal/rust/mono/medium,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor,
+/area/planet/forest/cave/dorms)
+"fQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/blue2,
+/area/planet/forest/cave/dorms)
+"fR" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/carpet/blue2,
+/area/planet/forest/cave/dorms)
+"fS" = (
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"fT" = (
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"fU" = (
+/obj/structure/cable/blue{
+	icon_state = "2-6"
+	},
+/obj/random/trash,
+/obj/item/stool/bar/padded,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"fV" = (
+/obj/item/stool/bar/padded,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"fW" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/cable/blue{
+	icon_state = "0-2"
+	},
+/obj/structure/cable/blue{
+	icon_state = "2-10"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/kitchen)
+"fX" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/cable/blue{
+	icon_state = "6-10"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"fY" = (
+/obj/random/trash,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"fZ" = (
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1;
+	icon_state = "map_scrubber_on"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"ga" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/purple/border{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"gb" = (
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave/lab)
+"gc" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave/lab)
+"gd" = (
+/turf/simulated/wall/r_wall/false,
+/area/planet/forest/cave/lab)
+"ge" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/brown,
+/turf/simulated/floor,
+/area/planet/forest/cave/dorms)
+"gf" = (
+/obj/machinery/light,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/brown,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"gg" = (
+/obj/structure/bed/padded,
+/obj/effect/spider/stickyweb,
+/obj/item/bedsheet/orange,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"gh" = (
+/obj/structure/bed/padded,
+/obj/effect/spider/stickyweb,
+/obj/item/bedsheet/orange,
+/obj/item/bedsheet/orange,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"gi" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/obj/random/trash,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/dorms)
+"gj" = (
+/obj/structure/cable/blue{
+	icon_state = "1-10"
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/dorms)
+"gk" = (
+/obj/structure/closet/cabinet,
+/obj/item/haircomb/random,
+/obj/random/accessory,
+/obj/random/clothing,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"gl" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/item/flame/lighter/zippo/random,
+/obj/item/haircomb/random,
+/obj/random/toy,
+/obj/machinery/light_switch{
+	pixel_x = 5;
+	pixel_y = -27
+	},
+/obj/item/treasure/tape,
+/turf/simulated/floor,
+/area/planet/forest/cave/dorms)
+"gm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"gn" = (
+/obj/structure/closet/cabinet,
+/obj/item/lipstick/random,
+/obj/random/accessory,
+/obj/random/action_figure,
+/obj/random/clothing,
+/obj/random/hat,
+/obj/effect/decal/cleanable/filth,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/dorms)
+"go" = (
+/obj/structure/closet/cabinet,
+/obj/random/accessory,
+/obj/random/contraband,
+/obj/random/clothing,
+/turf/simulated/floor/wood/mahogany,
+/area/planet/forest/cave/dorms)
+"gp" = (
+/obj/structure/table/standard,
+/obj/structure/cable/blue{
+	icon_state = "1-10"
+	},
+/obj/effect/floor_decal/rust/mono/medium,
+/obj/item/paper,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"gq" = (
+/obj/structure/table/standard,
+/obj/random/trash,
+/obj/structure/cable/blue{
+	icon_state = "4-10"
+	},
+/obj/structure/cable/blue{
+	icon_state = "5-9"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"gr" = (
+/obj/structure/cable/blue{
+	icon_state = "6-10"
+	},
+/obj/structure/cable/blue{
+	icon_state = "1-5"
+	},
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/item/stool/bar/padded,
+/turf/simulated/floor,
+/area/planet/forest/cave/kitchen)
+"gs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/blue{
+	dir = 4;
+	icon_state = "1-10"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"gt" = (
+/obj/structure/table/standard,
+/obj/random/toy,
+/obj/structure/cable/blue{
+	icon_state = "6-9"
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"gu" = (
+/obj/structure/cable/blue{
+	icon_state = "1-6"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"gv" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/purple/border{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"gw" = (
+/obj/structure/sign/osha/biohazardsigns,
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave/lab)
+"gx" = (
+/obj/effect/floor_decal/corner/purple/three_quarters{
+	dir = 8;
+	icon_state = "corner_white_three_quarters"
+	},
+/obj/item/crowbar/nanotrasen,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"gy" = (
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 1
+	},
+/obj/structure/closet/secure_closet/scientist,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"gz" = (
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"gA" = (
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 1
+	},
+/obj/structure/closet/secure_closet/scientist,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"gB" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 1
+	},
+/obj/structure/cable/blue{
+	icon_state = "0-10"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"gC" = (
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 1
+	},
+/obj/structure/salvageable/machine_os,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"gD" = (
+/obj/effect/floor_decal/corner/purple/three_quarters{
+	dir = 1;
+	icon_state = "corner_white_three_quarters"
+	},
+/obj/structure/salvageable/machine_os,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"gE" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 1;
+	icon_state = "pipe-t"
+	},
+/turf/simulated/floor/carpet/purple,
+/area/planet/forest/cave/lab)
+"gF" = (
+/obj/structure/table/woodentable/ebony,
+/obj/machinery/light/small{
+	dir = 1;
+	luminosity = 2
+	},
+/obj/item/device/radio/off/old,
+/obj/item/paper_bin,
+/turf/simulated/floor/carpet/purple,
+/area/planet/forest/cave/lab)
+"gG" = (
+/obj/structure/table/woodentable/ebony,
+/obj/machinery/photocopier/faxmachine{
+	department = "???"
+	},
+/obj/effect/decal/cleanable/cobweb{
+	dir = 8;
+	icon_state = "cobweb1"
+	},
+/turf/simulated/floor/carpet/purple,
+/area/planet/forest/cave/lab)
+"gH" = (
+/obj/structure/sign/urist/deptsigns/sci{
+	dir = 4;
+	pixel_y = -1
+	},
+/obj/structure/sign/urist/deptsigns/eng{
+	dir = 4;
+	pixel_y = -7
+	},
+/obj/structure/sign/urist/deptsigns/sec{
+	dir = 1;
+	pixel_y = 11
+	},
+/obj/structure/sign/urist/deptsigns/med{
+	dir = 1;
+	pixel_y = 5
+	},
+/turf/simulated/wall,
+/area/planet/forest/cave/dorms)
+"gI" = (
+/obj/structure/cable/blue{
+	icon_state = "5-6"
+	},
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/dorms)
+"gJ" = (
+/obj/machinery/door/unpowered/simple/wood,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/dorms)
+"gK" = (
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"gL" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"gM" = (
+/obj/random/trash,
+/obj/structure/cable/blue{
+	icon_state = "2-5"
+	},
+/obj/item/stool/bar/padded,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"gN" = (
+/obj/structure/cable/blue{
+	icon_state = "5-6"
+	},
+/obj/structure/cable/blue{
+	icon_state = "2-5"
+	},
+/obj/item/stool/bar/padded,
+/obj/effect/spider/stickyweb,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"gO" = (
+/obj/effect/decal/cleanable/filth,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"gP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/blue{
+	icon_state = "9-10"
+	},
+/obj/structure/cable/blue{
+	icon_state = "2-9"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"gQ" = (
+/obj/structure/cable/blue{
+	icon_state = "2-9"
+	},
+/obj/item/stool/bar/padded,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"gR" = (
+/obj/structure/cable/blue{
+	icon_state = "6-9"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"gS" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/cable/blue{
+	icon_state = "5-6"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"gT" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8;
+	icon_state = "map-scrubbers"
+	},
+/obj/structure/cable/blue{
+	icon_state = "2-10"
+	},
+/obj/structure/cable/blue{
+	icon_state = "2-9"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/purple/border{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"gU" = (
+/obj/machinery/door/airlock/research{
+	name = "Research Division";
+	req_access = list("ACCESS_RESEARCH");
+	autoset_access = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/structure/cable/blue{
+	icon_state = "4-10"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/door/blast/regular{
+	dir = 8;
+	id_tag = "containment";
+	name = "Lab Containment Blast Door"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"gV" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/item/remains/human,
+/obj/effect/decal/cleanable/blood,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"gW" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/filth,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"gX" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1;
+	icon_state = "map-scrubbers"
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"gY" = (
+/obj/structure/cable/blue{
+	icon_state = "5-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/item/remains/xeno,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"gZ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1;
+	icon_state = "map-scrubbers"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"ha" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"hb" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/door/airlock/research{
+	name = "Research Director";
+	req_access = list("ACCESS_RESEARCH_DIRECTOR");
+	autoset_access = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/door/blast/regular{
+	dir = 8;
+	id_tag = "containment";
+	name = "Lab Containment Blast Door"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"hc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/carpet/purple,
+/area/planet/forest/cave/lab)
+"hd" = (
+/obj/structure/table/woodentable/ebony,
+/obj/item/pen/fancy,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/item/card/id/science/head{
+	access = list("ACCESS_RESEARCH")
+	},
+/obj/item/paper,
+/obj/item/toy/plushie/loot,
+/obj/item/pen/department/sci,
+/obj/item/pen/multi,
+/obj/structure/salvageable/personal,
+/turf/simulated/floor/carpet/purple,
+/area/planet/forest/cave/lab)
+"he" = (
+/obj/structure/bed/chair/office/comfy/beige{
+	dir = 8
+	},
+/mob/living/simple_animal/hostile/giant_spider/lurker,
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"hf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"hg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hh" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hi" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"hj" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hk" = (
+/obj/structure/cable/blue{
+	icon_state = "4-9"
+	},
+/obj/structure/cable/blue{
+	icon_state = "9-10"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hl" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"hm" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/blue{
+	dir = 8
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hn" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"ho" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hp" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hq" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"hr" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hs" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 4;
+	icon_state = "pipe-j1"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1;
+	icon_state = "map-scrubbers"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"ht" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hu" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"hv" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/cable/blue{
+	icon_state = "1-8"
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"hw" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/cable/blue{
+	icon_state = "1-6"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"hx" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/structure/cable/blue{
+	icon_state = "1-6"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1;
+	icon_state = "map-scrubbers"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/kitchen)
+"hy" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/cable/blue{
+	icon_state = "5-9"
+	},
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/obj/random/trash,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"hz" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/cable/blue{
+	icon_state = "1-10"
+	},
+/obj/random/trash,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"hA" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/structure/cable/blue{
+	icon_state = "1-10"
+	},
+/obj/effect/decal/cleanable/filth,
+/obj/effect/decal/cleanable/filth,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"hB" = (
+/obj/structure/disposalpipe/junction{
+	dir = 4;
+	icon_state = "pipe-j1"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"hC" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/structure/cable/blue{
+	icon_state = "4-9"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"hD" = (
+/obj/structure/cable/blue{
+	icon_state = "5-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"hE" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4;
+	initialize_directions = 11;
+	level = 1;
+	name = "pipe manifold"
+	},
+/obj/structure/cable/blue{
+	icon_state = "1-5"
+	},
+/obj/effect/floor_decal/corner/purple/border{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/filth,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hF" = (
+/obj/effect/floor_decal/corner/purple/three_quarters,
+/obj/item/remains/human,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"hG" = (
+/obj/effect/floor_decal/corner/purple/half,
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22
+	},
+/obj/machinery/light_switch{
+	pixel_x = -7;
+	pixel_y = -27
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	icon_state = "map_vent_out"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"hH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/remains/xeno,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"hI" = (
+/obj/effect/floor_decal/corner/purple/half,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"hJ" = (
+/obj/effect/floor_decal/corner/purple/half,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1;
+	icon_state = "map_scrubber_on"
+	},
+/obj/structure/closet/crate/trashcart,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"hK" = (
+/obj/effect/floor_decal/corner/purple/half,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"hL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"hM" = (
+/obj/effect/floor_decal/corner/purple/three_quarters{
+	dir = 4;
+	icon_state = "corner_white_three_quarters"
+	},
+/obj/structure/salvageable/console_broken_os,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"hN" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	icon_state = "map_vent_out"
+	},
+/obj/machinery/light_switch{
+	pixel_x = -7;
+	pixel_y = -27
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"hO" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1;
+	icon_state = "map_scrubber_on"
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/carpet/purple,
+/area/planet/forest/cave/lab)
+"hP" = (
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22
+	},
+/obj/machinery/button/blast_door{
+	pixel_x = 26;
+	pixel_y = 8;
+	id_tag = "secretlab"
+	},
+/obj/machinery/button/blast_door{
+	pixel_x = 26;
+	pixel_y = 8;
+	id_tag = "secretlab"
+	},
+/obj/machinery/button/blast_door{
+	pixel_x = 26;
+	pixel_y = -1;
+	id_tag = "containment"
+	},
+/turf/simulated/floor/carpet/purple,
+/area/planet/forest/cave/lab)
+"hQ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	icon_state = "map_vent_out"
+	},
+/obj/item/material/shard,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hR" = (
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"hS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/random/trash,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hT" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hU" = (
+/obj/structure/cable/blue{
+	icon_state = "5-10"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hW" = (
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"hX" = (
+/obj/random/trash,
+/obj/item/material/shard,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hY" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	icon_state = "map_vent_out"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"hZ" = (
+/obj/effect/floor_decal/rust/mono/medium,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"ia" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/blue{
+	icon_state = "4-9"
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"ib" = (
+/obj/structure/cable/blue{
+	icon_state = "5-8"
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"ic" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"id" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/purple/border{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"ie" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/door/airlock/research{
+	name = "Research and Development Lab"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"if" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/machinery/door/airlock/research{
+	name = "Genetics"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"ig" = (
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave/lobby)
+"ih" = (
+/obj/effect/wallframe_spawn/reinforced,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"ii" = (
+/obj/structure/grille/broken,
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"ij" = (
+/obj/machinery/door/airlock/multi_tile/research,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"ik" = (
+/obj/structure/cable/blue{
+	icon_state = "5-6"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"il" = (
+/obj/structure/grille/broken,
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"im" = (
+/obj/machinery/door/airlock{
+	name = "Toilet"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"in" = (
+/obj/structure/table/standard,
+/obj/random/trash,
+/turf/simulated/floor,
+/area/planet/forest/cave/kitchen)
+"io" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/item/stool/bar/padded,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"ip" = (
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"iq" = (
+/obj/random/trash,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"ir" = (
+/obj/random/maintenance,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"is" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 1;
+	icon_state = "pipe-t"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"it" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"iu" = (
+/obj/structure/flora/pottedplant/stoutbush,
+/obj/effect/floor_decal/corner/purple/three_quarters{
+	dir = 8;
+	icon_state = "corner_white_three_quarters"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"iv" = (
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 1
+	},
+/obj/machinery/light_switch{
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"iw" = (
+/obj/structure/table/standard,
+/obj/item/stack/material/phoron/ten,
+/obj/item/stack/material/steel/fifty,
+/obj/effect/floor_decal/corner/purple/three_quarters{
+	dir = 1;
+	icon_state = "corner_white_three_quarters"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"ix" = (
+/obj/effect/floor_decal/corner/purple/three_quarters{
+	dir = 8;
+	icon_state = "corner_white_three_quarters"
+	},
+/obj/machinery/alarm{
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"iy" = (
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/machinery/light_switch{
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"iz" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/structure/flora/pottedplant/smalltree,
+/obj/structure/cable/blue{
+	icon_state = "4-9"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/light_switch{
+	pixel_x = 0;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"iA" = (
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 1
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"iB" = (
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"iC" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/lobby)
+"iD" = (
+/obj/structure/flora/pottedplant/orientaltree,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"iE" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/item/paper_bin,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"iF" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/item/device/flashlight/lamp/green,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"iG" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"iH" = (
+/obj/structure/disposalpipe/junction/yjunction{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"iI" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/item/paper_bin,
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"iK" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 8;
+	icon_state = "pipe-t"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"iL" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
+	},
+/obj/item/material/shard{
+	icon_state = "medium"
+	},
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"iM" = (
+/obj/machinery/power/apc{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24
+	},
+/obj/structure/cable/blue{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"iN" = (
+/obj/structure/hygiene/sink{
+	dir = 1;
+	icon_state = "sink";
+	pixel_x = 0;
+	pixel_y = 20
+	},
+/obj/item/storage/mirror{
+	dir = 4;
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"iO" = (
+/obj/structure/hygiene/sink{
+	dir = 1;
+	icon_state = "sink";
+	pixel_x = 0;
+	pixel_y = 20
+	},
+/obj/item/storage/mirror{
+	dir = 4;
+	pixel_x = 0;
+	pixel_y = 32
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/kitchen)
+"iP" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"iQ" = (
+/obj/machinery/light_switch{
+	pixel_x = 22
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"iR" = (
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"iS" = (
+/turf/simulated/floor,
+/area/planet/forest/cave/kitchen)
+"iT" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1;
+	icon_state = "map_scrubber_on"
+	},
+/obj/machinery/light_switch{
+	pixel_x = -7;
+	pixel_y = -27
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"iU" = (
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/kitchen)
+"iV" = (
+/mob/living/simple_animal/hostile/giant_spider/hunter,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"iW" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	icon_state = "map_vent_out"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"iX" = (
+/obj/effect/decal/cleanable/filth,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"iY" = (
+/obj/machinery/r_n_d/server/core,
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"iZ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"ja" = (
+/obj/structure/table/standard,
+/obj/item/stack/material/glass/fifty,
+/obj/item/stack/material/uranium/ten,
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"jb" = (
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 8
+	},
+/obj/structure/salvageable/machine,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"jc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"jd" = (
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"je" = (
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"jf" = (
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"jg" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"jh" = (
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"ji" = (
+/obj/machinery/alarm{
+	dir = 4;
+	icon_state = "alarm0";
+	pixel_x = -22;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"jj" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"jk" = (
+/obj/random/trash,
+/turf/simulated/floor,
+/area/planet/forest/cave/lobby)
+"jl" = (
+/obj/structure/bed/chair/padded/yellow,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"jm" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/item/pen/red,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"jn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/random/trash,
+/obj/effect/floor_decal/rust/mono/high,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"jo" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/structure/salvageable/personal,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"jp" = (
+/obj/structure/bed/chair/padded/yellow{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"jq" = (
+/turf/simulated/floor,
+/area/planet/forest/cave/lobby)
+"jr" = (
+/obj/effect/floor_decal/rust/mono/high,
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"jt" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	icon_state = "map_vent_out"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"ju" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/kitchen)
+"jv" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/kitchen)
+"jw" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/flora/pottedplant/smalltree,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"jx" = (
+/obj/structure/table/standard,
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/obj/random/donkpocket_box,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"jy" = (
+/obj/machinery/door/airlock,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"jz" = (
+/obj/structure/sign/monkey_painting,
+/turf/simulated/wall,
+/area/planet/forest/cave/kitchen)
+"jA" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"jB" = (
+/obj/effect/wingrille_spawn/reinforced/full,
+/obj/machinery/door/blast/regular{
+	dir = 8;
+	id_tag = "containment";
+	name = "Lab Containment Blast Door"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lab)
+"jC" = (
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/obj/item/pen/blue,
+/obj/item/pen/blue,
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 8
+	},
+/obj/item/treasure/tape,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"jD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"jE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"jF" = (
+/obj/machinery/r_n_d/circuit_imprinter,
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 4
+	},
+/obj/item/treasure/tape,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"jG" = (
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 8
+	},
+/obj/structure/kitchenspike,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"jH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1;
+	icon_state = "map_scrubber_on"
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"jI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"jJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"jK" = (
+/obj/effect/decal/cleanable/blood,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/item/remains/xeno,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"jL" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"jM" = (
+/obj/structure/table/woodentable_reinforced,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"jN" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/item/pen,
+/obj/item/pen/blue,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"jO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/planet/forest/cave/lobby)
+"jP" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/item/device/flashlight/lamp/green,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"jQ" = (
+/obj/structure/table/woodentable_reinforced,
+/obj/item/pen,
+/obj/item/pen/blue,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"jR" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"jS" = (
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/kitchen)
+"jT" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"jU" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8;
+	icon_state = "map_scrubber_on"
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/kitchen)
+"jV" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/clothing/head/fedora,
+/obj/item/remains/human,
+/turf/simulated/floor/tiled/freezer,
+/area/planet/forest/cave/kitchen)
+"jW" = (
+/obj/effect/floor_decal/rust,
+/turf/simulated/floor,
+/area/planet/forest/cave/kitchen)
+"jX" = (
+/obj/structure/hygiene/sink{
+	dir = 1;
+	icon_state = "sink";
+	pixel_x = 0;
+	pixel_y = 20
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/kitchen)
+"jY" = (
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/kitchen)
+"jZ" = (
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/kitchen)
+"ka" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 8
+	},
+/obj/structure/salvageable/personal,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"kb" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"kc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"kd" = (
+/obj/machinery/r_n_d/destructive_analyzer,
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"ke" = (
+/obj/structure/table/standard,
+/obj/item/material/knife/hook,
+/obj/item/treasure/tape,
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"kf" = (
+/obj/structure/table/standard,
+/obj/item/clothing/shoes/urist/unathiboots/green,
+/obj/item/clothing/shoes/urist/unathiboots/green,
+/obj/item/clothing/shoes/urist/unathiboots/green,
+/obj/item/clothing/shoes/urist/unathiboots,
+/obj/item/clothing/suit/storage/urist/coat/tajcoat,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"kg" = (
+/obj/structure/table/standard,
+/obj/item/clothing/suit/storage/urist/coat/tajcoat,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"kh" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"ki" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"kj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"kk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"kl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"km" = (
+/obj/effect/floor_decal/ntlogo{
+	dir = 1;
+	icon_state = "ntlogo"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor,
+/area/planet/forest/cave/lobby)
+"kn" = (
+/obj/effect/floor_decal/ntlogo{
+	dir = 8;
+	icon_state = "ntlogo"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"ko" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/random/trash,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"kp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/effect/decal/cleanable/filth,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"kq" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"kr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"ks" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"kt" = (
+/obj/machinery/door/airlock{
+	name = "Unit 1"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"ku" = (
+/obj/machinery/door/airlock{
+	name = "Unit 2"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"kv" = (
+/obj/machinery/door/airlock{
+	name = "Unit 3"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"kw" = (
+/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/item/shellfish/clam,
+/obj/item/shellfish/clam,
+/obj/item/shellfish/clam,
+/obj/item/shellfish/clam,
+/turf/simulated/floor/tiled/freezer,
+/area/planet/forest/cave/kitchen)
+"kx" = (
+/mob/living/simple_animal/hostile/giant_spider,
+/turf/simulated/floor,
+/area/planet/forest/cave/kitchen)
+"ky" = (
+/obj/machinery/door/airlock/freezer{
+	name = "Kitchen Cold Room"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/kitchen)
+"kz" = (
+/obj/structure/table/standard,
+/obj/machinery/reagent_temperature/cooler,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/kitchen)
+"kA" = (
+/obj/structure/table/standard,
+/obj/machinery/computer/rdconsole/old,
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"kB" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1;
+	icon_state = "map_scrubber_on"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"kC" = (
+/obj/machinery/r_n_d/protolathe,
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"kD" = (
+/obj/structure/grille/broken,
+/obj/item/material/shard{
+	icon_state = "medium"
+	},
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"kE" = (
+/obj/random/trash,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"kF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor,
+/area/planet/forest/cave/lobby)
+"kG" = (
+/obj/effect/floor_decal/rust/mono/medium,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"kH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor,
+/area/planet/forest/cave/lobby)
+"kI" = (
+/obj/effect/floor_decal/ntlogo,
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"kJ" = (
+/obj/effect/floor_decal/ntlogo{
+	dir = 4;
+	icon_state = "ntlogo"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/lobby)
+"kK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/random/trash,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"kL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"kM" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8;
+	icon_state = "map_scrubber_on"
+	},
+/turf/simulated/floor,
+/area/planet/forest/cave/lobby)
+"kN" = (
+/obj/structure/hygiene/toilet{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"kO" = (
+/obj/structure/hygiene/shower{
+	dir = 4;
+	icon_state = "shower";
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"kP" = (
+/obj/machinery/light/small,
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/shellfish/crab,
+/obj/item/shellfish/crab,
+/obj/item/shellfish/crab,
+/obj/item/shellfish/crab,
+/obj/item/shellfish/shrimp,
+/obj/item/shellfish/shrimp,
+/obj/item/shellfish/shrimp,
+/obj/item/shellfish/shrimp,
+/obj/item/shellfish/shrimp,
+/obj/item/shellfish/shrimp,
+/obj/item/shellfish/shrimp,
+/turf/simulated/floor,
+/area/planet/forest/cave/kitchen)
+"kQ" = (
+/turf/simulated/floor/tiled/freezer,
+/area/planet/forest/cave/kitchen)
+"kR" = (
+/obj/machinery/chem_master/condimaster,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/kitchen)
+"kS" = (
+/obj/machinery/light,
+/obj/structure/table/standard,
+/obj/machinery/reagentgrinder,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/kitchen)
+"kT" = (
+/obj/structure/table/standard,
+/obj/machinery/microwave,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/kitchen)
+"kU" = (
+/obj/structure/flora/pottedplant/stoutbush,
+/obj/effect/floor_decal/corner/purple/three_quarters,
+/obj/effect/decal/cleanable/cobweb{
+	dir = 4;
+	icon_state = "cobweb1"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"kV" = (
+/obj/effect/floor_decal/corner/purple/half,
+/obj/machinery/alarm{
+	dir = 1;
+	icon_state = "alarm0";
+	pixel_y = -22
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"kW" = (
+/obj/structure/reagent_dispensers/acid{
+	density = 0;
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/corner/purple/half,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"kX" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/effect/floor_decal/corner/purple/three_quarters{
+	dir = 4;
+	icon_state = "corner_white_three_quarters"
+	},
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"kY" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	icon_state = "map_vent_out"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"kZ" = (
+/obj/effect/decal/cleanable/filth,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"la" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1;
+	icon_state = "map_scrubber_on"
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"lb" = (
+/obj/effect/floor_decal/rust/mono/high,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"lc" = (
+/turf/simulated/wall/r_wall,
+/area/planet/forest/cave/kitchen)
+"ld" = (
+/obj/structure/flora/pottedplant/thinbush,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"le" = (
+/obj/structure/bed/chair/couch/left/beige{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"lf" = (
+/obj/structure/bed/chair/couch/middle/beige{
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"lg" = (
+/obj/structure/bed/chair/couch/right/beige{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"lh" = (
+/obj/machinery/vending/snack,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"li" = (
+/obj/machinery/vending/cola,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"lj" = (
+/obj/machinery/door/airlock/multi_tile/research,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/lobby)
+"lk" = (
+/obj/structure/girder,
+/turf/simulated/floor,
+/area/planet/forest/cave)
+"ll" = (
+/turf/simulated/floor,
+/area/planet/forest/cave)
+"lm" = (
+/obj/structure/closet/crate/secure/boobytrapped/weapon,
+/obj/item/gun/projectile/automatic/battlerifle,
+/obj/item/ammo_magazine/mil_rifle/heavy,
+/obj/item/ammo_magazine/mil_rifle/heavy,
+/turf/simulated/floor,
+/area/planet/forest/cave)
+"ln" = (
+/obj/effect/overmap/visitable/sector/planetoid/caraway_forest,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"lo" = (
+/obj/structure/boulder,
+/turf/simulated/floor,
+/area/planet/forest/cave)
+"lp" = (
+/obj/effect/decal/cleanable/filth,
+/obj/machinery/door/unpowered/simple/wood,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"lq" = (
+/obj/structure/boulder,
+/obj/structure/girder,
+/turf/simulated/floor,
+/area/planet/forest/cave)
+"lr" = (
+/obj/item/storage/backpack/satchel/syndie_kit/clerical,
+/obj/item/remains/human,
+/turf/simulated/floor,
+/area/planet/forest/cave)
+"ls" = (
+/obj/item/reagent_containers/food/drinks/bottle/whiskey,
+/obj/item/storage/fancy/smokable/urist/uplift,
+/turf/simulated/floor,
+/area/planet/forest/cave)
+"lt" = (
+/turf/simulated/mineral,
+/area/planet/forest/cave)
+"lu" = (
+/obj/item/broken_bottle,
+/obj/item/broken_bottle,
+/obj/item/broken_bottle,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"lv" = (
+/obj/structure/bed/chair/wood/maple,
+/obj/item/remains/human,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"lw" = (
+/obj/item/trash/cigbutt,
+/obj/item/trash/cigbutt,
+/obj/item/trash/cigbutt,
+/obj/item/trash/cigbutt,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"lx" = (
+/obj/item/trash/cigbutt,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"ly" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/bottle/vodka,
+/obj/item/reagent_containers/food/drinks/bottle/vodka,
+/obj/item/storage/fancy/smokable/urist/carp,
+/obj/item/flame/lighter/zippo/vanity/red,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"lz" = (
+/obj/machinery/door/unpowered/simple/ebony,
+/turf/simulated/floor/wood/ebony,
+/area/planet/forest/cave)
+"lA" = (
+/obj/structure/bed/chair/wood/mahogany,
+/mob/living/simple_animal/hostile/urist/vampire{
+	faction = "unholy";
+	health = 25
+	},
+/turf/simulated/floor/wood/ebony,
+/area/planet/forest/cave)
+"lB" = (
+/turf/simulated/floor/wood/ebony,
+/area/planet/forest/cave)
+"lC" = (
+/obj/structure/bed/chair/wood/mahogany,
+/turf/simulated/floor/wood/ebony,
+/area/planet/forest/cave)
+"lD" = (
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/wood/ebony,
+/area/planet/forest/cave)
+"lE" = (
+/obj/item/reagent_containers/food/drinks/bottle/specialwhiskey,
+/turf/simulated/floor,
+/area/planet/forest/cave)
+"lF" = (
+/obj/structure/bed/chair/wood/mahogany{
+	dir = 8;
+	icon_state = "wooden_chair_preview"
+	},
+/turf/simulated/floor/wood/ebony,
+/area/planet/forest/cave)
+"lG" = (
+/obj/structure/cult/talisman,
+/obj/item/reagent_containers/food/drinks/bottle/premiumwine,
+/turf/simulated/floor/wood/ebony,
+/area/planet/forest/cave)
+"lH" = (
+/mob/living/simple_animal/hostile/urist/angel/angry{
+	faction = "unholy"
+	},
+/turf/simulated/floor/wood/ebony,
+/area/planet/forest/cave)
+"lI" = (
+/obj/structure/bed/chair/wood/mahogany{
+	dir = 8;
+	icon_state = "wooden_chair_preview"
+	},
+/mob/living/simple_animal/hostile/urist/vampire{
+	faction = "unholy";
+	health = 25
+	},
+/turf/simulated/floor/wood/ebony,
+/area/planet/forest/cave)
+"lJ" = (
+/turf/simulated/mineral/random/high_chance/planet,
+/area/planet/forest/cave)
+"lK" = (
+/obj/random/trash,
+/turf/unsimulated/mask,
+/area/planet/forest/cave)
+"lL" = (
+/obj/item/reagent_containers/food/drinks/bottle/whiskey,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"lM" = (
+/obj/structure/stairs/wood{
+	dir = 1
+	},
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"lN" = (
+/obj/item/device/flashlight/lamp/floodlamp,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"lO" = (
+/turf/simulated/floor/planet/jungle/rock,
+/area/planet/forest/cave)
+"mq" = (
+/obj/structure/grille/broken,
+/obj/item/material/shard,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"qP" = (
+/obj/structure/table/standard,
+/obj/structure/salvageable/television,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/kitchen)
+"sT" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"tC" = (
+/obj/item/storage/ore,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"xI" = (
+/obj/effect/decal/cleanable/blood,
+/obj/structure/salvageable/computer,
+/turf/simulated/floor,
+/area/planet/forest/cave/lab)
+"yv" = (
+/obj/structure/closet/crate/secure,
+/obj/item/stock_parts/matter_bin/adv,
+/obj/item/stock_parts/matter_bin/adv,
+/obj/item/stock_parts/matter_bin/adv,
+/obj/item/stock_parts/matter_bin/adv,
+/obj/item/stock_parts/matter_bin/adv,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/manipulator/nano,
+/obj/item/stock_parts/manipulator/nano,
+/obj/item/stock_parts/manipulator/nano,
+/obj/item/stock_parts/manipulator/nano,
+/obj/item/stock_parts/manipulator/nano,
+/obj/item/stock_parts/circuitboard/body_scanconsole,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/scanning_module/adv,
+/obj/item/stock_parts/scanning_module/adv,
+/obj/item/stock_parts/scanning_module/adv,
+/obj/item/stock_parts/scanning_module/adv,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"Ae" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor,
+/area/planet/forest/cave/hall)
+"Ao" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/structure/salvageable/console_broken_os,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"DH" = (
+/obj/item/clothing/glasses/eyepatch/hud/meson,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"FE" = (
+/obj/effect/decal/cleanable/blood,
+/obj/structure/salvageable/server,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"Hn" = (
+/obj/structure/grille/broken,
+/obj/item/material/shard,
+/obj/item/material/shard,
+/obj/item/material/shard,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"Ir" = (
+/obj/structure/salvageable/computer_os,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"Mm" = (
+/obj/effect/floor_decal/corner/purple/three_quarters{
+	dir = 4;
+	icon_state = "corner_white_three_quarters"
+	},
+/obj/random/junk,
+/obj/structure/salvageable/data,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"MK" = (
+/obj/structure/grille/broken,
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"NZ" = (
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 4
+	},
+/obj/item/remains/xeno,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"Oy" = (
+/obj/effect/decal/remains,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"OB" = (
+/obj/effect/spider/stickyweb,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/dorms)
+"PL" = (
+/obj/item/stock_parts/circuitboard/arcade/orion_trail,
+/turf/simulated/floor/tiled/dark,
+/area/planet/forest/cave/engie)
+"Qr" = (
+/obj/effect/decal/cleanable/filth,
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/tiled,
+/area/planet/forest/cave/hall)
+"Sz" = (
+/obj/effect/floor_decal/corner/purple/three_quarters{
+	dir = 1;
+	icon_state = "corner_white_three_quarters"
+	},
+/obj/structure/largecrate/animal/cow,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"SG" = (
+/obj/item/pickaxe/jackhammer,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"Tu" = (
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 1
+	},
+/obj/structure/largecrate/animal/chick,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"Ul" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/salvageable/machine_os,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"Vj" = (
+/obj/effect/floor_decal/corner/purple/half{
+	dir = 1
+	},
+/obj/structure/salvageable/bliss,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/lab)
+"VG" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/salvageable/machine,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"VZ" = (
+/obj/effect/floor_decal/rust/mono/high,
+/obj/structure/salvageable/autolathe,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"Ws" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/salvageable/autolathe,
+/turf/simulated/floor,
+/area/planet/forest/cave/engie)
+"WS" = (
+/obj/item/device/multitool,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+"Xl" = (
+/obj/structure/table/standard,
+/obj/machinery/reagent_temperature,
+/turf/simulated/floor/tiled/white,
+/area/planet/forest/cave/kitchen)
+"Zk" = (
+/obj/structure/ore_box,
+/turf/simulated/floor/asteroid/planet,
+/area/planet/forest/cave)
+
+(1,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(2,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(3,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(4,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(5,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(6,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(7,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(8,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(9,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+av
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(10,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+al
+ap
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+aq
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(11,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(12,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+al
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(13,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+av
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+am
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+al
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(14,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+al
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(15,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+al
+al
+ak
+al
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+al
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(16,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+al
+ak
+lK
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(17,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+al
+al
+ak
+ak
+al
+al
+ak
+ak
+al
+SG
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+am
+al
+al
+al
+al
+ak
+ak
+ak
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(18,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+aB
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ap
+al
+ak
+ak
+ak
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(19,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+Oy
+al
+ak
+ak
+ak
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(20,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+am
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(21,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+al
+al
+ak
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+am
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(22,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(23,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(24,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(25,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(26,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(27,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+am
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+al
+aE
+aE
+aE
+al
+al
+al
+al
+bL
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+am
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(28,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+al
+al
+ak
+am
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+aE
+aE
+aE
+aE
+aE
+aE
+aE
+aE
+aE
+ig
+ig
+ig
+ih
+ih
+kD
+ig
+ig
+ig
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(29,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+al
+an
+am
+am
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+aE
+eh
+eh
+eh
+eh
+eh
+eh
+cv
+cs
+ig
+iB
+ji
+jq
+kh
+kE
+iB
+ld
+ig
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+al
+an
+an
+an
+an
+an
+an
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(30,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+al
+ao
+am
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+aE
+aE
+aE
+aE
+aE
+aE
+aE
+aE
+aE
+eh
+eO
+fk
+fO
+ae
+eh
+cs
+fx
+ih
+iC
+jj
+jL
+ki
+kF
+kY
+le
+ih
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+an
+lA
+lB
+lB
+lH
+an
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(31,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+al
+am
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+aE
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+eh
+eP
+af
+fJ
+ge
+eh
+cs
+cs
+ih
+iD
+jk
+jM
+kj
+kG
+kZ
+lf
+ih
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+lz
+lB
+lB
+lG
+lB
+an
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(32,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+am
+am
+aq
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+aE
+aH
+aM
+bl
+bM
+cr
+cN
+dl
+dE
+ei
+eQ
+fl
+fK
+gf
+ei
+hf
+hQ
+ii
+iE
+jl
+jo
+kk
+kH
+la
+lg
+ih
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+an
+lC
+lB
+lB
+lB
+an
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(33,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+aE
+aH
+aN
+bm
+bN
+cr
+cO
+dm
+bN
+ei
+eR
+fm
+fL
+gg
+ei
+hg
+hR
+ig
+iF
+jm
+jN
+kl
+kE
+iB
+lh
+ig
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+an
+lD
+lF
+lB
+lI
+an
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(34,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+aE
+aH
+aO
+bn
+bO
+cr
+cP
+dn
+dF
+ei
+eS
+fn
+fM
+gh
+ei
+hh
+hS
+ij
+iG
+jn
+jO
+km
+kI
+lb
+iB
+lj
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+an
+an
+an
+lz
+an
+an
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(35,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aH
+aP
+bo
+bP
+cr
+aP
+do
+dG
+ei
+ei
+fo
+ei
+ei
+gH
+hi
+hT
+ik
+iH
+iB
+jq
+kn
+kJ
+iB
+jq
+iB
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(36,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aH
+aQ
+bp
+cA
+cs
+cs
+dp
+dH
+cs
+eT
+fp
+eN
+gi
+gI
+hj
+hU
+ig
+iz
+jo
+jP
+ko
+jq
+kZ
+li
+ig
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(37,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aH
+aR
+bq
+bR
+ct
+cQ
+dq
+dI
+ej
+eU
+fq
+fN
+gj
+OB
+hk
+hV
+ih
+iI
+jp
+jQ
+kp
+iB
+iB
+le
+ih
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(38,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aH
+aH
+aH
+aH
+aH
+aH
+dr
+dJ
+ek
+ei
+fr
+ei
+ei
+ei
+hl
+eW
+ih
+iK
+iB
+jm
+kq
+kK
+kE
+lf
+ih
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(39,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aH
+aH
+br
+bS
+cu
+cR
+ds
+dK
+el
+ei
+fs
+fO
+gk
+ei
+hm
+hW
+il
+iL
+jq
+jR
+kr
+kL
+iB
+lg
+ih
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(40,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aH
+aH
+bs
+bS
+cv
+cS
+aH
+dL
+em
+ei
+ft
+fP
+gl
+ei
+hn
+hX
+ig
+iM
+jr
+jq
+ks
+kM
+iB
+ld
+ig
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+al
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(41,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aH
+aH
+aH
+aH
+cs
+cT
+lp
+dM
+en
+ei
+fs
+fQ
+gm
+gJ
+ho
+dt
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+ig
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(42,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+dL
+ey
+ei
+fu
+fR
+gn
+ei
+hp
+aQ
+fy
+iN
+fT
+fT
+kt
+kN
+lc
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(43,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aI
+aS
+bt
+bT
+cw
+cU
+aI
+dN
+ep
+ei
+fv
+fS
+go
+ei
+hq
+hY
+fy
+iO
+jt
+jS
+fy
+fy
+lc
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(44,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aI
+aT
+bu
+bU
+cx
+cV
+aI
+dO
+eq
+eV
+ei
+ei
+ei
+ei
+hr
+fx
+fy
+iN
+ju
+jT
+ku
+kN
+lc
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(45,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aI
+aU
+bv
+bV
+cy
+cW
+du
+dN
+er
+eW
+fw
+aQ
+cs
+gK
+hs
+bR
+im
+iP
+jv
+jU
+fy
+fy
+lc
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(46,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aI
+aV
+bw
+bW
+cz
+cX
+dv
+dP
+es
+eW
+fx
+cs
+cs
+gL
+ht
+cs
+fy
+iQ
+jw
+fT
+kv
+kO
+lc
+aE
+al
+ln
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(47,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+av
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aI
+aW
+bx
+bX
+bv
+cY
+aI
+dQ
+et
+eW
+fy
+fy
+fy
+fy
+hu
+fy
+fy
+fy
+fy
+fy
+fy
+fy
+lc
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(48,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aI
+aX
+by
+bY
+cB
+cZ
+aI
+dN
+eu
+eX
+fy
+fT
+fV
+ag
+hv
+fT
+fV
+iR
+fy
+jV
+kw
+kP
+lc
+aE
+bL
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(49,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aI
+aI
+aI
+aI
+aI
+aI
+aI
+dR
+ev
+eY
+fy
+fU
+gp
+gM
+hw
+hZ
+in
+iS
+fy
+jW
+kx
+kQ
+lc
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(50,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+av
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aJ
+aY
+bz
+bZ
+cC
+da
+aJ
+dS
+ey
+eZ
+fy
+fV
+gq
+gN
+hx
+ia
+io
+iT
+fy
+fy
+ky
+fy
+lc
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(51,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ap
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aJ
+aZ
+bA
+ca
+cD
+yv
+aJ
+dT
+ey
+eZ
+fy
+fW
+gr
+gO
+hy
+aa
+ip
+fT
+jx
+iS
+iS
+kR
+lc
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+al
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(52,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aJ
+aZ
+bB
+cb
+cE
+db
+aJ
+dU
+ew
+fa
+fy
+fX
+gs
+gP
+hz
+ib
+iq
+iU
+fy
+jX
+jY
+kS
+lc
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+al
+ak
+al
+al
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(53,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aJ
+ba
+PL
+cc
+cF
+dc
+dw
+dV
+ex
+fb
+fy
+qP
+gt
+gQ
+hA
+gO
+ir
+fT
+jy
+jY
+iS
+Xl
+lc
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+al
+ak
+al
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(54,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aJ
+bb
+bC
+cd
+cG
+dd
+aJ
+dW
+ey
+fc
+fy
+fY
+fV
+gR
+hB
+ic
+is
+iV
+jz
+jZ
+kz
+kT
+lc
+aE
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(55,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aJ
+bc
+bD
+ce
+bA
+de
+aJ
+Ao
+ez
+cs
+fy
+fy
+fy
+fy
+hC
+fy
+fy
+fy
+fy
+fy
+fy
+fy
+lc
+aE
+al
+al
+al
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(56,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aJ
+bd
+bA
+cf
+cH
+df
+aJ
+Ao
+eA
+fd
+fz
+fZ
+gu
+gS
+hD
+dt
+dt
+iW
+jA
+cs
+sT
+Qr
+aH
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+am
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(57,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aJ
+be
+bE
+cg
+bC
+dg
+aJ
+dX
+eB
+fe
+fA
+ga
+gv
+gT
+hE
+id
+it
+iX
+cs
+bQ
+Qr
+Ae
+aH
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+am
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+al
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(58,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aJ
+bf
+MK
+ch
+mq
+Hn
+aJ
+aJ
+eC
+aJ
+aJ
+gb
+gw
+gU
+gw
+gb
+gb
+gb
+jB
+jB
+jB
+gb
+gb
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+al
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+Oy
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(59,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aJ
+bg
+bF
+ci
+cI
+cI
+dx
+cK
+eD
+ff
+fB
+gb
+gx
+gV
+hF
+gb
+iu
+iY
+jC
+ka
+kA
+kU
+gb
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+ap
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(60,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aJ
+bh
+bG
+cj
+cJ
+dh
+dy
+dY
+eE
+fg
+VZ
+gb
+gy
+gW
+hG
+gb
+iv
+iZ
+jD
+kb
+kB
+kV
+gb
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+am
+am
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(61,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aJ
+bh
+bH
+ck
+cK
+di
+dz
+dZ
+eF
+cK
+fC
+gb
+gz
+gX
+hH
+ie
+hL
+hL
+jE
+kc
+jd
+kW
+gb
+aE
+al
+al
+al
+ak
+ak
+ak
+lu
+lx
+al
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(62,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+aC
+aF
+aK
+bi
+bI
+cl
+cI
+dj
+dj
+cI
+eG
+dj
+ah
+gb
+gA
+gY
+hI
+gb
+iw
+ja
+jF
+kd
+kC
+kX
+gb
+aE
+al
+al
+al
+ak
+ak
+ak
+lv
+ly
+al
+al
+ak
+ak
+ak
+ak
+aq
+al
+ak
+ak
+ak
+al
+am
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(63,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+al
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aJ
+bj
+bJ
+cm
+cJ
+dk
+dA
+dk
+eH
+cI
+fD
+gb
+gB
+eo
+hJ
+gb
+gb
+gb
+gb
+gb
+gb
+gb
+gb
+aE
+al
+al
+al
+ak
+ak
+ak
+lw
+lw
+al
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(64,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+aD
+aG
+aL
+ad
+Ws
+cn
+ad
+VG
+dB
+ea
+eI
+fh
+fE
+gb
+gA
+ha
+hK
+gb
+ix
+jb
+jG
+jd
+gb
+gb
+aE
+aE
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(65,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aJ
+bk
+bk
+bk
+bk
+bk
+bk
+eb
+eJ
+dj
+fF
+gb
+gC
+gZ
+hL
+if
+hL
+jc
+jH
+ke
+gb
+gb
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(66,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+aE
+aJ
+bk
+bk
+bk
+bk
+bk
+bk
+ec
+eK
+cI
+fG
+gb
+gD
+ac
+hM
+gb
+iy
+jd
+jI
+kf
+gb
+gb
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+aq
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(67,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+aE
+aJ
+bk
+bK
+cI
+cL
+bk
+bk
+ed
+eL
+cK
+fG
+gb
+gb
+hb
+gb
+gb
+Vj
+je
+jJ
+kg
+gb
+gb
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+al
+al
+al
+al
+al
+al
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(68,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+al
+ak
+ak
+ak
+lt
+lt
+lt
+lt
+lt
+lt
+lt
+lt
+lt
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+aE
+aJ
+bk
+bK
+cI
+cL
+bk
+dC
+ee
+eM
+ad
+Ul
+gc
+gE
+hc
+hN
+gb
+iA
+jf
+jJ
+xI
+gb
+gb
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(69,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+al
+ak
+ak
+ak
+lt
+ar
+al
+al
+al
+al
+al
+ax
+lt
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+aE
+aJ
+bk
+bK
+cI
+cI
+cM
+dD
+ef
+cI
+fi
+cI
+gd
+gF
+hd
+hO
+gb
+Tu
+jg
+jK
+FE
+gb
+gb
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(70,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+al
+ak
+ak
+ak
+lt
+as
+al
+al
+al
+al
+al
+ay
+lt
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+aE
+aJ
+bk
+bk
+bk
+bk
+bk
+dC
+eg
+Ir
+fj
+fH
+gb
+gG
+he
+hP
+gb
+Sz
+NZ
+jh
+Mm
+gb
+gb
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+al
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+al
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(71,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+al
+al
+ak
+ak
+ak
+lt
+lt
+lt
+av
+al
+aw
+lt
+lt
+lt
+ak
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+aE
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+aJ
+gb
+gb
+gb
+gb
+gb
+gb
+gb
+gb
+gb
+gb
+gb
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+al
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(72,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+al
+ak
+ak
+ak
+ak
+lt
+lt
+lt
+aw
+aw
+al
+lt
+lt
+lt
+ak
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+aE
+aE
+aE
+aE
+aE
+aE
+aE
+aE
+aE
+aE
+aE
+aE
+gb
+gb
+gb
+gb
+gb
+gb
+gb
+gb
+gb
+gb
+gb
+al
+al
+al
+al
+al
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(73,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+al
+ak
+ak
+ak
+ak
+lt
+at
+al
+al
+al
+al
+al
+az
+lt
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+al
+al
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(74,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+al
+ak
+ak
+ak
+ak
+lt
+lt
+lt
+al
+al
+av
+lt
+lt
+lt
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+ak
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+al
+al
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(75,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+al
+ak
+ak
+ak
+ak
+lt
+lt
+lt
+lt
+al
+lt
+lt
+lt
+lt
+ak
+ak
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(76,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+al
+ak
+ak
+ak
+ak
+lt
+au
+al
+al
+al
+aw
+al
+aA
+lt
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(77,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+al
+ak
+ak
+ak
+ak
+lt
+lt
+lt
+aw
+al
+al
+lt
+lt
+lt
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(78,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+al
+ak
+ak
+ak
+ak
+lt
+lt
+lt
+lt
+al
+lt
+lt
+lt
+lt
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(79,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(80,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(81,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ap
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+DH
+ak
+ak
+ak
+ak
+ak
+ak
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(82,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+lJ
+lJ
+lJ
+ak
+al
+ab
+ak
+ak
+ak
+ak
+ab
+ab
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(83,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+bL
+al
+al
+al
+al
+al
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ab
+ak
+ak
+ak
+ak
+ab
+ab
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(84,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+al
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ab
+ak
+ak
+ak
+ak
+al
+ab
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(85,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+al
+ak
+ak
+ap
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+al
+al
+ab
+ab
+ab
+ab
+al
+al
+ab
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(86,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+ab
+ab
+al
+al
+al
+ab
+ab
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(87,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+Oy
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+DH
+al
+al
+al
+ab
+ab
+ab
+ab
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(88,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(89,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(90,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+lk
+av
+lo
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(91,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ll
+ll
+lq
+lo
+ak
+ak
+ak
+ak
+ak
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+al
+ak
+ak
+al
+al
+al
+al
+al
+ab
+ab
+ab
+ab
+ab
+lL
+al
+al
+al
+ab
+ab
+ab
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(92,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+ak
+ak
+ak
+al
+al
+al
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+Oy
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ll
+lo
+lr
+lo
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+lJ
+lJ
+ab
+ab
+ab
+ab
+ab
+ab
+an
+lM
+lM
+WS
+ab
+ab
+ab
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(93,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+al
+al
+al
+al
+al
+al
+al
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ll
+lo
+lq
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+lJ
+lJ
+ab
+ab
+ab
+ab
+ab
+ab
+Zk
+tC
+lN
+al
+ab
+ab
+ab
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(94,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+lm
+ls
+lE
+lo
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+lJ
+lJ
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+lO
+lO
+lO
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(95,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(96,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(97,1,1) = {"
+ai
+ai
+ai
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+aj
+ai
+ai
+ai
+"}
+(98,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(99,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}
+(100,1,1) = {"
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+ai
+"}

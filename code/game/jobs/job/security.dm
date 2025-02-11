@@ -14,14 +14,10 @@
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
 			            access_bridge, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks)
-	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_heads,
-			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
-			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
-			            access_bridge, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks)
 	minimal_player_age = 14
-	outfit_type = /decl/hierarchy/outfit/job/security/hos
+	outfit_type = /singleton/hierarchy/outfit/job/security/hos
 
-/datum/job/hos/equip(var/mob/living/carbon/human/H)
+/datum/job/hos/equip(mob/living/carbon/human/H)
 	. = ..()
 	if(.)
 		H.implant_loyalty(H)
@@ -37,9 +33,8 @@
 	selection_color = "#601c1c"
 	economic_power = 5
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_morgue, access_external_airlocks)
-	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory, access_maint_tunnels, access_external_airlocks)
 	minimal_player_age = 7
-	outfit_type = /decl/hierarchy/outfit/job/security/warden
+	outfit_type = /singleton/hierarchy/outfit/job/security/warden
 
 /datum/job/detective
 	title = "Detective"
@@ -50,12 +45,11 @@
 	spawn_positions = 2
 	supervisors = "the head of security"
 	selection_color = "#601c1c"
-	alt_titles = list("Forensic Technician" = /decl/hierarchy/outfit/job/security/detective/forensic)
+	alt_titles = list("Forensic Technician" = /singleton/hierarchy/outfit/job/security/detective/forensic)
 	economic_power = 5
 	access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels)
-	minimal_access = list(access_security, access_sec_doors, access_forensics_lockers, access_morgue, access_maint_tunnels)
 	minimal_player_age = 7
-	outfit_type = /decl/hierarchy/outfit/job/security/detective
+	outfit_type = /singleton/hierarchy/outfit/job/security/detective
 
 /datum/job/officer
 	title = "Security Officer"
@@ -69,9 +63,8 @@
 	alt_titles = list("Junior Officer")
 	economic_power = 4
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks)
-	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_external_airlocks)
 	minimal_player_age = 7
-	outfit_type = /decl/hierarchy/outfit/job/security/officer
+	outfit_type = /singleton/hierarchy/outfit/job/security/officer
 
 /datum/job/blueshield
 	title = "Blueshield"
@@ -82,29 +75,24 @@
 	selection_color = "#ddddff"
 	req_admin_notify = 1
 	minimal_player_age = 8
+	economic_power = 5
 	hud_icon = "hudbodyguard"
-	outfit_type = /decl/hierarchy/outfit/job/blueshield
+	outfit_type = /singleton/hierarchy/outfit/job/blueshield
 	access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
 			            access_medical, access_engine, access_ai_upload, access_eva, access_heads,
-			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
+			            access_all_personal_lockers, access_maint_tunnels, access_janitor, access_construction, access_morgue,
 			            access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_qm, access_hydroponics, access_lawyer,
 			            access_theatre, access_chapel_office, access_library, access_research, access_mining, access_heads_vault, access_mining_station,
 			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_gateway, access_blueshield, access_heads, access_bridge)
-	minimal_access = list(access_security, access_sec_doors, access_court, access_forensics_lockers,
-			            access_medical, access_engine, access_eva, access_heads,
-			            access_all_personal_lockers, access_maint_tunnels, access_bar, access_janitor, access_construction, access_morgue,
-			            access_crematorium, access_kitchen, access_cargo, access_cargo_bot, access_mailsorting, access_qm, access_hydroponics, access_lawyer,
-			            access_theatre, access_chapel_office, access_library, access_research, access_mining, access_heads_vault, access_mining_station,
-			            access_clown, access_mime, access_RC_announce, access_keycard_auth, access_gateway, access_blueshield)
 
 //Urist Job, it's here for compatability with other maps.
-/decl/hierarchy/outfit/job/blueshield
+/singleton/hierarchy/outfit/job/blueshield
 	name = OUTFIT_JOB_NAME("Blueshield")
 	uniform = /obj/item/clothing/under/rank/centcom
 	suit = /obj/item/clothing/suit/armor/pcarrier/deus_blueshield
 	l_ear = /obj/item/device/radio/headset/heads/hop
 	shoes = /obj/item/clothing/shoes/jackboots
-	id_type = /obj/item/weapon/card/id/blueshield
+	id_types = list(/obj/item/card/id/blueshield)
 	pda_type = /obj/item/modular_computer/pda/heads/hop
-	backpack_contents = list(/obj/item/weapon/storage/box/deathimp = 1)
+	backpack_contents = list(/obj/item/storage/box/deathimp = 1)
 	gloves = /obj/item/clothing/gloves/thick/combat

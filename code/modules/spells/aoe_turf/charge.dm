@@ -13,29 +13,29 @@
 	hud_state = "wiz_charge"
 	cast_sound = 'sound/magic/charge.ogg'
 
-/spell/aoe_turf/charge/cast(var/list/targets, mob/user)
+/spell/aoe_turf/charge/cast(list/targets, mob/user)
 	for(var/turf/T in targets)
 		depth_cast(T)
 
-/spell/aoe_turf/charge/proc/depth_cast(var/list/targets)
+/spell/aoe_turf/charge/proc/depth_cast(list/targets)
 	for(var/atom/A in targets)
-		if(A.contents.len)
+		if(length(A.contents))
 			depth_cast(A.contents)
 		cast_charge(A)
 
-/spell/aoe_turf/charge/proc/mob_charge(var/mob/living/M)
+/spell/aoe_turf/charge/proc/mob_charge(mob/living/M)
 	if(!M.mind)
 		return
-	if(M.mind.learned_spells.len != 0)
+	if(length(M.mind.learned_spells) != 0)
 		for(var/spell/S in M.mind.learned_spells)
 			if(!istype(S, /spell/aoe_turf/charge))
 				S.charge_counter = S.charge_max
-		to_chat(M, "<span class='notice'>You feel raw magic flowing through you, it feels good!</span>")
+		to_chat(M, SPAN_NOTICE("You feel raw magic flowing through you, it feels good!"))
 	else
-		to_chat(M, "<span class='notice'>You feel very strange for a moment, but then it passes.</span>")
+		to_chat(M, SPAN_NOTICE("You feel very strange for a moment, but then it passes."))
 	return M
 
-/spell/aoe_turf/charge/proc/cast_charge(var/atom/target)
+/spell/aoe_turf/charge/proc/cast_charge(atom/target)
 	var/atom/charged_item
 
 	if(istype(target, /mob/living))
@@ -47,8 +47,8 @@
 			var/mob/M = G.affecting
 			charged_item = mob_charge(M)
 
-	if(istype(target, /obj/item/weapon/cell/))
-		var/obj/item/weapon/cell/C = target
+	if(istype(target, /obj/item/cell))
+		var/obj/item/cell/C = target
 		if(prob(80) && C.maxcharge)
 			C.maxcharge -= 200
 			if(C.maxcharge <= 0) //maxcharge of 0! Madness!
@@ -59,7 +59,7 @@
 	if(!charged_item)
 		return 0
 	else
-		charged_item.visible_message("<span class='notice'>[charged_item] suddenly sparks with energy!</span>")
+		charged_item.visible_message(SPAN_NOTICE("[charged_item] suddenly sparks with energy!"))
 		return 1
 
 

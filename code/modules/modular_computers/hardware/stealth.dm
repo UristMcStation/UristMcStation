@@ -1,4 +1,4 @@
-/obj/item/weapon/computer_hardware/proxy
+/obj/item/stock_parts/computer/proxy
 	name = "proxy sub-processor"
 	desc = "A secondary processing unit designed to rapidly switch between proxy servers to hide the user." //This really doesn't make much sense, but neither does anything else
 	critical = 0

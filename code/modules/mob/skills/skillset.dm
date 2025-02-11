@@ -32,7 +32,7 @@
 		. += SB.buffs[skill_path]
 
 /datum/skillset/proc/obtain_from_mob(mob/mob)
-	if(!istype(mob) || !skills_transferable || !mob.skillset.skills_transferable)
+	if(!istype(mob) || !skills_transferable || !mob.skillset?.skills_transferable)
 		return
 	skill_list = mob.skillset.skill_list
 	default_value = mob.skillset.default_value
@@ -56,7 +56,7 @@
 /datum/skillset/proc/update_special_effects()
 	if(!owner)
 		return
-	for(var/decl/hierarchy/skill/skill in GLOB.skills)
+	for(var/singleton/hierarchy/skill/skill in GLOB.skills)
 		skill.update_special_effects(owner, get_value(skill.type))
 
 /datum/skillset/proc/obtain_from_client(datum/job/job, client/given_client, override = 0)
@@ -70,9 +70,19 @@
 	var/allocation = given_client.prefs.skills_allocated[job] || list()
 	skill_list = list()
 
-	for(var/decl/hierarchy/skill/S in GLOB.skills)
+	for(var/singleton/hierarchy/skill/S in GLOB.skills)
 		var/min = job ? given_client.prefs.get_min_skill(job, S) : SKILL_MIN
 		skill_list[S.type] = min + (allocation[S] || 0)
+	on_levels_change()
+
+/datum/skillset/proc/obtain_from_job(datum/job/job)
+	if(!job)
+		return
+
+	skill_list = list()
+
+	for(var/singleton/hierarchy/skill/S in GLOB.skills)
+		skill_list[S.type] = job.get_min_skill(S)
 	on_levels_change()
 
 //Skill-related mob helper procs
@@ -92,6 +102,13 @@
 	var/points = get_skill_value(skill_path)
 	return points >= needed
 
+//Passing a list in format of 'skill = level_needed'
+/mob/proc/skill_check_multiple(skill_reqs)
+	for(var/skill in skill_reqs)
+		. = skill_check(skill, skill_reqs[skill])
+		if(!.)
+			return
+
 /mob/proc/get_skill_difference(skill_path, mob/opponent)
 	return get_skill_value(skill_path) - opponent.get_skill_value(skill_path)
 
@@ -106,8 +123,8 @@
 		else
 			return max(0, 1 + (SKILL_DEFAULT - points) * factor)
 
-/mob/proc/do_skilled(base_delay, skill_path , atom/target = null, factor = 0.3)
-	return do_after(src, base_delay * skill_delay_mult(skill_path, factor), target)
+/mob/proc/do_skilled(base_delay, skill_path , atom/target = null, factor = 0.3, do_flags = DO_PUBLIC_UNIQUE)
+	return do_after(src, base_delay * skill_delay_mult(skill_path, factor), target, do_flags)
 
 // A generic way of modifying success probabilities via skill values. Higher factor means skills have more effect. fail_chance is the chance at SKILL_NONE.
 /mob/proc/skill_fail_chance(skill_path, fail_chance, no_more_fail = SKILL_MAX, factor = 1)
@@ -115,7 +132,7 @@
 	if(points >= no_more_fail)
 		return 0
 	else
-		return fail_chance * 2 ** (factor*(SKILL_MIN - points))
+		return round(fail_chance * 2 ** (factor*(SKILL_MIN - points)))
 
 // Simple prob using above
 /mob/proc/skill_fail_prob(skill_path, fail_chance, no_more_fail = SKILL_MAX, factor = 1)
@@ -123,19 +140,19 @@
 
 // Show skills verb
 
-mob/living/verb/show_skills()
+/mob/living/verb/show_skills()
 	set category = "IC"
 	set name = "Show Own Skills"
 
 	skillset.open_ui()
 
-datum/skillset/proc/open_ui()
+/datum/skillset/proc/open_ui()
 	if(!owner)
 		return
 	if(!NM)
 		NM = new nm_type(owner)
 	NM.ui_interact(owner)
 
-datum/skillset/proc/refresh_uis()
+/datum/skillset/proc/refresh_uis()
 	for(var/nano_module in nm_viewing)
 		SSnano.update_uis(nano_module)

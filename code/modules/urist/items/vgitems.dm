@@ -3,12 +3,12 @@
 // Noisemaker
 /obj/item/soundsynth
 	name = "clown's noisemaker"
-	desc = "A device used by the Clown to produce various sounds."
+	desc = "A garish pink device, with a plethora of sounds to play and annoy your fellow crew with. HONK!"
 	icon = 'icons/urist/items/tgitems.dmi'	// Placed in TG for sake of avoiding another icon file.
 	icon_state = "noisemaker"
 	item_state = "radio"
 	siemens_coefficient = 1
-	var/tmp/spam_flag = 0 // Prevents sound spamming.
+	var/spam_flag = 0 // Prevents sound spamming.
 	var/selected_sound = "sound/items/bikehorn.ogg"
 	var/shiftpitch = 1
 	var/volume = 50
@@ -19,18 +19,16 @@
 	"Airhorn 2" = "selected_sound=sound/items/airhorn_2.ogg&shiftpitch=1&volume=50",
 	"Sad Trombone" = "selected_sound=sound/misc/sadtrombone.ogg&shiftpitch=1&volume=50",
 	"Ding Ding Ding" = "selected_sound=sound/items/manydings.ogg&shiftpitch=1&volume=50",
-	"Soft Notice" = "selected_sound=sound/misc/notice2.ogg&shiftpitch=1&volume=50",
 	"Cowboy"  = "selected_sound=sound/effects/cowboysting.ogg&shiftpitch=1&volume=50",
-	"Unzip" = "selected_sound=sound/effects/storage/unzip.ogg&shiftpitch=1&volume=50",
 	"Scary Sound" = "selected_sound=sound/items/effects/ghost2.ogg&shiftpitch=1&volume=50",
 	"Creepy Shriek" = "selected_sound=sound/urist/creepyshriek.ogg&shiftpitch=1&volume=50",
 	"Meteor Impact" = "selected_sound=sound/items/effects/meteorimpact.ogg&shiftpitch=1&volume=50",
 	"Explosion Far Away"  = "selected_sound=sound/effects/explosionfar.ogg&shiftpitch=1&volume=50",
 	"EMP Pulse"  = "selected_sound=sound/effects/EMPulse.ogg&shiftpitch=1&volume=50",
-	"Glass Smashing"  = "selected_sound=sound/effects/glassbr3.ogg&shiftpitch=1&volume=50",
-	"Screwdriver" = "selected_sound=sound/items/screwdriver.ogg&shiftpitch=1&volume=50",
-	"Snipping Cables"= "selected_sound=sound/items/Wirecutter.ogg&shiftpitch=1&volume=50",
-	"Welder"  = "selected_sound=sound/items/welder.ogg&shiftpitch=1&volume=50",
+	"Glass Smashing"  = "selected_sound=sound/effects/Glassbr3.ogg&shiftpitch=1&volume=50",
+	"Screwdriver" = "selected_sound=sound/items/Screwdriver.ogg&shiftpitch=1&volume=50",
+	"Wirecutter Snip"= "selected_sound=sound/items/Wirecutter.ogg&shiftpitch=1&volume=50",
+	"Welder"  = "selected_sound=sound/items/Welder.ogg&shiftpitch=1&volume=50",
 	"Airlock Creaking" = "selected_sound=sound/machine/airlock_creaking.ogg&shiftpitch=1&volume=50",
 	"Ventcrawl"  = "selected_sound=sound/machines/ventcrawl.ogg&shiftpitch=1&volume=50",
 	"Arm Bomb" = "selected_sound=sound/weapons/armbomb.ogg&shiftpitch=1&volume=50",
@@ -43,7 +41,7 @@
 	"Pistol Shot"  = "selected_sound=sound/weapons/gunshot/gunshot_pistol.ogg&shiftpitch=1&volume=50",
 	"Shotgun Shot"  = "selected_sound=sound/weapons/gunshot/shotgun.ogg&shiftpitch=1&volume=50",
 	"Shotgun Pump" = "selected_sound=sound/weapons/shotgunpump.ogg&shiftpitch=1&volume=50",
-	"Laser Fire" = "selected_sound=sound/weapons/laser.ogg&shiftpitch=1&volume=50"
+	"Laser Fire" = "selected_sound=sound/weapons/Laser.ogg&shiftpitch=1&volume=50"
 
 	)
 

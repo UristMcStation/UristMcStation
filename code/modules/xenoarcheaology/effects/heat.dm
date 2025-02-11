@@ -2,6 +2,7 @@
 /datum/artifact_effect/heat
 	name = "heat"
 	var/target_temp
+	effect_state = "sparkles_3"
 
 /datum/artifact_effect/heat/New()
 	..()
@@ -9,9 +10,10 @@
 	effect_type = pick(EFFECT_ORGANIC, EFFECT_BLUESPACE, EFFECT_SYNTH)
 	target_temp = rand(300, 600)
 
-/datum/artifact_effect/heat/DoEffectTouch(var/mob/user)
+/datum/artifact_effect/heat/DoEffectTouch(mob/user)
 	if(holder)
-		to_chat(user, "<span class='warning'>You feel a wave of heat travel up your spine!</span>")
+		if (istype(user))
+			to_chat(user, SPAN_WARNING("You feel a wave of heat travel up your spine!"))
 		var/datum/gas_mixture/env = holder.loc.return_air()
 		if(env)
 			env.temperature += rand(5,50)
@@ -21,3 +23,11 @@
 		var/datum/gas_mixture/env = holder.loc.return_air()
 		if(env && env.temperature < target_temp)
 			env.temperature += pick(0, 0, 1)
+
+/datum/artifact_effect/heat/destroyed_effect()
+	. = ..()
+
+	for (var/turf/T in trange(5, get_turf(holder)))
+		var/datum/gas_mixture/env = T.return_air()
+		if (env)
+			env.temperature += 10

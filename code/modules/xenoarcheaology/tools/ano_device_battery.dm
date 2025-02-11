@@ -1,4 +1,4 @@
-/obj/item/weapon/anobattery
+/obj/item/anobattery
 	name = "Anomaly power battery"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "anobattery0"
@@ -7,18 +7,15 @@
 	var/stored_charge = 0
 	var/effect_id = ""
 
-/obj/item/weapon/anobattery/New()
-	battery_effect = new()
-
-/obj/item/weapon/anobattery/proc/UpdateSprite()
+/obj/item/anobattery/proc/UpdateSprite()
 	var/p = (stored_charge/capacity)*100
 	p = min(p, 100)
 	icon_state = "anobattery[round(p,25)]"
 
-/obj/item/weapon/anobattery/proc/use_power(var/amount)
+/obj/item/anobattery/proc/use_power(amount)
 	stored_charge = max(0, stored_charge - amount)
 
-/obj/item/weapon/anodevice
+/obj/item/anodevice
 	name = "Anomaly power utilizer"
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "anodev"
@@ -28,35 +25,35 @@
 	var/time_end = 0
 	var/last_activation = 0
 	var/last_process = 0
-	var/obj/item/weapon/anobattery/inserted_battery
+	var/obj/item/anobattery/inserted_battery
 	var/turf/archived_loc
 	var/energy_consumed_on_touch = 100
 
-/obj/item/weapon/anodevice/Initialize()
+/obj/item/anodevice/Initialize()
 	. = ..()
 	START_PROCESSING(SSobj, src)
 
-/obj/item/weapon/anodevice/attackby(var/obj/I as obj, var/mob/user as mob)
-	if(istype(I, /obj/item/weapon/anobattery))
+/obj/item/anodevice/attackby(obj/I as obj, mob/user as mob)
+	if(istype(I, /obj/item/anobattery))
 		if(!inserted_battery)
 			if(!user.unEquip(I, src))
 				return
-			to_chat(user, "<span class='notice'>You insert the battery.</span>")
+			to_chat(user, SPAN_NOTICE("You insert the battery."))
 			inserted_battery = I
 			UpdateSprite()
 	else
 		return ..()
 
-/obj/item/weapon/anodevice/attack_self(var/mob/user as mob)
+/obj/item/anodevice/attack_self(mob/user as mob)
 	return src.interact(user)
 
-/obj/item/weapon/anodevice/interact(var/mob/user)
+/obj/item/anodevice/interact(mob/user)
 	var/dat = "<b>Anomalous Materials Energy Utiliser</b><br>"
 	if(inserted_battery)
 		if(activated)
 			dat += "Device active.<br>"
 
-		dat += "[inserted_battery] inserted, anomaly ID: [inserted_battery.battery_effect.artifact_id ? inserted_battery.battery_effect.artifact_id : "NA"]<BR>"
+		dat += "[inserted_battery] inserted, anomaly ID: [(inserted_battery.battery_effect?.artifact_id) ? inserted_battery.battery_effect.artifact_id : "NA"]<BR>"
 		dat += "<b>Charge:</b> [inserted_battery.stored_charge] / [inserted_battery.capacity]<BR>"
 		dat += "<b>Time left activated:</b> [round(max((time_end - last_process) / 10, 0))]<BR>"
 		if(activated)
@@ -73,12 +70,16 @@
 		dat += "Please insert battery<br>"
 
 	dat += "<hr>"
-	dat += "<a href='?src=\ref[src];refresh=1'>Refresh</a> <a href='?src=\ref[src];close=1'>Close</a>"
+	dat += "<a href='?src=\ref[src];close=1'>Close</a>"
 
-	user << browse(dat, "window=anodevice;size=400x500")
+	var/datum/browser/popup = new(user, "anodevice", "Anomaly Power Utilizer", 400, 500)
+	popup.set_content(dat)
+	popup.open()
+	user.set_machine(src)
 	onclose(user, "anodevice")
 
-/obj/item/weapon/anodevice/Process()
+/obj/item/anodevice/Process()
+	updateSelfDialog()
 	if(activated)
 		if(inserted_battery && inserted_battery.battery_effect && (inserted_battery.stored_charge > 0) )
 			//make sure the effect is active
@@ -102,9 +103,9 @@
 					if(interval > 0)
 						//apply the touch effect to the holder
 						if(holder)
-							to_chat(holder, "The \icon[src] [src] held by [holder] shudders in your grasp.")
+							to_chat(holder, "The [icon2html(src, holder)] [src] held by [holder] shudders in your grasp.")
 						else
-							src.loc.visible_message("The \icon[src] [src] shudders.")
+							src.loc.visible_message("The [icon2html(src, viewers(src.loc))] [src] shudders.")
 						inserted_battery.battery_effect.DoEffectTouch(holder)
 
 						//consume power
@@ -130,26 +131,28 @@
 
 			//work out if we need to shutdown
 			if(inserted_battery.stored_charge <= 0)
-				src.loc.visible_message("<span class='notice'>\icon[src] [src] buzzes.</span>", "<span class='notice'>\icon[src] You hear something buzz.</span>")
+				src.loc.visible_message(SPAN_NOTICE("[icon2html(src, viewers(src.loc))] [src] buzzes."), SPAN_NOTICE("[icon2html(src, src.loc)] You hear something buzz."))
 				shutdown_emission()
 			else if(world.time > time_end)
-				src.loc.visible_message("<span class='notice'>\icon[src] [src] chimes.</span>", "<span class='notice'>\icon[src] You hear something chime.</span>")
+				src.loc.visible_message(SPAN_NOTICE("[icon2html(src, viewers(src.loc))] [src] chimes."), SPAN_NOTICE("[icon2html(src, src.loc)] You hear something chime."))
 				shutdown_emission()
 		else
-			src.visible_message("<span class='notice'>\icon[src] [src] buzzes.</span>", "<span class='notice'>\icon[src] You hear something buzz.</span>")
+			src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src] buzzes."), SPAN_NOTICE("[icon2html(src, src)] You hear something buzz."))
 			shutdown_emission()
 		last_process = world.time
 
-/obj/item/weapon/anodevice/proc/shutdown_emission()
+/obj/item/anodevice/proc/shutdown_emission()
 	if(activated)
 		activated = 0
 		if(inserted_battery.battery_effect.activated)
 			inserted_battery.battery_effect.ToggleActivate(1)
+		if(inserted_battery.stored_charge <= 0)
+			inserted_battery.battery_effect = null
 
-/obj/item/weapon/anodevice/Topic(user, href_list, state = GLOB.inventory_state)
+/obj/item/anodevice/Topic(user, href_list, state = GLOB.inventory_state)
 	..()
 
-/obj/item/weapon/anodevice/OnTopic(user, href_list)
+/obj/item/anodevice/OnTopic(user, href_list)
 	if(href_list["changetime"])
 		var/timedif = text2num(href_list["changetime"])
 		if(href_list["duration"])
@@ -166,7 +169,8 @@
 	else if(href_list["startup"])
 		if(inserted_battery && inserted_battery.battery_effect && (inserted_battery.stored_charge > 0) )
 			activated = 1
-			src.visible_message("<span class='notice'>\icon[src] [src] whirrs.</span>", "<span class='notice'>\icon[src] You hear something whirr.</span>")
+			last_process = world.time
+			src.visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src] whirrs."), SPAN_NOTICE("[icon2html(src, src)] You hear something whirr."))
 			if(!inserted_battery.battery_effect.activated)
 				inserted_battery.battery_effect.ToggleActivate(1)
 			time_end = world.time + duration
@@ -187,7 +191,7 @@
 	if(. == TOPIC_REFRESH)
 		interact(user)
 
-/obj/item/weapon/anodevice/proc/UpdateSprite()
+/obj/item/anodevice/proc/UpdateSprite()
 	if(!inserted_battery)
 		icon_state = "anodev"
 		return
@@ -195,20 +199,20 @@
 	p = min(p, 100)
 	icon_state = "anodev[round(p,25)]"
 
-/obj/item/weapon/anodevice/Destroy()
+/obj/item/anodevice/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	..()
 
-/obj/item/weapon/anodevice/attack(mob/living/M as mob, mob/living/user as mob, def_zone)
+/obj/item/anodevice/attack(mob/living/M as mob, mob/living/user as mob, def_zone)
 	if (!istype(M))
 		return
 
 	if(activated && inserted_battery.battery_effect.effect == EFFECT_TOUCH && !isnull(inserted_battery))
 		inserted_battery.battery_effect.DoEffectTouch(M)
 		inserted_battery.use_power(energy_consumed_on_touch)
-		user.visible_message("<span class='notice'>[user] taps [M] with [src], and it shudders on contact.</span>")
+		user.visible_message(SPAN_NOTICE("[user] taps [M] with [src], and it shudders on contact."))
 	else
-		user.visible_message("<span class='notice'>[user] taps [M] with [src], but nothing happens.</span>")
+		user.visible_message(SPAN_NOTICE("[user] taps [M] with [src], but nothing happens."))
 
 	if(inserted_battery.battery_effect)
 		admin_attack_log(user, M, "Tapped their victim with \a [src] (EFFECT: [inserted_battery.battery_effect.name])", "Was tapped by \a [src] (EFFECT: [inserted_battery.battery_effect.name])", "used \a [src] (EFFECT: [inserted_battery.battery_effect.name]) to tap")

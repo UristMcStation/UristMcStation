@@ -4,14 +4,14 @@
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "pit1"
 //	blend_mode = BLEND_MULTIPLY
-	density = 0
-	anchored = 1
+	density = FALSE
+	anchored = TRUE
 	var/open = 1
 	var/punji = 0
 	var/animal_safe
 
-/obj/structure/pit/attackby(obj/item/weapon/W, mob/user)
-	if( istype(W,/obj/item/weapon/shovel) )
+/obj/structure/pit/attackby(obj/item/W, mob/user)
+	if( istype(W,/obj/item/shovel) )
 		if(punji)
 			to_chat(user, "<span class='notice'>Remove the sharpened sticks before filling it up.</span>")
 		visible_message("<span class='notice'>\The [user] starts [open ? "filling" : "digging open"] \the [src]</span>")
@@ -37,7 +37,7 @@
 			else
 				to_chat(user, "<span class='notice'>You stop making a grave marker.</span>")
 		return
-	if(istype(W,/obj/item/weapon/sharpwoodrod))
+	if(istype(W,/obj/item/sharpwoodrod))
 		if(open)
 			if(punji == 6)
 				to_chat(user, "<span class='notice'>There are too many sharpened sticks in there.</span>")
@@ -50,7 +50,7 @@
 				user.regenerate_icons()
 	..()
 
-/obj/structure/pit/update_icon()
+/obj/structure/pit/on_update_icon()
 	icon_state = "pit[open]"
 //	if(istype(loc,/turf/simulated/floor/water) || istype(loc,/turf/simulated/floor/grass))
 //		icon_state="pit[open]mud"
@@ -69,10 +69,10 @@
 			M.Weaken(punji)
 
 
-/obj/structure/pit/attack_hand(var/mob/user as mob)
+/obj/structure/pit/attack_hand(mob/user as mob)
 	if(punji)
 		to_chat(user, "You yank out one of the sharpened sticks from the pit.")
-		new /obj/item/weapon/sharpwoodrod(src.loc)
+		new /obj/item/sharpwoodrod(src.loc)
 		src.overlays -= image('icons/urist/structures&machinery/structures.dmi', "punji[punji]")
 		punji -= 1
 
@@ -90,7 +90,7 @@
 		A.forceMove(src.loc)
 	update_icon()
 
-/obj/structure/pit/proc/close(var/user)
+/obj/structure/pit/proc/close(user)
 	name = "mound"
 	desc = "Some things are better left buried."
 	open = 0
@@ -213,9 +213,9 @@
 			/obj/item/clothing/accessory/medal,
 			/obj/item/clothing/accessory/medal/iron,
 			/obj/item/clothing/accessory/medal/silver,
-			/obj/item/clothing/accessory/medal/silver/sword,
+//			/obj/item/clothing/accessory/medal/solgov/mil/silver_sword,
 			/obj/item/clothing/accessory/medal/gold,
-			/obj/item/clothing/accessory/medal/gold/crest
+//			/obj/item/clothing/accessory/medal/solgov/mil/medal_of_honor
 			)
 		loot = pick(misc)
 		new loot(C)
@@ -234,7 +234,7 @@
 	new /obj/item/clothing/under/urist/cowboy(C)
 	new /obj/item/clothing/suit/urist/poncho(C)
 	new /obj/item/clothing/accessory/storage/holster/hip(C)
-	new /obj/item/weapon/gun/projectile/revolver/capgun(C)
+	new /obj/item/gun/projectile/revolver/capgun(C)
 
 	var/obj/structure/gravemarker/cross/R = new(src.loc)
 	R.message = "Here lies a man who had no name. Died fighting for a fistful of dollars." //memes
@@ -247,7 +247,7 @@
 	icon_state = "wood"
 	pixel_x = 15
 	pixel_y = 8
-	anchored = 1
+	anchored = TRUE
 	var/message = "Unknown."
 
 /obj/structure/gravemarker/cross
@@ -255,7 +255,7 @@
 
 /obj/structure/gravemarker/examine()
 	..()
-	usr << message
+	to_chat(usr, message)
 
 /obj/structure/gravemarker/random/New()
 	generate()
@@ -272,15 +272,14 @@
 
 	message = "Here lies [nam], [born] - [died]."
 
-/obj/structure/gravemarker/attackby(obj/item/weapon/W, mob/user)
-	if(istype(W,/obj/item/weapon/material/hatchet))
+/obj/structure/gravemarker/attackby(obj/item/W, mob/user)
+	if(istype(W,/obj/item/material/hatchet))
 		visible_message("<span class = 'warning'>\The [user] starts hacking away at \the [src] with \the [W].</span>")
 		if(!do_after(user, 30))
 			visible_message("<span class = 'warning'>\The [user] hacks \the [src] apart.</span>")
 			new /obj/item/stack/material/wood(src)
 			qdel(src)
-	if(istype(W,/obj/item/weapon/pen))
+	if(istype(W,/obj/item/pen))
 		var/msg = sanitize(input(user, "What should it say?", "Grave marker", message) as text|null)
 		if(msg)
 			message = msg
-

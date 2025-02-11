@@ -22,7 +22,7 @@
 	dynamic_lighting = 1
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
-/obj/effect/overmap/ship/wyrm
+/obj/effect/overmap/visitable/ship/wyrm
 	name = "ISC Wyrm"
 	vessel_mass = 150
 	fore_dir = WEST
@@ -151,7 +151,7 @@
 
 // completely 'normal' mining away
 
-/obj/effect/overmap/sector/cluster
+/obj/effect/overmap/visitable/cluster
 	name = "asteroid cluster"
 	desc = "Large group of asteroids. Mineral content detected."
 	icon_state = "sector"
@@ -166,7 +166,7 @@
 	name = "Asteroid Navpoint #1"
 	landmark_tag = "nav_cluster_1"
 
-/obj/effect/overmap/sector/random
+/obj/effect/overmap/visitable/random
 	name = "unidentified signal"
 	desc = "Unknown object detected. No further data avaliable."
 	icon_state = "sector"
@@ -180,7 +180,7 @@
 
 // illegal mining colony & maint drone takeover
 
-/obj/effect/overmap/sector/asteroid
+/obj/effect/overmap/visitable/asteroid
 	name = "mineral field"
 	desc = "Mineral field detected."
 	icon_state = "sector"
@@ -194,7 +194,7 @@
 
 // glloydstation jungle
 
-/obj/effect/overmap/sector/planet
+/obj/effect/overmap/visitable/planet
 	name = "rainforest exoplanet"
 	desc = "Biological scans report non-manifest lifeforms."
 	icon_state = "planet"
@@ -215,7 +215,7 @@
 	base_area = /area/away/dionaship
 	base_turf = /turf/simulated/floor/diona
 
-/obj/effect/overmap/sector/diona
+/obj/effect/overmap/visitable/diona
 	name = "unknown biomass structure"
 	desc = "Scans report unknown polymer materials in addition t- ERR: Malformed data packets received //SCN_DAT_END 0x00."
 	initial_generic_waypoints = list(
@@ -233,7 +233,7 @@
 	base_area = /area/away/refueling
 	base_turf = /turf/simulated/floor/plating
 
-/obj/effect/overmap/sector/refueling
+/obj/effect/overmap/visitable/refueling
 	name = "refueling station"
 	desc = ""
 	initial_generic_waypoints = list(

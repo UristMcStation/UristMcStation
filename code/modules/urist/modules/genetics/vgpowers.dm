@@ -20,42 +20,42 @@ Obviously, requires DNA2.
 
 	spelltype = new/spell/targeted/hulk
 
-	New()
-		..()
-		block = GLOB.HULKBLOCK
+/datum/dna/gene/basic/grant_spell/hulk/New()
+	..()
+	block = GLOB.HULKBLOCK
 
-	can_activate(var/mob/M,var/flags)
-		// Can't be big AND small.
-		if(mSmallsize in M.mutations)
-			return 0
-		return ..(M,flags)
-
-	OnDrawUnderlays(var/mob/M,var/g,var/fat)
-		if(MUTATION_HULK in M.mutations)
-			if(fat)
-				return "hulk_[fat]_s"
-			else
-				return "hulk_[g]_s"
+/datum/dna/gene/basic/grant_spell/hulk/can_activate(mob/M,var/flags)
+	// Can't be big AND small.
+	if(mSmallsize in M.mutations)
 		return 0
+	return ..(M,flags)
 
-	OnMobLife(var/mob/living/carbon/human/M)
-		if(!istype(M)) return
-		if(MUTATION_HULK in M.mutations)
-			var/timeleft=M.hulk_time - world.time
-			if(M.health <= 25 || timeleft <= 0)
-				M.hulk_time=0 // Just to be sure.
-				M.mutations.Remove(MUTATION_HULK)
-				//M.dna.SetSEState(HULKBLOCK,0)
-				M.update_mutations()		//update our mutation overlays
-				M.update_body()
-				M << "<span class='warning'> You suddenly feel very weak.</span>"
-				M.Weaken(3)
-				M.emote("collapse")
+/datum/dna/gene/basic/grant_spell/hulk/OnDrawUnderlays(mob/M,var/g,var/fat)
+	if(MUTATION_HULK in M.mutations)
+		if(fat)
+			return "hulk_[fat]_s"
+		else
+			return "hulk_[g]_s"
+	return 0
+
+/datum/dna/gene/basic/grant_spell/hulk/OnMobLife(mob/living/carbon/human/M)
+	if(!istype(M)) return
+	if(MUTATION_HULK in M.mutations)
+		var/timeleft=M.hulk_time - world.time
+		if(M.health <= 25 || timeleft <= 0)
+			M.hulk_time=0 // Just to be sure.
+			M.mutations.Remove(MUTATION_HULK)
+			//M.dna.SetSEState(HULKBLOCK,0)
+			M.update_mutations()		//update our mutation overlays
+			M.update_body()
+			to_chat(M, "<span class='warning'> You suddenly feel very weak.</span>")
+			M.Weaken(3)
+			M.emote("collapse")
 
 /spell/targeted/hulk
 	name = "Hulk Out"
 	panel = "Mutant Powers"
-	range = -1
+	range = 0
 	spell_flags = INCLUDEUSER
 
 	charge_type = "recharge"
@@ -69,8 +69,8 @@ Obviously, requires DNA2.
 	..()
 
 /spell/targeted/hulk/cast(list/targets)
-	if (istype(usr.loc,/mob/))
-		usr << "<span class='warning'> You can't hulk out right now!</span>"
+	if (istype(usr.loc,/mob))
+		to_chat(usr, "<span class='warning'> You can't hulk out right now!</span>")
 		return
 	var/mob/living/carbon/human/M=usr
 	M.hulk_time = world.time + HULK_DURATION
@@ -90,13 +90,13 @@ Obviously, requires DNA2.
 	mutation=M_NOIR
 
 /datum/dna/gene/basic/noir/New()
-	block=NOIRBLOCK
+	block=GLOB.NOIRBLOCK
 	..()
 
-/datum/dna/gene/basic/noir/activate(var/mob/M)
+/datum/dna/gene/basic/noir/activate(mob/M)
 	..()
 	M.update_color()
 
-/datum/dna/gene/basic/noir/deactivate(var/mob/M,var/connected,var/flags)
-	if(..())
-		M.update_color()
+/datum/dna/gene/basic/noir/deactivate(mob/M,var/connected,var/flags)
+	..()
+	M.update_color()
