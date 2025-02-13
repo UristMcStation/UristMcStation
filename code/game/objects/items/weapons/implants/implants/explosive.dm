@@ -115,7 +115,7 @@
 
 	var/turf/T = get_turf(src)
 	if(T)
-		T.hotspot_expose(3500,125)
+		T.hotspot_expose(3500)
 
 	playsound(loc, 'sound/items/countdown.ogg', 75, 1, -3)
 	if(ismob(imp_in))

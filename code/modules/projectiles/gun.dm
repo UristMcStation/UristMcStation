@@ -379,7 +379,7 @@
 	if(combustion)
 		var/turf/curloc = get_turf(src)
 		if(curloc)
-			curloc.hotspot_expose(700, 5)
+			curloc.hotspot_expose(700)
 
 	if(istype(user,/mob/living/carbon/human) && user.is_cloaked()) //shooting will disable a rig cloaking device
 		var/mob/living/carbon/human/H = user
