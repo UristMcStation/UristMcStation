@@ -1,0 +1,4 @@
+author: Mucker
+changes:
+  - {bugfix: Fixed mutiny antagonists not spawning correctly.}
+delete-after: true
