@@ -1,0 +1,4 @@
+author: SierraKomodo
+changes:
+  - {rscadd: Added a new legion stealth enemy. Sprites by Azlan. Sounds by Rockton.}
+delete-after: true
