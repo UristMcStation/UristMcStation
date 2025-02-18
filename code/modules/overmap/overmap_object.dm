@@ -205,9 +205,9 @@
 	else if((dir & EAST) && (nx == GLOB.using_map.overmap_size))
 		nx = low_edge
 
-	if((dir & SOUTH) && (nx == 1))
+	if((dir & SOUTH) && (ny == 1))
 		ny = high_edge
-	else if((dir & NORTH) && (nx == GLOB.using_map.overmap_size))
+	else if((dir & NORTH) && (ny == GLOB.using_map.overmap_size))
 		ny = low_edge
 
 	var/turf/T = locate(nx,ny,z)
