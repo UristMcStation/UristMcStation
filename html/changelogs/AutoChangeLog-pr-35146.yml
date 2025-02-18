@@ -1,0 +1,4 @@
+author: Atebite
+changes:
+  - {bugfix: Fix overmap wraparound not working on north/south edges}
+delete-after: true
