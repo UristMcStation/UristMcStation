@@ -1,6 +1,0 @@
-author: SierraKomodo
-changes:
-  - {bugfix: AI controlled mobs no longer attack doors while also trying to open them.}
-  - {rscadd: 'Certain mobs can now "hack" open doors that are powered, and in some
-      cases, even remotely lift door bolts.'}
-delete-after: true
