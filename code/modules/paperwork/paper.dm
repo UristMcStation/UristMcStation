@@ -370,7 +370,7 @@
 			can_read = ishuman(user) || issilicon(user)
 			if (can_read)
 				can_read = get_dist(src, user) < 3
-	var/html = "<html><head><title>[name]</title></head><body bgcolor='[color]'>"
+	var/html = "<html><head><title>[name]</title><meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head><body bgcolor='[color]'>"
 	if (!can_read)
 		html += PAPER_META_BAD("The paper is too far away or you can't read.")
 		html += "<hr/></body></html>"
