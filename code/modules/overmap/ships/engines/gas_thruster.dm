@@ -204,7 +204,7 @@
 
 /obj/engine_exhaust/New(turf/nloc, ndir)
 	..(nloc)
-	nloc.hotspot_expose(1000,125)
+	nloc.hotspot_expose(1000)
 	set_light(4, 0.5)
 	set_dir(ndir)
 	spawn(20)

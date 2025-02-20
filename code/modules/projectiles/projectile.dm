@@ -111,7 +111,7 @@
 	if (damage && damage_type == DAMAGE_BURN)
 		var/turf/T = get_turf(A)
 		if(T)
-			T.hotspot_expose(700, 5)
+			T.hotspot_expose(700)
 
 	if(space_knockback && ismovable(A))
 		var/atom/movable/AM = A

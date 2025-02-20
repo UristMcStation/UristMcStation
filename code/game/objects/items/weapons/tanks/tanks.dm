@@ -454,7 +454,7 @@ var/global/list/tank_gauge_cache = list()
 			//tanks appear to be experiencing a reduction on scale of about 0.64 total moles
 
 			var/turf/simulated/T = get_turf(src)
-			T.hotspot_expose(air_contents.temperature, 70, 1)
+			T.hotspot_expose(air_contents.temperature)
 			if(!T)
 				return
 
@@ -502,7 +502,7 @@ var/global/list/tank_gauge_cache = list()
 			T.assume_air(air_contents)
 			playsound(get_turf(src), 'sound/weapons/gunshot/shotgun.ogg', 20, 1)
 			visible_message("[icon2html(src, viewers(get_turf(src)))] [SPAN_DANGER("\The [src] flies apart!")]", SPAN_WARNING("You hear a bang!"))
-			T.hotspot_expose(air_contents.temperature, 70, 1)
+			T.hotspot_expose(air_contents.temperature)
 
 			var/strength = 1+((pressure-TANK_LEAK_PRESSURE)/TANK_FRAGMENT_SCALE)
 

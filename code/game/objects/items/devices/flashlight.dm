@@ -296,7 +296,7 @@
 	if(produce_heat)
 		var/turf/T = get_turf(src)
 		if(T)
-			T.hotspot_expose(produce_heat, 5)
+			T.hotspot_expose(produce_heat)
 	fuel = max(fuel - 1, 0)
 	if (fuel <= 0)
 		on = FALSE

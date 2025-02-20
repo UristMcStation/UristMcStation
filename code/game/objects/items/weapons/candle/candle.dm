@@ -68,7 +68,7 @@
 	update_icon()
 	if(isturf(loc)) //start a fire if possible
 		var/turf/T = loc
-		T.hotspot_expose(700, 5)
+		T.hotspot_expose(700)
 
 /obj/item/flame/candle/attack_self(mob/user as mob)
 	if(lit)

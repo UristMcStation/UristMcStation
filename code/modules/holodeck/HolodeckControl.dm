@@ -213,7 +213,7 @@
 					s.set_up(2, 1, T)
 					s.start()
 				T.ex_act(EX_ACT_LIGHT)
-				T.hotspot_expose(1000,500,1)
+				T.hotspot_expose(1000)
 
 /obj/machinery/computer/HolodeckControl/proc/derez(obj/obj , silent = 1)
 	holographic_objs.Remove(obj)
@@ -304,7 +304,7 @@
 					s.start()
 					if(T)
 						T.temperature = 5000
-						T.hotspot_expose(50000,50000,1)
+						T.hotspot_expose(50000)
 			if(L.name=="Holocarp Spawn")
 				holographic_mobs += new /mob/living/simple_animal/hostile/carp/holodeck(L.loc)
 

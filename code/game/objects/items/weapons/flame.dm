@@ -50,7 +50,7 @@
 		extinguish()
 		return
 	if(location)
-		location.hotspot_expose(700, 5)
+		location.hotspot_expose(700)
 
 /obj/item/flame/match/dropped(mob/user)
 	//If dropped, put ourselves out
@@ -58,7 +58,7 @@
 	if(lit)
 		var/turf/location = src.loc
 		if(istype(location))
-			location.hotspot_expose(700, 5)
+			location.hotspot_expose(700)
 		extinguish()
 	return ..()
 

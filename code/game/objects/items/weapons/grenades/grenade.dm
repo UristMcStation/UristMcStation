@@ -61,7 +61,7 @@
 /obj/item/grenade/proc/detonate(mob/living/user)
 	var/turf/T = get_turf(src)
 	if(T)
-		T.hotspot_expose(700,125)
+		T.hotspot_expose(700)
 
 /obj/item/grenade/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(isScrewdriver(W))

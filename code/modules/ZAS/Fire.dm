@@ -16,10 +16,10 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 /mob/is_burnable()
 	return simulated
 
-/turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
+/turf/proc/hotspot_expose(exposed_temperature)
+	return
 
-
-/turf/simulated/hotspot_expose(exposed_temperature, exposed_volume, soh)
+/turf/simulated/hotspot_expose(exposed_temperature)
 	if(fire_protection > world.time-300)
 		return 0
 	if(locate(/obj/hotspot) in src)

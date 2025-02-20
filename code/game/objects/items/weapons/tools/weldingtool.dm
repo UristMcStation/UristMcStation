@@ -137,7 +137,7 @@
 		else if(istype(O))
 			O.HandleObjectHeating(src, user, 700)
 		if (isturf(location))
-			location.hotspot_expose(700, 50, 1)
+			location.hotspot_expose(700)
 	return
 
 /obj/item/weldingtool/attack_self(mob/user as mob)
@@ -198,7 +198,7 @@
 		tank.reagents.remove_reagent(/datum/reagent/fuel, amount)
 		var/turf/location = get_turf(src.loc)
 		if(location)
-			location.hotspot_expose(700, 5)
+			location.hotspot_expose(700)
 
 //Returns whether or not the welding tool is currently on.
 /obj/item/weldingtool/proc/isOn()
