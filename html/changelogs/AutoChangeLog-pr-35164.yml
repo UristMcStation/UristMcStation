@@ -1,0 +1,5 @@
+author: Spookerton
+changes:
+  - {admin: 'Added "Enable Devtools" verb in debug tab. Use, rightclick browser pane,
+      receive devtools. 516+'}
+delete-after: true
