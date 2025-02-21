@@ -1,0 +1,4 @@
+author: Mucker
+changes:
+  - {bugfix: Paper now supports UTF8 character encoding.}
+delete-after: true
