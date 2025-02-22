@@ -1,5 +1,0 @@
-author: Ryan180602
-changes:
-  - {balance: Unathi no longer regen organ/external wounds. They don't lose nutrition
-      from it. They keep limb regeneration.}
-delete-after: true
