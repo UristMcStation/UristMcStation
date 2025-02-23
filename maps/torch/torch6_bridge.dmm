@@ -1761,8 +1761,6 @@
 /obj/structure/table/woodentable_reinforced/walnut,
 /obj/random_multi/single_item/memo_command,
 /obj/random_multi/single_item/memo_supply,
-/obj/item/material/folder/envelope/preset/dcorder,
-/obj/item/material/folder/envelope/preset/csorder,
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/heads/office/xo)
 "de" = (
@@ -4915,8 +4913,6 @@
 /obj/random_multi/single_item/memo_command,
 /obj/random_multi/single_item/memo_supply,
 /obj/random_multi/single_item/memo_medical,
-/obj/item/material/folder/envelope/preset/ndaorder,
-/obj/item/paper/immediateorder,
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
 "lu" = (
@@ -5414,7 +5410,6 @@
 /area/hallway/primary/bridge/aft)
 "mT" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/material/folder/envelope/preset/cmdorder,
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/heads/cobed)
 "mV" = (
@@ -7737,7 +7732,6 @@
 /obj/structure/noticeboard{
 	pixel_x = 32
 	},
-/obj/item/material/folder/envelope/preset/cmdorder,
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/heads/office/sgr)
 "tC" = (
@@ -12377,7 +12371,6 @@
 /obj/floor_decal/corner/paleblue/diagonal,
 /obj/structure/table/glass,
 /obj/random_multi/single_item/memo_medical,
-/obj/item/material/folder/envelope/preset/cmoorder,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/office/cmo)
 "Kh" = (
@@ -12681,7 +12674,6 @@
 /obj/floor_decal/corner/research{
 	dir = 5
 	},
-/obj/item/material/folder/envelope/preset/exploorder,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/office/rd)
 "Lw" = (
@@ -13335,7 +13327,6 @@
 	pixel_y = -4
 	},
 /obj/item/hand_labeler,
-/obj/item/material/folder/envelope/preset/clorder,
 /turf/simulated/floor/carpet/green,
 /area/crew_quarters/heads/office/cl/backroom)
 "Ox" = (
