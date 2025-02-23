@@ -1,0 +1,4 @@
+author: Mucker
+changes:
+  - {maptweak: Removed legion-related orders from offices and the bridge.}
+delete-after: true
