@@ -40,7 +40,7 @@
 	lore_text = "A clastic sedimentary rock. The cost of boosting it to orbit is almost universally much higher than the actual value of the material."
 	stack_type = /obj/item/stack/material/sandstone
 	wall_icon_base = "stone"
-	wall_flags = EMPTY_BITFIELD
+	wall_flags = FLAGS_OFF
 	wall_blend_icons = list(
 		"solid" = TRUE,
 		"wood" = TRUE,

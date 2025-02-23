@@ -8,10 +8,10 @@
 	/// Boolean. Whether or not the atom is affected by being submerged in water. If set to `FALSE`, `water_act()` is called when in contact with fluids.
 	var/waterproof = TRUE
 	/// Bitflag (Any of `MOVABLE_FLAG_*`). Bitflags for movable atoms. See `code\__defines\flags.dm`.
-	var/movable_flags = EMPTY_BITFIELD
+	var/movable_flags = FLAGS_OFF
 
 	/// Bitflag (Directionals). Direction of the last movement. Generally passed to `step()` as the `dir` parameter. Set during `Move()`.
-	var/last_move = EMPTY_BITFIELD
+	var/last_move = FLAGS_OFF
 	/// Boolean. Whether or not the atom is considered anchored.
 	var/anchored = FALSE
 	/// Integer. The atom's current movement speed, calculated as the difference between `world.time` and `l_move_time`. Set during `Move()`.
@@ -45,7 +45,7 @@
 	var/mutable_appearance/em_block
 
 	/// Bitflag (Directional). Direction the atom is currently travelling for space drift. Set by `space_drift()` and `Bump()`. Used by `momentum_do()` and the `spacedrift` subsystem.
-	var/inertia_dir = EMPTY_BITFIELD
+	var/inertia_dir = FLAGS_OFF
 	/// Instance. The atoms `loc` value during the last space movement. Set by `space_drift()` and the `spacedrift` subsystem.
 	var/atom/inertia_last_loc
 	/// Boolean. Whether or not the atom is currently being moved by space drift inertia. Set by the `spacedrift` subsystem and checked during `Move()`.

@@ -82,7 +82,7 @@
 	projectiletype = /obj/item/projectile/bullet/pistol
 	natural_weapon = /obj/item/gun/projectile/pistol/m22f
 	weapon1 = /obj/item/gun/projectile/pistol/m22f
-	status_flags = EMPTY_BITFIELD
+	status_flags = FLAGS_OFF
 
 /mob/living/simple_animal/hostile/human/fleet/ranged/neutral
 	say_list_type = /datum/say_list/fleet/friendly
@@ -98,7 +98,7 @@
 	projectiletype = /obj/item/projectile/bullet/rifle
 	natural_weapon = /obj/item/gun/projectile/automatic/bullpup_rifle/light
 	weapon1 = /obj/item/gun/projectile/automatic/bullpup_rifle/light
-	status_flags = EMPTY_BITFIELD
+	status_flags = FLAGS_OFF
 
 /mob/living/simple_animal/hostile/human/fleet/ranged/bullpup/neutral
 	say_list_type = /datum/say_list/fleet/friendly
@@ -117,7 +117,7 @@
 	projectiletype = /obj/item/projectile/bullet/pistol
 	natural_weapon = /obj/item/gun/projectile/automatic/machine_pistol
 	weapon1 = /obj/item/gun/projectile/automatic/machine_pistol
-	status_flags = EMPTY_BITFIELD
+	status_flags = FLAGS_OFF
 
 	corpse = /obj/landmark/corpse/fleet/leader
 

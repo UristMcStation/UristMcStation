@@ -322,7 +322,7 @@
 		return AURA_FALSE|AURA_CANCEL
 	visible_message(SPAN_DANGER("\The [src]'s exposed back dents and buckles!"))
 	playsound(user,'sound/items/Welder2.ogg',35,1)
-	return EMPTY_BITFIELD
+	return FLAGS_OFF
 
 /obj/aura/mobshield/aura_check_thrown(atom/movable/thrown_atom, datum/thrownthing/thrown_datum)
 	. = ..()

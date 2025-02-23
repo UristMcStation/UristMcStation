@@ -18,7 +18,7 @@
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
 	wall_icon_base = "stone"
-	wall_flags = EMPTY_BITFIELD
+	wall_flags = FLAGS_OFF
 	wall_blend_icons = list(
 		"solid" = TRUE,
 		"wood" = TRUE,
@@ -90,7 +90,7 @@
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
 	wall_icon_base = "stone"
-	wall_flags = EMPTY_BITFIELD
+	wall_flags = FLAGS_OFF
 	wall_blend_icons = list(
 		"solid" = TRUE,
 		"wood" = TRUE,
@@ -117,7 +117,7 @@
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
 	wall_icon_base = "stone"
-	wall_flags = EMPTY_BITFIELD
+	wall_flags = FLAGS_OFF
 	wall_blend_icons = list(
 		"solid" = TRUE,
 		"wood" = TRUE,
@@ -145,7 +145,7 @@
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
 	wall_icon_base = "stone"
-	wall_flags = EMPTY_BITFIELD
+	wall_flags = FLAGS_OFF
 	wall_blend_icons = list(
 		"solid" = TRUE,
 		"wood" = TRUE,
@@ -172,7 +172,7 @@
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
 	wall_icon_base = "stone"
-	wall_flags = EMPTY_BITFIELD
+	wall_flags = FLAGS_OFF
 	wall_blend_icons = list(
 		"solid" = TRUE,
 		"wood" = TRUE,
@@ -199,7 +199,7 @@
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
 	wall_icon_base = "stone"
-	wall_flags = EMPTY_BITFIELD
+	wall_flags = FLAGS_OFF
 	wall_blend_icons = list(
 		"solid" = TRUE,
 		"wood" = TRUE,
@@ -226,7 +226,7 @@
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
 	wall_icon_base = "stone"
-	wall_flags = EMPTY_BITFIELD
+	wall_flags = FLAGS_OFF
 	wall_blend_icons = list(
 		"solid" = TRUE,
 		"wood" = TRUE,
@@ -253,7 +253,7 @@
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
 	wall_icon_base = "stone"
-	wall_flags = EMPTY_BITFIELD
+	wall_flags = FLAGS_OFF
 	wall_blend_icons = list(
 		"solid" = TRUE,
 		"wood" = TRUE,
@@ -279,7 +279,7 @@
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
 	wall_icon_base = "stone"
-	wall_flags = EMPTY_BITFIELD
+	wall_flags = FLAGS_OFF
 	wall_blend_icons = list(
 		"solid" = TRUE,
 		"wood" = TRUE,
@@ -308,7 +308,7 @@
 	stack_type = /obj/item/stack/material/phoron
 	ignition_point = PHORON_MINIMUM_BURN_TEMPERATURE
 	wall_icon_base = "stone"
-	wall_flags = EMPTY_BITFIELD
+	wall_flags = FLAGS_OFF
 	wall_blend_icons = list(
 		"solid" = TRUE,
 		"wood" = TRUE,
