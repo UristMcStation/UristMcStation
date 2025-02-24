@@ -27,6 +27,7 @@
 #define SS_INIT_SKYBOX           10
 #define SS_INIT_MAPPING          9
 #define SS_INIT_JOBS             8
+#define SS_INIT_AMBIENT_LIGHT    8
 #define SS_INIT_CHAR_SETUP       7
 #define SS_INIT_CIRCUIT          6
 #define SS_INIT_GRAPH            5
@@ -42,7 +43,6 @@
 #define SS_INIT_SHUTTLE         -5
 #define SS_INIT_GOALS           -5
 #define SS_INIT_LIGHTING        -6
-#define SS_INIT_AMBIENT_LIGHT   -7
 #define SS_INIT_ZCOPY           -8
 #define SS_INIT_HOLOMAP         -9
 #define SS_INIT_OVERLAYS        -10

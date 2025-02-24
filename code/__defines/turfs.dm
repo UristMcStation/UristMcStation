@@ -12,6 +12,7 @@
 #define TURF_IS_WET FLAG_12
 #define TURF_HAS_RANDOM_BORDER FLAG_13
 #define TURF_DISALLOW_BLOB FLAG_14
+#define TURF_AMBIENT_LIGHT_UPDATE_QUEUED FLAG_15
 
 //Used for floor/wall smoothing
 #define SMOOTH_NONE 0	//Smooth only with itself
