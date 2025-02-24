@@ -237,7 +237,7 @@
 
 
 /// Run-time nth-bit flag, 1-indexed
-#define FLAG(BIT) SHIFTL(1, (BIT-1))
+#define RFLAG(BIT) SHIFTL(1, (BIT-1))
 
 #define MIN_FLAG_INDEX 1
 #define MAX_FLAG_INDEX 24
@@ -273,7 +273,7 @@
 
 
 /// Test bit at index BIT is set in FIELD
-#define GET_BIT(FIELD, BIT) ((FIELD) & FLAG(BIT))
+#define GET_BIT(FIELD, BIT) ((FIELD) & RFLAG(BIT))
 
 
 /// Test bit at index BIT is set in FIELD; semantic alias of GET_BIT
@@ -281,15 +281,15 @@
 
 
 /// Set bit at index BIT in FIELD
-#define SET_BIT(FIELD, BIT) ((FIELD) |= FLAG(BIT))
+#define SET_BIT(FIELD, BIT) ((FIELD) |= RFLAG(BIT))
 
 
 /// Unset bit at index BIT in FIELD
-#define CLEAR_BIT(FIELD, BIT) ((FIELD) &= ~FLAG(BIT))
+#define CLEAR_BIT(FIELD, BIT) ((FIELD) &= ~RFLAG(BIT))
 
 
 /// Flip bit at index BIT in FIELD
-#define FLIP_BIT(FIELD, BIT) ((FIELD) ^= FLAG(BIT))
+#define FLIP_BIT(FIELD, BIT) ((FIELD) ^= RFLAG(BIT))
 
 
 /// Test any bits of MASK are set in FIELD

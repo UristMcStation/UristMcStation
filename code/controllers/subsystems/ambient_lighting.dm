@@ -145,7 +145,7 @@ SUBSYSTEM_DEF(ambient_lighting)
 
 /datum/ambient_group/New(color, multiplier, index)
 	group_index = index
-	group_flag = FLAG(index)
+	group_flag = RFLAG(index)
 	++SSambient_lighting.group_count
 	set_color(color, multiplier)
 
