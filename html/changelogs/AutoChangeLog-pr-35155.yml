@@ -1,6 +1,0 @@
-author: SierraKomodo
-changes:
-  - {rscadd: Clicking on a grab in your inactive hand with an item in your active
-      hand now uses that item on the grabbed mob. This includes attacking them if
-      you're on harm intent.}
-delete-after: true
