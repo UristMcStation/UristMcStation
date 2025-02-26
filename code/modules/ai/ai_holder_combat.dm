@@ -13,13 +13,13 @@
 	var/prying = FALSE                      // True when the mob is trying to force open a door.
 
 	/// Bitflag (Any of `src.PRY_FLAG_*`). Bitflags used for configuring what and how this AI can pry. Not used if `holder.can_pry` is `FALSE`.
-	var/pry_flags = EMPTY_BITFIELD
+	var/pry_flags = FLAGS_OFF
 	/// This AI can only perform special unlocking if the AI control wire is intact.
-	var/const/PRY_FLAG_AI_CONTROL_ONLY = FLAG(0)
+	var/const/PRY_FLAG_AI_CONTROL_ONLY = FLAG_01
 	/// This AI can unbolt doors.
-	var/const/PRY_FLAG_UNBOLT = FLAG(1)
+	var/const/PRY_FLAG_UNBOLT = FLAG_02
 	/// This AI can 'hack' open working doors.
-	var/const/PRY_FLAG_CAN_HACK = FLAG(2)
+	var/const/PRY_FLAG_CAN_HACK = FLAG_03
 
 	// Excludes doors, shutters and windows, which are processed separately
 	var/list/valid_obstacles_by_priority = list(
