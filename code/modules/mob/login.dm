@@ -109,19 +109,32 @@
 		if(client.get_preference_value(/datum/client_preference/goonchat) == GLOB.PREF_YES)
 			client.chatOutput.start()
 
-	if(ability_master && ability_master.ability_objects)
-		ability_master.update_abilities(TRUE, src)
+	if(ability_master)
+		ability_master.update_abilities(1, src)
+		ability_master.toggle_open(1)
 
 	//set macro to normal incase it was overriden (like cyborg currently does)
 	winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#d3b5b5")
 
+	if(mind)
+		if(!mind.learned_spells)
+			mind.learned_spells = list()
+		if(ability_master && ability_master.spell_objects)
+			for(var/obj/screen/ability/spell/screen in ability_master.spell_objects)
+				var/spell/S = screen.spell
+				mind.learned_spells |= S
+
+	client.update_skybox(1)
+	GLOB.logged_in_event.raise_event(src)
+
+
 /mob/living/carbon/Login()
-	. = ..()
+	..()
 	if(internals && internal)
 		internals.icon_state = "internal1"
 
 /mob/observer/ghost/Login()
-	. = ..()
+	..()
 	if(darksight)
 		darksight.icon_state = "ghost"
 		darksight.alpha = 127

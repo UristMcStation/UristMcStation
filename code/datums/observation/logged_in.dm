@@ -11,11 +11,3 @@ GLOBAL_TYPED_NEW(logged_in_event, /singleton/observ/logged_in)
 /singleton/observ/logged_in
 	name = "Logged In"
 	expected_type = /mob
-
-/*****************
-* Login Handling *
-*****************/
-
-/mob/Login()
-	..()
-	GLOB.logged_in_event.raise_event(src)
