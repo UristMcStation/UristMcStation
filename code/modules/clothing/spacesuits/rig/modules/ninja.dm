@@ -343,6 +343,13 @@
 	if (!wearer.Adjacent(target))
 		return
 	else if (istype(target, /mob/living/carbon/human))
+		if(istype(wearer.get_active_hand(),/obj/item/melee))
+			wearer.visible_message(
+			SPAN_WARNING("\The [wearer] moves before \the [target] can even react!"),
+			SPAN_WARNING("You instinctively attack \the [target] before they can even react!")
+			)
+			target.use_weapon(wearer.get_active_hand(),wearer)
+			return
 		if (!wearer.species.attempt_grab(wearer, target))
 			return
 		var/obj/item/grab/grab = wearer.IsHolding(/obj/item/grab)
