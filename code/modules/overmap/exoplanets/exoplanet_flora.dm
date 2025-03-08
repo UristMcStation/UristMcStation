@@ -10,7 +10,7 @@
 		S.set_trait(TRAIT_PLANT_ICON,planticon)
 		var/color = pick(plant_colors)
 		if (color == "RANDOM")
-			color = get_random_colour(0,75,190)
+			color = get_random_colour(75, 190)
 		S.set_trait(TRAIT_PLANT_COLOUR,color)
 		var/carnivore_prob = rand(100)
 		if (carnivore_prob < 10)
@@ -31,7 +31,7 @@
 			S.set_trait(TRAIT_LARGE,1)
 			var/color = pick(plant_colors)
 			if (color == "RANDOM")
-				color = get_random_colour(0,75,190)
+				color = get_random_colour(75, 190)
 			S.set_trait(TRAIT_LEAVES_COLOUR,color)
 			S.chems[/datum/reagent/woodpulp] = list(1)
 			big_flora_types += S

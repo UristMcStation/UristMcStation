@@ -247,7 +247,7 @@
 	if ("color" in cook_modes[cook_mode])
 		tint = cook_modes[cook_mode]["color"]
 	if (tint && !istext(tint))
-		tint = get_random_colour(1)
+		tint = get_random_colour()
 	result.color = tint
 	if (tint != null)
 		result.filling_color = BlendRGB(source.color || "#ffffff", tint, 0.5)

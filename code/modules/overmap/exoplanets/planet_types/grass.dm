@@ -40,7 +40,7 @@
 			S.get_trait(TRAIT_STINGS)
 	if(prob(15) || (S.get_trait(TRAIT_CARNIVOROUS) && prob(40)))
 		S.set_trait(TRAIT_BIOLUM,1)
-		S.set_trait(TRAIT_BIOLUM_COLOUR,get_random_colour(0,75,190))
+		S.set_trait(TRAIT_BIOLUM_COLOUR,get_random_colour(75, 190))
 
 	if(prob(30))
 		S.set_trait(TRAIT_PARASITE,1)

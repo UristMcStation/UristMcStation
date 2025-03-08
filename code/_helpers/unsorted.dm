@@ -463,17 +463,12 @@ GLOBAL_LIST_AS(duplicate_object_disallowed_vars, list(
 			return obj
 
 
-/proc/get_random_colour(simple = FALSE, lower = 0, upper = 255)
-	var/colour
-	if(simple)
-		colour = pick(list("FF0000","FF7F00","FFFF00","00FF00","0000FF","4B0082","8F00FF"))
-	else
-		for(var/i=1;i<=3;i++)
-			var/temp_col = "[num2hex(rand(lower,upper))]"
-			if(length(temp_col )<2)
-				temp_col = "0[temp_col]"
-			colour += temp_col
-	return "#[colour]"
+/// Returns a random color hex with rgb parts from min to max. If called without args, picks from presets
+/proc/get_random_colour(min, max)
+	if (isnull(min))
+		return pick("#ff0000", "#ff7f00", "#ffff00", "#00ff00", "#0000ff", "#4b0082", "#8f00ff")
+	return rgb(rand(min, max), rand(min, max), rand(min, max))
+
 
 /**
  * Sets the atom's color and light values to those of `origin`.
