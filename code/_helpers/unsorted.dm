@@ -415,10 +415,6 @@ GLOBAL_LIST_AS(duplicate_object_disallowed_vars, list(
 		if (BP_R_FOOT) return "right foot"
 		else return zone
 
-/proc/get_turf_or_move(turf/location)
-	RETURN_TYPE(/turf)
-	return get_turf(location)
-
 
 //check if mob is lying down on something we can operate him on.
 /proc/can_operate(mob/living/carbon/M, mob/living/carbon/user)
