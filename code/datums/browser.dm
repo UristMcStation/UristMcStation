@@ -29,7 +29,7 @@
 	user = nuser
 	window_id = nwindow_id
 	if (ntitle)
-		title = format_text(ntitle)
+		title = strip_improper(ntitle)
 	if (nwidth)
 		width = nwidth
 	if (nheight)
@@ -39,7 +39,7 @@
 	add_stylesheet("common", 'html/browser/common.css') // this CSS sheet is common to all UIs
 
 /datum/browser/proc/set_title(ntitle)
-	title = format_text(ntitle)
+	title = strip_improper(ntitle)
 
 /datum/browser/proc/add_head_content(nhead_content)
 	head_content = nhead_content
