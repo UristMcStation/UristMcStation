@@ -470,20 +470,6 @@ GLOBAL_LIST_AS(duplicate_object_disallowed_vars, list(
 	return rgb(rand(min, max), rand(min, max), rand(min, max))
 
 
-/**
- * Sets the atom's color and light values to those of `origin`.
- *
- * TODO: Update this to use `set_color()` and `get_color()`.
- *
- * **Parameters**:
- * - `origin` - The atom to copy light and color values from.
- */
-/atom/proc/get_light_and_color(atom/origin)
-	if(origin)
-		color = origin.color
-		set_light(origin.light_range, origin.light_power)
-
-
 //clicking to move pulled objects onto assignee's turf/loc
 /proc/do_pull_click(mob/user, atom/A)
 	if(ismob(user.pulling))

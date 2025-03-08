@@ -1092,3 +1092,10 @@
 
 /atom/proc/get_overhead_text_y_offset()
 	return 0
+
+
+/// Set this atom's color and light to match origin
+/atom/proc/copy_light_and_color(atom/origin)
+	if (istype(origin))
+		color = origin.color
+		set_light(origin.light_range, origin.light_power)
