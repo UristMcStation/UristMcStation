@@ -126,18 +126,16 @@
 			return 0
 	return 1
 
-//Ensure the frequency is within bounds of what it should be sending/recieving at
-/proc/sanitize_frequency(f, low = PUBLIC_LOW_FREQ, high = PUBLIC_HIGH_FREQ)
-	f = round(f)
-	f = max(low, f)
-	f = min(high, f)
-	if ((f % 2) == 0) //Ensure the last digit is an odd number
-		f += 1
-	return f
 
-//Turns 1479 into 147.9
+/// Ensures frequency is a whole odd number between low and high
+/proc/sanitize_frequency(frequency, low = PUBLIC_LOW_FREQ, high = PUBLIC_HIGH_FREQ)
+	return clamp(floor(frequency), low, high) | 1
+
+
+// Turns 1479 into 147.9
 /proc/format_frequency(f)
-	return "[round(f / 10)].[f % 10]"
+	return "[floor(f / 10)].[f % 10]"
+
 
 //Generalised helper proc for letting mobs rename themselves. Used to be clname() and ainame()
 //Last modified by Carn
