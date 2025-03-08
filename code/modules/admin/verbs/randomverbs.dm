@@ -628,7 +628,7 @@ Ccomp's first proc.
 
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
-			command_announcement.Announce(input, customname, new_sound = GLOB.using_map.command_report_sound, msg_sanitized = 1);
+			command_announcement.Announce(input, customname, new_sound = GLOB.using_map.command_report_sound, msg_sanitized = 1)
 		if("No")
 			minor_announcement.Announce(message = "New [GLOB.using_map.company_name] Update available at all communication consoles.")
 

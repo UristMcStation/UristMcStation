@@ -43,7 +43,7 @@
 		board_icons["[I.icon] [I.icon_state]"] = new /icon(I.icon,I.icon_state)
 
 	if(tile == 0)
-		var i;
+		var i
 		for(i=0;i<64;i++)
 			if(!board["[i]"])
 				board["[i]"] = I

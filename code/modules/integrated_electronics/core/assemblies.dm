@@ -60,7 +60,7 @@
 		to_chat(user, SPAN_NOTICE("The maintenance panel [opened ? "can be" : "is"] <b>screwed</b> in place."))
 
 	if((isobserver(user) && ckeys_allowed_to_scan[user.ckey]) || check_rights(R_ADMIN, 0, user))
-		to_chat(user, "You can <a href='byond://?src=\ref[src];ghostscan=1'>scan</a> this circuit.");
+		to_chat(user, "You can <a href='byond://?src=\ref[src];ghostscan=1'>scan</a> this circuit.")
 
 /obj/item/device/electronic_assembly/on_death()
 	visible_message(SPAN_WARNING("\The [src] falls to pieces!"))

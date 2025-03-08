@@ -85,7 +85,7 @@ var/global/list/alien_whitelist = list()
 	if(config.usealienwhitelistSQL)
 		//SQL Whitelist
 		if(!(ckey in alien_whitelist))
-			return 0;
+			return 0
 		var/list/whitelisted = alien_whitelist[ckey]
 		if(lowertext(item) in whitelisted)
 			return 1

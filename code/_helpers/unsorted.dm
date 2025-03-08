@@ -238,9 +238,9 @@ Turf and target are seperate in case you want to teleport some distance from a t
 		. += LOCATE_COORDS(center.x + x, center.y + y, center.z) //lower right right
 
 		if(p < 0)
-			p += 4*x++ + 6;
+			p += 4*x++ + 6
 		else
-			p += 4*(x++ - y--) + 10;
+			p += 4*(x++ - y--) + 10
 
 #undef LOCATE_COORDS
 

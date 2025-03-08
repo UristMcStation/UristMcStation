@@ -167,8 +167,8 @@
 	else
 		monthsInDays = list(0,31,59,90,120,151,181,212,243,273,304,334)
 
-	var/mDays = 0;
-	var/monthIndex = 0;
+	var/mDays = 0
+	var/monthIndex = 0
 
 	for(var/m in monthsInDays)
 		monthIndex++
