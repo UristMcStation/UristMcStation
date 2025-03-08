@@ -220,8 +220,6 @@
 
 #define FONT_GIANT(X) SPAN_SIZE("24px", "[X]")
 
-#define crash_with(X) crash_at(X, __FILE__, __LINE__)
-
 #define TO_HEX_DIGIT(n) ascii2text((n&15) + ((n&15)<10 ? 48 : 87))
 
 
@@ -336,3 +334,11 @@
 
 /// A ref=src anchor with additional anchor properties.
 #define arefext(text, params, props) "<a href=\"byond://?src=\ref[src];[params]\" [props]>[text]</a>"
+
+
+/// runtime, including a file and line in the message. Use crash_with to automate the file/line
+/proc/crash_at(msg, file, line)
+	CRASH("%% [file],[line] %% [msg]")
+
+/// runtime, automatically including the current file and line
+#define crash_with(X) crash_at(X, __FILE__, __LINE__)

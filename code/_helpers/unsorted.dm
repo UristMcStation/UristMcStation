@@ -489,11 +489,6 @@ GLOBAL_LIST_AS(duplicate_object_disallowed_vars, list(
 		set_light(origin.light_range, origin.light_power)
 
 
-// call to generate a stack trace and print to runtime logs
-/proc/crash_at(msg, file, line)
-	CRASH("%% [file],[line] %% [msg]")
-
-
 //clicking to move pulled objects onto assignee's turf/loc
 /proc/do_pull_click(mob/user, atom/A)
 	if(ismob(user.pulling))
