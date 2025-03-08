@@ -415,13 +415,6 @@ GLOBAL_LIST_AS(duplicate_object_disallowed_vars, list(
 		if (BP_R_FOOT) return "right foot"
 		else return zone
 
-/proc/get(atom/loc, type)
-	while(loc)
-		if(istype(loc, type))
-			return loc
-		loc = loc.loc
-	return null
-
 /proc/get_turf_or_move(turf/location)
 	RETURN_TYPE(/turf)
 	return get_turf(location)
