@@ -390,15 +390,6 @@ GLOBAL_LIST_AS(duplicate_object_disallowed_vars, list(
 			. = range(distance,center)
 	return
 
-/proc/oview_or_orange(distance = world.view , center = usr , type)
-	RETURN_TYPE(/list)
-	switch(type)
-		if("view")
-			. = oview(distance,center)
-		if("range")
-			. = orange(distance,center)
-	return
-
 /proc/get_mob_with_client_list()
 	RETURN_TYPE(/list)
 	var/list/mobs = list()
