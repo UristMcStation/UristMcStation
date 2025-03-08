@@ -818,8 +818,9 @@
 	if(T.density)
 		to_chat(user, SPAN_DANGER("You cannot place \the [src] on this spot!"))
 		return
-	if(gotwallitem(T, ndir))
-		to_chat(user, SPAN_DANGER("There's already an item on this wall!"))
+	var/wall_item = get_wall_item(T, ndir)
+	if(wall_item)
+		to_chat(user, SPAN_DANGER("There's already \a [wall_item] on this wall!"))
 		return
 	playsound(loc, 'sound/machines/click.ogg', 75, 1)
 	user.visible_message("[user.name] attaches [src] to the wall.",

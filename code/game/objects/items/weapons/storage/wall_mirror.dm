@@ -8,6 +8,7 @@
 	anchored = TRUE
 	max_w_class = ITEM_SIZE_NORMAL
 	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 	use_sound = 'sound/effects/closet_open.ogg'
 	startswith = list(
 		/obj/item/haircomb/random,

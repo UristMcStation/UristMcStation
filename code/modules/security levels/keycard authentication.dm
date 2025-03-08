@@ -18,6 +18,7 @@
 	idle_power_usage = 2
 	active_power_usage = 6
 	power_channel = ENVIRON
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 
 /obj/machinery/keycard_auth/attack_ai(mob/user as mob)
 	to_chat(user, SPAN_WARNING("A firewall prevents you from interfacing with this device!"))

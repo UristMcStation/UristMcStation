@@ -28,6 +28,7 @@ var/global/list/obj/machinery/requests_console/allConsoles = list()
 	anchored = TRUE
 	icon = 'icons/obj/machines/terminals.dmi'
 	icon_state = "req_comp0"
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 	var/department = "Unknown" //The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/list/message_log = list() //List of all messages
 	var/departmentType = 0 		//Bitflag. Zero is reply-only. Map currently uses raw numbers instead of defines.

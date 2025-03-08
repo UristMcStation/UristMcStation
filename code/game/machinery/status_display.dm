@@ -19,6 +19,7 @@
 	idle_power_usage = 10
 	health_max = 10
 	damage_hitsound = 'sound/effects/Glasshit.ogg'
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 	var/mode = 1	// 0 = Blank
 					// 1 = Shuttle timer
 					// 2 = Arbitrary message(s)

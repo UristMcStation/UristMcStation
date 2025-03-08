@@ -33,7 +33,7 @@
 	desc = "A filing cabinet installed into a cavity in the wall to save space. Wow!"
 	icon_state = "wallcabinet"
 	density = FALSE
-	obj_flags = 0
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 
 
 /obj/structure/filingcabinet/filingcabinet	//not changing the path to avoid unecessary map issues, but please don't name stuff like this in the future -Pete

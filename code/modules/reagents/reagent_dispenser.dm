@@ -313,6 +313,7 @@
 	icon_state = "peppertank"
 	anchored = TRUE
 	density = FALSE
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 	amount_per_transfer_from_this = 45
 	initial_reagent_types = list(/datum/reagent/capsaicin/condensed = 1)
 

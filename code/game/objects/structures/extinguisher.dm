@@ -5,6 +5,7 @@
 	icon_state = "extinguisher_closed"
 	anchored = TRUE
 	density = FALSE
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 	var/obj/item/extinguisher/has_extinguisher
 	var/opened = 0
 
