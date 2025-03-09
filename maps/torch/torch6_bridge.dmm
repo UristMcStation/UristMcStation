@@ -2426,17 +2426,11 @@
 /obj/structure/table/glass,
 /obj/item/book/manual/solgov_law,
 /obj/item/book/manual/sol_sop,
-/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bridge)
 "ew" = (
 /obj/structure/table/glass,
 /obj/floor_decal/corner/blue/mono,
-/obj/item/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/reagent_containers/glass/bottle/inaprovaline{
-	pixel_x = 4;
-	pixel_y = 5
-	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bridge)
 "ex" = (
@@ -13782,7 +13776,6 @@
 /obj/random_multi/single_item/memo_engineering,
 /obj/random_multi/single_item/memo_research,
 /obj/random_multi/single_item/memo_exploration,
-/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /turf/simulated/floor/tiled/dark,
 /area/bridge)
 "Qz" = (
