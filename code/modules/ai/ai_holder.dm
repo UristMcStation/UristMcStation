@@ -335,7 +335,7 @@ if (!(datum.process_flags & AI_FASTPROCESSING)) { \
 		if (STANCE_IDLE)
 			if (target)
 				ai_log("handle_stance_strategical() : STANCE_IDLE, target still present. Getting ready to fight.", AI_LOG_TRACE)
-				set_stance(STANCE_FIGHT);
+				set_stance(STANCE_FIGHT)
 
 			if (prob(speak_chance)) // In the long loop since otherwise it wont shut up.
 				handle_idle_speaking()

@@ -76,7 +76,7 @@ var/global/datum/sortInstance/sortInstance = new()
 
 		//Merge all remaining runs to complete sort
 	//ASSERT(start == end)
-	mergeForceCollapse();
+	mergeForceCollapse()
 	//ASSERT(length(runBases) == 1)
 
 		//reset minGallop, for successive calls
@@ -459,7 +459,7 @@ reverse a descending sequence without violating stability.
 
 			if(minGallop < 0)
 				minGallop = 0
-			minGallop += 2;  // Penalize for leaving gallop mode
+			minGallop += 2 // Penalize for leaving gallop mode
 
 
 	if(len1 == 1)

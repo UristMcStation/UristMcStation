@@ -214,7 +214,7 @@
 	var/obj/item/hand/H = new()
 
 	H.cards += cards
-	cards.Cut();
+	cards.Cut()
 	qdel(src)
 
 	H.update_icon()

@@ -123,6 +123,7 @@ var/global/list/obj/machinery/newscaster/allCasters = list() //Global list that 
 	health_min_damage = 5
 	use_weapon_hitsound = FALSE
 	damage_hitsound = 'sound/effects/Glassbr3.ogg'
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 	//var/list/datum/feed_channel/channel_list = list() //This list will contain the names of the feed channels. Each name will refer to a data region where the messages of the feed channels are stored.
 	var/screen = 0
 		// 0 = welcome screen - main menu
@@ -152,10 +153,10 @@ var/global/list/obj/machinery/newscaster/allCasters = list() //Global list that 
 		// 0 = there hasn't been a news/wanted update in the last alert_delay
 		// 1 = there has
 	var/scanned_user = "Unknown" //Will contain the name of the person who currently uses the newscaster
-	var/msg = "";                //Feed message
+	var/msg = "" //Feed message
 	var/datum/news_photo/photo_data = null
-	var/channel_name = ""; //the feed channel which will be receiving the feed, or being created
-	var/c_locked=0;        //Will our new channel be locked to public submissions?
+	var/channel_name = "" //the feed channel which will be receiving the feed, or being created
+	var/c_locked=0 //Will our new channel be locked to public submissions?
 	var/datum/feed_channel/viewing_channel = null
 	var/datum/feed_network/connected_group
 	light_range = 0
@@ -715,10 +716,10 @@ var/global/list/obj/machinery/newscaster/allCasters = list() //Global list that 
 		else if(href_list["setScreen"]) //Brings us to the main menu and resets all fields~
 			src.screen = text2num(href_list["setScreen"])
 			if (src.screen == 0)
-				src.scanned_user = "Unknown";
-				msg = "";
-				src.c_locked=0;
-				channel_name="";
+				src.scanned_user = "Unknown"
+				msg = ""
+				src.c_locked=0
+				channel_name=""
 				src.viewing_channel = null
 				if (photo_data)
 					qdel(photo_data)

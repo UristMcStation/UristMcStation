@@ -87,7 +87,7 @@ var/global/list/image/splatter_cache=list()
 		dry()
 
 /obj/decal/cleanable/blood/on_update_icon()
-	if(basecolor == "rainbow") basecolor = get_random_colour(1)
+	if(basecolor == "rainbow") basecolor = get_random_colour()
 	color = basecolor
 	if(basecolor == SYNTH_BLOOD_COLOUR)
 		SetName("oil")
@@ -205,11 +205,11 @@ var/global/list/image/splatter_cache=list()
 
 	var/image/giblets = new(base_icon, "[icon_state]_flesh", dir)
 	if(!fleshcolor || fleshcolor == "rainbow")
-		fleshcolor = get_random_colour(1)
+		fleshcolor = get_random_colour()
 	giblets.color = fleshcolor
 
 	var/icon/blood = new(base_icon,"[icon_state]",dir)
-	if(basecolor == "rainbow") basecolor = get_random_colour(1)
+	if(basecolor == "rainbow") basecolor = get_random_colour()
 	blood.Blend(basecolor,ICON_MULTIPLY)
 
 	icon = blood

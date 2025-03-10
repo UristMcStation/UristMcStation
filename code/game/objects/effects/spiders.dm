@@ -42,7 +42,7 @@
 
 /obj/spider/eggcluster/Initialize(mapload, atom/parent)
 	. = ..()
-	get_light_and_color(parent)
+	copy_light_and_color(parent)
 	pixel_x = rand(3,-3)
 	pixel_y = rand(3,-3)
 	START_PROCESSING(SSobj, src)
@@ -134,7 +134,7 @@
 	else
 		START_PROCESSING(SSobj, src)
 
-	get_light_and_color(parent)
+	copy_light_and_color(parent)
 	. = ..()
 
 /obj/spider/spiderling/mundane

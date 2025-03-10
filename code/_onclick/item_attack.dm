@@ -365,6 +365,31 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	return ..()
 
 
+/// Truthy if user can operate on target
+/proc/can_operate(mob/living/carbon/target, mob/living/carbon/user)
+	if (target == user)
+		var/zone = check_zone(user.zone_sel.selecting)
+		if (user.hand)
+			switch (zone)
+				if (BP_HEAD, BP_L_ARM, BP_L_HAND)
+					return FALSE
+		switch (zone)
+			if (BP_HEAD, BP_R_ARM, BP_R_HAND)
+				return FALSE
+	var/turf/target_turf = get_turf(target)
+	if (locate(/obj/machinery/optable, target_turf))
+		return TRUE
+	if (locate(/obj/structure/bed, target_turf))
+		return TRUE
+	if (locate(/obj/structure/roller_bed, target_turf))
+		return TRUE
+	if (locate(/obj/structure/table, target_turf))
+		return TRUE
+	if (locate(/obj/rune, target_turf))
+		return TRUE
+	return FALSE
+
+
 /mob/living/carbon/human/use_tool(obj/item/tool, mob/user, list/click_params)
 	// Anything on Self - Devour
 	if (user == src && zone_sel.selecting == BP_MOUTH && can_devour(tool, silent = TRUE))

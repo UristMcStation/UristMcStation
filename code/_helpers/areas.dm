@@ -165,3 +165,21 @@ GLOBAL_LIST_AS(is_station_but_not_maint_area, list(
 #define wizteleportlocs area_repository.get_areas_by_name(GLOB.is_station_area)
 #define maintlocs area_repository.get_areas_by_name(GLOB.is_station_and_maint_area)
 #define wizportallocs area_repository.get_areas_by_name(GLOB.is_station_but_not_space_or_shuttle_area)
+
+
+/// Gets a list of instances of area_type, or the type of area_type if an area
+/proc/get_area_instances(area/area_type, include_subtypes)
+	if (!ispath(area_type, /area))
+		if (!isarea(area_type))
+			crash_with("invalid area_type '[area_type]'")
+		area_type = area_type.type
+	var/list/area/instances = list()
+	if (include_subtypes)
+		for (var/area/area)
+			if (istype(area, area_type))
+				instances += area
+	else
+		for (var/area/area)
+			if (area.type == area_type)
+				instances += area
+	return instances

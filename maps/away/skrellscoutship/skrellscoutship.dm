@@ -277,21 +277,21 @@ var/global/const/access_skrellscoutship = "ACCESS_SKRELLSCOUT"
 
 //Skrell Suit Dispensers
 /obj/machinery/suit_storage_unit/skrell
-	boots = /obj/item/clothing/shoes/magboots;
-	color = "#00e1ff";
-	helmet = /obj/item/clothing/head/helmet/space/void/skrell/white;
-	islocked = 1;
-	name = "Skrell Suit Storage Unit (White)";
-	req_access = list("ACCESS_SKRELLSCOUT");
+	boots = /obj/item/clothing/shoes/magboots
+	color = "#00e1ff"
+	helmet = /obj/item/clothing/head/helmet/space/void/skrell/white
+	islocked = 1
+	name = "Skrell Suit Storage Unit (White)"
+	req_access = list("ACCESS_SKRELLSCOUT")
 	suit = /obj/item/clothing/suit/space/void/skrell/white
 
 /obj/machinery/suit_storage_unit/skrell/black
-	boots = /obj/item/clothing/shoes/magboots;
-	color = "#00e1ff";
-	helmet = /obj/item/clothing/head/helmet/space/void/skrell/black;
-	islocked = 1;
-	name = "Skrell Suit Storage Unit (Black)";
-	req_access = list("ACCESS_SKRELLSCOUT");
+	boots = /obj/item/clothing/shoes/magboots
+	color = "#00e1ff"
+	helmet = /obj/item/clothing/head/helmet/space/void/skrell/black
+	islocked = 1
+	name = "Skrell Suit Storage Unit (Black)"
+	req_access = list("ACCESS_SKRELLSCOUT")
 	suit = /obj/item/clothing/suit/space/void/skrell/black
 
 //Skrell Devices

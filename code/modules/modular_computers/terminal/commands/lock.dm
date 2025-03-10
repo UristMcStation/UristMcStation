@@ -37,6 +37,6 @@
 			return
 		D = drives[arguments[1]]
 		if(!istype(D))
-			return "[name]: Error; invalid device id.";
+			return "[name]: Error; invalid device id."
 		D.read_only = D.read_only ? FALSE : TRUE
 		return "[name]: Read-only mode on [arguments[1]] is now [D.read_only ? "enabled" : "disabled"]."

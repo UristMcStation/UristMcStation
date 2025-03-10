@@ -76,7 +76,7 @@
 /obj/machinery/power/apc
 	name = "area power controller"
 	desc = "A control terminal for the area electrical systems."
-
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 	icon_state = "apc0"
 	icon = 'icons/obj/machines/apc.dmi'
 	anchored = TRUE

@@ -5,7 +5,7 @@
 	augment_slots = AUGMENT_GROIN
 	status = ORGAN_CONFIGURE
 	augment_flags = AUGMENT_BIOLOGICAL
-	var/ticks_remaining = 0;
+	var/ticks_remaining = 0
 /obj/item/organ/internal/augment/changeling/ragecore/emp_act()
 	..()
 	return

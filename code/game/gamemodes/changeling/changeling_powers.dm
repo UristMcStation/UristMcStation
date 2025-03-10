@@ -21,8 +21,8 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/mimicing = ""
 	var/cloaked = 0
 	var/absorbing_lethally = ABSORB_NONLETHAL
-	var/selected_ranged_sting = null;
-	var/tendons_reinforced = FALSE;
+	var/selected_ranged_sting = null
+	var/tendons_reinforced = FALSE
 	var/list/toxin_victims = list()
 	/// This is only used for changeling_generic_equip_all_slots() at the moment.
 	var/armor_deployed = FALSE

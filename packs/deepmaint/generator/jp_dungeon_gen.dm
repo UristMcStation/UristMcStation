@@ -159,7 +159,7 @@
 			counter--
 		else
 			k = null
-			break;
+			break
 	if(k)
 		.+=k
 	counter = num
@@ -170,7 +170,7 @@
 			counter--
 		else
 			k = null
-			break;
+			break
 	if(k)
 		.+=k
 	counter = num
@@ -181,7 +181,7 @@
 			counter--
 		else
 			k = null
-			break;
+			break
 	if(k)
 		.+=k
 	counter = num
@@ -192,7 +192,7 @@
 			counter--
 		else
 			k = null
-			break;
+			break
 	if(k)
 		.+=k
 

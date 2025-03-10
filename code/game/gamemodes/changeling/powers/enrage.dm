@@ -19,7 +19,7 @@
 	var/datum/changeling/changeling = changeling_power(30,0,100)
 	var/mob/living/carbon/human/H = src
 	var/obj/item/organ/external/parent = H.get_organ(BP_GROIN)
-	var/has_organ = 0;
+	var/has_organ = 0
 	if(!changeling)
 		return 0
 
@@ -34,10 +34,10 @@
 	if(has_organ == 1)
 		for(var/obj/item/organ/internal/augment/changeling/ragecore/rage in H.internal_organs)
 			if(src.mind.changeling.recursive_enhancement)
-				rage.ticks_remaining = 90;
+				rage.ticks_remaining = 90
 				src.mind.changeling.recursive_enhancement = FALSE
 			else
-				rage.ticks_remaining = 60;
+				rage.ticks_remaining = 60
 			to_chat(src,SPAN_WARNING("Our adrenal glands release a surge of energy, pushing our body to its limits!"))
 	changeling.chem_charges -= 30
 	return TRUE

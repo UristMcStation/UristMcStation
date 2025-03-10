@@ -60,7 +60,7 @@
 		to_chat(user, SPAN_NOTICE("The maintenance panel [opened ? "can be" : "is"] <b>screwed</b> in place."))
 
 	if((isobserver(user) && ckeys_allowed_to_scan[user.ckey]) || check_rights(R_ADMIN, 0, user))
-		to_chat(user, "You can <a href='byond://?src=\ref[src];ghostscan=1'>scan</a> this circuit.");
+		to_chat(user, "You can <a href='byond://?src=\ref[src];ghostscan=1'>scan</a> this circuit.")
 
 /obj/item/device/electronic_assembly/on_death()
 	visible_message(SPAN_WARNING("\The [src] falls to pieces!"))
@@ -818,8 +818,9 @@
 	if(T.density)
 		to_chat(user, SPAN_DANGER("You cannot place \the [src] on this spot!"))
 		return
-	if(gotwallitem(T, ndir))
-		to_chat(user, SPAN_DANGER("There's already an item on this wall!"))
+	var/wall_item = get_wall_item(T, ndir)
+	if(wall_item)
+		to_chat(user, SPAN_DANGER("There's already \a [wall_item] on this wall!"))
 		return
 	playsound(loc, 'sound/machines/click.ogg', 75, 1)
 	user.visible_message("[user.name] attaches [src] to the wall.",

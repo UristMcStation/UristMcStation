@@ -51,6 +51,9 @@ GLOBAL_ALIST_INIT_STEP(flag_to_index, 0)
 /// Can receive objects with the `OBJ_FLAG_CAN_TABLE` flag
 #define OBJ_FLAG_RECEIVE_TABLE  FLAG_06
 
+/// Whether this object is offset onto a wall
+#define OBJ_FLAG_WALL_MOUNTED FLAG_07
+
 //Flags for items (equipment)
 #define ITEM_FLAG_NO_BLUDGEON               FLAG_01  // When an item has this it produces no "X has been hit by Y with Z" message with the default handler.
 #define ITEM_FLAG_PHORONGUARD               FLAG_02  // Does not get contaminated by phoron.

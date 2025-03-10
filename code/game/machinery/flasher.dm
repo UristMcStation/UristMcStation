@@ -13,6 +13,7 @@
 	anchored = TRUE
 	idle_power_usage = 2
 	movable_flags = MOVABLE_FLAG_PROXMOVE
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 
 	uncreated_component_parts = list(
 		/obj/item/stock_parts/radio/receiver,
