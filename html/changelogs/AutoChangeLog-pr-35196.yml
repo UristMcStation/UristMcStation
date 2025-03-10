@@ -1,0 +1,4 @@
+author: Spookerton
+changes:
+  - {bugfix: The holodeck is no longer on strike}
+delete-after: true
