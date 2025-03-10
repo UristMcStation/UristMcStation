@@ -1,0 +1,4 @@
+author: CakeQ
+changes:
+  - {bugfix: Fixes blood transferral when hugging.}
+delete-after: true
