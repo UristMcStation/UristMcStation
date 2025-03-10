@@ -442,7 +442,7 @@
 		refined_src[turf] = list(turf.x - src_min_x, turf.y - src_min_y)
 	var/list/refined_trg = list()
 	for (var/turf/turf in turfs_trg)
-		refined_trg[turf] = list(turf.x - src_min_x, turf.y - src_min_y)
+		refined_trg[turf] = list(turf.x - trg_min_x, turf.y - trg_min_y)
 	var/list/turfs_to_update = list()
 	var/list/copied_movables = list()
 	moving:
