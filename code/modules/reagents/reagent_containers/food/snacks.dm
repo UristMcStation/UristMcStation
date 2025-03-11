@@ -442,8 +442,8 @@
 	icon_state = "stuffing"
 	filling_color = "#c9ac83"
 	center_of_mass = "x=16;y=10"
-	nutriment_amt = 3
-	nutriment_desc = list("dryness" = 2, "bread" = 2)
+	nutriment_amt = 6
+	nutriment_desc = list("dryness" = 3, "bread" = 3)
 	bitesize = 1
 
 /obj/item/reagent_containers/food/snacks/fishfingers
@@ -2370,7 +2370,7 @@
 	icon_state = "cracker"
 	filling_color = "#f5deb8"
 	center_of_mass = "x=17;y=6"
-	nutriment_desc = list("salt" = 1, "cracker" = 2)
+	nutriment_desc = list("cracker" = 1)
 	w_class = ITEM_SIZE_TINY
 	volume = 6
 	nutriment_amt = 1
@@ -2812,8 +2812,15 @@
 	filling_color = "#b8824c"
 	bitesize = 2
 	center_of_mass = "x=16;y=12"
-	nutriment_desc = list("bun" = 4)
-	nutriment_amt = 4
+	nutriment_desc = list("bun" = 3)
+	nutriment_amt = 3
+
+/obj/item/reagent_containers/food/snacks/bun/on_reagent_change()
+	. = ..()
+	if (!reagents.has_reagent(/datum/reagent/nutriment/protein))
+		name = "soy bun"
+	else
+		name = initial(name)
 
 /obj/item/reagent_containers/food/snacks/customburger
 	name = "custom burger"
@@ -2925,11 +2932,8 @@
 	filling_color = "#d63c3c"
 	bitesize = 3
 	center_of_mass = "x=21;y=12"
-	nutriment_desc = list("cheese" = 2,"taco shell" = 2)
-	nutriment_amt = 4
-/obj/item/reagent_containers/food/snacks/taco/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 3)
+	nutriment_desc = list("taco shell" = 2)
+	nutriment_amt = 2
 
 /obj/item/reagent_containers/food/snacks/rawcutlet
 	name = "raw cutlet"
@@ -2969,7 +2973,6 @@
 	bitesize = 1
 	center_of_mass = "x=16;y=15"
 
-
 /obj/item/reagent_containers/food/snacks/bacon
 	name = "bacon"
 	desc = "A delicious, crispy strip of meat."
@@ -2978,6 +2981,9 @@
 	bitesize = 2
 	center_of_mass = "x=16;y=15"
 
+/obj/item/reagent_containers/food/snacks/bacon/Initialize()
+	.=..()
+	reagents.add_reagent(/datum/reagent/nutriment/protein, 2)
 
 /obj/item/reagent_containers/food/snacks/rawmeatball
 	name = "raw meatball"

@@ -1506,8 +1506,10 @@
 
 
 /datum/microwave_recipe/stuffing
+	consumed_reagents = list(
+		/datum/reagent/water = 10
+	)
 	required_reagents = list(
-		/datum/reagent/water = 10,
 		/datum/reagent/sodiumchloride = 1,
 		/datum/reagent/blackpepper = 1
 	)
