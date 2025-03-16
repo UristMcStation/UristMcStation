@@ -1,0 +1,5 @@
+author: Detritus-Ha
+changes:
+  - {tweak: 'All unary atmos devices (gas cooler, gas heater, vent, scrubber, injector
+      and pressure tank) should now be properly scannable with a gas analyzer.'}
+delete-after: true
