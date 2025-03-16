@@ -1,0 +1,6 @@
+author: Detritus-Ha
+changes:
+  - {tweak: 'All binary atmos devices (pump, pressure regulator, circulator, oxygen
+      regenerator) should now be properly scannable with a gas analyzer.'}
+  - {bugfix: Pressure regulator's exertion check should now work.}
+delete-after: true
