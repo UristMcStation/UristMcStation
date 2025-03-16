@@ -1,0 +1,6 @@
+author: CrimsonShrike
+changes:
+  - {tweak: Extended planetary daynight cycles so that update is smoother.}
+  - {rscadd: Planetary weather. Doesn't do "much". Watch out for hail!}
+  - {admin: Multiple weather related commands so you can rain on parades as necessary.}
+delete-after: true
