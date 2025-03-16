@@ -284,7 +284,7 @@
 
 /obj/aura/mobshield/added_to(mob/living/target)
 	. = ..()
-	target.vis_contents += src
+	target.add_vis_contents(src)
 	flick("shield_raise", src) //Animation on add / spawn
 	set_dir() //the whole dir bit is for rendering, if you dont use this just remove this and the GLOB.dir_set_event stuff
 	GLOB.dir_set_event.register(user, src, PROC_REF(update_dir))
@@ -295,7 +295,7 @@
 /obj/aura/mobshield/Destroy()
 	if(user)
 		GLOB.dir_set_event.unregister(user, src, PROC_REF(update_dir))
-		user.vis_contents -= src
+		user.remove_vis_contents(src)
 	. = ..()
 
 /obj/aura/mobshield/proc/block_chance(damage, pen, atom/source, mob/attacker)
