@@ -211,3 +211,11 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 
 /obj/item/reagent_containers/ivbag/blood/teshari/oneg/Initialize(mapload)
 	return ..(mapload, "O-")
+
+//tesh blood freezer
+
+/obj/item/storage/box/freezer/blood/teshari
+	name = "portable freezer (teshari blood)"
+	startswith = list(
+		/obj/item/reagent_containers/ivbag/blood/teshari/oneg = 4
+	)
