@@ -1,5 +1,0 @@
-author: Banditoz
-changes:
-  - {rscadd: 'Upgraded scanning modules inside of body scanners will now detect the
-      presence of genetic mutations, generally caused by artifacts or radiation.'}
-delete-after: true

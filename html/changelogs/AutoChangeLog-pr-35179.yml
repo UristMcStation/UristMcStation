@@ -1,5 +1,0 @@
-author: Banditoz
-changes:
-  - {soundadd: 'Medical scanner modules (contained within a PDA or tablet) now beep
-      when scanning someone, like health analyzers.'}
-delete-after: true
