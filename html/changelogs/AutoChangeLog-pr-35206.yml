@@ -1,0 +1,4 @@
+author: Mucker
+changes:
+  - {bugfix: Fix bloodhugs for real.}
+delete-after: true
