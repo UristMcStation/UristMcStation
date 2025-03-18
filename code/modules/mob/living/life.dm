@@ -12,9 +12,7 @@
 	if(machine && !CanMouseDrop(machine, src))
 		machine = null
 	//Handle temperature/pressure differences between body and environment
-	var/datum/gas_mixture/environment = loc.return_air()
-	if(environment)
-		handle_environment(environment)
+	handle_environment(loc.return_air())
 
 	blinded = 0 // Placing this here just show how out of place it is.
 	// human/handle_regular_status_updates() needs a cleanup, as blindness should be handled in handle_disabilities()
@@ -63,31 +61,32 @@
 /mob/living/proc/handle_weather_ambience(obj/abstract/weather_system/weather)
 	// Refresh weather ambience.
 	// Show messages and play ambience.
-	if(!istype(weather) || !client)
-		return
-
-	// Send strings if we're outside.
-	if(is_outside() && !weather.show_weather(src))
-		weather.show_wind(src)
-
-	if(get_preference_value(/datum/client_preference/play_ambiance) == GLOB.PREF_NO)
+	if(!client)
 		return
 
 	// Work out if we need to change or cancel the current ambience sound.
 	var/send_sound
-	var/mob_ref = weakref(src)
-	var/singleton/state/weather/weather_state = weather.weather_system.current_state
-	if(istype(weather_state))
-		var/ambient_sounds = !is_outside() ? weather_state.ambient_indoors_sounds : weather_state.ambient_sounds
-		var/ambient_sound = length(ambient_sounds) && pick(ambient_sounds)
-		if(global.current_mob_ambience[mob_ref] == ambient_sound)
+	if (istype(weather))
+		// Send strings if we're outside.
+		if(is_outside() && !weather.show_weather(src))
+			weather.show_wind(src)
+
+		if(get_preference_value(/datum/client_preference/play_ambiance) == GLOB.PREF_NO)
 			return
-		send_sound = ambient_sound
-		global.current_mob_ambience[mob_ref] = send_sound
-	else if(mob_ref in global.current_mob_ambience)
-		global.current_mob_ambience -= mob_ref
-	else
-		return
+
+		var/mob_ref = weakref(src)
+		var/singleton/state/weather/weather_state = weather.weather_system.current_state
+		if(istype(weather_state))
+			var/ambient_sounds = !is_outside() ? weather_state.ambient_indoors_sounds : weather_state.ambient_sounds
+			var/ambient_sound = length(ambient_sounds) && pick(ambient_sounds)
+			if(global.current_mob_ambience[mob_ref] == ambient_sound)
+				return
+			send_sound = ambient_sound
+			global.current_mob_ambience[mob_ref] = send_sound
+		else if(mob_ref in global.current_mob_ambience)
+			global.current_mob_ambience -= mob_ref
+		else
+			return
 
 	// Push sound to client. Pipe dream TODO: crossfade between the new and old weather ambience.
 	sound_to(src, sound(null, repeat = 0, wait = 0, volume = 0, channel = GLOB.weather_channel))
