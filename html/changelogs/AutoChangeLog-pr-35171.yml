@@ -1,0 +1,6 @@
+author: ''
+changes:
+  - {rscadd: Added the gas extractor. It is controlled with an atmos control console
+      and has a manual interface if you don't want to use a console. Available on
+      pipe dispensers.}
+delete-after: true
