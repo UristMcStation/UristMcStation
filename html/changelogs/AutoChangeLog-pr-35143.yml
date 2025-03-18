@@ -1,4 +1,0 @@
-author: Banditoz
-changes:
-  - {maptweak: Adds airlock helpers that automate airlock cycler setup for mappers.}
-delete-after: true
