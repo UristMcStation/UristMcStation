@@ -1878,6 +1878,7 @@
 // sliceable is just an organization type path, it doesn't have any additional code or variables tied to it.
 
 /obj/item/reagent_containers/food/snacks/sliceable
+	volume = 150
 	w_class = ITEM_SIZE_NORMAL //whole pizzas and cakes shouldn't fit in a pocket, you can slice them if you want to do that.
 
 /**
@@ -1989,12 +1990,9 @@
 	slices_num = 5
 	filling_color = "#ffd675"
 	center_of_mass = "x=16;y=10"
-	nutriment_desc = list("cake" = 10, "sweetness" = 10, "carrot" = 15)
-	nutriment_amt = 25
+	nutriment_desc = list("carrot" = 15)
+	nutriment_amt = 15
 	bitesize = 2
-/obj/item/reagent_containers/food/snacks/sliceable/carrotcake/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/imidazoline, 10)
 
 /obj/item/reagent_containers/food/snacks/slice/carrotcake
 	name = "carrot cake slice"
@@ -2017,7 +2015,7 @@
 	slices_num = 5
 	filling_color = "#e6aedb"
 	center_of_mass = "x=16;y=10"
-	nutriment_desc = list("cake" = 10, "sweetness" = 10, "slime" = 15)
+	nutriment_desc = list("slime" = 5)
 	nutriment_amt = 5
 	bitesize = 2
 /obj/item/reagent_containers/food/snacks/sliceable/braincake/Initialize()
@@ -2046,12 +2044,9 @@
 	slices_num = 5
 	filling_color = "#faf7af"
 	center_of_mass = "x=16;y=10"
-	nutriment_desc = list("cake" = 10, "cream" = 10, "cheese" = 15)
-	nutriment_amt = 10
+	nutriment_desc = list("cheese" = 5)
+	nutriment_amt = 5
 	bitesize = 2
-/obj/item/reagent_containers/food/snacks/sliceable/cheesecake/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 15)
 
 /obj/item/reagent_containers/food/snacks/slice/cheesecake
 	name = "cheese cake slice"
@@ -2074,12 +2069,7 @@
 	slices_num = 5
 	filling_color = "#331c03"
 	center_of_mass = "x=16;y=10"
-	nutriment_desc = list("hazelnut chocolate" = 15, "creamy cheese" = 10, "crunchy cookie base" = 5)
-	nutriment_amt = 20
 	bitesize = 2
-/obj/item/reagent_containers/food/snacks/sliceable/ntella_cheesecake/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/choconutspread, 15)
 
 /obj/item/reagent_containers/food/snacks/slice/ntella_cheesecake
 	name = "NTella cheesecake slice"
@@ -2102,8 +2092,6 @@
 	slices_num = 5
 	filling_color = "#f7edd5"
 	center_of_mass = "x=16;y=10"
-	nutriment_desc = list("cake" = 10, "sweetness" = 10, "vanilla" = 15)
-	nutriment_amt = 20
 
 /obj/item/reagent_containers/food/snacks/slice/plaincake
 	name = "vanilla cake slice"
@@ -2126,8 +2114,8 @@
 	slices_num = 5
 	filling_color = "#fada8e"
 	center_of_mass = "x=16;y=10"
-	nutriment_desc = list("cake" = 10, "sweetness" = 10, "orange" = 15)
-	nutriment_amt = 20
+	nutriment_desc = list("orange" = 10)
+	nutriment_amt = 10
 
 /obj/item/reagent_containers/food/snacks/slice/orangecake
 	name = "orange cake slice"
@@ -2150,8 +2138,8 @@
 	slices_num = 5
 	filling_color = "#cbfa8e"
 	center_of_mass = "x=16;y=10"
-	nutriment_desc = list("cake" = 10, "sweetness" = 10, "lime" = 15)
-	nutriment_amt = 20
+	nutriment_desc = list("lime" = 10)
+	nutriment_amt = 10
 
 /obj/item/reagent_containers/food/snacks/slice/limecake
 	name = "lime cake slice"
@@ -2174,8 +2162,8 @@
 	slices_num = 5
 	filling_color = "#fafa8e"
 	center_of_mass = "x=16;y=10"
-	nutriment_desc = list("cake" = 10, "sweetness" = 10, "lemon" = 15)
-	nutriment_amt = 20
+	nutriment_desc = list("lemon" = 10)
+	nutriment_amt = 10
 
 /obj/item/reagent_containers/food/snacks/slice/lemoncake
 	name = "lemon cake slice"
@@ -2198,8 +2186,8 @@
 	slices_num = 5
 	filling_color = "#805930"
 	center_of_mass = "x=16;y=10"
-	nutriment_desc = list("cake" = 10, "sweetness" = 10, "chocolate" = 15)
-	nutriment_amt = 20
+	nutriment_desc = list("chocolate" = 5)
+	nutriment_amt = 5
 
 /obj/item/reagent_containers/food/snacks/slice/chocolatecake
 	name = "chocolate cake slice"
@@ -2223,14 +2211,7 @@
 	slices_num = 5
 	filling_color = "#ffd6d6"
 	center_of_mass = "x=16;y=10"
-	nutriment_desc = list("cake" = 10, "sweetness" = 10)
-	nutriment_amt = 20
 	bitesize = 3
-
-/obj/item/reagent_containers/food/snacks/sliceable/birthdaycake/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/sprinkles, 10)
-
 
 /obj/item/reagent_containers/food/snacks/slice/birthdaycake
 	name = "birthday cake slice"
@@ -2324,8 +2305,8 @@
 	slices_num = 5
 	filling_color = "#ebf5b8"
 	center_of_mass = "x=16;y=10"
-	nutriment_desc = list("cake" = 10, "sweetness" = 10, "apple" = 15)
-	nutriment_amt = 15
+	nutriment_desc = list("apple" = 10)
+	nutriment_amt = 10
 
 /obj/item/reagent_containers/food/snacks/slice/applecake
 	name = "apple cake slice"
@@ -3470,13 +3451,11 @@
 	icon_state = "chocolatebar"
 	filling_color = "#7d5f46"
 	center_of_mass = "x=15;y=15"
-	nutriment_amt = 2
-	nutriment_desc = list("chocolate" = 5)
 	bitesize = 2
 /obj/item/reagent_containers/food/snacks/chocolatebar/Initialize()
 	.=..()
-	reagents.add_reagent(/datum/reagent/sugar, 2)
-	reagents.add_reagent(/datum/reagent/nutriment/coco, 2)
+	reagents.add_reagent(/datum/reagent/sugar, 5)
+	reagents.add_reagent(/datum/reagent/nutriment/coco, 5)
 
 /obj/item/reagent_containers/food/snacks/chocolateegg
 	name = "chocolate egg"

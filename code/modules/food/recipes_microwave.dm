@@ -1610,9 +1610,8 @@
 
 /datum/microwave_recipe/cake/ntella_cheesecake
 	required_reagents = list(
-		/datum/reagent/drink/milk = 5,
 		/datum/reagent/nutriment/choconutspread = 15,
-		/datum/reagent/sugar = 10
+		/datum/reagent/nutriment/batter/cakebatter = 60
 	)
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
@@ -1646,6 +1645,7 @@
 
 /datum/microwave_recipe/cake/chocolate
 	required_items = list(
+		/obj/item/reagent_containers/food/snacks/chocolatebar,
 		/obj/item/reagent_containers/food/snacks/chocolatebar
 	)
 	result_path = /obj/item/reagent_containers/food/snacks/sliceable/chocolatecake
@@ -1672,9 +1672,9 @@
 	)
 	result_path = /obj/item/reagent_containers/food/snacks/sliceable/braincake
 
-
+///This recipe exceptionally initializes reagent at new() and doesn't carry those over since it can also be produced by chemistry recipes.
 /datum/microwave_recipe/cake/chocolatebar
-	required_reagents = list(
+	consumed_reagents = list(
 		/datum/reagent/drink/milk/chocolate = 10,
 		/datum/reagent/nutriment/coco = 5,
 		/datum/reagent/sugar = 5
@@ -1683,7 +1683,7 @@
 
 
 /datum/microwave_recipe/boiledspiderleg
-	required_reagents = list(
+	consumed_reagents = list(
 		/datum/reagent/water = 10
 	)
 	required_items = list(
