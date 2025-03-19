@@ -10,12 +10,6 @@
 	nutriment_amt = 10
 	bitesize = 2
 
-
-/obj/item/reagent_containers/food/snacks/sliceable/cheesewheel/Initialize()
-	. = ..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 10)
-
-
 /obj/item/reagent_containers/food/snacks/cheesewedge
 	abstract_type = /obj/item/reagent_containers/food/snacks/cheesewedge
 	name = "parent cheese wedge"
@@ -26,13 +20,6 @@
 	center_of_mass = "x=16;y=10"
 	nutriment_amt = 2
 
-
-/obj/item/reagent_containers/food/snacks/cheesewedge/Initialize()
-	. = ..()
-	if (!reagents.has_reagent(/datum/reagent/nutriment/protein))
-		reagents.add_reagent(/datum/reagent/nutriment/protein, 2)
-
-
 /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel/fresh
 	name = "fresh cheese wheel"
 	desc = "A wheel of soft, fresh cheese."
@@ -41,6 +28,9 @@
 	nutriment_desc = list("mild cheese" = 10)
 	slice_path = /obj/item/reagent_containers/food/snacks/cheesewedge/fresh
 
+/obj/item/reagent_containers/food/snacks/sliceable/cheesewheel/fresh/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/nutriment/protein, 10)
 
 /obj/item/reagent_containers/food/snacks/cheesewedge/fresh
 	name = "fresh cheese wedge"
@@ -80,8 +70,10 @@
 
 
 /datum/microwave_recipe/cheesewheel_aged
+	consumed_reagents = list(
+		/datum/reagent/enzyme = 5
+	)
 	required_reagents = list(
-		/datum/reagent/enzyme = 5,
 		/datum/reagent/sodiumchloride = 10
 	)
 	required_items = list(
@@ -91,8 +83,10 @@
 
 
 /datum/microwave_recipe/cheesewedge_aged
+	consumed_reagents = list(
+		/datum/reagent/enzyme = 1
+	)
 	required_reagents = list(
-		/datum/reagent/enzyme = 1,
 		/datum/reagent/sodiumchloride = 2
 	)
 	required_items = list(
@@ -128,8 +122,10 @@
 
 
 /datum/microwave_recipe/cheesewheel_blue
+	consumed_reagents = list(
+		/datum/reagent/enzyme = 5
+	)
 	required_reagents = list(
-		/datum/reagent/enzyme = 5,
 		/datum/reagent/sodiumchloride = 5,
 		/datum/reagent/drink/kefir = 5
 	)
@@ -140,8 +136,10 @@
 
 
 /datum/microwave_recipe/cheesewedge_blue
+	consumed_reagents = list(
+		/datum/reagent/enzyme = 1
+	)
 	required_reagents = list(
-		/datum/reagent/enzyme = 1,
 		/datum/reagent/sodiumchloride = 1,
 		/datum/reagent/drink/kefir = 1
 	)

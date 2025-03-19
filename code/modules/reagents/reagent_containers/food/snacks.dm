@@ -2353,7 +2353,7 @@
 	center_of_mass = "x=17;y=6"
 	nutriment_desc = list("cracker" = 1)
 	w_class = ITEM_SIZE_TINY
-	volume = 6
+	volume = 10
 	nutriment_amt = 1
 
 /////////////////////////////////////////////////PIZZA////////////////////////////////////////
@@ -3442,7 +3442,7 @@
 	filling_color = "#dbc94f"
 	center_of_mass = "x=17;y=18"
 	w_class = ITEM_SIZE_TINY
-	volume = 10
+	volume = 20
 	bitesize = 1
 
 /obj/item/reagent_containers/food/snacks/chocolatebar
@@ -3585,14 +3585,10 @@
 	icon_state = "clam-chowder"
 	filling_color = "#f6db93"
 	trash = /obj/item/trash/snack_bowl
-	nutriment_desc = list("clams" = 5)
+	nutriment_desc = list("potato" = 5)
 	nutriment_amt = 5
 	bitesize = 5
 	eat_sound = 'sound/items/drink.ogg'
-/obj/item/reagent_containers/food/snacks/clam_chowder/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/drink/milk/cream, 5)
-
 
 /obj/item/reagent_containers/food/snacks/bisque
 	name = "bisque"
@@ -3604,10 +3600,6 @@
 	nutriment_amt = 5
 	bitesize = 5
 	eat_sound = 'sound/items/drink.ogg'
-/obj/item/reagent_containers/food/snacks/bisque/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/drink/milk/cream, 5)
-
 
 /obj/item/reagent_containers/food/snacks/stuffed_clam
 	name = "stuffed clam"
@@ -3616,11 +3608,6 @@
 	filling_color = "#e69720"
 	trash = /obj/item/shell/clam
 	bitesize = 2
-/obj/item/reagent_containers/food/snacks/stuffed_clam/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/sodiumchloride, 1)
-	reagents.add_reagent(/datum/reagent/blackpepper, 1)
-
 
 /obj/item/reagent_containers/food/snacks/steamed_mussels
 	name = "steamed mussels"
@@ -3631,11 +3618,6 @@
 	nutriment_desc = list("delicate broth" = 3, "mussels" = 3)
 	nutriment_amt = 6
 	bitesize = 4
-/obj/item/reagent_containers/food/snacks/steamed_mussels/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/sodiumchloride, 1)
-	reagents.add_reagent(/datum/reagent/blackpepper, 1)
-
 
 /obj/item/reagent_containers/food/snacks/oysters_rockefeller
 	name = "oysters rockefeller"
@@ -3643,8 +3625,8 @@
 	icon_state = "oysters-rockefeller"
 	filling_color = "#e69720"
 	trash = /obj/item/trash/plate
-	nutriment_desc = list("baked oyster" = 2, "parsley" = 2)
-	nutriment_amt = 4
+	nutriment_desc = list("baked oyster" = 5)
+	nutriment_amt = 5
 	bitesize = 3
 
 
@@ -3663,8 +3645,8 @@
 	desc = "A creamy deep-fried wonton filled with crab meat and cream cheese."
 	icon_state = "crab-rangoon"
 	filling_color = "#ffb79e"
-	nutriment_desc = list("creamy crab meat" = 3)
-	nutriment_amt = 3
+	nutriment_desc = list("crab meat" = 5)
+	nutriment_amt = 5
 	bitesize = 5
 
 
@@ -3674,13 +3656,9 @@
 	icon_state = "crab-dinner"
 	filling_color = "#ffb79e"
 	trash = /obj/item/trash/usedplatter
-	nutriment_desc = list("tender crab meat" = 4)
-	nutriment_amt = 4
+	nutriment_desc = list("tender crab meat" = 5)
+	nutriment_amt = 5
 	bitesize = 4
-/obj/item/reagent_containers/food/snacks/crab_dinner/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/drink/juice/lemon, 3)
-
 
 /obj/item/reagent_containers/food/snacks/shrimp_cocktail
 	name = "shrimp cocktail"
@@ -3688,21 +3666,17 @@
 	icon_state = "shrimp-cocktail"
 	filling_color = "#ffb79e"
 	trash = /obj/item/reagent_containers/food/drinks/glass2/cocktail
-	nutriment_desc = list("shrimp" = 2, "horseradish" = 2)
-	nutriment_amt = 4
+	nutriment_desc = list("shrimp" = 5)
+	nutriment_amt = 5
 	bitesize = 4
-/obj/item/reagent_containers/food/snacks/shrimp_cocktail/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/ketchup, 5)
-
 
 /obj/item/reagent_containers/food/snacks/shrimp_tempura
 	name = "shrimp tempura"
 	desc = "A large shrimp deep-fried in a coat of light, fluffy batter."
 	icon_state = "shrimp-tempura"
 	filling_color = "#ffd553"
-	nutriment_desc = list("fried shrimp" = 2)
-	nutriment_amt = 2
+	nutriment_desc = list("fried shrimp" = 3)
+	nutriment_amt = 3
 	bitesize = 3
 	sushi_overlay = "tempura"
 
@@ -3716,10 +3690,6 @@
 	nutriment_desc = list("seafood" = 3, "saffron" = 3)
 	nutriment_amt = 6
 	bitesize = 6
-/obj/item/reagent_containers/food/snacks/seafood_paella/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/ethanol/wine/premium, 5)
-
 
 /obj/item/reagent_containers/food/snacks/mashedpotato
 	name = "mashed potato"
@@ -3728,13 +3698,9 @@
 	filling_color = "#eddd00"
 	trash = /obj/item/trash/plate
 	center_of_mass = list("x"=16, "y"=11)
-	nutriment_amt = 4
+	nutriment_amt = 6
 	nutriment_desc = list("mashed potatoes" = 6)
 	bitesize = 2
-/obj/item/reagent_containers/food/snacks/mashedpotato/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/sodiumchloride, 1)
-	reagents.add_reagent(/datum/reagent/blackpepper, 1)
 
 /obj/item/reagent_containers/food/snacks/sliceable/roast_chicken
 	name = "roast chicken"
@@ -3747,7 +3713,6 @@
 	nutriment_amt = 12
 	nutriment_desc = list("chicken" = 6, "potatoes" = 3, "stuffing" = 3)
 	bitesize = 3
-	volume = 75
 
 /obj/item/reagent_containers/food/snacks/sliceable/roast_chicken/Initialize()
 	.=..()
@@ -3769,8 +3734,8 @@
 	filling_color = "#fffee0"
 	slice_path = /obj/item/reagent_containers/food/snacks/tofurkey_slice
 	slices_num = 6
-	nutriment_amt = 24
-	nutriment_desc = list("turkey" = 3, "tofu" = 5, "gooeyness" = 4)
+	nutriment_amt = 12
+	nutriment_desc = list("turkey" = 3, "tofu" = 5, "stuffing" = 4)
 	bitesize = 3
 
 
@@ -3788,8 +3753,8 @@
 	filling_color = "#4e3d3a"
 	desc = "Now bring us some figgy pudding, now bring us some figgy pudding... wait a minute, there's not actually any figs in this."
 	trash = /obj/item/trash/plate
-	nutriment_amt = 4
-	nutriment_desc = list("fruit cake" = 4)
+	nutriment_amt = 10
+	nutriment_desc = list("fruit cake" = 5, "raisins" = 5)
 	bitesize = 3
 
 
@@ -3802,8 +3767,8 @@
 	center_of_mass = list("x"=16, "y"=12)
 	slice_path = /obj/item/reagent_containers/food/snacks/chocolaterouladeslice
 	slices_num = 5
-	nutriment_amt = 20
-	nutriment_desc = list("spongey cake" = 10, "chocolate" = 10)
+	nutriment_amt = 10
+	nutriment_desc = list("spongey cake" = 10)
 
 
 /obj/item/reagent_containers/food/snacks/chocolaterouladeslice
@@ -3822,6 +3787,8 @@
 	icon_state = "gumbo"
 	filling_color = "#921f10"
 	trash = /obj/item/trash/snack_bowl
+	nutriment_amt = 15
+	nutriment_desc = list("shrimp" = 7, "thick soup" = 8)
 	bitesize = 4
 	eat_sound = 'sound/items/drink.ogg'
 
@@ -3849,13 +3816,8 @@
 	nutriment_amt = 3
 	nutriment_desc = list("flaky pastry" = 3)
 	w_class = ITEM_SIZE_TINY
-	volume = 10
+	volume = 20
 	bitesize = 3
-
-/obj/item/reagent_containers/food/snacks/rugelach/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/cinnamon, 3)
-
 
 /obj/item/reagent_containers/food/snacks/rugelach_berry
 	name = "raspberry rugelach"
@@ -3865,13 +3827,8 @@
 	nutriment_amt = 3
 	nutriment_desc = list("flaky pastry" = 3)
 	w_class = ITEM_SIZE_TINY
-	volume = 10
+	volume = 20
 	bitesize = 3
-
-/obj/item/reagent_containers/food/snacks/rugelach_berry/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/drink/juice/berry, 3)
-
 
 /obj/item/reagent_containers/food/snacks/frouka
 	name = "frouka"
@@ -3882,9 +3839,6 @@
 	nutriment_amt = 12
 	nutriment_desc = list("eggs" = 6, "mustard" = 6)
 	bitesize = 5
-/obj/item/reagent_containers/food/snacks/frouka/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/spacespice, 5)
 
 /obj/item/reagent_containers/food/snacks/custard
 	name = "custard"
@@ -3895,11 +3849,6 @@
 	nutriment_amt = 5
 	nutriment_desc = list("custard" = 5)
 	bitesize = 3
-
-/obj/item/reagent_containers/food/snacks/custard/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/sugar, 5)
-	reagents.add_reagent(/datum/reagent/nutriment/protein/egg, 2)
 
 /obj/item/reagent_containers/food/snacks/custard/use_tool(obj/item/attacking_item, mob/user, params)
 	. = ..()
@@ -3919,8 +3868,8 @@
 	filling_color = "#e9c35b"
 	trash = /obj/item/trash/ramiken
 	filling_color = "#e9c35b"
-	nutriment_amt = 4
-	nutriment_desc = list("custard" = 3)
+	nutriment_amt = 5
+	nutriment_desc = list("custard" = 5)
 	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/creme_brulee/Initialize()
@@ -3940,13 +3889,6 @@
 	trash = /obj/item/trash/snack_bowl
 	bitesize = 6
 
-/obj/item/reagent_containers/food/snacks/chilied_eggs/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 2)
-	reagents.add_reagent(/datum/reagent/capsaicin, 2)
-	reagents.add_reagent(/datum/reagent/nutriment/protein/egg, 3)
-
-
 /obj/item/reagent_containers/food/snacks/hatchling_surprise
 	name = "hatchling surprise"
 	desc = "A poached egg on top of several fried strips of meat, favoured by Unathi young and old alike. The real surprise is if you can feed it to your hatchling without losing a finger or two."
@@ -3954,12 +3896,6 @@
 	filling_color = "#ae654b"
 	trash = /obj/item/trash/snack_bowl
 	bitesize = 5
-
-/obj/item/reagent_containers/food/snacks/hatchling_surprise/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 2)
-	reagents.add_reagent(/datum/reagent/nutriment/protein/egg, 3)
-
 
 /obj/item/reagent_containers/food/snacks/red_sun_special
 	name = "red sun special"
@@ -3969,23 +3905,15 @@
 	trash = /obj/item/trash/snack_bowl
 	bitesize = 4
 
-/obj/item/reagent_containers/food/snacks/red_sun_special/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 2)
-
-
 /obj/item/reagent_containers/food/snacks/sea_delight
 	name = "\improper Rah'Zakeh delight"
 	desc = "Three raw eggs floating in a sea of eye-watering gukhe broth. A mostly-authentic replication of a Yeosa delicacy."
 	icon_state = "sea-delight"
 	filling_color = "#e00000"
 	trash = /obj/item/trash/snack_bowl
+	nutriment_amt = 12
+	nutriment_desc = list("bitter gukhe" = 12)
 	bitesize = 5
-
-/obj/item/reagent_containers/food/snacks/sea_delight/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein/egg, 5)
-	reagents.add_reagent(/datum/reagent/capsaicin, 2)
 
 
 /obj/item/reagent_containers/food/snacks/stok_skewers
@@ -3993,48 +3921,28 @@
 	desc = "Two hearty skewers of seared meat, glazed in a tangy spice. A popular Mumbak street food - despite the name, it can be made with just about any meat."
 	icon_state = "stok-skewers"
 	filling_color = "#c14c13"
+	nutriment_amt = 6
+	nutriment_desc = list("bitter gukhe" = 6)
 	bitesize = 5
-
-/obj/item/reagent_containers/food/snacks/stok_skewers/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 2)
-	reagents.add_reagent(/datum/reagent/capsaicin, 2)
-	reagents.add_reagent(/datum/reagent/nutriment/vinegar, 3)
-
 
 /obj/item/reagent_containers/food/snacks/gukhe_fish
 	name = "cured gukhe platter"
 	desc = "A fish cutlet cured in a bitter gukhe rub, served with a tangy dipping sauce and a garnish of seaweed. A staple of Yeosa'Unathi cooking."
 	icon_state = "gukhe-fish"
 	filling_color = "#ee6927"
-	nutriment_amt = 5
+	nutriment_amt = 6
 	nutriment_desc = list("tangy fish", "bitter gukhe")
 	bitesize = 5
 	trash = /obj/item/trash/usedplatter
-
-/obj/item/reagent_containers/food/snacks/gukhe_fish/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 6)
-	reagents.add_reagent(/datum/reagent/capsaicin, 2)
-	reagents.add_reagent(/datum/reagent/nutriment/vinegar, 3)
-	reagents.add_reagent(/datum/reagent/sodiumchloride, 3)
-
 
 /obj/item/reagent_containers/food/snacks/aghrassh_cake
 	name = "aghrassh cake"
 	desc = "A dense, calorie-packed puck of aghrassh paste, spices, and ground meat, usually eaten by desert-going Unathi. This one has an egg cracked over it to make it a bit more palatable."
 	icon_state = "aghrassh-cake"
 	filling_color = "#ac5020"
-	nutriment_amt = 8
+	nutriment_amt = 10
 	nutriment_desc = list("aghrassh nuts", "mealy paste")
 	bitesize = 5
-
-/obj/item/reagent_containers/food/snacks/aghrassh_cake/Initialize()
-	.=..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 8)
-	reagents.add_reagent(/datum/reagent/nutriment/coco, 3)
-	reagents.add_reagent(/datum/reagent/blackpepper, 3)
-
 
 //Sol Vendor
 
@@ -4264,8 +4172,6 @@
 	slices_num = 4
 	filling_color = "#ffe396"
 	center_of_mass = "x=16;y=9"
-	nutriment_desc = list("cookie" = 5, "almonds" = 3)
-	nutriment_amt = 8
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/slice/unscotti
@@ -4277,7 +4183,7 @@
 	center_of_mass = "x=16;y=4"
 	w_class = ITEM_SIZE_TINY
 	whole_path = /obj/item/reagent_containers/food/snacks/sliceable/unscottiloaf
-	volume = 7
+	volume = 15
 
 /obj/item/reagent_containers/food/snacks/slice/unscotti/filled
 	filled = TRUE
@@ -4289,7 +4195,7 @@
 	filling_color = "#dbc94f"
 	center_of_mass = "x=17;y=18"
 	nutriment_amt = 4
-	nutriment_desc = list("sweetness" = 2, "crumbly cookie" = 2, "almonds" = 1)
+	nutriment_desc = list("crumbly cookie" = 4)
 	w_class = ITEM_SIZE_TINY
 	bitesize = 3
-	volume = 9
+	volume = 15

@@ -1721,7 +1721,7 @@
 
 
 /datum/microwave_recipe/sea_delight
-	required_reagents = list(
+	consumed_reagents = list(
 		/datum/reagent/water = 10
 	)
 	required_items = list(
@@ -1859,7 +1859,7 @@
 
 
 /datum/microwave_recipe/crab_dinner
-	required_reagents = list(
+	consumed_reagents = list(
 		/datum/reagent/water = 10
 	)
 	required_items = list(
@@ -2000,8 +2000,10 @@
 
 
 /datum/microwave_recipe/gumbo
+	consumed_reagents = list(
+		/datum/reagent/water = 10
+	)
 	required_reagents = list(
-		/datum/reagent/water = 10,
 		/datum/reagent/nutriment/rice = 5
 	)
 	required_items = list(
@@ -2017,7 +2019,7 @@
 
 
 /datum/microwave_recipe/macandcheese
-	required_reagents = list(
+	consumed_reagents = list(
 		/datum/reagent/water = 5
 	)
 	required_items = list(
@@ -2040,11 +2042,12 @@
 	)
 	result_path = /obj/item/reagent_containers/food/snacks/macandcheese/bacon
 
-
 /datum/microwave_recipe/puffpuff
+	consumed_reagents = list(
+		/datum/reagent/nutriment/flour = 20,
+		/datum/reagent/water = 5
+	)
 	required_reagents = list(
-		/datum/reagent/nutriment/flour = 10,
-		/datum/reagent/water = 5,
 		/datum/reagent/spacespice = 2,
 		/datum/reagent/sodiumchloride = 1
 	)
@@ -2052,7 +2055,7 @@
 
 
 /datum/microwave_recipe/latkes
-	required_reagents = list(
+	consumed_reagents = list(
 		/datum/reagent/nutriment/flour = 5
 	)
 	required_items = list(
@@ -2102,8 +2105,10 @@
 
 
 /datum/microwave_recipe/custard
+	consumed_reagents = list(
+		/datum/reagent/drink/milk = 5
+	)
 	required_reagents = list(
-		/datum/reagent/drink/milk = 5,
 		/datum/reagent/nutriment/protein/egg = 3,
 		/datum/reagent/sugar = 5
 	)
