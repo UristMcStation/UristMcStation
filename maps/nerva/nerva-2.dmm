@@ -13501,6 +13501,7 @@
 	dir = 4
 	},
 /obj/structure/table/woodentable_reinforced/walnut,
+/obj/machinery/vending/urist/lotto,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "axr" = (
