@@ -178,10 +178,28 @@
 	var/mob/living/targetLM = target
 
 	if(!isnull(target) && distance <= 1 && (targetLM?.stat != DEAD))
+		// This is just for testing the type for consciousness...
 		var/mob/living/L = pawn
 
-		if(istype(L) && L.stat == CONSCIOUS)
+		// This is True if BOTH the source is at least a mob/living and it's a conscious mob.
+		var/can_attack = FALSE
+
+		if(istype(L))
+			if(L.stat == CONSCIOUS)
+				can_attack = TRUE
+
+		if(can_attack)
+			// Make sure to set the intent to harm or we'll perform Tactical Combat Hugs
+			L.a_intent = I_HURT
+
+			var/obj/item/gun/held_gun = L.get_active_hand()
+			if(istype(held_gun))
+				// HARM results in point-blank shot, we want melee (pistol-whip), so have to switch -_-
+				L.a_intent = I_DISARM
+
+			// Call the attack interface
 			var/attacked = L.IAttack(target)
+
 			if(attacked == ATTACK_SUCCESSFUL)
 				// Might have to be removed later - should likely be handled by the harm logic itself
 				target.MeleeHitBy(L)
