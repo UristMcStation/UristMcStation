@@ -1,0 +1,41 @@
+{
+	"name": "ORMA",
+	"tags": [
+		"mining"
+	],
+	"relationships": {
+		"metallurgy": 50
+	},
+	"actionset_files": [
+		"faction_base.json",
+		"faction_trade_test.json"
+	],
+	"needs": {
+		"food_generic": 50,
+		"wealth": 1000,
+		"prestige": 50,
+		"ore": 80,
+		"steel": 50
+	},
+	"need_weights": {
+		"food_generic": 12,
+		"wealth": 8,
+		"prestige": 1,
+		"ore": 10,
+		"steel": 1
+	},
+	"preferred_trades": {
+		"food_generic": "/obj/food",
+		"prestige": "/obj/decor",
+		"ore": "/obj/ore",
+		"steel": "/obj/steel_bar"
+	},
+	"assets": {
+		"wealth": 5000,
+		"hydroponics": 1,
+		"mining_outpost": 10,
+		"workers": 1000,
+		"/obj/food": 8000,
+		"/obj/ore": 4000
+	}
+}
