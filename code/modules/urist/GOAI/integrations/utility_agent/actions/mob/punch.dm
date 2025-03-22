@@ -29,7 +29,16 @@
 		tracker.SetFailed()
 		return
 
-	src.Melee(threat)
+	var/result = src.Melee(threat)
 
-	tracker.SetDone()
+	if(result)
+		tracker.SetDone()
+		tracker.failed_ticks = 0
+	else
+		tracker.failed_ticks++
+
+	if(tracker.failed_ticks)
+		var/mob/living/L = pawn
+		if(istype(L))
+			L.swap_hand()
 	return
