@@ -85,3 +85,11 @@
 	great for stashing your stolen goods. Comes with a crowbar and a floor tile."
 	item_cost = 16
 	path = /obj/item/storage/backpack/satchel/flat
+
+/datum/uplink_item/item/stealth_items/contortionist_jumpsuit
+	name = "Contortionist's Jumpsuit"
+	desc = "A highly flexible jumpsuit that will help you navigate ventilation loops internally. \
+	It can't be used without stripping off most gear, including backpack, belt, helmet, and suit. \
+	Free hands are also necessary to crawl around inside."
+	item_cost = 20
+	path = /obj/item/clothing/under/contortionist

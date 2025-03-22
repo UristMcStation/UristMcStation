@@ -1813,3 +1813,16 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 		bio = ARMOR_BIO_SMALL,
 		rad = ARMOR_RAD_MINOR
 		)
+
+/obj/item/clothing/under/contortionist
+	name = "contortionist's jumpsuit"
+	desc = "A light jumpsuit useful for squeezing through narrow vents."
+	icon_state = "robotics2"
+	item_state = "robotics2"
+
+/obj/item/clothing/under/contortionist/proc/check_clothing(mob/user as mob)
+	//Allowed to wear: glasses, shoes, gloves, pockets, mask, and jumpsuit (obviously)
+	var/list/slot_must_be_empty = list(slot_back,slot_handcuffed,slot_legcuffed,slot_l_hand,slot_r_hand,slot_belt,slot_head,slot_wear_suit)
+	for(var/slot_id in slot_must_be_empty)
+		user << "<span class='warning'>You can't fit inside while wearing those bulky clothes.</span>"
+		return 0
