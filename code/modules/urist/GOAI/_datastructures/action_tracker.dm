@@ -24,6 +24,9 @@
 	var/trigger_time = null
 	var/last_check_time = null
 
+	// NOTE: This is a newer API element, some old code may use BB for this instead!
+	var/failed_ticks = 0
+
 
 /datum/ActionTracker/proc/Initialize(var/datum/action, var/timeout = null, var/tick_delay = null, var/run = TRUE)
 	if(src.is_rebuilding)
@@ -34,6 +37,8 @@
 	src.is_done = FALSE
 	src.is_failed = FALSE
 	src.is_aborted = FALSE
+
+	src.failed_ticks = 0
 
 	src.process = TRUE
 
