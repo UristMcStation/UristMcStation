@@ -155,6 +155,8 @@
 
 	var/static/minimum_player_age = 0
 
+	var/static/maximum_queued_characters = 3
+
 	/// Allows ghosts to write in blood in cult rounds...
 	var/static/cult_ghostwriter = TRUE
 
@@ -871,6 +873,8 @@
 				disallowed_modes += value
 			if ("minimum_player_age")
 				minimum_player_age = text2num(value)
+			if ("maximum_queued_characters")
+				maximum_queued_characters = text2num(value)
 			if ("max_explosion_range")
 				max_explosion_range = text2num_or_default(value, max_explosion_range)
 			if ("game_version")
