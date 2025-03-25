@@ -476,16 +476,16 @@
 /obj/item/rig_module/mounted/arm_blade
 
 	name = "forearm-mounted armblades"
-	desc = "A pair of steel armblades to be mounted onto a hardsuit."
+	desc = "A pair of laser armblades to be mounted onto a hardsuit."
 	icon_state = "module"
 
 	suit_overlay_active = null
 
-	activate_string = "Extend Blade"
-	deactivate_string = "Retract Blade"
+	activate_string = "Extend Laser Blade"
+	deactivate_string = "Retract Laser Blade"
 
 	interface_name = "forearm-mounted blade"
-	interface_desc = "A pair of steel armblades built into each forearm of your hardsuit."
+	interface_desc = "A pair of laser armblades built into each forearm of your hardsuit."
 
 	usable = 0
 	selectable = 0
@@ -497,7 +497,7 @@
 /obj/item/rig_module/mounted/arm_blade/Process()
 
 	if(holder && holder.wearer)
-		if(!(locate(/obj/item/material/armblade) in holder.wearer))
+		if(!(locate(/obj/item/melee/energy/blade/e_armblade) in holder.wearer))
 			deactivate()
 			return 0
 
@@ -511,7 +511,7 @@
 		deactivate()
 		return
 
-	var/obj/item/material/armblade/mounted/blade = new(M)
+	var/obj/item/melee/energy/blade/e_armblade/blade = new(M)
 	M.put_in_hands(blade)
 
 	if(!..())
@@ -526,7 +526,7 @@
 	if(!M)
 		return
 
-	for(var/obj/item/material/armblade/mounted/blade in M.contents)
+	for(var/obj/item/melee/energy/blade/e_armblade/blade in M.contents)
 		qdel(blade)
 
 /obj/item/rig_module/mounted/power_fist
