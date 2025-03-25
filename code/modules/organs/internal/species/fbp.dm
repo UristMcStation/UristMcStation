@@ -63,9 +63,13 @@
 		to_chat(owner, SPAN_WARNING("Your internal battery beeps an alert code, it is low on charge!"))
 
 /obj/item/organ/internal/cell/emp_act(severity)
-	..()
 	if(cell)
-		cell.emp_act(severity)
+		cell.emp_act(severity*2)
+	switch (severity)
+		if (EMP_ACT_HEAVY)
+			take_internal_damage(8)
+		if (EMP_ACT_LIGHT)
+			take_internal_damage(5)
 
 /obj/item/organ/internal/cell/attackby(obj/item/W, mob/user)
 	if(isScrewdriver(W))
