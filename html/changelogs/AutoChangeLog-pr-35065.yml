@@ -1,0 +1,7 @@
+author: Cakey
+changes:
+  - {rscadd: "You can now select to ready up as multiple characters, each with their
+      own job preferences. Character job and role preferences will all be considered
+      as defined (slot 2 character's high pref will be prioritised over slot 1 character's
+      med pref)"}
+delete-after: true
