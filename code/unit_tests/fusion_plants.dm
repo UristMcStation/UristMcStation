@@ -5,7 +5,7 @@
 
 	var/list/check_machines
 	for(var/datum/thing as anything in SSmachines.machinery)
-		if(("initial_id_tag" in thing.vars) && !isnull(thing:initial_id_tag) && has_extension(thing, /datum/extension/local_network_member))
+		if(thing.vars.Find("initial_id_tag") && !isnull(thing:initial_id_tag) && has_extension(thing, /datum/extension/local_network_member))
 			LAZYADD(check_machines, get_extension(thing, /datum/extension/local_network_member))
 
 	if(LAZYLEN(check_machines))
