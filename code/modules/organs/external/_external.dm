@@ -156,23 +156,25 @@
 		return
 
 	var/burn_damage = 0
+	var/stun_time = 0
 	switch (severity)
 		if (EMP_ACT_HEAVY)
+			stun_time = 1 MINUTE
 			burn_damage = 30
 		if (EMP_ACT_LIGHT)
-			burn_damage = 15
-
-	var/mult = 1 + !!(BP_IS_ASSISTED(src)) // This macro returns (large) bitflags.
-	burn_damage *= mult/species.get_burn_mod(owner) //ignore burn mod for EMP damage
+			stun_time = 30 SECONDS
+			burn_damage = 30
 
 	var/power = (3 - severity)/5 //stupid reverse severity
 	for(var/obj/item/I in implants)
 		if(I.obj_flags & OBJ_FLAG_CONDUCTIBLE)
 			burn_damage += I.w_class * rand(power, 3*power)
 
-	if(owner && burn_damage)
-		owner.custom_pain("Something inside your [src] burns a [severity < 2 ? "bit" : "lot"]!", power * 15) //robotic organs won't feel it anyway
-		take_external_damage(0, burn_damage, 0, used_weapon = "Hot metal")
+	if(owner && stun_time)
+		status |= ORGAN_BROKEN
+		to_chat(owner, SPAN_WARNING("Your [src] seizes up!"))
+		spawn(stun_time)
+		status &= ~ORGAN_BROKEN
 
 	if(owner && limb_flags & ORGAN_FLAG_CAN_GRASP)
 		owner.grasp_damage_disarm(src)
