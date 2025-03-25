@@ -1,0 +1,4 @@
+author: Zenithstar
+changes:
+  - {bugfix: Getting hugged no longer misgenders you.}
+delete-after: true
