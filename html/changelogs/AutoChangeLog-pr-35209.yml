@@ -1,0 +1,4 @@
+author: Runebyt3
+changes:
+  - {bugfix: People cannot use thrusters anymore when floored or dead.}
+delete-after: true
