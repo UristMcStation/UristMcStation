@@ -1,5 +1,0 @@
-author: Runebyt3
-changes:
-  - {tweak: GAS now shiver instead of coughing when exposed to smoke from a smoke
-      bomb.}
-delete-after: true

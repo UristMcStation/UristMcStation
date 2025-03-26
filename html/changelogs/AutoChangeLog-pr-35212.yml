@@ -1,5 +1,0 @@
-author: Detritus-Ha
-changes:
-  - {tweak: Injectors now use NanoUI and have better manual controls. Multitool not
-      needed anymore.}
-delete-after: true
