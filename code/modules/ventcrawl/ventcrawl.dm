@@ -4,9 +4,9 @@ var/global/list/ventcrawl_machinery = list(
 	)
 
 /mob/living/carbon/human/AltClickOn(var/atom/A)
-	if(is_type_in_list(A,ventcrawl_machinery) && w_uniform && istype(w_uniform,/obj/item/clothing/under/contortionist))
+	if(istype(w_uniform,/obj/item/clothing/under/contortionist) && is_type_in_list(A,ventcrawl_machinery))
 		var/obj/item/clothing/under/contortionist/C = w_uniform
-		if(C.check_clothing(src))
+		if(C.ventcrawl_check_clothing(src))
 			src.handle_ventcrawl(A,1)
 			return
 	else
@@ -74,8 +74,6 @@ var/global/list/ventcrawl_machinery = list(
 		return carried_item.w_class <= ITEM_SIZE_NORMAL
 	return ..()
 
-
-
 /mob/living/proc/ventcrawl_carry()
 	for(var/atom/A in contents)
 		if(!is_allowed_vent_crawl_item(A))
@@ -91,7 +89,6 @@ var/global/list/ventcrawl_machinery = list(
 		handle_ventcrawl(A)
 		return 1
 	return ..()
-
 
 /mob/proc/start_ventcrawl()
 	var/atom/pipe
@@ -112,7 +109,7 @@ var/global/list/ventcrawl_machinery = list(
 /mob/living/carbon/alien/ventcrawl_carry()
 	return 1
 
-/mob/living/proc/handle_ventcrawl(atom/clicked_on, var/allowed_carry=0)
+/mob/living/proc/handle_ventcrawl(atom/clicked_on)
 	if(!can_ventcrawl())
 		return
 
