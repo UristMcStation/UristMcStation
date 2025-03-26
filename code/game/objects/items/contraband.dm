@@ -80,7 +80,9 @@
 		if(!user.check_has_mouth()) // We dont want dionae or adherents doing lines of cocaine. Probably.
 			to_chat(SPAN_WARNING("Without a nose, you seem unable to snort from \the [src]."))
 			return TRUE
-
+		if (user.wear_mask)
+			to_chat(user, SPAN_WARNING("Your [user.wear_mask.name] is in the way."))
+			return TRUE
 		user.visible_message(
 			SPAN_WARNING("\The [user] starts to snort some of \the [src] with \a [W]!"),
 			SPAN_NOTICE("You start to snort some of \the [src] with \the [W]!")
