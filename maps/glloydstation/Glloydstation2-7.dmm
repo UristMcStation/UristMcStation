@@ -834,8 +834,8 @@
 	name = "Firelock"
 	},
 /obj/machinery/door/airlock{
+	name = "Dorm 1";
 	id_tag = "rdorm1";
-	name = "Dorm 1"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	color = "#4444ff";
@@ -876,8 +876,8 @@
 	name = "Firelock"
 	},
 /obj/machinery/door/airlock{
+	name = "Dorm 2";
 	id_tag = "rdorm2";
-	name = "Dorm 2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1199,9 +1199,6 @@
 /obj/structure/hygiene/toilet{
 	dir = 8
 	},
-/obj/machinery/light/small{
-	dir = 1
-	},
 /obj/machinery/alarm{
 	frequency = 1441;
 	pixel_y = 22
@@ -1392,6 +1389,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/machinery/light/small,
 /turf/simulated/floor/tiled/freezer,
 /area/outpost/research/hallway)
 "dJ" = (
@@ -1400,7 +1398,7 @@
 	pixel_x = 0;
 	pixel_y = -25;
 	req_access = "0";
-	id_tag = "rbath"
+	id_tag = "rbath";
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -1416,8 +1414,8 @@
 	name = "Firelock"
 	},
 /obj/machinery/door/airlock{
+	name = "Bathroom";
 	id_tag = "rbath";
-	name = "Bathroom"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1737,6 +1735,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/bluegrid,
 /area/outpost/research/analysis)
 "ew" = (
@@ -1745,10 +1744,6 @@
 	d2 = 2;
 	icon_state = "1-2";
 	pixel_y = 0
-	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
 	},
 /obj/machinery/alarm{
 	dir = 8;
@@ -7186,9 +7181,6 @@
 	c_tag = "Research Outpost Isolation Cell A";
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/isolation_a)
 "oB" = (
@@ -7213,9 +7205,6 @@
 	c_tag = "Research Outpost Isolation Cell B";
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/isolation_b)
 "oE" = (
@@ -7234,9 +7223,6 @@
 /obj/machinery/camera/network/research_outpost{
 	c_tag = "Research Outpost Isolation Cell C";
 	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/isolation_c)
@@ -7261,6 +7247,7 @@
 /area/outpost/research/isolation_b)
 "oL" = (
 /obj/machinery/artifact_scanpad,
+/obj/machinery/light,
 /turf/simulated/floor/bluegrid,
 /area/outpost/research/isolation_b)
 "oM" = (
@@ -7276,6 +7263,7 @@
 "oO" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/isolation_c)
 "oP" = (
@@ -7531,15 +7519,15 @@
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
 "pD" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
 /obj/machinery/button/remote/airlock{
 	id_tag = "miningdorm1";
 	name = "Door Bolt Control";
 	pixel_x = 25;
 	pixel_y = 0;
 	specialfunctions = 4
+	},
+/obj/machinery/light/small{
+	dir = 1
 	},
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
@@ -7564,7 +7552,7 @@
 	specialfunctions = 4
 	},
 /obj/machinery/light/small{
-	dir = 8
+	dir = 1
 	},
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
@@ -7574,8 +7562,12 @@
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
 "pI" = (
-/turf/simulated/wall,
-/area/planet/jungle)
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/security/storage)
 "pJ" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/carpet,
@@ -7645,15 +7637,15 @@
 /turf/simulated/floor/planet/jungle/rock,
 /area/planet/jungle)
 "pW" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
 /obj/machinery/button/remote/airlock{
 	id_tag = "miningdorm2";
 	name = "Door Bolt Control";
 	pixel_x = 25;
 	pixel_y = 0;
 	specialfunctions = 4
+	},
+/obj/machinery/light/small{
+	dir = 1
 	},
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
@@ -7666,7 +7658,7 @@
 	specialfunctions = 4
 	},
 /obj/machinery/light/small{
-	dir = 8
+	dir = 1
 	},
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
@@ -7802,15 +7794,15 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/mining_main/dorms)
 "qx" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
 /obj/machinery/button/remote/airlock{
 	id_tag = "miningdorm3";
 	name = "Door Bolt Control";
 	pixel_x = 25;
 	pixel_y = 0;
 	specialfunctions = 4
+	},
+/obj/machinery/light/small{
+	dir = 1
 	},
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
@@ -7843,7 +7835,7 @@
 	specialfunctions = 4
 	},
 /obj/machinery/light/small{
-	dir = 8
+	dir = 1
 	},
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
@@ -8172,7 +8164,7 @@
 	specialfunctions = 4
 	},
 /obj/machinery/light/small{
-	dir = 8
+	dir = 1
 	},
 /turf/simulated/floor/carpet,
 /area/outpost/mining_main/dorms)
@@ -10304,6 +10296,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "wv" = (
@@ -10323,9 +10318,6 @@
 /obj/machinery/conveyor_switch/oneway{
 	id = "mining_internal";
 	name = "mining conveyor"
-	},
-/obj/machinery/light{
-	dir = 4
 	},
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
@@ -10469,7 +10461,6 @@
 	pixel_x = 0;
 	pixel_y = -24
 	},
-/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/security/storage)
 "wJ" = (
@@ -10656,9 +10647,6 @@
 /obj/machinery/status_display{
 	pixel_x = 0;
 	pixel_y = 32
-	},
-/obj/machinery/light/small{
-	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -12458,10 +12446,32 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
+"Jh" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
 "KH" = (
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/planet/jungle)
+"RQ" = (
+/obj/machinery/barrier,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube1";
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/security/storage)
 
 (1,1,1) = {"
 aa
@@ -20134,7 +20144,7 @@ pe
 pe
 px
 pB
-pI
+pe
 ac
 ac
 py
@@ -23235,7 +23245,7 @@ ud
 uJ
 vk
 vF
-wh
+RQ
 wh
 uJ
 xN
@@ -24262,8 +24272,8 @@ tE
 ud
 uJ
 vo
-vJ
 wj
+pI
 wJ
 uJ
 uK
@@ -34544,7 +34554,7 @@ qs
 qs
 vX
 qs
-xe
+Jh
 xB
 tm
 yO
