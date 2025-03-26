@@ -3,6 +3,15 @@ var/global/list/ventcrawl_machinery = list(
 	/obj/machinery/atmospherics/unary/vent_pump
 	)
 
+/mob/living/carbon/human/AltClickOn(var/atom/A)
+	if(istype(w_uniform,/obj/item/clothing/under/contortionist) && is_type_in_list(A,ventcrawl_machinery))
+		var/obj/item/clothing/under/contortionist/C = w_uniform
+		if(C.ventcrawl_check_clothing(src))
+			src.handle_ventcrawl(A,1)
+			return
+	else
+		..(A)
+
 // Vent crawling whitelisted items, whoo
 /mob/living/var/list/can_enter_vent_with = list(
 	/obj/item/implant,
