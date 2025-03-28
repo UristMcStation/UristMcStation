@@ -159,10 +159,10 @@
 	var/stun_time = 0
 	switch (severity)
 		if (EMP_ACT_HEAVY)
-			stun_time = 1 MINUTE
+			stun_time = 30 SECONDS
 			burn_damage = 30
 		if (EMP_ACT_LIGHT)
-			stun_time = 30 SECONDS
+			stun_time = 15 SECONDS
 			burn_damage = 30
 
 	var/power = (3 - severity)/5 //stupid reverse severity
