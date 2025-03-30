@@ -1,0 +1,5 @@
+author: thatdanguy23
+changes:
+  - {rscadd: Adds 3 dresses from Frontier Station}
+  - {tweak: Merges colour customizable dresses into a list option}
+delete-after: true
