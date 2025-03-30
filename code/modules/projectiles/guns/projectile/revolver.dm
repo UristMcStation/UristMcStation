@@ -88,6 +88,7 @@
 	one_hand_penalty = 0
 	bulk = 0
 	fire_delay = 7
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
 /obj/item/gun/projectile/revolver/holdout/on_update_icon()
 	. = ..()
