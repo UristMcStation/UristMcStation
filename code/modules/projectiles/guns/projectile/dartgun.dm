@@ -66,6 +66,7 @@
 	var/dart_reagent_amount = 15
 	var/container_type = /obj/item/reagent_containers/glass/beaker
 	var/list/starting_chems = null
+	action_button_name = "Access Mixing Controls"
 
 /obj/item/gun/projectile/dartgun/Initialize()
 	if(starting_chems)
