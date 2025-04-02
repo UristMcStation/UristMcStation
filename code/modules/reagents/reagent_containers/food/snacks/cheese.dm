@@ -30,7 +30,7 @@
 
 /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel/fresh/Initialize()
 	. = ..()
-	reagents.add_reagent(/datum/reagent/nutriment/protein, 10)
+	reagents.add_reagent(/datum/reagent/nutriment/protein/cheese, 10)
 
 /obj/item/reagent_containers/food/snacks/cheesewedge/fresh
 	name = "fresh cheese wedge"

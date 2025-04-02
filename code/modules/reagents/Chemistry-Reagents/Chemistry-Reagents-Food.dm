@@ -80,6 +80,21 @@
 		removed *= 2.25
 	M.adjust_nutrition(nutriment_factor * removed)
 
+/datum/reagent/nutriment/protein/cheese
+	name = "Cheese Protein"
+	taste_description = "cheese"
+	color = "#b7c616"
+
+/datum/reagent/nutriment/protein/fish
+	name = "Fish Protein"
+	taste_description = "fish"
+	color = "#9d9e94"
+
+/datum/reagent/nutriment/protein/shellfish
+	name = "Shellfish Protein"
+	taste_description = "shellfish"
+	color = "#f6db93"
+
 /datum/reagent/nutriment/protein/egg // Also bad for skrell.
 	name = "egg yolk"
 	taste_description = "egg"

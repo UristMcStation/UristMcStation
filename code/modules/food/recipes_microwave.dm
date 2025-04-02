@@ -695,7 +695,7 @@
 
 /datum/microwave_recipe/meatballsoup
 	required_reagents = list(
-		/datum/reagent/water = 5
+		/datum/reagent/water = 10
 	)
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/meatball,
@@ -709,7 +709,7 @@
 
 /datum/microwave_recipe/onionsoup
 	required_reagents = list(
-		/datum/reagent/water = 5
+		/datum/reagent/water = 10
 	)
 	required_produce = list(
 		"onion" = 2
@@ -719,7 +719,7 @@
 
 /datum/microwave_recipe/vegetablesoup
 	required_reagents = list(
-		/datum/reagent/water = 5
+		/datum/reagent/water = 10
 	)
 	required_produce = list(
 		"carrot" = 1,
@@ -732,7 +732,7 @@
 
 /datum/microwave_recipe/nettlesoup
 	required_reagents = list(
-		/datum/reagent/water = 5
+		/datum/reagent/water = 10
 	)
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/egg
@@ -911,7 +911,7 @@
 
 /datum/microwave_recipe/tomatosoup
 	required_reagents = list(
-		/datum/reagent/water = 5
+		/datum/reagent/water = 10
 	)
 	required_produce = list(
 		"tomato" = 2
@@ -986,7 +986,7 @@
 
 /datum/microwave_recipe/milosoup
 	required_reagents = list(
-		/datum/reagent/water = 5
+		/datum/reagent/water = 10
 	)
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/soydope,
@@ -1039,25 +1039,6 @@
 	result_path = /obj/item/reagent_containers/food/snacks/boiledrice/chazuke
 
 /datum/microwave_recipe/katsucurry
-	consumed_reagents = list(
-		/datum/reagent/nutriment/flour = 5,
-		/datum/reagent/water = 10
-	)
-	required_reagents = list(
-		/datum/reagent/nutriment/rice = 10
-	)
-	required_items = list(
-		/obj/item/reagent_containers/food/snacks/meat/chicken,
-	)
-	required_produce = list(
-		"apple" = 1,
-		"carrot" = 1,
-		"potato" = 1
-	)
-	result_path = /obj/item/reagent_containers/food/snacks/katsucurry
-
-
-/datum/microwave_recipe/katsucurryboiled
 	consumed_reagents = list(
 		/datum/reagent/nutriment/flour = 5
 	)
@@ -1246,15 +1227,7 @@
 	)
 	result_path = /obj/item/reagent_containers/food/snacks/twobread
 
-
 /datum/microwave_recipe/threebread
-	required_items = list(
-		/obj/item/reagent_containers/food/snacks/twobread,
-		/obj/item/reagent_containers/food/snacks/slice/bread
-	)
-	result_path = /obj/item/reagent_containers/food/snacks/threebread
-
-/datum/microwave_recipe/threebreadalt
 	required_reagents = list(
 		/datum/reagent/ethanol/wine = 5
 	)
@@ -1321,7 +1294,7 @@
 
 /datum/microwave_recipe/slimesoup
 	required_reagents = list(
-		/datum/reagent/water = 5,
+		/datum/reagent/water = 10,
 		/datum/reagent/slimejelly = 5
 	)
 	result_path = /obj/item/reagent_containers/food/snacks/slimesoup
@@ -1376,7 +1349,7 @@
 
 /datum/microwave_recipe/mysterysoup
 	required_reagents = list(
-		/datum/reagent/water = 5
+		/datum/reagent/water = 10
 	)
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/badrecipe,
@@ -1438,7 +1411,7 @@
 
 /datum/microwave_recipe/beetsoup
 	required_reagents = list(
-		/datum/reagent/water = 5
+		/datum/reagent/water = 10
 	)
 	required_produce = list(
 		"whitebeet" = 1,
@@ -1848,12 +1821,11 @@
 
 /datum/microwave_recipe/crab_rangoon
 	required_reagents = list(
-		/datum/reagent/drink/milk/cream = 5
+		/datum/reagent/drink/milk/cream = 3
 	)
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice,
-		/obj/item/reagent_containers/food/snacks/shellfish/crab,
-		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/shellfish/crab
 	)
 	result_path = /obj/item/reagent_containers/food/snacks/crab_rangoon
 
@@ -2069,9 +2041,8 @@
 
 /datum/microwave_recipe/rugelach
 	required_reagents = list(
-		/datum/reagent/cinnamon = 3,
-		/datum/reagent/sugar = 2,
-		/datum/reagent/drink/milk/cream = 2
+		/datum/reagent/cinnamon = 2,
+		/datum/reagent/sugar = 2
 	)
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice
@@ -2080,9 +2051,8 @@
 
 /datum/microwave_recipe/rugelach_berry
 	required_reagents = list(
-		/datum/reagent/drink/juice/berry = 3,
-		/datum/reagent/sugar = 2,
-		/datum/reagent/drink/milk/cream = 2
+		/datum/reagent/drink/juice/berry = 2,
+		/datum/reagent/sugar = 2
 	)
 	required_items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice
