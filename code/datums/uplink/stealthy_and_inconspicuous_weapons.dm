@@ -21,12 +21,12 @@
 	item_cost = 8
 	path = /obj/item/cane/concealed
 
-/datum/uplink_item/item/stealthy_weapons/random_toxin
+/*/datum/uplink_item/item/stealthy_weapons/random_toxin  -- Urist Specific Change - Moved catergory to Reagents & Plants
 	name = "Random Toxin Vial"
 	desc = "Contains one of an assortment of nasty toxins, with a single syringe included. Don't worry, its labeled. "
 	item_cost = 8
 	path = /obj/item/storage/box/syndie_kit/toxin
-
+*/
 /datum/uplink_item/item/stealthy_weapons/sleepy
 	name = "Paralytic Pen"
 	desc = "Looks and works like a pen, but prick someone with it, and 30 seconds later, they'll be on the ground mumbling."
@@ -56,6 +56,12 @@
 	desc = "An innocuous-looking space carp plushie. Add water and step back for a nasty surprise!"
 	item_cost = 10
 	path = /obj/item/reagent_containers/food/snacks/dehydrated_carp
+
+/datum/uplink_item/item/visible_weapons/pikecube
+	name = "Pike Cube"
+	desc = "While it looks like a normal monkey cube, the animal produced is, instead, a space pike. \ Note: The space pike does not like you."
+	item_cost = 36
+	path = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/pikecube
 
 /datum/uplink_item/item/stealthy_weapons/plush_bomb
 	name = "Plushie Bomb"

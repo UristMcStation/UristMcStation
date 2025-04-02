@@ -97,7 +97,7 @@
 
 /datum/uplink_item/item/tools/space_suit
 	name = "Voidsuit and Tactical Mask"
-	desc = "A satchel containing a non-regulation voidsuit, voidsuit helmet, tactical mask, and oxygen tank. \
+	desc = "A satchel containing a non-regulation voidsuit, voidsuit helmet, tactical mask, portable cooling unit and oxygen tank. \
 	Conceal your identity, while also not dying in space."
 	item_cost = 28
 	path = /obj/item/storage/backpack/satchel/syndie_kit/space
@@ -164,13 +164,14 @@
 	desc = "A remote-activated phoron-oxygen bomb assembly with an included signaler. \
 			A flashing disclaimer begins with the warning 'SOME DISASSEMBLY/REASSEMBLY REQUIRED.'"
 
-/datum/uplink_item/item/tools/polychromic_dye_bottle
+/* /datum/uplink_item/item/tools/polychromic_dye_bottle  --- Urist Specific Change - Moved to Reagents & Plants
 	name = "Extra-Strength Polychromic Dye"
 	item_cost = 10
 	path = /obj/item/reagent_containers/glass/bottle/dye/polychromic/strong
 	desc = "15 units of a tasteless dye that causes chemical mixtures to take on the color of the dye itself. \
 			Very useful for disguising poisons to the untrained eye; even large amounts of reagents can be fully recolored with only a few drops of dye. \
 			Like the mundane variety of polychromic dye, you can use the bottle in your hand to change the dye's color to suit your needs."
+*/
 
 /datum/uplink_item/item/tools/handcuffs
 	name = "Handcuffs"
@@ -183,9 +184,3 @@
 	item_cost = 32
 	path = /obj/item/device/radio_jammer
 	desc = "A small jammer that can fit inside a pocket. Capable of disrupting nearby radios and NTnet transmitters."
-
-/datum/uplink_item/item/tools/declumsifier
-	name = "De-Clumsy Device"
-	desc = "A single-use device that removes the Clumsy mutation when activated."
-	item_cost = 16
-	path = /obj/item/device/uplink_service/declumsifier
