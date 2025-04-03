@@ -1,4 +1,0 @@
-author: Aigamuxa
-changes:
-  - {bugfix: Fix teleporter not working for mobs with tracking implant in closet}
-delete-after: true
