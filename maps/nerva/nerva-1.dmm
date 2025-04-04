@@ -24104,7 +24104,7 @@
 /area/rnd/xenobiology)
 "Zk" = (
 /obj/item/gun/projectile/shotgun/doublebarrel,
-/obj/item/storage/belt/urist/bandolier,
+/obj/item/clothing/accessory/storage/bandolier,
 /obj/structure/closet/crate,
 /obj/machinery/light/small{
 	dir = 1

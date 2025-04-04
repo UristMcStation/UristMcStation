@@ -97,18 +97,6 @@
 	icon = 'icons/urist/items/clothes/belt.dmi'
 	icon_override = 'icons/uristmob/belt_mirror.dmi'
 
-//bandoliers
-
-/obj/item/storage/belt/urist/bandolier
-	name = "bandolier"
-	desc = "A bandolier for holding shotgun ammunition."
-	icon_state = "bandolier"
-	item_state = "bandolier"
-	storage_slots = 10
-	can_hold = list(
-			/obj/item/ammo_casing
-			)
-
 //military belt
 
 /obj/item/storage/belt/urist/military

@@ -95,7 +95,7 @@
 "bQ" = (/mob/living/simple_animal/hostile/urist/zombie/generic,/turf/simulated/floor/wood,/area/away/wildwest)
 "bR" = (/obj/machinery/door/unpowered/simple/iron,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/away/wildwest)
 "bS" = (/obj/effect/decal/cleanable/dirt,/mob/living/simple_animal/hostile/urist/zombie/generic,/turf/simulated/floor/wood,/area/away/wildwest)
-"bT" = (/obj/item/storage/belt/urist/bandolier,/turf/simulated/floor/wood,/area/away/wildwest)
+"bT" = (/obj/item/clothing/accessory/storage/bandolier,/turf/simulated/floor/wood,/area/away/wildwest)
 "bU" = (/obj/structure/table/rack/wood,/obj/item/clothing/accessory/toggleable/hawaii/random,/obj/item/clothing/accessory/toggleable/hawaii/random,/obj/random/junk,/obj/item/vehicle_part/tire,/turf/simulated/floor/wood,/area/away/wildwest)
 "bV" = (/obj/structure/table/rack/wood,/obj/item/trash/urist/instamash,/obj/item/trash/urist/cram,/obj/random/junk,/obj/effect/decal/cleanable/blood,/turf/simulated/floor/wood,/area/away/wildwest)
 "bW" = (/obj/structure/table/rack/wood,/obj/random/junk,/obj/random/junk,/obj/item/storage/lunchbox/syndicate,/turf/simulated/floor/wood,/area/away/wildwest)
