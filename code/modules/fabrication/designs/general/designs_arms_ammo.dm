@@ -124,7 +124,7 @@
 	path = /obj/item/ammo_magazine/speedloader/clip
 
 /datum/fabricator_recipe/arms_ammo/hidden/pistolstripperclip
-	name = "magnum stripper clip "
+	name = "magnum stripper clip (15mm)"
 	path = /obj/item/ammo_magazine/speedloader/pclip
 
 /datum/fabricator_recipe/arms_ammo/hidden/broomstickstripperclip
