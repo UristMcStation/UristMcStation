@@ -6,7 +6,7 @@
 	path = /obj/item/ammo_magazine/shotholder/empty
 
 /datum/fabricator_recipe/arms_ammo/shotgun_blanks
-	name = "ammunition (shotgun, blank)"
+	name = "shotgun shell (blank)"
 	path = /obj/item/ammo_casing/shotgun/blank
 
 /datum/fabricator_recipe/arms_ammo/flaregun
@@ -18,135 +18,135 @@
 	hidden = TRUE
 
 /datum/fabricator_recipe/arms_ammo/hidden/shotgun
-	name = "ammunition (shotgun, beanbag)"
+	name = "shotgun shell (beanbag)"
 	path = /obj/item/ammo_casing/shotgun/beanbag
 
 /datum/fabricator_recipe/arms_ammo/shotgun_flash
-	name = "ammunition (shotgun, flash)"
+	name = "shotgun shell (flash)"
 	path = /obj/item/ammo_casing/shotgun/flash
 
 /datum/fabricator_recipe/arms_ammo/hidden/magazine_smg_rubber
-	name = "ammunition (SMG rubber) top mounted"
+	name = "smg top mounted magazine (9mm, rubber)"
 	path = /obj/item/ammo_magazine/smg_top/rubber
 
 /datum/fabricator_recipe/arms_ammo/hidden/flamethrower
 	path = /obj/item/flamethrower/full
 
 /datum/fabricator_recipe/arms_ammo/hidden/speedloader
-	name = "ammunition (speedloader)"
+	name = "revolver speedloader (10mm)"
 	path = /obj/item/ammo_magazine/speedloader
 
 /datum/fabricator_recipe/arms_ammo/hidden/speedloader_small
-	name = "ammunition (speedloader, holdout)"
+	name = "revolver speedloader (9mm)"
 	path = /obj/item/ammo_magazine/speedloader/small
 
 /datum/fabricator_recipe/arms_ammo/hidden/speedloader_magnum
-	name = "ammunition (speedloader, magnum)"
+	name = "revolver speedloader (15mm)"
 	path = /obj/item/ammo_magazine/speedloader/magnum
 
 /datum/fabricator_recipe/arms_ammo/hidden/magazine_pistol
-	name = "ammunition (pistol)"
+	name = "pistol magazine (10mm)"
 	path = /obj/item/ammo_magazine/pistol
 
 /datum/fabricator_recipe/arms_ammo/hidden/magazine_pistol_rubber
-	name = "ammunition (pistol, rubber)"
+	name = "pistol magazine (10mm, rubber)"
 	path = /obj/item/ammo_magazine/pistol/rubber
 
 /datum/fabricator_recipe/arms_ammo/hidden/magazine_pistol_double
-	name = "ammunition (pistol, doublestack)"
+	name = "doublestack pistol magazine (10mm)"
 	path = /obj/item/ammo_magazine/pistol/double
 
 /datum/fabricator_recipe/arms_ammo/hidden/magazine_pistol_double_rubber
-	name = "ammunition (pistol, doublestack. rubber)"
+	name = "doublestack pistol magazine (10mm, rubber)"
 	path = /obj/item/ammo_magazine/pistol/double/rubber
 
 /datum/fabricator_recipe/arms_ammo/hidden/magazine_small
-	name = "ammunition (holdout)"
+	name = "pistol magazine (9mm, holdout)"
 	path = /obj/item/ammo_magazine/pistol/small
 
 /datum/fabricator_recipe/arms_ammo/hidden/magazine_magnum
-	name = "ammunition (magnum)"
+	name = "magnum magazine (15mm)"
 	path = /obj/item/ammo_magazine/magnum
 
 /datum/fabricator_recipe/arms_ammo/hidden/magazine_smg
-	name = "ammunition (submachine gun)"
+	name = "smg box magazine (10mm) "
 	path = /obj/item/ammo_magazine/smg
 
 /datum/fabricator_recipe/arms_ammo/hidden/magazine_uzi
-	name = "ammunition (machine pistol)"
+	name = "machine pistol magazine (10mm)"
 	path = /obj/item/ammo_magazine/machine_pistol
 
 /datum/fabricator_recipe/arms_ammo/hidden/magazine_smg_topmounted
-	name = "ammunition (SMG, top mounted)"
+	name = "smg top mounted magazine (9mm)"
 	path = /obj/item/ammo_magazine/smg_top
 
 /datum/fabricator_recipe/arms_ammo/hidden/magazine_arifle
-	name = "ammunition (rifle magazine)"
+	name = "assault rifle magazine (7.62mm)"
 	path = /obj/item/ammo_magazine/rifle
 
 /datum/fabricator_recipe/arms_ammo/hidden/magazine_bullpupheavy
-	name = "ammunition (heavy bullpup rifle)"
+	name = "bullpup magazine (5.56mm, heavy) "
 	path = /obj/item/ammo_magazine/mil_rifle/heavy
 
 /datum/fabricator_recipe/arms_ammo/hidden/magazine_bullpuplight
-	name = "ammunition (light bullpup rifle)"
+	name = "bullpup magazine (5.56mm, light)"
 	path = /obj/item/ammo_magazine/mil_rifle/light
 
 /datum/fabricator_recipe/arms_ammo/hidden/shotgun
-	name = "ammunition (slug, shotgun)"
+	name = "shotgun shell (slug)"
 	path = /obj/item/ammo_casing/shotgun
 
 /datum/fabricator_recipe/arms_ammo/hidden/shotgun_pellet
-	name = "ammunition (shell, shotgun)"
+	name = "shotgun shell (buckshot)" // it's called shotshell in the desc but buckshot works nicer
 	path = /obj/item/ammo_casing/shotgun/pellet
 
 /datum/fabricator_recipe/arms_ammo/hidden/tacknife
 	path = /obj/item/material/knife/combat
 
 /datum/fabricator_recipe/arms_ammo/hidden/stunshell
-	name = "ammunition (stun cartridge, shotgun)"
+	name = "shotgun shell (stun)"
 	path = /obj/item/ammo_casing/shotgun/stunshell
 
 /datum/fabricator_recipe/arms_ammo/hidden/flechette
-	name = "ammunition (flechette rifle)"
+	name = "flechette magazine"
 	path = /obj/item/magnetic_ammo
 
 /datum/fabricator_recipe/arms_ammo/hidden/skrellian_rifle_flechette
-	name = "ammunition (skrellian rifle, flechette)"
+	name = "skrellian rifle cylinder (flechette)"
 	path = /obj/item/magnetic_ammo/skrell
 
 /datum/fabricator_recipe/arms_ammo/hidden/skrellian_rifle_slug
-	name = "ammunition (skrellian rifle, slug)"
+	name = "skrellian rifle cylinder (slug)"
 	path = /obj/item/magnetic_ammo/skrell/slug
 
 /datum/fabricator_recipe/arms_ammo/hidden/stripperclip
-	name = "ammunition (rifle stripper clip)"
+	name = "rifle stripper clip (7.62mm)"
 	path = /obj/item/ammo_magazine/speedloader/clip
 
 /datum/fabricator_recipe/arms_ammo/hidden/pistolstripperclip
-	name = "ammunition (magnum pistol stripper clip)"
+	name = "magnum stripper clip "
 	path = /obj/item/ammo_magazine/speedloader/pclip
 
 /datum/fabricator_recipe/arms_ammo/hidden/broomstickstripperclip
-	name = "ammunition (holdout pistol stripper clip)"
-	path = /obj/item/ammo_magazine/speedloader/hpclip
+	name = "pistol stripper clip (9mm)"
+	path = /obj/item/ammo_magazine/speedloader/broomstick
 
 /datum/fabricator_recipe/arms_ammo/hidden/rifleinternalclip
-	name = "ammunition (en-bloc clip)"
+	name = "rifle en-bloc clip (7.62mm)"
 	path = /obj/item/ammo_magazine/iclipr
 
 /datum/fabricator_recipe/arms_ammo/hidden/spaceak
-	name = "ammunition (U2442 magazine box)"
+	name = "U2442 rifle magazine (5.56mm)"
 	path = /obj/item/ammo_magazine/rifle/military/spaceak
 
 /datum/fabricator_recipe/arms_ammo/hidden/hi2521smglethal
-	name = "ammunition (HI-2521-SMG magazine)"
+	name = "HI-2521 smg magazine (9mm)"
 	path = /obj/item/ammo_magazine/hi2521smg9mm
 
 /datum/fabricator_recipe/arms_ammo/hidden/hi2521smgrubber
-	name = "ammunition (HI-2521-SMG magazine - rubber)"
+	name = "HI-2521 smg magazine (9mm, rubber)"
 	path = /obj/item/ammo_magazine/hi2521smg9mm/rubber
 
 /datum/fabricator_recipe/arms_ammo/hidden/hi2521pistol9mm
-	name = "ammunition (HI-2521-P pistol magazine)"
+	name = "HI-2521-P pistol magazine (9mm)"
 	path = /obj/item/ammo_magazine/hi2521pistol9mm

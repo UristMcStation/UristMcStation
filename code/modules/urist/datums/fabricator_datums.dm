@@ -100,22 +100,6 @@
 	path = /obj/item/hammer/smithing
 	category = "Tools"
 
-/datum/fabricator_recipe/magazine_c20r_rubber
-	name = "ammunition (10mm, rubber)"
-	path = /obj/item/ammo_magazine/pistol/rubber
-	hidden = 1
-	category = "Arms and Ammunition"
-
-/datum/fabricator_recipe/magazine_hi2521smg9mm
-	name = "HI-2521 SMG ammo (7mm)"
-	path = /obj/item/ammo_magazine/hi2521smg9mm
-	hidden = 1
-	category = "Arms and Ammunition"
-
-/datum/fabricator_recipe/magazine_hi2521smg9mm_rubber
-	name = "HI-2121 SMG ammo (7mm, rubber)"
-	path = /obj/item/ammo_magazine/hi2521smg9mm/rubber
-	category = "Arms and Ammunition"
 
 //shipweapons
 

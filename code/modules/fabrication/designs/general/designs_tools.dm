@@ -42,6 +42,7 @@
 	path = /obj/item/material/minihoe
 
 /datum/fabricator_recipe/tool/welder_industrial
+	name = "welding tool (extended)"
 	path = /obj/item/weldingtool/largetank
 	hidden = TRUE
 
