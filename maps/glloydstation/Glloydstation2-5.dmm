@@ -1197,9 +1197,6 @@
 /turf/simulated/floor/plating,
 /area/outpost/research/eva)
 "cQ" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	cycle_to_external_air = 1;
 	frequency = 1379;
@@ -1219,6 +1216,9 @@
 /obj/effect/floor_decal/corner/mauve/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/outpost/research/eva)
@@ -1623,10 +1623,6 @@
 	dir = 4;
 	pixel_x = -23;
 	pixel_y = 0
-	},
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 8
 	},
 /obj/effect/floor_decal/corner/beige{
 	icon_state = "corner_white";
@@ -2347,6 +2343,22 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space,
 /area/space)
+"gP" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/device/scanner/mining,
+/obj/effect/floor_decal/corner/beige{
+	icon_state = "corner_white";
+	dir = 1
+	},
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/eva)
 "mg" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 8;
@@ -15707,7 +15719,7 @@ dk
 bK
 bK
 dF
-dR
+gP
 dV
 ef
 ew
