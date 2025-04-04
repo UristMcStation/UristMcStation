@@ -13961,8 +13961,8 @@
 /obj/item/gun/projectile/shotgun/pump{
 	pixel_y = -8
 	},
-/obj/item/storage/belt/urist/bandolier,
-/obj/item/storage/belt/urist/bandolier,
+/obj/item/clothing/accessory/storage/bandolier,
+/obj/item/clothing/accessory/storage/bandolier,
 /turf/simulated/floor/tiled/dark,
 /area/security/armoury)
 "aEg" = (
@@ -46997,7 +46997,7 @@
 /obj/structure/table/woodentable/walnut,
 /obj/item/reagent_containers/food/drinks/shaker,
 /obj/item/gun/projectile/shotgun/doublebarrel,
-/obj/item/storage/belt/urist/bandolier,
+/obj/item/clothing/accessory/storage/bandolier,
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/bar)
 "bRn" = (
