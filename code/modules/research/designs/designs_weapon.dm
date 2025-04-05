@@ -174,7 +174,7 @@
 	sort_string = "TBAAC"
 
 /datum/design/item/weapon/ammunition/ammo_emp_small
-	name = "haywire 7mm"
+	name = "haywire 9mm"
 	id = "ammo_emp_small"
 	desc = "A box of small pistol rounds with integrated EMP charges."
 	materials = list(MATERIAL_STEEL = 2500, MATERIAL_URANIUM = 750)
