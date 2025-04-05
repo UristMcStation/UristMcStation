@@ -406,7 +406,7 @@
 
 /obj/item/gun/projectile/automatic/minigun
 	name = "minigun"
-	desc = "A man-portable minigun lacking any branding on it. It fires small 7mm projectiles at an obscene rate of fire. Six barrels of fun."
+	desc = "A man-portable minigun lacking any branding on it. It fires small 9mm projectiles at an obscene rate of fire. Six barrels of fun."
 	icon = 'icons/obj/guns/minigun.dmi'
 	icon_state = "minigun"
 	item_state = "l6closedmag" /// Onmob is WIP sprite
