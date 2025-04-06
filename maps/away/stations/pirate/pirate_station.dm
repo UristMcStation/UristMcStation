@@ -39,7 +39,7 @@ var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	hidden = TRUE
 	spawn_ships = TRUE
-	spawn_types = list(/mob/living/simple_animal/hostile/overmapship/pirate/small, /mob/living/simple_animal/hostile/overmapship/pirate/med)
+	spawn_types = list(/mob/living/simple_animal/hostile/overmapship/pirate/small, /mob/living/simple_animal/hostile/overmapship/pirate/med, /mob/living/simple_animal/hostile/overmapship/pirate/gantry)
 	assigned_contracts = list(/datum/contract/shiphunt/pirate, /datum/contract/station_destroy/pirate)
 	initial_generic_waypoints = list(
 		"nav_piratestation_1",
