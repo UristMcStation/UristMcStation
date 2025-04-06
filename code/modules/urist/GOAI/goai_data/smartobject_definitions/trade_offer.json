@@ -1,0 +1,25 @@
+{
+	"name": "Trade", 
+	"active": 1, 
+	"actions": [
+		{
+			"name": "Accept Trade", 
+			"description": "Given a trade offer, accept it if it's beneficial.", 
+			"handler": "/datum/utility_ai/proc/AcceptTradeOffer", 
+			"priority": 10,
+			"context_procs": ["/proc/ctxfetcher_get_origin"], 
+			"context_args": [{
+				"input_key": "input"
+			}],
+			"considerations": [
+				{
+					"name": "TradeDesirability",
+					"input_proc": "/proc/consideration_trade_desirability",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"curve_proc": "/proc/curve_linear"
+				}
+			]
+		}
+	]
+}

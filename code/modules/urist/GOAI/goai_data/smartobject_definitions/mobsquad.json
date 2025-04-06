@@ -1,0 +1,188 @@
+{
+	"name": "MobSquadActs", 
+	"active": 1, 
+	"actions": [
+		{
+			"name": "Follow Squad (Cover)", 
+			"description": "Relocates to a good cover position near the Squad location.", 
+			"handler": "/datum/utility_ai/mob_commander/proc/SteerTo", 
+			"min_lod": 7,
+			"priority": 10,
+			"context_procs": ["/proc/ctxfetcher_cover_candidates"], 
+			"context_args": [
+				{
+					"output_context_key": "position"
+				}
+			],
+			"args": {
+				"timeout": 30
+			},
+			"considerations": [
+				{
+					"name": "MovingTowardsSquad",
+					"lo_mark": 0, 
+					"hi_mark": 12, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_manhattan_distance_delta_to_squad_pos", 
+					"input_args": {
+						"from_from_pawn": 1,
+						"to_key": "position",
+						"to_from_context": 1
+					},
+					"curve_proc": "/proc/curve_square"
+				},
+				{
+					"name": "MeanDistanceToThreat",
+					"lo_mark": 0, 
+					"hi_mark": 3, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_decorator_mean", 
+					"input_args": {
+						"from_memory": 1,
+						"memory_key": "Enemies",
+						"input_key": "enemy",
+						"secondary_input_key": "position",
+						"secondary_input_from_context": 1,
+						"default": 999, 
+						"aggregated_proc": "/proc/consideration_input_distance_to_arg",
+						"aggregated_proc_args": {
+							"from_key": "enemy",
+							"to_key": "position",
+							"from_from_context": 1,
+							"to_from_context": 1
+						}
+					},
+					"curve_proc": "/proc/curve_binary"
+				},
+				{
+					"name": "BraveryTrait",
+					"input_proc": "/proc/consideration_input_get_personality_trait",
+					"input_args": {
+						"input_key": "bravery",
+						"default": 0
+					},
+					"lo_mark": -0.25, 
+					"hi_mark": 1, 
+					"curve_proc": "/proc/curve_antisquare"
+				},
+				{
+					"name": "NumericalAdvantage",
+					"lo_mark": 0, 
+					"hi_mark": 3, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_relative_list_lengths", 
+					"input_args": {
+						"input_a": "Friendlies",
+						"input_b": "Enemies",
+						"from_memory": 1
+					},
+					"curve_proc": "/proc/curve_antisquare"
+				},
+				{
+					"name": "OutInTheOpen",
+					"lo_mark": 0, 
+					"hi_mark": 2, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_get_memory_value", 
+					"input_args": {
+						"memory_key": "OutInTheOpen",
+						"memory_default": 0
+					},
+					"curve_proc": "/proc/curve_linear"
+				}
+			]
+		},
+		{
+			"name": "Follow Squad (Walk)", 
+			"description": "Relocates to a position closer to the Squad location.", 
+			"handler": "/datum/utility_ai/mob_commander/proc/SteerTo", 
+			"min_lod": 7,
+			"priority": 6,
+			"context_procs": ["/proc/ctxfetcher_turfs_in_view"], 
+			"context_args": [
+				{
+					"output_context_key": "position",
+					"min_dist": 3,
+					"max_dist": 6,
+					"no_dense": 1
+				}
+			],
+			"args": {
+				"timeout": 20
+			},
+			"considerations": [
+				{
+					"name": "OutInTheOpen",
+					"//": "Avoid running out if we are under fire. High mark >1 to allow some leeway though.",
+					"lo_mark": 0, 
+					"hi_mark": 1.5, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_get_memory_value", 
+					"input_args": {
+						"memory_key": "OutInTheOpen",
+						"memory_default": 0
+					},
+					"curve_proc": "/proc/curve_antilinear"
+				},
+				{
+					"name": "NotAlreadyOccupied",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_candidate_in_brain_list", 
+					"input_args": {
+						"input_key": "position",
+						"memory_key": "OccupiedTurfs",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antilinear"
+				},
+				{
+					"name": "DistanceDeltaToSquad",
+					"lo_mark": 0, 
+					"hi_mark": 12, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_manhattan_distance_delta_to_squad_pos", 
+					"input_args": {
+						"from_from_pawn": 1,
+						"to_key": "position",
+						"to_from_context": 1,
+						"radius": 1
+					},
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "MeanDistanceToThreat",
+					"lo_mark": 0, 
+					"hi_mark": 3, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_decorator_mean", 
+					"input_args": {
+						"from_memory": 1,
+						"memory_key": "Enemies",
+						"input_key": "enemy",
+						"secondary_input_key": "position",
+						"secondary_input_from_context": 1,
+						"default": 999, 
+						"aggregated_proc": "/proc/consideration_input_distance_to_arg",
+						"aggregated_proc_args": {
+							"from_key": "enemy",
+							"to_key": "position",
+							"from_from_context": 1,
+							"to_from_context": 1
+						}
+					},
+					"curve_proc": "/proc/curve_binary"
+				},
+				{
+					"name": "Fuzzing",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_fuzz_uniform", 
+					"curve_proc": "/proc/curve_linear"
+				}
+			]
+		}
+	]
+}

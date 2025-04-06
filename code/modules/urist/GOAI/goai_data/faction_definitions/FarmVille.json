@@ -1,0 +1,44 @@
+{
+	"name": "FarmVille",
+	"tags": [
+		"agricultural"
+	],
+	"relationships": {
+		"agricultural": 50,
+		"metallurgy": 50
+	},
+	"actionset_files": [
+		"faction_base.json",
+		"faction_trade_test.json"
+	],
+	"needs": {
+		"food_generic": 100,
+		"wealth": 2000,
+		"prestige": 50,
+		"ore": 100,
+		"steel": 5
+	},
+	"need_weights": {
+		"food_generic": 2,
+		"wealth": 6,
+		"prestige": 1,
+		"ore": 0.1,
+		"steel": 2.5
+	},
+	"preferred_trades": {
+		"food_generic": "/obj/food",
+		"prestige": "/obj/decor",
+		"ore": "/obj/ore",
+		"steel": "/obj/steel_bar"
+	},
+	"assets": {
+		"wealth": 6000,
+		"hydroponics": 1,
+		"planetary_farmland": 100,
+		"farm_upgrade_tech": 25,
+		"workers": 2500,
+		"/obj/food": 30000,
+		"/obj/steel_bar": 10,
+		"/obj/ore": 50
+	}
+}
