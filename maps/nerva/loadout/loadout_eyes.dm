@@ -12,3 +12,11 @@
 	display_name = "sunglasses, aviators"
 	path = /obj/item/clothing/glasses/sunglasses/aviators
 	cost = 3
+
+/datum/gear/eyes/paper
+	display_name = "paper mask"
+	path = /obj/item/clothing/glasses/paper
+
+/datum/gear/eyes/paper
+	display_name = "green glasses"
+	path = /obj/item/clothing/glasses/gglasses
