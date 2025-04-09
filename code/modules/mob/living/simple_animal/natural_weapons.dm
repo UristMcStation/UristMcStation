@@ -43,6 +43,9 @@
 /obj/item/natural_weapon/claws/strong
 	force = 25
 
+/obj/item/natural_weapon/bite/immense
+	force = 30
+
 /obj/item/natural_weapon/claws/weak
 	force = 5
 	attack_verb = list("clawed", "scratched")
