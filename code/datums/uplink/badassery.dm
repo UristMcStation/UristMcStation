@@ -64,7 +64,7 @@
 	return U.uses
 
 /datum/uplink_item/item/badassery/random_many
-	name = "Random Items"
+	name = "Random Item Bundle"
 	desc = "Buys you as many random items as you can afford. Convenient packaging NOT included!"
 
 /datum/uplink_item/item/badassery/random_many/cost(telecrystals, obj/item/device/uplink/U)

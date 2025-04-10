@@ -14,3 +14,17 @@
 	w_class = ITEM_SIZE_LARGE
 	attack_verb = list("robusts", "robusted", "greytides", "bludgeoned") // shitter tech
 	use_sound = 'sound/effects/storage/toolbox.ogg'
+
+/obj/item/reagent_containers/food/drinks/bottle/uristmoonshine
+	name = "Urist's Moonshine"
+	desc = "A dusty looking bottle of plump helmet moonshine. It has a label stating 'URIST MCDWARFS, DO NOT TOUCH!'"
+	icon = 'icons/urist/items/uristfood.dmi'
+	icon_state = "uristmoonshine"
+	center_of_mass = "x=16;y=8"
+
+/obj/item/reagent_containers/food/drinks/bottle/uristmoonshine/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/ethanol/uristhomebrew, 100)
+	var/namepick = pick("Urist's", "Koganusan", "Armok's", "Urist McDwarf's")
+	var/typepick = pick("Moonshine", "Craftdwarf Homebrew", "Vile Force of Distillery", "Forgotten Brew")
+	name = "[namepick] [typepick]"
