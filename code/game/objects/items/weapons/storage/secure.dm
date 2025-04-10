@@ -256,6 +256,12 @@
 		return
 	..()
 
+/obj/item/storage/secure/alert_safe/open()
+	if(secure)
+		src.add_fingerprint(usr)
+		return
+	..()
+
 /obj/item/storage/secure/alert_safe/proc/check_arms(return_missing = FALSE)
 	if(return_missing)
 		var/list/wanted = list()

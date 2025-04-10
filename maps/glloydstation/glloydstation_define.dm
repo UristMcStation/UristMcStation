@@ -20,7 +20,7 @@
 	player_levels = list(1,3,4,5,6,7)
 	sealed_levels = list(6)
 	empty_levels = list(6)
-	base_turf_by_z = list("5" = /turf/simulated/floor/asteroid, "7" = /turf/simulated/floor/planet/jungle/clear)
+	base_turf_by_z = list("5" = /turf/simulated/floor/asteroid/glloydplanet, "7" = /turf/simulated/floor/planet/jungle/clear)
 	accessible_z_levels = list("1"=15, "3"=15, "4"=25, "6"=35)
 
 	id_hud_icons = 'maps/glloydstation/icons/assignment_hud.dmi'

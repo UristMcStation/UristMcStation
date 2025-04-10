@@ -2,6 +2,7 @@
 
 	#include "glloydstation_areas.dm"
 	#include "glloydstation_antagonism.dm"
+	#include "glloydstation_datums.dm"
 	#include "glloydstation_shuttles.dm"
 	#include "glloydstation_unit_testing.dm"
 	#include "glloydstation_holodecks.dm"

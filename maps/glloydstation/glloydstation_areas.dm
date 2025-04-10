@@ -1575,6 +1575,7 @@
 	icon_state = "mining"
 	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg')
 	sound_env = ASTEROID
+	base_turf = /turf/simulated/floor/asteroid/glloydplanet
 
 /area/mine/explored
 	name = "Mine"
@@ -1594,9 +1595,9 @@
 
 /area/outpost/abandoned/base_turf = /turf/simulated/floor/asteroid
 
-/area/outpost/mining_main/eva/base_turf = /turf/simulated/floor/asteroid
+/area/outpost/mining_main/eva/base_turf = /turf/simulated/floor/asteroid/glloydplanet
 
-/area/outpost/research/eva/base_turf = /turf/simulated/floor/asteroid
+/area/outpost/research/eva/base_turf = /turf/simulated/floor/asteroid/glloydplanet
 
 /area/shuttle/elevator/base_turf = /turf/simulated/floor/plating
 

@@ -895,7 +895,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
+	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -1027,7 +1027,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/obj/machinery/constructable_frame/computerframe{
+/obj/machinery/constructable_frame/computerframe/deconstruct{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2330,7 +2330,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchant/home)
 "agn" = (
-/obj/machinery/constructable_frame/computerframe{
+/obj/machinery/constructable_frame/computerframe/deconstruct{
 	dir = 4
 	},
 /obj/machinery/light/small{
@@ -5431,7 +5431,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "anC" = (
-/obj/machinery/constructable_frame/computerframe,
+/obj/machinery/constructable_frame/computerframe/deconstruct,
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "anD" = (
@@ -5549,7 +5549,7 @@
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "anR" = (
-/obj/machinery/constructable_frame/computerframe,
+/obj/machinery/constructable_frame/computerframe/deconstruct,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -6214,7 +6214,7 @@
 /obj/machinery/vending/assist{
 	contraband = null;
 	name = "AntagCorpVent";
-	products = list(/obj/item/device/assembly/prox_sensor=5,/obj/item/device/assembly/signaler=4,/obj/item/device/assembly/infra=4,/obj/item/device/assembly/prox_sensor=4,/obj/item/handcuffs=8,/obj/item/device/flash=4)
+	products = list(/obj/item/device/assembly/prox_sensor = 5, /obj/item/device/assembly/signaler = 4, /obj/item/device/assembly/infra = 4, /obj/item/device/assembly/prox_sensor = 4, /obj/item/handcuffs = 8, /obj/item/device/flash = 4)
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -6291,8 +6291,8 @@
 /obj/machinery/vending/cigarette{
 	contraband = newlist();
 	premium = newlist();
-	prices = list(/obj/item/storage/fancy/smokable=15,/obj/item/storage/box/matches=1,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=20);
-	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
+	prices = list(/obj/item/storage/fancy/smokable = 15, /obj/item/storage/box/matches = 1, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 20);
+	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -14186,7 +14186,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
+	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /turf/unsimulated/floor{
 	icon_state = "plating";
@@ -14898,7 +14898,7 @@
 	heat_proof = 1;
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
-/turf/space,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/naval1/centcom)
 "aKd" = (
 /obj/machinery/vending/props,
@@ -16938,17 +16938,26 @@
 /obj/structure/alien/node{
 	icon_state = "weeds2"
 	},
-/turf/space,
+/turf/unsimulated/floor{
+	icon = 'icons/turf/shuttle.dmi';
+	icon_state = "floor3"
+	},
 /area/space)
 "aPx" = (
 /obj/structure/alien/node{
 	icon_state = "weeds"
 	},
-/turf/space,
+/turf/unsimulated/floor{
+	icon = 'icons/turf/shuttle.dmi';
+	icon_state = "floor3"
+	},
 /area/space)
 "aPy" = (
 /obj/machinery/door/airlock/hatch,
-/turf/space,
+/turf/unsimulated/floor{
+	icon = 'icons/turf/shuttle.dmi';
+	icon_state = "floor3"
+	},
 /area/space)
 "aPz" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -20935,12 +20944,6 @@
 	icon_state = "asteroid"
 	},
 /area/map_template/syndicate_mothership/raider_base)
-"aYf" = (
-/obj/item/organ/internal/stack,
-/turf/unsimulated/floor{
-	icon_state = "asteroid"
-	},
-/area/map_template/syndicate_mothership/raider_base)
 "aYg" = (
 /obj/structure/bed/chair,
 /turf/unsimulated/floor{
@@ -22461,15 +22464,6 @@
 	icon_state = "wood9"
 	},
 /area/centcom/antag)
-"bbx" = (
-/obj/machinery/constructable_frame/computerframe{
-	anchored = 1
-	},
-/turf/unsimulated/floor{
-	dir = 8;
-	icon_state = "wood"
-	},
-/area/centcom/antag)
 "bby" = (
 /obj/structure/filingcabinet/wood,
 /turf/unsimulated/floor{
@@ -22681,54 +22675,6 @@
 /area/centcom/antag)
 "bca" = (
 /turf/unsimulated/wall/stone,
-/area/centcom/antag)
-"bcb" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 9
-	},
-/turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "carpet"
-	},
-/area/centcom/antag)
-"bcc" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "carpet"
-	},
-/area/centcom/antag)
-"bcd" = (
-/obj/structure/bed/chair/comfy/brown{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 5
-	},
-/turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "carpet"
-	},
 /area/centcom/antag)
 "bce" = (
 /turf/unsimulated/wall/wood{
@@ -24216,42 +24162,6 @@
 /turf/unsimulated/floor{
 	dir = 8;
 	icon_state = "wood"
-	},
-/area/centcom/antag)
-"bfl" = (
-/obj/structure/bed/chair/comfy/brown,
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	dir = 10
-	},
-/turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "carpet"
-	},
-/area/centcom/antag)
-"bfm" = (
-/obj/structure/bed/chair/comfy/brown,
-/obj/effect/floor_decal/carpet,
-/turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "carpet"
-	},
-/area/centcom/antag)
-"bfn" = (
-/obj/structure/bed/chair/comfy/brown,
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	dir = 6
-	},
-/turf/unsimulated/floor{
-	dir = 2;
-	icon_state = "carpet"
 	},
 /area/centcom/antag)
 "bfo" = (
@@ -64757,15 +64667,15 @@ aZv
 aZv
 baz
 baY
-bbx
-bcb
+bcM
+beY
 bcK
 bcM
 bcM
 bcM
 beY
-bfl
-bbx
+bcK
+bcM
 baY
 aZu
 aYV
@@ -65014,15 +64924,15 @@ aZw
 aZw
 baA
 baZ
-bbx
-bcc
+bcM
+aZz
 aZZ
 bdp
 bdS
 beE
 aZz
-bfm
-bbx
+aZZ
+bcM
 baZ
 aZu
 aYV
@@ -65528,15 +65438,15 @@ aZw
 aZw
 baA
 baY
-bbx
-bcc
+bcM
+aZz
 aZZ
 bdr
 bdU
 beG
 aZz
-bfm
-bbx
+aZZ
+bcM
 baY
 aZu
 aYV
@@ -65785,15 +65695,15 @@ aZx
 aZx
 baB
 baZ
-bbx
-bcd
+bcM
+beZ
 bcL
 bds
 bdV
 beH
 beZ
-bfn
-bbx
+bcL
+bcM
 baZ
 aZu
 aYV
@@ -82483,7 +82393,7 @@ aWu
 aTh
 aTh
 aTh
-aYf
+aTh
 aTh
 aZj
 aSv

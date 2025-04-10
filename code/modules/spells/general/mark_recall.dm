@@ -39,6 +39,9 @@
 	user.forceMove(T)
 	..()
 
+/spell/mark_recall/check_valid_targets(list/targets)
+	return islist(targets) && length(targets)
+
 /spell/mark_recall/empower_spell()
 	if(!..())
 		return 0

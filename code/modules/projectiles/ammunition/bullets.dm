@@ -4,6 +4,7 @@
 	projectile_type = /obj/item/projectile/bullet/pistol
 	icon_state = "pistolcasing"
 	spent_icon = "pistolcasing-spent"
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
 /obj/item/ammo_casing/pistol/rubber
 	desc = "A rubber pistol bullet casing."

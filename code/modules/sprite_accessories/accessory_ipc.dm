@@ -107,6 +107,7 @@
 /datum/sprite_accessory/marking/ipc/torso/wt
 	name = "Ward-Takahashi GMB Colored Torso"
 	icon_state = "wt"
+	body_parts = list(BP_CHEST)
 
 /datum/sprite_accessory/marking/ipc/arms/wt
 	name = "Ward-Takahashi GMB Colored Arms"
@@ -132,14 +133,17 @@
 /datum/sprite_accessory/marking/ipc/torso/bishop
 	name = "Bishop Torso Color Accents"
 	icon_state = "bishop"
+	body_parts = list(BP_CHEST)
 
 /datum/sprite_accessory/marking/ipc/arms/bishop
 	name = "Bishop Arms Color Accents"
 	icon_state = "bishop"
+	body_parts = list(BP_R_ARM, BP_L_ARM)
 
 /datum/sprite_accessory/marking/ipc/legs/bishop
 	name = "Bishop Legs Color Accents"
 	icon_state = "bishop"
+	body_parts = list(BP_R_LEG, BP_L_LEG)
 
 //BISHOP ROOK
 /datum/sprite_accessory/marking/ipc/head/b_rook
@@ -153,6 +157,7 @@
 /datum/sprite_accessory/marking/ipc/arms/b_rook
 	name = "Bishop Rook Arms Color Accents"
 	icon_state = "bishop_rook"
+	body_parts = list(BP_R_ARM, BP_L_ARM)
 
 /datum/sprite_accessory/marking/ipc/legs/b_rook
 	name = "Bishop Rook Legs Color Accents"
@@ -178,6 +183,7 @@
 /datum/sprite_accessory/marking/ipc/torso/hephaestus
 	name = "Hephaestus Colored Torso"
 	icon_state = "hephaestus"
+	body_parts = list(BP_CHEST)
 
 /datum/sprite_accessory/marking/ipc/arms/hephaestus
 	name = "Hephaestus Colored Arms"
@@ -229,6 +235,7 @@
 /datum/sprite_accessory/marking/ipc/torso/zenghu
 	name = "Zeng-Hu Spirit Torso Color Accents"
 	icon_state = "zenghu"
+	body_parts = list(BP_CHEST)
 
 /datum/sprite_accessory/marking/ipc/arms/zenghu
 	name = "Zeng-Hu Spirit Arms Color Accents"
@@ -237,6 +244,7 @@
 /datum/sprite_accessory/marking/ipc/legs/zenghu
 	name = "Zeng-Hu Spirit Legs Color Accents"
 	icon_state = "zenghu"
+	body_parts = list(BP_R_LEG, BP_L_LEG)
 
 
 /datum/sprite_accessory/facial_hair/ipc

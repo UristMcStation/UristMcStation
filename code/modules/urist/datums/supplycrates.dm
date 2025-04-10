@@ -201,3 +201,11 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	newcargocost = 15 //675th on Nerva
 	containertype = /obj/structure/closet/crate/secure
 	containername = "yew wooden flooring crate"
+
+/singleton/hierarchy/supply_pack/medical/teshblood
+	name = "Refills - Teshari O- Blood"
+	contains = list(
+		/obj/item/storage/box/freezer/blood/teshari = 1
+	)
+	cost = 20
+	containername = "teshari blood crate"

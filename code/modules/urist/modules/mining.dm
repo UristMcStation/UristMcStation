@@ -96,3 +96,11 @@
 
 /turf/simulated/mineral/random/high_chance/planet
 	mined_turf = /turf/simulated/floor/asteroid/planet
+
+/turf/simulated/floor/asteroid/glloydplanet
+	initial_gas = list(GAS_CO2 = MOLES_O2STANDARD, GAS_NITROGEN = MOLES_N2STANDARD, GAS_CO = 2, GAS_XENON = 8, GAS_SULFUR = 10, GAS_PHORON = 22) //just a shitty place to be in general
+	temperature = 348.15 //75C
+
+/turf/simulated/floor/plating/glloydplanet
+	initial_gas = list(GAS_CO2 = MOLES_O2STANDARD, GAS_NITROGEN = MOLES_N2STANDARD, GAS_CO = 2, GAS_XENON = 8, GAS_SULFUR = 10, GAS_PHORON = 22) //just a shitty place to be in general
+	temperature = 348.15 //75C

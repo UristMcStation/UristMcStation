@@ -12,13 +12,13 @@
 
 /datum/uplink_item/item/medical/combatstim
 	name = "Combat Stimulants"
-	desc = "A single-use medical injector filled with performance enhancing drugs."
+	desc = "A single-use medical injector containing inaprovaline, hyperzine and synaptizine for performance enhancing effects."
 	item_cost = 10
 	path = /obj/item/reagent_containers/hypospray/autoinjector/combatstim
 
 /datum/uplink_item/item/medical/stabilisation
 	name = "Slimline Stabilisation Kit"
-	desc = "A pocket-sized medkit filled with lifesaving equipment."
+	desc = "A pocket-sized medkit filled with lifesaving equipment in single-use medical injector form."
 	item_cost = 16
 	path = /obj/item/storage/firstaid/sleekstab
 

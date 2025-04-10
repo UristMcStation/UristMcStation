@@ -55,6 +55,20 @@ SUBSYSTEM_DEF(ticker)
 	to_world(SPAN_INFO("<B>Welcome to the pre-game lobby!</B>"))
 	to_world("Please, setup your character and select ready. Game will start in [round(pregame_timeleft/10)] seconds")
 
+// Uristcode - list available offship roles to avoid people waiting past ready-up to see them
+	var/list/datum/submap/available_submap_jobs = list()
+	for(var/datum/submap/submap in SSmapping.submaps)
+		for(var/titlegrabber in submap.jobs)
+			var/datum/job/job = submap.jobs[titlegrabber]
+			available_submap_jobs += job.title
+
+	if(length(available_submap_jobs))
+		to_world("<br>" \
+			+ SPAN_BOLD(SPAN_NOTICE("Submap roles available for this round: ")) \
+			+ "[english_list(available_submap_jobs)]. " \
+			+ SPAN_INFO("Actual availability may vary.") \
+			+ "<br>" \
+		)
 
 /datum/controller/subsystem/ticker/fire(resumed, no_mc_tick)
 	switch(GAME_STATE)

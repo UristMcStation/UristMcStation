@@ -227,6 +227,10 @@
 	name = "paper note"
 	info = "<i><span style='color: blue'>can we get some fresh carp sometime? Or freshish? Or frozen? I just really want carp, ok? I'm willing to pay for it if so.</span></i>"
 
+/obj/item/paper/lar_maria/note_trapped
+	name = "scrawled paper note"
+	info = "<i> Tedd, if your still alive and find my office, I've managed to take one of the grenades from the armory and rigged it to my personal closet, don't open it and stay safe. - Mark. </i>"
+
 /datum/ai_holder/simple_animal/lar_maria
 	speak_chance = 50
 

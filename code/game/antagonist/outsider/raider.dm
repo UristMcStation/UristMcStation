@@ -8,7 +8,6 @@ GLOBAL_TYPED_NEW(raiders, /datum/antagonist/raider)
 	landmark_id = "voxstart"
 	welcome_text = "Use :H to talk on your encrypted channel. This is a team gamemode, do not betray eachother or you will be banned from team antags. Use AOOC to make a plan."
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_OVERRIDE_MOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER
-	antaghud_indicator = "hudraider"
 
 	hard_cap = 6
 	hard_cap_round = 10

@@ -907,10 +907,13 @@
 		if(is_bad_airlock)
 			bad_airlocks++
 
-	if(bad_airlocks)
+	if(bad_airlocks && !GLOB.using_map.ignore_shutter_test)
 		fail("\[[bad_airlocks]/[tested_airlocks]\]([exempt_airlocks] Skipped) Some airlocks did not have an emergency shutter")
 	else
-		pass("\[[tested_airlocks]\]([exempt_airlocks] Skipped) All airlocks have emergency shutters")
+		if(GLOB.using_map.ignore_shutter_test)
+			pass("\[[bad_airlocks]/[tested_airlocks]\]([exempt_airlocks] Skipped) Some airlocks did not have an emergency shutter, but this map ignores this test.")
+		else
+			pass("\[[tested_airlocks]\]([exempt_airlocks] Skipped) All airlocks have emergency shutters")
 	return TRUE
 
 /datum/unit_test/airlocks_shall_have_shutters/proc/is_exempt(airlock)
