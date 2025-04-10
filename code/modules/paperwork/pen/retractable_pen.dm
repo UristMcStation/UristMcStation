@@ -14,7 +14,7 @@
 	icon_state = "pen_red"
 	colour = "red"
 	color_description = "red ink"
-	base_state = "ret_blue"
+	base_state = "ret_red"
 
 /obj/item/pen/retractable/green
 	icon_state = "pen_green"
@@ -32,10 +32,10 @@
 	else
 		icon_state = "[base_state]"
 
-/obj/item/pen/retractable/attack(atom/A, mob/user, target_zone)
+/obj/item/pen/retractable/use_before(atom/A, mob/user)
 	if(!active)
 		toggle()
-	..()
+	return ..()
 
 /obj/item/pen/retractable/attack_self(mob/user)
 	toggle()

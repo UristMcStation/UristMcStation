@@ -1,5 +1,5 @@
 /obj/item/organ/internal/augment/active/nanounit
-	name = "Nanite MCU"
+	name = "nanite MCU"
 	augment_slots = AUGMENT_CHEST
 	icon_state = "armor-chest"
 	desc = "Nanomachines, son."
@@ -72,6 +72,6 @@
 
 
 /obj/aura/nanoaura/Destroy()
-	to_chat(user, SPAN_WARNING("\The nanites dissolve!"))
+	to_chat(user, SPAN_WARNING("The nanites dissolve!"))
 	unit = null
 	return ..()

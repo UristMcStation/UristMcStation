@@ -1,7 +1,7 @@
 /obj/item/inducer
 	name = "inducer"
 	desc = "A tool for inductively charging internal power cells."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/tools/inducers.dmi'
 	icon_state = "inducer-sci"
 	item_state = "inducer-sci"
 	force = 7
@@ -38,9 +38,11 @@
 	if(cell)
 		cell.emp_act(severity)
 
-/obj/item/inducer/afterattack(obj/O, mob/living/carbon/user, proximity)
-	if (!proximity || user.a_intent == I_HURT || CannotUse(user) || !recharge(O, user))
-		return ..()
+/obj/item/inducer/use_after(obj/O, mob/living/user, click_parameters)
+	if (!istype(O))
+		return FALSE
+	if (CannotUse(user) || !recharge(O, user))
+		return TRUE
 
 /obj/item/inducer/proc/CannotUse(mob/user)
 	var/obj/item/cell/my_cell = get_cell()
@@ -53,28 +55,33 @@
 	return FALSE
 
 
-/obj/item/inducer/attackby(obj/item/W, mob/user)
+/obj/item/inducer/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(isScrewdriver(W))
 		opened = !opened
 		to_chat(user, SPAN_NOTICE("You [opened ? "open" : "close"] the battery compartment."))
 		update_icon()
+		return TRUE
+
 	if(istype(W, /obj/item/cell))
 		if (istype(W, /obj/item/cell/device))
 			to_chat(user, SPAN_WARNING("\The [src] only takes full-size power cells."))
-			return
+			return TRUE
 		if(opened)
 			if(!cell)
 				if(!user.unEquip(W, src))
-					return
+					FEEDBACK_UNEQUIP_FAILURE(user, W)
+					return TRUE
 				to_chat(user, SPAN_NOTICE("You insert \the [W] into \the [src]."))
 				cell = W
 				update_icon()
-				return
+				return TRUE
 			else
 				to_chat(user, SPAN_NOTICE("\The [src] already has \a [cell] installed!"))
-				return
+				return TRUE
+
 	if(CannotUse(user) || recharge(W, user))
-		return
+		return TRUE
+
 	return ..()
 
 /obj/item/inducer/proc/recharge(atom/A, mob/user)
@@ -87,11 +94,11 @@
 	var/obj/item/cell/MyC = get_cell()
 	var/obj/item/cell/C = A.get_cell()
 	var/obj/O
-	if(istype(A, /obj))
+	if(isobj(A))
 		O = A
 	if(C)
 		var/length = 10
-		var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
+		var/datum/effect/spark_spread/sparks = new /datum/effect/spark_spread()
 		sparks.set_up(1, 1, user.loc)
 		sparks.start()
 		if(C.charge >= C.maxcharge)
@@ -103,7 +110,11 @@
 			SPAN_NOTICE("You start recharging \the [A] with \the [src].")
 		)
 		if (istype(A, /obj/item/gun/energy))
-			length = 30
+			var/obj/item/gun/energy/gun = A
+			if(gun.disposable)
+				to_chat(user, SPAN_WARNING("There is no charging port on \the [gun]!"))
+				return TRUE
+			length = 3 SECONDS
 		if(MyC.charge > max(0, MyC.charge*failsafe) && do_after(user, length, A, DO_PUBLIC_UNIQUE))
 			if(CannotUse(user))
 				return TRUE
@@ -132,10 +143,6 @@
 	else
 		return 0
 
-/obj/item/inducer/attack(mob/M, mob/user)
-	return
-
-
 /obj/item/inducer/attack_self(mob/user)
 	if(opened && cell)
 		user.visible_message("\The [user] removes \the [cell] from \the [src]!",SPAN_NOTICE("You remove \the [cell]."))
@@ -156,12 +163,12 @@
 		to_chat(M,SPAN_NOTICE("Its battery compartment is open."))
 
 /obj/item/inducer/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(opened)
 		if(!get_cell())
-			overlays += image(icon, "inducer-nobat")
+			AddOverlays(image(icon, "inducer-nobat"))
 		else
-			overlays += image(icon,"inducer-bat")
+			AddOverlays(image(icon,"inducer-bat"))
 
 /obj/item/inducer/Destroy()
 	. = ..()
@@ -176,14 +183,14 @@
 	failsafe = 0.2
 	cell = null
 
-/obj/item/inducer/borg/attackby(obj/item/W, mob/user)
+/obj/item/inducer/borg/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(isScrewdriver(W))
-		return
-	. = ..()
+		return FALSE
+	return ..()
 
 /obj/item/inducer/borg/on_update_icon()
-	. = ..()
-	overlays += image("icons/obj/guns/gui.dmi","safety[safety()]")
+	..()
+	AddOverlays(image("icons/obj/guns/gui.dmi","safety[safety()]"))
 
 /obj/item/inducer/borg/verb/toggle_safety(mob/user)
 	set src in usr

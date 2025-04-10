@@ -2,10 +2,11 @@
 
 #define SETUP_FAILED TRUE
 
-GLOBAL_LIST_INIT(default_uplink_source_priority, list(
+GLOBAL_LIST_AS(default_uplink_source_priority, list(
 	/singleton/uplink_source/pda,
 	/singleton/uplink_source/radio,
-	/singleton/uplink_source/unit))
+	/singleton/uplink_source/unit
+))
 
 /singleton/uplink_source
 	var/name

@@ -1,17 +1,16 @@
 /obj/item/material/coin
 	name = "coin"
-	icon = 'icons/obj/coin.dmi'
+	icon = 'icons/obj/materials/coin.dmi'
 	icon_state = "coin1"
 	applies_material_colour = TRUE
 	randpixel = 8
-	force = 1
 	throwforce = 1
 	max_force = 5
 	force_multiplier = 0.1
 	thrown_force_multiplier = 0.1
 	w_class = ITEM_SIZE_TINY
 	slot_flags = SLOT_EARS
-	item_flags = ITEM_FLAG_TRY_ATTACK | ITEM_FLAG_CAN_HIDE_IN_SHOES
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
 	/// The smallest interval allowed between coin flips.
 	var/const/FLIP_COOLDOWN = 5 SECONDS
@@ -35,12 +34,13 @@
 		var/image/image = image(icon = icon, icon_state = "coin_string_overlay")
 		image.appearance_flags |= RESET_COLOR
 		image.color = string_color
-		overlays += image
+		AddOverlays(image)
 	else
-		overlays.Cut()
+		ClearOverlays()
 
 
-/obj/item/material/coin/attack(atom/target, mob/living/user, target_zone)
+/obj/item/material/coin/use_after(atom/target, mob/living/user)
+
 	if (target == user)
 		attack_self(user)
 		return TRUE
@@ -81,7 +81,7 @@
 	)
 
 
-/obj/item/material/coin/attackby(obj/item/item, mob/living/user)
+/obj/item/material/coin/use_tool(obj/item/item, mob/living/user, list/click_params)
 	if (isCoil(item) && isnull(string_color))
 		var/obj/item/stack/cable_coil/coil = item
 		if (!coil.use(1))
@@ -95,6 +95,7 @@
 		string_color = coil.color
 		update_icon()
 		return TRUE
+
 	if (isWirecutter(item) && !isnull(string_color))
 		new /obj/item/stack/cable_coil (get_turf(user), 1, string_color)
 		user.visible_message(
@@ -105,8 +106,22 @@
 		string_color = null
 		update_icon()
 		return TRUE
-	..()
+	return ..()
 
+/// Non-craftable coins intented to display specific imagery.
+/obj/item/material/coin/challenge
+	abstract_type = /obj/item/material/coin/challenge
+	applies_material_colour = FALSE
+
+
+/obj/item/material/coin/challenge/on_update_icon()
+	ClearOverlays()
+	if (isnull(string_color))
+		return
+	var/image/image = image(icon = icon, icon_state = "coin_string_overlay")
+	image.appearance_flags |= RESET_COLOR
+	image.color = string_color
+	AddOverlays(image)
 
 /obj/item/material/coin/challenge/throw_impact()
 	..()
@@ -116,7 +131,6 @@
 	visible_message(
 		SPAN_WARNING("\The [src] clatters to \the [get_turf(src)]!")
 	)
-
 
 /obj/item/material/coin/challenge/verb/drop_coin()
 	set src in usr
@@ -136,23 +150,12 @@
 		SPAN_WARNING("You flick \the [src] onto the ground!")
 	)
 
-
-// Non-craftable coins intented to display specific imagery.
-/obj/item/material/coin/challenge
-	abstract_type = /obj/item/material/coin/challenge
-	applies_material_colour = FALSE
-
-
-/obj/item/material/coin/challenge/on_update_icon()
-	overlays.Cut()
-	if (isnull(string_color))
-		return
-	var/image/image = image(icon = icon, icon_state = "coin_string_overlay")
-	image.appearance_flags |= RESET_COLOR
-	image.color = string_color
-	overlays += image
-
-
+///Antag challenge coins, used to hack vendors.
+/obj/item/material/coin/challenge/syndie
+	name = "Syndicate Challenge Coin"
+	desc = "A heavy coin emblazoned with a shiny, red skull. The rim of the coin shows words in a language you do not understand."
+	icon = 'icons/obj/materials/coin.dmi'
+	icon_state = "syndie"
 
 /obj/item/material/coin/aluminium
 	default_material = MATERIAL_ALUMINIUM
@@ -201,7 +204,7 @@
 /obj/random/coin
 	name = "random coin"
 	desc = "This is a random coin."
-	icon = 'icons/obj/coin.dmi'
+	icon = 'icons/obj/materials/coin.dmi'
 	icon_state = "coin1"
 
 
@@ -246,6 +249,7 @@
 
 /// Create a new random simple coin at loc and return it.
 /proc/new_simple_coin(loc)
+	RETURN_TYPE(/obj/item/material/coin)
 	var/static/list/simple_coins = subtypesof(/obj/item/material/coin) - typesof(/obj/item/material/coin/challenge)
 	var/obj/item/material/coin = pick(simple_coins)
 	coin = new coin (loc)

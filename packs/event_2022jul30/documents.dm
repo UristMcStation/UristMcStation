@@ -1,12 +1,3 @@
-/obj/item/folder/envelope/declassified1
-	desc = "A thick envelope. The Sol Fleet crest is stamped in the corner, along with 'PUBLIC RELEASE DOCUMENTATION.'"
-
-
-/obj/item/folder/envelope/declassified1/Initialize()
-	. = ..()
-	new /obj/item/paper/dclassreport1 (src)
-
-
 /obj/item/paper/dclassreport1
 	name = "Declassified Report: Status of the Fleets"
 	info = {"\
@@ -28,11 +19,11 @@
 "}
 
 
-/obj/item/folder/envelope/lauletter1
+/obj/item/material/folder/envelope/preset/lauletter1
 	desc = "A thick envelope. The Expeditionary Corps crest is stamped in the corner, along with 'DO NOT DISSEMINATE.'"
 
 
-/obj/item/folder/envelope/lauletter1/Initialize()
+/obj/item/material/folder/envelope/preset/lauletter1/Initialize()
 	. = ..()
 	new /obj/item/paper/lauletter1 (src)
 

@@ -4,8 +4,8 @@
 	icon_living = "guard"
 	icon_dead = "guard_dead"
 	meat_amount = 4
-	maxHealth = 200
-	health = 200
+	maxHealth = 105
+	health = 105
 	natural_weapon = /obj/item/natural_weapon/bite/spider/strong
 	poison_per_bite = 5
 	speed = 2
@@ -18,9 +18,6 @@
 	var/mob/living/simple_animal/hostile/giant_spider/nurse/paired_nurse
 
 /obj/item/natural_weapon/bite/spider/strong
-
-/datum/ai_holder/simple_animal/melee/spider/guard
-	var/datum/ai_holder/simple_animal/melee/spider/nurse/paired_nurse
 
 /datum/ai_holder/simple_animal/melee/spider/guard/find_target(list/possible_targets, has_targets_list)
 	. = ..()
@@ -66,7 +63,7 @@
 		W.force = initial(W.force) + 5
 	move_to_delay--
 	break_stuff_probability = 45
-	addtimer(new Callback(src, .proc/calm_down), 3 MINUTES)
+	addtimer(new Callback(src, PROC_REF(calm_down)), 3 MINUTES)
 
 /mob/living/simple_animal/hostile/giant_spider/guard/proc/calm_down()
 	berserking = FALSE

@@ -3,7 +3,7 @@
 /obj/item/magic_rock
 	name = "magical rock"
 	desc = "Legends say that this rock will unlock the true potential of anyone who touches it."
-	icon = 'icons/obj/wizard.dmi'
+	icon = 'icons/obj/cult.dmi'
 	icon_state = "magic rock"
 	w_class = ITEM_SIZE_SMALL
 	throw_speed = 1
@@ -94,7 +94,7 @@
 		return
 
 	var/obj/O = new /obj(T)
-	O.set_light(-10, 0.1, 10, 2, "#ffffff")
+	O.set_light(10, -10, "#ffffff")
 
 	spawn(duration)
 		qdel(O)
@@ -124,6 +124,8 @@
 
 	drop_items = 0
 
+/spell/targeted/shapeshift/true_form/check_valid_targets(list/targets)
+	return TRUE
 
 //UNATHI
 /spell/moghes_blessing
@@ -199,7 +201,7 @@
 	..()
 	if(istype(spellbook,/obj/item/spellbook))
 		linked = spellbook
-	if(istype(owner,/mob))
+	if(ismob(owner))
 		contract_master = owner
 
 /obj/item/contract/apprentice/skrell/attack_self(mob/user as mob)
@@ -261,8 +263,8 @@
 	var/mob/living/L = targets[1]
 
 	vision.possess(L)
-	GLOB.destroyed_event.register(L, src, /spell/camera_connection/proc/release)
-	GLOB.logged_out_event.register(L, src, /spell/camera_connection/proc/release)
+	GLOB.destroyed_event.register(L, src, PROC_REF(release))
+	GLOB.logged_out_event.register(L, src, PROC_REF(release))
 	L.verbs += /mob/living/proc/release_eye
 
 /spell/camera_connection/proc/release(mob/living/L)
@@ -274,9 +276,11 @@
 /mob/observer/eye/wizard_eye
 	name_sufix = "Wizard Eye"
 
-/mob/observer/eye/wizard_eye/New() //we dont use the Ai one because it has AI specific procs imbedded in it.
-	..()
+
+/mob/observer/eye/wizard_eye/Initialize(mapload) //we dont use the Ai one because it has AI specific procs imbedded in it.
+	. = ..()
 	visualnet = cameranet
+
 
 /mob/living/proc/release_eye()
 	set name = "Release Vision"

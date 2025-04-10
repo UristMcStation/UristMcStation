@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/ivbag
 	name = "\improper IV bag"
 	desc = "Flexible bag for IV injectors."
-	icon = 'icons/obj/bloodpack.dmi'
+	icon = 'icons/obj/tools/bloodpack.dmi'
 	icon_state = "empty"
 	w_class = ITEM_SIZE_TINY
 	volume = 120
@@ -9,7 +9,7 @@
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 	/// The set of options for the amount of reagents the bag will try to transfer per process.
-	var/static/list/allowed_transfer_amounts = list(2, 1, REM, 0)
+	var/static/list/allowed_transfer_amounts = list(2, 1, 0.5, 0)
 
 	/// The configured amount of reagents the IV bag will try to transfer per process.
 	var/transfer_amount = 2
@@ -67,14 +67,14 @@
 
 
 /obj/item/reagent_containers/ivbag/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if (reagents.total_volume)
 		var/state = clamp(Roundm(Percent(reagents.total_volume, volume, 0), 25), 0, 100)
 		var/image/filling = image(icon, icon_state = "[state]")
 		filling.color = reagents.get_color()
-		overlays += filling
+		AddOverlays(filling)
 	if (patient)
-		overlays += image(icon, icon_state = "dongle")
+		AddOverlays(image(icon, icon_state = "dongle"))
 
 
 /obj/item/reagent_containers/ivbag/MouseDrop(atom/over_atom)
@@ -224,9 +224,20 @@
 	var/title = "[origin]"
 	if (origin != src)
 		title = "[title] - [src]"
-	var/response = input(user, "Set Drip Rate:", title) as null | anything in allowed_transfer_amounts
-	if (isnull(response) || !(response in allowed_transfer_amounts))
+	var/list/options = allowed_transfer_amounts.Copy()
+	if (user.skill_check(SKILL_MEDICAL, SKILL_EXPERIENCED))
+		options += "Custom"
+	var/response = input(user, "Set Drip Rate:", title) as null | anything in options
+	if (isnull(response))
 		return
+	if (response == "Custom")
+		response = input(user, "Set Drip Rate (Custom):", title, transfer_amount) as null | num
+		if (isnull(response))
+			return
+		response = round(response, 0.1)
+		if (response < 0 || response > 2)
+			to_chat(user, SPAN_WARNING("Selected number is out of bounds. Drip rate must be between 0 and 2, inclusive."))
+			return
 	if (!origin.Adjacent(user) || user.incapacitated())
 		to_chat(user, SPAN_WARNING("You're in no condition to do that."))
 		return
@@ -268,7 +279,7 @@
 	if (!(blood_type in GLOB.blood_types))
 		crash_with({"Invalid blood_type supplied to [src]- "[blood_type]""})
 		return INITIALIZE_HINT_QDEL
-	var/datum/species/species = all_species[blood_species]
+	var/singleton/species/species = GLOB.species_by_name[blood_species]
 	if (!species)
 		crash_with({"Invalid blood_species supplied to [src]- "[blood_species]""})
 		return INITIALIZE_HINT_QDEL
@@ -324,6 +335,18 @@
 	return ..(mapload, "O-")
 
 
+/obj/item/reagent_containers/ivbag/blood/serpentid
+	abstract_type = /obj/item/reagent_containers/ivbag/blood/serpentid
+
+
+/obj/item/reagent_containers/ivbag/blood/serpentid/Initialize(mapload, blood_type)
+	return ..(mapload, blood_type, SPECIES_NABBER)
+
+
+/obj/item/reagent_containers/ivbag/blood/serpentid/oneg/Initialize(mapload)
+	return ..(mapload, "O-")
+
+
 /obj/item/reagent_containers/ivbag/blood/skrell
 	abstract_type = /obj/item/reagent_containers/ivbag/blood/skrell
 
@@ -360,12 +383,28 @@
 	return ..(mapload, "O-")
 
 
+/obj/item/reagent_containers/ivbag/glucose/Initialize()
+	. = ..()
+	reagents.add_reagent(/datum/reagent/nutriment/glucose, volume)
+	AddLabel("Glucose")
+	UpdateItemSize()
+
+
 /obj/item/storage/box/bloodpacks
 	name = "blood packs box"
 	desc = "This box contains empty blood packs."
 	icon_state = "sterile"
 	startswith = list(
 		/obj/item/reagent_containers/ivbag = 7
+	)
+
+
+/obj/item/storage/box/glucose
+	name = "glucose box"
+	desc = "This box contains glucose IV bags."
+	icon_state = "sterile"
+	startswith = list(
+		/obj/item/reagent_containers/ivbag/glucose = 7
 	)
 
 
@@ -377,6 +416,13 @@
 	name = "portable freezer (human blood)"
 	startswith = list(
 		/obj/item/reagent_containers/ivbag/blood/human/oneg = 4
+	)
+
+
+/obj/item/storage/box/freezer/blood/serpentid
+	name = "portable freezer (serpentid blood)"
+	startswith = list(
+		/obj/item/reagent_containers/ivbag/blood/serpentid/oneg = 4
 	)
 
 

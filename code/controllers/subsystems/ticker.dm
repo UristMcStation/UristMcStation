@@ -4,7 +4,7 @@ SUBSYSTEM_DEF(ticker)
 	priority = SS_PRIORITY_TICKER
 	init_order = SS_INIT_TICKER
 	flags = SS_NO_TICK_CHECK | SS_KEEP_TIMING
-	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT
+	runlevels = RUNLEVELS_PREGAME | RUNLEVELS_GAME
 
 	var/pregame_timeleft
 	var/start_ASAP = FALSE          //the game will start as soon as possible, bypassing all pre-game nonsense
@@ -32,6 +32,8 @@ SUBSYSTEM_DEF(ticker)
 
 	///Set to TRUE when an admin forcefully ends the round.
 	var/forced_end = FALSE
+
+	var/skip_requirement_checks = FALSE
 
 	var/static/list/mode_tags = list()
 
@@ -188,7 +190,7 @@ SUBSYSTEM_DEF(ticker)
 			player.new_player_panel()
 
 	if(!length(GLOB.admins))
-		send2adminirc("Round has started with no admins online.")
+		send_to_admin_discord(EXCOM_MSG_AHELP, "Round has started with no admins online.")
 
 /datum/controller/subsystem/ticker/proc/playing_tick()
 	mode.process()
@@ -197,14 +199,14 @@ SUBSYSTEM_DEF(ticker)
 	if(mode_finished && game_finished())
 		Master.SetRunLevel(RUNLEVEL_POSTGAME)
 		end_game_state = END_GAME_READY_TO_END
-		invoke_async(src, .proc/declare_completion)
+		invoke_async(src, PROC_REF(declare_completion))
 		if(config.allow_map_switching && config.auto_map_vote && length(GLOB.all_maps) > 1)
 			SSvote.initiate_vote(/datum/vote/map/end_game, automatic = 1)
 
 	else if(mode_finished && (end_game_state <= END_GAME_NOT_OVER))
 		end_game_state = END_GAME_MODE_FINISH_DONE
 		mode.cleanup()
-		log_and_message_admins(": All antagonists are deceased or the gamemode has ended.") //Outputs as "Event: All antagonists are deceased or the gamemode has ended."
+		log_and_message_admins("All antagonists are deceased or the gamemode has ended.", null) //Outputs as "EVENT All antagonists are deceased or the gamemode has ended."
 		SSvote.initiate_vote(/datum/vote/transfer, automatic = 1)
 
 /datum/controller/subsystem/ticker/proc/post_game_tick()
@@ -340,7 +342,11 @@ Helpers
 	mode_datum.pre_setup() // Makes lists of viable candidates; performs candidate draft for job-override roles; stores the draft result both internally and on the draftee.
 	SSjobs.divide_occupations(mode_datum) // Gives out jobs to everyone who was not selected to antag.
 	var/list/lobby_players = SSticker.lobby_players()
-	var/result = mode_datum.check_startable(lobby_players)
+
+	var/result = FALSE
+	if (!skip_requirement_checks)
+		result = mode_datum.check_startable(lobby_players)
+
 	if(result)
 		mode_datum.fail_setup()
 		SSjobs.reset_occupations()
@@ -410,18 +416,11 @@ Helpers
 			minds += player.mind
 
 /datum/controller/subsystem/ticker/proc/equip_characters()
-	var/captainless=1
 	for(var/mob/living/carbon/human/player in GLOB.player_list)
 		if(player && player.mind && player.mind.assigned_role)
-			if(player.mind.assigned_role == "Captain")
-				captainless=0
 			if(!player_is_antag(player.mind, only_offstation_roles = 1))
 				SSjobs.equip_rank(player, player.mind.assigned_role, 0)
 				SScustomitems.equip_custom_items(player)
-	if(captainless)
-		for(var/mob/M in GLOB.player_list)
-			if(!istype(M,/mob/new_player))
-				to_chat(M, "Captainship not forced on anyone.")
 
 /datum/controller/subsystem/ticker/proc/attempt_late_antag_spawn(list/antag_choices)
 	var/datum/antagonist/antag = antag_choices[1]

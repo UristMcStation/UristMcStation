@@ -1,0 +1,29 @@
+name: "'Do Not Merge' Blockers"
+
+on:
+  pull_request:
+    types: [synchronize, opened, labeled, unlabeled]
+
+jobs:
+  donotmerge-blocker:
+    name: Enforce Do Not Merge Labels
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Enforce Test Merge Label
+        if: contains(github.event.pull_request.labels.*.name, 'Test Merge') && !contains(github.event.pull_request.labels.*.name, 'Test Merge Passed')
+        run: |
+          echo "Pull request is labeled for Test Merge and has not been flagged as Test Merge Passed."
+          echo "The test merge must pass, or the label removed, before this PR can be merged."
+          exit 1
+
+      - name: Enforce Awaiting Lore Label
+        if: contains(github.event.pull_request.labels.*.name, 'Awaiting Lore (DNM)') && !contains(github.event.pull_request.labels.*.name, 'Lore Approved')
+        run: |
+          echo "Pull request is labelled Awaiting Lore and must also be approved by the relevant lore admin before this PR can be merged."
+          exit 1
+
+      - name: Enforce Do Not Merge Label
+        if: contains(github.event.pull_request.labels.*.name, 'Do Not Merge')
+        run: |
+          echo "Pull request is labelled Do Not Merge and cannot be merged in this state. Refer to the developer who set this label for information."
+          exit 1

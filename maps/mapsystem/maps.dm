@@ -123,6 +123,9 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	var/local_currency_name_singular = "thaler"
 	var/local_currency_name_short = "T"
 
+	//Whether or not the map should include the Interlude in teleports and the BSD event as a possibility.
+	var/use_bluespace_interlude = FALSE
+
 	var/game_year
 
 	var/has_skybox_image = FALSE //for maps that don't use the overmap to have a unique skybox image generated. Will need the associated proc get_skybox_image() to be configured properly as well.
@@ -134,8 +137,10 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 			HOME_SYSTEM_EARTH,
 			HOME_SYSTEM_VENUS,
 			HOME_SYSTEM_CERES,
-			HOME_SYSTEM_PLUTO,
+			HOME_SYSTEM_KUIPERB,
+			HOME_SYSTEM_KUIPERD,
 			HOME_SYSTEM_TAU_CETI,
+			HOME_SYSTEM_MAGNITKA,
 			HOME_SYSTEM_HELIOS,
 			HOME_SYSTEM_TERRA,
 			HOME_SYSTEM_SAFFAR,
@@ -172,15 +177,35 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 			CULTURE_HUMAN_VENUSIAN,
 			CULTURE_HUMAN_VENUSLOW,
 			CULTURE_HUMAN_BELTER,
-			CULTURE_HUMAN_PLUTO,
+			CULTURE_HUMAN_KUIPERI,
+			CULTURE_HUMAN_KUIPERO,
+			CULTURE_HUMAN_MAGNITKA,
 			CULTURE_HUMAN_EARTH,
-			CULTURE_HUMAN_CETI,
+			CULTURE_HUMAN_CETIN,
+			CULTURE_HUMAN_CETIS,
+			CULTURE_HUMAN_CETII,
 			CULTURE_HUMAN_SPACER,
-			CULTURE_HUMAN_SPAFRO,
-			CULTURE_HUMAN_CONFED,
+			CULTURE_HUMAN_OFFWORLD,
+			CULTURE_HUMAN_FOSTER,
+			CULTURE_HUMAN_PIRXL,
+			CULTURE_HUMAN_PIRXB,
+			CULTURE_HUMAN_PIRXF,
+			CULTURE_HUMAN_TADMOR,
+			CULTURE_HUMAN_IOLAUS,
+			CULTURE_HUMAN_BRAHE,
+			CULTURE_HUMAN_EOS,
+			CULTURE_HUMAN_THEIA,
+			CULTURE_HUMAN_CONFED_TERRA,
+			CULTURE_HUMAN_CONFED_ZEMLYA,
+			CULTURE_HUMAN_CONFED_SESTRIS,
+			CULTURE_HUMAN_CONFED_PUTKARI,
+			CULTURE_HUMAN_CONFED_ALTAIR,
+			CULTURE_HUMAN_CONFED_PENGLAI,
+			CULTURE_HUMAN_CONFED_PROVIDENCE,
+			CULTURE_HUMAN_CONFED_VALY,
+			CULTURE_HUMAN_CONFEDO,
 			CULTURE_HUMAN_GAIAN,
-			CULTURE_HUMAN_OTHER,
-			CULTURE_OTHER
+			CULTURE_HUMAN_OTHER
 		),
 		TAG_RELIGION = list(
 			RELIGION_UNSTATED,
@@ -317,6 +342,7 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 /* It is perfectly possible to create loops with TEMPLATE_FLAG_ALLOW_DUPLICATES and force/allow. Don't. */
 /proc/resolve_site_selection(datum/map_template/ruin/away_site/site, list/selected, list/available, list/unavailable, list/by_type)
+	RETURN_TYPE(/list)
 	var/spawn_cost = 0
 	var/player_cost = 0
 	if (site in selected)
@@ -411,8 +437,8 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		return
 
 	for(var/i = 0, i < num_exoplanets, i++)
-		var/exoplanet_type = pick(subtypesof(/obj/effect/overmap/visitable/sector/exoplanet))
-		var/obj/effect/overmap/visitable/sector/exoplanet/new_planet = new exoplanet_type(null, planet_size[1], planet_size[2])
+		var/exoplanet_type = pick(subtypesof(/obj/overmap/visitable/sector/exoplanet))
+		var/obj/overmap/visitable/sector/exoplanet/new_planet = new exoplanet_type(null, planet_size[1], planet_size[2])
 		new_planet.build_level()
 
 // Used to apply various post-compile procedural effects to the map.
@@ -442,7 +468,7 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	return text2num(pickweight(candidates))
 
 /datum/map/proc/get_empty_zlevel()
-	if(empty_levels == null)
+	if(isnull(empty_levels))
 		INCREMENT_WORLD_Z_SIZE
 		empty_levels = list(world.maxz)
 	return pick(empty_levels)
@@ -601,6 +627,9 @@ var/global/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 		desc += "There were <b>no survivors</b>, <b>[data["offship_players"]] off-ship player(s)</b>, (<b>[data["ghosts"]] ghosts</b>)."
 
 	return desc
+
+/datum/map/proc/do_interlude_teleport(atom/movable/target, atom/destination, duration, precision, type)
+	return
 
 /datum/map/proc/get_skybox_image()
 	return

@@ -5,11 +5,11 @@
 	worn_state = "jumpsuit"
 	desc = "It's a plain jumpsuit. It seems to have a small dial on the wrist."
 	origin_tech = list(TECH_ESOTERIC = 3)
-	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
+	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON | ITEM_FLAG_IS_CHAMELEON_ITEM
 
 /obj/item/clothing/under/chameleon/Initialize()
 	. = ..()
-	set_extension(src,/datum/extension/chameleon/clothing)
+	set_extension(src,/datum/extension/chameleon/clothing/under, /obj/item/clothing/under)
 
 /obj/item/clothing/head/chameleon
 	name = "cap"
@@ -17,11 +17,12 @@
 	desc = "It looks like a plain hat, but upon closer inspection, there's an advanced holographic array installed inside. It seems to have a small dial inside."
 	origin_tech = list(TECH_ESOTERIC = 3)
 	body_parts_covered = 0
-	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
+	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON | ITEM_FLAG_IS_CHAMELEON_ITEM
 
 /obj/item/clothing/head/chameleon/Initialize()
 	. = ..()
-	set_extension(src,/datum/extension/chameleon/clothing)
+
+	set_extension(src, /datum/extension/chameleon/clothing/head,/obj/item/clothing/head)
 
 /obj/item/clothing/suit/chameleon
 	name = "armor"
@@ -29,11 +30,11 @@
 	item_state = "armor"
 	desc = "It appears to be a vest of standard armor, except this is embedded with a hidden holographic cloaker, allowing it to change it's appearance, but offering no protection.. It seems to have a small dial inside."
 	origin_tech = list(TECH_ESOTERIC = 3)
-	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
+	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON | ITEM_FLAG_IS_CHAMELEON_ITEM
 
 /obj/item/clothing/suit/chameleon/Initialize()
 	. = ..()
-	set_extension(src,/datum/extension/chameleon/clothing)
+	set_extension(src, /datum/extension/chameleon/clothing/suit,/obj/item/clothing/suit)
 
 /obj/item/clothing/shoes/chameleon
 	name = "shoes"
@@ -41,12 +42,12 @@
 	item_state = "black"
 	desc = "They're comfy black shoes, with clever cloaking technology built in. It seems to have a small dial on the back of each shoe."
 	origin_tech = list(TECH_ESOTERIC = 3)
-	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
+	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON | ITEM_FLAG_IS_CHAMELEON_ITEM
 	species_restricted = list("exclude") // Everyone can wear chameleon shoes.
 
 /obj/item/clothing/shoes/chameleon/Initialize()
 	. = ..()
-	set_extension(src,/datum/extension/chameleon/clothing)
+	set_extension(src, /datum/extension/chameleon/clothing/shoes, /obj/item/clothing/shoes)
 
 /obj/item/storage/backpack/chameleon
 	name = "backpack"
@@ -54,11 +55,8 @@
 	item_state = "backpack"
 	desc = "A backpack outfitted with cloaking tech. It seems to have a small dial inside, kept away from the storage."
 	origin_tech = list(TECH_ESOTERIC = 3)
-	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
+	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON | ITEM_FLAG_IS_CHAMELEON_ITEM
 
-/obj/item/storage/backpack/chameleon/Initialize()
-	. = ..()
-	set_extension(src,/datum/extension/chameleon/backpack,/obj/item/storage/backpack)
 
 /obj/item/clothing/gloves/chameleon
 	name = "gloves"
@@ -66,12 +64,12 @@
 	item_state = "bgloves"
 	desc = "It looks like a pair of gloves, but it seems to have a small dial inside."
 	origin_tech = list(TECH_ESOTERIC = 3)
-	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
+	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON | ITEM_FLAG_IS_CHAMELEON_ITEM
 	species_restricted = list("exclude") // Everyone can wear chameleon gloves.
 
 /obj/item/clothing/gloves/chameleon/Initialize()
 	. = ..()
-	set_extension(src,/datum/extension/chameleon/clothing)
+	set_extension(src, /datum/extension/chameleon/clothing/gloves, /obj/item/clothing/gloves)
 
 /obj/item/clothing/mask/chameleon
 	name = "mask"
@@ -79,11 +77,11 @@
 	item_state = "gas_alt"
 	desc = "It looks like a plain gask mask, but on closer inspection, it seems to have a small dial inside."
 	origin_tech = list(TECH_ESOTERIC = 3)
-	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
+	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON | ITEM_FLAG_IS_CHAMELEON_ITEM
 
 /obj/item/clothing/mask/chameleon/Initialize()
 	. = ..()
-	set_extension(src,/datum/extension/chameleon/clothing,/obj/item/clothing/mask)
+	set_extension(src, /datum/extension/chameleon/clothing/mask, /obj/item/clothing/mask)
 
 /obj/item/clothing/glasses/chameleon
 	name = "goggles"
@@ -91,11 +89,11 @@
 	item_state = "glasses"
 	desc = "It looks like a plain set of mesons, but on closer inspection, it seems to have a small dial inside."
 	origin_tech = list(TECH_ESOTERIC = 3)
-	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
+	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON | ITEM_FLAG_IS_CHAMELEON_ITEM
 
 /obj/item/clothing/glasses/chameleon/Initialize()
 	. = ..()
-	set_extension(src,/datum/extension/chameleon/clothing)
+	set_extension(src, /datum/extension/chameleon/clothing/glasses, /obj/item/clothing/glasses)
 
 /obj/item/device/radio/headset/chameleon
 	name = "radio headset"
@@ -103,11 +101,7 @@
 	item_state = "headset"
 	desc = "An updated, modular intercom that fits over the head. This one seems to have a small dial on it."
 	origin_tech = list(TECH_ESOTERIC = 3)
-	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
-
-/obj/item/device/radio/headset/chameleon/Initialize()
-	. = ..()
-	set_extension(src,/datum/extension/chameleon/headset)
+	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON | ITEM_FLAG_IS_CHAMELEON_ITEM
 
 /obj/item/clothing/accessory/chameleon
 	name = "tie"
@@ -115,11 +109,11 @@
 	item_state = ""
 	desc = "A neosilk clip-on tie. It seems to have a small dial on its back."
 	origin_tech = list(TECH_ESOTERIC = 3)
-	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
+	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON | ITEM_FLAG_IS_CHAMELEON_ITEM
 
 /obj/item/clothing/accessory/chameleon/Initialize()
 	. = ..()
-	set_extension(src,/datum/extension/chameleon/clothing/accessory)
+	set_extension(src,/datum/extension/chameleon/clothing/accessory, /obj/item/clothing/accessory)
 
 /obj/item/gun/energy/chameleon
 	name = "chameleon gun"
@@ -128,7 +122,7 @@
 	icon_state = "revolver"
 	w_class = ITEM_SIZE_SMALL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ESOTERIC = 8)
-	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
+	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON | ITEM_FLAG_IS_CHAMELEON_ITEM
 	matter = list()
 
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
@@ -136,7 +130,3 @@
 	charge_meter = 0
 	charge_cost = 2 //uses next to no power, since it's just holograms - ACTUALLY uses next to no power now!
 	max_shots = 50
-
-/obj/item/gun/energy/chameleon/Initialize()
-	. = ..()
-	set_extension(src,/datum/extension/chameleon/gun)

@@ -1,4 +1,4 @@
-/mob/living/carbon/New()
+/mob/living/carbon/Initialize(mapload)
 	//setup reagent holders
 	bloodstr = new/datum/reagents/metabolism(120, src, CHEM_BLOOD)
 	touching = new/datum/reagents/metabolism(1000, src, CHEM_TOUCH)
@@ -6,7 +6,8 @@
 
 	if (!default_language && species_language)
 		default_language = all_languages[species_language]
-	..()
+	. = ..()
+
 
 /mob/living/carbon/Destroy()
 	QDEL_NULL(touching)
@@ -29,6 +30,7 @@
 		R.clear_reagents()
 	set_nutrition(400)
 	set_hydration(400)
+	stop_allergy()
 	..()
 
 /mob/living/carbon/Move(NewLoc, direct)
@@ -99,6 +101,17 @@
 
 	return
 
+///Processes stabbing eyes with any sharp items. Only works for normal sized or smaller items; if attacking eyes with a large sword will default to parent use_weapon and do a regular attack.
+/mob/living/carbon/use_weapon(obj/item/weapon, mob/living/user, list/click_params)
+	if (iscarbon(user) && user.a_intent == I_HURT && user.zone_sel.selecting == BP_EYES && weapon.can_puncture() && get_max_health() && weapon.w_class <= ITEM_SIZE_NORMAL)
+		var/hit_zone = resolve_item_attack(weapon, user, user.zone_sel.selecting)
+		if (!hit_zone) //Miss message to user is processed in resolve_item_attack.
+			return TRUE
+		if (hit_zone == BP_HEAD || hit_zone == BP_EYES) //Resolve_item_attack on non-self mobs never returns BP_EYES, but changes it to BP_HEAD because of check_zone()
+			return weapon.eyestab(src, user)
+	else return ..()
+
+
 /mob/living/carbon/electrocute_act(shock_damage, obj/source, siemens_coeff = 1.0, def_zone = null)
 	if(status_flags & GODMODE)	return 0	//godmode
 
@@ -137,7 +150,7 @@
 
 	make_jittery(min(shock_damage*5, 200))
 
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+	var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 	s.set_up(5, 1, loc)
 	s.start()
 
@@ -158,6 +171,7 @@
 
 
 /mob/living/carbon/swap_hand()
+	. = ..()
 	hand = !hand
 	if(hud_used.l_hand_hud_object && hud_used.r_hand_hud_object)
 		if(hand)	//This being 1 means the left hand is in use
@@ -312,10 +326,11 @@
 
 	if(!src.lastarea)
 		src.lastarea = get_area(src.loc)
-	if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity == 0))
+	if(!check_space_footing())
 		if(prob((itemsize * itemsize * 10) * MOB_MEDIUM/src.mob_size))
-			src.inertia_dir = get_dir(target, src)
-			step(src, inertia_dir)
+			var/direction = get_dir(target, src)
+			step(src,direction)
+			space_drift(direction)
 
 
 /*
@@ -358,7 +373,7 @@
 		if(buckled && buckled.buckle_require_restraints)
 			buckled.unbuckle_mob()
 	else
-	 ..()
+		..()
 
 	return
 
@@ -369,21 +384,22 @@
 	if(alert("Are you sure you want to [player_triggered_sleeping ? "wake up?" : "sleep for a while? Use 'sleep' again to wake up"]", "Sleep", "No", "Yes") == "Yes")
 		player_triggered_sleeping = !player_triggered_sleeping
 
-/mob/living/carbon/Bump(atom/movable/AM, yes)
-	if(now_pushing || !yes)
+/mob/living/carbon/Bump(atom/movable/AM, called)
+	if(now_pushing || !called)
 		return
 	..()
 
 /mob/living/carbon/slip(slipped_on, stun_duration = 8)
-	var/area/A = get_area(src)
-	if(!A.has_gravity())
+	if(!has_gravity())
 		return FALSE
+
 	if(buckled)
 		return FALSE
+
 	stop_pulling()
 	to_chat(src, SPAN_WARNING("You slipped on [slipped_on]!"))
 	playsound(loc, 'sound/misc/slip.ogg', 50, 1, -3)
-	Weaken(Floor(stun_duration/2))
+	Weaken(floor(stun_duration/2))
 	return TRUE
 
 /mob/living/carbon/proc/add_chemical_effect(effect, magnitude = 1)
@@ -414,21 +430,18 @@
 	return result
 
 /mob/living/carbon/show_inv(mob/user as mob)
-	user.set_machine(src)
 	var/dat = {"
-	<B><HR>[FONT_LARGE(name)]</B>
-	<BR><HR>
-	<BR><B>Head(Mask):</B> <A href='?src=\ref[src];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
-	<BR><B>Left Hand:</B> <A href='?src=\ref[src];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
-	<BR><B>Right Hand:</B> <A href='?src=\ref[src];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
-	<BR><B>Back:</B> <A href='?src=\ref[src];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? text(" <A href='?src=\ref[];item=internal'>Set Internal</A>", src) : "")]
-	<BR>[(internal ? text("<A href='?src=\ref[src];item=internal'>Remove Internal</A>") : "")]
-	<BR><A href='?src=\ref[src];item=pockets'>Empty Pockets</A>
-	<BR><A href='?src=\ref[user];refresh=1'>Refresh</A>
-	<BR><A href='?src=\ref[user];mach_close=mob[name]'>Close</A>
+	<BR><B>Head(Mask):</B> <A href='byond://?src=\ref[src];item=mask'>[(wear_mask ? wear_mask : "Nothing")]</A>
+	<BR><B>Left Hand:</B> <A href='byond://?src=\ref[src];item=l_hand'>[(l_hand ? l_hand  : "Nothing")]</A>
+	<BR><B>Right Hand:</B> <A href='byond://?src=\ref[src];item=r_hand'>[(r_hand ? r_hand : "Nothing")]</A>
+	<BR><B>Back:</B> <A href='byond://?src=\ref[src];item=back'>[(back ? back : "Nothing")]</A> [((istype(wear_mask, /obj/item/clothing/mask) && istype(back, /obj/item/tank) && !( internal )) ? text(" <A href='byond://?src=\ref[];item=internal'>Set Internal</A>", src) : "")]
+	<BR>[(internal ? text("<A href='byond://?src=\ref[src];item=internal'>Remove Internal</A>") : "")]
+	<BR><A href='byond://?src=\ref[src];item=pockets'>Empty Pockets</A>
+	<BR><A href='byond://?src=\ref[user];refresh=1'>Refresh</A>
 	<BR>"}
-	show_browser(user, dat, text("window=mob[];size=325x500", name))
-	onclose(user, "mob[name]")
+	var/datum/browser/popup = new(user, "mob[name]", name, 325, 500)
+	popup.set_content(dat)
+	popup.open()
 	return
 
 /**

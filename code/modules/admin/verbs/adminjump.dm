@@ -69,6 +69,7 @@
 	log_and_message_admins("jumped to coordinates [tx], [ty], [tz]")
 
 /proc/sorted_client_keys()
+	RETURN_TYPE(/list)
 	return sortKey(GLOB.clients.Copy())
 
 /client/proc/jumptokey(client/C in sorted_client_keys())
@@ -126,19 +127,3 @@
 			M.jumpTo(get_turf(mob))
 	else
 		alert("Admin jumping disabled")
-
-/client/proc/sendmob(mob/M in sortmobs())
-	set category = "Admin"
-	set name = "Send Mob"
-	if(!check_rights(R_ADMIN|R_MOD|R_DEBUG))
-		return
-	if(!config.allow_admin_jump)
-		alert("Admin jumping disabled")
-		return
-
-	var/list/areas = area_repository.get_areas_by_name()
-	var/area/A = input(usr, "Pick an area.", "Pick an area") as null|anything in areas
-	A = A ? areas[A] : A
-	if(A)
-		M.jumpTo(pick(get_area_turfs(A)))
-		log_and_message_admins("teleported [key_name(M)] to [A].")

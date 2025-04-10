@@ -1,7 +1,7 @@
 /obj/machinery/camera
 	name = "security camera"
 	desc = "It's used to monitor rooms."
-	icon = 'icons/obj/monitors.dmi'
+	icon = 'icons/obj/structures/cameras.dmi'
 	icon_state = "camera"
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 5
@@ -41,8 +41,10 @@
 
 /obj/machinery/camera/examine(mob/user)
 	. = ..()
-	if(MACHINE_IS_BROKEN(src))
+	if (MACHINE_IS_BROKEN(src))
 		to_chat(user, SPAN_WARNING("It is completely demolished."))
+	else if (inoperable(MACHINE_STAT_EMPED))
+		to_chat(user, SPAN_WARNING("It's unpowered."))
 
 /obj/machinery/camera/malf_upgrade(mob/living/silicon/ai/user)
 	..()
@@ -105,9 +107,11 @@
 					number = max(number, C.number+1)
 			c_tag = "[A.name][number == 1 ? "" : " #[number]"]"
 		invalidateCameraCache()
+	GLOB.moved_event.register(src, src, PROC_REF(camera_moved))
 
 
 /obj/machinery/camera/Destroy()
+	GLOB.moved_event.unregister(src, src, PROC_REF(camera_moved))
 	deactivate(null, 0) //kick anyone viewing out
 	if(assembly)
 		qdel(assembly)
@@ -122,12 +126,20 @@
 		update_coverage()
 	return internal_process()
 
+
+/obj/machinery/camera/proc/camera_moved(atom/movable/moved_atom, atom/old_loc, atom/new_loc)
+	if (AreConnectedZLevels(get_z(old_loc), get_z(new_loc)))
+		return
+	disconnect_viewers()
+
+
 /obj/machinery/camera/emp_act(severity)
 	if (!isEmpProof())
 		if (prob(100/severity))
 			if (!affected_by_emp_until || (world.time < affected_by_emp_until))
 				affected_by_emp_until = max(affected_by_emp_until, world.time + (90 SECONDS / severity))
 			else
+				deactivate(choice = FALSE)
 				set_stat(MACHINE_STAT_EMPED, TRUE)
 				set_light(0)
 				triggerCameraAlarm()
@@ -152,24 +164,24 @@
 		kill_health()
 		return TRUE
 
-/obj/machinery/camera/attackby(obj/item/W as obj, mob/living/user as mob)
+/obj/machinery/camera/use_tool(obj/item/W, mob/living/user, list/click_params)
 	update_coverage()
 	var/datum/wires/camera/camera_wires = wires
-	// DECONSTRUCTION
+
 	if(isScrewdriver(W))
-//		to_chat(user, SPAN_NOTICE("You start to [panel_open ? "close" : "open"] the camera's panel."))
-		//if(toggle_panel(user)) // No delay because no one likes screwdrivers trying to be hip and have a duration cooldown
 		panel_open = !panel_open
 		user.visible_message(
-			SPAN_WARNING("[user] screws the camera's panel [panel_open ? "open" : "closed"]!"),
-			SPAN_NOTICE("You screw the camera's panel [panel_open ? "open" : "closed"].")
+			SPAN_WARNING("\The [user] screws \the [src]'s panel [panel_open ? "open" : "closed"]!"),
+			SPAN_NOTICE("You screw \the [src]'s panel [panel_open ? "open" : "closed"].")
 		)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
+		return TRUE
 
-	else if((isWirecutter(W) || isMultitool(W)) && panel_open)
-		return wires.Interact(user)
+	if ((isWirecutter(W) || isMultitool(W)) && panel_open)
+		wires.Interact(user)
+		return TRUE
 
-	else if(isWelder(W) && (camera_wires.CanDeconstruct() || (MACHINE_IS_BROKEN(src))))
+	if (isWelder(W) && (camera_wires.CanDeconstruct() || (MACHINE_IS_BROKEN(src))))
 		if(weld(W, user))
 			if(assembly)
 				assembly.dropInto(loc)
@@ -177,7 +189,7 @@
 				assembly.camera_name = c_tag
 				assembly.camera_network = english_list(network, "Exodus", ",", ",")
 				assembly.update_icon()
-				assembly.dir = src.dir
+				assembly.dir = dir
 				if(MACHINE_IS_BROKEN(src))
 					assembly.state = 2
 					to_chat(user, SPAN_NOTICE("You repaired \the [src] frame."))
@@ -188,10 +200,9 @@
 					new /obj/item/stack/cable_coil(loc, 2)
 				assembly = null //so qdel doesn't eat it.
 			qdel(src)
-			return
+			return TRUE
 
-	// OTHER
-	else if (can_use() && istype(W, /obj/item/paper) && isliving(user))
+	if (can_use() && istype(W, /obj/item/paper) && isliving(user))
 		var/mob/living/U = user
 		var/obj/item/paper/X = W
 		var/itemname = X.name
@@ -202,14 +213,27 @@
 			if(U.name == "Unknown") to_chat(O, "<b>[U]</b> holds \a [itemname] up to one of your cameras ...")
 			else to_chat(O, "<b><a href='byond://?src=\ref[O];track2=\ref[O];track=\ref[U];trackname=[U.name]'>[U]</a></b> holds \a [itemname] up to one of your cameras ...")
 			show_browser(O, text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname))
+		return TRUE
 
-	else
-		..()
+	return ..()
+
+
+/**
+ * Handles resetting the view of all clients currently viewing this camera. Does not include resetting nano modules.
+ */
+/obj/machinery/camera/proc/disconnect_viewers()
+	for (var/mob/mob as anything in get_mob_with_client_list())
+		if (mob.client.eye != src)
+			continue
+		mob.reset_view()
+
 
 /obj/machinery/camera/proc/deactivate(user as mob, choice = 1)
 	// The only way for AI to reactivate cameras are malf abilities, this gives them different messages.
 	if(istype(user, /mob/living/silicon/ai))
 		user = null
+
+	disconnect_viewers()
 
 	if(choice != 1)
 		return
@@ -236,12 +260,13 @@
 	. = ..()
 	wires.RandomCutAll()
 
+	deactivate()
 	triggerCameraAlarm()
 	queue_icon_update()
 	update_coverage()
 
 	//sparks
-	var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
+	var/datum/effect/spark_spread/spark_system = new /datum/effect/spark_spread()
 	spark_system.set_up(5, 0, loc)
 	spark_system.start()
 	playsound(loc, "sparks", 50, 1)
@@ -277,7 +302,7 @@
 		else if(dir == EAST)
 			pixel_x = -10
 
-	if (!status || (MACHINE_IS_BROKEN(src)))
+	if (!status || inoperable())
 		icon_state = "[initial(icon_state)]1"
 	else if (GET_FLAGS(stat, MACHINE_STAT_EMPED))
 		icon_state = "[initial(icon_state)]emp"
@@ -299,7 +324,7 @@
 /obj/machinery/camera/proc/can_use()
 	if(!status)
 		return 0
-	if(MACHINE_IS_BROKEN(src) || GET_FLAGS(stat, MACHINE_STAT_EMPED))
+	if(inoperable(MACHINE_STAT_EMPED))
 		return 0
 	return 1
 
@@ -358,11 +383,11 @@
 	if(busy)
 		return 0
 
-	if(WT.remove_fuel(0, user))
+	if(WT.can_use(1, user))
 		to_chat(user, SPAN_NOTICE("You start to weld \the [src].."))
 		playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 		busy = 1
-		if(do_after(user, 10 SECONDS, src, DO_REPAIR_CONSTRUCT) && WT.isOn())
+		if(do_after(user, 10 SECONDS, src, DO_REPAIR_CONSTRUCT) && WT.remove_fuel(1, user))
 			playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 			busy = 0
 			return 1

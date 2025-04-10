@@ -3,7 +3,7 @@
 //
 /obj/item/device/robotanalyzer
 	name = "robot analyzer"
-	icon = 'icons/obj/robot_analyzer.dmi'
+	icon = 'icons/obj/tools/robot_analyzer.dmi'
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
 	desc = "A hand-held scanner able to diagnose robotic injuries."
@@ -33,6 +33,8 @@
 		scan_type = "robot"
 	else if(istype(M, /mob/living/carbon/human))
 		scan_type = "prosthetics"
+	else if (istype(M, /mob/living/exosuit))
+		scan_type = "exosuit"
 	else
 		to_chat(user, SPAN_WARNING("You can't analyze non-robotic things!"))
 		return
@@ -110,10 +112,20 @@
 			if(!organ_found)
 				to_chat(user, "No prosthetics located.")
 
+		if ("exosuit")
+			var/mob/living/exosuit/mech = M
+			to_chat(user, SPAN_INFO("Diagnostic Report for \the [M]:"))
+			for (var/obj/item/mech_component/component in list(mech.arms, mech.legs, mech.body, mech.head))
+				if (component)
+					component.return_diagnostics(user)
+
 	playsound(user,'sound/effects/scanbeep.ogg', 30)
 	return
 
-/obj/item/device/robotanalyzer/attack(mob/living/M, mob/living/user)
+/obj/item/device/robotanalyzer/use_before(mob/living/M, mob/living/user)
+	. = FALSE
+	if (!istype(M))
+		return FALSE
 	roboscan(M, user)
-	src.add_fingerprint(user)
-	return
+	add_fingerprint(user)
+	return TRUE

@@ -79,19 +79,21 @@
 /mob/living/carbon/slime/setToxLoss(amount)
 	adjustToxLoss(amount-getToxLoss())
 
-/mob/living/carbon/slime/New(location, colour="grey")
+
+/mob/living/carbon/slime/Initialize(mapload, _colour = "grey")
 	ingested = new(240, src, CHEM_INGEST)
 	verbs += /mob/living/proc/ventcrawl
 
-	src.colour = colour
+	colour = _colour
 	number = random_id(/mob/living/carbon/slime, 1, 1000)
-	name = "[colour] [is_adult ? "adult" : "baby"] slime ([number])"
+	SetName("[colour] [is_adult ? "adult" : "baby"] slime ([number])")
 	real_name = name
 	mutation_chance = rand(25, 35)
 	regenerate_icons()
-	..(location)
+	. = ..()
 
-/mob/living/carbon/slime/movement_delay()
+
+/mob/living/carbon/slime/movement_delay(singleton/move_intent/using_intent = move_intent)
 	if (bodytemperature >= 330.23) // 135 F
 		return -1	// slimes become supercharged at high temperatures
 
@@ -115,8 +117,8 @@
 
 	return tally
 
-/mob/living/carbon/slime/Bump(atom/movable/AM as mob|obj, yes)
-	if ((!(yes) || now_pushing))
+/mob/living/carbon/slime/Bump(atom/movable/AM, called)
+	if ((!(called) || now_pushing))
 		return
 	now_pushing = 1
 
@@ -151,9 +153,6 @@
 	now_pushing = 0
 
 	..()
-
-/mob/living/carbon/slime/Allow_Spacemove()
-	return 1
 
 /mob/living/carbon/slime/Stat()
 	. = ..()
@@ -236,7 +235,7 @@
 				visible_message(SPAN_WARNING("\The [M] manages to wrestle \the [src] off!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
-				confused = max(confused, 2)
+				set_confused(2)
 				Feedstop()
 				UpdateFace()
 				step_away(src, M)
@@ -251,7 +250,7 @@
 				visible_message(SPAN_WARNING("\The [M] manages to wrestle \the [src] off \the [Victim]!"))
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 
-				confused = max(confused, 2)
+				set_confused(2)
 				Feedstop()
 				UpdateFace()
 				step_away(src, M)
@@ -266,7 +265,7 @@
 			var/success = prob(40)
 			visible_message(SPAN_WARNING("\The [M] pushes \the [src]![success ? " \The [src] looks momentarily disoriented!" : ""]"))
 			if(success)
-				confused = max(confused, 2)
+				set_confused(2)
 				UpdateFace()
 				playsound(loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			else
@@ -278,16 +277,6 @@
 
 			attacked += 10
 			if (prob(90))
-				if (MUTATION_HULK in M.mutations)
-					damage += 5
-					if(Victim || Target)
-						Feedstop()
-						Target = null
-					spawn(0)
-						step_away(src,M,15)
-						sleep(3)
-						step_away(src,M,15)
-
 				playsound(loc, "punch", 25, 1, -1)
 				visible_message(SPAN_DANGER("[M] has punched [src]!"), \
 						SPAN_DANGER("[M] has punched [src]!"))

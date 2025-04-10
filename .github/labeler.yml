@@ -1,18 +1,21 @@
 Repo:
 - changed-files:
   - any-glob-to-any-file:
-    - .github/**/*
-    - .vscode/**/*
-    - docs/**/*
-    - scripts/**/*
-    - test/**/*
-    - tools/**/*
-    - .codebeatignore
-    - .editorconfig
-    - .git*
-    - LICENSE
-    - README.md
-    - SpacemanDMM.toml
+    - '.github/**/*'
+    - '.vscode/**/*'
+    - 'docs/**/*'
+    - 'scripts/**/*'
+    - 'test/**/*'
+    - 'tools/**/*'
+    - '.codebeatignore'
+    - '.codebeatsettings'
+    - '.editorconfig'
+    - '.git*'
+    - 'biome.json'
+    - 'libmysql.dll'
+    - 'LICENSE'
+    - 'README.md'
+    - 'SpacemanDMM.toml'
 
 Map:
 - changed-files:
@@ -27,14 +30,30 @@ Icons:
 Sound:
 - changed-files:
   - any-glob-to-any-file:
-    - '**/*.ogg'
-    - '**/*.wav'
+    - '**/*.aif'
+    - '**/*.aiff'
+    - '**/*.it'
+    - '**/*.mid'
+    - '**/*.midi'
+    - '**/*.mod'
     - '**/*.mp3'
+    - '**/*.ogg'
+    - '**/*.oxm'
+    - '**/*.raw'
+    - '**/*.s3m'
+    - '**/*.wma'
+    - '**/*.wav'
+    - '**/*.xm'
 
 Config Update:
 - changed-files:
   - any-glob-to-any-file:
-    - config/**/*
+    - 'config/example/**/*'
+
+Database:
+- changed-files:
+  - any-glob-to-any-file:
+    - 'sql/**/*'
 
 Awaymaps:
 - changed-files:

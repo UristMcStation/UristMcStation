@@ -11,6 +11,7 @@
 #define INVISIBILITY_LIGHTING    20
 #define INVISIBILITY_LEVEL_ONE   35
 #define INVISIBILITY_LEVEL_TWO   45
+#define INVISIBILITY_OVERMAP     50
 #define INVISIBILITY_OBSERVER    60
 #define INVISIBILITY_EYE         61
 #define INVISIBILITY_SYSTEM      99
@@ -104,13 +105,13 @@
 #define CUSTOM_ITEM_SYNTH_CONFIG "config/custom_sprites.txt"
 #endif
 #ifndef CUSTOM_ITEM_OBJ
-#define CUSTOM_ITEM_OBJ 'icons/obj/custom_items_obj.dmi'
+#define CUSTOM_ITEM_OBJ 'icons/obj/unused.dmi'
 #endif
 #ifndef CUSTOM_ITEM_MOB
-#define CUSTOM_ITEM_MOB 'icons/mob/custom_items_mob.dmi'
+#define CUSTOM_ITEM_MOB 'icons/obj/unused.dmi'
 #endif
 #ifndef CUSTOM_ITEM_SYNTH
-#define CUSTOM_ITEM_SYNTH 'icons/mob/custom_synthetic.dmi'
+#define CUSTOM_ITEM_SYNTH 'icons/obj/unused.dmi'
 #endif
 
 #define WALL_CAN_OPEN 1
@@ -135,6 +136,7 @@
 #define PROGRAM_TABLET        FLAG(2)
 #define PROGRAM_TELESCREEN    FLAG(3)
 #define PROGRAM_PDA           FLAG(4)
+#define PROGRAM_NO_KILL       FLAG(5) //Not included in PROGRAM_ALL
 #define PROGRAM_ALL ( PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_TELESCREEN | PROGRAM_PDA )
 
 #define PROGRAM_STATE_KILLED 0
@@ -261,10 +263,13 @@
 //Lying animation
 #define ANIM_LYING_TIME 2
 
-//Planet habitability class
-#define HABITABILITY_IDEAL  1
-#define HABITABILITY_OKAY  2
-#define HABITABILITY_BAD  3
+
+//Planet habitability weight
+#define HABITABILITY_LOCKED			1
+#define HABITABILITY_TYPICAL		2
+#define HABITABILITY_BAD 			3
+#define HABITABILITY_EXTREME		4
+
 
 #ifndef WINDOWS_HTTP_POST_DLL_LOCATION
 #define WINDOWS_HTTP_POST_DLL_LOCATION "lib/byhttp.dll"
@@ -285,9 +290,7 @@
 
 //-- Masks for /atom/var/init_flags --
 //- machinery
-#define INIT_MACHINERY_PROCESS_SELF       FLAG(0)
-#define INIT_MACHINERY_PROCESS_COMPONENTS FLAG(1)
-#define INIT_MACHINERY_PROCESS_ALL ( INIT_MACHINERY_PROCESS_SELF | INIT_MACHINERY_PROCESS_COMPONENTS )
+#define INIT_MACHINERY_START_PROCESSING FLAG(0)
 //--
 
 
@@ -328,7 +331,19 @@
 // Flags for `use_sanity_check()`
 /// Do not display user feedback messages.
 #define SANITY_CHECK_SILENT FLAG(0)
-/// Verify the tool can be unequipped from user.
+/// Verify the tool can be unequipped from user. Ignored if the tool is not an item.
 #define SANITY_CHECK_TOOL_UNEQUIP FLAG(1)
 /// Verify the target can be unequipped from user. Includes `target.loc == src` check to allow items the user isn't holding.
 #define SANITY_CHECK_TARGET_UNEQUIP FLAG(2)
+/// Verify the target and tool are adjacent to eachother. Ignored if there is no tool or if tool is held by user.
+#define SANITY_CHECK_BOTH_ADJACENT FLAG(3)
+/// Verify the tool is in the user's active hand. Ignored if the tool is not an item.
+#define SANITY_CHECK_TOOL_IN_HAND FLAG(4)
+/// Check `CanInteractWith(target, user)`. Only use this for Topic() revalidation. Functionally exclusive with `SANITY_CHECK_TOPIC_PHYSICALLY_INTERACT`.
+#define SANITY_CHECK_TOPIC_INTERACT FLAG(5)
+/// Check `CanPhysicallyInteractWith(target, user)`. Only use this for Topic() revalidation. Functionally exclusive with `SANITY_CHECK_TOPIC_INTERACT`.
+#define SANITY_CHECK_TOPIC_PHYSICALLY_INTERACT FLAG(6)
+
+#define SANITY_CHECK_DEFAULT (SANITY_CHECK_TOOL_IN_HAND | SANITY_CHECK_BOTH_ADJACENT)
+
+#define Z_ALL_TURFS(Z) block(locate(1, 1, Z), locate(world.maxx, world.maxy, Z))

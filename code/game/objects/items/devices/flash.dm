@@ -1,7 +1,7 @@
 /obj/item/device/flash
 	name = "flash"
 	desc = "A device that produces a bright flash of light, designed to stun and disorient an attacker."
-	icon = 'icons/obj/flash.dmi'
+	icon = 'icons/obj/tools/flash.dmi'
 	icon_state = "flash"
 	item_state = "flashtool"
 	throwforce = 5
@@ -35,41 +35,43 @@
 	times_used = max(0,round(times_used)) //sanity
 
 //attack_as_weapon
-/obj/item/device/flash/attack(mob/living/M, mob/living/user, target_zone)
-	if(!user || !M)	return 0 //sanity
-	admin_attack_log(user, M, "flashed their victim using \a [src].", "Was flashed by \a [src].", "used \a [src] to flash")
-
-	if(!clown_check(user))	return 0
-	if(broken)
+/obj/item/device/flash/use_before(mob/living/M, mob/living/user)
+	. = FALSE
+	if (!istype(M))
+		return FALSE
+	if (!clown_check(user))
+		return TRUE
+	if (broken)
 		to_chat(user, SPAN_WARNING("\The [src] is broken."))
-		return 0
+		return TRUE
 
 	flash_recharge()
 
 	//spamming the flash before it's fully charged (60seconds) increases the chance of it breaking
 	//It will never break on the first use.
-	switch(times_used)
-		if(0 to 5)
+	switch (times_used)
+		if (0 to 5)
 			last_used = world.time
-			if(prob(times_used))	//if you use it 5 times in a minute it has a 10% chance to break!
+			if (prob(times_used))	//if you use it 5 times in a minute it has a 10% chance to break!
 				broken = 1
 				to_chat(user, SPAN_WARNING("The bulb has burnt out!"))
 				icon_state = "[initial(icon_state)]_burnt"
-				return 0
+				return TRUE
 			times_used++
 		else	//can only use it 5 times a minute
 			to_chat(user, SPAN_WARNING("*click* *click*"))
-			return 0
+			return TRUE
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M)
+	admin_attack_log(user, M, "flashed their victim using \a [src].", "Was flashed by \a [src].", "used \a [src] to flash")
 
 	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
 	var/flashfail = do_flash(M)
 
-	if(isrobot(user))
+	if (isrobot(user))
 		spawn(0)
-			var/atom/movable/overlay/animation = new(user)
+			var/atom/movable/fake_overlay/animation = new(user)
 			animation.plane = user.plane
 			animation.layer = user.layer + 0.01
 			animation.icon_state = "blank"
@@ -78,15 +80,15 @@
 			sleep(5)
 			qdel(animation)
 
-	if(!flashfail)
+	if (!flashfail)
 		flick("[initial(icon_state)]_on", src)
-		if(!issilicon(M))
+		if (!issilicon(M))
 			user.visible_message(SPAN_CLASS("disarm", "[user] blinds [M] with \the [src]!"))
 		else
 			user.visible_message(SPAN_NOTICE("[user] overloads [M]'s sensors with \the [src]!"))
 	else
 		user.visible_message(SPAN_NOTICE("[user] fails to blind [M] with \the [src]!"))
-	return 1
+	return TRUE
 
 
 /**
@@ -114,7 +116,7 @@
 					M.flash_eyes(FLASH_PROTECTION_MODERATE - safety)
 					M.Stun(flash_strength / 2)
 					M.eye_blurry = max(M.eye_blurry, flash_strength)
-					M.confused = max(M.confused, (flash_strength + 2))
+					M.set_confused(flash_strength + 2)
 					if(flash_strength > 3)
 						M.drop_l_hand()
 						M.drop_r_hand()
@@ -127,11 +129,11 @@
 		var/mob/living/simple_animal/SA = M
 		var/safety = SA.eyecheck()
 		if(safety < FLASH_PROTECTION_MAJOR)
-			SA.confused = max(SA.confused, (flash_strength * 0.5))
+			SA.set_confused(flash_strength * 0.5)
 			if(safety < FLASH_PROTECTION_MODERATE)
 				SA.flash_eyes(2)
 				SA.eye_blurry = max(SA.eye_blurry, flash_strength)
-				SA.confused = max(SA.confused, (flash_strength))
+				SA.set_confused(flash_strength)
 		else
 			return TRUE
 
@@ -174,7 +176,7 @@
 	flick("[initial(icon_state)]_on", src)
 	if(user && isrobot(user))
 		spawn(0)
-			var/atom/movable/overlay/animation = new(user.loc)
+			var/atom/movable/fake_overlay/animation = new(user.loc)
 			animation.plane = user.plane
 			animation.layer = user.layer + 0.01
 			animation.icon_state = "blank"
@@ -216,7 +218,7 @@
 /obj/item/device/flash/synthetic //not for regular use, weaker effects
 	name = "modified flash"
 	desc = "A device that produces a bright flash of light. This is a specialized version designed specifically for use in camera systems."
-	icon = 'icons/obj/flash_synthetic.dmi'
+	icon = 'icons/obj/tools/flash_synthetic.dmi'
 	icon_state = "sflash"
 	str_min = 1
 	str_max = 4
@@ -224,7 +226,7 @@
 /obj/item/device/flash/advanced
 	name = "advanced flash"
 	desc = "A device that produces a very bright flash of light. This is an advanced and expensive version often issued to VIPs."
-	icon = 'icons/obj/flash_advanced.dmi'
+	icon = 'icons/obj/tools/flash_advanced.dmi'
 	icon_state = "advflash"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
 	str_min = 3

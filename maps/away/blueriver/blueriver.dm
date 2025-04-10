@@ -3,7 +3,7 @@
 /obj/effect/overmap/visitable/sector/planetoid/arcticplanet
 	name = "arctic planetoid"
 	desc = "Sensor array detects an arctic planet with a small vessel on the planet's surface. Scans further indicate strange energy emissions from below the planet's surface."
-	in_space = FALSE
+	sector_flags = EMPTY_BITFIELD
 	icon_state = "globe"
 	initial_generic_waypoints = list(
 		"nav_blueriv_1",
@@ -12,7 +12,7 @@
 		"nav_blueriv_antag"
 	)
 
-///obj/effect/overmap/visitable/sector/arcticplanet/New(nloc, max_x, max_y)
+///obj/overmap/visitable/sector/arcticplanet/New(nloc, max_x, max_y)
 //	name = "[generate_planet_name()], \a [name]"
 //	..()
 
@@ -112,22 +112,22 @@
 	health = 80
 	can_escape = FALSE
 
-/obj/effect/shuttle_landmark/nav_blueriv/nav1
+/obj/shuttle_landmark/nav_blueriv/nav1
 	name = "Arctic Planet Landing Point #1"
 	landmark_tag = "nav_blueriv_1"
 	base_area = /area/bluespaceriver/ground
 
-/obj/effect/shuttle_landmark/nav_blueriv/nav2
+/obj/shuttle_landmark/nav_blueriv/nav2
 	name = "Arctic Planet Landing Point #2"
 	landmark_tag = "nav_blueriv_2"
 	base_area = /area/bluespaceriver/ground
 
-/obj/effect/shuttle_landmark/nav_blueriv/nav3
+/obj/shuttle_landmark/nav_blueriv/nav3
 	name = "Arctic Planet Landing Point #3"
 	landmark_tag = "nav_blueriv_3"
 	base_area = /area/bluespaceriver/ground
 
-/obj/effect/shuttle_landmark/nav_blueriv/nav4
+/obj/shuttle_landmark/nav_blueriv/nav4
 	name = "Arctic Planet Navpoint #4"
 	landmark_tag = "nav_blueriv_antag"
 	base_area = /area/bluespaceriver/ground
@@ -142,7 +142,7 @@
 /turf/simulated/floor/away/blueriver/alienfloor/Initialize()
 	.=..()
 
-	set_light(0.7, 1, 5, l_color = "#0066ff")
+	set_light(5, 0.7, l_color = "#0066ff")
 
 /turf/unsimulated/wall/away/blueriver/livingwall
 	name = "alien wall"
@@ -173,7 +173,7 @@
 	.=..()
 
 	icon_state = "bluespacecrystal[rand(1,3)]"
-	set_light(0.7, 1, 5, l_color = "#0066ff")
+	set_light(5, 1, l_color = "#0066ff")
 
 /turf/unsimulated/wall/supermatter/no_spread/Process()
 	return PROCESS_KILL
@@ -231,16 +231,6 @@
 	density = TRUE
 	anchored = TRUE
 
-/obj/structure/deity/attackby(obj/item/W as obj, mob/user as mob)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(src)
-	playsound(get_turf(src), 'sound/effects/Glasshit.ogg', 50, 1)
-	user.visible_message(
-		SPAN_DANGER("[user] hits \the [src] with \the [W]!"),
-		SPAN_DANGER("You hit \the [src] with \the [W]!"),
-		SPAN_DANGER("You hear something breaking!")
-		)
-	damage_health(W.force, W.damtype)
 
 /obj/structure/deity/on_death()
 	visible_message(SPAN_DANGER("\The [src] crumbles!"))

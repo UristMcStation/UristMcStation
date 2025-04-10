@@ -1,7 +1,7 @@
 /obj/item/autopsy_scanner
 	name = "autopsy scanner"
 	desc = "Used to gather information on wounds."
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/surgery_tools.dmi'
 	icon_state = "autopsy_scanner"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	w_class = ITEM_SIZE_SMALL
@@ -174,14 +174,13 @@
 		timeofdeath = null
 		to_chat(user, SPAN_NOTICE("A new patient has been registered. Purging data for previous patient."))
 
-/obj/item/autopsy_scanner/afterattack(obj/item/organ/external/target, mob/user, proximity_flag, click_parameters)
-	if(!proximity_flag)
-		return
+/obj/item/autopsy_scanner/use_after(obj/item/organ/external/target, mob/living/user, click_parameters)
 	if(!istype(target))
-		return
+		return FALSE
 
 	set_target(target, user)
 	add_data(target)
+	return TRUE
 
 /obj/item/autopsy_scanner/attack_self(mob/user)
 	print_data(user)

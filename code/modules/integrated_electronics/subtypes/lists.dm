@@ -137,7 +137,7 @@
 				if(!isnull(sample_item))
 					if(istext(input_item) && istext(sample_item) && findtext(input_item, sample_item))
 						output += input_item
-					if(istype(input_item, /atom) && istext(sample_item))
+					if(isloc(input_item) && istext(sample_item))
 						var/atom/input_item_atom = input_item
 						if(istext(sample_item) && findtext(input_item_atom.name, sample_item))
 							output += input_item
@@ -149,7 +149,7 @@
 				if(istext(input_item) && istext(sample) && findtext(input_item, sample))
 					output += input_item
 					continue
-				if(istype(input_item, /atom) && istext(sample))
+				if(isloc(input_item) && istext(sample))
 					var/atom/input_itema = input_item
 					if(findtext(input_itema.name, sample))
 						output += input_item

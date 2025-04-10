@@ -3,9 +3,9 @@ var/global/list/doppler_arrays = list()
 /obj/machinery/doppler_array
 	name = "tachyon-doppler array"
 	desc = "A highly precise directional sensor array which measures the release of quants from decaying tachyons. The doppler shifting of the mirror-image formed by these quants can reveal the size, location and temporal affects of energetic disturbances within a large radius ahead of the array."
-	icon = 'icons/obj/machines/research.dmi'
+	icon = 'icons/obj/machines/research/doppler_array.dmi'
 	icon_state = "tdoppler"
-	obj_flags = OBJ_FLAG_ROTATABLE
+	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_ANCHORABLE
 	construct_state = /singleton/machine_construction/default/panel_closed
 	var/currentlyfacing
 	var/direct
@@ -43,22 +43,13 @@ var/global/list/doppler_arrays = list()
 	audible_message(SPAN_CLASS("game say", "[SPAN_CLASS("name", "\The [src]")] states coldly, \"[message]\""))
 
 /obj/machinery/doppler_array/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(MACHINE_IS_BROKEN(src))
 		icon_state = "[initial(icon_state)]-broken"
 	if(panel_open)
-		overlays += "[initial(icon_state)]-open"
+		AddOverlays("[initial(icon_state)]-open")
 	if(inoperable())
 		icon_state = "[initial(icon_state)]-off"
-
-/obj/machinery/doppler_array/attackby(obj/item/W, mob/user)
-	if(component_attackby(W, user))
-		return TRUE
-	else if(isWrench(W))
-		anchored = !anchored
-		to_chat(user, SPAN_NOTICE("You wrench the stabilising bolts [anchored ? "into place" : "loose"]."))
-		playsound(loc, 'sound/items/Ratchet.ogg', 40)
-		update_icon()
 
 /obj/machinery/doppler_array/proc/getcurrentdirection()
 	switch(direct)

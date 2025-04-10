@@ -1,9 +1,32 @@
 /obj/item/storage/fancy/smokable/case
 	name = "cigarette case"
-	desc = "A fancy little case for holding cigarettes in it."
+	desc = "A fancy little case for holding cigarettes. It has a spring-loaded click-open mechanism."
+	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "cigscase"
+	item_state = "syringe_kit"
+	open_sound = 'sound/effects/storage/pillbottle.ogg'
 	max_storage_space = null
+	sealed = FALSE
 	storage_slots = 6
+	key_type = list(/obj/item/clothing/mask/smokable/cigarette, /obj/item/material/coin)
+
+/obj/item/storage/fancy/smokable/case/on_update_icon()
+	ClearOverlays()
+	icon_state = "[initial(icon_state)][opened ? "0" : ""]"
+	if (!opened)
+		return
+	for (var/i = 1 to length(contents))
+		if (istype(contents[i], /obj/item/clothing/mask/smokable/cigarette))
+			AddOverlays(image(icon, "cig[i]"))
+		else if (istype(contents[i], /obj/item/material/coin))
+			var/obj/item/material/coin/C = contents[i]
+			var/image/I = image(icon, "colorcoin[i]")
+			if (C.applies_material_colour)
+				var/material/M = C.material
+				I.color = M.icon_colour
+			else
+				I.color = COLOR_GOLD
+			AddOverlays(I)
 
 
 /obj/item/storage/fancy/smokable/transstellar
@@ -57,7 +80,6 @@
 	desc = "With a sharp and natural organic menthol flavor, these Temperamentos are a favorite of NDV crews. Hardly anyone knows they make 'em in non-menthol!"
 	icon_state = "TMpacket"
 	item_state = "Dpacket"
-	key_type = /obj/item/clothing/mask/smokable/cigarette/menthol
 	startswith = list(
 		/obj/item/clothing/mask/smokable/cigarette/menthol = 6
 	)
@@ -89,7 +111,6 @@
 	icon_state = "CRpacket"
 	item_state = "Dpacket"
 	max_storage_space = 5
-	key_type = /obj/item/clothing/mask/smokable/cigarette/trident
 	startswith = list(
 		/obj/item/clothing/mask/smokable/cigarette/trident = 5
 	)
@@ -101,7 +122,6 @@
 	icon_state = "CRFpacket"
 	item_state = "Dpacket"
 	max_storage_space = 5
-	key_type = /obj/item/clothing/mask/smokable/cigarette/trident
 	startswith = list(
 		/obj/item/clothing/mask/smokable/cigarette/trident/watermelon,
 		/obj/item/clothing/mask/smokable/cigarette/trident/orange,
@@ -117,7 +137,6 @@
 	icon_state = "CRMpacket"
 	item_state = "Dpacket"
 	max_storage_space = 5
-	key_type = /obj/item/clothing/mask/smokable/cigarette/trident
 	startswith = list(
 		/obj/item/clothing/mask/smokable/cigarette/trident/mint = 5
 	)
@@ -125,13 +144,14 @@
 
 /obj/item/storage/fancy/smokable/cigar
 	name = "cigar case"
-	desc = "A case for holding your cigars when you are not smoking them."
+	desc = "A case for holding your cigars, in the short interstice before you smoke them."
 	icon_state = "cigarcase"
 	item_state = "cigpacket"
 	max_storage_space = null
 	storage_slots = 7
 	slot_flags = SLOT_BELT
-	key_type = /obj/item/clothing/mask/smokable/cigarette/cigar
+	sealed = FALSE
+	key_type = list(/obj/item/clothing/mask/smokable/cigarette/cigar)
 	startswith = list(
 		/obj/item/clothing/mask/smokable/cigarette/cigar = 6
 	)

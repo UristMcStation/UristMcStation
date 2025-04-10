@@ -1,7 +1,7 @@
 /obj/machinery/compressor
 	name = "compressor"
 	desc = "The compressor stage of a gas turbine generator."
-	icon = 'icons/obj/pipes.dmi'
+	icon = 'icons/obj/atmospherics/pipes.dmi'
 	icon_state = "compressor"
 	anchored = TRUE
 	density = TRUE
@@ -19,7 +19,7 @@
 /obj/machinery/power/turbine
 	name = "gas turbine generator"
 	desc = "A gas turbine used for backup power generation."
-	icon = 'icons/obj/pipes.dmi'
+	icon = 'icons/obj/atmospherics/pipes.dmi'
 	icon_state = "turbine"
 	anchored = TRUE
 	density = TRUE
@@ -28,9 +28,9 @@
 	var/lastgen
 
 /obj/machinery/computer/turbine_computer
-	name = "Gas turbine control computer"
+	name = "gas turbine control computer"
 	desc = "A computer to remotely control a gas turbine."
-	icon = 'icons/obj/computer.dmi'
+	icon = 'icons/obj/machines/computer.dmi'
 	icon_keyboard = "tech_key"
 	icon_screen = "turbinecomp"
 	anchored = TRUE
@@ -65,7 +65,7 @@
 /obj/machinery/compressor/Process()
 	if(!starter)
 		return
-	overlays.Cut()
+	ClearOverlays()
 	if(MACHINE_IS_BROKEN(src))
 		return
 	rpm = 0.9* rpm + 0.1 * rpmtarget
@@ -89,13 +89,13 @@
 
 
 	if(rpm>50000)
-		overlays += image('icons/obj/pipes.dmi', "comp-o4", FLY_LAYER)
+		AddOverlays(image('icons/obj/atmospherics/pipes.dmi', "comp-o4", FLY_LAYER))
 	else if(rpm>10000)
-		overlays += image('icons/obj/pipes.dmi', "comp-o3", FLY_LAYER)
+		AddOverlays(image('icons/obj/atmospherics/pipes.dmi', "comp-o3", FLY_LAYER))
 	else if(rpm>2000)
-		overlays += image('icons/obj/pipes.dmi', "comp-o2", FLY_LAYER)
+		AddOverlays(image('icons/obj/atmospherics/pipes.dmi', "comp-o2", FLY_LAYER))
 	else if(rpm>500)
-		overlays += image('icons/obj/pipes.dmi', "comp-o1", FLY_LAYER)
+		AddOverlays(image('icons/obj/atmospherics/pipes.dmi', "comp-o1", FLY_LAYER))
 	 //TODO: DEFERRED
 
 /obj/machinery/power/turbine/Initialize()
@@ -103,8 +103,7 @@
 	outturf = get_step(src, dir)
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/power/turbine/LateInitialize()
-	..()
+/obj/machinery/power/turbine/LateInitialize(mapload)
 	if(!compressor) // It should have found us and subscribed.
 		set_broken(TRUE)
 
@@ -122,7 +121,7 @@
 /obj/machinery/power/turbine/Process()
 	if(!compressor.starter)
 		return
-	overlays.Cut()
+	ClearOverlays()
 	if(MACHINE_IS_BROKEN(src))
 		return
 	lastgen = ((compressor.rpm / TURBGENQ)**TURBGENG) *TURBGENQ
@@ -140,7 +139,7 @@
 		outturf.assume_air(removed)
 
 	if(lastgen > 100)
-		overlays += image('icons/obj/pipes.dmi', "turb-o", FLY_LAYER)
+		AddOverlays(image('icons/obj/atmospherics/pipes.dmi', "turb-o", FLY_LAYER))
 
 
 	for(var/mob/M in viewers(1, src))
@@ -163,9 +162,9 @@
 
 	t += "Turbine: [round(compressor.rpm)] RPM<BR>"
 
-	t += "Starter: [ compressor.starter ? "<A href='?src=\ref[src];str=1'>Off</A> <B>On</B>" : "<B>Off</B> <A href='?src=\ref[src];str=1'>On</A>"]"
+	t += "Starter: [ compressor.starter ? "<A href='byond://?src=\ref[src];str=1'>Off</A> <B>On</B>" : "<B>Off</B> <A href='byond://?src=\ref[src];str=1'>On</A>"]"
 
-	t += "</PRE><HR><A href='?src=\ref[src];close=1'>Close</A>"
+	t += "</PRE><HR><A href='byond://?src=\ref[src];close=1'>Close</A>"
 
 	t += "</TT>"
 	show_browser(user, t, "window=turbine")
@@ -202,7 +201,7 @@
 	for(var/obj/machinery/compressor/C in SSmachines.machinery)
 		if(id_tag == C.comp_id)
 			compressor = C
-	doors = new /list()
+	doors = list()
 	for(var/obj/machinery/door/blast/P in SSmachines.machinery)
 		if(P.id_tag == id_tag)
 			doors += P
@@ -221,14 +220,14 @@
 	var/dat
 	if(src.compressor)
 		dat += {"<BR><B>Gas turbine remote control system</B><HR>
-		\nTurbine status: [ src.compressor.starter ? "<A href='?src=\ref[src];str=1'>Off</A> <B>On</B>" : "<B>Off</B> <A href='?src=\ref[src];str=1'>On</A>"]
+		\nTurbine status: [ src.compressor.starter ? "<A href='byond://?src=\ref[src];str=1'>Off</A> <B>On</B>" : "<B>Off</B> <A href='byond://?src=\ref[src];str=1'>On</A>"]
 		\n<BR>
 		\nTurbine speed: [src.compressor.rpm]rpm<BR>
 		\nPower currently being generated: [src.compressor.turbine.lastgen]W<BR>
 		\nInternal gas temperature: [src.compressor.gas_contained.temperature]K<BR>
-		\nVent doors: [ src.door_status ? "<A href='?src=\ref[src];doors=1'>Closed</A> <B>Open</B>" : "<B>Closed</B> <A href='?src=\ref[src];doors=1'>Open</A>"]
-		\n</PRE><HR><A href='?src=\ref[src];view=1'>View</A>
-		\n</PRE><HR><A href='?src=\ref[src];close=1'>Close</A>
+		\nVent doors: [ src.door_status ? "<A href='byond://?src=\ref[src];doors=1'>Closed</A> <B>Open</B>" : "<B>Closed</B> <A href='byond://?src=\ref[src];doors=1'>Open</A>"]
+		\n</PRE><HR><A href='byond://?src=\ref[src];view=1'>View</A>
+		\n</PRE><HR><A href='byond://?src=\ref[src];close=1'>Close</A>
 		\n<BR>
 		\n"}
 	else

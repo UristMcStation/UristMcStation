@@ -1,6 +1,8 @@
 /datum/sprite_accessory/marking/ipc
 	icon = 'icons/mob/human_races/species/ipc/markings.dmi'
 	species_allowed = list(SPECIES_IPC)
+	gender = NEUTER
+	do_coloration = TRUE
 
 /datum/sprite_accessory/marking/ipc/head
 	body_parts = list(BP_HEAD)

@@ -20,6 +20,8 @@
 			return access_research
 		if(NETWORK_THUNDER)
 			return 0
+		if(NETWORK_HELMETS)
+			return access_eva
 
 	return access_security // Default for all other networks
 
@@ -40,6 +42,12 @@
 	name = "Camera Monitoring program"
 	var/obj/machinery/camera/current_camera = null
 	var/current_network = null
+
+
+/datum/nano_module/camera_monitor/Destroy()
+	reset_current()
+	. = ..()
+
 
 /datum/nano_module/camera_monitor/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, state = GLOB.default_state)
 	var/list/data = host.initial_data()
@@ -102,6 +110,9 @@
 		if (!os?.get_ntnet_status() && !C.is_helmet_cam)
 			to_chat(usr, "Unable to establish a connection.")
 			return
+		if (C.inoperable(MACHINE_STAT_EMPED))
+			to_chat(usr, "Unable to establish a connection.")
+			return
 
 		switch_to_camera(usr, C)
 		return 1
@@ -143,12 +154,21 @@
 
 	current_camera = C
 	if(current_camera)
+		GLOB.destroyed_event.register(current_camera, src, PROC_REF(reset_current))
+		GLOB.moved_event.register(current_camera, src, PROC_REF(camera_moved))
 		var/mob/living/L = current_camera.loc
 		if(istype(L))
 			L.tracking_initiated()
 
+/datum/nano_module/camera_monitor/proc/camera_moved(atom/movable/moved_atom, atom/old_loc, atom/new_loc)
+	if (AreConnectedZLevels(get_z(old_loc), get_z(new_loc)))
+		return
+	reset_current()
+
 /datum/nano_module/camera_monitor/proc/reset_current()
 	if(current_camera)
+		GLOB.destroyed_event.unregister(current_camera, src, PROC_REF(reset_current))
+		GLOB.moved_event.unregister(current_camera, src, PROC_REF(camera_moved))
 		var/mob/living/L = current_camera.loc
 		if(istype(L))
 			L.tracking_cancelled()

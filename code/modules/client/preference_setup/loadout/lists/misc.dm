@@ -1,6 +1,16 @@
 /datum/gear/cane
 	display_name = "cane"
-	path = /obj/item/cane
+	path = /obj/item
+
+/datum/gear/cane/New()
+	..()
+	var/canes = list()
+	canes["cane"] = /obj/item/cane
+	canes["crutch, single"] = /obj/item/cane/crutch
+	canes["crutches, box of two"] = /obj/item/storage/box/large/crutches
+	canes["telescopic cane"] = /obj/item/cane/telescopic
+	canes["white guide cane"] = /obj/item/cane/white
+	gear_tweaks += new/datum/gear_tweak/path(canes)
 
 /datum/gear/union_card
 	display_name = "union membership"
@@ -11,6 +21,21 @@
 	if(.)
 		var/obj/item/card/union/card = .
 		card.signed_by = H.real_name
+
+/datum/gear/party_card
+	display_name = "party membership"
+	path = /obj/item/card/party
+
+/datum/gear/party_card/New()
+	..()
+	var/party_card_type = list()
+	party_card_type["Citizens for Free Enterprise & Trade"] = /obj/item/card/party/cen/fet
+	party_card_type["Progressive Alliance of Citizens"] = /obj/item/card/party/cen/pac
+	party_card_type["United Green-Left of Sol"] = /obj/item/card/party/lef/ugl
+	party_card_type["Leftists for Direct Democracy & Freedom"] = /obj/item/card/party/lef/ldd
+	party_card_type["Solarians for Freedom & Rights"] = /obj/item/card/party/rig/sfr
+	party_card_type["Order of Solarian Nations"] = /obj/item/card/party/rig/osn
+	gear_tweaks += new/datum/gear_tweak/path(party_card_type)
 
 /datum/gear/dice
 	display_name = "dice pack"
@@ -84,13 +109,17 @@
 
 /datum/gear/lunchbox/New()
 	..()
-	var/list/lunchboxes = list()
-	for(var/lunchbox_type in typesof(/obj/item/storage/lunchbox))
-		var/obj/item/storage/lunchbox/lunchbox = lunchbox_type
-		if(!initial(lunchbox.filled))
-			lunchboxes[initial(lunchbox.name)] = lunchbox_type
-	gear_tweaks += new/datum/gear_tweak/path(lunchboxes)
-	gear_tweaks += new/datum/gear_tweak/contents(lunchables_lunches(), lunchables_snacks(), lunchables_drinks())
+	var/list/types = subtypesof(/obj/item/storage/lunchbox) - list(/obj/item/storage/lunchbox/caltrops, /obj/item/storage/lunchbox/ntmisprint)
+	var/list/options = list()
+	for (var/obj/item/storage/lunchbox/lunchbox as anything in types)
+		if (!initial(lunchbox.filled))
+			options[initial(lunchbox.name)] = lunchbox
+	gear_tweaks += new/datum/gear_tweak/path(options)
+	gear_tweaks += new/datum/gear_tweak/contents(
+		lunchables_lunches(),
+		lunchables_snacks(),
+		lunchables_drinks()
+	)
 
 /datum/gear/towel
 	display_name = "towel"
@@ -109,6 +138,7 @@
 	plushes["mouse plush"] = /obj/item/toy/plushie/mouse
 	plushes["kitten plush"] = /obj/item/toy/plushie/kitten
 	plushes["lizard plush"] = /obj/item/toy/plushie/lizard
+	plushes["crow plush"] = /obj/item/toy/plushie/crow
 	plushes["spider plush"] = /obj/item/toy/plushie/spider
 	plushes["farwa plush"] = /obj/item/toy/plushie/farwa
 	plushes["golden carp plush"] = /obj/item/toy/plushie/carp_gold
@@ -168,9 +198,13 @@
 	display_name = "pipe, corn"
 	path = /obj/item/clothing/mask/smokable/pipe/cobpipe
 
+/datum/gear/matchbox
+	display_name = "matchbox"
+	path = /obj/item/storage/fancy/matches/matchbox
+
 /datum/gear/matchbook
 	display_name = "matchbook"
-	path = /obj/item/storage/box/matches
+	path = /obj/item/storage/fancy/matches/matchbook
 
 /datum/gear/lighter
 	display_name = "cheap lighter"
@@ -273,6 +307,11 @@
 	crosstype["cross, gold"] = /obj/item/material/cross/gold
 	gear_tweaks += new/datum/gear_tweak/path(crosstype)
 
+/datum/gear/allergy_pen
+	display_name = "Allergy Autoinjector"
+	path = /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/allergy
+	cost = 1
+	allowed_traits = list(/singleton/trait/malus/allergy)
 
 /datum/gear/crutch
 	display_name = "crutch"

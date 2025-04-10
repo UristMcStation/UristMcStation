@@ -61,7 +61,7 @@
 	desc = "It looks pretty sharp."
 	anchored = TRUE
 	density =  TRUE
-	icon = 'icons/obj/butchery.dmi'
+	icon = 'icons/obj/structures/butchery.dmi'
 	icon_state = "spike"
 
 	var/mob/living/occupant
@@ -133,13 +133,13 @@
 	return istype(victim) && ((victim.meat_type && victim.meat_amount) || (victim.skin_material && victim.skin_amount) || (victim.bone_material && victim.bone_amount))
 
 /obj/structure/kitchenspike/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(occupant)
 		occupant.set_dir(SOUTH)
 		var/image/I = image(null)
 		I.appearance = occupant
 		I.SetTransform(rotation = occupant.butchery_rotation)
-		overlays += I
+		AddOverlays(I)
 
 /obj/structure/kitchenspike/mob_breakout(mob/living/escapee)
 	. = ..()
@@ -195,13 +195,15 @@
 		return TRUE
 	return FALSE
 
-/obj/structure/kitchenspike/attackby(obj/item/thing, mob/user)
-	if(!thing.sharp)
-		return ..()
-	if(!occupant)
-		to_chat(user, SPAN_WARNING("There is nothing on \the [src] to butcher."))
-		return
-	if(!busy)
+
+/obj/structure/kitchenspike/use_tool(obj/item/tool, mob/user, list/click_params)
+	if (is_sharp(tool))
+		if (!occupant)
+			USE_FEEDBACK_FAILURE("\The [src] doesn't have anything to butcher.")
+			return TRUE
+		if (busy)
+			USE_FEEDBACK_FAILURE("\The [src] is currently being used by someone else.")
+			return TRUE
 		busy = TRUE
 		switch(occupant_state)
 			if(CARCASS_FRESH)
@@ -211,6 +213,10 @@
 			if(CARCASS_JOINTED)
 				do_butchery_step(user, CARCASS_EMPTY,   "butchering")
 		busy = FALSE
+		return TRUE
+
+	return ..()
+
 
 /obj/structure/kitchenspike/improvised/attackby(obj/item/W as obj, mob/user as mob)
 	if(isWrench(W))

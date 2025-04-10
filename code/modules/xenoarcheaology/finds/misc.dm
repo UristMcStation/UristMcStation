@@ -4,7 +4,7 @@
 //legacy crystal
 /obj/machinery/crystal
 	name = "Crystal"
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/crystals.dmi'
 	icon_state = "crystal"
 
 
@@ -17,7 +17,7 @@
 /obj/structure/research_crystal
 	name = "glowing crystal"
 	desc = "A spiky, glowing, crystal. Some parts of it appear to be flaking and could be cut off."
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/crystals.dmi'
 	icon_state = "crystal"
 	anchored = TRUE
 	density = TRUE

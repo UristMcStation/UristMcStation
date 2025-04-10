@@ -1,6 +1,6 @@
 /obj/item/aicard
 	name = "inteliCard"
-	icon = 'icons/obj/pda.dmi'
+	icon = 'icons/obj/tools/aicards.dmi'
 	icon_state = "aicard" // aicard-full
 	item_state = "electronic"
 	w_class = ITEM_SIZE_SMALL
@@ -70,10 +70,10 @@
 	return 1
 
 /obj/item/aicard/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(carded_ai)
 		if (!carded_ai.control_disabled)
-			overlays += image('icons/obj/pda.dmi', "aicard-on")
+			AddOverlays(image('icons/obj/tools/aicards.dmi', "aicard-on"))
 		if(carded_ai.stat)
 			icon_state = "aicard-404"
 		else
@@ -118,7 +118,7 @@
 	return 1
 
 /obj/item/aicard/proc/clear()
-	if(carded_ai && istype(carded_ai.loc, /turf))
+	if(carded_ai && isturf(carded_ai.loc))
 		carded_ai.carded = 0
 	SetName(initial(name))
 	carded_ai.calculate_power_usage()

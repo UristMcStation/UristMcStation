@@ -16,39 +16,41 @@
 #define blocked_mult(blocked) max(1 - (blocked/100), 0)
 
 /proc/mobs_in_view(range, source)
+	RETURN_TYPE(/list)
 	var/list/mobs = list()
 	for(var/atom/movable/AM in view(range, source))
 		var/M = AM.get_mob()
 		if(M)
 			mobs += M
-
 	return mobs
+
 
 /proc/random_hair_style(gender, species = SPECIES_HUMAN)
 	var/h_style = "Bald"
-
-	var/datum/species/mob_species = all_species[species]
+	var/singleton/species/mob_species = GLOB.species_by_name[species]
 	var/list/valid_hairstyles = mob_species.get_hair_styles()
 	if(length(valid_hairstyles))
 		h_style = pick(valid_hairstyles)
-
 	return h_style
+
 
 /proc/random_facial_hair_style(gender, species = SPECIES_HUMAN)
 	var/f_style = "Shaved"
-	var/datum/species/mob_species = all_species[species]
+	var/singleton/species/mob_species = GLOB.species_by_name[species]
 	var/list/valid_facialhairstyles = mob_species.get_facial_hair_styles(gender)
 	if(length(valid_facialhairstyles))
 		f_style = pick(valid_facialhairstyles)
 		return f_style
 
+
 /proc/random_name(gender, species = SPECIES_HUMAN)
-	var/datum/species/current_species = all_species[species]
+	var/singleton/species/current_species = GLOB.species_by_name[species]
 	var/singleton/cultural_info/current_culture = SSculture.get_culture(current_species.default_cultural_info[TAG_CULTURE])
 	return current_culture.get_random_name(gender)
 
-/proc/random_skin_tone(datum/species/current_species)
-	var/species_tone = current_species ? 35 - current_species.max_skin_tone() : -185
+
+/proc/random_skin_tone(singleton/species/species)
+	var/species_tone = species ? 35 - species.max_skin_tone() : -185
 	switch(pick(60;"caucasian", 15;"afroamerican", 10;"african", 10;"latino", 5;"albino"))
 		if("caucasian")		. = -10
 		if("afroamerican")	. = -115
@@ -105,6 +107,52 @@
 /proc/get_exposed_defense_zone(atom/movable/target)
 	return pick(BP_HEAD, BP_L_HAND, BP_R_HAND, BP_L_FOOT, BP_R_FOOT, BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_CHEST, BP_GROIN)
 
+/proc/do_mob(mob/user , mob/target, time = 30, target_zone = 0, uninterruptible = FALSE, progress = TRUE, ignore_movement = FALSE, incapacitation_affected = TRUE)
+	if(!user || !target)
+		return 0
+	var/user_loc = user.loc
+	var/target_loc = target.loc
+
+	var/holding = user.get_active_hand()
+	var/datum/progressbar/private/progbar
+	if (progress)
+		progbar = new(user, time, target)
+
+	var/endtime = world.time+time
+	var/starttime = world.time
+	. = TRUE
+	while (world.time < endtime)
+		stoplag(1)
+		if (progress)
+			progbar.update(world.time - starttime)
+		if(!user || !target)
+			. = FALSE
+			break
+		if(uninterruptible)
+			continue
+
+		if(!user || (user.incapacitated() && incapacitation_affected))
+			. = FALSE
+			break
+
+		if(user.loc != user_loc && !ignore_movement)
+			. = FALSE
+			break
+
+		if(target.loc != target_loc && !ignore_movement)
+			. = FALSE
+			break
+
+		if(user.get_active_hand() != holding)
+			. = FALSE
+			break
+
+		if(target_zone && user.zone_sel.selecting != target_zone)
+			. = FALSE
+			break
+
+	if (progbar)
+		qdel(progbar)
 
 /// Integer. Unique sequential ID from the `do_after` proc used to validate `DO_USER_UNIQUE_ACT` flag checks.
 /mob/var/do_unique_user_handle = 0
@@ -155,9 +203,16 @@
 
 	var/datum/progressbar/bar
 	if (do_flags & DO_SHOW_PROGRESS)
+		// Autoset over-user if not in an otherwise visible location
+		// For public progress: This is if it's not on a turf.
+		// For private progress: This is if it's not on a turf or directly in the user's visible inventory HUD.
 		if (do_flags & DO_PUBLIC_PROGRESS)
+			if (!HAS_FLAGS(do_flags, DO_BAR_OVER_USER) && (!target || !isturf(target.loc)))
+				SET_FLAGS(do_flags, DO_BAR_OVER_USER)
 			bar = new /datum/progressbar/public(user, delay, target, !!(do_flags & DO_BAR_OVER_USER))
 		else
+			if (!HAS_FLAGS(do_flags, DO_BAR_OVER_USER) && (!target || (!isturf(target.loc) && target.loc != user)))
+				SET_FLAGS(do_flags, DO_BAR_OVER_USER)
 			bar = new /datum/progressbar/private(user, delay, target, !!(do_flags & DO_BAR_OVER_USER))
 
 	var/start_time = world.time
@@ -229,6 +284,7 @@
 		target.do_unique_target_user = null
 
 /proc/able_mobs_in_oview(origin)
+	RETURN_TYPE(/list)
 	var/list/mobs = list()
 	for(var/mob/living/M in oview(origin)) // Only living mobs are considered able.
 		if(!M.is_physically_disabled())
@@ -273,6 +329,7 @@
 
 //Find a dead mob with a brain and client.
 /proc/find_dead_player(find_key, include_observers = 0)
+	RETURN_TYPE(/mob)
 	if(isnull(find_key))
 		return
 

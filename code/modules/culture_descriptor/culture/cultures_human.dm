@@ -58,7 +58,7 @@
 	name = CULTURE_HUMAN_VENUSIAN
 	description = "You are from one of the many zones of Venus. Floating high above the ground of the planet on massive platforms, you are one of the many who live on one of the most decadent locations in the \
 	SCG. As a Venusian, you know luxury, wealth and entertainment. Primarily a tourist destination, many of the permanent residents work in the tourism industry and are notably middle-income. \
-	Those above are exceptionally wealthy, being hotel, casino, resort owners, politicians, bankers or rich retirees."
+	Those above are exceptionally wealthy: being hotel, casino, resort owners, politicians, bankers or rich retirees."
 	economic_power = 1.4
 
 /singleton/cultural_info/culture/human/venusian_surfacer
@@ -79,12 +79,14 @@
 	economic_power = 1
 
 
-/singleton/cultural_info/culture/human/plutonian
-	name = CULTURE_HUMAN_PLUTO
-	description = "You are from Pluto, one of many denizens of this cruel and unforgiving world. For centuries Pluto has been in a slow state of decay and decline, resulting in \
-	much of the planet's infrastructure being unstable or outright falling apart. This, coupled with rampant corruption and the large influence of criminal organisations across much of \
-	the planet has led to the people of Pluto having something of a seedy reputation, its citizens being viewed with disrepute. The people themselves, however, are usually \
-	just happy to get off the rock and to healthier locales. Unfortunately, despite the efforts of the wider SCG, many Plutonians tend to maintain criminal ties, even offworld."
+/singleton/cultural_info/culture/human/kuiper_insider
+	name = CULTURE_HUMAN_KUIPERI
+	description = "You are from one of many habitations of the Kuiper belt. The eventual economic and social decay of Pluto, and its surroundings, has resulted in much of the zone's infrastructure \
+	being unstable or outright falling apart. Coupled with rampant corruption and the growing mold of organised (and unorganised) crime across much of the region has left the people of the \
+	Kuiper belt with something of a seedy reputation, with citizens often being viewed with disrepute. The people themselves, too, may not be unanimous at all times with a core community centered around \
+	the descendents of the original colonists. While having a stronger foothold due to their lengthy ties to the SEZ's society and economy, they are often less diverse than the 'Outsiders'. \
+	More often than not being able to trace their lineage directly back to Earth. This can often cause caustic, dissonant ideals, as compared to the rest of their Solar comrades. \
+	While some may monotonously belong to the zone's stagnant class, other 'Insiders' may have roots to corporate backgrounds, owing to the initial colonisation and exploitation of Kuiper."
 	economic_power = 0.8
 	secondary_langs = list (LANGUAGE_GALCOM,
 		LANGUAGE_HUMAN_CHINESE,
@@ -97,6 +99,23 @@
 		LANGUAGE_SIGN,
 		LANGUAGE_SOL_COMMON)
 
+/singleton/cultural_info/culture/human/kuiper_outsider
+	name = CULTURE_HUMAN_KUIPERO
+	description = "You are from one of the many habitations of the Kuiper belt. While you were not a part of the initial collapse of the Zone, the effects of it are still felt all the same. \
+	The stagnancy and neglect of the Zone has brought with it many opportunities for cheaper housing, and has made for an excellent haven for refugees looking for work. \
+	Outsiders tend to be a more diverse demographic as compared to the Insiders, with many of them being descendents of employees on long-term tenures, or of families looking for cheap residence. \
+	Most Outsiders tend to have a similar outlook of their home as that of the Insiders - with the Expeditionary Corps and Fleet being lucrative and comparitively easy ways to source a life outside the Kuiper belt."
+	economic_power = 0.7
+	secondary_langs = list (LANGUAGE_HUMAN_EURO,
+		LANGUAGE_HUMAN_CHINESE,
+		LANGUAGE_HUMAN_ARABIC,
+		LANGUAGE_HUMAN_INDIAN,
+		LANGUAGE_HUMAN_IBERIAN,
+		LANGUAGE_HUMAN_RUSSIAN,
+		LANGUAGE_SPACER,
+		LANGUAGE_GUTTER,
+		LANGUAGE_SIGN)
+
 /singleton/cultural_info/culture/human/earthling
 	name = CULTURE_HUMAN_EARTH
 	description = "You are from Earth, home of humanity. Earth culture is much as it has been for centuries, with the old nation states, while no longer politically important, still \
@@ -106,46 +125,206 @@
 	a content folk who see themselves as close to nature and keepers of the heritage of humanity."
 	economic_power = 1.1
 
-/singleton/cultural_info/culture/human/ceti
-	name = CULTURE_HUMAN_CETI
-	description = "You are from Ceti Epsilon, the technical hub of the SCG. As a Cetite you are no stranger to the cutting edge of technology present in Sol space. \
-	Putting education and the latest tech at the forefront of their priorities the people of Ceti are some of the brightest or tech savvy around. \
-	This has afforded those from the system or planet a reputation as being a cut above the rest in technical matters, with those who attended the Ceti Institute of Technology \
-	being considered some of the best qualified technical specialists in humanity. Recently there has been a rising transhumanist element in Ceti society resulting in a large \
-	cybernetics culture; it is not uncommon to see many Cetites sporting some chrome."
+/singleton/cultural_info/culture/human/ceti_north
+	name = CULTURE_HUMAN_CETIN
+	description = "You are from the northern pole of Ceti Epsilon. Likely living in one of the claustrophobic concrete jungles like the city of Icon, \
+	Solar citizens hailing from the North generally enjoy higher opportunities for better jobs, and lead a more comfortable lifestyle \
+	compared to those from the Interstates and South. \
+	Icon is also the technological capital of Ceti Epsilon, with education and the latest tech easily available to Northern Cetites."
+	economic_power = 1.3
+
+/singleton/cultural_info/culture/human/ceti_south
+	name = CULTURE_HUMAN_CETIS
+	description = "You are from the southern pole of Ceti Epsilon. Likely living in one of the smog-ridden cities like the region's capital, Scadde, or in one of the outer townships. \
+	Solar citizens hailing from the South live a less comfortable and connected lifestyle compared to those from the North, but still have plenty of opportunities to make something of their lives. \
+	Scadde is a hub for specialised and unspecialised blue collar labour, and the site for the Tau Ceti system's Hephaestus Industries headquarters."
+	economic_power = 1.2
+
+/singleton/cultural_info/culture/human/ceti_interstate
+	name = CULTURE_HUMAN_CETII
+	description = "The stretch between the north and south poles of Ceti Epsilon is collectively referred to as the Ceti Interstate Municipal Region. Those living across this sweltering desert usually do so out of necessity rather than choice. \
+	The majority of industry in the region is made up of mining operations, hydroponic farms, and independent businesses \
+	between the two poles. \
+	The region is sparsely populated both by hopeful entrepreneurs and those who benefit from the lack of coverage by settlement police authorities or planetary defense forces."
+	economic_power = 1.0
+
+/singleton/cultural_info/culture/human/foster
+	name = CULTURE_HUMAN_FOSTER
+	description = "Foster's World was once considered too cold and desolate for habitation, but decades of inhabitance by the Fostermen has turned it into a productive and popular destination. \
+	Fostermen are traditionally noted for their resourcefulness and motivation, as well as a preference for being in colder environments. \
+	Snow is second nature to people from Foster's World, and they've made a name for themselves exploring and fishing its thermal oceans. "
 	economic_power = 1.1
 
-/singleton/cultural_info/culture/human/spacer_core
+/singleton/cultural_info/culture/human/tadmor
+	name = CULTURE_HUMAN_TADMOR
+	description = "Tadmor is one of the SCG's more successful colonial projects, and its culture is rich and dignified as a result. \
+	Mostly living in the fissures of the desert world, Tadmorians are most famous for their cultural Pacifism, with their aversion to participation in \
+	the Gaia Conflict being seen by all residents as either a proud moment or a stain in the planets rich, Mars-rooted history. "
+	economic_power = 1.2
+
+/singleton/cultural_info/culture/human/iolaus
+	name = CULTURE_HUMAN_IOLAUS
+	description = "An old colonial project of the Terran Commonwealth that survived a period of forced isolation, Iolaus has declared itself the capital of the fledgeling and jingoistic Frontier Alliance. \
+	Many Iolan refugees are now trapped outside the Copernican Blockade, but whether they are loyal or treasonous all Iolans share a long history of self reliance, \
+	a strong sense of personal work ethic, and the cultural notion that individuals are cogs in a machine that serves a greater and protective purpose. "
+	economic_power = 0.7
+
+/singleton/cultural_info/culture/human/brahe
+	name = CULTURE_HUMAN_BRAHE
+	description = "Hailing from the ocean world of Brahe, Brahite culture is one of corporate dominance and academic prowess. Valuing research and education as well as  \
+	an exploratory spirit, Brahites find themselves cut off from their homeworld by the Copernican Blockade, and their relationship to the fledgeling Frontier Alliance  \
+	is equal parts strained and symbiotic."
+	economic_power = 1.0
+
+/singleton/cultural_info/culture/human/eos
+	name = CULTURE_HUMAN_EOS
+	description = "The largest population center in the Helios system, Eosic people have had their culture dominated by the history of the Gaia Conflict for the last   \
+	several decades. The destruction of the Helios Gateway is a well ingrained cultural memory, and as such many Eosics are raised with a strong sense of nationalism and an  \
+	intimate connection with the Sol Defense Forces."
+	economic_power = 0.8
+
+/singleton/cultural_info/culture/human/pirx_high
+	name = CULTURE_HUMAN_PIRXL
+	description = "The owning classes of the Yuodu City Administrative District are often called 'the Lords of Pirx' due to their domination of the cities property, government, utilities \
+	and institutions. Disconnect from the Solar Core and years of unchallenged ownership has led them to become largely conservative and reactionary, with emphasis placed on \
+	traditional ways of life and family legacy."
+	economic_power = 1.1
+
+/singleton/cultural_info/culture/human/pirx_bug
+	name = CULTURE_HUMAN_PIRXB
+	description = "The Bugeaters, named for the prevalence of insect protien within the Yuodu City Administrative District, make up the majority of the population of Pirx Prime. \
+	Renting and working the real estate within the tented canyon, they are known for speaking in a slurred, exotic dialect that makes them incredibly distinct. Their domestic diets and \
+	fashion make them recognizable as outsiders to the majority of Solar citizens."
+	economic_power = 0.8
+
+/singleton/cultural_info/culture/human/pirx_frontier
+	name = CULTURE_HUMAN_PIRXF
+	description = "The Pirx Frontier Coalition is often considered the last frontier of Sol space. Known for a rugged sense of adventure and a connection to nature, the people who inhabit \
+	the uncharted jungles of Pirx Prime are often considered backwater in terms of technology, education, and customs. Their existence is shaped by the warm air of the Basking Tree rainforest that \
+	dominates the green planet, and the myriad of exotic life found in its freshwater system."
+	economic_power = 0.7
+
+/singleton/cultural_info/culture/human/theia
+	name = CULTURE_HUMAN_THEIA
+	description = "Theia is an inhabited system on the borders of the Sol Central Government known primarily for being the headquarters of the Third Fleet. \
+	Located strategically at the gateway closest to several key frontier systems, Theia became known early on as a strategic chokepoint worth defending. \
+	Today, military and civilian personnel alike call the Theia system home and work tirelessly to maintain it as the Fortress of Sol. "
+	economic_power = 1.1
+
+/singleton/cultural_info/culture/human/offworld
+	name = CULTURE_HUMAN_OFFWORLD
+	description =  "You are from one of many far flung and outlying settlements that aren't notable enough to be on standard Solar maps. Raised out of touch and out of connection with the galaxy at large, \
+	those who live so far from anything only look to their close family and friends rather than any larger group. Whether it's a fueling station, an agriculutral dome, or a planet that is far removed from \
+	the luxuries of the gateway network, such people are raised in small, confined environments with few others, and tend to be most familiar with older, reliable but outdated \
+	technology. An independent sort, Offworlders are more likely to be isolationist and self-driven."
+	economic_power = 0.9
+	language = LANGUAGE_SPACER
+
+// NON SCG BELOW
+
+/singleton/cultural_info/culture/human/magnitka
+	name = CULTURE_HUMAN_MAGNITKA
+	description = "Magnitka often gives birth to rough-hewn, sturdy citizens with its austere political and environmental climate, and many are often well-sought for the \
+	independent (and government) economic and production sectors of the two larger human nations. While it is difficult to acquire residency for a Magnitkan in Solar space due to the hazy political environment, \
+	those who have been a part of the volunteer military force have no chance at all. Employees with Magnitkan blood may belong to the planet's Spacer culture, often at the lower rung of the social ladder - or the more \
+	well connected, upper rung, with outsourcing and in-house job opportunities varying in quality and quantity for both."
+	economic_power = 0.8
+
+/singleton/cultural_info/culture/human/spacer
 	name = CULTURE_HUMAN_SPACER
-	description = "You are from the void between worlds, though close to home. You are from one of the myriad space stations, orbital platforms, long haul freighters, \
-	gateway installations or other facilities that occupy the vastness of space. Spacers near the core worlds are accustomed to life in the fast lane, constantly moving between \
-	places, meeting a myriad of people and experiencing many of the cultures and worlds close to humanity's home. As such, Spacers of the core systems tend to be busy, sociable and \
+	description = "Across all political lines in human space, there are people who are born and raised in the void between worlds. You are from one of the myriad space stations, orbital platforms, long haul freighters, \
+	gateway installations or other facilities that occupy the vastness of space. Spacers are accustomed to life in the fast lane, constantly moving between \
+	places, meeting a myriad of people and experiencing many of the cultures and worlds humanity calls home. As such, Spacers tend to be busy, sociable and \
 	mobile, rarely satisfied with settled life. They almost universally know how to live and work in the void and take to such jobs more readily than their planet-bound counterparts."
 	economic_power = 1
 	language = LANGUAGE_SPACER
 
-/singleton/cultural_info/culture/human/spacer_frontier
-	name = CULTURE_HUMAN_SPAFRO
-	description =  "You are from the void between worlds, though you are in the distant, vast frontier of SCG space and beyond. Out here things like national identity and culture mean less; \
-	those who live so far from anything only look to their close family and friends rather than any larger group. Raised on one of the long haul freighters that move between frontier worlds delivering \
-	vital goods, a lonely outpost on the edge of a dreary backwater, such people are raised in small, confined environments with few others, and tend to be most familiar with older, reliable but outdated \
-	technology. An independent sort, people on the frontier are more likely to be isolationist and self-driven."
-	economic_power = 0.9
-	language = LANGUAGE_SPACER
-
-/singleton/cultural_info/culture/human/confederate
-	name = CULTURE_HUMAN_CONFED
-	description = "You are from Terra (not Earth), in the Gilgamesh system. The capital world of the Gilgamesh Colonial Confederation, your people embody what it means to be a part of the GCC. \
-	Unfortunately, the years since the war have not been easy on Terra and the long period of economic recovery has not made life easy. The people of Terra are typically employed \
-	in the military, industrial, government or service sectors, with an emphasis being placed on military service. Terrans today are generally poor, bitter and a somewhat broken people angry and \
-	resentful about their loss in the Gaia Conflict. An upbringing on Terra emphasises an odd mix of service to the state, liberalism and militarism."
+/singleton/cultural_info/culture/human/confederate_terra
+	name = CULTURE_HUMAN_CONFED_TERRA
+	description = "You are from the core of the Gilgamesh Colonial Confederation. Being from the Confederation's capital, your people embody what it means to be a part of the GCC. \
+	Unfortunately, the years since the war have not been easy on Terra, and the long period of economic recovery has not made life easy. The people of Terra are typically employed \
+	in the military, industrial, government or service sectors, with an emphasis being placed on mandatory military service. Terrans today are generally poor, bitter and a somewhat broken people angry and \
+	resentful about their loss in the Gaia Conflict. An upbringing from Terra emphasises an odd mix of service to the state, liberalism and militarism."
 	language = LANGUAGE_HUMAN_RUSSIAN
-	economic_power = 0.9
+	economic_power = 1.1
+
+/singleton/cultural_info/culture/human/confederate_zemlya
+	name = CULTURE_HUMAN_CONFED_ZEMLYA
+	description = "You are from the core of the Gilgamesh Colonial Confederation. Being from Gilgamesh's Industrial Capital, your people embody what it means to be a part of the working class GCC. \
+	Unfortunately, the years since the war have not been easy on Zemlya and the long period of economic recovery has not made life easy. The people of Zemlya are typically employed \
+	in the vast industrial sector. Less patriotic then those from Terra itself, Zemlyans are still an extremely proud people who have pride in their industrial and working class origins."
+	language = LANGUAGE_HUMAN_RUSSIAN
+	economic_power = 1.0
+
+/singleton/cultural_info/culture/human/confederate_sestris
+	name = CULTURE_HUMAN_CONFED_SESTRIS
+	description = " You are from the Union of Sestris and Bratis - second only to Gilgamesh in terms of political and economic power within the GCC, \
+	citizens of Sestris enjoy a generally high standard of living and many can be found within the ranks of the ICCG Defense Forces. Those from Amelie, \
+	within Sestris itself are immensely proud of their Franco heratige, with many holding on to some of their cultural roots. "
+	language = LANGUAGE_HUMAN_RUSSIAN
+	economic_power = 1.3
+
+/singleton/cultural_info/culture/human/confederate_putkari
+	name = CULTURE_HUMAN_CONFED_PUTKARI
+	description = "You are from Putkari in the Baroda system. Settled in the wake of the Terran Commonwealth's exploration Boom, Putkari was abandoned by \
+	the SCG following its founding and left to die. Embracing the newly founded GCC, Putkari has been a loyal and devoted member of the Confederation \
+	ever since. Extremely hostile to the SCG ever since its abandonment, Putkarians are some of the most vocal within the Confederation in terms of \
+	resentment of the loss in the Gaia Conflict, many beat the war drums and fan the fires of jingoism in hopes of one day enacting a form of vengance. "
+	language = LANGUAGE_HUMAN_INDIAN
+	economic_power = 0.7
+
+/singleton/cultural_info/culture/human/confederate_altair
+	name = CULTURE_HUMAN_CONFED_ALTAIR
+	description = "You are from Altair. Once a free economic zone, the breaking of the moon of Qabil brought sweeping and more authoritarian change to Altair. \
+	One of the more materially wealthy members of the Confederation outside of the Founders, Altarians are not overly interested in the Confederation as a whole, \
+	with most choosing to be public workers such as paramedics or infastructure maintainers for the duration of their mandatory state service."
+	language = LANGUAGE_HUMAN_ARABIC
+	economic_power = 1.0
+
+/singleton/cultural_info/culture/human/confederate_penglai
+	name = CULTURE_HUMAN_CONFED_PENGLAI
+	description = "You are from Penglai, a traditionalist world within the Gilgamesh Colonial Confederation. A small world with a marginal atmosphere  \
+	breathable by its inhabitants, its main economic contribution to the confederation is in its abundant rare earth element deposits. Another \
+	colony that was in need of support following the founding of the SCG, Pengali is a content member of the Confederation while keeping their own traditions alive. "
+	language = LANGUAGE_HUMAN_CHINESE
+	economic_power = 0.8
+
+/singleton/cultural_info/culture/human/confederate_providence
+	name = CULTURE_HUMAN_CONFED_PROVIDENCE
+	description = "You are from Providence, settled originally by private ventures. Providence's planet of Atlanticus developed a booming space station industry, \
+	resulting in the construction of three mega-space-complexes within the system. Bolstered by a flood of working class immigrants and research funding following \
+	their entry to the Confederation, those from Providence are typically quite pleased with their position within the Confederation, though many still choose to \
+	emigrate elsewhere in hopes of finding work outside of the industrial or scientific sectors. "
+	language = LANGUAGE_HUMAN_RUSSIAN
+	economic_power = 1.0
+
+/singleton/cultural_info/culture/human/confederate_valy
+	name = CULTURE_HUMAN_CONFED_VALY
+	description = "You are from Valy, the 'black sheep' of the Confederation. Brought into the Confederation when Valy's civil war was ended by the GCN's intervention \
+	Valy has possessed a resistance to the Confederation ever since. The emergence of the Frontier Alliance has emboldened these resistance actions, with \
+	public desires to join the Alliance only being held back by the Confederation's continued presence. Those from Valy are typically quite bitter about their present \
+	situation, with many who choose to emigrate continuing to support efforts to bring about the Alliance's agenda in 'freeing Valy from its shackles'. "
+	language = LANGUAGE_HUMAN_RUSSIAN
+	economic_power = 0.6
+
+/singleton/cultural_info/culture/human/confederate_colony
+	name = CULTURE_HUMAN_CONFEDO
+	description = "You are from the outskirts of the Gilgamesh Colonial Confederation. Confederates have a mixed view of their nation state, raging from strong nationalism to resentment for the state, but \
+	they all have the legacy of resource extraction and mandatory conscription in common. Being from a nation of conscripts means that Confederates are often resourceful and experienced, \
+	having grown to cope with the horrors of dysfunctional economics and mandatory military service. Confederates today are generally poor, bitter and somewhat broken people, angry and \
+	resentful about their loss in the Gaia Conflict. Colonial Confederation education emphasizes service to the state, liberalism and militarism."
+	language = LANGUAGE_HUMAN_RUSSIAN
+	economic_power = 0.7
 
 /singleton/cultural_info/culture/human/gaia
 	name = CULTURE_HUMAN_GAIAN
-	description = "Gaia is the sole planet in the Galilei system, serving as the DMZ between the Sol Central Government and the Independent Colonial Confederation of Gilgamesh. It is an agricultural world, though various conflicts across the planet's surface have left it scarred. The planet is divided into Sol-Controlled Gaian Administrative Area and Independent-Guided Protectorate of Gaia, with the International City of New Venice remaining a neutral zone inside the DMZ that circles the planet's equator. The planet's population remain divided even more then 10 years after the Gaia Conflict. While Gaia is divided, the current Mayor of New Venice serves as a vital mediator between the galactic superpowers. The Gaian People are tired of war, and long to see their families once again; They suffered hard twenty years prior, and will not let themselves suffer again."
-	economic_power = 0.9
+	description = "Gaia is the sole planet in the Galilei system, serving as the DMZ between the Sol Central Government and the Independent Colonial Confederation of Gilgamesh. \
+	It is an agricultural world, though various conflicts across the planet's surface have left it scarred. The planet is divided into Sol-Controlled Gaian Administrative Area \
+	and Independent-Guided Protectorate of Gaia, with the International City of New Venice remaining a neutral zone inside the DMZ that circles the planet's equator. \
+	The planet's population remain divided even more then 10 years after the Gaia Conflict. While Gaia is divided, the current Mayor of New Venice serves as a vital mediator \
+	between the galactic superpowers. The Gaian People are tired of war, and long to see their families once again; They suffered hard twenty years prior, and will not let themselves suffer again."
+	language = LANGUAGE_HUMAN_IBERIAN
+	economic_power = 1.0
 
 /singleton/cultural_info/culture/human/other
 	name = CULTURE_HUMAN_OTHER

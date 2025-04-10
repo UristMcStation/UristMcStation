@@ -10,11 +10,11 @@ on:
   workflow_dispatch: # allows this workflow to be manually triggered
 
 env:
-  SPACEMAN_DMM_VERSION: suite-1.7.2
+  SPACEMAN_DMM_VERSION: suite-1.9
 
 jobs:
   PreFlight:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
@@ -28,7 +28,7 @@ jobs:
   generate_documentation:
     permissions:
       contents: write # required to push the doc commit
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: PreFlight
     if: |
       (needs.PreFlight.outputs.dm == 'true') &&
@@ -54,5 +54,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
           folder: dmdoc
-          target-folder: docs/dmdoc
+          target-folder: docs
           clean: true

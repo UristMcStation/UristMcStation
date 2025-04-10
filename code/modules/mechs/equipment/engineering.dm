@@ -55,10 +55,10 @@
 		else
 			current_mode = !current_mode
 			to_chat(user, SPAN_NOTICE("You set the shields to [current_mode ? "bubble" : "barrier"] mode."))
-	else
-		..()
+		return TRUE
+	return ..()
 
-/obj/effect/mech_shield
+/obj/mech_shield
 	name = "energy shield"
 	desc = "A thin energy shield. It doesn't look like it could much."
 	icon = 'icons/obj/machines/shielding.dmi'
@@ -71,12 +71,12 @@
 	var/obj/item/mech_equipment/atmos_shields/shields
 	color = COLOR_SABER_BLUE
 
-/obj/effect/mech_shield/Initialize()
+/obj/mech_shield/Initialize()
 	. = ..()
-	set_light(0.8, 0.1, 1, 2, COLOR_SABER_BLUE)
+	set_light(1, 0.8, COLOR_SABER_BLUE)
 	update_nearby_tiles(need_rebuild=1)
 
-/obj/effect/mech_shield/Destroy()
+/obj/mech_shield/Destroy()
 	if(shields)
 		if(length(shields.segments))
 			shields.segments -= src
@@ -131,33 +131,32 @@
 
 		segments = list()
 		for(var/turf/T in turfs)
-			var/obj/effect/mech_shield/MS = new(T)
+			var/obj/mech_shield/MS = new(T)
 			if(istype(MS))
 				MS.shields = src
 				segments += MS
-				GLOB.moved_event.register(MS, src, .proc/on_moved)
+				GLOB.moved_event.register(MS, src, PROC_REF(on_moved))
 
 		passive_power_use = 0.8 KILOWATTS * length(segments)
 
 		update_icon()
 		owner.update_icon()
-		GLOB.moved_event.register(owner, src, .proc/on_moved)
-		GLOB.dir_set_event.register(owner, src, .proc/on_turned)
+		GLOB.moved_event.register(owner, src, PROC_REF(on_moved))
+		GLOB.dir_set_event.register(owner, src, PROC_REF(on_turned))
 
 /obj/item/mech_equipment/atmos_shields/on_update_icon()
-	. = ..()
 	icon_state = "mech_atmoshield[active ? "_on" : "_off"]"
 
 /obj/item/mech_equipment/atmos_shields/deactivate()
-	for(var/obj/effect/mech_shield/MS in segments)
+	for(var/obj/mech_shield/MS in segments)
 		if(istype(MS))
-			GLOB.moved_event.unregister(MS, src, .proc/on_moved)
+			GLOB.moved_event.unregister(MS, src, PROC_REF(on_moved))
 	if(length(segments))
 		owner.visible_message(SPAN_WARNING("The energy shields in front of \the [owner] disappear!"))
 	QDEL_NULL_LIST(segments)
 	passive_power_use = 0
-	GLOB.moved_event.unregister(owner, src, .proc/on_moved)
-	GLOB.dir_set_event.unregister(owner, src, .proc/on_turned)
+	GLOB.moved_event.unregister(owner, src, PROC_REF(on_moved))
+	GLOB.dir_set_event.unregister(owner, src, PROC_REF(on_turned))
 	. = ..()
 	update_icon()
 	owner.update_icon()

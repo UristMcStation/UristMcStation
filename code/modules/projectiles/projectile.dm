@@ -45,7 +45,8 @@
 	var/projectile_type = /obj/item/projectile
 	var/penetrating = 0 //If greater than zero, the projectile will pass through dense objects as specified by on_penetrate()
 	var/life_span = 50 //This will de-increment every process(). When 0, it will delete the projectile.
-		//Effects
+
+	//Effects
 	var/stun = 0
 	var/weaken = 0
 	var/paralyze = 0
@@ -55,10 +56,11 @@
 	var/drowsy = 0
 	var/agony = 0
 	var/embed = FALSE // whether or not the projectile can embed itself in the mob
-	var/penetration_modifier = 0.2 //How much internal damage this projectile can deal, as a multiplier.
+	var/penetration_modifier = 0.2 //How likely this projectile is to embed or rupture artery
+	var/space_knockback = 0	//whether or not it will knock things back in space
 
 	var/hitscan = FALSE		// whether the projectile should be hitscan
-	var/step_delay = 1	// the delay between iterations if not a hitscan projectile
+	var/step_delay = 0.65	// the delay between iterations if not a hitscan projectile
 
 	// effect types to be used
 	var/muzzle_type
@@ -97,7 +99,7 @@
 	var/mob/living/L = target
 
 	L.apply_effects(0, weaken, paralyze, stutter, eyeblur, drowsy, 0, blocked)
-	L.stun_effect_act(stun, agony, def_zone, src)
+	L.stun_effect_act(stun, (agony - blocked), def_zone, src)
 	//radiation protection is handled separately from other armour types.
 	L.apply_damage(irradiate, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
@@ -110,6 +112,17 @@
 		var/turf/T = get_turf(A)
 		if(T)
 			T.hotspot_expose(700, 5)
+
+	if(space_knockback && ismovable(A))
+		var/atom/movable/AM = A
+		if(!AM.anchored && !AM.has_gravity())
+			if(ismob(AM))
+				var/mob/M = AM
+				if(M.check_space_footing())
+					return
+			var/old_dir = AM.dir
+			step(AM,get_dir(firer,AM))
+			AM.set_dir(old_dir)
 
 //Checks if the projectile is eligible for embedding. Not that it necessarily will.
 /obj/item/projectile/can_embed()
@@ -154,13 +167,14 @@
 	if(targloc == curloc) //Shooting something in the same turf
 		target.bullet_act(src, target_zone)
 		on_impact(target)
+		QDEL_NULL_LIST(segments)
 		qdel(src)
 		return 0
 
 	original = target
 	def_zone = target_zone
 
-	addtimer(new Callback(src, .proc/finalize_launch, curloc, targloc, x_offset, y_offset, angle_offset),0)
+	addtimer(new Callback(src, PROC_REF(finalize_launch), curloc, targloc, x_offset, y_offset, angle_offset),0)
 	return 0
 
 /obj/item/projectile/proc/launch_from_mob(atom/target, mob/user, target_zone, x_offset = 0, y_offset = 0, angle_offset = 0)
@@ -254,7 +268,7 @@
 
 	//admin logs
 	if(!no_attack_log)
-		if(istype(firer, /mob))
+		if(ismob(firer))
 
 			var/attacker_message = "shot with \a [src.type]"
 			var/victim_message = "shot with \a [src.type]"
@@ -270,66 +284,51 @@
 
 	return 1
 
-/obj/item/projectile/Bump(atom/A as mob|obj|turf|area, forced=0)
-	if(A == src)
-		return 0 //no
 
-	if(A == firer)
-		forceMove(A.loc)
-		return 0 //cannot shoot yourself
-
-	if((bumped && !forced) || (A in permutated))
-		return 0
-
-	var/passthrough = 0 //if the projectile should continue flying
-	var/distance = get_dist(starting,loc)
-
-	bumped = 1
-	if(ismob(A))
-		var/mob/M = A
-		if(istype(A, /mob/living))
-			//if they have a neck grab on someone, that person gets hit instead
-			var/obj/item/grab/G = locate() in M
-			if(G && G.shield_assailant())
-				G.affecting.visible_message(SPAN_DANGER("\The [M] uses \the [G.affecting] as a shield!"))
-				if(Bump(G.affecting, forced=1))
-					return //If Bump() returns 0 (keep going) then we continue on to attack M.
-
-			passthrough = !attack_mob(M, distance)
-		else
-			passthrough = 1 //so ghosts don't stop bullets
+/obj/item/projectile/Bump(atom/atom, called)
+	if (atom == src)
+		return FALSE
+	if (atom == firer)
+		forceMove(atom.loc)
+		return FALSE
+	if (bumped && !called || (atom in permutated))
+		return FALSE
+	bumped = TRUE
+	var/passthrough
+	var/distance = get_dist(starting, loc)
+	if (ismob(atom))
+		passthrough = TRUE
+		if (istype(atom, /mob/living))
+			var/obj/item/grab/grab = locate() in atom
+			var/dirs = GLOB.reverse_dir[atom.dir & 0xF]
+			dirs = list(dirs, GLOB.cw_dir_8[dirs], GLOB.ccw_dir_8[dirs])
+			if (grab?.shield_assailant() && (dir in dirs))
+				grab.affecting.visible_message(SPAN_DANGER("\The [atom] uses \the [grab.affecting] as a shield!"))
+				if (Bump(grab.affecting, TRUE))
+					return
+			passthrough = !attack_mob(atom, distance)
 	else
-		passthrough = (A.bullet_act(src, def_zone) == PROJECTILE_CONTINUE) //backwards compatibility
-		if(isturf(A))
-			for(var/obj/O in A)
-				O.bullet_act(src)
-			for(var/mob/living/M in A)
-				attack_mob(M, distance)
-
-	//penetrating projectiles can pass through things that otherwise would not let them
-	if(!passthrough && penetrating > 0)
-		if(check_penetrate(A))
-			passthrough = 1
-		penetrating--
-
-	//the bullet passes through a dense object!
-	if(passthrough)
-		//move ourselves onto A so we can continue on our way.
-		var/turf/T = get_turf(A)
-		if(T)
-			forceMove(T)
-		permutated.Add(A)
-		bumped = 0 //reset bumped variable!
-		return 0
-
-	//stop flying
-	on_impact(A)
-
-	set_density(0)
-	set_invisibility(101)
-
+		passthrough = atom.bullet_act(src, def_zone) == PROJECTILE_CONTINUE
+		if (isturf(atom))
+			for (var/obj/obj in atom)
+				obj.bullet_act(src)
+			for (var/mob/living/mob in atom)
+				attack_mob(mob, distance)
+	if (!passthrough && penetrating > 3)
+		if (check_penetrate(atom))
+			passthrough = TRUE
+		--penetrating
+	if (passthrough && isturf(atom))
+		forceMove(atom)
+		permutated += atom
+		bumped = FALSE
+		return FALSE
+	on_impact(atom)
+	set_density(FALSE)
+	set_invisibility(INVISIBILITY_ABSTRACT)
 	qdel(src)
-	return 1
+	return TRUE
+
 
 /obj/item/projectile/ex_act()
 	return //explosions probably shouldn't delete projectiles
@@ -368,7 +367,7 @@
 		if(!bumped && !isturf(original))
 			if(loc == get_turf(original))
 				if(!(original in permutated))
-					if(Bump(original))
+					if(Bump(original, TRUE))
 						return
 
 		if(first_step)
@@ -409,7 +408,7 @@
 		return
 
 	if(ispath(muzzle_type))
-		var/obj/effect/projectile/M = new muzzle_type(get_turf(src))
+		var/obj/projectile/M = new muzzle_type(get_turf(src))
 
 		if(istype(M))
 			M.SetTransform(others = effect_transform)
@@ -422,7 +421,7 @@
 
 /obj/item/projectile/proc/tracer_effect()
 	if(ispath(tracer_type))
-		var/obj/effect/projectile/P = new tracer_type(location.loc)
+		var/obj/projectile/P = new tracer_type(location.loc)
 
 		if(istype(P))
 			P.SetTransform(others = effect_transform)
@@ -433,23 +432,23 @@
 
 /obj/item/projectile/proc/impact_effect()
 	if(ispath(impact_type))
-		var/obj/effect/projectile/P = new impact_type(location ? location.loc : get_turf(src))
+		var/obj/projectile/P = new impact_type(location ? location.loc : get_turf(src))
+		segments += P
 
 		if(istype(P) && location)
 			P.SetTransform(others = effect_transform)
 			P.pixel_x = round(location.pixel_x, 1)
 			P.pixel_y = round(location.pixel_y, 1)
-			segments |= P
 
 //"Tracing" projectile
 /obj/item/projectile/test //Used to see if you can hit them.
-	invisibility = 101 //Nope!  Can't see me!
+	invisibility = INVISIBILITY_ABSTRACT //Nope!  Can't see me!
 	yo = null
 	xo = null
 	var/result = 0 //To pass the message back to the gun.
 	var/atom/hit_thing
 
-/obj/item/projectile/test/Bump(atom/A as mob|obj|turf|area, forced=0)
+/obj/item/projectile/test/Bump(atom/A, called)
 	if(A == firer)
 		forceMove(A.loc)
 		return //cannot shoot yourself
@@ -486,7 +485,7 @@
 		trajectory.increment()	// increment the current location
 		location = trajectory.return_location(location)		// update the locally stored location data
 		if (!location)
-			return FALSE
+			return 0
 
 		Move(location.return_turf())
 
@@ -501,7 +500,7 @@
 //Helper proc to check if you can hit them or not.
 /proc/check_trajectory(atom/target as mob|obj, atom/firer as mob|obj, pass_flags=PASS_FLAG_TABLE|PASS_FLAG_GLASS|PASS_FLAG_GRILLE, item_flags = null, obj_flags = null)
 	if(!istype(target) || !istype(firer))
-		return 0
+		return null
 
 	var/obj/item/projectile/test/trace = new /obj/item/projectile/test(get_turf(firer)) //Making the test....
 
@@ -513,8 +512,9 @@
 	trace.pass_flags = pass_flags
 
 	var/output = trace.launch(target) //Test it!
+	var/hit_thing = trace.hit_thing
 	qdel(trace) //No need for it anymore
-	return output //Send it back to the gun!
+	return output ? hit_thing : null //Send it back to the gun!
 
 /obj/item/projectile/after_wounding(obj/item/organ/external/organ, datum/wound/wound)
 	//Check if we even broke skin in first place
@@ -541,3 +541,6 @@
 		SP.SetName((name != "shrapnel")? "[name] shrapnel" : "shrapnel")
 		SP.desc += " It looks like it was fired from [shot_from]."
 		return SP
+
+/obj/item/projectile/Process_Spacemove(allow_movement)
+	return TRUE

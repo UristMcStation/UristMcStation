@@ -40,10 +40,12 @@
 	sharp = TRUE
 	force = 7
 
-/mob/living/simple_animal/crow/New()
-	..()
+
+/mob/living/simple_animal/crow/Initialize()
+	. = ..()
 	messenger_bag = new(src)
 	update_icon()
+
 
 /mob/living/simple_animal/crow/GetIdCard()
 	return access_card
@@ -53,13 +55,13 @@
 		return
 	var/list/dat = list()
 	if(access_card)
-		dat += "<b>ID:</b> [access_card] (<a href='?src=\ref[src];remove_inv=access cuff'>Remove</a>)"
+		dat += "<b>ID:</b> [access_card] (<a href='byond://?src=\ref[src];remove_inv=access cuff'>Remove</a>)"
 	else
-		dat += "<b>ID:</b> <a href='?src=\ref[src];add_inv=access cuff'>Nothing</a>"
+		dat += "<b>ID:</b> <a href='byond://?src=\ref[src];add_inv=access cuff'>Nothing</a>"
 	if(messenger_bag)
-		dat += "<b>Back:</b> [messenger_bag] (<a href='?src=\ref[src];remove_inv=back'>Remove</a>)"
+		dat += "<b>Back:</b> [messenger_bag] (<a href='byond://?src=\ref[src];remove_inv=back'>Remove</a>)"
 	else
-		dat += "<b>Back:</b> <a href='?src=\ref[src];add_inv=back'>Nothing</a>"
+		dat += "<b>Back:</b> <a href='byond://?src=\ref[src];add_inv=back'>Nothing</a>"
 	var/datum/browser/popup = new(user, "[name]", "Inventory of \the [name]", 350, 150, src)
 	popup.set_content(jointext(dat, "<br>"))
 	popup.open()
@@ -134,13 +136,12 @@
 
 /mob/living/simple_animal/crow/on_update_icon()
 	..()
-	overlays -= "bag"
-	overlays -= "bag_dead"
+	ClearOverlays()
 	if(messenger_bag)
 		if(icon_state != icon_dead)
-			overlays |= "bag"
+			AddOverlays("bag")
 		else
-			overlays |= "bag_dead"
+			AddOverlays("bag_dead")
 
 /mob/living/simple_animal/crow/cyber
 	name = "cybercrow"
@@ -149,12 +150,11 @@
 
 /mob/living/simple_animal/crow/cyber/on_update_icon()
 	..()
-	overlays -= "cyber"
-	overlays -= "cyber_dead"
+	ClearOverlays()
 	if(icon_state != icon_dead)
-		overlays |= "cyber"
+		AddOverlays("cyber")
 	else
-		overlays |= "cyber_dead"
+		AddOverlays("cyber_dead")
 
 /datum/say_list/crow
 	speak = list("Caw.", "Caw?", "Caw!", "CAW.")

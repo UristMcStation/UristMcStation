@@ -3,38 +3,44 @@
 /obj/item/frame/light_switch
 	name = "light switch frame"
 	desc = "Used for building a light switch."
-	icon = 'icons/obj/power.dmi'
+	icon = 'icons/obj/structures/buttons.dmi'
 	icon_state = "light-p"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
+	refund_amt = 1
 
 /obj/item/frame/light_switch/windowtint
 	name = "window tint switch frame"
 	desc = "Used for building a window tint switch."
-	icon = 'icons/obj/power.dmi'
+	icon = 'icons/obj/structures/buttons.dmi'
 	icon_state = "light-p"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 
-GLOBAL_LIST_INIT(possible_switch_offsets, list(
-		"North" = list(
-			"Middle Lower" = list(0,25),
-			"Offset Lower" = list(7,25),
-			"Middle Upper" = list(0,32),
-			"Offset Upper" = list(7,32)),
-		"East" = list(
-			"Middle Lower" = list(25,0),
-			"Offset Lower" = list(25,7),
-			"Middle Upper" = list(32,0),
-			"Offset Upper" = list(32,7)),
-		"South" = list(
-			"Middle Lower" = list(0,-25),
-			"Offset Lower" = list(7,-25),
-			"Middle Upper" = list(0,-32),
-			"Offset Upper" = list(7,-32)),
-		"West" = list(
-			"Middle Lower" = list(-25,0),
-			"Offset Lower" = list(-25,7),
-			"Middle Upper" = list(-32,0),
-			"Offset Upper" = list(-32,7))))
+GLOBAL_LIST_AS(possible_switch_offsets, list(
+	"North" = list(
+		"Middle Lower" = list(0, 25),
+		"Offset Lower" = list(7, 25),
+		"Middle Upper" = list(0, 32),
+		"Offset Upper" = list(7, 32)
+	),
+	"East" = list(
+		"Middle Lower" = list(25, 0),
+		"Offset Lower" = list(25, 7),
+		"Middle Upper" = list(32, 0),
+		"Offset Upper" = list(32, 7)
+	),
+	"South" = list(
+		"Middle Lower" = list(0, -25),
+		"Offset Lower" = list(7, -25),
+		"Middle Upper" = list(0, -32),
+		"Offset Upper" = list(7, -32)
+	),
+	"West" = list(
+		"Middle Lower" = list(-25, 0),
+		"Offset Lower" = list(-25, 7),
+		"Middle Upper" = list(-32, 0),
+		"Offset Upper" = list(-32, 7)
+	)
+))
 
 
 /obj/item/frame/light_switch/proc/position_with_direction(obj/item/frame/light_switch/S as obj, mob/user as mob)
@@ -58,28 +64,24 @@ GLOBAL_LIST_INIT(possible_switch_offsets, list(
 			break
 	return 1
 
-/obj/item/frame/light_switch/attackby(obj/item/tool as obj, mob/user as mob)	//construction
-	if(isWrench(tool))
-		new /obj/item/stack/material/steel( get_turf(src.loc), 1 )
-		qdel(src)
-	else if(istype(tool, /obj/item/screwdriver) && isturf(user.loc))
+/obj/item/frame/light_switch/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	if (isScrewdriver(tool) && isturf(user.loc))
 		var/obj/machinery/light_switch/S = new (user.loc)
 		if(position_with_direction(S, user))
-			to_chat(user, "You fasten \the [S] with your [tool].")
+			to_chat(user, "You fasten \the [S] with your \the [tool].")
 			qdel(src)
 		else
 			qdel(S)
-	else ..()
+		return TRUE
+	return ..()
 
-/obj/item/frame/light_switch/windowtint/attackby(obj/item/tool as obj, mob/user as mob)
-	if(isWrench(tool))
-		new /obj/item/stack/material/steel( get_turf(src.loc), 1 )
-		qdel(src)
-	else if(istype(tool, /obj/item/screwdriver) && isturf(user.loc))
+/obj/item/frame/light_switch/windowtint/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	if (isScrewdriver(tool) && isturf(user.loc))
 		var/obj/machinery/button/windowtint/S = new(user.loc)
 		if(position_with_direction(S, user))
 			to_chat(user, "You fasten \the [S] with your [tool].")
 			qdel(src)
 		else
 			qdel(S)
-	else ..()
+		return TRUE
+	return ..()

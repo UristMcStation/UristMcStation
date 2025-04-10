@@ -57,7 +57,8 @@
 		/obj/item/device/flashlight,
 		/obj/item/tank/oxygen_scba,
 		/obj/item/extinguisher,
-		/obj/item/clothing/head/hardhat/firefighter/Chief)
+		/obj/item/clothing/head/hardhat/firefighter/chief
+	)
 
 /*
  * Tool Closet
@@ -88,11 +89,11 @@
 	if(prob(20))
 		new /obj/item/storage/belt/utility(src)
 	if(prob(30))
-		new /obj/item/stack/cable_coil/random(src)
+		new /obj/random/single/color/cable_coil(src)
 	if(prob(30))
-		new /obj/item/stack/cable_coil/random(src)
+		new /obj/random/single/color/cable_coil(src)
 	if(prob(30))
-		new /obj/item/stack/cable_coil/random(src)
+		new /obj/random/single/color/cable_coil(src)
 	if(prob(20))
 		new /obj/item/device/multitool(src)
 	if(prob(5))
@@ -207,7 +208,7 @@
 		/obj/item/pickaxe/xeno/hand,
 		/obj/item/storage/bag/fossils,
 		/obj/item/hand_labeler,
-		/obj/item/device/spaceflare
+		/obj/item/shuttle_beacon
 	)
 
 /obj/structure/closet/shipping_wall
@@ -224,4 +225,4 @@
 	return list(
 		/obj/item/stack/material/cardboard/ten,
 		/obj/item/device/destTagger,
-		/obj/item/stack/package_wrap/twenty_five)
+		/obj/item/stack/package_wrap/cargo_wrap)

@@ -1,6 +1,7 @@
-/datum/species/unathi/yeosa
+/singleton/species/unathi/yeosa
 	name = SPECIES_YEOSA
 	name_plural = SPECIES_YEOSA
+	preview_icon = 'icons/mob/human_races/species/unathi/yeosa_preview.dmi'
 
 	genders = list(MALE, FEMALE, PLURAL)
 
@@ -50,7 +51,7 @@
 	ingest_amount = 15
 
 
-/datum/species/unathi/yeosa/can_float(mob/living/carbon/human/H)
+/singleton/species/unathi/yeosa/can_float(mob/living/carbon/human/H)
 	if(!H.is_physically_disabled())
 		if(H.encumbrance() < 2)
 			return TRUE

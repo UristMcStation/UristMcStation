@@ -1,6 +1,6 @@
 //Skill-related mob verbs that require skill checks to be satisfied to be added.
 
-GLOBAL_LIST_INIT(skill_verbs, init_subtypes(/datum/skill_verb))
+GLOBAL_LIST_AS(skill_verbs, init_subtypes(/datum/skill_verb))
 
 /datum/skillset/proc/fetch_verb_datum(given_type)
 	for(var/datum/skill_verb/SV in skill_verbs)
@@ -51,7 +51,7 @@ GLOBAL_LIST_INIT(skill_verbs, init_subtypes(/datum/skill_verb))
 		return
 	cooling_down = 1
 	update_verb()
-	addtimer(new Callback(src, .proc/remove_cooldown), cooldown)
+	addtimer(new Callback(src, PROC_REF(remove_cooldown)), cooldown)
 
 /datum/skill_buff/motivate/can_buff(mob/target)
 	if(!..())
@@ -116,7 +116,7 @@ The Appraise verb. Used on objects to estimate their value.
 /datum/skill_verb/noirvision/should_see_verb()
 	if(!..())
 		return
-	if(!skillset.owner.skill_check(SKILL_FORENSICS, SKILL_PROF))
+	if(!skillset.owner.skill_check(SKILL_FORENSICS, SKILL_MASTER))
 		return
 	return 1
 
@@ -124,13 +124,12 @@ The Appraise verb. Used on objects to estimate their value.
 	set category = "IC"
 	set name = "Detective instinct"
 	set src = usr
-	set popup_menu = 0
-
-	if(incapacitated())
+	set popup_menu = FALSE
+	if (incapacitated())
 		return
-
-	if(!remove_client_color(/datum/client_color/noir))
-		to_chat(src, "You clear your mind and focus on the scene before you.")
-		add_client_color(/datum/client_color/noir)
-	else
+	if (has_client_color(/datum/client_color/noir))
+		remove_client_color(/datum/client_color/noir)
 		to_chat(src, "You stop looking for clues.")
+	else
+		add_client_color(/datum/client_color/noir)
+		to_chat(src, "You clear your mind and focus on the scene before you.")

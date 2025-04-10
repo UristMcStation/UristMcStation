@@ -7,7 +7,20 @@
 
 #define CLAMP01(x) clamp(x, 0, 1)
 
+/**
+ * Get the turf that `A` resides in, regardless of any containers.
+ *
+ * Use in favor of `A.loc` or `src.loc` so that things work correctly when
+ * stored inside an inventory, locker, or other container.
+ */
 #define get_turf(A) get_step(A,0)
+
+/**
+ * Get the ultimate area of `A`, similarly to [get_turf].
+ *
+ * Use instead of `A.loc.loc`.
+ */
+#define get_area(A) (isarea(A) ? A : get_step(A, 0)?.loc)
 
 #define get_x(A) (get_step(A, 0)?.x || 0)
 
@@ -23,7 +36,7 @@
 
 #define isairlock(A) istype(A, /obj/machinery/door/airlock)
 
-#define isatom(A) (isloc(A) && !isarea(A))
+#define istom(A) (isloc(A) && !isarea(A))
 
 #define isprojectile(A) istype(A, /obj/item/projectile)
 
@@ -138,17 +151,21 @@
 
 #define CanPhysicallyInteractWith(user, target) (target.CanUseTopicPhysical(user) == STATUS_INTERACTIVE)
 
-#define QDEL_NULL_LIST(x) if(x) { for(var/y in x) { qdel(y) }}; if(x) {x.Cut(); x = null; } // Second x check to handle items that LAZYREMOVE on qdel.
+#define QDEL_NULL_LIST(x) if(x) { for(var/y in x) { qdel(y) }}; if(x) { LIST_RESIZE(x, 0); x = null; } // Second x check to handle items that LAZYREMOVE on qdel.
 
-#define QDEL_NULL_ASSOC_LIST(x) if(x) { for(var/y in x) { qdel(x[y]) }}; if(x) {x.Cut(); x = null; }
+#define QDEL_NULL_ASSOC_LIST(x) if(x) { for(var/y in x) { qdel(x[y]) }}; if(x) { LIST_RESIZE(x, 0); x = null; }
 
 #define QDEL_NULL(x) if(x) { qdel(x) ; x = null }
 
-#define QDEL_IN(item, time) addtimer(new Callback(item, /datum/proc/qdel_self), time, TIMER_STOPPABLE)
+#define QDEL_IN(item, time) addtimer(new Callback(item, TYPE_PROC_REF(/datum, qdel_self)), time, TIMER_STOPPABLE)
 
 #define DROP_NULL(x) if(x) { x.dropInto(loc); x = null; }
 
 #define DROP_NULL_LIST(x) if(x) { for(var/atom/movable/y in x) { y.dropInto(loc) }}; x.Cut(); x = null;
+
+#define QDEL_CONTENTS for (var/entry in contents) qdel(entry);
+
+#define DROP_CONTENTS if (length(contents)) { var/turf/turf = get_turf(src); for (var/atom/movable/entry in contents) entry.dropInto(turf); }
 
 #define ARGS_DEBUG log_debug("[__FILE__] - [__LINE__]") ; for(var/arg in args) { log_debug("\t[log_info_line(arg)]") }
 
@@ -157,8 +174,6 @@
 
 // Spawns multiple objects of the same type
 #define cast_new(type, num, args...) if((num) == 1) { new type(args) } else { for(var/i=0;i<(num),i++) { new type(args) } }
-
-#define JOINTEXT(X) jointext(X, null)
 
 #define SPAN_CLASS(class, X) "<span class='[class]'>[X]</span>"
 
@@ -179,6 +194,8 @@
 #define SPAN_DANGER(X) SPAN_CLASS("danger", "[X]")
 
 #define SPAN_OCCULT(X) SPAN_CLASS("cult", "[X]")
+
+#define SPAN_LEGION(X) SPAN_CLASS("legion", "[X]")
 
 #define SPAN_MFAUNA(X) SPAN_CLASS("mfauna", "[X]")
 
@@ -207,6 +224,8 @@
 #define FONT_GIANT(X) SPAN_SIZE("24px", "[X]")
 
 #define crash_with(X) crash_at(X, __FILE__, __LINE__)
+
+#define TO_HEX_DIGIT(n) ascii2text((n&15) + ((n&15)<10 ? 48 : 87))
 
 
 /// Semantic define for a 0 int intended for use as a bitfield
@@ -270,6 +289,7 @@
 
 #define num2hex(num) num2text(num, 1, 16)
 
+
 /// Increase the size of L by 1 at the end. Is the old last entry index.
 #define LIST_INC(L) ((L).len++)
 
@@ -284,3 +304,10 @@
 
 /// Explicitly set the length of L to NEWLEN, adding nulls or dropping entries. Is the same value as NEWLEN.
 #define LIST_RESIZE(L, NEWLEN) ((L).len = (NEWLEN))
+
+
+/// A ref=src anchor.
+#define aref(text, params) "<a href=\"byond://?src=\ref[src];[params]\">[text]</a>"
+
+/// A ref=src anchor with additional anchor properties.
+#define arefext(text, params, props) "<a href=\"byond://?src=\ref[src];[params]\" [props]>[text]</a>"

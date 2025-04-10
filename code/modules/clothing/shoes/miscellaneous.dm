@@ -4,7 +4,7 @@
 	icon_state = "brown"
 	item_state = "brown"
 	permeability_coefficient = 0.05
-	item_flags = ITEM_FLAG_NOSLIP
+	item_flags = ITEM_FLAG_NOSLIP | ITEM_FLAG_THICKMATERIAL
 	origin_tech = list(TECH_ESOTERIC = 3)
 	var/list/clothing_choices = list()
 	siemens_coefficient = 0.8
@@ -31,10 +31,10 @@
 	item_flags = ITEM_FLAG_NOSLIP | ITEM_FLAG_WASHER_ALLOWED
 	siemens_coefficient = 0.6
 
-/obj/item/clothing/shoes/combat //Basically SWAT shoes combined with galoshes.
+/obj/item/clothing/shoes/combat
 	name = "combat boots"
 	desc = "When you REALLY want to turn up the heat."
-	icon_state = "jungle"
+	icon_state = "swat"
 	force = 5
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
@@ -44,7 +44,7 @@
 		bomb = ARMOR_BOMB_RESISTANT,
 		bio = ARMOR_BIO_MINOR
 		)
-	item_flags = ITEM_FLAG_NOSLIP | ITEM_FLAG_WASHER_ALLOWED
+	item_flags = ITEM_FLAG_NOSLIP | ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_THICKMATERIAL
 	siemens_coefficient = 0.6
 
 	cold_protection = FEET
@@ -252,19 +252,54 @@
 	color = COLOR_RED
 
 /obj/item/clothing/shoes/foamclog
-	name = "foam clog"
+	name = "foam clogs"
 	desc = "Made from durable foam resin that retains its spongy feel."
 	icon_state = "foamclog"
 	can_add_hidden_item = FALSE
 	can_add_cuffs = FALSE
+	var/clipped = FALSE
+	var/icon_state_modified = "foamclog-toeless"
+
+/obj/item/clothing/shoes/foamclog/use_tool(obj/item/W, mob/user)
+	if (!is_sharp(W))
+		return ..()
+
+	if (clipped)
+		to_chat(user, SPAN_NOTICE("\The [src] have already been modified!"))
+		update_icon()
+		return TRUE
+
+	playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+	user.visible_message(SPAN_WARNING("\The [user] modifies \the [src] with \the [W]."),SPAN_WARNING("You modify \the [src] with \the [W]."))
+	cut_clogs()
+	return TRUE
+
+/obj/item/clothing/shoes/foamclog/proc/cut_clogs()
+	clipped = TRUE
+	name = "toe-less [name]"
+	desc = "[desc]<br>They have been modified to accommodate a different shape."
+	icon_state = icon_state_modified
+	if("exclude" in species_restricted)
+		species_restricted -= SPECIES_UNATHI
+	update_icon()
+	return
+
+/obj/item/clothing/shoes/foamclog/toeless/Initialize()
+	. = ..()
+	cut_clogs()
 
 /obj/item/clothing/shoes/foamclog/random/New()
 	..()
 	color = get_random_colour()
 
-/obj/item/clothing/shoes/flipflobster
+/obj/item/clothing/shoes/foamclog/flipflobster
 	name = "flip flobsters"
 	desc = "Made from durable foam resin that retains its spongy feel. These are shaped as lobsters."
 	icon_state = "flipflobster"
 	can_add_hidden_item = FALSE
 	can_add_cuffs = FALSE
+	icon_state_modified = "flipflobster-toeless"
+
+/obj/item/clothing/shoes/foamclog/flipflobster/toeless/Initialize()
+	. = ..()
+	cut_clogs()

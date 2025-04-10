@@ -9,37 +9,33 @@
 	var/board = list()
 	var/selected = -1
 
-/obj/item/board/ShiftClick(mob/user)
-	if(CanPhysicallyInteract(user))
-		user.set_machine(src)
+/obj/item/board/AltClick(mob/user)
+	if (CanPhysicallyInteract(user))
 		interact(user)
-	else
-		..()
+		return TRUE
+	return ..()
 
-/obj/item/board/attack_hand(mob/living/carbon/human/M as mob)
-	if(M.machine == src)
-		return ..()
-	else
-		M.examinate(src)
-
-/obj/item/board/attackby(obj/item/I as obj, mob/user as mob)
-	if(!addPiece(I,user))
-		..()
+/obj/item/board/use_tool(obj/item/item, mob/living/user, list/click_params)
+	if(addPiece(item,user))
+		return TRUE
+	return ..()
 
 /obj/item/board/proc/addPiece(obj/item/I as obj, mob/user as mob, tile = 0)
 	if(I.w_class != ITEM_SIZE_TINY) //only small stuff
 		user.show_message(SPAN_WARNING("\The [I] is too big to be used as a board piece."))
-		return 0
+		return TRUE
 	if(num == 64)
 		user.show_message(SPAN_WARNING("\The [src] is already full!"))
-		return 0
+		return TRUE
 	if(tile > 0 && board["[tile]"])
 		user.show_message(SPAN_WARNING("That space is already filled!"))
-		return 0
+		return TRUE
 	if(!user.Adjacent(src))
-		return 0
+		to_chat(user, SPAN_WARNING("You need to be near \the [src]."))
+		return TRUE
 	if(!user.unEquip(I, src))
-		return 0
+		FEEDBACK_UNEQUIP_FAILURE(user, I)
+		return TRUE
 	num++
 
 
@@ -55,9 +51,9 @@
 	else
 		board["[tile]"] = I
 
-	src.updateDialog()
+	updateDialog()
 
-	return 1
+	return TRUE
 
 
 /obj/item/board/interact(mob/user as mob)
@@ -91,13 +87,13 @@
 		else
 			dat+= ">"
 		if(!isobserver(user))
-			dat += "<a href='?src=\ref[src];select=[i];person=\ref[user]'></a>"
+			dat += "<a href='byond://?src=\ref[src];select=[i];person=\ref[user]'></a>"
 		dat += "</td>"
 
 	dat += "</table>"
 
 	if(selected >= 0 && !isobserver(user))
-		dat += "<br><A href='?src=\ref[src];remove=0'>Remove Selected Piece</A>"
+		dat += "<br><A href='byond://?src=\ref[src];remove=0'>Remove Selected Piece</A>"
 	show_browser(user, jointext(dat, null),"window=boardgame;size=430x500") // 50px * 8 squares + 30 margin
 	onclose(usr, "boardgame")
 

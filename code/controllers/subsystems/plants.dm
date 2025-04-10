@@ -1,7 +1,6 @@
 SUBSYSTEM_DEF(plants)
 	name = "Plants"
 	priority = SS_PRIORITY_PLANTS
-	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 	flags = SS_BACKGROUND | SS_POST_FIRE_TIMING
 	init_order = SS_INIT_PLANTS
 	wait = 5 SECONDS
@@ -74,7 +73,7 @@ SUBSYSTEM_DEF(plants)
 
 
 /datum/controller/subsystem/plants/Initialize(start_uptime)
-	for (var/state in icon_states('icons/obj/hydroponics_growing.dmi'))
+	for (var/state in icon_states('icons/obj/flora/hydroponics_growing.dmi'))
 		var/split = findtext_char(state, "-")
 		if (!split)
 			continue
@@ -86,7 +85,7 @@ SUBSYSTEM_DEF(plants)
 		if (!plant_sprites[plant] || plant_sprites[plant] < growth_level)
 			plant_sprites[plant] = growth_level
 
-	for (var/state in icon_states('icons/obj/hydroponics_products.dmi'))
+	for (var/state in icon_states('icons/obj/flora/hydroponics_products.dmi'))
 		var/split = findtext_char(state, "-")
 		if (!split)
 			continue
@@ -103,8 +102,9 @@ SUBSYSTEM_DEF(plants)
 
 	var/list/gene_datums = GET_SINGLETON_SUBTYPE_MAP(/singleton/plantgene)
 	var/list/used_masks = list()
+	var/list/plant_genes = shuffle(ALL_GENES)
 
-	for (var/tag in ALL_GENES)
+	for (var/tag in plant_genes)
 		var/mask = uppertext(num2hex(rand(0, 0xFF)))
 		while (mask in used_masks)
 			mask = uppertext(num2hex(rand(0, 0xFF)))

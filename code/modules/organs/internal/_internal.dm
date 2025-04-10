@@ -8,19 +8,18 @@
 	var/min_bruised_damage = 10       // Damage before considered bruised
 	var/damage_reduction = 0.5     //modifier for internal organ injury
 
-/obj/item/organ/internal/New(mob/living/carbon/holder)
+/obj/item/organ/internal/Initialize()
 	if(max_damage)
-		min_bruised_damage = Floor(max_damage / 4)
-	..()
-	if(istype(holder))
+		min_bruised_damage = floor(max_damage / 4)
+	. = ..()
+	if(iscarbon(loc) && !istype(src, /obj/item/organ/internal/augment))
+		var/mob/living/carbon/human/holder = loc
 		holder.internal_organs |= src
-
-		var/mob/living/carbon/human/H = holder
-		if(istype(H))
-			var/obj/item/organ/external/E = H.get_organ(parent_organ)
-			if(!E)
+		if(ishuman(holder))
+			var/obj/item/organ/external/external = holder.get_organ(parent_organ)
+			if(!external)
 				CRASH("[src] spawned in [holder] without a parent organ: [parent_organ].")
-			E.internal_organs |= src
+			external.internal_organs |= src
 
 /obj/item/organ/internal/Destroy()
 	if(owner)
@@ -119,9 +118,9 @@
 	return damage >= min_bruised_damage
 
 /obj/item/organ/internal/proc/set_max_damage(ndamage)
-	max_damage = Floor(ndamage)
-	min_broken_damage = Floor(0.75 * max_damage)
-	min_bruised_damage = Floor(0.25 * max_damage)
+	max_damage = floor(ndamage)
+	min_broken_damage = floor(0.75 * max_damage)
+	min_bruised_damage = floor(0.25 * max_damage)
 
 /obj/item/organ/internal/take_general_damage(amount, silent = FALSE)
 	take_internal_damage(amount, silent)
@@ -173,14 +172,15 @@
 	if(damage > min_broken_damage)
 		var/scarring = damage/max_damage
 		scarring = 1 - 0.3 * scarring ** 2 // Between ~15 and 30 percent loss
-		var/new_max_dam = Floor(scarring * max_damage)
+		var/new_max_dam = floor(scarring * max_damage)
 		if(new_max_dam < max_damage)
 			to_chat(user, SPAN_WARNING("Not every part of [src] could be saved, some dead tissue had to be removed, making it more suspectable to damage in the future."))
 			set_max_damage(new_max_dam)
 	heal_damage(damage)
 
 /obj/item/organ/internal/proc/get_scarring_level()
-	. = (initial(max_damage) - max_damage)/initial(max_damage)
+	var/initial_max = initial(max_damage)
+	return (initial_max - max_damage) * 100 / initial_max
 
 /obj/item/organ/internal/get_scan_results(tag = FALSE)
 	. = ..()
@@ -191,9 +191,10 @@
 /obj/item/organ/internal/emp_act(severity)
 	if(!BP_IS_ROBOTIC(src))
 		return
+	var/rand_modifier = rand(1, 3)
 	switch (severity)
 		if (EMP_ACT_HEAVY)
-			take_internal_damage(16)
+			take_internal_damage(5 * rand_modifier)
 		if (EMP_ACT_LIGHT)
-			take_internal_damage(9)
+			take_internal_damage(2 * rand_modifier)
 	..()

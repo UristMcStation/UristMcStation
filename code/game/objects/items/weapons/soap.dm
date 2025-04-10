@@ -118,25 +118,24 @@
 			return
 		AM.slip("the [src.name]",3)
 
-/obj/item/soap/afterattack(atom/target, mob/user as mob, proximity)
-	if(!proximity) return
+/obj/item/soap/use_after(atom/target, mob/living/user, click_parameters)
 	//I couldn't feasibly  fix the overlay bugs caused by cleaning items we are wearing.
 	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
 	var/cleaned = FALSE
 	if(user.client && (target in user.client.screen))
 		to_chat(user, SPAN_NOTICE("You need to take that [target.name] off before cleaning it."))
-	else if(istype(target,/obj/effect/decal/cleanable/blood))
+	else if(istype(target,/obj/decal/cleanable/blood))
 		to_chat(user, SPAN_NOTICE("You scrub \the [target.name] out."))
 		target.clean_blood() //Blood is a cleanable decal, therefore needs to be accounted for before all cleanable decals.
 		cleaned = TRUE
-	else if(istype(target,/obj/effect/decal/cleanable))
+	else if(istype(target,/obj/decal/cleanable))
 		to_chat(user, SPAN_NOTICE("You scrub \the [target.name] out."))
 		qdel(target)
 		cleaned = TRUE
-	else if(istype(target,/turf) || istype(target, /obj/structure/catwalk))
+	else if(isturf(/turf) || istype(target, /obj/structure/catwalk))
 		var/turf/T = get_turf(target)
 		if(!T)
-			return
+			return TRUE
 		user.visible_message(SPAN_WARNING("[user] starts scrubbing \the [T]."))
 		T.clean(src, user, 80, SPAN_NOTICE("You scrub \the [target.name] clean."))
 		cleaned = TRUE
@@ -156,30 +155,33 @@
 
 	if(cleaned)
 		user.update_personal_goal(/datum/goal/clean, 1)
+	return TRUE
 
 //attack_as_weapon
-/obj/item/soap/attack(mob/living/target, mob/living/user, target_zone)
-	if(target && user && ishuman(target) && ishuman(user) && !target.stat && !user.stat && user.zone_sel &&user.zone_sel.selecting == BP_MOUTH)
+/obj/item/soap/use_before(mob/living/target, mob/living/user)
+	. = FALSE
+	if (target && user && ishuman(target) && ishuman(user) && !target.stat && !user.stat && user.zone_sel.selecting == BP_MOUTH)
 		user.visible_message(SPAN_DANGER("\The [user] washes \the [target]'s mouth out with soap!"))
-		if(reagents)
+		if (reagents)
 			reagents.trans_to_mob(target, reagents.total_volume / 2, CHEM_INGEST)
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //prevent spam
-		return
-	..()
+		return TRUE
 
-/obj/item/soap/attackby(obj/item/I, mob/user)
+/obj/item/soap/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/key))
 		if(!key_data)
 			to_chat(user, SPAN_NOTICE("You imprint \the [I] into \the [src]."))
 			var/obj/item/key/K = I
 			key_data = K.key_data
 			update_icon()
-		return
-	..()
+		else
+			USE_FEEDBACK_FAILURE("\The [src] already has a key imprint!")
+		return TRUE
+	return ..()
 
 /obj/item/soap/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(key_data)
-		overlays += image('icons/obj/items.dmi', icon_state = "soap_key_overlay")
+		AddOverlays(image('icons/obj/soap.dmi', icon_state = "soap_key_overlay"))
 	else if(decal_name)
-		overlays +=	overlay_image(icon, "decal-[decal_name]")
+		AddOverlays(overlay_image(icon, "decal-[decal_name]"))

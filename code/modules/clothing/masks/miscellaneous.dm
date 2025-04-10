@@ -45,66 +45,40 @@
 	down_icon_state = "steriledown"
 	pull_mask = 1
 
+
 /obj/item/clothing/mask/fakemoustache
 	name = "fake moustache"
 	desc = "Warning: moustache is fake."
 	icon_state = "fake-moustache"
 	item_state = "fake-moustache"
 	flags_inv = HIDEFACE
-	body_parts_covered = 0
+	body_parts_covered = EMPTY_BITFIELD
 	visible_name = "Scoundrel"
+	w_class = ITEM_SIZE_SMALL
+
+
+/obj/item/clothing/mask/fakemoustache/verb/ChangeVisibleName()
+	set name = "Change Visible Name"
+	set src in usr
+	if (usr.incapacitated())
+		return
+	var/response = input(usr, null, "Change Visible Name", visible_name) as null | text
+	response = sanitizeName(response, MAX_NAME_LEN, TRUE, FALSE)
+	if (!response)
+		return
+	if (usr.incapacitated() || !(src in usr))
+		return
+	visible_name = response
+
 
 /obj/item/clothing/mask/snorkel
-	name = "Snorkel"
+	name = "snorkel"
 	desc = "For the Swimming Savant."
 	icon_state = "snorkel"
 	item_state = "snorkel"
 	item_flags = null
 	flags_inv = HIDEFACE
 	body_parts_covered = 0
-
-//scarves (fit in in mask slot)
-//None of these actually have on-mob sprites...
-/obj/item/clothing/mask/bluescarf
-	name = "blue neck scarf"
-	desc = "A blue neck scarf."
-	icon_state = "blueneckscarf"
-	item_state = "blueneckscarf"
-	body_parts_covered = FACE
-	item_flags = ITEM_FLAG_FLEXIBLEMATERIAL | ITEM_FLAG_WASHER_ALLOWED
-	w_class = ITEM_SIZE_SMALL
-	gas_transfer_coefficient = 0.90
-
-/obj/item/clothing/mask/redscarf
-	name = "red scarf"
-	desc = "A red and white checkered neck scarf."
-	icon_state = "redwhite_scarf"
-	item_state = "redwhite_scarf"
-	body_parts_covered = FACE
-	item_flags = ITEM_FLAG_FLEXIBLEMATERIAL | ITEM_FLAG_WASHER_ALLOWED
-	w_class = ITEM_SIZE_SMALL
-	gas_transfer_coefficient = 0.90
-
-/obj/item/clothing/mask/greenscarf
-	name = "green scarf"
-	desc = "A green neck scarf."
-	icon_state = "green_scarf"
-	item_state = "green_scarf"
-	body_parts_covered = FACE
-	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_WASHER_ALLOWED
-	w_class = ITEM_SIZE_SMALL
-	gas_transfer_coefficient = 0.90
-
-/obj/item/clothing/mask/ninjascarf
-	name = "ninja scarf"
-	desc = "A stealthy, dark scarf."
-	icon_state = "ninja_scarf"
-	item_state = "ninja_scarf"
-	body_parts_covered = FACE
-	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_WASHER_ALLOWED
-	w_class = ITEM_SIZE_SMALL
-	gas_transfer_coefficient = 0.90
-	siemens_coefficient = 0
 
 /obj/item/clothing/mask/pig
 	name = "pig mask"
@@ -143,7 +117,7 @@
 	body_parts_covered = FACE|EYES
 	action_button_name = "Toggle MUI"
 	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5)
-	var/active = FALSE
+	active = FALSE
 	var/mob/observer/eye/cameranet/eye
 
 /obj/item/clothing/mask/ai/New()
@@ -201,25 +175,25 @@
 	body_parts_covered = HEAD|FACE|EYES
 
 /obj/item/clothing/mask/rubber/trasen
-	name = "Jack Trasen mask"
+	name = "\improper Jack Trasen mask"
 	desc = "CEO of NanoTrasen corporation. Perfect for scaring the unionizing children."
 	icon_state = "trasen"
 	visible_name = "Jack Trasen"
 
 /obj/item/clothing/mask/rubber/barros
-	name = "Amaya Barros mask"
+	name = "\improper Amaya Barros mask"
 	desc = "Current Secretary-General of Sol Cental Government. Not that the real thing would visit this pigsty."
 	icon_state = "barros"
 	visible_name = "Amaya Barros"
 
 /obj/item/clothing/mask/rubber/admiral
-	name = "Admiral Diwali mask"
+	name = "\improper Admiral Diwali mask"
 	desc = "Admiral that led the infamous last stand at Helios against the Independent Navy in the Gaia conflict. For bridge officers who wish they'd achieve a fraction of that."
 	icon_state = "admiral"
 	visible_name = "Admiral Diwali"
 
 /obj/item/clothing/mask/rubber/turner
-	name = "Charles Turner mask"
+	name = "\improper Charles Turner mask"
 	desc = "Premier of the Gilgamesh Colonial Confederation. Probably shouldn't wear this in front of your veteran uncle."
 	icon_state = "turner"
 	visible_name = "Charles Turner"
@@ -233,7 +207,7 @@
 /obj/item/clothing/mask/rubber/species/New()
 	..()
 	visible_name = species
-	var/datum/species/S = all_species[species]
+	var/singleton/species/S = GLOB.species_by_name[species]
 	if(istype(S))
 		var/singleton/cultural_info/C = SSculture.get_culture(S.default_cultural_info[TAG_CULTURE])
 		if(istype(C))
@@ -266,15 +240,16 @@
 
 // Bandanas below
 /obj/item/clothing/mask/bandana
-	name = "black bandana"
-	desc = "A fine bandana with nanotech lining. Can be worn on the head or face."
+	name = "bandana"
+	desc = "A soft piece of cloth. Can be worn on the head or face."
 	flags_inv = HIDEFACE
 	slot_flags = SLOT_MASK|SLOT_HEAD
 	body_parts_covered = FACE
-	icon_state = "bandblack"
-	item_state = "bandblack"
+	icon_state = "bandana"
+	item_state = "bandana"
 	item_flags = ITEM_FLAG_FLEXIBLEMATERIAL | ITEM_FLAG_WASHER_ALLOWED
 	w_class = ITEM_SIZE_SMALL
+	use_alt_layer = TRUE
 
 /obj/item/clothing/mask/bandana/equipped(mob/user, slot)
 	switch(slot)
@@ -298,47 +273,37 @@
 	return ..()
 
 /obj/item/clothing/mask/bandana/red
-	name = "red bandana"
-	icon_state = "bandred"
-	item_state = "bandred"
+	color = COLOR_MAROON
 
 /obj/item/clothing/mask/bandana/blue
-	name = "blue bandana"
-	icon_state = "bandblue"
-	item_state = "bandblue"
+	color = COLOR_NAVY_BLUE
 
-/obj/item/clothing/mask/bandana/green
-	name = "green bandana"
-	icon_state = "bandgreen"
-	item_state = "bandgreen"
+/obj/item/clothing/mask/bandana/yellow
+	color = COLOR_YELLOW_GRAY
 
-/obj/item/clothing/mask/bandana/gold
-	name = "gold bandana"
-	icon_state = "bandgold"
-	item_state = "bandgold"
+/obj/item/clothing/mask/bandana/black
+	color = COLOR_GRAY20
 
-/obj/item/clothing/mask/bandana/orange
-	name = "orange bandana"
+/obj/item/clothing/mask/bandana/engi
+	name = "engineering bandana"
 	icon_state = "bandorange"
 	item_state = "bandorange"
-
-/obj/item/clothing/mask/bandana/purple
-	name = "purple bandana"
-	icon_state = "bandpurple"
-	item_state = "bandpurple"
+	desc = "A soft piece of cloth that can be worn on the head or face. This one is orange and yellow."
 
 /obj/item/clothing/mask/bandana/botany
 	name = "botany bandana"
 	icon_state = "bandbotany"
 	item_state = "bandbotany"
+	desc = "A soft piece of cloth that can be worn on the head or face. This one is green and blue."
 
 /obj/item/clothing/mask/bandana/camo
 	name = "camo bandana"
 	icon_state = "bandcamo"
 	item_state = "bandcamo"
+	desc = "A soft piece of cloth that can be worn on the head or face. This one is camo."
 
 /obj/item/clothing/mask/bandana/skull
 	name = "skull bandana"
-	desc = "A fine black bandana with nanotech lining and a skull emblem. Can be worn on the head or face."
 	icon_state = "bandskull"
 	item_state = "bandskull"
+	desc = "A soft piece of cloth that can be worn on the head or face. This one is black with a skull on it."

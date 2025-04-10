@@ -14,7 +14,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/powerandatmos)
 "ac" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -84,7 +84,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/hall)
 "aK" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -171,12 +171,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/lab)
 "bg" = (
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/recandlockers)
 "bk" = (
@@ -244,7 +244,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/lab)
 "bH" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/structure/hygiene/drain,
@@ -279,7 +279,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 9
 	},
 /obj/machinery/light{
@@ -367,10 +367,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 5
 	},
 /obj/structure/cable/yellow{
@@ -386,7 +386,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/hall)
 "cv" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -435,7 +435,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/lab)
 "cN" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -461,7 +461,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /obj/machinery/anomaly_container,
@@ -469,11 +469,11 @@
 /area/map_template/oldlab2/test1)
 "cS" = (
 /obj/machinery/disposal,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/lab)
 "cT" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -492,19 +492,19 @@
 /obj/machinery/artifact_analyser{
 	pixel_y = 10
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/lab)
 "cX" = (
-/obj/structure/stasis_cage,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/stasis_cage,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/test1)
 "cY" = (
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /obj/structure/cable/yellow{
@@ -515,7 +515,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -583,7 +583,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -592,11 +592,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/Engineering)
 "dD" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/secure/biohazard/alt,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/server)
@@ -623,7 +623,7 @@
 /area/map_template/oldlab2/Airlock)
 "dJ" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/powerandatmos)
 "dN" = (
@@ -632,10 +632,10 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -657,13 +657,13 @@
 /area/map_template/oldlab2/test2)
 "dS" = (
 /obj/structure/table/gamblingtable,
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /turf/simulated/floor/carpet,
@@ -681,10 +681,10 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/engineerhall)
 "dY" = (
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -702,7 +702,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/fixedsecurity)
 "ea" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/structure/bed/chair{
@@ -728,14 +728,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/lab)
 "ef" = (
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 10
 	},
 /obj/structure/cable/yellow{
@@ -775,7 +775,7 @@
 "eo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
@@ -802,7 +802,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/Airlock)
 "et" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /obj/machinery/robotics_fabricator{
 	pixel_y = 12
 	},
@@ -817,7 +817,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/map_template/oldlab2/recandlockers)
 "ew" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -835,7 +835,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/hall)
 "ey" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -845,7 +845,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/test2)
 "eA" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 6
 	},
 /obj/structure/cable/yellow{
@@ -872,7 +872,7 @@
 /area/map_template/oldlab2/hall)
 "eL" = (
 /obj/machinery/fabricator,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/lab)
 "eQ" = (
@@ -888,7 +888,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/office)
 "eS" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/structure/hygiene/sink/kitchen{
@@ -911,13 +911,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research,
+/obj/floor_decal/corner/research,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
@@ -948,7 +948,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/recandlockers)
 "fc" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor0";
@@ -957,7 +957,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/test2)
 "fd" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -985,10 +985,10 @@
 "fl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /obj/structure/cable/yellow{
@@ -1002,7 +1002,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -1023,7 +1023,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/office)
 "fs" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1041,11 +1041,11 @@
 "fv" = (
 /obj/machinery/suit_storage_unit/science,
 /obj/machinery/light,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Airlock)
 "fy" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
@@ -1070,7 +1070,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/medical)
 "fB" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -1080,7 +1080,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/lab)
 "fG" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/light/spot{
@@ -1126,13 +1126,13 @@
 /area/map_template/oldlab2/living)
 "fL" = (
 /obj/structure/table/gamblingtable,
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/fancy/wood,
+/obj/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/carpet,
 /area/map_template/oldlab2/recandlockers)
 "fR" = (
@@ -1165,7 +1165,7 @@
 /turf/simulated/wall/titanium,
 /area/map_template/oldlab2/recandlockers)
 "gh" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/powerandatmos)
@@ -1191,8 +1191,8 @@
 	pixel_x = -4;
 	pixel_y = 12
 	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor,
@@ -1220,7 +1220,9 @@
 /area/map_template/oldlab2/office)
 "gC" = (
 /obj/structure/largecrate,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced{
+	map_airless = 1
+	},
 /area/map_template/oldlab2/Airlock)
 "gG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1229,13 +1231,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research,
+/obj/floor_decal/corner/research,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
@@ -1270,7 +1272,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/lab)
 "gS" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1290,13 +1292,13 @@
 "gU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/lab)
 "gZ" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 9
 	},
 /obj/machinery/alarm{
@@ -1360,14 +1362,14 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/Airlock)
 "hr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/powerandatmos)
 "hs" = (
@@ -1378,7 +1380,7 @@
 /area/map_template/oldlab2/recandlockers)
 "hw" = (
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/engineerhall)
 "hC" = (
@@ -1387,7 +1389,7 @@
 /area/map_template/oldlab2/living)
 "hD" = (
 /obj/structure/table/steel_reinforced,
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -1400,7 +1402,7 @@
 /turf/simulated/floor/carpet,
 /area/map_template/oldlab2/recandlockers)
 "hG" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /obj/structure/bed/chair/comfy/brown{
@@ -1446,18 +1448,18 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/server)
 "hM" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/mess)
 "hP" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/medical)
 "hQ" = (
@@ -1465,14 +1467,14 @@
 /obj/machinery/reagent_temperature{
 	pixel_y = 5
 	},
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/mess)
 "hR" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/effect/floor_decal/corner/research,
+/obj/floor_decal/corner/research,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/test1)
@@ -1498,7 +1500,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/medical)
 "id" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/alarm{
@@ -1524,7 +1526,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/hall)
 "iv" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -1548,10 +1550,12 @@
 	dir = 4
 	},
 /obj/structure/largecrate,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced{
+	map_airless = 1
+	},
 /area/map_template/oldlab2/Airlock)
 "iE" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1576,7 +1580,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1599,7 +1603,9 @@
 	locked = 1;
 	name = "Lab Exterior Airlock"
 	},
-/turf/simulated/floor/tiled/techfloor/grid,
+/turf/simulated/floor/tiled/techfloor{
+	map_airless = 1
+	},
 /area/map_template/oldlab2/Airlock)
 "iZ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1608,7 +1614,7 @@
 /turf/simulated/floor/reinforced,
 /area/map_template/oldlab2/test1)
 "jd" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1649,7 +1655,7 @@
 /area/map_template/oldlab2/cso)
 "jx" = (
 /obj/machinery/artifact_scanpad,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/lab)
 "jA" = (
@@ -1668,7 +1674,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Airlock)
 "jD" = (
@@ -1703,16 +1709,6 @@
 /obj/item/ironing_iron,
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/oldlab2/recandlockers)
-"jJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/table/standard,
-/obj/machinery/reagent_temperature/cooler{
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/map_template/oldlab2/chem)
 "jL" = (
 /obj/machinery/light{
 	dir = 8
@@ -1757,7 +1753,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/powerandatmos)
 "jY" = (
@@ -1768,7 +1764,7 @@
 	name = "Security Equipment Locker";
 	req_access = list("ACCESS_SECURITY")
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/floor_decal/industrial/outline/grey,
 /obj/item/clothing/accessory/storage/bandolier/safari,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/fixedsecurity)
@@ -1780,7 +1776,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/recandlockers)
 "ke" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet{
@@ -1792,7 +1788,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/mess)
 "kj" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
@@ -1816,7 +1812,7 @@
 /turf/simulated/floor/reinforced,
 /area/map_template/oldlab2/test2)
 "ks" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -1889,7 +1885,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/lab)
 "kP" = (
-/obj/structure/stasis_cage,
+/obj/machinery/stasis_cage,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -1936,16 +1932,16 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/hall)
 "kX" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor0";
 	id_tag = "testlab2"
@@ -2011,7 +2007,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Engineering)
 "lk" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -2051,7 +2047,7 @@
 /area/map_template/oldlab2/test2)
 "lu" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/powerandatmos)
 "lv" = (
@@ -2059,7 +2055,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/map_template/oldlab2/recandlockers)
 "ly" = (
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/floor_decal/industrial/outline/grey,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -2073,7 +2069,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/map_template/oldlab2/recandlockers)
 "lC" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -2195,7 +2191,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/living6)
 "mr" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -2208,7 +2204,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/lab)
 "mx" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/power/apc{
@@ -2256,10 +2252,10 @@
 /obj/item/storage/firstaid/surgery{
 	pixel_y = 5
 	},
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 10
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2277,7 +2273,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
@@ -2341,7 +2337,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/chem)
 "nn" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2398,13 +2394,15 @@
 /area/map_template/oldlab2/office)
 "nw" = (
 /obj/machinery/floodlight,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced{
+	map_airless = 1
+	},
 /area/map_template/oldlab2/Airlock)
 "nx" = (
 /turf/simulated/wall/titanium,
 /area/map_template/oldlab2/hall)
 "nC" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -2459,7 +2457,7 @@
 /obj/machinery/computer/rdconsole/core{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/lab)
 "nX" = (
@@ -2477,7 +2475,7 @@
 /area/map_template/oldlab2/powerandatmos)
 "nZ" = (
 /obj/machinery/cooker/grill,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/light{
@@ -2504,7 +2502,7 @@
 /obj/item/clothing/suit/bio_suit/anomaly,
 /obj/item/clothing/head/bio_hood/anomaly,
 /obj/item/clothing/head/bio_hood/anomaly,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Airlock)
 "oc" = (
@@ -2539,11 +2537,11 @@
 	pixel_x = -3;
 	pixel_y = 5
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	dir = 8;
 	icon_state = "warningcorner"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/lab)
 "of" = (
@@ -2552,7 +2550,7 @@
 	},
 /obj/structure/closet/l3closet/security,
 /obj/machinery/light,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/recandlockers)
 "og" = (
@@ -2565,10 +2563,10 @@
 /turf/simulated/floor/reinforced,
 /area/map_template/oldlab2/test1)
 "oh" = (
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /obj/structure/cable/yellow{
@@ -2583,7 +2581,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/chem)
 "oj" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2591,7 +2589,7 @@
 /area/map_template/oldlab2/mess)
 "om" = (
 /obj/structure/table/steel_reinforced,
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2618,7 +2616,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/hall)
 "ot" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -2628,7 +2626,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/test2)
 "ov" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -2735,7 +2733,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/chem)
 "pj" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -2791,7 +2789,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/test2)
 "pu" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2815,7 +2813,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /obj/machinery/light{
@@ -2829,7 +2827,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/test1)
 "pN" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2885,7 +2883,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -2909,10 +2907,10 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -2920,7 +2918,7 @@
 "qm" = (
 /obj/structure/closet/secure_closet/chemical,
 /obj/item/storage/box/pillbottles,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -2933,7 +2931,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
@@ -2942,7 +2940,7 @@
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/engineerhall)
 "qq" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2986,11 +2984,11 @@
 /area/map_template/oldlab2/Airlock)
 "qA" = (
 /obj/machinery/disposal,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/mess)
 "qC" = (
-/obj/effect/floor_decal/industrial/warning/corner,
+/obj/floor_decal/industrial/warning/corner,
 /obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
@@ -3043,7 +3041,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /obj/machinery/alarm{
@@ -3081,7 +3079,7 @@
 /area/map_template/oldlab2/engineerhall)
 "qZ" = (
 /obj/structure/table/marble,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -3099,10 +3097,10 @@
 /obj/machinery/sleeper{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -3127,7 +3125,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -3140,10 +3138,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 5
 	},
 /obj/structure/cable/yellow{
@@ -3159,7 +3157,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/hall)
 "rp" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -3179,14 +3177,16 @@
 	pixel_x = 24;
 	pixel_y = -24
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced{
+	map_airless = 1
+	},
 /area/map_template/oldlab2/Airlock)
 "rt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -3201,7 +3201,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 10
 	},
 /obj/machinery/light,
@@ -3219,10 +3219,10 @@
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/oldlab2/bathroom)
 "ry" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 5
 	},
 /obj/structure/table/steel_reinforced,
@@ -3263,10 +3263,10 @@
 "rE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -3291,7 +3291,7 @@
 /area/map_template/oldlab2/recandlockers)
 "rH" = (
 /obj/machinery/vending/cigarette,
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -3299,7 +3299,7 @@
 /area/map_template/oldlab2/recandlockers)
 "rJ" = (
 /obj/structure/table/steel_reinforced,
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 10
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -3307,16 +3307,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/fixedsecurity)
-"rK" = (
-/obj/structure/table/marble,
-/obj/machinery/reagent_temperature/cooler{
-	pixel_y = 5
-	},
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/map_template/oldlab2/mess)
 "rL" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -3362,7 +3352,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
@@ -3418,7 +3408,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
@@ -3431,7 +3421,7 @@
 /area/map_template/oldlab2/Engineering)
 "sn" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/floor_decal/industrial/outline/grey,
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/fixedsecurity)
@@ -3468,7 +3458,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/test2)
 "sw" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -3478,10 +3468,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 5
 	},
 /obj/structure/cable/yellow{
@@ -3507,10 +3497,10 @@
 "sC" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 5
 	},
 /obj/structure/cable/yellow{
@@ -3524,7 +3514,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/Airlock)
 "sI" = (
@@ -3561,7 +3551,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
@@ -3654,7 +3644,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/hall)
 "tt" = (
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3673,7 +3663,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/hall)
 "ty" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3699,7 +3689,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Airlock)
 "tG" = (
-/obj/effect/floor_decal/industrial/outline/blue,
+/obj/floor_decal/industrial/outline/blue,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
@@ -3739,10 +3729,10 @@
 "tN" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /obj/structure/cable/yellow{
@@ -3778,7 +3768,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/lab)
 "tS" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3787,7 +3777,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/lab)
 "tT" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/structure/bed/chair{
@@ -3799,7 +3789,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/mess)
 "tV" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	icon_state = "pdoor0";
@@ -3808,7 +3798,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/fixedsecurity)
 "ue" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor0";
@@ -3825,10 +3815,10 @@
 /area/map_template/oldlab2/chem)
 "ui" = (
 /obj/machinery/atmospherics/unary/cryo_cell,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -3840,7 +3830,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/cable/yellow{
 	d1 = 2;
 	d2 = 4;
@@ -3878,7 +3868,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -3943,7 +3933,7 @@
 "uS" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
@@ -3965,7 +3955,7 @@
 /area/map_template/oldlab2/medical)
 "uX" = (
 /obj/structure/dispenser/oxygen,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Airlock)
 "uY" = (
@@ -4008,7 +3998,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/recandlockers)
 "vf" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/emcloset,
 /obj/item/inflatable_dispenser,
 /turf/simulated/floor/tiled/white,
@@ -4024,7 +4014,7 @@
 /obj/machinery/vending/tool{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Engineering)
 "vo" = (
@@ -4064,7 +4054,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/engineerhall)
 "vv" = (
@@ -4075,7 +4065,7 @@
 /area/map_template/oldlab2/hall)
 "vw" = (
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/test1)
 "vy" = (
@@ -4083,14 +4073,14 @@
 	icon_state = "pdoor0";
 	id_tag = "securityairlockwindows"
 	},
-/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/fixedsecurity)
 "vz" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -4107,10 +4097,10 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Airlock)
 "vC" = (
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 5
 	},
 /obj/machinery/alarm{
@@ -4154,10 +4144,10 @@
 /area/map_template/oldlab2/lab)
 "vL" = (
 /obj/machinery/vitals_monitor,
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 10
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -4183,7 +4173,7 @@
 	icon_state = "pdoor0";
 	id_tag = "testlab3"
 	},
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/test2)
@@ -4197,10 +4187,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -4252,7 +4242,7 @@
 /area/map_template/oldlab2/living3)
 "ws" = (
 /obj/machinery/disposal,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/recandlockers)
 "wt" = (
@@ -4264,7 +4254,7 @@
 "wu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -4281,7 +4271,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/oldlab2/bathroom)
 "wC" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -4329,14 +4319,14 @@
 /obj/machinery/alarm{
 	pixel_y = 16
 	},
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 5
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/fixedsecurity)
 "wX" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -4369,7 +4359,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/test1)
 "xe" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4387,7 +4377,7 @@
 /obj/item/material/hatchet/machete,
 /obj/item/material/hatchet/machete,
 /obj/item/inflatable_dispenser,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Airlock)
 "xg" = (
@@ -4427,7 +4417,7 @@
 /area/map_template/oldlab2/living6)
 "xm" = (
 /obj/machinery/atmospherics/binary/pump,
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -4437,7 +4427,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/test2)
 "xn" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4460,7 +4450,9 @@
 /obj/machinery/light/spot{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced{
+	map_airless = 1
+	},
 /area/map_template/oldlab2/Airlock)
 "xy" = (
 /obj/machinery/power/smes/buildable/outpost_substation,
@@ -4536,7 +4528,7 @@
 "yl" = (
 /obj/machinery/door/window/brigdoor/southleft,
 /obj/machinery/door/window/brigdoor/northleft,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4550,10 +4542,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 5
 	},
 /obj/structure/cable/yellow{
@@ -4568,7 +4560,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/living6)
 "yt" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 9
 	},
 /obj/machinery/computer/modular/preset/security{
@@ -4587,13 +4579,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /obj/structure/cable/yellow{
@@ -4633,7 +4625,7 @@
 /obj/machinery/optable{
 	name = "Xenobiology Operating Table"
 	},
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4687,7 +4679,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Airlock)
 "yZ" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor0";
 	id_tag = "testlab1"
@@ -4698,7 +4690,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -4710,7 +4702,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/lab)
 "zf" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4733,12 +4725,12 @@
 "zk" = (
 /obj/machinery/light/small,
 /obj/structure/closet/l3closet/scientist/multi,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/hall)
 "zl" = (
 /obj/machinery/cooker/fryer,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -4785,10 +4777,10 @@
 "zw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /obj/structure/cable/yellow{
@@ -4837,7 +4829,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/office)
 "zW" = (
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -4856,7 +4848,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -4886,7 +4878,7 @@
 /area/map_template/oldlab2/hall)
 "Ad" = (
 /obj/structure/table/marble,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/microwave{
@@ -4995,10 +4987,10 @@
 /area/map_template/oldlab2/recandlockers)
 "Az" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /obj/structure/cable/yellow{
@@ -5018,7 +5010,7 @@
 /area/map_template/oldlab2/chem)
 "AG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
 /obj/structure/roller_bed,
@@ -5037,7 +5029,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/medical)
 "AI" = (
-/obj/structure/stasis_cage,
+/obj/machinery/stasis_cage,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
 	dir = 1;
 	id_tag = "oldlab_pump"
@@ -5045,7 +5037,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Airlock)
 "AL" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 9
 	},
 /obj/machinery/light{
@@ -5060,7 +5052,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5069,7 +5061,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -5099,7 +5091,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/server)
 "Bb" = (
-/obj/structure/stasis_cage,
+/obj/machinery/stasis_cage,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/engineerhall)
 "Bc" = (
@@ -5129,10 +5121,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /obj/structure/cable/yellow{
@@ -5152,7 +5144,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/Airlock)
 "Bs" = (
@@ -5180,10 +5172,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 5
 	},
 /obj/structure/cable/yellow{
@@ -5224,10 +5216,10 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -5239,7 +5231,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/Airlock)
 "BH" = (
@@ -5251,7 +5243,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -5263,7 +5255,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/Airlock)
 "BO" = (
@@ -5294,7 +5286,7 @@
 /area/map_template/oldlab2/medical)
 "BZ" = (
 /obj/structure/closet/l3closet/janitor,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/server)
 "Ca" = (
@@ -5302,7 +5294,7 @@
 	dir = 8;
 	icon_state = "console"
 	},
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5324,7 +5316,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5334,7 +5326,7 @@
 	pixel_y = 10
 	},
 /obj/structure/table/marble,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -5350,7 +5342,7 @@
 "Cq" = (
 /obj/structure/table/rack,
 /obj/item/melee/baton/loaded,
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5385,7 +5377,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/living6)
 "CK" = (
-/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/closet/fridge/meat,
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/oldlab2/mess)
 "CN" = (
@@ -5394,7 +5386,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/yellow{
@@ -5414,7 +5406,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/engineerhall)
 "CQ" = (
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/floor_decal/industrial/outline/grey,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -5453,7 +5445,7 @@
 "Dc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/hall)
 "De" = (
@@ -5471,7 +5463,7 @@
 	dir = 1
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/hall)
 "Dh" = (
@@ -5487,10 +5479,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /obj/structure/cable/yellow{
@@ -5533,7 +5525,7 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/lab)
 "Dt" = (
@@ -5621,7 +5613,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Airlock)
 "DI" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5661,7 +5653,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/mess)
 "DP" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	dir = 8;
 	icon_state = "warningcorner"
 	},
@@ -5674,7 +5666,7 @@
 /area/map_template/oldlab2/lab)
 "DQ" = (
 /obj/structure/closet/crate/secure/biohazard/alt,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -5725,10 +5717,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /obj/structure/cable/yellow{
@@ -5751,10 +5743,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -5779,11 +5771,11 @@
 	dir = 1;
 	icon_state = "console"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/test1)
 "El" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
@@ -5808,7 +5800,7 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /obj/machinery/firealarm{
@@ -5831,7 +5823,7 @@
 /area/map_template/oldlab2/server)
 "Ew" = (
 /obj/machinery/cooker/oven,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -5846,10 +5838,10 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /obj/structure/cable/yellow{
@@ -5917,7 +5909,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/recandlockers)
 "EN" = (
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 6
 	},
 /obj/machinery/firealarm{
@@ -5929,10 +5921,10 @@
 "EQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /obj/structure/cable/yellow{
@@ -5943,10 +5935,10 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/medical)
 "ER" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/red,
+/obj/floor_decal/corner/red,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/fixedsecurity)
 "ES" = (
@@ -5960,7 +5952,7 @@
 /turf/simulated/floor/reinforced,
 /area/map_template/oldlab2/test2)
 "ET" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -5970,7 +5962,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/lab)
 "EX" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/alarm{
@@ -5982,10 +5974,10 @@
 "EY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /obj/structure/cable/yellow{
@@ -6002,7 +5994,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
@@ -6029,7 +6021,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/engineerhall)
 "Fp" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/structure/table/steel_reinforced,
@@ -6040,7 +6032,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/mess)
 "Fq" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/structure/bed/chair{
@@ -6116,7 +6108,7 @@
 /area/map_template/oldlab2/recandlockers)
 "FH" = (
 /obj/machinery/suit_storage_unit/mining,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Airlock)
 "FJ" = (
@@ -6156,7 +6148,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/server)
 "FW" = (
@@ -6185,7 +6177,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/medical)
 "Gf" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/firealarm{
@@ -6220,7 +6212,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/recandlockers)
 "Gk" = (
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 9
 	},
 /obj/structure/iv_stand,
@@ -6236,7 +6228,7 @@
 /area/map_template/oldlab2/server)
 "Gp" = (
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -25
@@ -6343,7 +6335,9 @@
 	id_tag = "oldlab_sensor_exterior";
 	pixel_y = -32
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced{
+	map_airless = 1
+	},
 /area/map_template/oldlab2/Airlock)
 "GX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6356,11 +6350,11 @@
 /area/map_template/oldlab2/engineerhall)
 "GZ" = (
 /obj/structure/closet/l3closet/scientist/multi,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/hall)
 "Hb" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/light/spot,
@@ -6409,7 +6403,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/oldlab2/bathroom)
 "Hi" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/machinery/light/small{
 	dir = 1
@@ -6454,10 +6448,10 @@
 /area/map_template/oldlab2/cso)
 "Hw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /obj/structure/cable/yellow{
@@ -6473,7 +6467,9 @@
 "HC" = (
 /obj/structure/largecrate,
 /obj/machinery/light/spot,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced{
+	map_airless = 1
+	},
 /area/map_template/oldlab2/Airlock)
 "HF" = (
 /obj/structure/cable/yellow{
@@ -6506,7 +6502,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/living6)
 "HU" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6526,7 +6522,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/test1)
 "Ib" = (
@@ -6540,7 +6536,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/cso)
 "Ic" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
@@ -6552,7 +6548,7 @@
 /obj/machinery/vending/engineering{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -6581,7 +6577,7 @@
 "Ii" = (
 /obj/machinery/suit_storage_unit/mining,
 /obj/machinery/light,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Airlock)
 "Ij" = (
@@ -6593,7 +6589,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/hall)
 "Iu" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -6619,7 +6615,7 @@
 /area/map_template/oldlab2/bathroom)
 "Iy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /obj/machinery/power/apc{
@@ -6637,7 +6633,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/test1)
 "Iz" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -6648,7 +6644,7 @@
 /area/map_template/oldlab2/mess)
 "IA" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Airlock)
 "ID" = (
@@ -6742,7 +6738,7 @@
 /turf/simulated/wall/titanium,
 /area/map_template/oldlab2/server)
 "Jk" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6772,7 +6768,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/oldlab2/recandlockers)
 "Jm" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6799,7 +6795,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 8
 	},
 /obj/structure/cable/yellow{
@@ -6840,7 +6836,7 @@
 /area/map_template/oldlab2/lab)
 "JG" = (
 /obj/machinery/r_n_d/circuit_imprinter,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/lab)
@@ -6854,7 +6850,7 @@
 /turf/simulated/wall/titanium,
 /area/map_template/oldlab2/fixedsecurity)
 "JO" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/structure/table/steel_reinforced,
@@ -6899,7 +6895,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/hall)
 "Kn" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/test2)
@@ -6948,7 +6944,7 @@
 /area/map_template/oldlab2/cso)
 "Kw" = (
 /obj/machinery/recharge_station,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/powerandatmos)
 "Kx" = (
@@ -6963,10 +6959,10 @@
 "KA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /obj/structure/cable/yellow{
@@ -6997,7 +6993,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/powerandatmos)
 "KH" = (
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /obj/structure/cable/yellow{
@@ -7005,7 +7001,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7038,7 +7034,7 @@
 	pixel_y = -32
 	},
 /obj/machinery/light,
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/floor_decal/industrial/outline/grey,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -7053,7 +7049,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/lab)
 "KU" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -7203,7 +7199,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
@@ -7238,7 +7234,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/living)
 "LW" = (
-/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/closet/fridge/meat,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light/small{
 	dir = 1
@@ -7255,7 +7251,7 @@
 /turf/simulated/wall/titanium,
 /area/map_template/oldlab2/test1)
 "Md" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/item/stool/bar/padded,
@@ -7271,7 +7267,7 @@
 /area/map_template/oldlab2/living5)
 "Mg" = (
 /obj/structure/table/steel_reinforced,
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/random/maintenance/clean,
@@ -7292,7 +7288,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 10
 	},
 /obj/machinery/light,
@@ -7302,7 +7298,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/chem)
 "Mm" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7327,7 +7323,7 @@
 	icon_state = "pdoor0";
 	id_tag = "testlab1"
 	},
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/test1)
 "Mt" = (
@@ -7349,7 +7345,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/powerandatmos)
 "Mv" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/hall)
@@ -7392,10 +7388,10 @@
 /obj/machinery/sleeper{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 6
 	},
 /obj/machinery/light{
@@ -7447,11 +7443,11 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/engineerhall)
 "MT" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7487,11 +7483,11 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/engineerhall)
 "Nf" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7507,13 +7503,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/fixedsecurity)
 "Nj" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/medical)
 "No" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
@@ -7529,10 +7525,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /obj/structure/cable/yellow{
@@ -7545,10 +7541,10 @@
 "Nt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /obj/structure/cable/yellow{
@@ -7568,11 +7564,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/engineerhall)
 "Nw" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7585,13 +7581,15 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/mess)
 "Nz" = (
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced{
+	map_airless = 1
+	},
 /area/map_template/oldlab2/Airlock)
 "NC" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/Airlock)
 "NE" = (
@@ -7616,7 +7614,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/cso)
 "NL" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7652,7 +7650,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/oldlab2/bathroom)
 "NX" = (
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /obj/structure/cable/yellow{
@@ -7660,7 +7658,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7685,7 +7683,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/oldlab2/mess)
 "Of" = (
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /obj/structure/cable/yellow{
@@ -7693,7 +7691,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -7719,7 +7717,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/living)
 "Or" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/hall)
 "Ou" = (
@@ -7736,7 +7734,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /obj/structure/cable/yellow{
@@ -7744,7 +7742,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -7777,7 +7775,7 @@
 /area/map_template/oldlab2/lab)
 "OK" = (
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/chem)
 "OM" = (
@@ -7830,7 +7828,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -7875,7 +7873,7 @@
 /area/map_template/oldlab2/recandlockers)
 "Pc" = (
 /obj/structure/closet/crate/freezer/rations,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/server)
 "Pg" = (
@@ -7904,10 +7902,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 5
 	},
 /obj/structure/cable/yellow{
@@ -7918,7 +7916,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/hall)
 "Pp" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/reinforced,
 /area/map_template/oldlab2/test1)
 "Pq" = (
@@ -7935,7 +7933,7 @@
 "Pr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -7943,12 +7941,12 @@
 /area/map_template/oldlab2/lab)
 "Pt" = (
 /obj/structure/closet/l3closet/security,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/recandlockers)
 "Pu" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -7976,7 +7974,7 @@
 	dir = 1
 	},
 /obj/random/junk,
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/server)
 "PD" = (
@@ -8003,7 +8001,7 @@
 	dir = 4
 	},
 /obj/machinery/r_n_d/destructive_analyzer,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/lab)
 "PO" = (
@@ -8015,7 +8013,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/office)
 "PT" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -8029,16 +8027,16 @@
 /area/map_template/oldlab2/mess)
 "PU" = (
 /obj/structure/table/steel_reinforced,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/cso)
 "PV" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/hall)
 "Qa" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/structure/bed/chair{
@@ -8073,7 +8071,7 @@
 /turf/simulated/floor/bluegrid,
 /area/map_template/oldlab2/server)
 "Qm" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -8086,10 +8084,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 10
 	},
 /obj/structure/cable/yellow{
@@ -8123,7 +8121,7 @@
 	dir = 4;
 	pixel_x = -23
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Airlock)
 "QE" = (
@@ -8174,7 +8172,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Engineering)
 "QL" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 9
 	},
 /obj/machinery/light{
@@ -8186,7 +8184,7 @@
 "QN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
@@ -8197,7 +8195,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/map_template/oldlab2/recandlockers)
 "QU" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor0";
 	id_tag = "testlab3"
@@ -8221,7 +8219,7 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/test1)
 "QY" = (
@@ -8234,12 +8232,12 @@
 /turf/template_noop,
 /area/map_template/oldlab2/Airlock)
 "Ra" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/powerandatmos)
 "Rc" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
@@ -8309,7 +8307,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 6
 	},
 /obj/structure/cable/yellow{
@@ -8338,7 +8336,7 @@
 "RZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
@@ -8384,7 +8382,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -8431,7 +8429,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/map_template/oldlab2/recandlockers)
 "SA" = (
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /obj/structure/cable/yellow{
@@ -8445,7 +8443,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -8566,7 +8564,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/test1)
 "Tn" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -8613,7 +8611,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/engineerhall)
 "Tu" = (
@@ -8645,7 +8643,7 @@
 /obj/machinery/vending/engivend{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Engineering)
 "TC" = (
@@ -8662,7 +8660,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/living2)
 "TK" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/structure/mopbucket{
@@ -8676,7 +8674,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -8689,10 +8687,10 @@
 "TU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /obj/structure/cable/yellow{
@@ -8748,7 +8746,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/hall)
 "Ud" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/techfloor,
@@ -8778,7 +8776,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -8808,7 +8806,7 @@
 	icon_state = "pdoor0";
 	id_tag = "testlab2"
 	},
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/oldlab2/test1)
 "Uv" = (
@@ -8816,7 +8814,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/lab)
 "Uw" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet{
@@ -8849,14 +8847,14 @@
 /obj/machinery/power/emitter{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/lab)
 "UD" = (
 /obj/machinery/atmospherics/unary/tank/air{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/powerandatmos)
 "UG" = (
@@ -8897,17 +8895,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/living)
 "Vf" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/fixedsecurity)
 "Vg" = (
 /obj/structure/closet/crate/secure/biohazard/alt,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/hall)
 "Vj" = (
@@ -8933,7 +8931,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -8954,7 +8952,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/living5)
 "Vu" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -8971,7 +8969,7 @@
 /area/map_template/oldlab2/test1)
 "Vw" = (
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/lab)
 "VB" = (
@@ -9020,7 +9018,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/lab)
 "VM" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -9045,7 +9043,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/living)
 "VP" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -9059,7 +9057,7 @@
 /area/map_template/oldlab2/lab)
 "VU" = (
 /obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/test1)
@@ -9071,7 +9069,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
@@ -9086,7 +9084,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/living6)
 "Wh" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/light/spot,
@@ -9162,12 +9160,12 @@
 /area/map_template/oldlab2/medical)
 "Wx" = (
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/item/inflatable_dispenser,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/hall)
 "Wz" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 6
 	},
 /obj/random/junk,
@@ -9215,7 +9213,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/living)
 "WL" = (
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/floor_decal/industrial/outline/grey,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -9271,7 +9269,7 @@
 /turf/simulated/floor/carpet,
 /area/map_template/oldlab2/recandlockers)
 "Xe" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/machinery/light/small{
 	dir = 4
@@ -9279,7 +9277,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/powerandatmos)
 "Xf" = (
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -9290,7 +9288,7 @@
 /area/map_template/oldlab2/test1)
 "Xh" = (
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/recandlockers)
 "Xj" = (
@@ -9335,7 +9333,7 @@
 /area/map_template/oldlab2/test1)
 "Xv" = (
 /obj/structure/table/marble,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/item/storage/box/donut{
@@ -9377,11 +9375,11 @@
 /area/map_template/oldlab2/engineerhall)
 "XG" = (
 /obj/machinery/disposal,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/recandlockers)
 "XJ" = (
-/obj/effect/floor_decal/corner/blue/diagonal{
+/obj/floor_decal/corner/blue/diagonal{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -9407,7 +9405,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/chem)
 "XP" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/machinery/microscope,
@@ -9419,7 +9417,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 9
 	},
 /obj/structure/cable/yellow{
@@ -9427,7 +9425,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/research{
+/obj/floor_decal/corner/research{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -9476,7 +9474,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/recandlockers)
 "XY" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -9524,7 +9522,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/living5)
 "Yg" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -9555,7 +9553,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/oldlab2/lab)
 "Yp" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/blast/regular{
 	icon_state = "pdoor0";
 	id_tag = "securityairlockwindows"
@@ -9576,7 +9574,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/cable/yellow{
 	d1 = 4;
 	d2 = 8;
@@ -9592,7 +9590,7 @@
 /area/map_template/oldlab2/test1)
 "YD" = (
 /obj/machinery/artifact_harvester,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/oldlab2/lab)
@@ -9603,7 +9601,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/firealarm{
 	pixel_y = 24
 	},
@@ -9613,7 +9611,7 @@
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/cable/yellow{
 	d1 = 2;
 	d2 = 8;
@@ -9627,7 +9625,7 @@
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/Engineering)
 "YN" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -9691,10 +9689,10 @@
 /area/map_template/oldlab2/living)
 "YY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -9720,12 +9718,12 @@
 /area/map_template/oldlab2/test1)
 "Zi" = (
 /obj/machinery/suit_storage_unit/science,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/map_template/oldlab2/Airlock)
 "Zk" = (
 /obj/machinery/smartfridge/foods,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -9742,10 +9740,10 @@
 /area/map_template/oldlab2/powerandatmos)
 "Zs" = (
 /obj/structure/table/steel_reinforced,
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -9753,7 +9751,7 @@
 "Zz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/powerandatmos)
 "ZA" = (
@@ -9784,7 +9782,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/map_template/oldlab2/server)
 "ZG" = (
@@ -9822,8 +9820,8 @@
 /area/map_template/oldlab2/chem)
 "ZP" = (
 /obj/machinery/organ_printer/robot/mapped,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -10101,7 +10099,7 @@ ZN
 uh
 NY
 NY
-jJ
+uh
 Mk
 Jj
 Qu
@@ -11298,7 +11296,7 @@ xC
 mG
 zl
 pu
-rK
+qZ
 qZ
 qZ
 Yg

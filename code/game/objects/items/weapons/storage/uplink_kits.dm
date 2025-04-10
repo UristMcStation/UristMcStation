@@ -46,6 +46,11 @@
 		/obj/item/material/star/ninja,
 	)
 
+/obj/item/storage/fancy/smokable/case/syndiecoins
+	startswith = list(
+		/obj/item/material/coin/challenge/syndie = 5
+	)
+
 // Space suit uplink kit
 /obj/item/storage/backpack/satchel/syndie_kit/space
 	//name = "\improper EVA gear pack"
@@ -83,7 +88,7 @@
 // Clerical uplink kit
 /obj/item/storage/backpack/satchel/syndie_kit/clerical
 	startswith = list(
-		/obj/item/stack/package_wrap/twenty_five,
+		/obj/item/stack/package_wrap/cargo_wrap,
 		/obj/item/hand_labeler,
 		/obj/item/stamp/chameleon,
 		/obj/item/pen/chameleon,
@@ -123,7 +128,7 @@
 	)
 
 /obj/item/storage/box/syndie_kit/cigarette
-	name = "\improper Tricky smokes"
+	name = "tricky smokes"
 	desc = "Smokes so good, you'd think it was a trick!"
 	startswith = list(
 		/obj/item/flame/lighter/zippo = 1,
@@ -159,4 +164,9 @@
 	startswith = list(
 		/obj/item/clothing/suit/armor/pcarrier/merc,
 		/obj/item/clothing/head/helmet/merc
+	)
+/obj/item/storage/box/syndie_kit/corpse_cube
+	startswith = list(
+		/obj/item/device/dna_sampler,
+		/obj/item/reagent_containers/food/snacks/corpse_cube
 	)

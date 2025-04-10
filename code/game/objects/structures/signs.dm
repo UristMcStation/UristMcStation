@@ -1,10 +1,18 @@
 /obj/structure/sign
-	icon = 'icons/obj/decals.dmi'
+	icon = 'icons/obj/structures/decals.dmi'
 	anchored = TRUE
 	opacity = 0
 	density = FALSE
 	layer = ABOVE_WINDOW_LAYER
 	w_class = ITEM_SIZE_NORMAL
+
+/obj/structure/sign/double/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Screwdriver - Block interaction
+	if (isScrewdriver(tool))
+		USE_FEEDBACK_FAILURE("\The [src] cannot be removed.")
+		return TRUE
+
+	return ..()
 
 /obj/structure/sign/ex_act(severity)
 	switch(severity)
@@ -20,28 +28,37 @@
 		else
 	return
 
-/obj/structure/sign/attackby(obj/item/tool as obj, mob/user as mob)	//deconstruction
-	if(isScrewdriver(tool) && !istype(src, /obj/structure/sign/double))
-		to_chat(user, "You unfasten the sign with your [tool.name].")
-		var/obj/item/sign/S = new(src.loc)
+
+/obj/structure/sign/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Scrwedriver - Unfasten sign
+	if (isScrewdriver(tool))
+		var/obj/item/sign/S = new(loc)
 		S.SetName(name)
 		S.desc = desc
 		S.icon_state = icon_state
 		S.sign_state = icon_state
-		qdel(src)
-	else ..()
+		transfer_fingerprints_to(S)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] unfastens \the [src] with \a [tool]."),
+			SPAN_NOTICE("You unfasten \the [src] with \the [tool].")
+		)
+		qdel_self()
+		return TRUE
+
+	return ..()
+
 
 /obj/item/sign
 	name = "sign"
 	desc = ""
-	icon = 'icons/obj/decals.dmi'
+	icon = 'icons/obj/structures/decals.dmi'
 	w_class = ITEM_SIZE_NORMAL		//big
 	var/sign_state = ""
 
-/obj/item/sign/attackby(obj/item/tool as obj, mob/user as mob)	//construction
-	if(istype(tool, /obj/item/screwdriver) && isturf(user.loc))
+/obj/item/sign/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	if (isScrewdriver(tool) && isturf(user.loc))
 		var/direction = input("In which direction?", "Select direction.") in list("North", "East", "South", "West", "Cancel")
-		if(direction == "Cancel") return
+		if(direction == "Cancel") return TRUE
 		var/obj/structure/sign/S = new(user.loc)
 		switch(direction)
 			if("North")
@@ -52,13 +69,14 @@
 				S.pixel_y = -32
 			if("West")
 				S.pixel_x = -32
-			else return
+			else return TRUE
 		S.SetName(name)
 		S.desc = desc
 		S.icon_state = sign_state
 		to_chat(user, "You fasten \the [S] with your [tool].")
 		qdel(src)
-	else ..()
+		return TRUE
+	return ..()
 
 /obj/structure/sign/double/map
 	name = "map"
@@ -109,6 +127,10 @@
 
 /obj/structure/sign/warning/caution
 	name = "\improper CAUTION"
+
+/obj/structure/sign/warning/toxic_material
+	name = "\improper TOXIC MATERIAL"
+	icon_state = "toxic_material"
 
 /obj/structure/sign/warning/compressed_gas
 	name = "\improper COMPRESSED GAS"
@@ -445,7 +467,7 @@
 /obj/item/sign/medipolma
 	name = "medical diploma"
 	desc = "A fancy print laminated paper that certifies that its bearer is indeed a Doctor of Medicine, graduated from a medical school in one of fringe systems. You don't recognize the name though, and half of latin words they used do not actually exist."
-	icon = 'icons/obj/decals.dmi'
+	icon = 'icons/obj/structures/decals.dmi'
 	icon_state = "goldenplaque"
 	sign_state = "goldenplaque"
 	var/claimant

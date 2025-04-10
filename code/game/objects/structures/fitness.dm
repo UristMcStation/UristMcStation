@@ -1,5 +1,5 @@
 /obj/structure/fitness
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/structures/gym_equipment.dmi'
 	anchored = TRUE
 	var/being_used = 0
 
@@ -36,11 +36,20 @@
 	var/weight = 1
 	var/list/qualifiers = list("with ease", "without any trouble", "with great effort")
 
-/obj/structure/fitness/weightlifter/attackby(obj/item/W as obj, mob/user as mob)
-	if(isWrench(W))
-		playsound(src.loc, 'sound/items/Deconstruct.ogg', 75, 1)
+
+/obj/structure/fitness/weightlifter/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Wrench - Set weight level
+	if (isWrench(tool))
+		playsound(src, 'sound/items/Deconstruct.ogg', 50, TRUE)
 		weight = ((weight) % length(qualifiers)) + 1
-		to_chat(user, "You set the machine's weight level to [weight].")
+		user.visible_message(
+			SPAN_NOTICE("\The [user] adjusts \the [src]'s weight level with \a [tool]."),
+			SPAN_NOTICE("You set \the [src]'s weight level to [weight] with \the [tool].")
+		)
+		return TRUE
+
+	return ..()
+
 
 /obj/structure/fitness/weightlifter/attack_hand(mob/living/carbon/human/user)
 	if(!istype(user))

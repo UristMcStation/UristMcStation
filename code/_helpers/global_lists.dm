@@ -16,12 +16,11 @@ var/global/list/landmarks_list = list()				//list of all landmarks created
 #define all_genders_text_list list("Male","Female","Plural","Neuter")
 
 //Languages/species/whitelist.
-var/global/list/all_species[0]
+
 var/global/list/datum/language/all_languages = list()
 var/global/list/language_keys[0]					// Table of say codes for all languages
-var/global/list/playable_species = list(SPECIES_HUMAN)    // A list of ALL playable species, whitelisted, latejoin or otherwise.
 
-
+GLOBAL_LIST_EMPTY(all_particles)
 
 // Grabs
 var/global/list/all_grabstates[0]
@@ -38,7 +37,7 @@ GLOBAL_LIST_EMPTY(facial_hair_styles_list) //stores /datum/sprite_accessory/faci
 var/global/list/skin_styles_female_list = list()		//unused
 GLOBAL_LIST_EMPTY(body_marking_styles_list)		//stores /datum/sprite_accessory/marking indexed by name
 
-GLOBAL_DATUM_INIT(underwear, /datum/category_collection/underwear, new())
+GLOBAL_TYPED_NEW(underwear, /datum/category_collection/underwear)
 
 // Visual nets
 var/global/list/datum/visualnet/visual_nets = list()
@@ -86,6 +85,7 @@ var/global/list/string_slot_flags = list(
 //////////////////////////
 
 /proc/get_mannequin(ckey)
+	RETURN_TYPE(/mob/living/carbon/human/dummy/mannequin)
 	if (!GLOB.mannequins[ckey])
 		GLOB.mannequins[ckey] = new /mob/living/carbon/human/dummy/mannequin
 	return GLOB.mannequins[ckey]
@@ -132,22 +132,6 @@ var/global/list/string_slot_flags = list(
 		if(!(L.flags & NONGLOBAL))
 			language_keys[lowertext(L.key)] = L
 
-	var/rkey = 0
-	paths = typesof(/datum/species)
-	for(var/T in paths)
-
-		rkey++
-
-		var/datum/species/S = T
-		if(!initial(S.name))
-			continue
-
-		S = new T
-		S.race_key = rkey //Used in mob icon caching.
-		all_species[S.name] = S
-		if(!(S.spawn_flags & SPECIES_IS_RESTRICTED))
-			playable_species += S.name
-
 	//Grabs
 	paths = typesof(/datum/grab) - /datum/grab
 	for(var/T in paths)
@@ -164,7 +148,12 @@ var/global/list/string_slot_flags = list(
 		var/datum/grab/G = all_grabstates[grabstate_name]
 		G.refresh_updown()
 
-	return 1
+	paths = typesof(/particles)
+	for (var/path in paths)
+		var/particles/P = new path()
+		GLOB.all_particles[P.name] = P
+
+	return TRUE
 
 //*** params cache
 var/global/list/paramslist_cache = list()
@@ -179,12 +168,14 @@ var/global/list/paramslist_cache = list()
 		paramslist_cache[params_data] = .
 
 /proc/key_number_decode(key_number_data)
+	RETURN_TYPE(/list)
 	var/list/L = params2list(key_number_data)
 	for(var/key in L)
 		L[key] = text2num(L[key])
 	return L
 
 /proc/number_list_decode(number_list_data)
+	RETURN_TYPE(/list)
 	var/list/L = params2list(number_list_data)
 	for(var/i in 1 to length(L))
 		L[i] = text2num(L[i])

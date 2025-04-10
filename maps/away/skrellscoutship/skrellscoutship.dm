@@ -19,22 +19,22 @@
 	)
 	spawn_weight = 0.67
 
-/obj/effect/overmap/visitable/sector/skrellscoutspace
+/obj/overmap/visitable/sector/skrellscoutspace
 	name = "Empty Sector"
 	desc = "Slight traces of a cloaking device are present. Unable to determine exact location."
-	in_space = TRUE
 	icon_state = "event"
 	hide_from_reports = TRUE
+	sensor_visibility = 10
 
-/obj/effect/submap_landmark/joinable_submap/skrellscoutship
+/obj/submap_landmark/joinable_submap/skrellscoutship
 	name = "Xilvuxix"
 	archetype = /singleton/submap_archetype/skrellscoutship
 
-/obj/effect/submap_landmark/spawnpoint/skrellscoutship
+/obj/submap_landmark/spawnpoint/skrellscoutship
 	name = "Qrri-Zuumqix"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/submap_landmark/spawnpoint/skrellscoutship/leader
+/obj/submap_landmark/spawnpoint/skrellscoutship/leader
 	name = "Qrri-Vuxix"
 
 /singleton/webhook/submap_loaded/skrell
@@ -70,12 +70,14 @@ var/global/const/access_skrellscoutship = "ACCESS_SKRELLSCOUT"
 	outfit_type = /singleton/hierarchy/outfit/job/skrellscoutship
 	info = "Your vessel is scouting through unknown space, working to map out any potential dangers, as well as potential allies."
 	is_semi_antagonist = TRUE
-	min_skill = list(SKILL_EVA = SKILL_ADEPT,
-					SKILL_PILOT = SKILL_ADEPT,
-					SKILL_HAULING = SKILL_ADEPT,
-					SKILL_COMBAT = SKILL_ADEPT,
-					SKILL_WEAPONS = SKILL_ADEPT,
-					SKILL_MEDICAL = SKILL_BASIC)
+	min_skill = list( // 24 points
+		SKILL_EVA = SKILL_TRAINED, // 2 points
+		SKILL_PILOT = SKILL_TRAINED, // 4 points
+		SKILL_HAULING = SKILL_TRAINED, // 2 points
+		SKILL_COMBAT = SKILL_TRAINED, // 6 points
+		SKILL_WEAPONS = SKILL_TRAINED, // 6 points
+		SKILL_MEDICAL = SKILL_BASIC // 4 points
+	)
 
 /datum/job/submap/skrellscoutship_crew
 	title = "Qrri-Zuumqix"
@@ -90,11 +92,13 @@ var/global/const/access_skrellscoutship = "ACCESS_SKRELLSCOUT"
 	allowed_ranks = list(/datum/mil_rank/skrell_fleet)
 	skill_points = 30
 	is_semi_antagonist = TRUE
-	min_skill = list(SKILL_EVA = SKILL_ADEPT,
-					SKILL_HAULING = SKILL_ADEPT,
-					SKILL_COMBAT = SKILL_ADEPT,
-					SKILL_WEAPONS = SKILL_ADEPT,
-					SKILL_MEDICAL = SKILL_BASIC)
+	min_skill = list( // 20 points
+		SKILL_EVA = SKILL_TRAINED, // 2 points
+		SKILL_HAULING = SKILL_TRAINED, // 2 points
+		SKILL_COMBAT = SKILL_TRAINED, // 6 points
+		SKILL_WEAPONS = SKILL_TRAINED, // 6 points
+		SKILL_MEDICAL = SKILL_BASIC // 4 points
+	)
 
 /datum/job/submap/skrellscoutship_crew/equip(mob/living/carbon/human/H, alt_title, datum/mil_branch/branch, datum/mil_rank/grade)
 	. = ..(H, alt_title, branch, grade)	//passing through arguments
@@ -148,17 +152,14 @@ var/global/const/access_skrellscoutship = "ACCESS_SKRELLSCOUT"
 
 
 /obj/item/reagent_containers/food/condiment/psilocybin
-	label_text = "Psilocybin"
 	starting_reagents = list(/datum/reagent/drugs/psilocybin = 50)
 
 
 /obj/item/reagent_containers/food/condiment/mindbreaker
-	label_text = "Mindbreaker"
 	starting_reagents = list(/datum/reagent/drugs/mindbreaker = 50)
 
 
 /obj/item/reagent_containers/food/condiment/hextro
-	label_text = "Ambrosia"
 	starting_reagents = list(/datum/reagent/drugs/hextro = 50)
 
 
@@ -219,7 +220,7 @@ var/global/const/access_skrellscoutship = "ACCESS_SKRELLSCOUT"
 	item_state = "security"
 	storage_slots = 8
 	overlay_flags = BELT_OVERLAY_ITEMS|BELT_OVERLAY_HOLSTER
-	can_hold = list(
+	contents_allowed = list(
 		/obj/item/crowbar,
 		/obj/item/grenade,
 		/obj/item/reagent_containers/spray/pepper,

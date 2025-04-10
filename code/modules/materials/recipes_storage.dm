@@ -38,9 +38,13 @@
 	req_amount = 3
 	on_floor = 1
 
+/datum/stack_recipe/envelope
+	title = "envelope"
+	result_type = /obj/item/material/folder/envelope
+
 /datum/stack_recipe/folder
 	title = "folder"
-	result_type = /obj/item/folder
+	result_type = /obj/item/material/folder
 	var/modifier = "grey"
 
 /datum/stack_recipe/folder/display_name()
@@ -49,7 +53,7 @@
 /datum/stack_recipe/folder/normal
 
 #define COLORED_FOLDER(color) /datum/stack_recipe/folder/##color{\
-	result_type = /obj/item/folder/##color;\
+	result_type = /obj/item/material/folder/##color;\
 	modifier = #color\
 	}
 COLORED_FOLDER(blue)

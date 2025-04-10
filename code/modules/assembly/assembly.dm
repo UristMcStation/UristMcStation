@@ -32,7 +32,7 @@
 /obj/item/device/assembly/proc/pulse(radio = 0)						//Called when this device attempts to act on another device, radio determines if it was sent via radio or direct
 	return
 
-/obj/item/device/assembly/proc/toggle_secure()								//Code that has to happen when the assembly is un\secured goes here
+/obj/item/device/assembly/proc/set_secure(make_secure = FALSE)								//Code that has to happen when the assembly is un\secured goes here
 	return
 
 /obj/item/device/assembly/proc/attach_assembly(obj/A, mob/user)	//Called when an assembly is attacked by another
@@ -82,34 +82,63 @@
 	return 1
 
 
-/obj/item/device/assembly/toggle_secure()
-	secured = !secured
-	update_icon()
+/obj/item/device/assembly/set_secure(make_secure)
+	if (make_secure == secured)
+		return
+	else
+		secured = make_secure
+		update_icon()
 	return secured
 
 
-/obj/item/device/assembly/attach_assembly(obj/item/device/assembly/A, mob/user)
-	holder = new/obj/item/device/assembly_holder(get_turf(src))
-	if(holder.attach(A,src,user))
-		to_chat(user, SPAN_NOTICE("You attach \the [A] to \the [src]!"))
-		return 1
-	return 0
+/obj/item/device/assembly/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Assembly - Attach assembly
+	if (isassembly(tool))
+		if (!user.canUnEquip(tool))
+			FEEDBACK_UNEQUIP_FAILURE(user, tool)
+			return TRUE
+		if (!user.canUnEquip(src))
+			FEEDBACK_UNEQUIP_FAILURE(user, src)
+			return TRUE
+		if (secured)
+			USE_FEEDBACK_FAILURE("\The [src] is not ready to be modified or attached.")
+			return TRUE
+		var/obj/item/device/assembly/assembly = tool
+		if (assembly.secured)
+			USE_FEEDBACK_FAILURE("\The [tool] is not ready to be modified or attached.")
+			return TRUE
+		user.unEquip(src)
+		user.unEquip(tool)
+		holder = new /obj/item/device/assembly_holder(get_turf(src))
+		forceMove(holder)
+		transfer_fingerprints_to(holder)
+		assembly.holder = holder
+		tool.forceMove(holder)
+		tool.transfer_fingerprints_to(holder)
+		holder.a_left = src
+		holder.a_right = tool
+		holder.SetName("[name]-[tool.name] assembly")
+		holder.update_icon()
+		user.put_in_hands(holder)
+		set_secure(TRUE)
+		assembly.set_secure(TRUE)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] attaches \a [tool] to \a [src]."),
+			SPAN_NOTICE("You attach \the [tool] to \the [src]."),
+			range = 3
+		)
+		return TRUE
 
+	// Screwdriver - Toggle secured
+	if (isScrewdriver(tool))
+		set_secure(!secured)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] adjusts \a [src] with \a [tool]."),
+			SPAN_NOTICE("You adjust \the [src] with \the [tool]. It [secured ? "is now ready to use" : "can now be taken apart"].")
+		)
+		return TRUE
 
-/obj/item/device/assembly/attackby(obj/item/W as obj, mob/user as mob)
-	if(isassembly(W))
-		var/obj/item/device/assembly/A = W
-		if((!A.secured) && (!secured))
-			attach_assembly(A,user)
-			return
-	if(isScrewdriver(W))
-		if(toggle_secure())
-			to_chat(user, SPAN_NOTICE("\The [src] is ready!"))
-		else
-			to_chat(user, SPAN_NOTICE("\The [src] can now be attached!"))
-		return
-	..()
-	return
+	return ..()
 
 
 /obj/item/device/assembly/Process()

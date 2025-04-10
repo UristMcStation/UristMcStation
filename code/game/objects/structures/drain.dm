@@ -3,7 +3,7 @@
 /obj/structure/hygiene/drain
 	name = "gutter"
 	desc = "You probably can't get sucked down the plughole."
-	icon = 'icons/obj/drain.dmi'
+	icon = 'icons/obj/structures/drain.dmi'
 	icon_state = "drain"
 	anchored = TRUE
 	density = FALSE
@@ -11,24 +11,35 @@
 	can_drain = 1
 	var/welded
 
-/obj/structure/hygiene/drain/attackby(obj/item/thing, mob/user)
-	..()
-	if(isWelder(thing))
-		var/obj/item/weldingtool/WT = thing
-		if(WT.isOn())
-			welded = !welded
-			to_chat(user, SPAN_NOTICE("You weld \the [src] [welded ? "closed" : "open"]."))
-		else
-			to_chat(user, SPAN_WARNING("Turn \the [thing] on, first."))
+
+/obj/structure/hygiene/drain/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Welding Tool - Weld the drain closed
+	if (isWelder(tool))
+		var/obj/item/weldingtool/welder = tool
+		if (!welder.remove_fuel(1, user))
+			return TRUE
+		welded = !welded
+		user.visible_message(
+			SPAN_NOTICE("\The [user] [welded ? "un" : "welds"] \the [src] with \a [tool]."),
+			SPAN_NOTICE("You [welded ? "un" : "weld"] \the [src] with \the [tool].")
+		)
 		update_icon()
-		return
-	if(isWrench(thing))
-		new /obj/item/drain(src.loc)
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		to_chat(user, SPAN_WARNING("[user] unwrenches the [src]."))
-		qdel(src)
-		return
+		return TRUE
+
+	// Wrench - Dismantle drain
+	if (isWrench(tool))
+		var/obj/item/drain/drain_item = new(loc)
+		transfer_fingerprints_to(drain_item)
+		playsound(src, 'sound/items/Ratchet.ogg', 50, TRUE)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] unwrenches \the [src] from the floor with \a [tool]."),
+			SPAN_NOTICE("You unwrench \the [src] from the floor with \the [tool].")
+		)
+		qdel_self()
+		return TRUE
+
 	return ..()
+
 
 /obj/structure/hygiene/drain/on_update_icon()
 	icon_state = "[initial(icon_state)][welded ? "-welded" : ""]"
@@ -47,17 +58,20 @@
 /obj/item/drain
 	name = "gutter"
 	desc = "You probably can't get sucked down the plughole."
-	icon = 'icons/obj/drain.dmi'
+	icon = 'icons/obj/structures/drain.dmi'
 	icon_state = "drain"
 	var/constructed_type = /obj/structure/hygiene/drain
 
-/obj/item/drain/attackby(obj/item/thing, mob/user)
+/obj/item/drain/use_tool(obj/item/thing, mob/living/user, list/click_params)
 	if(isWrench(thing))
+		if (!isturf(loc))
+			USE_FEEDBACK_FAILURE("\The [src] needs to be placed on the floor before you can secure it.")
+			return TRUE
 		new constructed_type(src.loc)
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		to_chat(user, SPAN_WARNING("[user] wrenches the [src] down."))
 		qdel(src)
-		return
+		return TRUE
 	return ..()
 
 /obj/structure/hygiene/drain/bath

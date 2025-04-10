@@ -1,8 +1,8 @@
 //CORTICAL BORER ORGANS.
 /obj/item/organ/internal/borer
 	name = "cortical borer"
-	icon = 'icons/obj/objects.dmi'
-	icon_state = "borer"
+	icon = 'icons/mob/simple_animal/animal.dmi'
+	icon_state = "brainslug"
 	organ_tag = BP_BRAIN
 	desc = "A disgusting space slug."
 	parent_organ = BP_HEAD
@@ -25,7 +25,7 @@
 
 		var/datum/reagent/blood/B = locate(/datum/reagent/blood) in H.vessel.reagent_list
 		blood_splatter(H,B,1)
-		var/obj/effect/decal/cleanable/blood/splatter/goo = locate() in get_turf(owner)
+		var/obj/decal/cleanable/blood/splatter/goo = locate() in get_turf(owner)
 		if(goo)
 			goo.SetName("husk ichor")
 			goo.desc = "A thick goo that reeks of decay."

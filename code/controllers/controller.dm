@@ -3,19 +3,16 @@
 	var/name
 
 	/// The atom used to hold information about the controller for client UI output
-	var/atom/movable/clickable_stat/statLine
+	var/obj/clickable_stat/__stat
 
 
-	/// The next time we should do work updating statLine
-	var/statNext = 0
+	/// The next time we should do work updating __stat
+	var/__stat_next = 0
 
 
-/datum/controller/Destroy(force)
-	log_debug({"Controller "[name]" destroyed with force="[force]"!"})
-	if (!force)
-		return QDEL_HINT_LETMELIVE
-	QDEL_NULL(statLine)
-	return ..()
+/datum/controller/Destroy()
+	SHOULD_CALL_PARENT(FALSE)
+	return QDEL_HINT_LETMELIVE
 
 
 /datum/controller/proc/Initialize()
@@ -40,17 +37,17 @@
 
 
 /datum/controller/proc/UpdateStat(text)
-	if (!statLine)
-		statLine = new (null, src)
+	if (!__stat)
+		__stat = new (null, src)
 	if (istext(text))
-		statLine.name = text
-	stat(name, statLine)
+		__stat.name = text
+	stat(name, __stat)
 
 
 /datum/controller/proc/PreventUpdateStat(time)
 	if (!isnum(time))
-		time = Uptime()
-	if (time < statNext)
+		time = uptime()
+	if (time < __stat_next)
 		return TRUE
-	statNext = time + 1 SECONDS
+	__stat_next = time + 1 SECONDS
 	return FALSE

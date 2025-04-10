@@ -1,9 +1,11 @@
 /obj/machinery/power/generator
 	name = "thermoelectric generator"
 	desc = "It's a high efficiency thermoelectric generator."
+	icon = 'icons/obj/machines/power/teg.dmi'
 	icon_state = "teg-unassembled"
 	density = TRUE
 	anchored = FALSE
+	obj_flags = OBJ_FLAG_ANCHORABLE
 
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 100 //Watts, I hope.  Just enough to do the computer and display things.
@@ -78,7 +80,7 @@
 
 /obj/machinery/power/generator/on_update_icon()
 	icon_state = anchored ? "teg-assembled" : "teg-unassembled"
-	overlays.Cut()
+	ClearOverlays()
 	if (circ1)
 		circ1.temperature_overlay = null
 	if (circ2)
@@ -87,15 +89,16 @@
 		return 1
 	else
 		if (lastgenlev != 0)
-			overlays += image('icons/obj/power.dmi', "teg-op[lastgenlev]")
+			AddOverlays(emissive_appearance(icon, "teg-op[lastgenlev]"))
+			AddOverlays(image(icon, "teg-op[lastgenlev]"))
 			if (circ1 && circ2)
 				var/extreme = (lastgenlev > 9) ? "ex" : ""
 				if (circ1.last_temperature < circ2.last_temperature)
 					circ1.temperature_overlay = "circ-[extreme]cold"
 					circ2.temperature_overlay = "circ-[extreme]hot"
 				else
-					circ1.temperature_overlay = "circ-[extreme]hot"
-					circ2.temperature_overlay = "circ-[extreme]cold"
+					circ1.temperature_overlay = "circ-[extreme]cold"
+					circ2.temperature_overlay = "circ-[extreme]hot"
 		return 1
 
 /obj/machinery/power/generator/Process()
@@ -145,7 +148,7 @@
 
 	//Exceeding maximum power leads to some power loss
 	if(effective_gen > max_power && prob(5))
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+		var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 		s.set_up(3, 1, src)
 		s.start()
 		stored_energy *= 0.5
@@ -176,6 +179,10 @@
 		lubricated = 1
 	else
 		reagents.remove_any(1)
+
+/obj/machinery/power/generator/post_anchor_change()
+	reconnect()
+	..()
 
 /obj/machinery/power/generator/attackby(obj/item/W as obj, mob/user as mob)
 	if(isWrench(W))

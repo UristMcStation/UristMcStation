@@ -45,10 +45,9 @@
 	containername = "Ore box crate"
 
 /singleton/hierarchy/supply_pack/operations/webbing
-	name = "Gear - Webbing, vests, holsters."
+	name = "Gear - Webbing, vests"
 	num_contained = 4
-	contains = list(/obj/item/clothing/accessory/storage/holster,
-					/obj/item/clothing/accessory/storage/black_vest,
+	contains = list(/obj/item/clothing/accessory/storage/black_vest,
 					/obj/item/clothing/accessory/storage/brown_vest,
 					/obj/item/clothing/accessory/storage/white_vest,
 					/obj/item/clothing/accessory/storage/black_drop,
@@ -89,21 +88,50 @@
 	access = access_brig
 
 /singleton/hierarchy/supply_pack/operations/bureaucracy
-	contains = list(/obj/item/material/clipboard,
-					 /obj/item/material/clipboard,
-					 /obj/item/pen/retractable/red,
-					 /obj/item/pen/retractable/blue,
-					 /obj/item/pen/green,
-					 /obj/item/device/camera_film,
-					 /obj/item/folder/blue,
-					 /obj/item/folder/red,
-					 /obj/item/folder/yellow,
-					 /obj/item/hand_labeler,
-					 /obj/item/tape_roll,
-					 /obj/structure/filingcabinet/chestdrawer{anchored = FALSE},
-					 /obj/item/paper_bin)
 	name = "Office supplies"
 	cost = 15
 	containertype = /obj/structure/closet/crate/large
 	containername = "office supplies crate"
+	contains = list(
+		/obj/item/material/folder/clipboard,
+		/obj/item/material/folder/clipboard,
+		/obj/item/pen/retractable/red,
+		/obj/item/pen/retractable/blue,
+		/obj/item/pen/green,
+		/obj/item/device/camera_film,
+		/obj/item/material/folder,
+		/obj/item/material/folder/blue,
+		/obj/item/material/folder/red,
+		/obj/item/material/folder/yellow,
+		/obj/item/material/folder/white,
+		/obj/item/material/folder/envelope,
+		/obj/item/material/folder/envelope,
+		/obj/item/material/folder/envelope,
+		/obj/item/material/folder/envelope,
+		/obj/item/hand_labeler,
+		/obj/item/tape_roll,
+		/obj/structure/filingcabinet/chestdrawer{anchored = FALSE},
+		/obj/item/paper_bin,
+		/obj/item/storage/pill_bottle/tacks
+	)
 
+/singleton/hierarchy/supply_pack/operations/minergear
+	name = "Shaft miner equipment"
+	contains = list(/obj/item/storage/backpack/industrial,
+					/obj/item/storage/backpack/satchel/eng,
+					/obj/item/device/radio/headset/headset_cargo,
+					/obj/item/clothing/under/rank/miner,
+					/obj/item/clothing/gloves/thick,
+					/obj/item/clothing/shoes/black,
+					/obj/item/device/scanner/gas,
+					/obj/item/storage/ore,
+					/obj/item/device/flashlight/lantern,
+					/obj/item/shovel,
+					/obj/item/pickaxe,
+					/obj/item/device/scanner/mining,
+					/obj/item/clothing/glasses/material,
+					/obj/item/clothing/glasses/meson)
+	cost = 15
+	containertype = /obj/structure/closet/crate/secure
+	containername = "shaft miner equipment crate"
+	access = access_mining

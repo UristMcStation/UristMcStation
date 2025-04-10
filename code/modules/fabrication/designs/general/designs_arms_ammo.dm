@@ -135,6 +135,10 @@
 	name = "ammunition (en-bloc clip)"
 	path = /obj/item/ammo_magazine/iclipr
 
+/datum/fabricator_recipe/arms_ammo/hidden/beandrum
+	name = "ammunition (drum magazine, beanbag)"
+	path = /obj/item/ammo_magazine/shotgunmag/beanbag
+
 /datum/fabricator_recipe/arms_ammo/hidden/spaceak
 	name = "ammunition (U2442 magazine box)"
 	path = /obj/item/ammo_magazine/rifle/military/spaceak

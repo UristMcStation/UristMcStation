@@ -98,8 +98,8 @@
 	name = "paperwork"
 	gender = PLURAL
 	desc = "This densely typed sheaf of documents is filled with legalese and jargon. You can't make heads or tails of them."
-	icon = 'icons/obj/goal_paperwork.dmi'
-	icon_state = "generic"
+	icon = 'icons/obj/paper.dmi'
+	icon_state = "paper_objective"
 
 	var/datum/goal/department/paperwork/associated_goal
 	var/list/all_signatories
@@ -117,7 +117,7 @@
 
 /obj/item/paperwork/on_update_icon()
 	icon_state = "[icon_state][length(has_signed) || ""]"
-	
+
 /obj/item/paperwork/examine(mob/user, distance)
 	. = ..()
 	if(distance <= 1)
@@ -126,18 +126,18 @@
 		if(length(has_signed))
 			to_chat(user, SPAN_NOTICE("It has been signed by: [english_list(has_signed)]."))
 
-/obj/item/paperwork/attackby(obj/item/W, mob/user)
+/obj/item/paperwork/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/pen))
 		if(user.real_name in has_signed)
 			to_chat(user, SPAN_WARNING("You have already signed \the [src]."))
-			return
+			return TRUE
 		if(!(user.real_name in needs_signed))
 			to_chat(user, SPAN_WARNING("You can't see anywhere on \the [src] for you to sign; it doesn't need your signature."))
-			return
+			return TRUE
 		LAZYADD(has_signed, user.real_name)
 		LAZYREMOVE(needs_signed, user.real_name)
 		user.visible_message(SPAN_NOTICE("\The [user] signs \the [src] with \the [W]."))
 		associated_goal?.update_strings()
 		update_icon()
 		return TRUE
-	. = ..()
+	return ..()

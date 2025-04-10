@@ -11,15 +11,19 @@
 /obj/item/net_shell
 	name = "net gun shell"
 	desc = "A casing containing an autodeploying net for use in a net gun. Kind of looks like a flash light."
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'icons/obj/weapons/ammo.dmi'
 	icon_state = "netshell"
 
-/obj/item/net_shell/attackby(obj/item/gun/launcher/net/I, mob/user)
-	if(istype(I) && I.can_load(src, user))
-		I.load(src, user)
-		to_chat(usr, "You load \the [src] into \the [I].")
+/obj/item/net_shell/use_tool(obj/item/item, mob/living/user, list/click_params)
+	if(istype(item, /obj/item/gun/launcher/net))
+		var/obj/item/gun/launcher/net/launcher = item
+		if (!launcher.can_load(src, user))
+			return TRUE
+		launcher.load(src, user)
+		to_chat(usr, "You load \the [src] into \the [launcher].")
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/gun/launcher/net/examine(mob/user, distance)
 	. = ..()
@@ -52,11 +56,15 @@
 	else
 		to_chat(user, SPAN_WARNING("\The [src] is empty."))
 
-/obj/item/gun/launcher/net/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/net_shell)))
-		load(I, user)
-	else
-		..()
+
+/obj/item/gun/launcher/net/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Net Shell - Load
+	if (istype(tool, /obj/item/net_shell))
+		load(tool, user)
+		return TRUE
+
+	return ..()
+
 
 /obj/item/gun/launcher/net/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src)

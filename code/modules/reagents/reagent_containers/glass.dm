@@ -6,7 +6,7 @@
 	name = " "
 	var/base_name = " "
 	desc = ""
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'icons/obj/chemical_storage.dmi'
 	icon_state = "null"
 	item_state = "null"
 	amount_per_transfer_from_this = 10
@@ -66,19 +66,19 @@
 		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 
-/obj/item/reagent_containers/glass/attack(mob/M as mob, mob/user as mob, def_zone)
-	if(force && !(item_flags & ITEM_FLAG_NO_BLUDGEON) && user.a_intent == I_HURT)
-		return	..()
-	if(standard_feed_mob(user, M))
-		return
-	return 0
+/obj/item/reagent_containers/glass/use_before(mob/M as mob, mob/user as mob)
+	. = FALSE
+	if (!istype(M))
+		return FALSE
+	if (standard_feed_mob(user, M))
+		return TRUE
 
 /obj/item/reagent_containers/glass/standard_feed_mob(mob/user, mob/target)
 	if(!is_open_container())
 		to_chat(user, SPAN_NOTICE("You need to open \the [src] first."))
-		return 1
+		return TRUE
 	if(user.a_intent == I_HURT)
-		return 1
+		return FALSE
 	return ..()
 
 /obj/item/reagent_containers/glass/self_feed_message(mob/user)
@@ -122,16 +122,17 @@
 			)
 		playsound(src.loc, "sound/effects/Glasshit.ogg", 50)
 
-/obj/item/reagent_containers/glass/afterattack(obj/target, mob/user, proximity)
-	if (!proximity || (target.type in can_be_placed_into) || standard_dispenser_refill(user, target) || standard_pour_into(user, target))
+/obj/item/reagent_containers/glass/use_after(obj/target, mob/living/user, click_parameters)
+	if ((target.type in can_be_placed_into) || standard_dispenser_refill(user, target) || standard_pour_into(user, target))
 		return TRUE
 	splashtarget(target, user)
+	return TRUE
 
 
 /obj/item/reagent_containers/glass/beaker
 	name = "beaker"
 	desc = "A beaker."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'icons/obj/chemical_storage.dmi'
 	icon_state = "beaker"
 	item_state = "beaker"
 	center_of_mass = "x=15;y=10"
@@ -162,7 +163,7 @@
 
 
 /obj/item/reagent_containers/glass/beaker/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if (reagents.total_volume)
 		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "[icon_state]10")
 		var/percent = round((reagents.total_volume / volume) * 100)
@@ -182,10 +183,10 @@
 			if (91 to INFINITY)
 				filling.icon_state = "[icon_state]100"
 		filling.color = reagents.get_color()
-		overlays += filling
+		AddOverlays(filling)
 	if (!is_open_container())
 		var/image/lid = image(icon, src, "lid_[initial(icon_state)]")
-		overlays += lid
+		AddOverlays(lid)
 
 
 /obj/item/reagent_containers/glass/beaker/large
@@ -202,7 +203,7 @@
 /obj/item/reagent_containers/glass/beaker/bowl
 	name = "mixing bowl"
 	desc = "A large mixing bowl."
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'icons/obj/machines/kitchen.dmi'
 	icon_state = "mixingbowl"
 	center_of_mass = "x=16;y=10"
 	matter = list(MATERIAL_STEEL = 300)
@@ -279,7 +280,7 @@
 /obj/item/reagent_containers/glass/bucket
 	name = "bucket"
 	desc = "It's a bucket."
-	icon = 'icons/obj/janitor.dmi'
+	icon = 'icons/obj/janitor_tools.dmi'
 	icon_state = "bucket"
 	item_state = "bucket"
 	center_of_mass = "x=16;y=9"
@@ -299,7 +300,7 @@
 	matter = list(MATERIAL_WOOD = 280)
 	volume = 200
 
-/obj/item/reagent_containers/glass/bucket/attackby(obj/D, mob/user as mob)
+/obj/item/reagent_containers/glass/bucket/use_tool(obj/item/D, mob/living/user, list/click_params)
 	if(istype(D, /obj/item/mop))
 		if(reagents.total_volume < 1)
 			to_chat(user, SPAN_WARNING("\The [src] is empty!"))
@@ -307,25 +308,25 @@
 			reagents.trans_to_obj(D, 5)
 			to_chat(user, SPAN_NOTICE("You wet \the [D] in \the [src]."))
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-		return
+		return TRUE
 	else
 		return ..()
 
 /obj/item/reagent_containers/glass/bucket/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if (!is_open_container())
 		var/image/lid = image(icon, src, "lid_[initial(icon_state)]")
-		overlays += lid
+		AddOverlays(lid)
 	else if(reagents.total_volume && round((reagents.total_volume / volume) * 100) > 80)
 		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "bucket")
 		filling.color = reagents.get_color()
-		overlays += filling
+		AddOverlays(filling)
 
 /*
 /obj/item/reagent_containers/glass/blender_jug
 	name = "Blender Jug"
 	desc = "A blender jug, part of a blender."
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'icons/obj/machines/kitchen.dmi'
 	icon_state = "blender_jug_e"
 	volume = 100
 

@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/syndicate
+/mob/living/simple_animal/hostile/human/syndicate
 	name = "\improper Syndicate operative"
 	desc = "Death to the Company."
 	icon_state = "syndicate"
@@ -16,7 +16,7 @@
 	natural_weapon = /obj/item/natural_weapon/punch
 	can_escape = TRUE
 	a_intent = I_HURT
-	var/corpse = /obj/effect/landmark/corpse/syndicate
+	var/corpse = /obj/landmark/corpse/syndicate
 	var/weapon1
 	var/weapon2
 	unsuitable_atmos_damage = 15
@@ -24,7 +24,7 @@
 	faction = "syndicate"
 	status_flags = CANPUSH
 
-/mob/living/simple_animal/hostile/syndicate/death(gibbed, deathmessage, show_dead_message)
+/mob/living/simple_animal/hostile/human/syndicate/death(gibbed, deathmessage, show_dead_message)
 	..(gibbed, deathmessage, show_dead_message)
 	if(corpse)
 		new corpse (src.loc)
@@ -37,7 +37,7 @@
 
 ///////////////Sword and shield////////////
 
-/mob/living/simple_animal/hostile/syndicate/melee
+/mob/living/simple_animal/hostile/human/syndicate/melee
 	icon_state = "syndicatemelee"
 	icon_living = "syndicatemelee"
 	natural_weapon = /obj/item/melee/energy/sword/red/activated
@@ -46,7 +46,7 @@
 	status_flags = 0
 
 
-/mob/living/simple_animal/hostile/syndicate/melee/use_weapon(obj/item/weapon, mob/user, list/click_params)
+/mob/living/simple_animal/hostile/human/syndicate/melee/use_weapon(obj/item/weapon, mob/user, list/click_params)
 	if (!weapon.force)
 		return ..()
 
@@ -81,7 +81,7 @@
 	return TRUE
 
 
-/mob/living/simple_animal/hostile/syndicate/melee/bullet_act(obj/item/projectile/Proj)
+/mob/living/simple_animal/hostile/human/syndicate/melee/bullet_act(obj/item/projectile/Proj)
 	if(!Proj)	return
 	if (status_flags & GODMODE)
 		return PROJECTILE_FORCE_MISS
@@ -92,17 +92,20 @@
 	return 0
 
 
-/mob/living/simple_animal/hostile/syndicate/melee/space
+/mob/living/simple_animal/hostile/human/syndicate/melee/space
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
 	icon_state = "syndicatemeleespace"
 	icon_living = "syndicatemeleespace"
 	name = "Syndicate Commando"
-	corpse = /obj/effect/landmark/corpse/syndicate
+	corpse = /obj/landmark/corpse/syndicate
 	speed = 0
 
-/mob/living/simple_animal/hostile/syndicate/ranged
+/mob/living/simple_animal/hostile/human/syndicate/melee/space/Process_Spacemove(allow_movement)
+	return TRUE
+
+/mob/living/simple_animal/hostile/human/syndicate/ranged
 	ranged = 1
 	rapid = 1
 	icon_state = "syndicateranged"
@@ -113,15 +116,18 @@
 
 	weapon1 = /obj/item/gun/projectile/automatic/c20r
 
-/mob/living/simple_animal/hostile/syndicate/ranged/space
+/mob/living/simple_animal/hostile/human/syndicate/ranged/space
 	icon_state = "syndicaterangedpsace"
 	icon_living = "syndicaterangedpsace"
 	name = "Syndicate Commando"
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
-	corpse = /obj/effect/landmark/corpse/syndicate/commando
+	corpse = /obj/landmark/corpse/syndicate/commando
 	speed = 0
+
+/mob/living/simple_animal/hostile/human/syndicate/ranged/space/Process_Spacemove(allow_movement)
+	return TRUE
 
 /mob/living/simple_animal/hostile/viscerator
 	name = "viscerator"

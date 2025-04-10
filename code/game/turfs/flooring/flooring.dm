@@ -49,6 +49,8 @@
 
 	var/height = 0
 
+	var/z_flags //same z flags used for turfs, i.e ZMIMIC_DEFAULT etc
+
 /singleton/flooring/proc/on_remove()
 	return
 
@@ -65,6 +67,9 @@
 	floor_smooth = SMOOTH_NONE
 	wall_smooth = SMOOTH_ALL
 	space_smooth = SMOOTH_NONE
+
+/singleton/flooring/grass/cut
+	floor_smooth = SMOOTH_ALL
 
 /singleton/flooring/dirt
 	name = "dirt"
@@ -137,6 +142,11 @@
 	name = "red carpet"
 	icon_base = "red"
 	build_type = /obj/item/stack/tile/carpetred
+
+/singleton/flooring/carpet/black
+	name = "black carpet"
+	icon_base = "black"
+	build_type = /obj/item/stack/tile/carpetblack
 
 /singleton/flooring/linoleum
 	name = "linoleum"
@@ -316,8 +326,11 @@
 
 /singleton/flooring/reinforced/circuit/red
 	icon_base = "rcircuit"
+
+/singleton/flooring/reinforced/circuit/selfdestruct
+	icon_base = "rcircuit_off"
 	flags = TURF_ACID_IMMUNE
-	can_paint = 0
+	can_paint = FALSE
 
 /singleton/flooring/reinforced/cult
 	name = "engraved floor"
@@ -412,6 +425,14 @@
 	space_smooth = SMOOTH_NONE
 	height = -FLUID_OVER_MOB_HEAD * 2
 
+/singleton/flooring/forcefield
+	name = "ship forcefield"
+	desc = "A shimmering barrier of pure energy."
+	icon = 'icons/turf/flooring/forcefield.dmi'
+	icon_base = "forcefield"
+	build_type = null
+	flags = TURF_HAS_CORNERS | TURF_ACID_IMMUNE
+	footstep_type = /singleton/footsteps/blank
 
 /singleton/flooring/bluespace
 	name = "bluespace"
@@ -424,3 +445,24 @@
 	floor_smooth = SMOOTH_NONE
 	wall_smooth = SMOOTH_NONE
 	space_smooth = SMOOTH_NONE
+
+/singleton/flooring/glass
+	name = "glass flooring"
+	desc = "A window to the world outside. Or the world beneath your feet, rather."
+	icon = 'icons/turf/flooring/glassfloor.dmi'
+	icon_base = "glassfloor"
+	build_type = /obj/item/stack/material/glass/reinforced
+	damage_temperature = T100C
+	flags = TURF_REMOVE_WRENCH
+	can_engrave = FALSE
+	color = GLASS_COLOR
+	z_flags = ZM_MIMIC_DEFAULTS
+	floor_smooth = SMOOTH_NONE
+	wall_smooth = SMOOTH_NONE
+	space_smooth = SMOOTH_NONE
+
+/singleton/flooring/glass/boro
+	name = "borosilicate glass flooring"
+	build_type = /obj/item/stack/material/glass/boron
+	color = GLASS_COLOR_BORON
+	damage_temperature = T0C + 4000

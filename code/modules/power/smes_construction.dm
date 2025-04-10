@@ -110,7 +110,7 @@
 // This also causes the SMES to quickly discharge, and has small chance of damaging output APCs.
 /obj/machinery/power/smes/buildable/Process()
 	if(!grounding && (Percentage() > 5))
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+		var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 		s.set_up(5, 1, src)
 		s.start()
 		charge -= (output_level_max * CELLRATE)
@@ -173,14 +173,14 @@
 
 
 	// Preparations
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+	var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 	// Check if user has protected gloves.
 	var/user_protected = 0
 	if(h_user.gloves)
 		var/obj/item/clothing/gloves/G = h_user.gloves
 		if(G.siemens_coefficient == 0)
 			user_protected = 1
-	log_and_message_admins("SMES FAILURE: <b>[src.x]X [src.y]Y [src.z]Z</b> User: [usr.ckey], Intensity: [intensity]/100 - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>")
+	log_and_message_admins("SMES FAILURE: <b>[src.x]X [src.y]Y [src.z]Z</b> User: [user.ckey], Intensity: [intensity]/100", user, src)
 
 
 	switch (intensity)
@@ -252,7 +252,7 @@
 
 			if (prob(50))
 				// Added admin-notifications so they can stop it when griffed.
-				log_and_message_admins("SMES explosion imminent.")
+				log_and_message_admins("SMES explosion imminent.", user)
 				src.ping("DANGER! Magnetic containment field unstable! Containment field failure imminent!")
 				failing = 1
 				// 30 - 60 seconds and then BAM!
@@ -283,8 +283,8 @@
 // Description: Allows us to use special icon overlay for critical SMESs
 /obj/machinery/power/smes/buildable/on_update_icon()
 	if (failing)
-		overlays.Cut()
-		overlays += image('icons/obj/power.dmi', "smes-crit")
+		ClearOverlays()
+		AddOverlays(image('icons/obj/machines/power/smes.dmi', "smes-crit"))
 	else
 		..()
 
@@ -332,23 +332,21 @@
 			return
 	..()
 
-// Proc: attackby()
-// Parameters: 2 (W - object that was used on this machine, user - person which used the object)
-// Description: Handles tool interaction. Allows deconstruction/upgrading/fixing.
-/obj/machinery/power/smes/buildable/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/power/smes/buildable/use_tool(obj/item/W, mob/living/user, list/click_params)
 	// No more disassembling of overloaded SMESs. You broke it, now enjoy the consequences.
 	if (failing)
 		to_chat(user, SPAN_WARNING("\The [src]'s screen is flashing with alerts. It seems to be overloaded! Touching it now is probably not a good idea."))
-		return
+		return TRUE
 
-	if (!..())
+	// Multitool - change RCON tag
+	if(isMultitool(W))
+		var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
+		if(newtag)
+			RCon_tag = newtag
+			to_chat(user, SPAN_NOTICE("You changed the RCON tag to: [newtag]"))
+		return TRUE
 
-		// Multitool - change RCON tag
-		if(isMultitool(W))
-			var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
-			if(newtag)
-				RCon_tag = newtag
-				to_chat(user, SPAN_NOTICE("You changed the RCON tag to: [newtag]"))
+	return ..()
 
 // Proc: toggle_input()
 // Parameters: None

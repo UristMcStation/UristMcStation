@@ -124,7 +124,7 @@
 					to_chat(user, SPAN_WARNING("No AI type selected."))
 					return
 				if (!isnull(L.ai_holder))
-					GLOB.stat_set_event.unregister(L, L.ai_holder, /datum/ai_holder/proc/holder_stat_change)
+					GLOB.stat_set_event.unregister(L, L.ai_holder, TYPE_PROC_REF(/datum/ai_holder, holder_stat_change))
 					qdel(L.ai_holder)
 				L.ai_holder = new ai_type (L)
 				to_chat(user, SPAN_NOTICE("\The [L]'s AI type has been changed to [ai_type]"))
@@ -147,7 +147,7 @@
 					return
 
 
-		if (istype(A, /atom)) // Force attack.
+		if (isloc(A)) // Force attack.
 			if (pa["alt"])
 				var/i = 0
 				for(var/mob/living/unit in selected_mobs)
@@ -212,7 +212,7 @@
 /datum/build_mode/ai/proc/select_AI_mob(mob/living/unit)
 	selected_mobs += unit
 	user.client.images += unit.selected_image
-	GLOB.destroyed_event.register(unit, src, .proc/deselect_AI_mob)
+	GLOB.destroyed_event.register(unit, src, PROC_REF(deselect_AI_mob))
 
 /datum/build_mode/ai/proc/deselect_AI_mob(mob/living/unit)
 	selected_mobs -= unit

@@ -52,7 +52,7 @@
 	name = "tiny device"
 	desc = "Press button to activate. Can be done once and only once."
 	w_class = ITEM_SIZE_TINY
-	icon = 'icons/obj/flash_synthetic.dmi'
+	icon = 'icons/obj/tools/flash_synthetic.dmi'
 	icon_state = "sflash"
 	var/state = AWAITING_ACTIVATION
 	var/service_label = "Unnamed Service"
@@ -78,7 +78,7 @@
 	if(state != AWAITING_ACTIVATION)
 		to_chat(user, SPAN_WARNING("\The [src] won't activate again."))
 		return
-	var/obj/effect/overmap/visitable/O = map_sectors["[get_z(src)]"]
+	var/obj/overmap/visitable/O = map_sectors["[get_z(src)]"]
 	var/choice = alert(user, "This will only affect your current location[istype(O) ? " ([O])" : ""]. Proceed?","Confirmation", "Yes", "No")
 	if(choice != "Yes")
 		return
@@ -90,7 +90,7 @@
 	log_and_message_admins("has activated the service '[service_label]'", user)
 
 	if(service_duration)
-		addtimer(new Callback(src,/obj/item/device/uplink_service/proc/deactivate), service_duration)
+		addtimer(new Callback(src, PROC_REF(deactivate)), service_duration)
 	else
 		deactivate()
 
@@ -319,7 +319,7 @@
 			var/level = job.min_skill[S.type]
 			if(prob(10))
 				level = min(rand(1,3), job.max_skill[S.type])
-			if(level > SKILL_NONE)
+			if(level > SKILL_UNSKILLED)
 				skills += "[S.name], [S.levels[level]]"
 		new_record.set_skillset(jointext(skills,"\n"))
 

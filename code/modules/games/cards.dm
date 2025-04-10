@@ -85,15 +85,15 @@
 		P.card_icon = "joker"
 		cards += P
 
-/obj/item/deck/attackby(obj/O, mob/user)
+/obj/item/deck/use_tool(obj/item/O, mob/living/user, list/click_params)
 	if(istype(O,/obj/item/hand))
 		var/obj/item/hand/H = O
 		for(var/datum/playingcard/P in H.cards)
 			cards += P
 		qdel(O)
 		to_chat(user, "You place your cards on the bottom of \the [src].")
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/deck/verb/draw_card()
 
@@ -159,12 +159,13 @@
 	H.concealed = 1
 	H.update_icon()
 	if(user==target)
-		user.visible_message("\The [user] deals a card to \himself.")
+		var/datum/pronouns/pronouns = user.choose_from_pronouns()
+		user.visible_message("\The [user] deals a card to [pronouns.self].")
 	else
 		user.visible_message("\The [user] deals a card to \the [target].")
 	H.throw_at(get_step(target,target.dir),10,1,user)
 
-/obj/item/hand/attackby(obj/O, mob/user)
+/obj/item/hand/use_tool(obj/item/O, mob/living/user, list/click_params)
 	if(istype(O,/obj/item/hand))
 		var/obj/item/hand/H = O
 		for(var/datum/playingcard/P in cards)
@@ -172,8 +173,8 @@
 		H.concealed = src.concealed
 		qdel(src)
 		H.update_icon()
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/deck/attack_self(mob/user)
 
@@ -285,17 +286,17 @@
 		name = "[P.name]"
 		desc = "[P.desc]"
 
-	overlays.Cut()
+	ClearOverlays()
 
 	if(length(cards) == 1)
 		var/datum/playingcard/P = cards[1]
 		var/image/I = P.card_image(concealed, src.icon)
 		I.pixel_x += (-5+rand(10))
 		I.pixel_y += (-5+rand(10))
-		overlays += I
+		AddOverlays(I)
 		return
 
-	var/offset = Floor(20/length(cards))
+	var/offset = floor(20/length(cards))
 	var/matrix/M = matrix()
 	M.Update(
 		rotation = (direction & EAST|WEST) ? 90 : 0,
@@ -316,7 +317,7 @@
 			else
 				I.pixel_x = -7+(offset*i)
 		I.SetTransform(others = M)
-		overlays += I
+		AddOverlays(I)
 		i++
 
 /obj/item/hand/dropped(mob/user)

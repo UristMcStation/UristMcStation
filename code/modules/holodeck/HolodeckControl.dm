@@ -44,9 +44,9 @@
 
 	dat += "<B>Holodeck Control System</B><BR>"
 	if(!islocked)
-		dat += "Holodeck is <A href='?src=\ref[src];togglehololock=1'>[SPAN_COLOR("green", "(UNLOCKED)")]</A><BR>"
+		dat += "Holodeck is <A href='byond://?src=\ref[src];togglehololock=1'>[SPAN_COLOR("green", "(UNLOCKED)")]</A><BR>"
 	else
-		dat += "Holodeck is <A href='?src=\ref[src];togglehololock=1'>[SPAN_COLOR("red", "(LOCKED)")]</A><BR>"
+		dat += "Holodeck is <A href='byond://?src=\ref[src];togglehololock=1'>[SPAN_COLOR("red", "(LOCKED)")]</A><BR>"
 		show_browser(user, dat, "window=computer;size=400x500")
 		onclose(user, "computer")
 		return
@@ -66,10 +66,10 @@
 		return
 
 	for(var/prog in supported_programs)
-		dat += "<A href='?src=\ref[src];program=[supported_programs[prog]]'>([prog])</A><BR>"
+		dat += "<A href='byond://?src=\ref[src];program=[supported_programs[prog]]'>([prog])</A><BR>"
 
 	dat += "<BR>"
-	dat += "<A href='?src=\ref[src];program=turnoff'>(Turn Off)</A><BR>"
+	dat += "<A href='byond://?src=\ref[src];program=turnoff'>(Turn Off)</A><BR>"
 
 	dat += "<BR>"
 	dat += "Please ensure that only holographic weapons are used in the holodeck if a combat simulation has been loaded.<BR>"
@@ -80,15 +80,15 @@
 			if (emagged)
 				dat += "[SPAN_COLOR("red", "<b>ERROR</b>: Cannot re-enable Safety Protocols.")]<BR>"
 			else
-				dat += "<A href='?src=\ref[src];AIoverride=1'>([SPAN_COLOR("green", "Re-Enable Safety Protocols?")])</A><BR>"
+				dat += "<A href='byond://?src=\ref[src];AIoverride=1'>([SPAN_COLOR("green", "Re-Enable Safety Protocols?")])</A><BR>"
 		else
-			dat += "<A href='?src=\ref[src];AIoverride=1'>([SPAN_COLOR("red", "Override Safety Protocols?")])</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];AIoverride=1'>([SPAN_COLOR("red", "Override Safety Protocols?")])</A><BR>"
 
 	dat += "<BR>"
 
 	if(safety_disabled)
 		for(var/prog in restricted_programs)
-			dat += "<A href='?src=\ref[src];program=[restricted_programs[prog]]'>([SPAN_COLOR("red", "Begin [prog]")])</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];program=[restricted_programs[prog]]'>([SPAN_COLOR("red", "Begin [prog]")])</A><BR>"
 			dat += "Ensure the holodeck is empty before testing.<BR>"
 			dat += "<BR>"
 		dat += "Safety Protocols are [SPAN_COLOR("red", " DISABLED ")]<BR>"
@@ -96,9 +96,9 @@
 		dat += "Safety Protocols are [SPAN_COLOR("green", " ENABLED ")]<BR>"
 
 	if(linkedholodeck.has_gravity)
-		dat += "Gravity is <A href='?src=\ref[src];gravity=1'>[SPAN_COLOR("green", "(ON)")]</A><BR>"
+		dat += "Gravity is <A href='byond://?src=\ref[src];gravity=1'>[SPAN_COLOR("green", "(ON)")]</A><BR>"
 	else
-		dat += "Gravity is <A href='?src=\ref[src];gravity=1'>[SPAN_COLOR("blue", "(OFF)")]</A><BR>"
+		dat += "Gravity is <A href='byond://?src=\ref[src];gravity=1'>[SPAN_COLOR("blue", "(OFF)")]</A><BR>"
 	show_browser(user, dat, "window=computer;size=400x500")
 	onclose(user, "computer")
 	return
@@ -106,7 +106,7 @@
 /obj/machinery/computer/HolodeckControl/Topic(href, href_list)
 	if(..())
 		return 1
-	if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+	if((usr.contents.Find(src) || (in_range(src, usr) && isturf(loc))) || (istype(usr, /mob/living/silicon)))
 		usr.set_machine(src)
 
 		if(href_list["program"])
@@ -209,7 +209,7 @@
 
 			for(var/turf/T in linkedholodeck)
 				if(prob(30))
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+					var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 					s.set_up(2, 1, T)
 					s.start()
 				T.ex_act(EX_ACT_LIGHT)
@@ -218,7 +218,7 @@
 /obj/machinery/computer/HolodeckControl/proc/derez(obj/obj , silent = 1)
 	holographic_objs.Remove(obj)
 
-	if(obj == null)
+	if(isnull(obj))
 		return
 
 	if(!silent)
@@ -274,17 +274,14 @@
 		holographic_mobs -= C
 		C.death()
 
-	for(var/obj/effect/decal/cleanable/blood/B in linkedholodeck)
+	for(var/obj/decal/cleanable/blood/B in linkedholodeck)
 		qdel(B)
 
 	holographic_objs = A.copy_contents_to(linkedholodeck , 1)
 	for(var/obj/holo_obj in holographic_objs)
 		holo_obj.alpha *= 0.8 //give holodeck objs a slight transparency
 		holo_obj.holographic = TRUE
-		if(istype(holo_obj,/obj/item/storage))
-			set_extension(holo_obj,/datum/extension/chameleon/backpack)
-		if(istype(holo_obj,/obj/item/clothing))
-			set_extension(holo_obj,/datum/extension/chameleon/clothing)
+		holo_obj.SetupChameleonExtension(CHAMELEON_FLEXIBLE_OPTIONS_PARENT_TYPE, TRUE, FALSE)
 
 	if(HP.ambience)
 		linkedholodeck.forced_ambience = HP.ambience.Copy()
@@ -298,11 +295,11 @@
 	linkedholodeck.sound_env = A.sound_env
 
 	spawn(30)
-		for(var/obj/effect/landmark/L in linkedholodeck)
+		for(var/obj/landmark/L in linkedholodeck)
 			if(L.name=="Atmospheric Test Start")
 				spawn(20)
 					var/turf/T = get_turf(L)
-					var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+					var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 					s.set_up(2, 1, T)
 					s.start()
 					if(T)

@@ -50,12 +50,6 @@
 /obj/item/clothing/suit/storage/solgov/service/fleet/fiber_name = "fleet service jacket"
 /obj/item/clothing/suit/storage/solgov/dress/fleet/fiber_name = "fleet dress jacket"
 
-/obj/item/clothing/under/solgov/utility/army/fiber_name = "army fatigues"
-/obj/item/clothing/under/solgov/service/army/fiber_name = "army service uniform"
-/obj/item/clothing/under/solgov/mildress/army/fiber_name = "army dress uniform"
-/obj/item/clothing/suit/storage/solgov/service/army/fiber_name = "army coat"
-/obj/item/clothing/suit/dress/solgov/army/fiber_name = "army dress jacket"
-
 
 // Removing the has_fibers flag from things that should not leave forensic traces. Probably not exhaustive.
 
@@ -94,7 +88,7 @@
 /obj/item/clothing/accessory/buddy_tag/clothing_flags = CLOTHING_FLAGS_ACCESSORY_DEFAULT_FIBERLESS
 /obj/item/clothing/accessory/chaplain/clothing_flags = CLOTHING_FLAGS_ACCESSORY_DEFAULT_FIBERLESS
 /obj/item/clothing/accessory/ftu_pin/clothing_flags = CLOTHING_FLAGS_ACCESSORY_DEFAULT_FIBERLESS
-/obj/item/clothing/accessory/wristwatches/clothing_flags = CLOTHING_FLAGS_ACCESSORY_DEFAULT_FIBERLESS
+/obj/item/clothing/accessory/wristwatch/clothing_flags = CLOTHING_FLAGS_ACCESSORY_DEFAULT_FIBERLESS
 /obj/item/clothing/accessory/solgov/skillbadge/clothing_flags = CLOTHING_FLAGS_ACCESSORY_DEFAULT_FIBERLESS
 /obj/item/clothing/accessory/solgov/skillstripe/clothing_flags = CLOTHING_FLAGS_ACCESSORY_DEFAULT_FIBERLESS
 /obj/item/clothing/accessory/solgov/torch_patch/clothing_flags = CLOTHING_FLAGS_ACCESSORY_DEFAULT_FIBERLESS

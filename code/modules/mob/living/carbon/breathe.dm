@@ -80,7 +80,7 @@
 	if(wear_mask && (wear_mask.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))
 		return
 
-	for(var/obj/effect/effect/smoke/chem/smoke in view(1, src))
+	for(var/obj/effect/smoke/chem/smoke in view(1, src))
 		if(smoke.reagents.total_volume)
 			smoke.reagents.trans_to_mob(src, 5, CHEM_INGEST, copy = 1)
 			smoke.reagents.trans_to_mob(src, 5, CHEM_BLOOD, copy = 1)
@@ -96,3 +96,9 @@
 /mob/living/carbon/proc/handle_post_breath(datum/gas_mixture/breath)
 	if(breath)
 		loc.assume_air(breath) //by default, exhale
+
+
+/// Whether or not the mob has lungs that use active breathing. Used for various effects that shouldn't occur on mobs that just don't breathe.
+/mob/living/carbon/proc/active_breathing()
+	var/obj/item/organ/internal/lungs/lungs = internal_organs_by_name[species.breathing_organ]
+	return lungs?.active_breathing

@@ -1,7 +1,7 @@
 /obj/structure/reagent_dispensers/coolanttank
 	name = "coolant tank"
 	desc = "A tank of industrial coolant."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/structures/liquid_tanks.dmi'
 	icon_state = "coolanttank"
 	initial_capacity = 10000
 	amount_per_transfer_from_this = 10
@@ -19,7 +19,7 @@
 	explode()
 
 /obj/structure/reagent_dispensers/coolanttank/proc/explode()
-	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread
+	var/datum/effect/smoke_spread/S = new /datum/effect/smoke_spread
 	S.set_up(5, 0, src.loc)
 
 	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)

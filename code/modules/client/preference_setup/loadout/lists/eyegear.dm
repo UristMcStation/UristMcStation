@@ -35,6 +35,7 @@
 	options["Goggles, corrective"] = /obj/item/clothing/glasses/science/prescription
 	options["HUD"] = /obj/item/clothing/glasses/hud/science
 	options["HUD, corrective"] = /obj/item/clothing/glasses/hud/science/prescription
+	options["Aviators"] = /obj/item/clothing/glasses/hud/science/aviators
 	gear_tweaks += new /datum/gear_tweak/path (options)
 
 
@@ -75,6 +76,8 @@
 	options["Goggles"] = /obj/item/clothing/glasses/hud/health/goggle
 	options["Goggles, corrective"] = /obj/item/clothing/glasses/hud/health/goggle/prescription
 	options["Eyepatch"] = /obj/item/clothing/glasses/eyepatch/hud/medical
+	options["Aviators"] = /obj/item/clothing/glasses/hud/health/aviators
+	options["Aviators, corrective"] = /obj/item/clothing/glasses/hud/health/aviators/prescription
 	gear_tweaks += new /datum/gear_tweak/path (options)
 
 
@@ -91,6 +94,8 @@
 	options["Goggles"] = /obj/item/clothing/glasses/meson
 	options["Goggles, corrective"] = /obj/item/clothing/glasses/meson/prescription
 	options["Eyepatch"] = /obj/item/clothing/glasses/eyepatch/hud/meson
+	options["Aviators"] = /obj/item/clothing/glasses/meson/aviators
+	options["Aviators, corrective"] = /obj/item/clothing/glasses/meson/aviators/prescription
 	gear_tweaks += new /datum/gear_tweak/path (options)
 
 
@@ -106,6 +111,8 @@
 	var/list/options = list()
 	options["HUD"] = /obj/item/clothing/glasses/hud/janitor
 	options["HUD, corrective"] = /obj/item/clothing/glasses/hud/janitor/prescription
+	options["Aviators"] = /obj/item/clothing/glasses/hud/janitor/aviators
+	options["Aviators, corrective"] = /obj/item/clothing/glasses/hud/janitor/aviators/prescription
 	gear_tweaks += new /datum/gear_tweak/path (options)
 
 
@@ -160,9 +167,17 @@
 
 
 /datum/gear/eyes/material
-	display_name = "Material Goggles"
-	path = /obj/item/clothing/glasses/material
+	display_name = "Material Eyewear"
+	path = /obj/item/clothing/glasses
 	flags = GEAR_HAS_NO_CUSTOMIZATION
+
+
+/datum/gear/eyes/material/New()
+	..()
+	var/list/options = list()
+	options["Material Goggles"] = /obj/item/clothing/glasses/material
+	options["Material Goggles, corrective"] = /obj/item/clothing/glasses/material/prescription
+	gear_tweaks += new /datum/gear_tweak/path (options)
 
 
 /datum/gear/eyes/monocle
@@ -174,3 +189,14 @@
 	display_name = "Blindfold"
 	path = /obj/item/clothing/glasses/blindfold
 	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/eyes/ballistics
+	display_name = "Replica Ballistic Goggles"
+	path = /obj/item/clothing/glasses/ballistic/fake
+
+/datum/gear/eyes/ballistics/New()
+	..()
+	var/list/options = list()
+	options["Replica Ballistic Goggles"] = /obj/item/clothing/glasses/ballistic/fake
+	options["Replica Ballistic Goggles, corrective"] = /obj/item/clothing/glasses/ballistic/fake/prescription
+	gear_tweaks += new /datum/gear_tweak/path (options)

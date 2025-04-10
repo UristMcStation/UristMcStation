@@ -1,6 +1,6 @@
 /obj/machinery/computer
 	name = "computer"
-	icon = 'icons/obj/computer.dmi'
+	icon = 'icons/obj/machines/computer.dmi'
 	icon_state = "computer"
 	density = TRUE
 	anchored = TRUE
@@ -17,9 +17,8 @@
 
 	var/icon_keyboard = "generic_key"
 	var/icon_screen = "generic"
-	var/light_max_bright_on = 0.2
-	var/light_inner_range_on = 0.1
-	var/light_outer_range_on = 2
+	var/light_power_on = 1
+	var/light_range_on = 2
 	var/overlay_layer
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
 	clicksound = "keyboard"
@@ -42,7 +41,8 @@
 	visible_message(SPAN_WARNING("\The [src] breaks!"))
 
 /obj/machinery/computer/on_update_icon()
-	overlays.Cut()
+	update_glow()
+	ClearOverlays()
 	icon = initial(icon)
 	icon_state = initial(icon_state)
 
@@ -63,43 +63,56 @@
 
 
 	if(reason_broken & MACHINE_BROKEN_NO_PARTS)
-		set_light(0)
-		icon = 'icons/obj/computer.dmi'
+		icon = 'icons/obj/machines/computer.dmi'
 		icon_state = "wired"
 		var/screen = get_component_of_type(/obj/item/stock_parts/console_screen)
 		var/keyboard = get_component_of_type(/obj/item/stock_parts/keyboard)
 		if(screen)
-			overlays += "comp_screen"
+			AddOverlays("comp_screen")
 		if(keyboard)
-			overlays += icon_keyboard ? "[icon_keyboard]_off" : "keyboard"
+			AddOverlays(icon_keyboard ? "[icon_keyboard]_off" : "keyboard")
 		return
 
 	if(!is_powered())
-		set_light(0)
 		if(icon_keyboard)
-			overlays += image(icon,"[icon_keyboard]_off", overlay_layer)
+			AddOverlays(image(icon,"[icon_keyboard]_off", overlay_layer))
 		return
-	else
-		set_light(light_max_bright_on, light_inner_range_on, light_outer_range_on, 2, light_color)
 
 	if(MACHINE_IS_BROKEN(src))
-		overlays += image(icon,"[icon_state]_broken", overlay_layer)
+		AddOverlays(image(icon,"[icon_state]_broken", overlay_layer))
 	else
-		overlays += get_screen_overlay()
+		AddOverlays(get_screen_overlay())
 
-	overlays += get_keyboard_overlay()
+	AddOverlays(get_keyboard_overlay())
+	var/screen_is_glowing = update_glow()
+	if(screen_is_glowing)
+		AddOverlays(emissive_appearance(icon, icon_screen))
+		if(icon_keyboard)
+			AddOverlays(emissive_appearance(icon, "[icon_keyboard]_mask"))
 
 /obj/machinery/computer/proc/get_screen_overlay()
-	return overlay_image(icon,icon_screen, plane = EFFECTS_ABOVE_LIGHTING_PLANE, layer = ABOVE_LIGHTING_LAYER)
+	return overlay_image(icon,icon_screen)
 
 /obj/machinery/computer/proc/get_keyboard_overlay()
 	if(icon_keyboard)
-		overlays += image(icon, icon_keyboard, overlay_layer)
+		return overlay_image(icon, icon_keyboard, overlay_layer)
 
 /obj/machinery/computer/proc/decode(text)
 	// Adds line breaks
 	text = replacetext(text, "\n", "<BR>")
 	return text
+
+/**
+ * Makes the computer emit light if the screen is on.
+ * Returns TRUE if the screen is on, otherwise FALSE.
+ */
+/obj/machinery/computer/proc/update_glow()
+	if (operable())
+		set_light(light_range_on, light_power_on, light_color)
+		return TRUE
+	else
+		set_light(0)
+		return FALSE
 
 /obj/machinery/computer/dismantle(mob/user)
 	if(MACHINE_IS_BROKEN(src))

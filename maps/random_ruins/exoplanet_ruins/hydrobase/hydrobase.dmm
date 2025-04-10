@@ -15,7 +15,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/hydrobase/station/growX)
 "ae" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/growX)
@@ -50,7 +50,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/hydrobase/station/growX)
 "al" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/growA)
@@ -102,8 +102,8 @@
 	dir = 8;
 	pixel_x = -38
 	},
-/obj/effect/floor_decal/floordetail/edgedrain,
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/floordetail/edgedrain,
+/obj/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/hydrobase/station/growX)
 "as" = (
@@ -117,15 +117,15 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/effect/floor_decal/floordetail/edgedrain,
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/floordetail/edgedrain,
+/obj/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/hydrobase/station/growX)
 "at" = (
 /turf/simulated/wall/alium,
 /area/map_template/hydrobase/station/growD)
 "au" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/growD)
@@ -147,7 +147,7 @@
 /turf/simulated/wall/alium,
 /area/map_template/hydrobase/station/growX)
 "az" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/virology,
 /turf/simulated/floor/tiled/white,
 /area/map_template/hydrobase/station/growX)
@@ -158,7 +158,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/virology,
 /turf/simulated/floor/tiled/white,
 /area/map_template/hydrobase/station/growX)
@@ -226,11 +226,11 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	dir = 4;
 	icon_state = "warningcorner"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 8;
 	icon_state = "phoronrwindow"
 	},
@@ -245,7 +245,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -260,7 +260,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -331,10 +331,10 @@
 	name = "\improper FEEDING CHUTE";
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -347,7 +347,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 8;
 	icon_state = "phoronrwindow"
 	},
@@ -396,7 +396,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/hydrobase/station/goatzone)
 "bf" = (
-/obj/effect/floor_decal/industrial/warning/cee,
+/obj/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/tiled/dark,
 /area/map_template/hydrobase/station/growF)
 "bg" = (
@@ -407,7 +407,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 8;
 	icon_state = "phoronrwindow"
 	},
@@ -455,7 +455,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/industrial/warning/fulltile,
+/obj/floor_decal/industrial/warning/fulltile,
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id_tag = "goatzone";
@@ -547,7 +547,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/hydrobase/station/growF)
 "by" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/structure/sign/warning/caution{
@@ -557,7 +557,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/hydrobase/station/growF)
 "bz" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/structure/cable/yellow{
@@ -569,7 +569,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/hydrobase/station/growF)
 "bA" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/machinery/button/blast_door{
@@ -783,7 +783,7 @@
 /turf/simulated/floor/bluegrid,
 /area/map_template/hydrobase/station/growF)
 "ca" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/growF)
@@ -917,7 +917,7 @@
 /area/map_template/hydrobase/station/growF)
 "ct" = (
 /obj/item/material/knife/kitchen,
-/obj/structure/table/glass/pglass,
+/obj/structure/table/glass/boron,
 /obj/item/material/ashtray/bronze,
 /turf/simulated/floor/tiled,
 /area/map_template/hydrobase/station/growF)
@@ -926,7 +926,7 @@
 /turf/simulated/floor/tiled,
 /area/map_template/hydrobase/station/growF)
 "cv" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/growC)
@@ -999,7 +999,7 @@
 	dir = 4;
 	start_pressure = 740.5
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 1;
 	icon_state = "phoronrwindow"
 	},
@@ -1009,7 +1009,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 1
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 1;
 	icon_state = "phoronrwindow"
 	},
@@ -1020,7 +1020,7 @@
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 1;
 	icon_state = "phoronrwindow"
 	},
@@ -1034,11 +1034,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 1;
 	icon_state = "phoronrwindow"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 4
 	},
 /obj/structure/catwalk,
@@ -1057,7 +1057,7 @@
 /turf/simulated/floor/tiled,
 /area/map_template/hydrobase/station/growF)
 "cJ" = (
-/obj/structure/table/glass/pglass,
+/obj/structure/table/glass/boron,
 /obj/item/seeds/random,
 /obj/item/seeds/random,
 /obj/item/seeds/random,
@@ -1069,26 +1069,26 @@
 /turf/simulated/floor/tiled,
 /area/map_template/hydrobase/station/growF)
 "cL" = (
-/turf/simulated/floor/fixed/alium/airless,
+/turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/solars)
 "cM" = (
 /obj/machinery/power/solar{
 	id = "hydrosolar"
 	},
-/obj/effect/floor_decal/solarpanel,
+/obj/floor_decal/solarpanel,
 /obj/structure/cable{
 	d1 = 16;
 	d2 = 0;
 	dir = 4;
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/fixed/alium/airless,
+/turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/solars)
 "cN" = (
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/fixed/alium/airless,
+/turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/solars)
 "cO" = (
 /obj/structure/catwalk,
@@ -1229,7 +1229,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/fixed/alium/airless,
+/turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/solars)
 "di" = (
 /obj/machinery/light{
@@ -1444,7 +1444,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/fixed/alium/airless,
+/turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/solars)
 "dE" = (
 /obj/structure/catwalk,
@@ -1492,7 +1492,7 @@
 	},
 /obj/machinery/reagentgrinder/juicer,
 /obj/item/reagent_containers/glass/beaker/large,
-/obj/structure/table/glass/pglass,
+/obj/structure/table/glass/boron,
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/processing)
 "dL" = (
@@ -1500,13 +1500,13 @@
 /obj/structure/closet/shipping_wall/filled{
 	pixel_y = 32
 	},
-/obj/structure/table/glass/pglass,
+/obj/structure/table/glass/boron,
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/processing)
 "dM" = (
 /obj/structure/catwalk,
-/obj/item/material/kitchen/utensil/spoon,
-/obj/structure/table/glass/pglass,
+/obj/item/material/utensil/spoon,
+/obj/structure/table/glass/boron,
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/processing)
 "dN" = (
@@ -1543,7 +1543,7 @@
 /turf/simulated/floor/tiled,
 /area/map_template/hydrobase/station/processing)
 "dQ" = (
-/obj/structure/table/glass/pglass,
+/obj/structure/table/glass/boron,
 /obj/item/storage/box/pillbottles,
 /obj/item/storage/box/pillbottles,
 /obj/item/reagent_containers/glass/beaker/vial/random,
@@ -1556,7 +1556,7 @@
 /obj/machinery/power/solar_control/autostart{
 	id = "hydrosolar"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 8;
 	icon_state = "phoronrwindow"
 	},
@@ -1612,7 +1612,7 @@
 	desc = "A flexible superconducting cable for heavy-duty power transfer. It's been labeled 'chaos reigns'.";
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/fixed/alium/airless,
+/turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/solars)
 "dX" = (
 /obj/structure/catwalk,
@@ -1677,9 +1677,9 @@
 /area/map_template/hydrobase/station/growA)
 "eh" = (
 /obj/structure/catwalk,
-/obj/item/material/kitchen/rollingpin,
+/obj/item/material/rollingpin,
 /obj/item/material/knife/kitchen,
-/obj/structure/table/glass/pglass,
+/obj/structure/table/glass/boron,
 /obj/item/material/ashtray/bronze,
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/processing)
@@ -1723,11 +1723,11 @@
 /area/map_template/hydrobase/station/processing)
 "eo" = (
 /obj/structure/closet/toolcloset,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 8;
 	icon_state = "phoronrwindow"
 	},
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/boron_reinforced,
 /obj/structure/catwalk,
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/processing)
@@ -1747,7 +1747,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/boron_reinforced,
 /obj/structure/catwalk,
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/processing)
@@ -1755,20 +1755,20 @@
 /turf/simulated/wall/alium,
 /area/map_template/hydrobase/station/solarlock)
 "es" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/fixed/alium/airless,
-/area/template_noop)
+/obj/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/fixed/alium,
+/area/map_template/hydrobase/solars)
 "et" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/fixed/alium/airless,
-/area/template_noop)
+/obj/floor_decal/industrial/warning,
+/turf/simulated/floor/fixed/alium,
+/area/map_template/hydrobase/solars)
 "eu" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	dir = 8;
 	icon_state = "warningcorner"
 	},
-/turf/simulated/floor/fixed/alium/airless,
-/area/template_noop)
+/turf/simulated/floor/fixed/alium,
+/area/map_template/hydrobase/solars)
 "ev" = (
 /obj/machinery/alarm{
 	dir = 4;
@@ -1836,7 +1836,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "warning"
 	},
@@ -1883,7 +1883,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -1912,7 +1912,7 @@
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/solarlock)
 "eG" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "warning"
 	},
@@ -1940,7 +1940,7 @@
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/solarlock)
 "eI" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -1963,28 +1963,20 @@
 	dir = 4;
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/fixed/alium/airless,
+/turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/solars)
-"eJ" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/fixed/alium/airless,
-/area/template_noop)
 "eK" = (
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "warning"
 	},
-/turf/simulated/floor/fixed/alium/airless,
-/area/template_noop)
+/turf/simulated/floor/fixed/alium,
+/area/map_template/hydrobase/solars)
 "eL" = (
 /obj/machinery/power/tracker{
 	id = "hydrosolar"
@@ -1993,14 +1985,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete,
-/area/template_noop)
+/area/map_template/hydrobase/solars)
 "eM" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
-/turf/simulated/floor/fixed/alium/airless,
-/area/template_noop)
+/turf/simulated/floor/fixed/alium,
+/area/map_template/hydrobase/solars)
 "eN" = (
 /turf/simulated/wall/alium,
 /area/map_template/hydrobase/station/growB)
@@ -2095,7 +2087,7 @@
 /area/map_template/hydrobase/station/processing)
 "eX" = (
 /obj/structure/closet/l3closet/general/multi,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 8;
 	icon_state = "phoronrwindow"
 	},
@@ -2134,7 +2126,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/catwalk,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 8;
 	icon_state = "phoronrwindow"
 	},
@@ -2158,36 +2150,36 @@
 	icon_state = "1-8"
 	},
 /obj/structure/catwalk,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 1;
 	icon_state = "phoronrwindow"
 	},
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/processing)
 "fd" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/solarlock)
 "fe" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	dir = 4;
 	icon_state = "warningcorner"
 	},
-/turf/simulated/floor/fixed/alium/airless,
-/area/template_noop)
+/turf/simulated/floor/fixed/alium,
+/area/map_template/hydrobase/solars)
 "ff" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/fixed/alium/airless,
-/area/template_noop)
+/turf/simulated/floor/fixed/alium,
+/area/map_template/hydrobase/solars)
 "fg" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	dir = 1;
 	icon_state = "warningcorner"
 	},
-/turf/simulated/floor/fixed/alium/airless,
-/area/template_noop)
+/turf/simulated/floor/fixed/alium,
+/area/map_template/hydrobase/solars)
 "fh" = (
 /obj/machinery/light{
 	dir = 8;
@@ -2291,7 +2283,7 @@
 /area/map_template/hydrobase/station/processing)
 "ft" = (
 /obj/machinery/light,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 8;
 	icon_state = "phoronrwindow"
 	},
@@ -2299,7 +2291,7 @@
 /obj/item/ammo_casing/shotgun/emp,
 /obj/item/ammo_casing/shotgun/emp,
 /obj/item/gun/projectile/shotgun/doublebarrel,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 4
 	},
 /obj/item/grenade/chem_grenade/antiweed,
@@ -2318,12 +2310,12 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/catwalk,
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/processing)
 "fw" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/growB)
@@ -2361,7 +2353,7 @@
 /turf/simulated/wall/alium,
 /area/map_template/hydrobase/station/shipaccess)
 "fC" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/map_template/hydrobase/station/shipaccess)
@@ -2392,7 +2384,7 @@
 /obj/machinery/power/solar{
 	id = "hydrosolar"
 	},
-/obj/effect/floor_decal/solarpanel,
+/obj/floor_decal/solarpanel,
 /obj/structure/cable{
 	d1 = 16;
 	d2 = 0;
@@ -2404,7 +2396,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/fixed/alium/airless,
+/turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/solars)
 "fH" = (
 /obj/structure/cable{
@@ -2412,7 +2404,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/fixed/alium/airless,
+/turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/solars)
 "fI" = (
 /obj/structure/cable{
@@ -2425,7 +2417,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/fixed/alium/airless,
+/turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/solars)
 "fJ" = (
 /obj/structure/catwalk,
@@ -2627,15 +2619,15 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/map_template/hydrobase/station/shipaccess)
 "gf" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
@@ -2649,7 +2641,7 @@
 /turf/simulated/floor/tiled,
 /area/map_template/hydrobase/station/shipaccess)
 "gg" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -2732,7 +2724,7 @@
 /turf/simulated/floor/tiled,
 /area/map_template/hydrobase/station/dockport)
 "gp" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/map_template/hydrobase/station/dockport)
@@ -2767,7 +2759,7 @@
 /turf/simulated/floor/tiled/white,
 /area/map_template/hydrobase/station/growB)
 "gu" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -2789,7 +2781,7 @@
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/dockport)
 "gv" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -2804,7 +2796,7 @@
 /turf/simulated/floor/tiled,
 /area/map_template/hydrobase/station/dockport)
 "gw" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -2817,7 +2809,7 @@
 /area/map_template/hydrobase/station/dockport)
 "gx" = (
 /obj/item/clothing/under/overalls,
-/obj/item/clothing/shoes/desertboots,
+/obj/item/clothing/shoes/jackboots,
 /obj/structure/closet,
 /turf/simulated/floor/tiled/freezer,
 /area/map_template/hydrobase/station/shower)
@@ -2874,13 +2866,13 @@
 /obj/machinery/power/solar{
 	id = "hydrosolar"
 	},
-/obj/effect/floor_decal/solarpanel,
+/obj/floor_decal/solarpanel,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/fixed/alium/airless,
+/turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/solars)
 "gE" = (
 /obj/structure/cable{
@@ -2888,10 +2880,10 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/fixed/alium/airless,
+/turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/solars)
 "gF" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /obj/machinery/light/small{
 	dir = 8
 	},
@@ -2903,13 +2895,13 @@
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/dockport)
 "gG" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled,
 /area/map_template/hydrobase/station/dockport)
 "gH" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -2951,7 +2943,7 @@
 	pixel_y = 24;
 	req_access = newlist()
 	},
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "NL" = (
@@ -2959,7 +2951,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/map_template/hydrobase/station/goatzone)
 "RI" = (
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 
@@ -4465,7 +4457,7 @@ aa
 aa
 aa
 aa
-eJ
+fH
 aa
 aa
 aa

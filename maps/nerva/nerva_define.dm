@@ -93,24 +93,30 @@
 
 /datum/map/nerva/RoundEndInfo()
 	if(length(all_money_accounts))
-		var/datum/money_account/max_profit = all_money_accounts[2]
-		var/datum/money_account/max_loss = all_money_accounts[1]
-		var/stationmoney
-		for(var/datum/money_account/D in all_money_accounts)
-			if(D == station_account)
-				stationmoney = station_account.money
-				stationmoney -= starting_money //how much money did we make from the start of the round
-				continue
-			if(D == vendor_account || D.account_type != ACCOUNT_TYPE_PERSONAL) //yes we know you get lots of money
-				continue
-			var/saldo = D.get_balance() - D.starting_amount
-			if(saldo >= (max_profit.get_balance() - max_profit.starting_amount))
-				max_profit = D
-			if(saldo <= (max_loss.get_balance() - max_loss.starting_amount))
-				max_loss = D
+		var/max_profit = 0
+		var/max_profit_owner = "Greedy Profiteer"
+		var/max_loss = 0
+		var/max_loss_owner = "Thriftless Wastrel"
 
-		to_world("<b>[max_profit.owner_name]</b> received most <font color='green'><B>PROFIT</B></font> today, with net profit of <b>T[max_profit.get_balance() - max_profit.starting_amount]</b>.")
-		to_world("On the other hand, <b>[max_loss.owner_name]</b> had most <font color='red'><B>LOSS</B></font>, with total loss of <b>T[max_loss.get_balance() - max_loss.starting_amount]</b>.")
+		for(var/datum/money_account/D in all_money_accounts)
+			if(D == vendor_account) //yes we know you get lots of money
+				continue
+			var/saldo = D.get_profit()
+			if (saldo > max_profit)
+				max_profit = saldo
+				max_profit_owner = D.owner_name
+			if (saldo < max_loss)
+				max_loss = saldo
+				max_loss_owner = D.owner_name
+
+		if (max_profit > 0)
+			to_world("<b>[max_profit_owner]</b> received most [SPAN_COLOR("green", "<B>PROFIT</B>")] today, with net profit of <b>T[max_profit]</b>.")
+		else
+			to_world("[SPAN_BAD("Nobody")] earned any extra profit today!")
+		if (max_loss < 0)
+			to_world("[max_profit > 0 ? "On the other hand," : "On top of that,"] <b>[max_loss_owner]</b> had most [SPAN_BAD("LOSS")], with total loss of <b>[GLOB.using_map.local_currency_name_short][max_loss]</b>.")
+		else
+			to_world("[SPAN_COLOR("green", "<B>Nobody</B>")] suffered any extra losses today!")
 		to_world("The <b>[station_name]</b> itself made <b>T[stationmoney]</b> in revenue today, with <b>T[station_account.money]</b> in its account.")
 		to_world("<b>T<font color='red'>[SSpayment_controller.total_paid]</font></b> was paid to the crew of the <b>[station_name]</b> in hourly salary payments today.")
 		to_world("The crew of the <b>[station_name]</b> completed <b>[completed_contracts]</b> contracts today, earning <b>T[contract_money]</b>.")

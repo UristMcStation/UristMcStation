@@ -1,7 +1,7 @@
 /obj/machinery/keycard_auth
-	name = "Keycard Authentication Device"
+	name = "keycard authentication device"
 	desc = "This device is used to trigger functions which require more than one ID card to authenticate."
-	icon = 'icons/obj/monitors.dmi'
+	icon = 'icons/obj/structures/keycard_authenticator.dmi'
 	icon_state = "auth_off"
 	var/active = 0 //This gets set to 1 on all devices except the one where the initial request was made.
 	var/event = ""
@@ -23,11 +23,12 @@
 	to_chat(user, SPAN_WARNING("A firewall prevents you from interfacing with this device!"))
 	return
 
-/obj/machinery/keycard_auth/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/keycard_auth/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(inoperable())
 		to_chat(user, "This device is not powered.")
-		return
-	if(istype(W,/obj/item/card/id))
+		return TRUE
+
+	if (isid(W))
 		var/obj/item/card/id/ID = W
 		if(access_keycard_auth in ID.access)
 			if(active == 1)
@@ -40,6 +41,9 @@
 			else if(screen == 2)
 				event_triggered_by = usr
 				broadcast_request() //This is the device making the initial event request. It needs to broadcast to other devices
+		return TRUE
+
+	return ..()
 
 //icon_state gets set everwhere besides here, that needs to be fixed sometime
 /obj/machinery/keycard_auth/on_update_icon()
@@ -69,16 +73,16 @@
 			dat += "<li>Cannot modify the alert level at this time: [security_state.severe_security_level.name] engaged.</li>"
 		else
 			if(security_state.current_security_level == security_state.high_security_level)
-				dat += "<li><A href='?src=\ref[src];triggerevent=Revert alert'>Disengage [security_state.high_security_level.name]</A></li>"
+				dat += "<li><A href='byond://?src=\ref[src];triggerevent=Revert alert'>Disengage [security_state.high_security_level.name]</A></li>"
 			else
-				dat += "<li><A href='?src=\ref[src];triggerevent=Red alert'>Engage [security_state.high_security_level.name]</A></li>"
+				dat += "<li><A href='byond://?src=\ref[src];triggerevent=Red alert'>Engage [security_state.high_security_level.name]</A></li>"
 
 		if(!config.ert_admin_call_only)
-			dat += "<li><A href='?src=\ref[src];triggerevent=Emergency Response Team'>Emergency Response Team</A></li>"
+			dat += "<li><A href='byond://?src=\ref[src];triggerevent=Emergency Response Team'>Emergency Response Team</A></li>"
 
-		dat += "<li><A href='?src=\ref[src];triggerevent=Grant Emergency Maintenance Access'>Grant Emergency Maintenance Access</A></li>"
-		dat += "<li><A href='?src=\ref[src];triggerevent=Revoke Emergency Maintenance Access'>Revoke Emergency Maintenance Access</A></li>"
-		dat += "<li><A href='?src=\ref[src];triggerevent=Grant Nuclear Authorization Code'>Grant Nuclear Authorization Code</A></li>"
+		dat += "<li><A href='byond://?src=\ref[src];triggerevent=Grant Emergency Maintenance Access'>Grant Emergency Maintenance Access</A></li>"
+		dat += "<li><A href='byond://?src=\ref[src];triggerevent=Revoke Emergency Maintenance Access'>Revoke Emergency Maintenance Access</A></li>"
+		dat += "<li><A href='byond://?src=\ref[src];triggerevent=Grant Nuclear Authorization Code'>Grant Nuclear Authorization Code</A></li>"
 		dat += "</ul>"
 		var/datum/browser/popup = new(user, "keycard_auth", "Keycard Authentication Device", 500, 250)
 		popup.set_content(dat)
@@ -86,7 +90,7 @@
 
 	if(screen == 2)
 		dat += "Please swipe your card to authorize the following event: <b>[event]</b>"
-		dat += "<p><A href='?src=\ref[src];reset=1'>Back</A>"
+		dat += "<p><A href='byond://?src=\ref[src];reset=1'>Back</A>"
 		var/datum/browser/popup = new(user, "keycard_auth", "Keycard Authentication Device", 500, 250)
 		popup.set_content(dat)
 		popup.open()

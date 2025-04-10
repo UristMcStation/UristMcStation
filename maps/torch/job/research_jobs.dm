@@ -26,21 +26,23 @@
 		access_mining_station, access_xenobiology, access_xenoarch, access_nanotrasen, access_solgov_crew,
 		access_expedition_shuttle, access_guppy, access_hangar, access_petrov, access_petrov_helm, access_guppy_helm,
 		access_petrov_analysis, access_petrov_phoron, access_petrov_toxins, access_petrov_chemistry, access_petrov_control,
-		access_petrov_maint, access_torch_fax, access_radio_sci, access_radio_exp, access_research_storage
+		access_petrov_maint, access_torch_fax, access_radio_sci, access_radio_exp, access_research_storage, access_fabrication
 	)
 
-	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
-	                    SKILL_COMPUTER    = SKILL_BASIC,
-	                    SKILL_FINANCE     = SKILL_BASIC,
-	                    SKILL_BOTANY      = SKILL_BASIC,
-	                    SKILL_ANATOMY     = SKILL_BASIC,
-	                    SKILL_DEVICES     = SKILL_ADEPT,
-	                    SKILL_SCIENCE     = SKILL_ADEPT)
+	skill_points = 26
+	min_skill = list( // 16 points
+		SKILL_BUREAUCRACY = SKILL_BASIC, // 1 point
+		SKILL_COMPUTER = SKILL_BASIC, // 1 point
+		SKILL_FINANCE = SKILL_BASIC, // 1 point
+		SKILL_BOTANY = SKILL_BASIC, // 1 point
+		SKILL_ANATOMY = SKILL_BASIC, // 4 points
+		SKILL_DEVICES = SKILL_TRAINED, // 4 points
+		SKILL_SCIENCE = SKILL_TRAINED // 4 points
+	)
 
 	max_skill = list(   SKILL_ANATOMY     = SKILL_MAX,
 	                    SKILL_DEVICES     = SKILL_MAX,
 	                    SKILL_SCIENCE     = SKILL_MAX)
-	skill_points = 20
 	possible_goals = list(/datum/goal/achievement/notslimefodder)
 
 /datum/job/scientist
@@ -59,10 +61,13 @@
 		"Xenobiologist",
 		"Xenobotanist"
 	)
-	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
-	                    SKILL_COMPUTER    = SKILL_BASIC,
-	                    SKILL_DEVICES     = SKILL_BASIC,
-	                    SKILL_SCIENCE     = SKILL_ADEPT)
+	skill_points = 26
+	min_skill = list( // 6 points
+		SKILL_BUREAUCRACY = SKILL_BASIC, // 1 point
+		SKILL_COMPUTER = SKILL_BASIC, // 1 point
+		SKILL_DEVICES = SKILL_BASIC, // 2 points
+		SKILL_SCIENCE = SKILL_TRAINED // 2 points
+	)
 
 	max_skill = list(   SKILL_ANATOMY     = SKILL_MAX,
 	                    SKILL_DEVICES     = SKILL_MAX,
@@ -85,9 +90,8 @@
 		access_mining_office, access_mining_station, access_xenobiology, access_guppy_helm,
 		access_xenoarch, access_nanotrasen, access_solgov_crew, access_expedition_shuttle, access_guppy, access_hangar,
 		access_petrov_analysis, access_petrov_phoron, access_petrov_toxins, access_petrov_chemistry, access_petrov_control, access_torch_fax,
-		access_petrov_maint, access_radio_sci, access_radio_exp, access_research_storage
+		access_petrov_maint, access_radio_sci, access_radio_exp, access_research_storage, access_fabrication
 	)
-	skill_points = 20
 	possible_goals = list(/datum/goal/achievement/notslimefodder)
 
 /datum/job/scientist_assistant
@@ -102,8 +106,7 @@
 	minimum_character_age = list(SPECIES_HUMAN = 18)
 	ideal_character_age = 30
 	alt_titles = list(
-		"Custodian" = /singleton/hierarchy/outfit/job/torch/passenger/research/assist/janitor,
-		"Testing Assistant" = /singleton/hierarchy/outfit/job/torch/passenger/research/assist/testsubject,
+		"Testing Assistant",
 		"Intern",
 		"Clerk",
 		"Field Assistant")
@@ -129,6 +132,6 @@
 		access_mining_office, access_mining_station, access_xenobiology, access_guppy_helm,
 		access_xenoarch, access_nanotrasen, access_solgov_crew, access_expedition_shuttle, access_guppy, access_hangar,
 		access_petrov_analysis, access_petrov_phoron, access_petrov_toxins, access_petrov_chemistry, access_petrov_control,
-		access_radio_sci, access_radio_exp, access_research_storage
+		access_radio_sci, access_radio_exp, access_research_storage, access_fabrication
 	)
 	possible_goals = list(/datum/goal/achievement/notslimefodder)

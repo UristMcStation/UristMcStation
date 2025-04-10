@@ -3,27 +3,32 @@
 	desc = "Now we're getting somewhere."
 	icon_state = "wheelchair"
 	anchored = FALSE
-	movement_handlers = list(/datum/movement_handler/deny_multiz, /datum/movement_handler/delay = list(2), /datum/movement_handler/move_relay_self)
+	bed_flags = BED_FLAG_CANNOT_BE_DISMANTLED | BED_FLAG_CANNOT_BE_PADDED
 	var/driving = 0
 	var/mob/living/pulling = null
 	var/bloodiness
+
+
+/obj/structure/bed/chair/wheelchair/Initialize()
+	. = ..()
+	movement_handlers = list(
+		/datum/movement_handler/deny_multiz,
+		/datum/movement_handler/delay = list(config.walk_delay),
+		/datum/movement_handler/move_relay_self
+	)
+
 
 /obj/structure/bed/chair/wheelchair/on_update_icon()
 	return
 
 /obj/structure/bed/chair/wheelchair/set_dir()
 	..()
-	overlays.Cut()
-	var/image/O = image(icon = 'icons/obj/furniture.dmi', icon_state = "w_overlay", dir = src.dir)
+	ClearOverlays()
+	var/image/O = image(icon = 'icons/obj/structures/furniture.dmi', icon_state = "w_overlay", dir = src.dir)
 	O.layer = ABOVE_HUMAN_LAYER
-	overlays += O
+	AddOverlays(O)
 	if(buckled_mob)
 		buckled_mob.set_dir(dir)
-
-/obj/structure/bed/chair/wheelchair/attackby(obj/item/W as obj, mob/user as mob)
-	if(isWrench(W) || istype(W,/obj/item/stack) || isWirecutter(W))
-		return
-	..()
 
 /obj/structure/bed/chair/wheelchair/relaymove(mob/user, direction)
 	// Redundant check?
@@ -72,6 +77,8 @@
 	step(src, direction)
 	if(buckled_mob) // Make sure it stays beneath the occupant
 		Move(buckled_mob.loc)
+		var/datum/movement_handler/delay/delay = GetMovementHandler(/datum/movement_handler/delay)
+		delay.SetDelay(buckled_mob.movement_delay(/singleton/move_intent/walk))
 	set_dir(direction)
 	if(pulling) // Driver
 		if(pulling.loc == src.loc) // We moved onto the wheelchair? Revert!
@@ -95,7 +102,7 @@
 				if (propelled)
 					for (var/mob/O in src.loc)
 						if (O != occupant)
-							Bump(O)
+							Bump(O, TRUE)
 				else
 					unbuckle_mob()
 			if (pulling && (get_dist(src, pulling) > 1))
@@ -115,10 +122,11 @@
 
 /obj/structure/bed/chair/wheelchair/CtrlClick(mob/user)
 	if(in_range(src, user))
-		if(!ishuman(user))	return
+		if(!ishuman(user))
+			return FALSE
 		if(user == buckled_mob)
 			to_chat(user, SPAN_WARNING("You realize you are unable to push the wheelchair you sit in."))
-			return
+			return TRUE
 		if(!pulling)
 			pulling = user
 			user.pulledby = src
@@ -133,7 +141,7 @@
 		return TRUE
 	return FALSE
 
-/obj/structure/bed/chair/wheelchair/Bump(atom/A)
+/obj/structure/bed/chair/wheelchair/Bump(atom/A, called)
 	..()
 	if(!buckled_mob)	return
 
@@ -168,7 +176,7 @@
 			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
 /obj/structure/bed/chair/wheelchair/proc/create_track()
-	var/obj/effect/decal/cleanable/blood/tracks/B = new(loc)
+	var/obj/decal/cleanable/blood/tracks/B = new(loc)
 	var/newdir = get_dir(get_step(loc, dir), loc)
 	if(newdir == dir)
 		B.set_dir(newdir)

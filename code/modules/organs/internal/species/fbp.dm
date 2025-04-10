@@ -14,11 +14,11 @@
 
 	max_damage = 50
 
-/obj/item/organ/internal/cell/New()
+/obj/item/organ/internal/cell/Initialize()
+	. = ..()
 	robotize()
 	if(ispath(cell))
 		cell = new cell(src)
-	..()
 
 /obj/item/organ/internal/cell/proc/percent()
 	if(!cell)
@@ -58,6 +58,7 @@
 	if(!checked_use(cost) && owner.isSynthetic())
 		if(!owner.lying && !owner.buckled)
 			to_chat(owner, SPAN_WARNING("You don't have enough energy to function!"))
+		owner.Weaken(3)
 		owner.Paralyse(3)
 	if(percent() < 10 && prob(1))
 		to_chat(owner, SPAN_WARNING("Your internal battery beeps an alert code, it is low on charge!"))
@@ -67,7 +68,7 @@
 	if(cell)
 		cell.emp_act(severity)
 
-/obj/item/organ/internal/cell/attackby(obj/item/W, mob/user)
+/obj/item/organ/internal/cell/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(isScrewdriver(W))
 		if(open)
 			open = 0
@@ -75,6 +76,7 @@
 		else
 			open = 1
 			to_chat(user, SPAN_NOTICE("You unscrew the battery panel."))
+		return TRUE
 
 	if(isCrowbar(W))
 		if(open)
@@ -82,6 +84,7 @@
 				user.put_in_hands(cell)
 				to_chat(user, SPAN_NOTICE("You remove \the [cell] from \the [src]."))
 				cell = null
+				return TRUE
 
 	if (istype(W, /obj/item/cell))
 		if(open)
@@ -90,6 +93,8 @@
 			else if(user.unEquip(W, src))
 				cell = W
 				to_chat(user, SPAN_NOTICE("You insert \the [cell]."))
+			return TRUE
+	return ..()
 
 /obj/item/organ/internal/cell/replaced()
 	..()
@@ -117,12 +122,16 @@
 	stored_mmi = null
 	return ..()
 
-/obj/item/organ/internal/mmi_holder/New(mob/living/carbon/human/new_owner, internal)
-	..(new_owner, internal)
+/obj/item/organ/internal/mmi_holder/Initialize()
+	. = ..()
 	if(!stored_mmi)
 		stored_mmi = new(src)
-	sleep(-1)
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/item/organ/internal/mmi_holder/LateInitialize()
 	update_from_mmi()
+	if (!owner)
+		return
 	persistantMind = owner.mind
 	ownerckey = owner.ckey
 
@@ -136,6 +145,8 @@
 		return
 	if(damage < 0.1*max_damage)
 		heal_damage(0.1)
+		if(stored_mmi.brainobj)
+			stored_mmi.brainobj.heal_damage(0.1)
 
 /obj/item/organ/internal/mmi_holder/proc/update_from_mmi()
 
@@ -188,3 +199,13 @@
 			if(response == "Yes")
 				persistantMind.transfer_to(stored_mmi.brainmob)
 	qdel(src)
+
+/obj/item/organ/internal/mmi_holder/take_internal_damage(amount, silent=FALSE)
+	..()
+	if(stored_mmi.brainobj)
+		stored_mmi.brainobj.take_internal_damage(amount)
+
+/obj/item/organ/internal/mmi_holder/die()
+	..()
+	if(stored_mmi.brainobj)
+		stored_mmi.brainobj.die()

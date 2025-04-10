@@ -25,15 +25,15 @@
 	)
 
 /obj/structure/closet/secure_closet/liaison
-	name = "\improper corporate liaison's locker"
+	name = "corporate liaison's locker"
 	req_access = list(access_liaison)
 	closet_appearance = /singleton/closet_appearance/secure_closet/torch/corporate/liaison
 
 /obj/structure/closet/secure_closet/liaison/WillContain()
 	return list(
 		/obj/item/device/flash,
-		/obj/item/material/clipboard,
-		/obj/item/folder,
+		/obj/item/material/folder/clipboard,
+		/obj/item/material/folder,
 		/obj/item/device/tape/random = 3,
 		/obj/item/storage/secure/briefcase,
 		/obj/item/clothing/shoes/laceup,
@@ -83,8 +83,8 @@
 	return list(
 		/obj/item/device/flash,
 		/obj/item/device/camera_film = 2,
-		/obj/item/material/clipboard,
-		/obj/item/folder,
+		/obj/item/material/folder/clipboard,
+		/obj/item/material/folder,
 		/obj/item/device/tape/random = 3,
 		/obj/item/storage/secure/briefcase,
 		/obj/item/device/radio/headset/headset_com,
@@ -123,33 +123,20 @@
 
 /obj/structure/closet/secure_closet/guncabinet/sidearm/WillContain()
 	return list(
-			/obj/item/clothing/accessory/storage/holster/thigh = 2,
-			/obj/item/gun/energy/gun/secure = 3,
-	)
-
-/obj/structure/closet/secure_closet/guncabinet/sidearm/small
-	name = "personal sidearm cabinet"
-
-/obj/structure/closet/secure_closet/guncabinet/sidearm/small/WillContain()
-	return list(/obj/item/gun/energy/gun/small/secure = 4)
-
-/obj/structure/closet/secure_closet/guncabinet/sidearm/combined
-	name = "combined sidearm cabinet"
-
-/obj/structure/closet/secure_closet/guncabinet/sidearm/combined/WillContain()
-	return list(
-		/obj/item/storage/belt/holster/general = 3,
-		/obj/item/gun/energy/gun/secure = 3,
-		/obj/item/gun/energy/gun/small/secure = 1,
+		/obj/item/clothing/accessory/storage/holster/thigh = 3,
+		/obj/item/gun/projectile/pistol/m19/empty = 3,
+		/obj/item/storage/box/ammo/pistol = 2
 	)
 
 /obj/structure/closet/secure_closet/guncabinet/PPE
-	name = "Bridge PPE cabinet"
+	name = "bridge PPE cabinet"
 	req_access = list(list(access_armory,access_emergency_armory,access_hos,access_hop,access_ce,access_cmo,access_rd,access_senadv))
 
 /obj/structure/closet/secure_closet/guncabinet/PPE/WillContain()
 	return list(
-		/obj/item/gun/energy/gun/small/secure = 3,
+		/obj/item/gun/projectile/pistol/m19/empty = 3,
+		/obj/item/storage/box/ammo/pistol = 2,
 		/obj/item/clothing/suit/armor/pcarrier/medium/command = 3,
-		/obj/item/clothing/head/helmet/solgov/command = 3
+		/obj/item/clothing/head/helmet/solgov/command = 3,
+		/obj/item/clothing/accessory/storage/holster/thigh = 3
 	)

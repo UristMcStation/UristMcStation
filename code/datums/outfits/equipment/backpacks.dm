@@ -34,6 +34,15 @@
 	name = "Messenger bag"
 	path = /obj/item/storage/backpack/messenger
 
+/singleton/backpack_outfit/messenger_bag/New()
+	..()
+	tweaks += new /datum/backpack_tweak/selection/specified_types_as_list(list(
+		/obj/item/storage/backpack/messenger/black,
+		/obj/item/storage/backpack/messenger/brown,
+		/obj/item/storage/backpack/messenger/grey
+	))
+
+
 /singleton/backpack_outfit/pocketbook
 	name = "Pocketbook"
 	path = /obj/item/storage/backpack/satchel/pocketbook
@@ -179,7 +188,8 @@
 * Helpers *
 **********/
 /proc/get_default_outfit_backpack()
-	var backpacks = GET_SINGLETON_SUBTYPE_MAP(/singleton/backpack_outfit)
+	RETURN_TYPE(/singleton/backpack_outfit)
+	var/backpacks = GET_SINGLETON_SUBTYPE_MAP(/singleton/backpack_outfit)
 	for(var/backpack in backpacks)
 		var/singleton/backpack_outfit/bo = backpacks[backpack]
 		if(bo.is_default)

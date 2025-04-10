@@ -23,7 +23,7 @@
 	/// Boolean. Whether or not spawned drones should be locked to the machinery's z-level.
 	var/z_locked = TRUE
 
-	icon = 'icons/obj/machines/drone_fab.dmi'
+	icon = 'icons/obj/machines/fabricators/drone_fab.dmi'
 	icon_state = "drone_fab_idle"
 
 /obj/machinery/drone_fabricator/derelict
@@ -139,7 +139,7 @@
 		fabricator = all_fabricators[choice]
 
 	if(user && fabricator && !(!fabricator.is_powered() || !fabricator.produce_drones || fabricator.drone_progress < 100))
-		log_and_message_admins("has joined the round as a maintenance drone.")
+		log_and_message_admins("has joined the round as a maintenance drone.", user)
 		var/mob/drone = fabricator.create_drone(user.client)
 		if(drone)
 			drone.status_flags |= NO_ANTAG

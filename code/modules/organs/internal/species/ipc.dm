@@ -1,7 +1,7 @@
 /obj/item/organ/internal/posibrain
 	name = "positronic brain"
 	desc = "A cube of shining metal, four inches to a side and covered in shallow grooves."
-	icon = 'icons/obj/assemblies.dmi'
+	icon = 'icons/obj/assemblies/assemblies.dmi'
 	icon_state = "posibrain"
 	organ_tag = BP_POSIBRAIN
 	parent_organ = BP_CHEST
@@ -32,10 +32,10 @@
 		)
 	var/shackle = 0
 
-/obj/item/organ/internal/posibrain/New(mob/living/carbon/H)
-	..()
-	if(!brainmob && H)
-		init(H)
+/obj/item/organ/internal/posibrain/Initialize()
+	. = ..()
+	if(!brainmob && iscarbon(loc))
+		init(loc)
 	robotize()
 	unshackle()
 	update_icon()
@@ -70,6 +70,40 @@
 		return
 	start_search(user)
 
+
+/obj/item/organ/internal/posibrain/use_tool(obj/item/item, mob/living/user, list/click_params)
+	if (istype(item, /obj/item/stack/nanopaste))
+		if (!damage)
+			to_chat(user, SPAN_WARNING("\The [src] has no damage to repair."))
+			return TRUE
+
+		if (HAS_FLAGS(status, ORGAN_DEAD))
+			to_chat(user, SPAN_WARNING("\The [src] is damaged beyond repair."))
+			return TRUE
+
+		if (!user.skill_check(SKILL_DEVICES, SKILL_EXPERIENCED))
+			to_chat(user, SPAN_WARNING("You don't know how to fix \the [src]."))
+			return TRUE
+
+		var/obj/item/stack/paste = item
+
+		if (!paste.use(1))
+			USE_FEEDBACK_STACK_NOT_ENOUGH(paste, 1, "to repair \the [src]")
+			return TRUE
+
+		to_chat(user, SPAN_NOTICE("You begin to repair \the [src]."))
+		if (!do_after(user, 2 SECOND, src, DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, item))
+			return TRUE
+
+		damage -= 10
+		visible_message(
+			SPAN_NOTICE("\The [user] repairs some of \the [src]'s damage with \a [item]."),
+			SPAN_NOTICE("You repair some of \the [src]'s damage with \the [item].")
+		)
+		return TRUE
+	. = ..()
+
+
 /obj/item/organ/internal/posibrain/proc/start_search(mob/user)
 	if (!brainmob)
 		return
@@ -92,7 +126,7 @@
 	if (!protected)
 		var/datum/ghosttrap/T = get_ghost_trap("positronic brain")
 		T.request_player(brainmob, "Someone is requesting a personality for a positronic brain.", 60 SECONDS)
-	searching = addtimer(new Callback(src, .proc/cancel_search), 60 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
+	searching = addtimer(new Callback(src, PROC_REF(cancel_search)), 60 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
 	icon_state = "posibrain-searching"
 
 /obj/item/organ/internal/posibrain/proc/cancel_search()
@@ -187,9 +221,9 @@
 	else
 		icon_state = "posibrain"
 
-	overlays.Cut()
+	ClearOverlays()
 	if(shackle)
-		overlays |= image('icons/obj/assemblies.dmi', "posibrain-shackles")
+		AddOverlays(image('icons/obj/assemblies/assemblies.dmi', "posibrain-shackles"))
 
 /obj/item/organ/internal/posibrain/proc/transfer_identity(mob/living/carbon/H)
 	if(H && H.mind)
@@ -213,9 +247,9 @@
 	if (!owner || owner.stat)
 		return
 	if (damage > min_bruised_damage)
-		if (prob(1) && owner.confused < 1)
+		if (prob(1) && !owner.is_confused())
 			to_chat(owner, SPAN_WARNING("Your comprehension of spacial positioning goes temporarily awry."))
-			owner.confused += 3
+			owner.set_confused(3)
 		if (prob(1) && owner.eye_blurry < 1)
 			to_chat(owner, SPAN_WARNING("Your optical interpretations become transiently erratic."))
 			owner.eye_blurry += 6
@@ -241,7 +275,7 @@
 				if (C && C.get_charge() > 25)
 					C.use(25)
 					to_chat(owner, SPAN_WARNING("Your chassis power routine fluctuates wildly."))
-					var/datum/effect/effect/system/spark_spread/S = new
+					var/datum/effect/spark_spread/S = new
 					S.set_up(2, 0, loc)
 					S.start()
 

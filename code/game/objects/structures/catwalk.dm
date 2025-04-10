@@ -1,7 +1,7 @@
 /obj/structure/catwalk
 	name = "catwalk"
 	desc = "Cats really don't like these things."
-	icon = 'icons/obj/catwalks.dmi'
+	icon = 'icons/obj/structures/catwalks.dmi'
 	icon_state = "catwalk"
 	density = FALSE
 	anchored = TRUE
@@ -32,17 +32,17 @@
 
 /obj/structure/catwalk/on_update_icon()
 	update_connections()
-	overlays.Cut()
+	ClearOverlays()
 	icon_state = ""
 	var/image/I
 	if(!hatch_open)
 		for(var/i = 1 to 4)
-			I = image('icons/obj/catwalks.dmi', "catwalk[connections[i]]", dir = SHIFTL(1, i - 1))
-			overlays += I
+			I = image('icons/obj/structures/catwalks.dmi', "catwalk[connections[i]]", dir = SHIFTL(1, i - 1))
+			AddOverlays(I)
 	if(plated_tile)
-		I = image('icons/obj/catwalks.dmi', "plated")
+		I = image('icons/obj/structures/catwalks.dmi', "plated")
 		I.color = plated_tile.color
-		overlays += I
+		AddOverlays(I)
 
 /obj/structure/catwalk/ex_act(severity)
 	switch(severity)
@@ -74,59 +74,94 @@
 		new plated_tile.build_type(src.loc)
 	qdel(src)
 
-/obj/structure/catwalk/attackby(obj/item/C as obj, mob/user as mob)
-	if(isWelder(C))
-		var/obj/item/weldingtool/WT = C
-		if(WT.remove_fuel(0, user))
-			deconstruct(user)
-		return
-	if(istype(C, /obj/item/gun/energy/plasmacutter))
-		var/obj/item/gun/energy/plasmacutter/cutter = C
-		if(!cutter.slice(user))
-			return
-		deconstruct(user)
-		return
-	if(isCrowbar(C) && plated_tile)
-		if(user.a_intent != I_HELP)
-			return
+
+/obj/structure/catwalk/use_weapon(obj/item/weapon, mob/living/user, list/click_params)
+	var/parent = ..()
+	if (parent)
+		return TRUE
+
+	var/turf/floor = get_turf(src)
+	return floor.use_weapon(weapon, user, click_params)
+
+
+/obj/structure/catwalk/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Crowbar - Toggle hatch
+	if (isCrowbar(tool))
+		if (!plated_tile)
+			USE_FEEDBACK_FAILURE("\The [src] is not plated and has no hatch to open.")
+			return TRUE
 		hatch_open = !hatch_open
-		if(hatch_open)
-			playsound(src, 'sound/items/Crowbar.ogg', 100, 2)
-			to_chat(user, SPAN_NOTICE("You pry open \the [src]'s maintenance hatch."))
-		else
-			playsound(src, 'sound/items/Deconstruct.ogg', 100, 2)
-			to_chat(user, SPAN_NOTICE("You shut \the [src]'s maintenance hatch."))
 		update_icon()
-		return
-	if(istype(C, /obj/item/stack/tile/mono) && !plated_tile)
-		var/obj/item/stack/tile/floor/ST = C
-		if(!ST.in_use)
-			to_chat(user, SPAN_NOTICE("Placing tile..."))
-			ST.in_use = 1
-			if (!do_after(user, 1 SECOND, src, DO_REPAIR_CONSTRUCT))
-				ST.in_use = 0
-				return
-			to_chat(user, SPAN_NOTICE("You plate \the [src]"))
-			name = "plated catwalk"
-			ST.in_use = 0
-			src.add_fingerprint(user)
-			if(ST.use(1))
-				var/list/singletons = GET_SINGLETON_SUBTYPE_MAP(/singleton/flooring)
-				for(var/flooring_type in singletons)
-					var/singleton/flooring/F = singletons[flooring_type]
-					if(!F.build_type)
-						continue
-					if(ispath(C.type, F.build_type))
-						plated_tile = F
-						break
-				update_icon()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] pries \the [src]'s maintenance hatch open with \a [tool]."),
+			SPAN_NOTICE("You pry \the [src]'s maintenance hatch open with \the [tool].")
+		)
+		return TRUE
+
+	// Plasma Cutter - Deconstruct
+	if (istype(tool, /obj/item/gun/energy/plasmacutter))
+		var/obj/item/gun/energy/plasmacutter/cutter = tool
+		if (!cutter.slice(user))
+			return TRUE
+		deconstruct(user)
+		return TRUE
+
+	// Welding Tool - Deconstruct
+	if (isWelder(tool))
+		var/obj/item/weldingtool/welder = tool
+		if (!welder.remove_fuel(1, user))
+			return TRUE
+		deconstruct(user)
+		return TRUE
+
+	// Floor Tile - Plate catwalk
+	if (istype(tool, /obj/item/stack/tile))
+		if (plated_tile)
+			USE_FEEDBACK_FAILURE("\The [src] is already plated.")
+			return TRUE
+		var/obj/item/stack/tile/stack = tool
+		if (!stack.can_use(1))
+			USE_FEEDBACK_STACK_NOT_ENOUGH(stack, 1, "to plate \the [src].")
+			return TRUE
+		user.visible_message(
+			SPAN_NOTICE("\The [user] starts plating \the [src] with \a [tool]."),
+			SPAN_NOTICE("You start plating \the [src] with \the [tool].")
+		)
+		if (!user.do_skilled(1 SECOND, SKILL_CONSTRUCTION, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+			return TRUE
+		if (!stack.use(1))
+			USE_FEEDBACK_STACK_NOT_ENOUGH(stack, 1, "to plate \the [src].")
+			return TRUE
+		var/list/singletons = GET_SINGLETON_SUBTYPE_MAP(/singleton/flooring)
+		for (var/flooring_type in singletons)
+			var/singleton/flooring/F = singletons[flooring_type]
+			if (!F.build_type)
+				continue
+			if (ispath(stack.type, F.build_type))
+				plated_tile = F
+				break
+		update_icon()
+		SetName("plated catwalk")
+		user.visible_message(
+			SPAN_NOTICE("\The [user] plates \the [src] with \a [tool]."),
+			SPAN_NOTICE("You plate \the [src] with \the [tool].")
+		)
+		return TRUE
+
+	var/parent = ..()
+	if (parent)
+		return TRUE
+
+	var/turf/floor = get_turf(src)
+	return floor.use_tool(tool, user, click_params)
+
 
 /obj/structure/catwalk/refresh_neighbors()
 	return
 
-/obj/effect/catwalk_plated
+/obj/catwalk_plated
 	name = "plated catwalk spawner"
-	icon = 'icons/obj/catwalks.dmi'
+	icon = 'icons/obj/structures/catwalks.dmi'
 	icon_state = "catwalk_plated"
 	density = TRUE
 	anchored = TRUE
@@ -134,26 +169,26 @@
 	layer = CATWALK_LAYER
 	var/plating_type = /singleton/flooring/tiling/mono
 
-/obj/effect/catwalk_plated/Initialize(mapload)
+/obj/catwalk_plated/Initialize(mapload)
 	. = ..()
 	var/auto_activate = mapload || (GAME_STATE < RUNLEVEL_GAME)
 	if(auto_activate)
 		activate()
 		return INITIALIZE_HINT_QDEL
 
-/obj/effect/catwalk_plated/CanPass()
+/obj/catwalk_plated/CanPass()
 	return 0
 
-/obj/effect/catwalk_plated/attack_hand()
+/obj/catwalk_plated/attack_hand()
 	attack_generic()
 
-/obj/effect/catwalk_plated/attack_ghost()
+/obj/catwalk_plated/attack_ghost()
 	attack_generic()
 
-/obj/effect/catwalk_plated/attack_generic()
+/obj/catwalk_plated/attack_generic()
 	activate()
 
-/obj/effect/catwalk_plated/proc/activate()
+/obj/catwalk_plated/proc/activate()
 	if(activated) return
 
 	if(locate(/obj/structure/catwalk) in loc)
@@ -165,13 +200,13 @@
 		C.update_icon()
 	activated = 1
 	for(var/turf/T in orange(src, 1))
-		for(var/obj/effect/wallframe_spawn/other in T)
+		for(var/obj/wallframe_spawn/other in T)
 			if(!other.activated) other.activate()
 
-/obj/effect/catwalk_plated/dark
+/obj/catwalk_plated/dark
 	icon_state = "catwalk_plateddark"
 	plating_type = /singleton/flooring/tiling/mono/dark
 
-/obj/effect/catwalk_plated/white
+/obj/catwalk_plated/white
 	icon_state = "catwalk_platedwhite"
 	plating_type = /singleton/flooring/tiling/mono/white

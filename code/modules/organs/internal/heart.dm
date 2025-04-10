@@ -157,7 +157,7 @@
 							blood_max += W.damage / 40
 
 			if(temp.status & ORGAN_ARTERY_CUT)
-				var/bleed_amount = Floor((owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 400 : 250))*temp.arterial_bleed_severity)
+				var/bleed_amount = floor((owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 400 : 250))*temp.arterial_bleed_severity)
 				if(bleed_amount)
 					if(open_wound)
 						blood_max += bleed_amount
@@ -176,19 +176,17 @@
 		if(CE_STABLE in owner.chem_effects) // inaprovaline
 			blood_max *= 0.8
 
-		if(world.time >= next_blood_squirt && istype(owner.loc, /turf) && length(do_spray))
+		if(world.time >= next_blood_squirt && isturf(owner.loc) && length(do_spray))
 			var/spray_organ = pick(do_spray)
 			owner.visible_message(
 				SPAN_DANGER("Blood sprays out from \the [owner]'s [spray_organ]!"),
 				FONT_HUGE(SPAN_DANGER("Blood sprays out from your [spray_organ]!"))
 			)
-			owner.Stun(1)
-			owner.eye_blurry = 2
 
 			//AB occurs every heartbeat, this only throttles the visible effect
 			next_blood_squirt = world.time + 80
 			var/turf/sprayloc = get_turf(owner)
-			blood_max -= owner.drip(Ceil(blood_max/3), sprayloc)
+			blood_max -= owner.drip(ceil(blood_max/3), sprayloc)
 			if(blood_max > 0)
 				blood_max -= owner.blood_squirt(blood_max, sprayloc)
 				if(blood_max > 0)

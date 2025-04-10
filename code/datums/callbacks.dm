@@ -17,7 +17,7 @@ on the first sleep, and so should be used only where results are not required.
 Callables are proc names or proc references, with references preferred for safety (in most cases).
 These vary between 515 and older major versions:
 Before 515:
-- .proc/name refers to the last override of name on target, OR the global proc name.
+- PROC_REF(name) refers to the last override of name on target, OR the global proc name.
 After 515:
 - src::name() must be used for the last override, or ::name() for the global.
 - nameof() is available at compile time to resolve safe proc names like nameof(/datum::fooBehavior()).
@@ -33,11 +33,10 @@ addTimer(new Callback(myMob, myMob::drop_l_hand()), 10 SECONDS)
 
 var/global/const/GLOBAL_PROC = FALSE
 
-var/global/const/Callback = /datum/callback
+var/global/const/datum/callback/Callback = /datum/callback
 
 
 /datum/callback
-	//var/const/Global = FALSE //515 - GLOBAL_PROC becomes Callback::Global
 	var/identity
 	var/datum/target = GLOBAL_PROC
 	var/callable

@@ -6,16 +6,21 @@
 #define SS_PRIORITY_DEFAULT 50          // Default priority for all processes levels
 
 // SS_TICKER
-#define SS_PRIORITY_TIMER          20
-#define SS_PRIORITY_ICON_UPDATE    20  // Queued icon updates. Mostly used by APCs and tables.
+#define SS_PRIORITY_TIMER 30
+#define SS_PRIORITY_OVERLAYS 20
+#define SS_PRIORITY_ICON_UPDATE 10
 
 // Normal
 #define SS_PRIORITY_TICKER         100 // Gameticker.
 #define SS_PRIORITY_MOB            95  // Mob Life().
 #define SS_PRIORITY_MACHINERY      95  // Machinery + powernet ticks.
 #define SS_PRIORITY_AIR            80  // ZAS processing.
+#define SS_PRIORITY_THROWING       75  // Throwing calculation and constant checks
 #define SS_PRIORITY_CHEMISTRY      60  // Multi-tick chemical reactions.
+#define SS_PRIORITY_LIGHTING       50  // Queued lighting engine updates.
+#define SS_PRIORITY_SPACEDRIFT     45  // Drifting things
 #define SS_PRIORITY_CHAT           40  // Chat
+#define SS_PRIORITY_AI             25  // Mob AI
 #define SS_PRIORITY_ALARM          20  // Alarm processing.
 #define SS_PRIORITY_EVENT          20  // Event processing and queue handling.
 #define SS_PRIORITY_SHUTTLE        20  // Shuttle movement.
@@ -24,7 +29,6 @@
 #define SS_PRIORITY_RADIATION      20  // Radiation processing and cache updates.
 #define SS_PRIORITY_OPEN_SPACE     20  // Open turf updates.
 #define SS_PRIORITY_AIRFLOW        15  // Object movement from ZAS airflow.
-#define SS_PRIORITY_AI             15  // Mob AI
 #define SS_PRIORITY_PRESENCE       10  // z-level player presence testing
 #define SS_PRIORITY_VOTE           10  // Vote management.
 #define SS_PRIORITY_SUPPLY         10  // Supply point accumulation.

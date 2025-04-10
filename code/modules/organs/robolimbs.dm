@@ -27,6 +27,8 @@ var/global/datum/robolimb/basic_robolimb
 	var/list/allowed_bodytypes = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_RESOMI)
 	var/has_screen = FALSE
 	var/display_text
+	var/has_screen = FALSE
+	var/display_text
 
 /datum/robolimb/bishop
 	company = "Bishop"

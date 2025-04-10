@@ -36,7 +36,7 @@
 
 	var/image/I = image(icon = 'icons/mob/robots.dmi', icon_state = ca.icon_state, loc = H)
 	I.override = 1
-	I.overlays += image(icon = 'icons/mob/robots.dmi', icon_state = "eyes-[ca.icon_state]") //gotta look realistic
+	I.AddOverlays(image(icon = 'icons/mob/robots.dmi', icon_state = "eyes-[ca.icon_state]"))
 	return I
 
 /singleton/appearance_handler/cardborg/proc/init_appearances()
@@ -75,10 +75,10 @@
 
 /singleton/cardborg_appearance/science
 	icon_state = "droid-science"
-	backpack_type = /obj/item/storage/backpack/toxins
+	backpack_type = /obj/item/storage/backpack/corpsci
 
 /singleton/cardborg_appearance/science/satchel
-	backpack_type = /obj/item/storage/backpack/satchel/tox
+	backpack_type = /obj/item/storage/backpack/satchel/corpsci
 
 /singleton/cardborg_appearance/security
 	icon_state = "securityrobot"

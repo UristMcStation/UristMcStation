@@ -16,9 +16,11 @@
 
 	// Add to player list if missing
 	if (!GLOB.player_list.Find(src))
-		ADD_SORTED(GLOB.player_list, src, /proc/cmp_mob_key)
+		ADD_SORTED(GLOB.player_list, src, GLOBAL_PROC_REF(cmp_mob_key))
 
 	new_player_panel()
+
+	AddDefaultRenderers()
 
 	if(!SScharacter_setup.initialized)
 		SScharacter_setup.newplayers_requiring_init += src
@@ -31,7 +33,6 @@
 /mob/new_player/proc/deferred_login()
 	if(client)
 		client.playtitlemusic()
-		maybe_send_staffwarns("connected as new player")
 		if(client.get_preference_value(/datum/client_preference/goonchat) == GLOB.PREF_YES)
 			client.chatOutput.start()
 

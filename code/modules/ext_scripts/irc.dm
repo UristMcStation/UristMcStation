@@ -45,13 +45,21 @@
 		export2irc(params)
 
 /proc/get_world_url()
-	. = "byond://"
-	if(config.serverurl)
-		. += config.serverurl
-	else if(config.server)
-		. += config.server
-	else
-		. += "[world.address]:[world.port]"
+	if (config.server_address)
+		return config.server_address
+	return "byond://[world.address]:[world.port]"
+
+/proc/send_to_admin_discord(type, message)
+	if(config.admin_discord && config.excom_address)
+		var/list/params[0]
+
+		params["pwd"] = config.comms_password
+		params["chan"] = config.admin_discord
+		params["msg"] = message
+		params["type"] = type
+
+		spawn(-1)
+			world.Export("http://[config.excom_address]/data?[list2params(params)]")
 
 /hook/startup/proc/ircNotify()
 	send2mainirc("Server starting up on [get_world_url()]")

@@ -42,6 +42,7 @@
 	if(!can_become_antag(player, ignore_role))
 		return 0
 	current_antagonists |= player
+	GLOB.destroyed_event.register(player, src, PROC_REF(remove_antagonist))
 
 	if(faction_verb)
 		player.current.verbs |= faction_verb
@@ -51,6 +52,10 @@
 
 	if(player.current.client)
 		player.current.client.verbs += /client/proc/aooc
+
+	if (istype(player.current, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/borg = player.current
+		borg.emagged = TRUE
 
 	spawn(1 SECOND) //Added a delay so that this should pop up at the bottom and not the top of the text flood the new antag gets.
 		to_chat(player.current, SPAN_NOTICE("Once you decide on a goal to pursue, you can optionally display it to \
@@ -69,7 +74,9 @@
 	return 1
 
 /datum/antagonist/proc/remove_antagonist(datum/mind/player, show_message, implanted)
+	GLOB.destroyed_event.unregister(player, src, PROC_REF(remove_antagonist))
 	if(!istype(player))
+		current_antagonists -= player
 		return 0
 	if (player.current)
 		if (faction_verb)

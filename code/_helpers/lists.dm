@@ -107,6 +107,18 @@
 			instances++
 	return instances
 
+/// Returns the elements of list that are of type path. If strict, disallows subtypes
+/proc/list_elements_of_type(list/list, path, strict)
+	RETURN_TYPE(/list)
+	var/list/result = list()
+	for (var/datum/element as anything in list)
+		if (!istype(element, path))
+			continue
+		if (strict && element.type != path)
+			continue
+		result += element
+	return result
+
 //Removes any null entries from the list
 /proc/listclearnulls(list/list)
 	if(istype(list))
@@ -120,6 +132,7 @@
  * If either of arguments is not a list, returns null
  */
 /proc/difflist(list/first, list/second, skiprep=0)
+	RETURN_TYPE(/list)
 	if(!islist(first) || !islist(second))
 		return
 	var/list/result = new
@@ -160,6 +173,7 @@ Checks if a list has the same entries and values as an element of big.
  * If either of arguments is not a list, returns null
  */
 /proc/uniquemergelist(list/first, list/second, skiprep=0)
+	RETURN_TYPE(/list)
 	if(!islist(first) || !islist(second))
 		return
 	var/list/result = new
@@ -170,10 +184,12 @@ Checks if a list has the same entries and values as an element of big.
 	return result
 
 /proc/assoc_merge_add(value_a, value_b)
+	RETURN_TYPE(/list)
 	return value_a + value_b
 
 // This proc merges two associative lists
 /proc/merge_assoc_lists(list/a, list/b, merge_method, default_if_null_value = null)
+	RETURN_TYPE(/list)
 	. = list()
 	for(var/key in a)
 		var/a_value = a[key]
@@ -254,6 +270,11 @@ Checks if a list has the same entries and values as an element of big.
 		. = list[last_index]
 		LIST_DEC(list)
 
+/// Returns the first element from the list and removes it from the list
+/proc/popleft(list/L)
+	if (length(L))
+		. = L[1]
+		L.Cut(1,2)
 
 //Returns the next element in parameter list after first appearance of parameter element. If it is the last element of the list or not present in list, returns first element.
 /proc/next_in_list(element, list/L)
@@ -268,37 +289,44 @@ Checks if a list has the same entries and values as an element of big.
 
 //Reverses the order of items in the list
 /proc/reverselist(list/L)
+	RETURN_TYPE(/list)
 	var/list/output = list()
 	if(L)
 		for(var/i = length(L); i >= 1; i--)
 			output += L[i]
 	return output
 
-//Randomize: Return the list in a random order
-/proc/shuffle(list/L)
-	if(!L)
+
+/// Returns a Fisher-Yates shuffled copy of list, or list itself if in_place.
+/proc/shuffle(list/list, in_place)
+	RETURN_TYPE(/list)
+	if (!islist(list))
 		return
+	if (!in_place)
+		list = list.Copy()
+	var/size = length(list)
+	for (var/i = 1 to size)
+		list.Swap(i, rand(i, size))
+	return list
 
-	L = L.Copy()
-
-	for(var/i=1; i<length(L); i++)
-		L.Swap(i, rand(i,length(L)))
-	return L
 
 //Return a list with no duplicate entries
 /proc/uniquelist(list/L)
+	RETURN_TYPE(/list)
 	. = list()
 	for(var/i in L)
 		. |= i
 
 // Return a list of the values in an assoc list (including null)
 /proc/list_values(list/L)
+	RETURN_TYPE(/list)
 	. = list()
 	for(var/e in L)
 		. += L[e]
 
 //Mergesort: divides up the list into halves to begin the sort
 /proc/sortKey(list/client/L, order = 1)
+	RETURN_TYPE(/list)
 	if(isnull(L) || length(L) < 2)
 		return L
 	var/middle = length(L) / 2 + 1
@@ -306,6 +334,7 @@ Checks if a list has the same entries and values as an element of big.
 
 //Mergsort: does the actual sorting and returns the results back to sortAtom
 /proc/mergeKey(list/client/L, list/client/R, order = 1)
+	RETURN_TYPE(/list)
 	var/Li=1
 	var/Ri=1
 	var/list/result = new()
@@ -323,6 +352,7 @@ Checks if a list has the same entries and values as an element of big.
 
 //Mergesort: divides up the list into halves to begin the sort
 /proc/sortAtom(list/atom/L, order = 1)
+	RETURN_TYPE(/list)
 	if(isnull(L) || length(L) < 2)
 		return L
 	if(null in L)	// Cannot sort lists containing null entries.
@@ -332,6 +362,7 @@ Checks if a list has the same entries and values as an element of big.
 
 //Mergsort: does the actual sorting and returns the results back to sortAtom
 /proc/mergeAtoms(list/atom/L, list/atom/R, order = 1)
+	RETURN_TYPE(/list)
 	var/Li=1
 	var/Ri=1
 	var/list/result = new()
@@ -350,6 +381,7 @@ Checks if a list has the same entries and values as an element of big.
 
 //Mergesort: any value in a list
 /proc/sortList(list/L)
+	RETURN_TYPE(/list)
 	if(length(L) < 2)
 		return L
 	var/middle = length(L) / 2 + 1 // Copy is first,second-1
@@ -357,12 +389,14 @@ Checks if a list has the same entries and values as an element of big.
 
 //Mergsorge: uses sortList() but uses the var's name specifically. This should probably be using mergeAtom() instead
 /proc/sortNames(list/L)
+	RETURN_TYPE(/list)
 	var/list/Q = new()
 	for(var/atom/x in L)
 		Q[x.name] = x
 	return sortList(Q)
 
 /proc/mergeLists(list/L, list/R)
+	RETURN_TYPE(/list)
 	var/Li=1
 	var/Ri=1
 	var/list/result = new()
@@ -379,12 +413,14 @@ Checks if a list has the same entries and values as an element of big.
 
 // List of lists, sorts by element[key] - for things like crew monitoring computer sorting records by name.
 /proc/sortByKey(list/L, key)
+	RETURN_TYPE(/list)
 	if(length(L) < 2)
 		return L
 	var/middle = length(L) / 2 + 1
 	return mergeKeyedLists(sortByKey(L.Copy(0, middle), key), sortByKey(L.Copy(middle), key), key)
 
 /proc/mergeKeyedLists(list/L, list/R, key)
+	RETURN_TYPE(/list)
 	var/Li=1
 	var/Ri=1
 	var/list/result = new()
@@ -404,12 +440,14 @@ Checks if a list has the same entries and values as an element of big.
 
 //Mergesort: any value in a list, preserves key=value structure
 /proc/sortAssoc(list/L)
+	RETURN_TYPE(/list)
 	if(length(L) < 2)
 		return L
 	var/middle = length(L) / 2 + 1 // Copy is first,second-1
 	return mergeAssoc(sortAssoc(L.Copy(0,middle)), sortAssoc(L.Copy(middle))) //second parameter null = to end of list
 
 /proc/mergeAssoc(list/L, list/R)
+	RETURN_TYPE(/list)
 	var/Li=1
 	var/Ri=1
 	var/list/result = new()
@@ -425,8 +463,9 @@ Checks if a list has the same entries and values as an element of big.
 
 //Converts a bitfield to a list of numbers (or words if a wordlist is provided)
 /proc/bitfield2list(bitfield = 0, list/wordlist)
+	RETURN_TYPE(/list)
 	var/list/r = list()
-	if(istype(wordlist,/list))
+	if(islist(wordlist))
 		var/max = min(length(wordlist),16)
 		var/bit = 1
 		for(var/i=1, i<=max, i++)
@@ -464,6 +503,7 @@ Checks if a list has the same entries and values as an element of big.
 
 //Don't use this on lists larger than half a dozen or so
 /proc/insertion_sort_numeric_list_ascending(list/L)
+	RETURN_TYPE(/list)
 	//to_world_log("ascending len input: [length(L)]")
 	var/list/out = list(pop(L))
 	for(var/entry in L)
@@ -481,6 +521,7 @@ Checks if a list has the same entries and values as an element of big.
 	return out
 
 /proc/insertion_sort_numeric_list_descending(list/L)
+	RETURN_TYPE(/list)
 	//to_world_log("descending len input: [length(L)]")
 	var/list/out = insertion_sort_numeric_list_ascending(L)
 	//to_world_log("output: [length(out)]")
@@ -511,12 +552,14 @@ Checks if a list has the same entries and values as an element of big.
 
 
 /proc/dd_sortedObjectList(list/L, cache=list())
+	RETURN_TYPE(/list)
 	if(length(L) < 2)
 		return L
 	var/middle = length(L) / 2 + 1 // Copy is first,second-1
 	return dd_mergeObjectList(dd_sortedObjectList(L.Copy(0,middle), cache), dd_sortedObjectList(L.Copy(middle), cache), cache) //second parameter null = to end of list
 
 /proc/dd_mergeObjectList(list/L, list/R, list/cache)
+	RETURN_TYPE(/list)
 	var/Li=1
 	var/Ri=1
 	var/list/result = new()
@@ -542,6 +585,7 @@ Checks if a list has the same entries and values as an element of big.
 
 // Insert an object into a sorted list, preserving sortedness
 /proc/dd_insertObjectList(list/L, O)
+	RETURN_TYPE(/list)
 	var/min = 1
 	var/max = length(L) + 1
 	var/Oval = O:dd_SortValue()
@@ -564,6 +608,7 @@ Checks if a list has the same entries and values as an element of big.
 			min = mid+1
 
 /proc/dd_sortedtextlist(list/incoming, case_sensitive = 0)
+	RETURN_TYPE(/list)
 	// Returns a new list with the text values sorted.
 	// Use binary search to order by sortValue.
 	// This works by going to the half-point of the list, seeing if the node in question is higher or lower cost,
@@ -623,6 +668,7 @@ Checks if a list has the same entries and values as an element of big.
 
 
 /proc/dd_sortedTextList(list/incoming)
+	RETURN_TYPE(/list)
 	var/case_sensitive = 1
 	return dd_sortedtextlist(incoming, case_sensitive)
 
@@ -642,6 +688,7 @@ Checks if a list has the same entries and values as an element of big.
 //creates every subtype of prototype (excluding prototype) and adds it to list L.
 //if no list/L is provided, one is created.
 /proc/init_subtypes(prototype, list/L)
+	RETURN_TYPE(/list)
 	if(!istype(L))	L = list()
 	for(var/path in subtypesof(prototype))
 		L += new path()
@@ -650,6 +697,7 @@ Checks if a list has the same entries and values as an element of big.
 //creates every subtype of prototype (excluding prototype) and adds it to list L as a type/instance pair.
 //if no list/L is provided, one is created.
 /proc/init_subtypes_assoc(prototype, list/L)
+	RETURN_TYPE(/list)
 	if(!istype(L))	L = list()
 	for(var/path in subtypesof(prototype))
 		L[path] = new path()
@@ -658,6 +706,7 @@ Checks if a list has the same entries and values as an element of big.
 #define listequal(A, B) (length(A) == length(B) && !length(A^B))
 
 /proc/filter_list(list/L, type)
+	RETURN_TYPE(/list)
 	. = list()
 	for(var/entry in L)
 		if(istype(entry, type))
@@ -672,6 +721,7 @@ Checks if a list has the same entries and values as an element of big.
 	values += value
 
 /proc/duplicates(list/L)
+	RETURN_TYPE(/list)
 	. = list()
 	var/list/checked = list()
 	for(var/value in L)
@@ -680,10 +730,6 @@ Checks if a list has the same entries and values as an element of big.
 		else
 			checked += value
 
-/proc/assoc_by_proc(list/plain_list, get_initial_value)
-	. = list()
-	for(var/entry in plain_list)
-		.[call(get_initial_value)(entry)] = entry
 
 /proc/get_initial_name(atom/atom_type)
 	var/atom/A = atom_type
@@ -730,6 +776,7 @@ Checks if a list has the same entries and values as an element of big.
 
 //replaces reverseList ~Carnie
 /proc/reverseRange(list/L, start=1, end=0)
+	RETURN_TYPE(/list)
 	if(length(L))
 		start = start % length(L)
 		end = end % (length(L)+1)
@@ -747,6 +794,7 @@ Checks if a list has the same entries and values as an element of big.
 //Copies a list, and all lists inside it recusively
 //Does not copy any other reference type
 /proc/deepCopyList(list/l)
+	RETURN_TYPE(/list)
 	if(!islist(l))
 		return l
 	. = l.Copy()
@@ -764,6 +812,7 @@ Checks if a list has the same entries and values as an element of big.
 
 // Gets the first instance that is of the given type (strictly)
 /proc/get_instance_of_strict_type(list/L, T)
+	RETURN_TYPE(/atom)
 	for(var/key in L)
 		var/atom/A = key
 		if(A.type == T)
@@ -774,6 +823,7 @@ Checks if a list has the same entries and values as an element of big.
  *
  */
 /proc/typecache_filter_list(list/atoms, list/typecache)
+	RETURN_TYPE(/list)
 	. = list()
 	for(var/thing in atoms)
 		var/atom/A = thing
@@ -784,6 +834,7 @@ Checks if a list has the same entries and values as an element of big.
  * Like typesof() or subtypesof(), but returns a typecache instead of a list
  */
 /proc/typecacheof(path, ignore_root_path, only_root_path = FALSE)
+	RETURN_TYPE(/list)
 	if(ispath(path))
 		var/list/types = list()
 		if(only_root_path)
@@ -809,3 +860,37 @@ Checks if a list has the same entries and values as an element of big.
 					for(var/T in typesof(P))
 						L[T] = TRUE
 		return L
+
+
+/// Convert list to a map by calling handler per entry. Map may be supplied as a reference. Handlers should implement a no-params clear.
+/proc/list_to_map(list/list, handler, list/map)
+	RETURN_TYPE(/list)
+	call(handler)()
+	if (!islist(map))
+		map = list()
+	for (var/entry in list)
+		call(handler)(map, entry)
+	call(handler)()
+	return map
+
+
+/// Entry handler for list_to_map. Produces a "name"=ref map, overwriting duplicate names in encounter order.
+/proc/ltm_by_atom_name(list/map, atom/entry)
+	if (!map)
+		return
+	map[entry.name] = entry
+
+
+/// Entry handler for list_to_map. Produces a "name"=ref map, suffixing a count to name for duplicate names.
+/proc/ltm_by_atom_name_numbered(list/map, atom/entry)
+	var/static/list/names_seen
+	if (!map)
+		names_seen = null
+		return
+	if (!names_seen)
+		names_seen = list()
+	var/index = ++names_seen[entry.name]
+	if (index > 1)
+		map["[entry.name] [index]"] = entry
+	else
+		map[entry.name] = entry

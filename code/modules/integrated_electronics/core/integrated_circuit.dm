@@ -34,11 +34,11 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	. = ..()
 	external_examine(user)
 
-/obj/item/integrated_circuit/ShiftClick(mob/living/user)
-	if(istype(user))
+/obj/item/integrated_circuit/ShiftClick(mob/user)
+	if (isliving(user))
 		interact(user)
-	else
-		..()
+		return TRUE
+	return ..()
 
 // This should be used when someone is examining while the case is opened.
 /obj/item/integrated_circuit/proc/internal_examine(mob/user)
@@ -141,13 +141,13 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	HTML += "<table border='1' style='undefined;table-layout: fixed; width: 80%'>"
 
 	if(assembly)
-		HTML += "<a href='?src=\ref[src];return=1'>\[Return to Assembly\]</a><br>"
+		HTML += "<a href='byond://?src=\ref[src];return=1'>\[Return to Assembly\]</a><br>"
 
-	HTML += "<a href='?src=\ref[src];refresh=1'>\[Refresh\]</a>  |  "
-	HTML += "<a href='?src=\ref[src];rename=1'>\[Rename\]</a>  |  "
-	HTML += "<a href='?src=\ref[src];scan=1'>\[Copy Ref\]</a>"
+	HTML += "<a href='byond://?src=\ref[src];refresh=1'>\[Refresh\]</a>  |  "
+	HTML += "<a href='byond://?src=\ref[src];rename=1'>\[Rename\]</a>  |  "
+	HTML += "<a href='byond://?src=\ref[src];scan=1'>\[Copy Ref\]</a>"
 	if(assembly && removable)
-		HTML += "  |  <a href='?src=\ref[assembly];component=\ref[src];remove=1'>\[Remove\]</a>"
+		HTML += "  |  <a href='byond://?src=\ref[assembly];component=\ref[src];remove=1'>\[Remove\]</a>"
 	HTML += "<br>"
 
 	HTML += "<colgroup>"
@@ -169,13 +169,13 @@ a creative player the means to solve many problems.  Circuits are held inside an
 				if(1)
 					io = get_pin_ref(IC_INPUT, i)
 					if(io)
-						words += "<b><a href='?src=\ref[src];act=wire;pin=\ref[io]'>[io.display_pin_type()] [io.name]</a> \
-						<a href='?src=\ref[src];act=data;pin=\ref[io]'>[io.display_data(io.data)]</a></b><br>"
+						words += "<b><a href='byond://?src=\ref[src];act=wire;pin=\ref[io]'>[io.display_pin_type()] [io.name]</a> \
+						<a href='byond://?src=\ref[src];act=data;pin=\ref[io]'>[io.display_data(io.data)]</a></b><br>"
 						if(length(io.linked))
 							for(var/k in 1 to length(io.linked))
 								var/datum/integrated_io/linked = io.linked[k]
-								words += "<a href='?src=\ref[src];act=unwire;pin=\ref[io];link=\ref[linked]'>[linked]</a> \
-								@ <a href='?src=\ref[linked.holder]'>[linked.holder.displayed_name]</a><br>"
+								words += "<a href='byond://?src=\ref[src];act=unwire;pin=\ref[io];link=\ref[linked]'>[linked]</a> \
+								@ <a href='byond://?src=\ref[linked.holder]'>[linked.holder.displayed_name]</a><br>"
 
 						if(LAZYLEN(outputs) > LAZYLEN(inputs))
 							height = 1
@@ -188,13 +188,13 @@ a creative player the means to solve many problems.  Circuits are held inside an
 				if(3)
 					io = get_pin_ref(IC_OUTPUT, i)
 					if(io)
-						words += "<b><a href='?src=\ref[src];act=wire;pin=\ref[io]'>[io.display_pin_type()] [io.name]</a> \
-						<a href='?src=\ref[src];act=data;pin=\ref[io]'>[io.display_data(io.data)]</a></b><br>"
+						words += "<b><a href='byond://?src=\ref[src];act=wire;pin=\ref[io]'>[io.display_pin_type()] [io.name]</a> \
+						<a href='byond://?src=\ref[src];act=data;pin=\ref[io]'>[io.display_data(io.data)]</a></b><br>"
 						if(length(io.linked))
 							for(var/k in 1 to length(io.linked))
 								var/datum/integrated_io/linked = io.linked[k]
-								words += "<a href='?src=\ref[src];act=unwire;pin=\ref[io];link=\ref[linked]'>[linked]</a> \
-								@ <a href='?src=\ref[linked.holder]'>[linked.holder.displayed_name]</a><br>"
+								words += "<a href='byond://?src=\ref[src];act=unwire;pin=\ref[io];link=\ref[linked]'>[linked]</a> \
+								@ <a href='byond://?src=\ref[linked.holder]'>[linked.holder.displayed_name]</a><br>"
 
 						if(LAZYLEN(inputs) > LAZYLEN(outputs))
 							height = 1
@@ -205,13 +205,13 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		var/datum/integrated_io/io = activators[i]
 		var/words = list()
 
-		words += "<b><a href='?src=\ref[src];act=wire;pin=\ref[io]'>[SPAN_COLOR("#ff0000", io)]</a> "
-		words += "<a href='?src=\ref[src];act=data;pin=\ref[io]'>[SPAN_COLOR("#ff0000", io.data ? "\<PULSE OUT\>" : "\<PULSE IN\>")]</a></b><br>"
+		words += "<b><a href='byond://?src=\ref[src];act=wire;pin=\ref[io]'>[SPAN_COLOR("#ff0000", io)]</a> "
+		words += "<a href='byond://?src=\ref[src];act=data;pin=\ref[io]'>[SPAN_COLOR("#ff0000", io.data ? "\<PULSE OUT\>" : "\<PULSE IN\>")]</a></b><br>"
 		if(length(io.linked))
 			for(var/k in 1 to length(io.linked))
 				var/datum/integrated_io/linked = io.linked[k]
-				words += "<a href='?src=\ref[src];act=unwire;pin=\ref[io];link=\ref[linked]'>[SPAN_COLOR("#ff0000", linked)]</a> \
-				@ <a href='?src=\ref[linked.holder]'>[SPAN_COLOR("#ff0000", linked.holder.displayed_name)]</a><br>"
+				words += "<a href='byond://?src=\ref[src];act=unwire;pin=\ref[io];link=\ref[linked]'>[SPAN_COLOR("#ff0000", linked)]</a> \
+				@ <a href='byond://?src=\ref[linked.holder]'>[SPAN_COLOR("#ff0000", linked.holder.displayed_name)]</a><br>"
 
 		HTML += "<tr>"
 		HTML += "<td colspan='3' align='center'>[jointext(words, null)]</td>"
@@ -266,7 +266,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		if(istype(held_item, /obj/item/device/integrated_electronics/debugger))
 			var/obj/item/device/integrated_electronics/debugger/D = held_item
 			if(D.accepting_refs)
-				D.afterattack(src, usr, TRUE)
+				D.use_after(src, usr)
 				. = IC_TOPIC_REFRESH
 			else
 				to_chat(usr, SPAN_WARNING("The debugger's 'ref scanner' needs to be on."))
@@ -285,7 +285,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		. = IC_TOPIC_REFRESH
 
 	else if(href_list["remove"] && assembly)
-		if(istype(held_item, /obj/item/screwdriver))
+		if (isScrewdriver(held_item))
 			disconnect_all()
 			dropInto(loc)
 			playsound(src, 'sound/items/Crowbar.ogg', 50, 1)

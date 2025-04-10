@@ -223,7 +223,7 @@ macro "borghotkeymode"
 		command = "aghost"
 	elem
 		name = "F6"
-		command = "Player-Panel"
+		command = "Player-List"
 	elem
 		name = "F7"
 		command = "Admin-PM"
@@ -423,7 +423,7 @@ macro "macro"
 		command = "aghost"
 	elem
 		name = "F6"
-		command = "Player-Panel"
+		command = "Player-List"
 	elem
 		name = "F7"
 		command = "Admin-PM"
@@ -674,7 +674,7 @@ macro "hotkeymode"
 		command = "aghost"
 	elem
 		name = "F6"
-		command = "Player-Panel"
+		command = "Player-List"
 	elem
 		name = "F7"
 		command = "Admin-PM"
@@ -871,7 +871,7 @@ macro "borgmacro"
 		command = "aghost"
 	elem
 		name = "F6"
-		command = "Player-Panel"
+		command = "Player-List"
 	elem
 		name = "F7"
 		command = "Admin-PM"
@@ -1049,6 +1049,16 @@ window "mainwindow"
 		saved-params = "splitter"
 		right = "rpane"
 		is-vert = true
+	elem "tooltip"
+		type = BROWSER
+		pos = 0,0
+		size = 999x999
+		anchor1 = none
+		anchor2 = none
+		background-color = none
+		is-visible = false
+		saved-params = ""
+
 	elem "input"
 		type = INPUT
 		pos = 3,420
@@ -1181,7 +1191,7 @@ window "rpane"
 		anchor1 = none
 		anchor2 = none
 		saved-params = "is-checked"
-		text = "Report Issue"
+		text = "Bug Report"
 		command = "link-issue"
 	elem "linkrules"
 		type = BUTTON

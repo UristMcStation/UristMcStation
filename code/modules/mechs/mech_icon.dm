@@ -1,4 +1,5 @@
 /proc/get_mech_image(decal, cache_key, cache_icon, image_colour, overlay_layer = FLOAT_LAYER)
+	RETURN_TYPE(/image)
 	var/use_key = "[cache_key]-[cache_icon]-[overlay_layer]-[decal ? decal : "none"]-[image_colour ? image_colour : "none"]"
 	if(!GLOB.mech_image_cache[use_key])
 		var/image/I = image(icon = cache_icon, icon_state = cache_key)
@@ -6,7 +7,7 @@
 			var/image/masked_color = image(icon = cache_icon, icon_state = "[cache_key]_mask")
 			masked_color.color = image_colour
 			masked_color.blend_mode = BLEND_MULTIPLY
-			I.overlays += masked_color
+			I.AddOverlays(masked_color)
 		if(decal)
 			var/decal_key = "[decal]-[cache_key]"
 			if(!GLOB.mech_icon_cache[decal_key])
@@ -18,7 +19,7 @@
 				GLOB.mech_icon_cache[decal_key] = decal_icon
 			var/image/decal_image = get_mech_image(null, decal_key, GLOB.mech_icon_cache[decal_key])
 			decal_image.blend_mode = BLEND_MULTIPLY
-			I.overlays += decal_image
+			I.AddOverlays(decal_image)
 		I.appearance_flags |= RESET_COLOR
 		I.layer = overlay_layer
 		I.plane = FLOAT_PLANE
@@ -26,6 +27,7 @@
 	return GLOB.mech_image_cache[use_key]
 
 /proc/get_mech_images(list/components = list(), overlay_layer = FLOAT_LAYER)
+	RETURN_TYPE(/list)
 	var/list/all_images = list()
 	for(var/obj/item/mech_component/comp in components)
 		all_images += get_mech_image(comp.decal, comp.icon_state, comp.on_mech_icon, comp.color, overlay_layer)
@@ -61,12 +63,12 @@
 					color = head.color
 					decal = head.decal
 
-				new_overlays += get_mech_image(decal, use_icon_state, 'icons/mecha/mech_weapon_overlays.dmi', color, hardpoint_object.mech_layer )
-	overlays = new_overlays
+				new_overlays += get_mech_image(decal, use_icon_state, hardpoint_object.on_mech_icon, color, hardpoint_object.mech_layer )
+	SetOverlays(new_overlays)
 
 /mob/living/exosuit/proc/update_pilots(update_overlays = TRUE)
 	if(update_overlays && LAZYLEN(pilot_overlays))
-		overlays -= pilot_overlays
+		CutOverlays(pilot_overlays)
 	pilot_overlays = null
 	if(body && !(body.hide_pilot))
 		for(var/i = 1 to LAZYLEN(pilots))
@@ -93,7 +95,7 @@
 
 			LAZYADD(pilot_overlays, draw_pilot)
 		if(update_overlays && LAZYLEN(pilot_overlays))
-			overlays += pilot_overlays
+			AddOverlays(pilot_overlays)
 
 /mob/living/exosuit/regenerate_icons()
 	return

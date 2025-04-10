@@ -71,19 +71,19 @@
 	. += "<b>Automatic Security Unit</b>"
 
 /mob/living/bot/secbot/GetInteractPanel()
-	. = "Check for weapon authorization: <a href='?src=\ref[src];command=idcheck'>[idcheck ? "Yes" : "No"]</a>"
-	. += "<br>Check security records: <a href='?src=\ref[src];command=ignorerec'>[check_records ? "Yes" : "No"]</a>"
-	. += "<br>Check arrest status: <a href='?src=\ref[src];command=ignorearr'>[check_arrest ? "Yes" : "No"]</a>"
-	. += "<br>Report arrests: <a href='?src=\ref[src];command=declarearrests'>[declare_arrests ? "Yes" : "No"]</a>"
-	. += "<br>Auto patrol: <a href='?src=\ref[src];command=patrol'>[will_patrol ? "On" : "Off"]</a>"
+	. = "Check for weapon authorization: <a href='byond://?src=\ref[src];command=idcheck'>[idcheck ? "Yes" : "No"]</a>"
+	. += "<br>Check security records: <a href='byond://?src=\ref[src];command=ignorerec'>[check_records ? "Yes" : "No"]</a>"
+	. += "<br>Check arrest status: <a href='byond://?src=\ref[src];command=ignorearr'>[check_arrest ? "Yes" : "No"]</a>"
+	. += "<br>Report arrests: <a href='byond://?src=\ref[src];command=declarearrests'>[declare_arrests ? "Yes" : "No"]</a>"
+	. += "<br>Auto patrol: <a href='byond://?src=\ref[src];command=patrol'>[will_patrol ? "On" : "Off"]</a>"
 
 /mob/living/bot/secbot/GetInteractMaintenance()
 	. = "Threat identifier status: "
 	switch(emagged)
 		if(0)
-			. += "<a href='?src=\ref[src];command=emag'>Normal</a>"
+			. += "<a href='byond://?src=\ref[src];command=emag'>Normal</a>"
 		if(1)
-			. += "<a href='?src=\ref[src];command=emag'>Scrambled (DANGER)</a>"
+			. += "<a href='byond://?src=\ref[src];command=emag'>Scrambled (DANGER)</a>"
 		if(2)
 			. += "ERROROROROROR-----"
 
@@ -131,10 +131,11 @@
 	.[CODEX_INTERACTION_EMAG] += "<p>Causes \the [initial(name)] to attack and arrest anyone around it, except the person who emagged it.</p>"
 
 
-/mob/living/bot/secbot/use_weapon(obj/item/weapon, mob/user, list/click_params)
-	var/previous_health = health
-	. = ..()
-	if (. && health < previous_health)
+/mob/living/bot/secbot/post_use_item(obj/item/tool, mob/user, interaction_handled, use_call, click_params)
+	..()
+
+	// React to attack
+	if (use_call == "weapon")
 		react_to_attack(user)
 
 
@@ -164,7 +165,7 @@
 	say("Down on the floor, [suspect_name]! You have [SECBOT_WAIT_TIME] seconds to comply.")
 	if (length(preparing_arrest_sounds))
 		playsound(src.loc, pick(preparing_arrest_sounds), 50)
-	GLOB.moved_event.register(target, src, /mob/living/bot/secbot/proc/target_moved)
+	GLOB.moved_event.register(target, src, PROC_REF(target_moved))
 
 /mob/living/bot/secbot/proc/target_moved(atom/movable/moving_instance, atom/old_loc, atom/new_loc)
 	if(get_dist(get_turf(src), get_turf(target)) >= 1)
@@ -238,7 +239,7 @@
 	else
 		a_intent = I_GRAB
 
-	stun_baton.attack(M, src, BP_CHEST) //robots and turrets aim for center of mass
+	stun_baton.resolve_attackby(M, src)
 	flick(attack_state, src)
 
 /mob/living/bot/secbot/explode()
@@ -249,11 +250,11 @@
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)
 
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+	var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 	s.set_up(3, 1, src)
 	s.start()
 
-	new /obj/effect/decal/cleanable/blood/oil(Tsec)
+	new /obj/decal/cleanable/blood/oil(Tsec)
 	qdel(src)
 
 /mob/living/bot/secbot/proc/target_name(mob/living/T)

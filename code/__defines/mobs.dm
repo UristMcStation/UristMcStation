@@ -37,24 +37,6 @@
 #define BORGXRAY  FLAG(2)
 #define BORGMATERIAL FLAG(3)
 
-
-#define STANCE_SLEEP        0	// Doing (almost) nothing, to save on CPU because nobody is around to notice or the mob died.
-#define STANCE_IDLE         1	// The more or less default state. Wanders around, looks for baddies, and spouts one-liners.
-#define STANCE_ALERT        2	// A baddie is visible but not too close, and essentially we tell them to go away or die.
-#define STANCE_APPROACH     3	// Attempting to get into range to attack them.
-#define STANCE_FIGHT	    4	// Actually fighting, with melee or ranged.
-#define STANCE_BLINDFIGHT   5	// Fighting something that cannot be seen by the mob, from invisibility or out of sight.
-#define STANCE_REPOSITION   6	// Relocating to a better position while in combat. Also used when moving away from a danger like grenades.
-#define STANCE_MOVE         7	// Similar to above but for out of combat. If a baddie is seen, they'll cancel and fight them.
-#define STANCE_FOLLOW       8	// Following somone, without trying to murder them.
-#define STANCE_FLEE         9	// Run away from the target because they're too spooky/we're dying/some other reason.
-#define STANCE_DISABLED     10	// Used when the holder is afflicted with certain status effects, such as stuns or confusion.
-
-#define STANCE_ATTACK       11 // Backwards compatability
-#define STANCE_ATTACKING    12 // Ditto
-
-#define STANCES_COMBAT      list(STANCE_ALERT, STANCE_APPROACH, STANCE_FIGHT, STANCE_BLINDFIGHT, STANCE_REPOSITION)
-
 #define LEFT  FLAG(0)
 #define RIGHT FLAG(1)
 #define UNDER FLAG(2)
@@ -105,11 +87,16 @@
 #define APPEARANCE_ALL_HAIR (APPEARANCE_HEAD | APPEARANCE_HEAD_COLOR | APPEARANCE_FACE | APPEARANCE_FACE_COLOR)
 #define APPEARANCE_EYES FLAG(8)
 #define APPEARANCE_LANG FLAG(9)
-#define APPEARANCE_LANG_ANY_NUMBER FLAG(10)
-#define APPEARANCE_LANG_ANY_ORIGIN FLAG(11)
+#define APPEARANCE_PRONOUNS	FLAG(10)
 #define APPEARANCE_PRONOUNS	FLAG(12)
 
-#define APPEARANCE_COMMON (APPEARANCE_DNA2|APPEARANCE_RACE|APPEARANCE_GENDER|APPEARANCE_SKIN|APPEARANCE_ALL_HAIR|APPEARANCE_EYES|APPEARANCE_LANG|APPEARANCE_PRONOUNS)
+#define APPEARANCE_LANG_ANY_NUMBER FLAG(21)
+#define APPEARANCE_LANG_ANY_ORIGIN FLAG(22)
+#define APPEARANCE_SKIP_ALLOW_LIST_CHECK FLAG(23)
+#define APPEARANCE_SKIP_RESTRICTED_CHECK FLAG(24)
+
+#define APPEARANCE_BASIC (APPEARANCE_GENDER|APPEARANCE_SKIN|APPEARANCE_ALL_HAIR|APPEARANCE_EYES|APPEARANCE_PRONOUNS)
+#define APPEARANCE_COMMON (APPEARANCE_BASIC|APPEARANCE_DNA2|APPEARANCE_RACE|APPEARANCE_LANG)
 
 
 // /sprite_accessory flags
@@ -269,7 +256,10 @@
 #define AUGMENT_ARMOR FLAG(7)
 
 /// The augment can be installed in the head separately to AUGMENT_HEAD
-#define AUGMENT_FLUFF FLAG(8)
+#define AUGMENT_EYES FLAG(8)
+
+/// The augment can be installed in the head separately to AUGMENT_HEAD
+#define AUGMENT_FLUFF FLAG(9)
 
 
 /**
@@ -377,7 +367,10 @@
 #define SPECIES_GRAVWORLDER "Grav-Adapted Human"
 #define SPECIES_MULE        "Mule"
 #define SPECIES_MONKEY      "Monkey"
-#define SPECIES_NABBER         "giant armoured serpentid"
+#define SPECIES_NABBER      "Giant Armoured Serpentid"
+#define SPECIES_FARWA       "Farwa"
+#define SPECIES_NEAERA      "Neaera"
+#define SPECIES_STOK        "Stok"
 
 #define UNRESTRICTED_SPECIES list(SPECIES_HUMAN, SPECIES_DIONA, SPECIES_IPC, SPECIES_UNATHI, SPECIES_YEOSA, SPECIES_SKRELL, SPECIES_TRITONIAN, SPECIES_SPACER, SPECIES_VATGROWN, SPECIES_GRAVWORLDER, SPECIES_MULE, SPECIES_RESOMI)
 #define RESTRICTED_SPECIES list(SPECIES_VOX, SPECIES_XENO, SPECIES_ALIEN, SPECIES_GOLEM)
@@ -401,7 +394,7 @@
 // Aura type options for `/mob/living/proc/aura_check()`.
 /// Aura checks for projectile impacts. Generally called by `/obj/item/projectile/proc/attack_mob()`. Results in `/obj/aura/proc/aura_check_bullet()`.
 #define AURA_TYPE_BULLET "Bullet"
-/// Aura checks for physical weapon attacks. Generally called by `/obj/item/proc/attack()`. Results in `/obj/aura/proc/aura_check_weapon()`.
+/// Aura checks for physical weapon attacks. Generally called by `/obj/item/proc/use_weapon()`. Results in `/obj/aura/proc/aura_check_weapon()`.
 #define AURA_TYPE_WEAPON "Weapon"
 /// Aura checks for thrown atom impacts. Generally called by `/mob/living/hitby()`. Results in `/obj/aura/proc/aura_check_thrown()`.
 #define AURA_TYPE_THROWN "Thrown"
@@ -498,10 +491,17 @@
 #define FAKE_INVIS_ALPHA_THRESHOLD 127 // If something's alpha var is at or below this number, certain things will pretend it is invisible.
 
 #define PRONOUNS_THEY_THEM	"they/them"
-#define PRONOUNS_HE_HIM		"he/his"
+#define PRONOUNS_HE_HIM		"he/him"
 #define PRONOUNS_SHE_HER	"she/her"
 #define PRONOUNS_IT_ITS		"it/its"
 #define PRONOUNS_HE_THEY	"he/they"
 #define PRONOUNS_SHE_THEY	"she/they"
 
 #define PRONOUNS_ALL list(PRONOUNS_THEY_THEM, PRONOUNS_HE_HIM, PRONOUNS_SHE_HER, PRONOUNS_HE_THEY, PRONOUNS_SHE_THEY, PRONOUNS_IT_ITS)
+
+/// Integer (~ticks * SSMobs/wait fire rate). The default maximum value a mob's confused var can be set to.
+#define CONFUSED_MAX 15
+
+///Flags assigned to carbon mobs trait_flags when they're actively having an allergy.
+#define MILD_ALLERGY FLAG(0)
+#define SEVERE_ALLERGY FLAG(1)

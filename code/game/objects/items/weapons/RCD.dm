@@ -3,7 +3,7 @@
 /obj/item/rcd
 	name = "rapid construction device"
 	desc = "Small, portable, and far, far heavier than it looks, this gun-shaped device has a port into which one may insert compressed matter cartridges."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/tools/rcd.dmi'
 	icon_state = "rcd"
 	item_state = "rcd"
 	opacity = 0
@@ -17,8 +17,7 @@
 	throw_range = 5
 	w_class = ITEM_SIZE_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 2)
-	matter = list(MATERIAL_STEEL = 50000)
-	var/datum/effect/effect/system/spark_spread/spark_system
+	var/datum/effect/spark_spread/spark_system
 	var/stored_matter = 0
 	var/max_stored_matter = 120
 
@@ -39,9 +38,6 @@
 		work_modes = h.children
 	work_mode = work_modes[1]
 
-/obj/item/rcd/attack()
-	return 0
-
 /obj/item/rcd/proc/can_use(mob/user,turf/T)
 	return (user.Adjacent(T) && user.get_active_hand() == src && !user.incapacitated())
 
@@ -53,7 +49,7 @@
 
 /obj/item/rcd/New()
 	..()
-	src.spark_system = new /datum/effect/effect/system/spark_spread
+	src.spark_system = new /datum/effect/spark_spread
 	spark_system.set_up(5, 0, src)
 	spark_system.attach(src)
 	update_icon()	//Initializes the ammo counter
@@ -63,13 +59,12 @@
 	spark_system = null
 	return ..()
 
-/obj/item/rcd/attackby(obj/item/W, mob/user)
-
+/obj/item/rcd/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/rcd_ammo))
 		var/obj/item/rcd_ammo/cartridge = W
 		if(stored_matter >= max_stored_matter)
-			to_chat(user, SPAN_NOTICE("The RCD is at maximum capacity."))
-			return
+			to_chat(user, SPAN_WARNING("The RCD is at maximum capacity."))
+			return TRUE
 		var/matter_exchange = min(cartridge.remaining,max_stored_matter - stored_matter)
 		stored_matter += matter_exchange
 		cartridge.remaining -= matter_exchange
@@ -79,7 +74,7 @@
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("The RCD now holds [stored_matter]/[max_stored_matter] matter-units."))
 		update_icon()
-		return
+		return TRUE
 
 	if(isScrewdriver(W))
 		crafting = !crafting
@@ -87,27 +82,54 @@
 			to_chat(user, SPAN_NOTICE("You reassemble the RCD"))
 		else
 			to_chat(user, SPAN_NOTICE("The RCD can now be modified."))
-		src.add_fingerprint(user)
-		return
+		return TRUE
 
-	..()
+	return ..()
 
 /obj/item/rcd/attack_self(mob/user)
 	//Change the mode
+	var/list/options = list(
+		"Airlocks" = mutable_appearance('icons/screen/radial.dmi', "airlock"),
+		"Floors & Walls" = mutable_appearance('icons/screen/radial.dmi', "wallfloor"),
+		"Wall Frames" = mutable_appearance('icons/screen/radial.dmi', "grillewindow"),
+		"Machine Frame" = mutable_appearance('icons/screen/radial.dmi', "machine"),
+		"Computer Frame" = mutable_appearance('icons/screen/radial.dmi', "computer_dir"),
+		"Deconstruction" = mutable_appearance('icons/screen/radial.dmi', "delete"),
+	)
+	var/choice = show_radial_menu(user, user, options, require_near = TRUE, radius = 42, tooltips = TRUE, check_locs = list(src))
+
+	if (!choice || !user.use_sanity_check(src))
+		return
+
+
+	switch(choice)
+		if ("Airlocks")
+			work_mode = GET_SINGLETON(/singleton/hierarchy/rcd_mode/airlock)
+		if ("Floors & Walls")
+			work_mode = GET_SINGLETON(/singleton/hierarchy/rcd_mode/floor_and_walls)
+		if ("Wall Frames")
+			work_mode = GET_SINGLETON(/singleton/hierarchy/rcd_mode/wall_frame)
+		if ("Machine Frame")
+			work_mode = GET_SINGLETON(/singleton/hierarchy/rcd_mode/machine_frame)
+		if ("Computer Frame")
+			work_mode = GET_SINGLETON(/singleton/hierarchy/rcd_mode/computer_frame)
+		if ("Deconstruction")
+			work_mode = GET_SINGLETON(/singleton/hierarchy/rcd_mode/deconstruction)
+
 	work_id++
-	work_mode = next_in_list(work_mode, work_modes)
+
 	to_chat(user, SPAN_NOTICE("Changed mode to '[work_mode]'"))
 	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
 	if(prob(20)) src.spark_system.start()
 
-/obj/item/rcd/afterattack(atom/A, mob/user, proximity)
-	if(!proximity) return
+/obj/item/rcd/use_after(atom/A, mob/living/user, click_parameters)
 	if(disabled && !isrobot(user))
-		return 0
+		return FALSE
 	if(istype(get_area(A),/area/shuttle)||istype(get_area(A),/turf/space/transit))
-		return 0
+		return FALSE
 	work_id++
 	work_mode.do_work(src, A, user)
+	return TRUE
 
 /obj/item/rcd/proc/useResource(amount, mob/user)
 	if(stored_matter < amount)
@@ -117,11 +139,11 @@
 	return 1
 
 /obj/item/rcd/on_update_icon()	//For the fancy "ammo" counter
-	overlays.Cut()
+	ClearOverlays()
 	var/ratio = 0
 	ratio = stored_matter / max_stored_matter
 	ratio = max(round(ratio, 0.10) * 100, 10)
-	overlays += "rcd-[ratio]"
+	AddOverlays("rcd-[ratio]")
 
 /obj/item/rcd/proc/lowAmmo(mob/user)	//Kludge to make it animate when out of ammo, but I guess you can make it blow up when it's out of ammo or something
 	to_chat(user, SPAN_WARNING("The \'Low Ammo\' light on the device blinks yellow."))
@@ -130,7 +152,7 @@
 /obj/item/rcd_ammo
 	name = "compressed matter cartridge"
 	desc = "A highly-compressed matter cartridge usable in rapid construction (and deconstruction) devices, such as railguns."
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'icons/obj/weapons/ammo.dmi'
 	icon_state = "rcd"
 	item_state = "rcdammo"
 	w_class = ITEM_SIZE_SMALL

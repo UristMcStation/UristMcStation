@@ -2,16 +2,26 @@
 	name = "Abilities"
 	icon = 'icons/mob/screen_spells.dmi'
 	icon_state = "grey_spell_ready"
+	screen_loc = ui_spell_master // TODO: Rename
 	var/list/obj/screen/ability/ability_objects = list()
 	var/list/obj/screen/ability/spell_objects = list()
-	var/showing = 0 // If we're 'open' or not.
-
+	var/showing = FALSE // If we're 'open' or not.
 	var/open_state = "master_open"		// What the button looks like when it's 'open', showing the other buttons.
 	var/closed_state = "master_closed"	// Button when it's 'closed', hiding everything else.
+	var/mob/my_mob // The mob that possesses this hud object.
 
-	screen_loc = ui_spell_master // TODO: Rename
 
-	var/mob/my_mob = null // The mob that possesses this hud object.
+/obj/screen/movable/ability_master/Destroy()
+	remove_all_abilities()
+	LAZYCLEARLIST(ability_objects)
+	LAZYCLEARLIST(spell_objects)
+	if(my_mob)
+		my_mob.ability_master = null
+		if(my_mob.client && my_mob.client.screen)
+			my_mob.client.screen -= src
+		my_mob = null
+	return ..()
+
 
 /obj/screen/movable/ability_master/New(newloc,owner)
 	if(owner)
@@ -21,18 +31,7 @@
 		CRASH("ERROR: ability_master's New() was not given an owner argument.  This is a bug.")
 	..()
 
-/obj/screen/movable/ability_master/Destroy()
-	. = ..()
-	//Get rid of the ability objects.
-	remove_all_abilities()
-	ability_objects.Cut()
 
-	// After that, remove ourselves from the mob seeing us, so we can qdel cleanly.
-	if(my_mob)
-		my_mob.ability_master = null
-		if(my_mob.client && my_mob.client.screen)
-			my_mob.client.screen -= src
-		my_mob = null
 /obj/screen/movable/ability_master/MouseDrop()
 	if(showing)
 		return
@@ -52,14 +51,14 @@
 				my_mob.client.screen -= O
 //			O.handle_icon_updates = 0
 		showing = 0
-		overlays.Cut()
-		overlays.Add(closed_state)
+		ClearOverlays()
+		AddOverlays(closed_state)
 	else if(forced_state != 1) // We're opening it, show the icons.
 		open_ability_master()
 		update_abilities(1)
 		showing = 1
-		overlays.Cut()
-		overlays.Add(open_state)
+		ClearOverlays()
+		AddOverlays(open_state)
 	update_icon()
 
 /obj/screen/movable/ability_master/proc/open_ability_master()
@@ -99,7 +98,7 @@
 	if(length(ability_objects))
 		set_invisibility(0)
 	else
-		set_invisibility(101)
+		set_invisibility(INVISIBILITY_ABSTRACT)
 
 /obj/screen/movable/ability_master/proc/add_ability(name_given)
 	if(!name) return
@@ -189,10 +188,10 @@
 	return ..()
 
 /obj/screen/ability/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	icon_state = "[background_base_state]_spell_base"
 
-	overlays += ability_icon_state
+	AddOverlays(ability_icon_state)
 
 /obj/screen/ability/Click()
 	if(!usr)
@@ -258,9 +257,9 @@
 
 //Changeling Abilities
 /obj/screen/ability/verb_based/changeling
-	icon_state = "ling_spell_base"
-	background_base_state = "ling"
-
+	icon_state = "const_spell_base"
+	background_base_state = "const"
+//use this to force add powers
 /obj/screen/movable/ability_master/proc/add_ling_ability(object_given, verb_given, name_given, ability_icon_given, arguments)
 	if(!object_given)
 		message_admins("ERROR: add_ling_ability() was not given an object in its arguments.")
@@ -363,8 +362,7 @@
 
 	if(last_charge == spell.charge_counter && !forced_update)
 		return //nothing to see here
-
-	overlays -= spell.hud_state
+	CutOverlays(spell.hud_state)
 
 	if(spell.charge_type == Sp_RECHARGE || spell.charge_type == Sp_CHARGES)
 		if(spell.charge_counter < spell.charge_max)
@@ -372,27 +370,27 @@
 			if(spell.charge_counter > 0)
 				var/icon/partial_charge = icon(src.icon, "[spell_base]_spell_ready")
 				partial_charge.Crop(1, 1, partial_charge.Width(), round(partial_charge.Height() * spell.charge_counter / spell.charge_max))
-				overlays += partial_charge
+				AddOverlays(partial_charge)
 				if(last_charged_icon)
-					overlays -= last_charged_icon
+					CutOverlays(last_charged_icon)
 				last_charged_icon = partial_charge
 			else if(last_charged_icon)
-				overlays -= last_charged_icon
+				CutOverlays(last_charged_icon)
 				last_charged_icon = null
 		else
 			icon_state = "[spell_base]_spell_ready"
 			if(last_charged_icon)
-				overlays -= last_charged_icon
+				CutOverlays(last_charged_icon)
 	else
 		icon_state = "[spell_base]_spell_ready"
 
-	overlays += spell.hud_state
+	AddOverlays(spell.hud_state)
 
 	last_charge = spell.charge_counter
 
-	overlays -= "silence"
+	CutOverlays("silence")
 	if(spell.silenced)
-		overlays += "silence"
+		AddOverlays("silence")
 
 /obj/screen/ability/spell/on_update_icon(forced = 0)
 	update_charge(forced)

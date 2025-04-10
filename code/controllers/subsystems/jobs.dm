@@ -45,8 +45,8 @@ SUBSYSTEM_DEF(jobs)
 
 	// Create abstract submap archetype jobs for use in prefs, etc.
 	archetype_job_datums.Cut()
-	for(var/atype in SSmapping.submap_archetypes)
-		var/singleton/submap_archetype/arch = SSmapping.submap_archetypes[atype]
+	var/list/submap_archetypes = GET_SINGLETON_SUBTYPE_LIST(/singleton/submap_archetype)
+	for (var/singleton/submap_archetype/arch in submap_archetypes)
 		for(var/jobtype in arch.crew_jobs)
 			var/datum/job/job = get_by_path(jobtype)
 			if(!job && ispath(jobtype, /datum/job/submap))
@@ -67,9 +67,8 @@ SUBSYSTEM_DEF(jobs)
 	// Populate/set up map job lists.
 	job_lists_by_map_name = list("[GLOB.using_map.full_name]" = list("jobs" = primary_job_datums, "default_to_hidden" = FALSE))
 
-	for(var/atype in SSmapping.submap_archetypes)
+	for (var/singleton/submap_archetype/arch in submap_archetypes)
 		var/list/submap_job_datums
-		var/singleton/submap_archetype/arch = SSmapping.submap_archetypes[atype]
 		for(var/jobtype in arch.crew_jobs)
 			var/datum/job/job = get_by_path(jobtype)
 			if(job)
@@ -242,38 +241,35 @@ SUBSYSTEM_DEF(jobs)
 
 ///This proc is called before the level loop of divide_occupations() and will try to select a head, ignoring ALL non-head preferences for every level until it locates a head or runs out of levels to check
 /datum/controller/subsystem/jobs/proc/fill_head_position(datum/game_mode/mode)
-	for(var/level = 1 to 3)
-		for(var/command_position in titles_by_department(COM))
+	for (var/level = 1 to 3)
+		for (var/command_position as anything in titles_by_department(COM))
 			var/datum/job/job = get_by_title(command_position)
-			if(!job)	continue
+			if (!job)
+				continue
 			var/list/candidates = find_occupation_candidates(job, level)
-			if(!length(candidates))	continue
-			// Build a weighted list, weight by age.
+			if (!length(candidates))
+				continue
 			var/list/weightedCandidates = list()
-			for(var/mob/V in candidates)
-				// Log-out during round-start? What a bad boy, no head position for you!
-				if(!V.client) continue
-				var/age = V.client.prefs.age
-				if(age < job.minimum_character_age) // Nope.
+			for (var/mob/mob as anything in candidates)
+				if (!mob.client)
 					continue
-				switch(age)
-					if(job.minimum_character_age to (job.minimum_character_age+10))
-						weightedCandidates[V] = 3 // Still a bit young.
-					if((job.minimum_character_age+10) to (job.ideal_character_age-10))
-						weightedCandidates[V] = 6 // Better.
-					if((job.ideal_character_age-10) to (job.ideal_character_age+10))
-						weightedCandidates[V] = 10 // Great.
-					if((job.ideal_character_age+10) to (job.ideal_character_age+20))
-						weightedCandidates[V] = 6 // Still good.
-					if((job.ideal_character_age+20) to INFINITY)
-						weightedCandidates[V] = 3 // Geezer.
-					else
-						// If there's ABSOLUTELY NOBODY ELSE
-						if(length(candidates) == 1) weightedCandidates[V] = 1
+				var/age = mob.client.prefs.age
+				if (age < job.minimum_character_age)
+					continue
+				if (age < job.minimum_character_age + 10)
+					weightedCandidates[mob] = 3
+				else if (age < job.ideal_character_age - 10)
+					weightedCandidates[mob] = 6
+				else if (age < job.ideal_character_age + 10)
+					weightedCandidates[mob] = 10
+				else if (age < job.ideal_character_age + 20)
+					weightedCandidates[mob] = 6
+				else
+					weightedCandidates[mob] = 3
 			var/mob/new_player/candidate = pickweight(weightedCandidates)
-			if(assign_role(candidate, command_position, mode = mode))
-				return 1
-	return 0
+			if (assign_role(candidate, command_position, mode = mode))
+				return TRUE
+	return FALSE
 
 ///This proc is called at the start of the level loop of divide_occupations() and will cause head jobs to be checked before any other jobs of the same level
 /datum/controller/subsystem/jobs/proc/CheckHeadPositions(level, datum/game_mode/mode)
@@ -484,7 +480,7 @@ SUBSYSTEM_DEF(jobs)
 	if(!joined_late || job.latejoin_at_spawnpoints)
 		var/obj/S = job.get_roundstart_spawnpoint()
 
-		if(istype(S, /obj/effect/landmark/start) && istype(S.loc, /turf))
+		if(istype(S, /obj/landmark/start) && isturf(S.loc))
 			H.forceMove(S.loc)
 		else
 			var/datum/spawnpoint/spawnpoint = job.get_spawnpoint(H.client)
@@ -558,7 +554,7 @@ SUBSYSTEM_DEF(jobs)
 	return positions_by_department["[dept]"] || list()
 
 /datum/controller/subsystem/jobs/proc/spawn_empty_ai()
-	for(var/obj/effect/landmark/start/S in landmarks_list)
+	for(var/obj/landmark/start/S in landmarks_list)
 		if(S.name != "AI")
 			continue
 		if(locate(/mob/living) in S.loc)

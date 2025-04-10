@@ -78,11 +78,22 @@
 		machine.attack_hand(user)
 		return TRUE
 
-/singleton/machine_construction/proc/attackby(obj/item/I, mob/user, obj/machinery/machine)
-	if(!validate_state(machine))
+
+/**
+ * Handles tool usage on the parent machine. Has the same return rules as `/atom/proc/use_tool()`.
+ *
+ * **Parameters**:
+ * - `tool` - The item being used.
+ * - `user` - The mob performing the interaction.
+ * - `machine` - The parent machine being interacted with.
+ *
+ * Returns boolean. Indicates whether the interaction was handled or not. If `TRUE`, no other interactions will occur.
+ */
+/singleton/machine_construction/proc/use_tool(obj/item/tool, mob/user, obj/machinery/machine)
+	if (!validate_state(machine))
 		crash_with("Machine [log_info_line(machine)] violated the state assumptions of the construction state [type]!")
-		machine.attackby(I, user)
-		return TRUE
+		return FALSE
+
 
 /singleton/machine_construction/proc/mechanics_info()
 

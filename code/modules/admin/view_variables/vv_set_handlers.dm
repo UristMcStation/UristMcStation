@@ -30,7 +30,7 @@
 
 /singleton/vv_set_handler/location_handler/handle_set_var(atom/movable/AM, variable, var_value, client)
 	if(variable == "loc")
-		if(istype(var_value, /atom) || isnull(var_value) || var_value == "")	// Proper null or empty string is fine, 0 is not
+		if(isloc(var_value) || isnull(var_value) || var_value == "")	// Proper null or empty string is fine, 0 is not
 			AM.forceMove(var_value)
 		else
 			to_chat(client, SPAN_WARNING("May only assign null or /atom types to loc."))
@@ -71,7 +71,7 @@
 /singleton/vv_set_handler/ghost_appearance_handler
 	handled_type = /mob/observer/ghost
 	handled_vars = list("appearance" = /mob/observer/ghost/proc/set_appearance)
-	predicates = list(/proc/is_atom_predicate)
+	predicates = list(/proc/is_tom_predicate)
 
 /singleton/vv_set_handler/virtual_ability_handler
 	handled_type = /mob/observer/virtual
@@ -118,7 +118,7 @@
 
 /singleton/vv_set_handler/light_handler
 	handled_type = /atom
-	handled_vars = list("light_max_bright","light_inner_range","light_outer_range","light_falloff_curve")
+	handled_vars = list("light_power","light_range")
 
 /singleton/vv_set_handler/light_handler/handle_set_var(atom/A, variable, var_value, client)
 	var_value = text2num(var_value)
@@ -126,12 +126,10 @@
 		return
 	// More sanity checks
 
-	var/new_max = variable == "light_max_bright" ? var_value : A.light_max_bright
-	var/new_inner = variable == "light_inner_range" ? var_value : A.light_inner_range
-	var/new_outer = variable == "light_outer_range" ? var_value : A.light_outer_range
-	var/new_falloff = variable == "light_falloff_curve" ? var_value : A.light_falloff_curve
+	var/new_max = variable == "light_power" ? var_value : A.light_power
+	var/new_range = variable == "light_range" ? var_value : A.light_range
 
-	A.set_light(new_max, new_inner, new_outer, new_falloff)
+	A.set_light(new_range, new_max)
 
 /singleton/vv_set_handler/health_value_handler
 	handled_type = /atom
@@ -147,7 +145,7 @@
 	predicates = list(/proc/is_strict_bool_predicate)
 
 /singleton/vv_set_handler/health_dead_handler/handle_set_var(atom/target, variable, var_value, client)
-	if (var_value == target.health_dead)
+	if (var_value == target.health_dead())
 		return
 	switch (var_value)
 		if (TRUE)
@@ -156,7 +154,7 @@
 			target.revive_health()
 
 /singleton/vv_set_handler/vessel_mass
-	handled_type = /obj/effect/overmap/visitable/ship
+	handled_type = /obj/overmap/visitable/ship
 	handled_vars = list("vessel_mass")
 	predicates = list(
 		/proc/is_num_predicate,

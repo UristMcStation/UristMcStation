@@ -1,7 +1,7 @@
 /obj/machinery/wish_granter
-	name = "Wish Granter"
+	name = "\improper Wish Granter"
 	desc = "You're not so sure about this, anymore..."
-	icon = 'icons/obj/syndicate_beacon.dmi'
+	icon = 'icons/obj/structures/syndicate_beacon.dmi'
 	icon_state = "syndbeacon"
 
 	use_power = POWER_USE_OFF
@@ -38,8 +38,8 @@
 		charges--
 		insisting = 0
 
-		if (!(MUTATION_HULK in user.mutations))
-			user.mutations.Add(MUTATION_HULK)
+		if (!(MUTATION_FERAL in user.mutations))
+			user.mutations.Add(MUTATION_FERAL)
 
 		if (!(MUTATION_LASER in user.mutations))
 			user.mutations.Add(MUTATION_LASER)

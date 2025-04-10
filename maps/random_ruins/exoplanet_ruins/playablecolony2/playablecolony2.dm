@@ -23,7 +23,7 @@
 	title = "Ship Colonist"
 	supervisors = "the trust of your fellow Colonists"
 	info = "You are a Colonist, living on the rim of explored, let alone inhabited, space in a recently landed colony ship."
-	total_positions = 3
+	total_positions = 4
 	outfit_type = /singleton/hierarchy/outfit/job/colonist2
 
 /singleton/hierarchy/outfit/job/colonist2
@@ -32,12 +32,12 @@
 	pda_type = null
 	l_ear = /obj/item/device/radio/headset/map_preset/playablecolony2
 
-/obj/effect/submap_landmark/spawnpoint/colonist_spawn2
-	name = "Colonist"
+/obj/submap_landmark/spawnpoint/colonist_spawn2
+	name = "Ship Colonist"
 
-/obj/effect/submap_landmark/joinable_submap/colony2
+/obj/submap_landmark/joinable_submap/colony2
 	name = "Landed Colony Ship"
-	archetype = /singleton/submap_archetype/playablecolony
+	archetype = /singleton/submap_archetype/playablecolony2
 
 // Areas //
 /area/map_template/colony2

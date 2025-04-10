@@ -5,8 +5,11 @@
 	icon_deny = "tool-deny"
 	icon_vend = "tool-vend"
 	base_type = /obj/machinery/vending/tool
+	antag_slogans = {"\
+
+	"}
 	products = list(
-		/obj/item/stack/cable_coil/random = 10,
+		/obj/item/stack/cable_coil = 10,
 		/obj/item/crowbar = 5,
 		/obj/item/weldingtool = 3,
 		/obj/item/wirecutters = 5,
@@ -19,10 +22,17 @@
 		/obj/item/tape_roll = 8,
 		/obj/item/clothing/gloves/insulated/cheap = 1
 	)
+	rare_products = list(
+		/obj/item/device/augment_implanter/engineering_toolset  = 50
+	)
 	contraband = list(
 		/obj/item/weldingtool/hugetank = 2,
 		/obj/item/clothing/gloves/insulated = 1
 	)
 	premium = list(
 		/obj/item/clothing/gloves/insulated = 1
+	)
+	antag = list(
+		/obj/item/storage/toolbox/syndicate = 1,
+		/obj/item/device/augment_implanter/engineering_toolset  = 0
 	)

@@ -14,11 +14,16 @@
 		Woo, utensils.;\
 		You don't really need these...\
 	"}
+	antag_slogans = {"\
+		Revenge is a dish better served cold.;\
+		Serving up the defeat of Sol since time immemorial.;\
+		You call these knives? Can't wait to see your frigates.\
+	"}
 	products = list(
 		/obj/item/reagent_containers/glass/beaker/bowl =2,
 		/obj/item/tray = 8,
 		/obj/item/material/knife/kitchen = 3,
-		/obj/item/material/kitchen/rollingpin = 2,
+		/obj/item/material/rollingpin = 2,
 		/obj/item/serving_bowl = 20,
 		/obj/item/reagent_containers/food/drinks/pitcher = 2,
 		/obj/item/reagent_containers/food/drinks/flask/vacuumflask = 4,
@@ -27,7 +32,7 @@
 		/obj/item/reagent_containers/food/drinks/glass2/carafe = 2,
 		/obj/item/reagent_containers/food/drinks/glass2/square = 8,
 		/obj/item/clothing/suit/chef/classic = 2,
-		/obj/item/storage/lunchbox = 3,
+		/obj/item/storage/lunchbox/rainbow = 3,
 		/obj/item/storage/lunchbox/heart = 3,
 		/obj/item/storage/lunchbox/cat = 3,
 		/obj/item/storage/lunchbox/nt = 3,
@@ -40,5 +45,13 @@
 		/obj/item/material/knife/kitchen/cleaver = 1
 	)
 	contraband = list(
+		/obj/item/storage/lunchbox/ntmisprint = 1,
 		/obj/item/material/knife/kitchen/cleaver/bronze = 1
+	)
+	rare_products = list(
+		/obj/item/melee/energy/machete = 33
+	)
+	antag = list(
+		/obj/item/material/sword = 1,
+		/obj/item/melee/energy/machete = 0
 	)

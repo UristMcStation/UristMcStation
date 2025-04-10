@@ -8,9 +8,11 @@
  * /obj/item/rig_module/mounted/egun
  * /obj/item/rig_module/mounted/taser
  * /obj/item/rig_module/mounted/plasmacutter
- * /obj/item/rig_module/mounted/energy/energy_blade
+ * /obj/item/rig_module/mounted/energy_blade
  * /obj/item/rig_module/fabricator
  * /obj/item/rig_module/fabricator/wf_sign
+ * /obj/item/rig_module/mounted/arm_blade
+ * /obj/item/rig_module/mounted/power_fist
  */
 
 /obj/item/rig_module/device/flash
@@ -67,7 +69,7 @@
 	if(!target.Adjacent(holder.wearer) || !ismob(target))
 		return 0
 
-	var/resolved = target.attackby(device,holder.wearer)
+	var/resolved = device.resolve_attackby(target,holder.wearer)
 	if(resolved)
 		holder.cell.use(use_power_cost * CELLRATE)
 	return resolved
@@ -77,7 +79,7 @@
 		return
 
 	to_chat(holder.wearer, SPAN_NOTICE("Your hardsuit gauntlets heat up and lock into place, ready to be used."))
-	playsound(src.loc, 'sound/items/goggles_charge.ogg', 20, 1)
+	playsound(src.loc, 'sound/machines/boop1.ogg', 20, 1)
 	active = 1
 
 /obj/item/rig_module/grenade_launcher
@@ -151,7 +153,7 @@
 	charge.charges--
 	var/obj/item/grenade/new_grenade = new charge.product_type(get_turf(H))
 	H.visible_message(SPAN_DANGER("[H] launches \a [new_grenade]!"))
-	log_and_message_admins("fired a grenade ([new_grenade.name]) from a rigsuit grenade launcher.")
+	log_and_message_admins("fired a grenade ([new_grenade.name]) from a rigsuit grenade launcher.", H)
 	new_grenade.activate(H)
 	new_grenade.throw_at(target,fire_force,fire_distance)
 
@@ -253,7 +255,7 @@
 	return TRUE
 
 /obj/item/rig_module/mounted/ballistic/accepts_item(obj/item/input, mob/living/user)
-	var /obj/item/rig/rig = get_rig(src)
+	var/obj/item/rig/rig = get_rig(src)
 
 	if (!istype(input) || !istype(user) || !rig)
 		return FALSE
@@ -341,7 +343,7 @@
 		laser.Fire(target,holder.wearer)
 		return 1
 	else
-		var/resolved = target.attackby(laser,holder.wearer)
+		var/resolved = laser.resolve_attackby(target, holder.wearer)
 		if(!resolved && laser && target)
 			laser.afterattack(target,holder.wearer,1)
 			return 1
@@ -470,70 +472,6 @@
 
 	fabrication_type = /obj/item/caution
 
-/obj/item/rig_module/actuators /// While on, will dampen the fall from any height and scale power usage accordingly. Enables the user to also jump up 1 z-level.
-	name = "agility enhancement actuators"
-	desc = "A set of electromechanical actuators that drastically increase a hardsuit's mobility. They allow the suit to be able to absorb impacts from long falls and leap incredible distances."
-	icon_state = "actuators"
-
-	interface_name = "leg actuators"
-	interface_desc = "Allows you to fall from heights without taking damage and quickly jump up a level if there is something above you."
-
-	use_power_cost = 50 KILOWATTS
-	module_cooldown = 10 SECONDS
-	toggleable = TRUE
-	selectable = TRUE
-	usable = FALSE
-	/// Combat versions are able to lunge at mobs and grab them.
-	var/combatType = TRUE
-	/// Leaping radius. Inclusive. Applies to diagonal distances.
-	var/leapDistance = 4
-	engage_string = "Toggle Powered Lunge"
-	activate_string = "Engage Mobility Enhancement"
-	deactivate_string = "Disable Mobility Enhancement"
-
-
-/obj/item/rig_module/actuators/engage(atom/target, mob/user)
-	if (!..())
-		return FALSE
-
-	if (!target)
-		return TRUE
-
-	var/mob/living/carbon/human/H = holder.wearer
-
-	if (!isturf(H.loc))
-		to_chat(H, SPAN_WARNING("You cannot leap out of your current location!"))
-		return FALSE
-
-	var/turf/T = get_turf(target)
-
-	if (!T || T.density)
-		to_chat(H, SPAN_WARNING("You cannot leap at solid walls!"))
-		return FALSE
-
-	var/dist = max(get_dist(T, get_turf(H)), 0) /// The target the user has selected
-
-	if (dist)
-		for (var/A in T)
-			var/atom/aA = A
-			if (combatType && ismob(aA)) /// Combat versions of this module allow you to leap at mobs
-				continue
-
-			if (aA.density)
-				to_chat(H, SPAN_WARNING("You cannot leap at a location with solid objects on it!"))
-				return FALSE
-
-	if (T.z != H.z || dist > leapDistance)
-		to_chat(H, SPAN_WARNING("You cannot leap at such a distant object!"))
-		return FALSE
-
-	if (dist)
-		H.visible_message(SPAN_WARNING("\The [H]'s suit whirrs aggressively, launching them towards \the [target]!"),
-			SPAN_WARNING("Your suit whirrs aggressively, launching you towards \the [target]!"),
-			SPAN_WARNING("You hear an electric <i>whirr</i> followed by a weighty thump!"))
-		H.face_atom(T)
-		H.throw_at(T, leapDistance, 0.5, H, FALSE)
-		return TRUE
 
 /obj/item/rig_module/mounted/arm_blade
 
@@ -589,4 +527,60 @@
 		return
 
 	for(var/obj/item/material/armblade/mounted/blade in M.contents)
+		qdel(blade)
+
+/obj/item/rig_module/mounted/power_fist
+
+	name = "hand-mounted powerfists"
+	desc = "A pair of heavy powerfists to be installed into a hardsuit gauntlets."
+	icon_state = "powerfist"
+
+	suit_overlay_active = null
+
+	activate_string = "Power up Fist"
+	deactivate_string = "Power off Fist"
+
+	interface_name = "hand-mounted powerfists"
+	interface_desc = "A pair of heavy powerfists to be installed into a hardsuit gauntlets."
+
+	usable = 0
+	selectable = 0
+	toggleable = 1
+	use_power_cost = 10 KILOWATTS
+	active_power_cost = 5 KILOWATTS
+	passive_power_cost = 0
+
+/obj/item/rig_module/mounted/power_fist/Process()
+
+	if(holder && holder.wearer)
+		if(!(locate(/obj/item/melee/powerfist/mounted) in holder.wearer))
+			deactivate()
+			return 0
+
+	return ..()
+
+/obj/item/rig_module/mounted/power_fist/activate()
+	var/mob/living/M = holder.wearer
+
+	if (!M.HasFreeHand())
+		to_chat(M, SPAN_DANGER("Your hands are full."))
+		deactivate()
+		return
+
+	var/obj/item/melee/powerfist/mounted/blade = new(M)
+	M.put_in_hands(blade)
+
+	if(!..())
+		return 0
+
+/obj/item/rig_module/mounted/power_fist/deactivate()
+
+	..()
+
+	var/mob/living/M = holder.wearer
+
+	if(!M)
+		return
+
+	for(var/obj/item/melee/powerfist/mounted/blade in M.contents)
 		qdel(blade)

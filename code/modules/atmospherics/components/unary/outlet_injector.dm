@@ -4,7 +4,7 @@
 
 /obj/machinery/atmospherics/unary/outlet_injector
 	icon = 'icons/atmos/injector.dmi'
-	icon_state = "off"
+	icon_state = "map_injector"
 
 	name = "injector"
 	desc = "Passively injects air into its surroundings. Has a valve attached to it that can control flow rate."
@@ -34,10 +34,9 @@
 	//Give it a small reservoir for injecting. Also allows it to have a higher flow rate limit than vent pumps, to differentiate injectors a bit more.
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500
 
-/obj/machinery/atmospherics/unary/outlet_injector/Initialize()
-	. = ..()
 	set_frequency(frequency)
 	broadcast_status()
+
 
 /obj/machinery/atmospherics/unary/outlet_injector/Destroy()
 	unregister_radio(src, frequency)
@@ -70,14 +69,14 @@
 	. = list()
 	. += "<table>"
 	. += "<tr><td><b>Name:</b></td><td>[name]</td>"
-	. += "<tr><td><b>Power:</b></td><td>[use_power ? SPAN_COLOR("green", "Injecting") : SPAN_COLOR("red", "Offline")]</td><td><a href='?src=\ref[src];toggle_power=\ref[src]'>Toggle</a></td></tr>"
-	. += "<tr><td><b>ID Tag:</b></td><td>[id]</td><td><a href='?src=\ref[src];settag=\ref[id]'>Set ID Tag</a></td></td></tr>"
+	. += "<tr><td><b>Power:</b></td><td>[use_power ? SPAN_COLOR("green", "Injecting") : SPAN_COLOR("red", "Offline")]</td><td><a href='byond://?src=\ref[src];toggle_power=\ref[src]'>Toggle</a></td></tr>"
+	. += "<tr><td><b>ID Tag:</b></td><td>[id]</td><td><a href='byond://?src=\ref[src];settag=\ref[id]'>Set ID Tag</a></td></td></tr>"
 	if(frequency%10)
-		. += "<tr><td><b>Frequency:</b></td><td>[frequency/10]</td><td><a href='?src=\ref[src];setfreq=\ref[frequency]'>Set Frequency</a></td></td></tr>"
+		. += "<tr><td><b>Frequency:</b></td><td>[frequency/10]</td><td><a href='byond://?src=\ref[src];setfreq=\ref[frequency]'>Set Frequency</a></td></td></tr>"
 	else
-		. += "<tr><td><b>Frequency:</b></td><td>[frequency/10].0</td><td><a href='?src=\ref[src];setfreq=\ref[frequency]'>Set Frequency</a></td></td></tr>"
+		. += "<tr><td><b>Frequency:</b></td><td>[frequency/10].0</td><td><a href='byond://?src=\ref[src];setfreq=\ref[frequency]'>Set Frequency</a></td></td></tr>"
 	.+= "</table>"
-	. = JOINTEXT(.)
+	. = jointext(., null)
 
 /obj/machinery/atmospherics/unary/outlet_injector/OnTopic(mob/user, href_list, datum/topic_state/state)
 	if((. = ..()))
@@ -195,23 +194,24 @@
 		volume_rate = clamp(number, 0, air_contents.volume)
 
 	if(signal.data["status"])
-		addtimer(new Callback(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+		addtimer(new Callback(src, PROC_REF(broadcast_status)), 2, TIMER_UNIQUE)
 		return
 
-	addtimer(new Callback(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+	addtimer(new Callback(src, PROC_REF(broadcast_status)), 2, TIMER_UNIQUE)
 
 /obj/machinery/atmospherics/unary/outlet_injector/hide(i)
 	update_underlays()
 
-/obj/machinery/atmospherics/unary/outlet_injector/attackby(obj/item/O as obj, mob/user as mob)
+/obj/machinery/atmospherics/unary/outlet_injector/use_tool(obj/item/O, mob/living/user, list/click_params)
 	if(isMultitool(O))
 		var/datum/browser/popup = new (user, "Vent Configuration Utility", "[src] Configuration Panel", 600, 200)
 		popup.set_content(jointext(get_console_data(),"<br>"))
 		popup.open()
-		return
+		return TRUE
 
 	if(isWrench(O))
 		new /obj/item/pipe(loc, src)
 		qdel(src)
-		return
+		return TRUE
+
 	return ..()

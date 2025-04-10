@@ -14,7 +14,7 @@
  * Retrieves the atom's fluid effect, if present. Generally, this only returns a value for turfs, and for said turfs,
  * the fluid effect present in the turf's contents.
  *
- * Returns instance of `/obj/effect/fluid`.
+ * Returns instance of `/obj/fluid`.
  */
 /atom/proc/return_fluid()
 	return null
@@ -72,9 +72,9 @@
 		if(!istype(T))
 			return FALSE
 		depth = T.get_fluid_depth()
-	if(istype(loc, /mob))
+	if(ismob(loc))
 		return depth >= FLUID_SHALLOW
-	if(istype(loc, /turf))
+	if(isturf(loc))
 		return depth >= 3
 	return depth >= FLUID_OVER_MOB_HEAD
 

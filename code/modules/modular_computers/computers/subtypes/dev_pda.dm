@@ -21,16 +21,14 @@
 /obj/item/modular_computer/pda/CtrlClick(mob/user)
 	if(!isturf(loc)) ///If we are dragging the PDA across the ground we don't want to remove the pen
 		remove_pen(user)
-	else
-		. = ..()
+		return TRUE
+	return ..()
 
 /obj/item/modular_computer/pda/AltClick(mob/user)
-	if(!CanPhysicallyInteract(user))
-		return
-	if(card_slot && istype(card_slot.stored_card))
+	if (CanPhysicallyInteract(user) && card_slot && istype(card_slot.stored_card))
 		card_slot.eject_id(user)
-	else
-		..()
+		return TRUE
+	return ..()
 
 /obj/item/modular_computer/pda/proc/receive_notification(message = null)
 	if (!enabled || bsod)
@@ -55,8 +53,8 @@
 /obj/item/storage/box/PDAs
 	name = "box of spare PDAs"
 	desc = "A box of spare PDA microcomputers."
-	icon = 'icons/obj/pda.dmi'
-	icon_state = "pdabox"
+	icon = 'icons/obj/boxes.dmi'
+	icon_state = "pda"
 	startswith = list(/obj/item/modular_computer/pda = 5)
 
 /obj/item/storage/box/PDAs/Initialize()

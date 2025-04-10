@@ -91,7 +91,7 @@
 			reagents.add_reagent(reagent, hot_reagents[reagent])
 		was_heated = TRUE
 	SetName("hot " + name)
-	addtimer(new Callback(src, .proc/UnsetHot), 7 MINUTES)
+	addtimer(new Callback(src, PROC_REF(UnsetHot)), 7 MINUTES)
 
 
 /obj/item/reagent_containers/food/snacks/donkpocket/proc/UnsetHot()
@@ -191,7 +191,7 @@
 /obj/random/donkpocket
 	name = "random donk-pocket"
 	desc = "This is a random donk-pocket."
-	icon = 'icons/obj/food.dmi'
+	icon = 'icons/obj/food/food.dmi'
 	icon_state = "donkpocket"
 
 
@@ -267,7 +267,7 @@
 /obj/random/donkpocket_box
 	name = "random box of donk-pockets"
 	desc = "This is a random box of donk-pockets."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/boxes.dmi'
 	icon_state = "donk_kit"
 
 

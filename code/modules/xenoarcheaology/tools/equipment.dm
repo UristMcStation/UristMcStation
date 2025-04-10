@@ -53,13 +53,14 @@
 
 /obj/item/clothing/suit/space/void/excavation/prepared
 	helmet = /obj/item/clothing/head/helmet/space/void/excavation
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/storage/belt/archaeology
 	name = "excavation gear-belt"
 	desc = "Can hold various excavation gear."
 	icon_state = "gearbelt"
 	item_state = ACCESSORY_SLOT_UTILITY
-	can_hold = list(
+	contents_allowed = list(
 		/obj/item/storage/box/samplebags,
 		/obj/item/device/core_sampler,
 		/obj/item/pinpointer/radio,
@@ -71,10 +72,10 @@
 		/obj/item/device/camera,
 		/obj/item/paper,
 		/obj/item/photo,
-		/obj/item/folder,
+		/obj/item/material/folder,
 		/obj/item/pen,
-		/obj/item/folder,
-		/obj/item/material/clipboard,
+		/obj/item/material/folder,
+		/obj/item/material/folder/clipboard,
 		/obj/item/anodevice,
 		/obj/item/clothing/glasses,
 		/obj/item/wrench,

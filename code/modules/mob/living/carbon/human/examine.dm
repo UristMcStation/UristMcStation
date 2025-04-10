@@ -59,7 +59,7 @@
 			species_name += "[species.cyborg_noun] [species.get_bodytype(src)]"
 		else
 			species_name += "[species.name]"
-		msg += ", <b>[SPAN_COLOR(species.get_flesh_colour(src), "\a [species_name]!")]</b>[(user.can_use_codex() && SScodex.get_codex_entry(get_codex_value())) ?  SPAN_NOTICE(" \[<a href='?src=\ref[SScodex];show_examined_info=\ref[src];show_to=\ref[user]'>?</a>\]") : ""]"
+		msg += ", <b>[SPAN_COLOR(species.get_flesh_colour(src), "\a [species_name]!")]</b>[(user.can_use_codex() && SScodex.get_codex_entry(get_codex_value())) ?  SPAN_NOTICE(" \[<a href='byond://?src=\ref[SScodex];show_examined_info=\ref[src];show_to=\ref[user]'>?</a>\]") : ""]"
 
 	var/extra_species_text = species.get_additional_examine_text(src)
 	if(extra_species_text)
@@ -107,7 +107,7 @@
 	//shoes
 	if(shoes && !skipshoes)
 		msg += "[P.He] [P.is] wearing [shoes.get_examine_line()] on [P.his] feet.\n"
-	else if(feet_blood_DNA)
+	else if(feet_blood_color)
 		msg += "[SPAN_WARNING("[P.He] [P.has] [(feet_blood_color != SYNTH_BLOOD_COLOUR) ? "blood" : "oil"]-stained feet!")]\n"
 
 	//mask
@@ -163,7 +163,7 @@
 			msg += "The message \"[robohead.display_text]\" is displayed on its screen.\n"
 
 	//splints
-	for(var/organ in list(BP_L_LEG, BP_R_LEG, BP_L_ARM, BP_R_ARM))
+	for(var/organ in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT, BP_L_ARM, BP_R_ARM, BP_L_HAND, BP_R_HAND))
 		var/obj/item/organ/external/o = get_organ(organ)
 		if(o && o.splinted && o.splinted.loc == o)
 			msg += "[SPAN_WARNING("[P.He] [P.has] \a [o.splinted] on [P.his] [o.name]!")]\n"
@@ -185,7 +185,7 @@
 	else if (fire_stacks < 0)
 		msg += "[P.He] looks wet.\n"
 	if(on_fire)
-		msg += "[SPAN_WARNING("[P.He] [P.is] on fire!.")]\n"
+		msg += "[SPAN_DANGER("[P.He] [P.is] on fire!.")]\n"
 
 	var/ssd_msg = species.get_ssd(src)
 	if(ssd_msg && (!should_have_organ(BP_BRAIN) || has_brain()) && stat != DEAD)
@@ -227,7 +227,7 @@
 		var/obj/item/organ/external/E = organs_by_name[organ_tag]
 
 		if(!E)
-			wound_flavor_text[organ_descriptor] = "<b>[P.He] [P.is] missing [P.his] [organ_descriptor].</b>\n"
+			wound_flavor_text[organ_descriptor] = SPAN_WARNING("<b>[P.He] [P.is] missing [P.his] [organ_descriptor].</b>\n")
 			continue
 
 		wound_flavor_text[E.name] = ""
@@ -249,20 +249,20 @@
 				hidden_bleeders[hidden] += E.name
 		else
 			if(E.is_stump())
-				wound_flavor_text[E.name] += "<b>[P.He] [P.has] a stump where [P.his] [organ_descriptor] should be.</b>\n"
+				wound_flavor_text[E.name] += SPAN_DANGER("<b>[P.He] [P.has] a stump where [P.his] [organ_descriptor] should be.</b>\n")
 				if(LAZYLEN(E.wounds) && E.parent)
-					wound_flavor_text[E.name] += "[P.He] [P.has] [E.get_wounds_desc()] on [P.his] [E.parent.name].<br>"
+					wound_flavor_text[E.name] += SPAN_DANGER("[P.He] [P.has] [E.get_wounds_desc()] on [P.his] [E.parent.name].<br>")
 			else
 				if(!is_synth && BP_IS_ROBOTIC(E) && (E.parent && !BP_IS_ROBOTIC(E.parent) && !BP_IS_ASSISTED(E.parent)))
-					wound_flavor_text[E.name] = "[P.He] [P.has] a [E.name].\n"
+					wound_flavor_text[E.name] = SPAN_INFO("[P.He] [P.has] a [E.name].\n")
 				var/wounddesc = E.get_wounds_desc()
 				if(wounddesc != "nothing")
-					wound_flavor_text[E.name] += "[P.He] [P.has] [wounddesc] on [P.his] [E.name].<br>"
+					wound_flavor_text[E.name] += SPAN_DANGER("[P.He] [P.has] [wounddesc] on [P.his] [E.name].<br>")
 		if(!hidden || distance <=1)
 			if(E.dislocated > 0)
-				wound_flavor_text[E.name] += "[P.His] [E.joint] is dislocated!<br>"
+				wound_flavor_text[E.name] += SPAN_WARNING("[P.His] [E.joint] is dislocated!<br>")
 			if(((E.status & ORGAN_BROKEN) && E.brute_dam > E.min_broken_damage) || (E.status & ORGAN_MUTATED))
-				wound_flavor_text[E.name] += "[P.His] [E.name] is dented and swollen!<br>"
+				wound_flavor_text[E.name] += SPAN_DANGER("[P.His] [E.name] is dented and swollen!<br>")
 
 		for(var/datum/wound/wound in E.wounds)
 			var/list/embedlist = wound.embedded_objects
@@ -275,14 +275,12 @@
 					else if(!parsedembed.Find("multiple [embedded.name]"))
 						parsedembed.Remove(embedded.name)
 						parsedembed.Add("multiple "+embedded.name)
-				wound_flavor_text["[E.name]"] += "The [wound.desc] on [P.his] [E.name] has \a [english_list(parsedembed, and_text = " and \a ", comma_text = ", \a ")] sticking out of it!<br>"
+				wound_flavor_text["[E.name]"] += SPAN_DANGER("The [wound.desc] on [P.his] [E.name] has \a [english_list(parsedembed, and_text = " and a ", comma_text = ", a ")] sticking out of it!<br>")
 	for(var/hidden in hidden_bleeders)
-		wound_flavor_text[hidden] = "[P.He] [P.has] blood soaking through [hidden] around [P.his] [english_list(hidden_bleeders[hidden])]!<br>"
+		wound_flavor_text[hidden] = SPAN_DANGER("[P.He] [P.has] blood soaking through [hidden] around [P.his] [english_list(hidden_bleeders[hidden])]!<br>")
 
-	var/wound_msg = ""
 	for(var/limb in wound_flavor_text)
-		wound_msg += wound_flavor_text[limb]
-	msg += SPAN_WARNING(wound_msg)
+		msg += wound_flavor_text[limb]
 
 	for(var/obj/implant in get_visible_implants(0))
 		if(implant in shown_objects)
@@ -312,8 +310,8 @@
 			if(R)
 				criminal = R.get_criminalStatus()
 
-			msg += "[SPAN_CLASS("deptradio", "Criminal status:")] <a href='?src=\ref[src];criminal=1'>\[[criminal]\]</a>\n"
-			msg += "[SPAN_CLASS("deptradio", "Security records:")] <a href='?src=\ref[src];secrecord=`'>\[View\]</a>\n"
+			msg += "[SPAN_CLASS("deptradio", "Criminal status:")] <a href='byond://?src=\ref[src];criminal=1'>\[[criminal]\]</a>\n"
+			msg += "[SPAN_CLASS("deptradio", "Security records:")] <a href='byond://?src=\ref[src];secrecord=`'>\[View\]</a>\n"
 
 	if(hasHUD(user, HUD_MEDICAL))
 		var/perpname = "wot"
@@ -332,8 +330,10 @@
 		if(R)
 			medical = R.get_status()
 
-		msg += "[SPAN_CLASS("deptradio", "Physical status:")] <a href='?src=\ref[src];medical=1'>\[[medical]\]</a>\n"
-		msg += "[SPAN_CLASS("deptradio", "Medical records:")] <a href='?src=\ref[src];medrecord=`'>\[View\]</a>\n"
+		msg += "[SPAN_CLASS("deptradio", "Physical status:")] <a href='byond://?src=\ref[src];medical=1'>\[[medical]\]</a>\n"
+		msg += "[SPAN_CLASS("deptradio", "Medical records:")] <a href='byond://?src=\ref[src];medrecord=`'>\[View\]</a>\n"
+		if (R?.get_allergies())
+			msg += "[SPAN_CLASS("deptradio", "Allergies:")] <a href='byond://?src=\ref[src];allergies=1'>\[View\]</a>\n"
 
 
 	if(print_flavor_text()) msg += "[print_flavor_text()]\n"
@@ -349,6 +349,11 @@
 	var/show_descs = show_descriptors_to(user)
 	if(show_descs)
 		msg += SPAN_NOTICE("[jointext(show_descs, "<br>")]")
+
+	var/age_diff = species.get_age_comparison_string(src, user)
+	if (age_diff)
+		msg += "<br />[SPAN_NOTICE(age_diff)]"
+
 	to_chat(user, SPAN_INFO(jointext(msg, null)))
 
 //Helper procedure. Called by /mob/living/carbon/human/examine() and /mob/living/carbon/human/Topic() to determine HUD access to security and medical records.
@@ -358,12 +363,19 @@
 		var/obj/item/clothing/glasses/G = H.glasses
 		var/obj/item/card/id/ID = M.GetIdCard()
 		var/obj/item/organ/internal/augment/active/hud/AUG
+		var/obj/item/clothing/accessory/glassesmod/hud/ACC
 		for (var/obj/item/organ/internal/augment/active/hud/A in H.internal_organs) // Check for installed and active HUD implants
 			if (A.hud_type & hudtype)
 				AUG = A
 				break
 
-		return ((istype(G) && ((G.hud_type & hudtype) || (G.hud && (G.hud.hud_type & hudtype)))) && G.check_access(ID)) || AUG?.active && AUG.check_access(ID)
+		if (G)
+			for (var/obj/item/clothing/accessory/glassesmod/hud/C in G.accessories) // Check for HUD accessories on worn eyewear
+				if (C.hud_type & hudtype)
+					ACC = C
+					break
+
+		return ((istype(G) && ((G.hud_type & hudtype) || (G.hud && (G.hud.hud_type & hudtype)))) && G.check_access(ID)) || AUG?.active && AUG.check_access(ID) || ACC?.active
 	else if(istype(M, /mob/living/silicon/robot))
 		for (var/obj/item/borg/sight/sight as anything in M.GetAllHeld(/obj/item/borg/sight))
 			if (sight.hud_type & hudtype)
@@ -419,6 +431,6 @@
 	HTML += TextPreview(flavor_texts["feet"])
 	HTML += "<br>"
 	HTML += "<hr />"
-	HTML +="<a href='?src=\ref[src];flavor_change=done'>\[Done\]</a>"
+	HTML +="<a href='byond://?src=\ref[src];flavor_change=done'>\[Done\]</a>"
 	HTML += "<tt>"
 	show_browser(src, jointext(HTML,null), "window=flavor_changes;size=430x300")
