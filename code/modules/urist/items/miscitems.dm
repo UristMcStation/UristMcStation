@@ -497,7 +497,7 @@
 /obj/item/disk/fakenucleardisk
 	name = "nuclear authentication disk"
 	desc = "A nuclear authentication disk, used for arming the self-destruct system. On closer inspection, this appears to be some sort of dummy replica meant for training exercises, how did it end up here?"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/datadisks.dmi'
 	icon_state = "nucleardisk"
 	item_state = "card-id"
 	w_class = ITEM_SIZE_TINY
@@ -543,7 +543,7 @@
 /obj/random/clown
 	name = "Random Clown Item"
 	desc = "This is a random clown item."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/parcels.dmi'
 	icon_state = "gift3"
 
 /obj/random/clown/spawn_choices()
@@ -741,7 +741,7 @@
 /obj/random/treasure
 	name = "random treasure"
 	desc = "This is some random loot."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/parcels.dmi'
 	icon_state = "gift3"
 
 /obj/random/treasure/spawn_choices()
@@ -761,7 +761,7 @@
 /obj/random/treasure/plush
 	name = "random treasure plush"
 	desc = "This is some random loot."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/parcels.dmi'
 	icon_state = "gift3"
 
 /obj/random/treasure/plush/spawn_choices()
@@ -775,7 +775,7 @@
 /obj/random/treasure/portrait
 	name = "random treasure portrait"
 	desc = "This is some random loot."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/parcels.dmi'
 	icon_state = "gift3"
 
 /obj/random/treasure/portrait/spawn_choices()
@@ -817,7 +817,7 @@
 /obj/random/utensil
 	name = "random utensil"
 	desc = "This is a random utensil."
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'icons/obj/machines/kitchen.dmi'
 	icon_state = "fork"
 
 /obj/random/utensil/spawn_choices()
@@ -868,7 +868,7 @@
 /obj/item/bodyguardkit
 	name = "bodyguard plate carrier kit"
 	desc = "A secure box containing a plate carrier."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/boxes.dmi'
 	icon_state = "excavation"
 	var/list/armor_options = list(
 		"Classic - Blue Security Armor" = /obj/item/clothing/suit/armor/pcarrier/deus_blueshield,

@@ -244,14 +244,14 @@ var/global/list/eventwarp3 = list()
 
 /obj/structure/train/engine/snow
 	name = "engine"
-	icon = 'icons/obj/power.dmi'
-	icon_state = "teg"
+	icon = 'icons/obj/machines/power/teg.dmi'
+	icon_state = "teg-assembled"
 	density = TRUE
 	anchored = TRUE
 
 /obj/structure/train/engine/snow2
 	name = "engine"
-	icon = 'icons/obj/pipes.dmi'
+	icon = 'icons/obj/machines/power/pipeturbine.dmi'
 	icon_state = "turbine"
 	density = TRUE
 	anchored = TRUE

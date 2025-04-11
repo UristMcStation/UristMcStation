@@ -58,7 +58,7 @@
 /obj/item/device/telepad_beacon
 	name = "telepad beacon"
 	desc = "Use to warp in a cargo telepad."
-	icon = 'icons/obj/radio.dmi'
+	icon = 'icons/obj/machines/beacon.dmi'
 	icon_state = "beacon"
 	item_state = "signaler"
 	origin_tech = "bluespace=3"

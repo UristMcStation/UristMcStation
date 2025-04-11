@@ -185,7 +185,7 @@
 	show_category = "Vehicles"
 	restricted_category = "Vehicles"
 	science_capable = 0
-	icon = 'icons/obj/machines/drone_fab.dmi'
+	icon = 'icons/obj/machines/fabricators/drone_fab.dmi'
 	icon_state = "drone_fab_idle"
 	animation_state = "h_lathe_leave"
 

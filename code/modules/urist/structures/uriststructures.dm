@@ -260,7 +260,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "table parts"
 	desc = "Parts of a table. Poor table."
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/structures/table_parts.dmi'
 	icon_state = "table_parts"
 	matter = list("steel" = 3750)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE

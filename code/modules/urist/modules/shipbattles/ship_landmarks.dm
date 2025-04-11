@@ -167,7 +167,7 @@
 
 /obj/item/disk/station_disk
 	name = "Data Disk"
-	icon = 'icons/obj/cloning.dmi'
+	icon = 'icons/obj/datadisks.dmi'
 	icon_state = "datadisk0"
 	item_state = "card-id"
 	w_class = ITEM_SIZE_SMALL

@@ -89,8 +89,8 @@
 /obj/structure/assaultshieldgen
 	name = "shield generator"
 	desc = "The shield generator for the station. Protect it with your life. Repair it with a welding torch."
-	icon = 'icons/obj/power.dmi'
-	icon_state = "bbox_on"
+	icon = 'icons/obj/machines/power/breakerbox.dmi'
+	icon_state = "bbox"
 	health_max = 300
 	anchored = TRUE
 	density = TRUE

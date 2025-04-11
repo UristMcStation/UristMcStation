@@ -58,7 +58,7 @@
 /obj/random/ammo_magazine_smug
 	name = "Random Ammo Magazine"
 	desc = "This is smuggler's random ammo magazine."
-	icon = 'icons/obj/ammo.dmi'
+	icon = 'icons/obj/weapon/ammo.dmi'
 	icon_state = "magnum"
 
 /obj/random/ammo_magazine_smug/spawn_choices()

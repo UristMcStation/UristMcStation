@@ -106,7 +106,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/veilrender //WTF, it was removed for now discernible reason in the spellsystem port
 	name = "veil render"
 	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast city."
-	icon = 'icons/obj/wizard.dmi'
+	icon = 'icons/obj/cult.dmi'
 	icon_state = "render"
 	item_state = "render"
 	force = 15
@@ -119,7 +119,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/urist_intangible/rend
 	name = "Tear in the fabric of reality"
 	desc = "You should run now"
-	icon = 'icons/obj/wizard.dmi'
+	icon = 'icons/obj/rift.dmi'
 	icon_state = "rift"
 	density = TRUE
 	unacidable = 1

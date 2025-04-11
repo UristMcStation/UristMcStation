@@ -14,14 +14,14 @@
 /obj/machinery/computer/shuttle_control/assault/alien1
 	name = "alien shuttle console (Shuttle 1)"
 	shuttle_tag = "Assault 1"
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "cellconsole"
+	icon = 'icons/obj/machines/medical/cryogenic_legacy.dmi'
+	icon_state = "cellconsoleold"
 
 /obj/machinery/computer/shuttle_control/assault/alien2
 	name = "alien shuttle console (Shuttle 2)"
 	shuttle_tag = "Assault 2"
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "cellconsole"
+	icon = 'icons/obj/machines/medical/cryogenic_legacy.dmi'
+	icon_state = "cellconsoleold"
 
 /obj/item/gun/energy/lactera
 	item_icons = DEF_URIST_INHANDS

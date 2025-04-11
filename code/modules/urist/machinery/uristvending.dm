@@ -12,7 +12,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/machinery/vending/urist/autodrobe
 	name = "\improper AutoDrobe"
 	desc = "A vending machine for costumes."
-	icon = 'icons/obj/vending.dmi'
+	icon = 'icons/obj/machines/vending.dmi'
 	icon_state = "theater"
 	icon_deny = "theater-deny"
 	req_access = list(access_theatre) // Theatre access needed, unless hacked.
