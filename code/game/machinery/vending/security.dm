@@ -29,3 +29,7 @@
 		/obj/item/clothing/glasses/sunglasses = 2,
 		/obj/item/storage/box/donut = 2
 	)
+
+	premium = list(
+		/obj/item/clothing/mask/balaclava = 1
+	)
