@@ -16,10 +16,10 @@
 				It appears, however, that your ship has been raided while you were in cryosleep, leaving it as a half functional mess floating through space."
 	..()
 
-/obj/effect/submap_landmark/spawnpoint/hijacker
+/obj/submap_landmark/spawnpoint/hijacker
 	name = "Hijacker"
 
-/obj/effect/submap_landmark/spawnpoint/crewmember
+/obj/submap_landmark/spawnpoint/crewmember
 	name = "Exploration Crewmember"
 
 /singleton/hierarchy/outfit/job/pirate_hijacker

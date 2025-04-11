@@ -1493,7 +1493,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/giant_spider/hunter,
 /turf/simulated/floor/plating,
 /area/yacht/engine)

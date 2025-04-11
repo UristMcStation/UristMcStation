@@ -154,7 +154,7 @@
 		return
 
 	if(check_alien_ability(200,0,BP_ACID))
-		new /obj/effect/acid(get_turf(O), O)
+		new /obj/xeno/acid(get_turf(O), O)
 		visible_message("<span class='alium'><B>[src] vomits globs of vile stuff all over [O]. It begins to sizzle and melt under the bubbling mess of acid!</B></span>")
 
 	return

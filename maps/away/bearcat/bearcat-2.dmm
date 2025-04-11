@@ -5489,7 +5489,7 @@
 /turf/simulated/floor/reinforced,
 /area/ship/scrap/maintenance/atmos)
 "Ak" = (
-/obj/effect/paint/brown,
+/obj/paint/brown,
 /turf/simulated/wall/r_wall,
 /area/ship/scrap/maintenance/power)
 "Cs" = (

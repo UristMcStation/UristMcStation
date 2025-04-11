@@ -1,62 +1,62 @@
-/obj/effect/floor_decal/urist
+/obj/floor_decal/urist
 	icon = 'icons/urist/decals/urist.dmi'
 
-/obj/effect/floor_decal/urist/uristlogo
+/obj/floor_decal/urist/uristlogo
 	icon_state = "1"
 
-/obj/effect/floor_decal/urist/nervalogo
+/obj/floor_decal/urist/nervalogo
 	icon_state = "nerva1"
 
-/obj/effect/paint/green_grey
+/obj/paint/green_grey
 	color = "#8daf6a"
 
-/obj/effect/paint/red_deep
+/obj/paint/red_deep
 	color = COLOR_DEEP_RED
 
-/obj/effect/paint_stripe/red_deep
+/obj/paint_stripe/red_deep
 	color = COLOR_DEEP_RED
 
 //less washed out red
 
-/obj/effect/floor_decal/corner/red_deep
+/obj/floor_decal/corner/red_deep
 	name = "red corner"
 	color = COLOR_DEEP_RED
 
-/obj/effect/floor_decal/corner/red_deep/diagonal
+/obj/floor_decal/corner/red_deep/diagonal
 	icon_state = "corner_white_diagonal"
 
-/obj/effect/floor_decal/corner/red_deep/three_quarters
+/obj/floor_decal/corner/red_deep/three_quarters
 	icon_state = "corner_white_three_quarters"
 
-/obj/effect/floor_decal/corner/red_deep/full
+/obj/floor_decal/corner/red_deep/full
 	icon_state = "corner_white_full"
 
-/obj/effect/floor_decal/corner/red_deep/border
+/obj/floor_decal/corner/red_deep/border
 	icon_state = "bordercolor"
 
-/obj/effect/floor_decal/corner/red_deep/half
+/obj/floor_decal/corner/red_deep/half
 	icon_state = "bordercolorhalf"
 
-/obj/effect/floor_decal/corner/red_deep/mono
+/obj/floor_decal/corner/red_deep/mono
 	icon_state = "bordercolormonofull"
 
-/obj/effect/floor_decal/corner/red_deep/bordercorner
+/obj/floor_decal/corner/red_deep/bordercorner
 	icon_state = "bordercolorcorner"
 
-/obj/effect/floor_decal/corner/red_deep/bordercorner2
+/obj/floor_decal/corner/red_deep/bordercorner2
 	icon_state = "bordercolorcorner2"
 
-/obj/effect/floor_decal/corner/red_deep/borderfull
+/obj/floor_decal/corner/red_deep/borderfull
 	icon_state = "bordercolorfull"
 
-/obj/effect/floor_decal/corner/red_deep/bordercee
+/obj/floor_decal/corner/red_deep/bordercee
 	icon_state = "bordercolorcee"
 
 
 
 //trimline hell
 
-/obj/effect/floor_decal/trimline
+/obj/floor_decal/trimline
 	alpha = 229
 	icon_state = "trimline_box"
 	icon = 'icons/urist/decals/floor_decals.dmi'
@@ -118,93 +118,93 @@
 }
 
 /// black trimlines
-/obj/effect/floor_decal/trimline/black
+/obj/floor_decal/trimline/black
 	color = "#333333"
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/black)
+TRIMLINE_SUBTYPE_HELPER(/obj/floor_decal/trimline/black)
 
 /// White trimlines
-/obj/effect/floor_decal/trimline/white
+/obj/floor_decal/trimline/white
 	color = COLOR_WHITE
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/white)
+TRIMLINE_SUBTYPE_HELPER(/obj/floor_decal/trimline/white)
 
 /// Red trimlines
-/obj/effect/floor_decal/trimline/red
+/obj/floor_decal/trimline/red
 	color = COLOR_RED_GRAY
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/red)
+TRIMLINE_SUBTYPE_HELPER(/obj/floor_decal/trimline/red)
 
 /// deep red trimlines
-/obj/effect/floor_decal/trimline/red_deep
+/obj/floor_decal/trimline/red_deep
 	color = COLOR_DEEP_RED
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/red_deep)S
+TRIMLINE_SUBTYPE_HELPER(/obj/floor_decal/trimline/red_deep)S
 
 /// pink trimlines
-/obj/effect/floor_decal/trimline/pink
+/obj/floor_decal/trimline/pink
 	color = COLOR_PALE_RED_GRAY
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/pink)
+TRIMLINE_SUBTYPE_HELPER(/obj/floor_decal/trimline/pink)
 
 /// Green trimlines
-/obj/effect/floor_decal/trimline/green
+/obj/floor_decal/trimline/green
 	color = COLOR_GREEN_GRAY
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/green)
+TRIMLINE_SUBTYPE_HELPER(/obj/floor_decal/trimline/green)
 
 /// Blue trimlines
-/obj/effect/floor_decal/trimline/blue
+/obj/floor_decal/trimline/blue
 	color = COLOR_BLUE_GRAY
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/blue)
+TRIMLINE_SUBTYPE_HELPER(/obj/floor_decal/trimline/blue)
 
 /// Pale Blue trimlines
-/obj/effect/floor_decal/trimline/paleblue
+/obj/floor_decal/trimline/paleblue
 	color = COLOR_PALE_BLUE_GRAY
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/paleblue)
+TRIMLINE_SUBTYPE_HELPER(/obj/floor_decal/trimline/paleblue)
 
 /// Dark blue trimlines
-/obj/effect/floor_decal/trimline/dark_blue
+/obj/floor_decal/trimline/dark_blue
 	color = "#3f48cc"
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/dark_blue)
+TRIMLINE_SUBTYPE_HELPER(/obj/floor_decal/trimline/dark_blue)
 
 /// Faded blue trimlines
-/obj/effect/floor_decal/trimline/fadeblue
+/obj/floor_decal/trimline/fadeblue
 	color = "#4f637d"
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/fadeblue)
+TRIMLINE_SUBTYPE_HELPER(/obj/floor_decal/trimline/fadeblue)
 
 /// Yellow trimlines
-/obj/effect/floor_decal/trimline/yellow
+/obj/floor_decal/trimline/yellow
 	color = COLOR_BROWN
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/yellow)
+TRIMLINE_SUBTYPE_HELPER(/obj/floor_decal/trimline/yellow)
 
 /// Purple trimlines
-/obj/effect/floor_decal/trimline/purple
+/obj/floor_decal/trimline/purple
 	color = COLOR_PURPLE_GRAY
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/purple)
+TRIMLINE_SUBTYPE_HELPER(/obj/floor_decal/trimline/purple)
 
 /// Beige trimlines
-/obj/effect/floor_decal/trimline/brown
+/obj/floor_decal/trimline/brown
 	color = COLOR_BEIGE
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/brown)
+TRIMLINE_SUBTYPE_HELPER(/obj/floor_decal/trimline/brown)
 
 /// grey trimlines
-/obj/effect/floor_decal/trimline/grey
+/obj/floor_decal/trimline/grey
 	color = "#8d8c8c"
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/grey)
+TRIMLINE_SUBTYPE_HELPER(/obj/floor_decal/trimline/grey)
 
 /// light grey trimlines
-/obj/effect/floor_decal/trimline/lightgrey
+/obj/floor_decal/trimline/lightgrey
 	color = "#a8b2b6"
 
-TRIMLINE_SUBTYPE_HELPER(/obj/effect/floor_decal/trimline/lightgrey)
+TRIMLINE_SUBTYPE_HELPER(/obj/floor_decal/trimline/lightgrey)
 
 #undef TRIMLINE_SUBTYPE_HELPER

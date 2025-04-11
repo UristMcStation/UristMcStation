@@ -1,4 +1,4 @@
-/obj/effect/overmap/visitable/ship/bearcat
+/obj/overmap/visitable/ship/bearcat
 	name = "FTV Bearcat"
 	color = "#00ffff"
 	start_x = 4

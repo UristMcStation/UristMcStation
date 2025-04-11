@@ -20,7 +20,7 @@
 	if(A)
 		color = A.icon_colour
 	if(GLOB.using_map.use_overmap)
-		var/obj/effect/overmap/visitable/exoplanet/E = map_sectors["[z]"]
+		var/obj/overmap/visitable/exoplanet/E = map_sectors["[z]"]
 		if(istype(E))
 			desc += "\nThere are images on it: [E.get_engravings()]"
 
@@ -38,7 +38,7 @@
 /obj/structure/monolith/attack_hand(mob/user)
 	visible_message("[user] touches \the [src].")
 	if(GLOB.using_map.use_overmap && istype(user,/mob/living/carbon/human))
-		var/obj/effect/overmap/visitable/exoplanet/E = map_sectors["[z]"]
+		var/obj/overmap/visitable/exoplanet/E = map_sectors["[z]"]
 		if(istype(E))
 			var/mob/living/carbon/human/H = user
 			if(!H.isSynthetic())

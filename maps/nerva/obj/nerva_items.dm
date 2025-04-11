@@ -201,10 +201,10 @@
 
 //paint
 
-/obj/effect/paint/hull
+/obj/paint/hull
 	color = COLOR_HULL
 
-/obj/effect/paint/expeditionary
+/obj/paint/expeditionary
 	color = "#68099e"
 
 //station account card

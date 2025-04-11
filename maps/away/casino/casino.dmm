@@ -153,7 +153,7 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_bridge)
 "aw" = (
-/obj/effect/landmark/corpse/chef,
+/obj/landmark/corpse/chef,
 /turf/simulated/floor/tiled,
 /area/casino/casino_kitchen)
 "ax" = (
@@ -4232,7 +4232,7 @@
 "lF" = (
 /obj/decal/cleanable/blood/drip,
 /obj/decal/cleanable/blood/splatter,
-/obj/effect/landmark/corpse/nt/exec,
+/obj/landmark/corpse/nt/exec,
 /turf/simulated/floor/wood,
 /area/casino/casino_private_vip)
 "lG" = (
@@ -4918,7 +4918,7 @@
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_cantina)
 "tH" = (
-/obj/effect/shuttle_landmark/nav_casino/dock,
+/obj/shuttle_landmark/nav_casino/dock,
 /turf/space,
 /area/space)
 "ub" = (
@@ -5455,13 +5455,13 @@
 /area/casino/casino_crew_atmos)
 "Os" = (
 /obj/structure/bed,
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/blood/splatter,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/landmark/corpse/miner,
+/obj/landmark/corpse/miner,
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_bunk)
 "OB" = (
@@ -5607,8 +5607,8 @@
 /turf/simulated/floor,
 /area/casino/casino_bow)
 "SM" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/obj/effect/landmark/corpse/doctor,
+/obj/decal/cleanable/blood/splatter,
+/obj/landmark/corpse/doctor,
 /turf/simulated/floor/tiled,
 /area/casino/casino_crew_bunk)
 "SP" = (

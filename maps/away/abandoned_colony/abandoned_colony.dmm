@@ -11,7 +11,7 @@
 /area/planet/abandoned_colony)
 "ad" = (
 /obj/structure/curtain/black,
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "ae" = (
@@ -103,7 +103,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/planet/abandoned_colony)
 "as" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -170,7 +170,7 @@
 	},
 /area/planet/abandoned_colony)
 "aA" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -280,7 +280,7 @@
 	dir = 4;
 	icon_state = "yellow1"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
 	name = "ammunition crate"
 	},
@@ -293,7 +293,7 @@
 	},
 /area/planet/abandoned_colony)
 "aU" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
 	name = "ammunition crate"
 	},
@@ -312,21 +312,21 @@
 	},
 /area/planet/abandoned_colony)
 "aW" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 9;
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "aX" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "aY" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 5;
 	icon_state = "warning"
 	},
@@ -372,7 +372,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "bg" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -399,7 +399,7 @@
 	id = "cargoserve";
 	name = "cargo service switch"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -413,7 +413,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "bl" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "warning"
 	},
@@ -455,7 +455,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "bs" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -467,13 +467,13 @@
 /obj/machinery/navbeacon{
 	location = "QM #2"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "bu" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "redyellowfull"
 	},
@@ -575,43 +575,43 @@
 /obj/machinery/navbeacon{
 	location = "QM #1"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "bL" = (
-/obj/effect/floor_decal/corner/beige{
+/obj/floor_decal/corner/beige{
 	dir = 9;
 	icon_state = "corner_white"
 	},
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 5;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "bM" = (
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 5;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "bN" = (
-/obj/effect/floor_decal/industrial/loading,
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/industrial/loading,
+/obj/floor_decal/corner/pink{
 	dir = 5;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "bO" = (
-/obj/effect/floor_decal/corner/beige{
+/obj/floor_decal/corner/beige{
 	dir = 6;
 	icon_state = "corner_white"
 	},
-/obj/effect/floor_decal/corner/pink{
+/obj/floor_decal/corner/pink{
 	dir = 5;
 	icon_state = "corner_white"
 	},
@@ -634,7 +634,7 @@
 /turf/simulated/floor/carpet,
 /area/planet/abandoned_colony)
 "bS" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/structure/grille,
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
@@ -648,7 +648,7 @@
 	},
 /area/planet/abandoned_colony)
 "bU" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -658,7 +658,7 @@
 /obj/machinery/navbeacon{
 	location = "QM #4"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -673,7 +673,7 @@
 	},
 /area/planet/abandoned_colony)
 "bX" = (
-/obj/effect/decal/mecha_wreckage/smallfighter,
+/obj/decal/mecha_wreckage/smallfighter,
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "innermiddle"
 	},
@@ -685,7 +685,7 @@
 /obj/machinery/navbeacon{
 	location = "QM #3"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/colored{
 	dir = 4;
 	icon_state = "yellow1"
@@ -717,46 +717,46 @@
 	},
 /area/planet/abandoned_colony)
 "cd" = (
-/obj/effect/floor_decal/corner/beige/three_quarters,
+/obj/floor_decal/corner/beige/three_quarters,
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "ce" = (
-/obj/effect/floor_decal/corner/beige{
+/obj/floor_decal/corner/beige{
 	dir = 10;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "cf" = (
-/obj/effect/floor_decal/corner/beige/three_quarters{
+/obj/floor_decal/corner/beige/three_quarters{
 	dir = 8;
 	icon_state = "corner_white_three_quarters"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "cg" = (
-/obj/effect/floor_decal/corner/beige{
+/obj/floor_decal/corner/beige{
 	dir = 5;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "ch" = (
-/obj/effect/floor_decal/corner/beige/three_quarters{
+/obj/floor_decal/corner/beige/three_quarters{
 	dir = 1;
 	icon_state = "corner_white_three_quarters"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "ci" = (
-/obj/effect/floor_decal/corner/beige/three_quarters{
+/obj/floor_decal/corner/beige/three_quarters{
 	dir = 4;
 	icon_state = "corner_white_three_quarters"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "cj" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "ck" = (
@@ -767,11 +767,11 @@
 	},
 /area/planet/abandoned_colony)
 "cl" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "cm" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
 	icon_state = "square_grey"
@@ -782,11 +782,11 @@
 /turf/simulated/wall,
 /area/planet/abandoned_colony)
 "co" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
 	icon_state = "square_grey"
@@ -798,7 +798,7 @@
 	d2 = 4;
 	icon_state = "1-8"
 	},
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -807,7 +807,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/planet/abandoned_colony)
 "cr" = (
-/obj/effect/floor_decal/corner/beige{
+/obj/floor_decal/corner/beige{
 	dir = 9;
 	icon_state = "corner_white"
 	},
@@ -818,7 +818,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "cs" = (
-/obj/effect/floor_decal/corner/beige{
+/obj/floor_decal/corner/beige{
 	dir = 6;
 	icon_state = "corner_white"
 	},
@@ -837,7 +837,7 @@
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "cv" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
 	icon_state = "square_grey"
@@ -853,7 +853,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/planet/abandoned_colony)
 "cy" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
@@ -873,7 +873,7 @@
 /turf/simulated/floor/carpet,
 /area/planet/abandoned_colony)
 "cC" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "cD" = (
@@ -893,12 +893,12 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/planet/abandoned_colony)
 "cG" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "cH" = (
 /obj/machinery/light/small,
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
 	icon_state = "square_grey"
@@ -984,11 +984,11 @@
 	},
 /area/planet/abandoned_colony)
 "cU" = (
-/obj/effect/urist/spawn_bomb/abandoned,
+/obj/urist_intangible/spawn_bomb/abandoned,
 /turf/simulated/floor/carpet,
 /area/planet/abandoned_colony)
 "cV" = (
-/obj/effect/urist/spawn_bomb/abandoned,
+/obj/urist_intangible/spawn_bomb/abandoned,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
 	icon_state = "square_grey"
@@ -1090,7 +1090,7 @@
 	},
 /area/planet/abandoned_colony)
 "dk" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "dark"
 	},
@@ -1102,7 +1102,7 @@
 	},
 /area/planet/abandoned_colony)
 "dm" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "tiled"
 	},
@@ -1136,7 +1136,7 @@
 /obj/structure/sign/neon/bar{
 	pixel_y = -32
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/reagent_containers/syringe{
 	desc = "Probably has at least five incurable STDs.";
 	name = "dirty syringe"
@@ -1150,11 +1150,11 @@
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "dt" = (
-/obj/effect/decal/cleanable/generic,
+/obj/decal/cleanable/generic,
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "du" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/uristturf/geminus,
 /area/planet/abandoned_colony)
 "dv" = (
@@ -1202,8 +1202,8 @@
 	},
 /area/planet/abandoned_colony)
 "dC" = (
-/obj/effect/decal/cleanable/generic,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/generic,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "dD" = (
@@ -1342,9 +1342,9 @@
 	},
 /area/planet/abandoned_colony)
 "dX" = (
-/obj/effect/landmark/costume/butler,
-/obj/effect/landmark/costume/maid,
-/obj/effect/landmark/costume/waiter,
+/obj/landmark/costume/butler,
+/obj/landmark/costume/maid,
+/obj/landmark/costume/waiter,
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/sl_suit,
 /obj/item/clothing/under/waiter,
@@ -1418,7 +1418,7 @@
 /area/planet/abandoned_colony)
 "ek" = (
 /obj/random/junk,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "el" = (
@@ -1531,7 +1531,7 @@
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
 "eC" = (
-/obj/effect/decal/mecha_wreckage/smallfighter,
+/obj/decal/mecha_wreckage/smallfighter,
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "innermiddle"
 	},
@@ -1677,7 +1677,7 @@
 	},
 /area/planet/abandoned_colony)
 "eZ" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
 "fa" = (
@@ -1791,7 +1791,7 @@
 	},
 /area/planet/abandoned_colony)
 "fr" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "bar"
 	},
@@ -2340,7 +2340,7 @@
 	},
 /area/planet/abandoned_colony)
 "gV" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -2404,9 +2404,9 @@
 	},
 /area/planet/abandoned_colony)
 "hd" = (
-/obj/effect/landmark/costume/butler,
-/obj/effect/landmark/costume/maid,
-/obj/effect/landmark/costume/waiter,
+/obj/landmark/costume/butler,
+/obj/landmark/costume/maid,
+/obj/landmark/costume/waiter,
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/sl_suit,
 /obj/item/clothing/under/waiter,
@@ -2506,7 +2506,7 @@
 /area/planet/abandoned_colony)
 "hn" = (
 /obj/machinery/light/small,
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -2589,7 +2589,7 @@
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/casual_pants/camo,
 /obj/item/clothing/under/blazer,
-/obj/effect/decal/cleanable/cobweb,
+/obj/decal/cleanable/cobweb,
 /obj/random/projectile,
 /obj/random/contraband,
 /turf/simulated/floor/tiled/uristturf/geminus{
@@ -2611,7 +2611,7 @@
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "hA" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -2625,21 +2625,21 @@
 	},
 /area/planet/abandoned_colony)
 "hC" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "hD" = (
 /obj/random/trash,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "hE" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "hF" = (
@@ -2674,9 +2674,9 @@
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "hK" = (
-/obj/effect/landmark/costume/butler,
-/obj/effect/landmark/costume/maid,
-/obj/effect/landmark/costume/waiter,
+/obj/landmark/costume/butler,
+/obj/landmark/costume/maid,
+/obj/landmark/costume/waiter,
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/sl_suit,
 /obj/item/clothing/under/waiter,
@@ -2702,7 +2702,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "hO" = (
-/obj/effect/dummy/spell_jaunt,
+/obj/dummy/spell_jaunt,
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "hP" = (
@@ -2733,7 +2733,7 @@
 	},
 /area/planet/abandoned_colony)
 "hS" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "hT" = (
@@ -2756,7 +2756,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "hW" = (
-/obj/effect/decal/cleanable/cobweb2,
+/obj/decal/cleanable/cobweb2,
 /obj/structure/table/woodentable/walnut,
 /obj/item/seeds/poppyseed,
 /obj/item/seeds/poppyseed,
@@ -2801,7 +2801,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "ia" = (
-/obj/effect/decal/cleanable/vomit,
+/obj/decal/cleanable/vomit,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "ib" = (
@@ -2830,7 +2830,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/grey{
+/obj/floor_decal/corner/grey{
 	dir = 4;
 	icon_state = "corner_white"
 	},
@@ -2839,7 +2839,7 @@
 	},
 /area/planet/abandoned_colony)
 "ie" = (
-/obj/effect/floor_decal/corner/grey{
+/obj/floor_decal/corner/grey{
 	dir = 5;
 	icon_state = "corner_white"
 	},
@@ -2849,7 +2849,7 @@
 /area/planet/abandoned_colony)
 "if" = (
 /obj/machinery/cooker/fryer,
-/obj/effect/floor_decal/corner/grey{
+/obj/floor_decal/corner/grey{
 	dir = 1;
 	icon_state = "corner_white"
 	},
@@ -2915,7 +2915,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "ip" = (
@@ -3063,7 +3063,7 @@
 "iI" = (
 /obj/structure/closet/crate/trashcart,
 /obj/random/junk,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "iJ" = (
@@ -3074,8 +3074,8 @@
 /area/planet/abandoned_colony)
 "iK" = (
 /obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/cobweb{
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/cobweb{
 	dir = 8;
 	icon_state = "cobweb1"
 	},
@@ -3107,7 +3107,7 @@
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "iQ" = (
-/obj/effect/decal/cleanable/cobweb,
+/obj/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "redyellowfull"
 	},
@@ -3128,7 +3128,7 @@
 	},
 /area/planet/abandoned_colony)
 "iT" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "redyellowfull"
 	},
@@ -3200,7 +3200,7 @@
 	},
 /area/planet/abandoned_colony)
 "jc" = (
-/obj/effect/decal/cleanable/cobweb2,
+/obj/decal/cleanable/cobweb2,
 /obj/structure/closet,
 /obj/random/contraband,
 /turf/simulated/floor/tiled/uristturf/geminus{
@@ -3215,13 +3215,13 @@
 /area/planet/abandoned_colony)
 "je" = (
 /obj/structure/table/standard,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "redyellowfull"
 	},
 /area/planet/abandoned_colony)
 "jf" = (
-/obj/effect/decal/cleanable/vomit,
+/obj/decal/cleanable/vomit,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "jg" = (
@@ -3232,7 +3232,7 @@
 	},
 /area/planet/abandoned_colony)
 "jh" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/structure/barricade,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
@@ -3281,7 +3281,7 @@
 	},
 /area/planet/abandoned_colony)
 "jn" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "jo" = (
@@ -3324,7 +3324,7 @@
 	},
 /area/planet/abandoned_colony)
 "jt" = (
-/obj/effect/decal/cleanable/cobweb,
+/obj/decal/cleanable/cobweb,
 /obj/structure/salvageable/console_broken_os,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "bar"
@@ -3399,7 +3399,7 @@
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "jF" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "jG" = (
@@ -3426,11 +3426,11 @@
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "jL" = (
-/obj/effect/decal/cleanable/generic,
+/obj/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "jM" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "jN" = (
@@ -3442,8 +3442,8 @@
 	desc = "Probably has at least five incurable STDs.";
 	name = "dirty syringe"
 	},
-/obj/effect/decal/cleanable/blood/drip,
-/obj/effect/decal/cleanable/cobweb2,
+/obj/decal/cleanable/blood/drip,
+/obj/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "jO" = (
@@ -3455,12 +3455,12 @@
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "jQ" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "jR" = (
 /obj/item/reagent_containers/syringe/drugs,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "jS" = (
@@ -3477,8 +3477,8 @@
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "jV" = (
-/obj/effect/decal/cleanable/blood/drip,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/drip,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "jW" = (
@@ -3521,19 +3521,19 @@
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "kd" = (
-/obj/effect/dummy/spell_jaunt,
+/obj/dummy/spell_jaunt,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
 	icon_state = "square_grey"
 	},
 /area/planet/abandoned_colony)
 "ke" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "kf" = (
-/obj/effect/dummy/spell_jaunt,
+/obj/dummy/spell_jaunt,
 /turf/simulated/wall,
 /area/planet/abandoned_colony)
 "kg" = (
@@ -3544,7 +3544,7 @@
 /obj/structure/table/steel,
 /obj/item/FixOVein,
 /obj/item/surgicaldrill,
-/obj/effect/decal/cleanable/cobweb,
+/obj/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "ki" = (
@@ -4023,12 +4023,12 @@
 	},
 /area/planet/abandoned_colony)
 "lN" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "lO" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/structure/curtain/black,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
@@ -4126,7 +4126,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "md" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/light/coldtint,
 /mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/tiled/uristturf/geminus{
@@ -4162,7 +4162,7 @@
 /area/planet/abandoned_colony)
 "mj" = (
 /obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "mk" = (
@@ -4314,12 +4314,12 @@
 /obj/item/seeds/sugarcaneseed,
 /obj/random/maintenance/clean,
 /obj/item/material/minihoe,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "mG" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "mH" = (
@@ -4331,7 +4331,7 @@
 /obj/item/device/scanner/plant,
 /obj/item/seeds/towermycelium,
 /obj/item/material/hatchet,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "mI" = (
@@ -4357,7 +4357,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "mL" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/machinery/light/small{
 	dir = 4;
 	pixel_y = 8
@@ -4435,7 +4435,7 @@
 "mZ" = (
 /obj/random/toolbox,
 /obj/structure/table/reinforced,
-/obj/effect/floor_decal/corner/white/diagonal,
+/obj/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "na" = (
@@ -4443,11 +4443,11 @@
 	pixel_y = 0
 	},
 /obj/structure/table/reinforced,
-/obj/effect/floor_decal/corner/white/diagonal,
+/obj/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "nb" = (
-/obj/effect/floor_decal/corner/white/diagonal,
+/obj/floor_decal/corner/white/diagonal,
 /obj/structure/table/reinforced,
 /obj/machinery/cell_charger,
 /turf/simulated/floor/tiled/steel_grid,
@@ -4457,55 +4457,55 @@
 	dir = 1;
 	icon_state = "blue1"
 	},
-/obj/effect/floor_decal/corner/white/diagonal,
+/obj/floor_decal/corner/white/diagonal,
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "nd" = (
 /obj/machinery/lapvend,
-/obj/effect/floor_decal/corner/white/diagonal,
+/obj/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "ne" = (
 /obj/random/powercell,
 /obj/structure/table/reinforced,
-/obj/effect/floor_decal/corner/white/diagonal,
+/obj/floor_decal/corner/white/diagonal,
 /obj/random/powercell,
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "nf" = (
 /obj/structure/table/reinforced,
-/obj/effect/floor_decal/corner/white/diagonal,
+/obj/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "ng" = (
-/obj/effect/decal/cleanable/generic,
+/obj/decal/cleanable/generic,
 /turf/simulated/floor/planet/dirt/city,
 /area/planet/abandoned_colony)
 "nh" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "ni" = (
-/obj/effect/floor_decal/corner/white/diagonal,
+/obj/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "nj" = (
-/obj/effect/floor_decal/corner/brown/three_quarters{
+/obj/floor_decal/corner/brown/three_quarters{
 	dir = 8;
 	icon_state = "corner_white_three_quarters"
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "nk" = (
-/obj/effect/floor_decal/corner/brown{
+/obj/floor_decal/corner/brown{
 	dir = 5;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "nl" = (
-/obj/effect/floor_decal/corner/brown/three_quarters{
+/obj/floor_decal/corner/brown/three_quarters{
 	dir = 1;
 	icon_state = "corner_white_three_quarters"
 	},
@@ -4513,11 +4513,11 @@
 /area/planet/abandoned_colony)
 "nm" = (
 /obj/machinery/recharge_station,
-/obj/effect/floor_decal/corner/white/diagonal,
+/obj/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "nn" = (
-/obj/effect/floor_decal/corner/brown{
+/obj/floor_decal/corner/brown{
 	dir = 9;
 	icon_state = "corner_white"
 	},
@@ -4541,7 +4541,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "nr" = (
-/obj/effect/floor_decal/corner/brown{
+/obj/floor_decal/corner/brown{
 	dir = 6;
 	icon_state = "corner_white"
 	},
@@ -4575,7 +4575,7 @@
 /area/planet/abandoned_colony)
 "nx" = (
 /obj/structure/sign/poster,
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "ny" = (
@@ -4652,23 +4652,23 @@
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "nL" = (
-/obj/effect/floor_decal/corner/red/diagonal,
-/obj/effect/wallframe_spawn/reinforced,
+/obj/floor_decal/corner/red/diagonal,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	dir = 2;
 	icon_state = "cafeteria"
 	},
 /area/planet/abandoned_colony)
 "nM" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/obj/effect/wallframe_spawn/reinforced,
+/obj/floor_decal/corner/blue/diagonal,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	dir = 2;
 	icon_state = "cafeteria"
 	},
 /area/planet/abandoned_colony)
 "nN" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Grocery Store"
 	},
@@ -4678,7 +4678,7 @@
 	},
 /area/planet/abandoned_colony)
 "nO" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	dir = 2;
 	icon_state = "cafeteria"
@@ -4693,7 +4693,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/planet/abandoned_colony)
 "nR" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/rack,
 /obj/item/storage/bag/plasticbag,
 /obj/item/storage/bag/plasticbag,
@@ -4704,14 +4704,14 @@
 	},
 /area/planet/abandoned_colony)
 "nS" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	dir = 2;
 	icon_state = "cafeteria"
 	},
 /area/planet/abandoned_colony)
 "nT" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/standard,
 /obj/item/device/eftpos,
 /turf/simulated/floor/fixed/uristturf/geminus{
@@ -4720,7 +4720,7 @@
 	},
 /area/planet/abandoned_colony)
 "nU" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -4747,7 +4747,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/planet/abandoned_colony)
 "nX" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
 /obj/item/storage/bag/plasticbag,
 /obj/item/storage/bag/plasticbag,
@@ -4762,7 +4762,7 @@
 	},
 /area/planet/abandoned_colony)
 "nY" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/standard,
 /obj/structure/salvageable/register,
 /turf/simulated/floor/fixed/uristturf/geminus{
@@ -4771,7 +4771,7 @@
 	},
 /area/planet/abandoned_colony)
 "nZ" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -4788,7 +4788,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/planet/abandoned_colony)
 "ob" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/snacks/canned/beef,
 /turf/simulated/floor/fixed/uristturf/geminus{
@@ -4797,7 +4797,7 @@
 	},
 /area/planet/abandoned_colony)
 "oc" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/rack,
 /obj/item/storage/pill_bottle/antidexafen,
 /obj/item/storage/pill_bottle/antidexafen,
@@ -4814,7 +4814,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/planet/abandoned_colony)
 "oe" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
 /obj/item/storage/box/glowsticks,
 /obj/item/storage/box/glowsticks,
@@ -4824,7 +4824,7 @@
 	},
 /area/planet/abandoned_colony)
 "of" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/rack,
 /obj/item/storage/pill_bottle/paracetamol,
 /obj/item/storage/pill_bottle/paracetamol,
@@ -4834,7 +4834,7 @@
 	},
 /area/planet/abandoned_colony)
 "og" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
 /obj/item/reagent_containers/food/snacks/grown,
 /obj/item/reagent_containers/food/snacks/grown,
@@ -4848,7 +4848,7 @@
 	},
 /area/planet/abandoned_colony)
 "oh" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
 /obj/item/storage/box/mixedglasses,
 /obj/item/storage/box/mixedglasses,
@@ -4858,7 +4858,7 @@
 	},
 /area/planet/abandoned_colony)
 "oi" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
 /obj/item/storage/fancy/smokable/jerichos,
 /turf/simulated/floor/fixed/uristturf/geminus{
@@ -4867,7 +4867,7 @@
 	},
 /area/planet/abandoned_colony)
 "oj" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
 /obj/item/storage/box/donut,
 /obj/item/storage/box/donut,
@@ -4878,7 +4878,7 @@
 	},
 /area/planet/abandoned_colony)
 "ok" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/rack,
 /obj/item/storage/box/donkpocket_mixed,
 /obj/item/storage/box/donkpocket_mixed,
@@ -4892,7 +4892,7 @@
 	},
 /area/planet/abandoned_colony)
 "ol" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/rack,
 /obj/item/reagent_containers/food/snacks/baguette,
 /obj/item/reagent_containers/food/snacks/baguette,
@@ -4902,7 +4902,7 @@
 	},
 /area/planet/abandoned_colony)
 "om" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/rack,
 /obj/item/storage/box/gloves,
 /obj/item/storage/box/gloves,
@@ -4912,7 +4912,7 @@
 	},
 /area/planet/abandoned_colony)
 "on" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/rack,
 /obj/item/storage/box/condimentbottles,
 /obj/item/storage/box/condimentbottles,
@@ -4937,7 +4937,7 @@
 	},
 /area/planet/abandoned_colony)
 "oq" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
 /obj/item/reagent_containers/food/snacks/canned/beans,
 /turf/simulated/floor/fixed/uristturf/geminus{
@@ -4946,7 +4946,7 @@
 	},
 /area/planet/abandoned_colony)
 "or" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
 /obj/item/cell/standard,
 /obj/item/cell/standard,
@@ -4956,7 +4956,7 @@
 	},
 /area/planet/abandoned_colony)
 "os" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
 /obj/item/storage/fancy/egg_box,
 /obj/item/storage/fancy/egg_box,
@@ -4968,7 +4968,7 @@
 	},
 /area/planet/abandoned_colony)
 "ot" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
 /obj/item/storage/box/matches,
 /obj/item/storage/box/matches,
@@ -4979,7 +4979,7 @@
 	},
 /area/planet/abandoned_colony)
 "ou" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
 /obj/item/storage/box/mousetraps,
 /obj/item/storage/box/mousetraps,
@@ -4989,7 +4989,7 @@
 	},
 /area/planet/abandoned_colony)
 "ov" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/rack,
 /obj/item/reagent_containers/food/snacks/grown,
 /obj/item/reagent_containers/food/snacks/grown,
@@ -5002,7 +5002,7 @@
 	},
 /area/planet/abandoned_colony)
 "ow" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
 /obj/item/reagent_containers/food/snacks/grown/potato,
 /obj/item/reagent_containers/food/snacks/grown/potato,
@@ -5013,7 +5013,7 @@
 	},
 /area/planet/abandoned_colony)
 "ox" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/rack,
 /obj/item/reagent_containers/food/snacks/grown,
 /obj/item/reagent_containers/food/snacks/grown,
@@ -5026,7 +5026,7 @@
 	},
 /area/planet/abandoned_colony)
 "oy" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
 /obj/item/tape_roll,
 /obj/item/tape_roll,
@@ -5036,7 +5036,7 @@
 	},
 /area/planet/abandoned_colony)
 "oz" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/rack,
 /obj/item/weedkiller,
 /turf/simulated/floor/fixed/uristturf/geminus{
@@ -5045,7 +5045,7 @@
 	},
 /area/planet/abandoned_colony)
 "oA" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
 /obj/item/weedkiller,
 /obj/item/weedkiller,
@@ -5122,13 +5122,13 @@
 	},
 /area/planet/abandoned_colony)
 "oL" = (
-/obj/effect/decal/mecha_wreckage/smallfighter,
+/obj/decal/mecha_wreckage/smallfighter,
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "hole"
 	},
 /area/planet/abandoned_colony)
 "oM" = (
-/obj/effect/decal/mecha_wreckage/bigfighter,
+/obj/decal/mecha_wreckage/bigfighter,
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "innermiddle"
 	},
@@ -5184,7 +5184,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/grey{
+/obj/floor_decal/corner/grey{
 	dir = 4;
 	icon_state = "corner_white"
 	},
@@ -5194,7 +5194,7 @@
 /area/planet/abandoned_colony)
 "oV" = (
 /obj/machinery/cooker/fryer,
-/obj/effect/floor_decal/corner/grey{
+/obj/floor_decal/corner/grey{
 	dir = 1;
 	icon_state = "corner_white"
 	},
@@ -5207,7 +5207,7 @@
 	},
 /area/planet/abandoned_colony)
 "oW" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /obj/random/junk,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
@@ -5256,7 +5256,7 @@
 /turf/simulated/floor,
 /area/planet/abandoned_colony)
 "pe" = (
-/obj/effect/wingrille_spawn/reinforced/full,
+/obj/wingrille_spawn/reinforced/full,
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "pf" = (
@@ -5264,8 +5264,8 @@
 	dir = 1;
 	icon_state = "yellow1"
 	},
-/obj/effect/decal/cleanable/blood/gibs,
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood/gibs,
+/obj/decal/cleanable/blood,
 /obj/item/organ/internal/kidneys,
 /obj/item/organ/internal/lungs,
 /turf/simulated/floor/lino,
@@ -5331,21 +5331,21 @@
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "pq" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 1;
 	icon_state = "chapel"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "pr" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 4;
 	icon_state = "chapel"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "ps" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 8;
 	icon_state = "chapel"
 	},
@@ -5353,7 +5353,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "pt" = (
-/obj/effect/floor_decal/chapel,
+/obj/floor_decal/chapel,
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
@@ -5381,7 +5381,7 @@
 	},
 /area/planet/abandoned_colony)
 "py" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 4;
 	icon_state = "chapel"
 	},
@@ -5390,7 +5390,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "pz" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 1;
 	icon_state = "chapel"
 	},
@@ -5445,7 +5445,7 @@
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "pK" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -5468,7 +5468,7 @@
 /turf/simulated/floor/pavement/corner,
 /area/planet/abandoned_colony)
 "pO" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/machinery/light/small/red{
 	dir = 2;
 	icon_state = "firelight1"
@@ -5649,7 +5649,7 @@
 	name = "Protective Shutters";
 	opacity = 0
 	},
-/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/plating,
 /area/morninglight/main)
 "qo" = (
@@ -5658,7 +5658,7 @@
 	dir = 4;
 	icon_state = "map_connector"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/morninglight/atmos)
 "qp" = (
@@ -5686,7 +5686,7 @@
 	dir = 4;
 	icon_state = "air"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/morninglight/atmos)
 "qs" = (
@@ -5703,7 +5703,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/shuttle_landmark/nav_abandoned_colony/morninglight,
+/obj/shuttle_landmark/nav_abandoned_colony/morninglight,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/morninglight/entrance)
 "qu" = (
@@ -5762,7 +5762,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/morninglight/atmos)
 "qz" = (
@@ -5786,7 +5786,7 @@
 /turf/simulated/floor/plating,
 /area/morninglight/atmos)
 "qC" = (
-/obj/effect/shuttle_landmark/nav_abandoned_colony/nav2,
+/obj/shuttle_landmark/nav_abandoned_colony/nav2,
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "innermiddle"
 	},
@@ -5914,7 +5914,7 @@
 	},
 /area/planet/abandoned_colony)
 "qR" = (
-/obj/effect/paint/red,
+/obj/paint/red,
 /turf/simulated/wall/titanium,
 /area/morninglight/cargo)
 "qS" = (
@@ -5966,11 +5966,11 @@
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "qX" = (
-/obj/effect/shuttle_landmark/nav_abandoned_colony/nav1,
+/obj/shuttle_landmark/nav_abandoned_colony/nav1,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "qY" = (
-/obj/effect/overmap/visitable/sector/planetoid/abandoned_colony,
+/obj/overmap/visitable/sector/planetoid/abandoned_colony,
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "innermiddle"
 	},
@@ -5980,7 +5980,7 @@
 	dir = 4;
 	icon_state = "shuttle_chair_preview"
 	},
-/obj/effect/submap_landmark/spawnpoint/colony_scavenger,
+/obj/submap_landmark/spawnpoint/colony_scavenger,
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "ra" = (
@@ -5988,16 +5988,16 @@
 	dir = 4;
 	icon_state = "shuttle_chair_preview"
 	},
-/obj/effect/submap_landmark/spawnpoint/colony_scavenger,
+/obj/submap_landmark/spawnpoint/colony_scavenger,
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/entrance)
 "rb" = (
 /obj/item/stool/padded,
-/obj/effect/floor_decal/corner/white/border{
+/obj/floor_decal/corner/white/border{
 	dir = 8;
 	icon_state = "bordercolor"
 	},
-/obj/effect/submap_landmark/spawnpoint/colony_scavenger,
+/obj/submap_landmark/spawnpoint/colony_scavenger,
 /turf/simulated/floor/tiled/techfloor,
 /area/morninglight/main)
 "rc" = (
@@ -6050,10 +6050,10 @@
 /area/morninglight/main)
 "rg" = (
 /obj/machinery/atmospherics/unary/cryo_cell,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -6065,7 +6065,7 @@
 /turf/space/transit/east,
 /area/space)
 "rj" = (
-/obj/effect/shuttle_landmark/nav_abandoned_colony/morninglight_transit,
+/obj/shuttle_landmark/nav_abandoned_colony/morninglight_transit,
 /turf/space/transit/east,
 /area/space)
 "rk" = (
@@ -6081,7 +6081,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/effect/submap_landmark/joinable_submap/abandoned_colony,
+/obj/submap_landmark/joinable_submap/abandoned_colony,
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "rl" = (
@@ -6109,7 +6109,7 @@
 	name = "Shuttle Atmospherics";
 	req_access = newlist()
 	},
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
 	d1 = 1;
 	d2 = 2;
@@ -6162,7 +6162,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/paleblue/three_quarters{
+/obj/floor_decal/corner/paleblue/three_quarters{
 	dir = 8;
 	icon_state = "corner_white_three_quarters"
 	},
@@ -6179,14 +6179,14 @@
 /obj/machinery/vending/wallmed1{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/morninglight/main)
 "ru" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
@@ -6229,7 +6229,7 @@
 	dir = 8;
 	pixel_x = -24
 	},
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	dir = 5;
 	icon_state = "corner_white"
 	},
@@ -6242,7 +6242,7 @@
 /obj/structure/hygiene/sink{
 	pixel_y = 16
 	},
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	dir = 5;
 	icon_state = "corner_white"
 	},
@@ -6252,10 +6252,10 @@
 /obj/structure/hygiene/urinal{
 	pixel_y = 32
 	},
-/obj/effect/landmark{
+/obj/landmark{
 	name = "blobstart"
 	},
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	dir = 5;
 	icon_state = "corner_white"
 	},
@@ -6302,7 +6302,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/landmark{
+/obj/landmark{
 	name = "xeno_spawn";
 	pixel_x = -1
 	},
@@ -6317,7 +6317,7 @@
 	name = "kitchen washing sink";
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner/orange{
+/obj/floor_decal/corner/orange{
 	dir = 5;
 	icon_state = "corner_white"
 	},
@@ -6373,19 +6373,19 @@
 	},
 /area/planet/abandoned_colony)
 "rL" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "rM" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/freezer/rations,
 /obj/item/material/knife/kitchen/cleaver,
 /obj/item/beartrap,
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "rN" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers,
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
@@ -6471,7 +6471,7 @@
 /obj/machinery/sleeper{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -6498,7 +6498,7 @@
 /area/planet/abandoned_colony)
 "rY" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	dir = 10;
 	icon_state = "corner_white"
 	},
@@ -6516,7 +6516,7 @@
 /obj/item/storage/toolbox/emergency,
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	dir = 10;
 	icon_state = "corner_white"
 	},
@@ -6534,7 +6534,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/entrance)
 "sc" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 1;
 	icon_state = "chapel"
 	},
@@ -6546,17 +6546,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "sd" = (
-/obj/effect/urist/spawn_bomb/abandoned,
+/obj/urist_intangible/spawn_bomb/abandoned,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "bar"
 	},
 /area/planet/abandoned_colony)
 "se" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "sf" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "sg" = (
@@ -6570,24 +6570,24 @@
 /obj/random/medical,
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/surgery,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/white,
 /area/morninglight/main)
 "sh" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "si" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "sj" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4;
 	icon_state = "map_scrubber_on"
@@ -6639,7 +6639,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/entrance)
 "sn" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
@@ -6648,7 +6648,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/entrance)
 "so" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "sp" = (
@@ -6668,7 +6668,7 @@
 	dir = 8
 	},
 /obj/structure/iv_stand,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -6684,7 +6684,7 @@
 	pixel_x = -24;
 	pixel_y = 24
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "ss" = (
@@ -6692,7 +6692,7 @@
 	dir = 4;
 	icon_state = "handrail"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "st" = (
@@ -6700,7 +6700,7 @@
 	dir = 8;
 	icon_state = "freezer"
 	},
-/obj/effect/floor_decal/corner/paleblue/three_quarters{
+/obj/floor_decal/corner/paleblue/three_quarters{
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/medical_wall{
@@ -6723,7 +6723,7 @@
 	dir = 8;
 	icon_state = "map_on"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "sv" = (
@@ -6751,7 +6751,7 @@
 /area/morninglight/main)
 "sy" = (
 /obj/machinery/optable,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6;
 	icon_state = "corner_white"
 	},
@@ -6769,7 +6769,7 @@
 	},
 /area/planet/abandoned_colony)
 "sA" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "sB" = (
@@ -6789,7 +6789,7 @@
 /area/planet/abandoned_colony)
 "sC" = (
 /obj/item/stool/padded,
-/obj/effect/floor_decal/corner/white/border{
+/obj/floor_decal/corner/white/border{
 	dir = 8;
 	icon_state = "bordercolor"
 	},
@@ -6857,11 +6857,11 @@
 	},
 /obj/item/roller_bed,
 /obj/item/device/scanner/health,
-/obj/effect/floor_decal/corner/paleblue/three_quarters,
+/obj/floor_decal/corner/paleblue/three_quarters,
 /turf/simulated/floor/tiled/white,
 /area/morninglight/main)
 "sI" = (
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
 	d1 = 1;
 	d2 = 2;
@@ -6902,7 +6902,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/morninglight/main)
 "sM" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/blast/regular/open{
 	density = 0;
 	dir = 4;
@@ -6933,7 +6933,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/morninglight/main)
 "sP" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/blast/regular/open{
 	density = 0;
 	dir = 4;
@@ -6952,14 +6952,14 @@
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "sR" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/morninglight/main)
 "sS" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6973,7 +6973,7 @@
 	pixel_y = 0
 	},
 /obj/structure/window/basic,
-/obj/effect/floor_decal/corner/paleblue/three_quarters{
+/obj/floor_decal/corner/paleblue/three_quarters{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -6995,13 +6995,13 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "sV" = (
-/obj/effect/urist/spawn_bomb/abandoned,
+/obj/urist_intangible/spawn_bomb/abandoned,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "sW" = (
-/obj/effect/floor_decal/corner/lightgrey{
+/obj/floor_decal/corner/lightgrey{
 	dir = 6;
 	icon_state = "corner_white"
 	},
@@ -7020,7 +7020,7 @@
 	name = "Protective Shutters";
 	opacity = 0
 	},
-/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/plating,
 /area/morninglight/main)
 "sY" = (
@@ -7028,14 +7028,14 @@
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "sZ" = (
-/obj/effect/paint/red,
+/obj/paint/red,
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 8
 	},
 /turf/simulated/wall/titanium,
 /area/morninglight/cargo)
 "ta" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
@@ -7066,7 +7066,7 @@
 /turf/simulated/floor,
 /area/planet/abandoned_colony)
 "td" = (
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	dir = 6
 	},
 /obj/structure/closet/secure_closet/hunter{
@@ -7088,14 +7088,14 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
 	},
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/morninglight/cargo)
 "tg" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 10
 	},
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
 	d1 = 1;
 	d2 = 4;
@@ -7117,7 +7117,7 @@
 /turf/simulated/floor/plating,
 /area/morninglight/cargo)
 "th" = (
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	dir = 6
 	},
 /obj/structure/cable/cyan{
@@ -7174,7 +7174,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/entrance)
 "tk" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 4;
 	icon_state = "chapel"
 	},
@@ -7198,7 +7198,7 @@
 /turf/simulated/floor/planet/dirt/city,
 /area/planet/abandoned_colony)
 "tn" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -7285,7 +7285,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/machinery/power/smes/buildable/preset/morning_light{
@@ -7316,7 +7316,7 @@
 	},
 /area/planet/abandoned_colony)
 "tB" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/scom/husk,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
@@ -7372,7 +7372,7 @@
 /obj/machinery/fabricator{
 	id_tag = 1
 	},
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	dir = 6
 	},
 /obj/machinery/light{
@@ -7381,7 +7381,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "tJ" = (
-/obj/effect/floor_decal/industrial/shutoff,
+/obj/floor_decal/industrial/shutoff,
 /obj/structure/cable/cyan{
 	d1 = 1;
 	d2 = 8;
@@ -7415,7 +7415,7 @@
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
 "tL" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1;
@@ -7432,7 +7432,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "tN" = (
-/obj/effect/floor_decal/corner/lightgrey{
+/obj/floor_decal/corner/lightgrey{
 	dir = 9;
 	icon_state = "corner_white"
 	},
@@ -7444,7 +7444,7 @@
 	dir = 10
 	},
 /obj/machinery/hologram/holopad/longrange,
-/obj/effect/overmap/visitable/ship/landable/morninglight,
+/obj/overmap/visitable/ship/landable/morninglight,
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "tO" = (
@@ -7472,7 +7472,7 @@
 /obj/machinery/computer/ship/helm{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/lightgrey/full,
+/obj/floor_decal/corner/lightgrey/full,
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "tQ" = (
@@ -7493,12 +7493,12 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/entrance)
 "tR" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/item/roller_bed,
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "tS" = (
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
 	d1 = 1;
 	d2 = 2;
@@ -7522,7 +7522,7 @@
 	amount = 50
 	},
 /obj/item/stack/material/plastic/fifty,
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -7532,7 +7532,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "tU" = (
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
 	d1 = 1;
 	d2 = 2;
@@ -7544,7 +7544,7 @@
 /area/morninglight/cargo)
 "tV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
 	d1 = 1;
 	d2 = 2;
@@ -7559,7 +7559,7 @@
 /turf/simulated/floor/plating,
 /area/morninglight/cargo)
 "tW" = (
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	dir = 6
 	},
 /obj/machinery/alarm{
@@ -7572,12 +7572,12 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "tX" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
 	d1 = 1;
 	d2 = 2;
@@ -7603,7 +7603,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/planet/abandoned_colony)
 "tZ" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
@@ -7611,7 +7611,7 @@
 /turf/simulated/wall/titanium,
 /area/morninglight/cargo)
 "ua" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -7619,7 +7619,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "ub" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -7631,7 +7631,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/techmaint,
@@ -7656,7 +7656,7 @@
 /area/planet/abandoned_colony)
 "uf" = (
 /obj/structure/table/rack,
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	dir = 6
 	},
 /obj/item/carpentry/saw,
@@ -7679,7 +7679,7 @@
 /area/morninglight/cargo)
 "ug" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
 	d1 = 1;
 	d2 = 2;
@@ -7699,7 +7699,7 @@
 "uh" = (
 /obj/machinery/cell_charger,
 /obj/structure/table/standard,
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -7741,7 +7741,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/hydrogen/engine_setup,
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
@@ -7778,7 +7778,7 @@
 /area/morninglight/main)
 "un" = (
 /obj/machinery/door/airlock/engineering,
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -7805,7 +7805,7 @@
 /turf/simulated/floor/carpet,
 /area/morninglight/dorms)
 "up" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm{
 	dir = 1;
 	icon_state = "alarm0";
@@ -7818,7 +7818,7 @@
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
 "uq" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/structure/closet/crate/uranium,
 /obj/item/reagent_containers/food/drinks/bottle/vodka,
 /obj/item/reagent_containers/food/drinks/bottle/vodka,
@@ -7829,7 +7829,7 @@
 /area/planet/abandoned_colony)
 "ur" = (
 /obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor,
 /area/planet/abandoned_colony)
 "us" = (
@@ -7839,7 +7839,7 @@
 	pixel_y = -24;
 	req_access = list("ACCESS_MORNING_LIGHT")
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 10
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -7871,7 +7871,7 @@
 	},
 /area/planet/abandoned_colony)
 "uv" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/wall/titanium,
 /area/morninglight/engineering)
@@ -7959,7 +7959,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "uK" = (
-/obj/effect/floor_decal/corner/white/border{
+/obj/floor_decal/corner/white/border{
 	dir = 9;
 	icon_state = "bordercolor"
 	},
@@ -7967,7 +7967,7 @@
 /area/morninglight/main)
 "uL" = (
 /obj/item/stool/padded,
-/obj/effect/floor_decal/corner/white/border{
+/obj/floor_decal/corner/white/border{
 	dir = 1;
 	icon_state = "bordercolor"
 	},
@@ -7975,7 +7975,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/morninglight/main)
 "uM" = (
-/obj/effect/floor_decal/corner/white/border{
+/obj/floor_decal/corner/white/border{
 	dir = 1;
 	icon_state = "bordercolor"
 	},
@@ -7995,7 +7995,7 @@
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/storage/box/donkpocket_mixed,
 /obj/item/storage/box/donkpocket_mixed,
-/obj/effect/floor_decal/corner/white/border{
+/obj/floor_decal/corner/white/border{
 	dir = 1;
 	icon_state = "bordercolor"
 	},
@@ -8018,7 +8018,7 @@
 	dir = 1;
 	icon_state = "map_vent_out"
 	},
-/obj/effect/floor_decal/corner/lightgrey{
+/obj/floor_decal/corner/lightgrey{
 	dir = 9;
 	icon_state = "corner_white"
 	},
@@ -8033,7 +8033,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "uS" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /obj/machinery/light{
 	dir = 8
@@ -8056,12 +8056,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "uW" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "uX" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -8112,7 +8112,7 @@
 /area/planet/abandoned_colony)
 "ve" = (
 /mob/living/simple_animal/hostile/scom/husk,
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
 "vf" = (
@@ -8126,7 +8126,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/planet/abandoned_colony)
 "vh" = (
-/obj/effect/floor_decal/corner/red/diagonal,
+/obj/floor_decal/corner/red/diagonal,
 /mob/living/simple_animal/hostile/scom/husk,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	dir = 2;
@@ -8184,7 +8184,7 @@
 /area/planet/abandoned_colony)
 "vn" = (
 /obj/structure/table/rack,
-/obj/effect/decal/cleanable/cobweb,
+/obj/decal/cleanable/cobweb,
 /obj/random/handgun,
 /obj/random/ammo,
 /turf/simulated/floor/tiled/dark,
@@ -8233,7 +8233,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/morninglight/main)
 "vs" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/techfloor,
 /area/morninglight/main)
@@ -8278,7 +8278,7 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8298,7 +8298,7 @@
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
 "vB" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 8;
 	icon_state = "chapel"
 	},
@@ -8338,7 +8338,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 4
 	},
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /obj/machinery/door/airlock/hatch{
 	name = "Shuttle Fuel"
 	},
@@ -8424,7 +8424,7 @@
 /area/morninglight/engineering)
 "vR" = (
 /obj/item/reagent_containers/syringe/drugs,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
@@ -8510,11 +8510,11 @@
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
 "wf" = (
-/obj/effect/urist/spawn_bomb/abandoned,
+/obj/urist_intangible/spawn_bomb/abandoned,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "wg" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8541,7 +8541,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8584,7 +8584,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "wp" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/tank/hydrogen{
 	dir = 1
 	},
@@ -8635,7 +8635,7 @@
 	name = "Protective Shutters";
 	opacity = 0
 	},
-/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/plating,
 /area/morninglight/dorms)
 "ww" = (
@@ -8685,15 +8685,15 @@
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "wC" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/morninglight/atmos)
 "wD" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/morninglight/entrance)
 "wE" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/morninglight/main)
 "wF" = (
@@ -8701,11 +8701,11 @@
 	dir = 10;
 	icon_state = "intact"
 	},
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/morninglight/atmos)
 "wG" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "verticalinnermain2"
 	},
@@ -8714,12 +8714,12 @@
 	},
 /area/planet/abandoned_colony)
 "wH" = (
-/obj/effect/urist/spawn_bomb/abandoned,
+/obj/urist_intangible/spawn_bomb/abandoned,
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "wI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/morninglight/atmos)
 "wJ" = (
@@ -8736,16 +8736,16 @@
 	dir = 5;
 	icon_state = "intact"
 	},
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/morninglight/atmos)
 "wL" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/morninglight/cargo)
 "wM" = (
 /obj/item/stool,
-/obj/effect/urist/spawn_bomb/abandoned,
+/obj/urist_intangible/spawn_bomb/abandoned,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "wN" = (
@@ -8753,7 +8753,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/corner/lightgrey{
+/obj/floor_decal/corner/lightgrey{
 	dir = 9;
 	icon_state = "corner_white"
 	},
@@ -8786,7 +8786,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
 	},
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/morninglight/cargo)
 "wQ" = (
@@ -8797,7 +8797,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "wR" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/floodlight,
 /obj/structure/handrail{
 	dir = 4;
@@ -8814,7 +8814,7 @@
 /area/planet/abandoned_colony)
 "wV" = (
 /obj/item/storage/backpack/weldpack,
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	dir = 10;
 	icon_state = "corner_white"
 	},
@@ -8834,7 +8834,7 @@
 	},
 /area/planet/abandoned_colony)
 "xa" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 6;
 	icon_state = "warning"
 	},
@@ -8852,14 +8852,14 @@
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
 "xb" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/morninglight/engineering)
 "xc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 6
 	},
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/morninglight/engineering)
 "xd" = (
@@ -8868,11 +8868,11 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/morninglight/engineering)
 "xe" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/morninglight/dorms)
 "xf" = (
@@ -8910,7 +8910,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/morninglight/engineering)
 "xo" = (
@@ -8955,7 +8955,7 @@
 	},
 /area/planet/abandoned_colony)
 "zh" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -9022,14 +9022,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "Cg" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/largecrate/animal/crab,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "CN" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /obj/item/remains/human,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -9078,7 +9078,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "FZ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
 	name = "ammunition crate"
 	},
@@ -9125,7 +9125,7 @@
 	},
 /area/planet/abandoned_colony)
 "Ja" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /obj/random/lilgun,
 /turf/simulated/floor/tiled/uristturf/geminus{
@@ -9165,14 +9165,14 @@
 /turf/simulated/floor/wood/walnut,
 /area/planet/abandoned_colony)
 "Lo" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/solar,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "Lq" = (
-/obj/effect/floor_decal/corner/lightgrey{
+/obj/floor_decal/corner/lightgrey{
 	dir = 6;
 	icon_state = "corner_white"
 	},
@@ -9217,12 +9217,12 @@
 /area/planet/abandoned_colony)
 "MI" = (
 /obj/structure/closet/coffin,
-/obj/effect/landmark/corpse/chef,
+/obj/landmark/corpse/chef,
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
 "MV" = (
 /obj/machinery/door/airlock/glass,
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "Nk" = (
@@ -9235,7 +9235,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "NZ" = (
-/obj/effect/floor_decal/chapel,
+/obj/floor_decal/chapel,
 /obj/item/stool/padded,
 /obj/item/remains/human,
 /turf/simulated/floor/tiled/dark,
@@ -9253,7 +9253,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "Pq" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/solar_assembly,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -9276,7 +9276,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "Qf" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /obj/random/action_figure,
 /obj/random/cash,
@@ -9290,7 +9290,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/planet/abandoned_colony)
 "QF" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "QG" = (
@@ -9320,8 +9320,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "Rc" = (
-/obj/effect/decal/cleanable/blood/drip,
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	color = "#cccccc";
 	icon_state = "square_grey"
@@ -9336,7 +9336,7 @@
 /area/planet/abandoned_colony)
 "Ry" = (
 /obj/machinery/door/airlock,
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/wood/walnut,
 /area/planet/abandoned_colony)
 "RC" = (
@@ -9399,7 +9399,7 @@
 	},
 /area/planet/abandoned_colony)
 "Vn" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/pavement{
 	dir = 4;
 	icon_state = "pavement"
@@ -9413,7 +9413,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "VS" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
 	name = "ammunition crate"
 	},
@@ -9465,17 +9465,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "Yt" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "horizontalinnermain1"
 	},
 /area/planet/abandoned_colony)
 "Yv" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/wood/walnut,
 /area/planet/abandoned_colony)
 "YC" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /obj/item/storage/firstaid/adv,
 /turf/simulated/floor/tiled/uristturf/geminus{

@@ -21,7 +21,7 @@
 	var/atom/movable/projectile_type
 	var/fire_anim = 0
 	var/fire_sound = null
-	var/obj/effect/overmap/visitable/ship/combat/homeship = null
+	var/obj/overmap/visitable/ship/combat/homeship = null
 	var/obj/machinery/computer/combatcomputer/linkedcomputer = null
 	var/status = CHARGED
 	var/datum/shipcomponents/targeted_component
@@ -124,7 +124,7 @@
 			update_icon()
 			Charging() //time to recharge
 
-		if(istype(target, /obj/effect/overmap/visitable/ship/combat))
+		if(istype(target, /obj/overmap/visitable/ship/combat))
 			MapFire()	//PVP combat just lobs projectiles at the other ship, no need for further calculations.
 			return TRUE
 
@@ -276,7 +276,7 @@
 	if(!projectile_type)
 		return
 
-	if(istype(target, /obj/effect/overmap/visitable/ship/combat))
+	if(istype(target, /obj/overmap/visitable/ship/combat))
 		HandlePvpFire()
 
 	else if(istype(target, /mob/living/simple_animal/hostile/overmapship))
@@ -285,7 +285,7 @@
 			homeship.pve_mapfire(projectile_type)
 
 /obj/machinery/shipweapons/proc/HandlePvpFire() //come back to this to add handling for burst fire
-	var/obj/effect/overmap/visitable/ship/combat/target_ship = target
+	var/obj/overmap/visitable/ship/combat/target_ship = target
 	if(!target_ship)
 		return
 
@@ -311,7 +311,7 @@
 		target = linkedcomputer.target
 
 	if(!homeship)
-		for(var/obj/effect/overmap/visitable/ship/combat/C in GLOB.overmap_ships)
+		for(var/obj/overmap/visitable/ship/combat/C in GLOB.overmap_ships)
 			if(C.shipid == src.shipid)
 				homeship = C
 

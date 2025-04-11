@@ -25,7 +25,7 @@
 	icon_state = "uglymine" //should probably ask olly or nien for a better sprite
 
 /obj/item/mine/attack_self(mob/user as mob)
-	var/obj/effect/mine/frag/M = new /obj/effect/mine/frag(user.loc)
+	var/obj/structure/mine/frag/M = new /obj/structure/mine/frag(user.loc)
 	M.overlays += image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1)
 	user.visible_message("<span class='warning'>[user] arms the mine! Be careful not to step on it!</span>","<span_class='warning'>You arm the mine and lay it on the floor. Be careful not to step on it!</span>")
 	qdel(src)
@@ -39,7 +39,7 @@
 	icon_state = "flashbang"
 	startswith = list(/obj/item/mine/frag = 3)
 
-/obj/effect/mine/proc/explode2(obj)
+/obj/structure/mine/proc/explode2(obj)
 	//vars stolen for fragification
 	var/fragment_type = /obj/item/projectile/bullet/pellet/fragment
 	var/num_fragments = 62  //total number of fragments produced by the grenade
@@ -75,11 +75,11 @@
 
 	qdel(src)
 
-/obj/effect/mine/frag
+/obj/structure/mine/frag
 	name = "Frag Mine"
 	triggerproc = "explode2"
 
-/obj/effect/mine/frag/attack_hand(mob/user as mob)
+/obj/structure/mine/frag/attack_hand(mob/user as mob)
 	user.visible_message("<span class='warning'>[user] starts to disarm the mine!</span>","<span class='warning'>You start to disarm the mine. Just stay very still.</span>")
 	if (do_after(user, 30, src))
 		user.visible_message("<span class='warning'>[user] disarms the mine!</span>","<span class='warning'>You disarm the mine. It's safe to pick up now!</span>")

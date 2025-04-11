@@ -224,10 +224,10 @@
 	qdel(src)
 
 //the other type of bomb spawner for use in mapping to make more accurate destroyed places
-/obj/effect/spawner/bomb_simulator
+/obj/spawner/bomb_simulator
 	var/severity = EX_ACT_LIGHT
 	var/ex_range = 9
 
-/obj/effect/spawner/bomb_simulator/LateInitialize()
+/obj/spawner/bomb_simulator/LateInitialize()
 	. = ..()
 	explosion(loc, ex_range, severity, adminlog = FALSE)

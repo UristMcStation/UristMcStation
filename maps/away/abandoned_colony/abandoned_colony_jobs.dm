@@ -33,5 +33,5 @@ var/global/const/access_morninglight = "ACCESS_MORNING_LIGHT" //850
 			There is also a nearby trading station, where you could likely make some good money with what you find. \
 			Good luck, and be careful. There's a reason these worlds haven't been resettled."
 
-/obj/effect/submap_landmark/spawnpoint/colony_scavenger
+/obj/submap_landmark/spawnpoint/colony_scavenger
 	name = "Graveworld Scavenger"

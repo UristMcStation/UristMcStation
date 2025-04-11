@@ -25,7 +25,7 @@ var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 	access_type = ACCESS_TYPE_NONE
 	region = ACCESS_REGION_NONE
 
-/obj/effect/overmap/visitable/sector/station/hostile/pirate
+/obj/overmap/visitable/sector/station/hostile/pirate
 	name = "large asteroid"
 	desc = "Sensor array detects a large asteroid."
 	icon = 'icons/obj/overmap.dmi'
@@ -47,10 +47,10 @@ var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 		"nav_piratestation_3"
 		)
 
-/obj/effect/overmap/visitable/sector/station/hostile/pirate/generate_skybox()
+/obj/overmap/visitable/sector/station/hostile/pirate/generate_skybox()
 	return overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
 
-/obj/effect/overmap/visitable/sector/station/hostile/pirate/get_skybox_representation()
+/obj/overmap/visitable/sector/station/hostile/pirate/get_skybox_representation()
 	var/image/res = overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
 	res.blend_mode = BLEND_OVERLAY
 	res.SetTransform(scale = 0.3)
@@ -66,36 +66,36 @@ var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	generate_mining_by_z = list(1,2)
 
-/obj/effect/shuttle_landmark/nav_piratestation
+/obj/shuttle_landmark/nav_piratestation
 	special = TRUE
 	spawn_id = "pirate_station"
 
-/obj/effect/shuttle_landmark/nav_piratestation/on_landing()
-	for(var/obj/effect/urist/triggers/away_ai_landmark/A in GLOB.trigger_landmarks)
+/obj/shuttle_landmark/nav_piratestation/on_landing()
+	for(var/obj/urist_intangible/triggers/away_ai_landmark/A in GLOB.trigger_landmarks)
 		if(A.spawn_id == src.spawn_id)
 			A.spawn_mobs()
 
 	special = FALSE
 
-/obj/effect/shuttle_landmark/nav_piratestation/nav1
+/obj/shuttle_landmark/nav_piratestation/nav1
 	name = "Station Exterior - East"
 	landmark_tag = "nav_piratestation_1"
 	base_area = /area/spacestations/pirate/asteroid
 	base_turf = /turf/simulated/floor/asteroid
 
-/obj/effect/shuttle_landmark/nav_piratestation/nav2
+/obj/shuttle_landmark/nav_piratestation/nav2
 	name = "Station Exterior - North"
 	landmark_tag = "nav_piratestation_2"
 	base_area = /area/spacestations/pirate/asteroid
 	base_turf = /turf/simulated/floor/asteroid
 
-/obj/effect/shuttle_landmark/nav_piratestation/nav3
+/obj/shuttle_landmark/nav_piratestation/nav3
 	name = "Station Exterior - Above"
 	landmark_tag = "nav_piratestation_3"
 	base_area = /area/spacestations/pirate/exterior
 	base_turf = /turf/simulated/open
 
-/obj/effect/overmap/visitable/sector/station/hostile/pirate/update_visible()
+/obj/overmap/visitable/sector/station/hostile/pirate/update_visible()
 	if(hidden)
 		icon = 'icons/urist/misc/overmap.dmi'
 		icon_state = "station_asteroid_0"

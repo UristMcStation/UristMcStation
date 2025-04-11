@@ -49,7 +49,7 @@
 	darksight_range = 7
 	darksight_tint = "#bbbbbb" // effectively night vision except you can tell which areas are dark
 
-	move_trail = /obj/effect/decal/cleanable/blood/tracks/body
+	move_trail = /obj/decal/cleanable/blood/tracks/body
 
 	blood_color = "#05ee05"
 	flesh_color = "#282846"
@@ -146,7 +146,7 @@
 	var/datum/gas_mixture/environment = T.return_air()
 	if(!environment) return
 
-	var/obj/effect/vine/plant = locate() in T
+	var/obj/xeno/vine/plant = locate() in T
 	if((environment.gas["phoron"] > 0 || (plant && plant.seed && plant.seed.name == "xenomorph")))
 		if(!regenerate(H))
 			var/obj/item/organ/internal/xeno/plasmavessel/P = H.internal_organs_by_name["plasma vessel"]

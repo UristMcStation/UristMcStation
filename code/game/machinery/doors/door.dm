@@ -53,7 +53,7 @@
 	/// List. Player view blocking fillers for multi-tile doors.
 	var/list/fillers
 
-	var/obj/effect/opacity_dummy/dummy
+	var/obj/opacity_dummy/dummy
 
 	// Integer. Used for intercepting clicks on our turf. Set 0 to disable click interception. Passed directly to `/datum/extension/turf_hand`.
 	var/turf_hand_priority = 3

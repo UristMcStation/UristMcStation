@@ -65,8 +65,8 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 		src.visible_message("<span class='warning'>[src] emits a quiet raising whine...</span>", "<span class='warning'>[src] emits a quiet raising whine...</span>", 5)
 		sleep(10)
 		if(trap)
-			if(istype(trap, /obj/effect/mine))
-				var/obj/effect/mine/M = trap
+			if(istype(trap, /obj/structure/mine))
+				var/obj/structure/mine/M = trap
 				M.explode2()
 			else if(istype(trap, /obj/item/grenade))
 				var/obj/item/grenade/G = trap

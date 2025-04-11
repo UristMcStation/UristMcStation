@@ -303,12 +303,12 @@
 		return
 
 	var/picked_effect_type = pick(
-		100; /obj/effect/decal/cleanable/mucus,
-		100; /obj/effect/decal/cleanable/vomit,
-		100; /obj/effect/decal/cleanable/greenglow
+		100; /obj/decal/cleanable/mucus,
+		100; /obj/decal/cleanable/vomit,
+		100; /obj/decal/cleanable/greenglow
 	)
 
-	var/obj/effect/decal/cleanable/picked_effect = new picked_effect_type(T)
+	var/obj/decal/cleanable/picked_effect = new picked_effect_type(T)
 
 	if(istype(picked_effect))
 		return TRUE
@@ -342,7 +342,7 @@
 	if(!istype(T))
 		return
 
-	var/obj/effect/gibspawner/generic/picked_effect = new(T)
+	var/obj/gibspawner/generic/picked_effect = new(T)
 	if(istype(picked_effect))
 		return TRUE
 

@@ -128,10 +128,10 @@
 	canmove = 0
 	addtimer(new Callback(src, PROC_REF(allow_move)), 2)
 
-/obj/effect/dummy/spell_jaunt/onDropInto(atom/movable/AM)	//no dropping things while jaunting
+/obj/dummy/spell_jaunt/onDropInto(atom/movable/AM)	//no dropping things while jaunting
 	return
 
-/obj/effect/dummy/spell_jaunt/proc/allow_move()
+/obj/dummy/spell_jaunt/proc/allow_move()
 	canmove = TRUE
 
 /obj/dummy/spell_jaunt/ex_act(blah)

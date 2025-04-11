@@ -16,7 +16,7 @@
  	suffixes = list("../RandomZLevels/wildwest/wildwest.dmm")
  	cost = 2
 
-/obj/effect/overmap/visitable/wild_west
+/obj/overmap/visitable/wild_west
 	name = "desert planetoid"
 	desc = "System scans detect an ongoing quarantine alert; caution is well advised."
 	in_space = 0
@@ -28,44 +28,44 @@
 		"wild_west_3"
 	)
 
-/obj/effect/overmap/visitable/wild_west/New(nloc, max_x, max_y)
+/obj/overmap/visitable/wild_west/New(nloc, max_x, max_y)
 	name = "[generate_planet_name()], \a [name]"
 	..()
 
-/obj/effect/shuttle_landmark/nav_wildwest
+/obj/shuttle_landmark/nav_wildwest
 	base_area = /area/away/wildwest
 	base_turf = /turf/simulated/floor/exoplanet/desert
 
-/obj/effect/shuttle_landmark/nav_wildwest/nav1
+/obj/shuttle_landmark/nav_wildwest/nav1
 	name = "Desert Planetoid Landing Zone #1"
 	landmark_tag = "wild_west_1"
 
-/obj/effect/shuttle_landmark/nav_wildwest/nav2
+/obj/shuttle_landmark/nav_wildwest/nav2
 	name = "Desert Planetoid Landing Zone #2"
 	landmark_tag = "wild_west_2"
 
-/obj/effect/shuttle_landmark/nav_wildwest/nav3
+/obj/shuttle_landmark/nav_wildwest/nav3
 	name = "Desert Planetoid Landing Zone #3"
 	landmark_tag = "wild_west_3"
 
 //******Outfits for corpse spawners******
 
-/obj/effect/landmark/corpse/wildwest/cowboy
+/obj/landmark/corpse/wildwest/cowboy
 	genders_per_species = list(SPECIES_HUMAN = list(MALE))
 	damage = list("damage_all_brute" = 25)
 	corpse_outfits = list(/singleton/hierarchy/outfit/wildwest/cowboy)
 
-/obj/effect/landmark/corpse/wildwest/saloongirl
+/obj/landmark/corpse/wildwest/saloongirl
 	genders_per_species = list(SPECIES_HUMAN = list(FEMALE))
 	damage = list("damage_all_brute" = 25)
 	corpse_outfits = list(/singleton/hierarchy/outfit/wildwest/saloongirl)
 
-/obj/effect/landmark/corpse/wildwest/poncho
+/obj/landmark/corpse/wildwest/poncho
 	genders_per_species = list(SPECIES_HUMAN = list(MALE))
 	damage = list("damage_all_brute" = 25)
 	corpse_outfits = list(/singleton/hierarchy/outfit/wildwest/poncho)
 
-/obj/effect/landmark/corpse/wildwest/banker
+/obj/landmark/corpse/wildwest/banker
 	genders_per_species = list(SPECIES_HUMAN = list(MALE))
 	damage = list("damage_all_brute" = 25)
 	corpse_outfits = list(/singleton/hierarchy/outfit/wildwest/banker)
@@ -96,25 +96,25 @@
 
 //******Corpse Spawners******
 /*
-/obj/effect/spawner/carbon/human/wildwest/cowboy
+/obj/spawner/carbon/human/wildwest/cowboy
 	new_gender = MALE
 	clothing = /singleton/hierarchy/outfit/wildwest/cowboy
 	killed = TRUE
 	damage = list("damage_all_brute" = 25)
 
-/obj/effect/spawner/carbon/human/wildwest/saloongirl
+/obj/spawner/carbon/human/wildwest/saloongirl
 	new_gender = FEMALE
 	clothing = /singleton/hierarchy/outfit/wildwest/saloongirl
 	killed = TRUE
 	damage = list("damage_all_brute" = 25)
 
-/obj/effect/spawner/carbon/human/wildwest/poncho
+/obj/spawner/carbon/human/wildwest/poncho
 	new_gender = MALE
 	clothing = /singleton/hierarchy/outfit/wildwest/poncho
 	killed = TRUE
 	damage = list("damage_all_brute" = 25)
 
-/obj/effect/spawner/carbon/human/wildwest/banker
+/obj/spawner/carbon/human/wildwest/banker
 	new_gender = MALE
 	clothing = /singleton/hierarchy/outfit/wildwest/banker
 	killed = TRUE

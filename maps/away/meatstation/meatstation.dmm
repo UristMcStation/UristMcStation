@@ -551,7 +551,7 @@
 /area/meatstation/centerhallway)
 "bw" = (
 /obj/vehicle/train/cargo/trolley,
-/obj/effect/floor_decal/corner/brown/border{
+/obj/floor_decal/corner/brown/border{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6025,7 +6025,7 @@
 /area/meatstation/cargo)
 "oD" = (
 /obj/vehicle/train/cargo/trolley,
-/obj/effect/floor_decal/corner/brown/border{
+/obj/floor_decal/corner/brown/border{
 	dir = 1;
 	icon_state = "bordercolor"
 	},
@@ -6245,7 +6245,7 @@
 /area/space)
 "pq" = (
 /obj/vehicle/train/cargo/engine,
-/obj/effect/floor_decal/corner/brown/border{
+/obj/floor_decal/corner/brown/border{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,

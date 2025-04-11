@@ -16,7 +16,7 @@
 /turf/simulated/wall/r_wall/hull,
 /area/boarding_ship)
 "ae" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/reinforced,
 /area/boarding_ship)
 "af" = (
@@ -219,7 +219,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "aI" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "aJ" = (
@@ -281,7 +281,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply{
 	dir = 4
 	},
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "aR" = (
@@ -436,7 +436,7 @@
 /area/boarding_ship)
 "bo" = (
 /obj/structure/boarding/shipportal,
-/obj/effect/urist/triggers/boarding_landmark,
+/obj/urist_intangible/triggers/boarding_landmark,
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "bp" = (
@@ -964,7 +964,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
 	dir = 4
 	},
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "cv" = (

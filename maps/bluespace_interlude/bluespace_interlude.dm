@@ -50,7 +50,7 @@
 			suit.apply_damage(rand(80, 120), DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_DISPERSED)
 		else
 			if (!AM.damage_health(10, DAMAGE_BURN))
-				if (!istype(AM, /obj/sparks) && !istype(AM, /obj/effect))
+				if (!istype(AM, /obj/sparks) && !istype(AM, /obj))
 					visible_message(SPAN_DANGER("\The [AM] disintegrates in a flash of blue light!"))
 					playsound(AM.loc, 'sound/magic/summon_carp.ogg', 50, 1)
 				qdel(AM)

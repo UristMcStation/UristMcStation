@@ -116,20 +116,20 @@
 
 /* Radio Trap */
 
-/obj/effect/step_trigger/radio
+/obj/step_trigger/radio
 	var/freq
 	var/filter
 	var/list/newdata
 
 	var/datum/radio_frequency/radio_connection
 
-/obj/effect/step_trigger/radio/Initialize()
+/obj/step_trigger/radio/Initialize()
 	. = ..()
 	if(!freq || !filter)
 		return INITIALIZE_HINT_QDEL
 	radio_connection = radio_controller.add_object(src, freq, filter)
 
-/obj/effect/step_trigger/radio/Trigger(atom/movable/A)
+/obj/step_trigger/radio/Trigger(atom/movable/A)
 	var/datum/signal/S = new
 	S.data = newdata
 	radio_connection.post_signal(src, S, filter)

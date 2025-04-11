@@ -9,16 +9,16 @@
 	landmark_transition = "escape_transition"
 	waypoint_offsite = "centcom_escape_port"
 
-/obj/effect/shuttle_landmark/escape/centcom
+/obj/shuttle_landmark/escape/centcom
 	name = "Centcom - Escape"
 	landmark_tag = "centcom_escape_port"
 	docking_controller = "centcom_dock"
 
-/obj/effect/shuttle_landmark/escape/transition
+/obj/shuttle_landmark/escape/transition
 	name = "Transition - Escape"
 	landmark_tag = "escape_transition"
 
-/obj/effect/shuttle_landmark/escape/station
+/obj/shuttle_landmark/escape/station
 	name = "Station - Escape"
 	landmark_tag = "station_escape_port"
 	docking_controller = "escape_dock"
@@ -33,16 +33,16 @@
 	landmark_transition = "escape_pod_1_transition"
 	waypoint_offsite = "escape_pod_1_recovery"
 
-/obj/effect/shuttle_landmark/pod_1/station
+/obj/shuttle_landmark/pod_1/station
 	name = "Escape Pod 1 - Station"
 	landmark_tag = "escape_pod_1_docked"
 	docking_controller = "escape_pod_1_berth"
 
-/obj/effect/shuttle_landmark/pod_1/transition
+/obj/shuttle_landmark/pod_1/transition
 	name = "Escape Pod 1 - Transition"
 	landmark_tag = "escape_pod_1_transition"
 
-/obj/effect/shuttle_landmark/pod_1/recovery
+/obj/shuttle_landmark/pod_1/recovery
 	name = "Escape Pod 1 - Recovery"
 	landmark_tag = "escape_pod_1_recovery"
 	docking_controller = "escape_pod_1_recovery"
@@ -57,16 +57,16 @@
 	landmark_transition = "escape_pod_2_transition"
 	waypoint_offsite = "escape_pod_2_recovery"
 
-/obj/effect/shuttle_landmark/pod_2/station
+/obj/shuttle_landmark/pod_2/station
 	name = "Escape Pod 2 - Station"
 	landmark_tag = "escape_pod_2_docked"
 	docking_controller = "escape_pod_2_berth"
 
-/obj/effect/shuttle_landmark/pod_2/transition
+/obj/shuttle_landmark/pod_2/transition
 	name = "Escape Pod 2 - Transition"
 	landmark_tag = "escape_pod_2_transition"
 
-/obj/effect/shuttle_landmark/pod_2/recovery
+/obj/shuttle_landmark/pod_2/recovery
 	name = "Escape Pod 2 - Recovery"
 	landmark_tag = "escape_pod_2_recovery"
 	docking_controller = "escape_pod_2_recovery"
@@ -81,16 +81,16 @@
 	landmark_transition = "escape_pod_3_transition"
 	waypoint_offsite = "escape_pod_3_recovery"
 
-/obj/effect/shuttle_landmark/pod_3/station
+/obj/shuttle_landmark/pod_3/station
 	name = "Escape Pod 3 - Station"
 	landmark_tag = "escape_pod_3_docked"
 	docking_controller = "escape_pod_3_berth"
 
-/obj/effect/shuttle_landmark/pod_3/transition
+/obj/shuttle_landmark/pod_3/transition
 	name = "Escape Pod 3 - Transition"
 	landmark_tag = "escape_pod_3_transition"
 
-/obj/effect/shuttle_landmark/pod_3/recovery
+/obj/shuttle_landmark/pod_3/recovery
 	name = "Escape Pod 3 - Recovery"
 	landmark_tag = "escape_pod_3_recovery"
 	docking_controller = "escape_pod_3_recovery"
@@ -105,16 +105,16 @@
 	landmark_transition = "escape_pod_5_transition"
 	waypoint_offsite = "escape_pod_5_recovery"
 
-/obj/effect/shuttle_landmark/pod_5/station
+/obj/shuttle_landmark/pod_5/station
 	name = "Escape Pod 5 - Station"
 	landmark_tag = "escape_pod_5_docked"
 	docking_controller = "escape_pod_5_berth"
 
-/obj/effect/shuttle_landmark/pod_5/transition
+/obj/shuttle_landmark/pod_5/transition
 	name = "Escape Pod 5 - Transition"
 	landmark_tag = "escape_pod_5_transition"
 
-/obj/effect/shuttle_landmark/pod_5/recovery
+/obj/shuttle_landmark/pod_5/recovery
 	name = "Escape Pod 5 - Recovery"
 	landmark_tag = "escape_pod_5_recovery"
 	docking_controller = "escape_pod_5_recovery"
@@ -130,11 +130,11 @@
 	waypoint_station = "station_cargo_bay"
 	waypoint_offsite = "centcom_cargo_port"
 
-/obj/effect/shuttle_landmark/supply/centcom
+/obj/shuttle_landmark/supply/centcom
 	name = "Centcom - Cargo"
 	landmark_tag = "centcom_cargo_port"
 
-/obj/effect/shuttle_landmark/supply/station
+/obj/shuttle_landmark/supply/station
 	name = "Cargo Bay"
 	landmark_tag = "station_cargo_bay"
 	docking_controller = "cargo_bay"
@@ -149,12 +149,12 @@
 	waypoint_station = "station_engi"
 	waypoint_offsite = "pbase_engi"
 
-/obj/effect/shuttle_landmark/engineering/station
+/obj/shuttle_landmark/engineering/station
 	name = "Station - Engineering Port"
 	landmark_tag = "station_engi"
 	docking_controller = "engineering_dock_airlock"
 
-/obj/effect/shuttle_landmark/engineering/planet
+/obj/shuttle_landmark/engineering/planet
 	name = "Planet Base - Engineering"
 	landmark_tag = "pbase_engi"
 	docking_controller = "edock_airlock"
@@ -169,11 +169,11 @@
 	waypoint_station = "station_mining"
 	waypoint_offsite = "pbase_mining"
 
-/obj/effect/shuttle_landmark/mining/station
+/obj/shuttle_landmark/mining/station
 	name = "Station - Mining Port"
 	landmark_tag = "station_mining"
 
-/obj/effect/shuttle_landmark/mining/planet
+/obj/shuttle_landmark/mining/planet
 	name = "Planet Base - Mining"
 	landmark_tag = "pbase_mining"
 	docking_controller = "mining_outpost_airlock"
@@ -188,11 +188,11 @@
 	waypoint_station = "station_research"
 	waypoint_offsite = "pbase_research"
 
-/obj/effect/shuttle_landmark/research/station
+/obj/shuttle_landmark/research/station
 	name = "Station - Research Port"
 	landmark_tag = "station_research"
 
-/obj/effect/shuttle_landmark/research/planet
+/obj/shuttle_landmark/research/planet
 	name = "Planet Base - Research"
 	landmark_tag = "pbase_research"
 	docking_controller = "research_outpost_dock"
@@ -207,12 +207,12 @@
 	waypoint_station = "security_dock_airlock"
 	waypoint_offsite = "secdock_airlock"
 
-/obj/effect/shuttle_landmark/security/station
+/obj/shuttle_landmark/security/station
 	name = "Station - Security Port"
 	landmark_tag = "security_dock_airlock"
 	docking_controller = "security_docking_station"
 
-/obj/effect/shuttle_landmark/security/planet
+/obj/shuttle_landmark/security/planet
 	name = "Planet Base - Security"
 	landmark_tag = "secdock_airlock"
 	docking_controller = "security_docking_planet"
@@ -231,12 +231,12 @@
 	name = "planet shuttle console"
 	shuttle_tag = "Planet"
 
-/obj/effect/shuttle_landmark/planet/station
+/obj/shuttle_landmark/planet/station
 	name = "Station - Public Shuttle"
 	landmark_tag = "public_planet_shuttle_station"
 	docking_controller = "station_planet_dock"
 
-/obj/effect/shuttle_landmark/planet/planet
+/obj/shuttle_landmark/planet/planet
 	name = "Planet - Public"
 	landmark_tag = "public_planet_shuttle_planet"
 	docking_controller = "outpost_planet_dock"
@@ -268,16 +268,16 @@
 
 	return
 
-/obj/effect/shuttle_landmark/centcom/arrivals/centcom
+/obj/shuttle_landmark/centcom/arrivals/centcom
 	name = "Centcom Arrivals"
 	landmark_tag = "arrivals_centcom"
 	docking_controller = "centcom_arrival_dock"
 
-/obj/effect/shuttle_landmark/centcom/arrivals/transit
+/obj/shuttle_landmark/centcom/arrivals/transit
 	name = "In Transition"
 	landmark_tag = "arrivals_transit"
 
-/obj/effect/shuttle_landmark/centcom/arrivals/station
+/obj/shuttle_landmark/centcom/arrivals/station
 	name = "Station Arrivals"
 	landmark_tag = "arrivals_station"
 	docking_controller = "station_arrival_dock"
@@ -290,14 +290,14 @@
 	waypoint_station = "centcom_shuttle_dock_airlock"
 	waypoint_offsite = "centcom_shuttle_bay"
 
-/obj/effect/shuttle_landmark/centcom/transport/centcom
+/obj/shuttle_landmark/centcom/transport/centcom
 	name = "Transport - Centcom"
 	landmark_tag = "centcom_shuttle_bay"
 	docking_controller = "centcom_shuttle"
 	base_turf = /turf/unsimulated/floor/plating
 	base_area = /area/centcom
 
-/obj/effect/shuttle_landmark/centcom/transport/station
+/obj/shuttle_landmark/centcom/transport/station
 	name = "Transport - Station"
 	landmark_tag = "centcom_shuttle_dock_airlock"
 	docking_controller = "centcom_transport_station"
@@ -310,13 +310,13 @@
 	waypoint_station = "admin_shuttle_dock_airlock"
 	waypoint_offsite = "admin_shuttle_bay"
 
-/obj/effect/shuttle_landmark/centcom/admin/centcom
+/obj/shuttle_landmark/centcom/admin/centcom
 	name = "Administration - Centcom"
 	landmark_tag = "admin_shuttle_bay"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/centcom
 
-/obj/effect/shuttle_landmark/centcom/admin/station
+/obj/shuttle_landmark/centcom/admin/station
 	name = "Administration - Station"
 	landmark_tag = "admin_shuttle_dock_airlock"
 
@@ -330,11 +330,11 @@
 	waypoint_station = "naval_shuttle_centcom"
 	waypoint_offsite = "naval_shuttle_urist"
 
-/obj/effect/shuttle_landmark/centcom/naval/centcom
+/obj/shuttle_landmark/centcom/naval/centcom
 	name = "Naval Shuttle - Centcom"
 	landmark_tag = "naval_shuttle_centcom"
 
-/obj/effect/shuttle_landmark/centcom/naval/station
+/obj/shuttle_landmark/centcom/naval/station
 	name = "Naval Shuttle - Station"
 	landmark_tag = "naval_shuttle_urist"
 
@@ -352,12 +352,12 @@
 	waypoint_offsite = "nav_merchant_out"
 	dock_target = "merchant_ship_dock"
 
-/obj/effect/shuttle_landmark/merchant/start
+/obj/shuttle_landmark/merchant/start
 	name = "Merchant Base"
 	landmark_tag = "nav_merchant_start"
 	docking_controller = "merchant_station_dock"
 
-/obj/effect/shuttle_landmark/merchant/out
+/obj/shuttle_landmark/merchant/out
 	name = "Docking Bay"
 	landmark_tag = "nav_merchant_out"
 	docking_controller = "merchant_shuttle_station_dock"
@@ -372,12 +372,12 @@
 	waypoint_station = "specops_centcom_dock"
 	waypoint_offsite = "specops_dock_airlock"
 
-/obj/effect/shuttle_landmark/specops/start
+/obj/shuttle_landmark/specops/start
 	name = "Home Base"
 	landmark_tag = "specops_centcom_dock"
 	docking_controller = "centcom_ert_dock"
 
-/obj/effect/shuttle_landmark/specops/station
+/obj/shuttle_landmark/specops/station
 	name = "Urist McStation Dock"
 	landmark_tag = "specops_dock_airlock"
 
@@ -410,41 +410,41 @@
 	departure_message = "Your visitors are on their way out of the system, [GLOB.using_map.station_short], burning delta-v like it's nothing. Good riddance."
 	..()
 
-/obj/effect/shuttle_landmark/mercenary/start
+/obj/shuttle_landmark/mercenary/start
 	name = "Mercenary Base"
 	landmark_tag = "merc_ship_start"
 	base_turf = /turf/unsimulated/floor/snow
 	base_area = /area/map_template/syndicate_mothership
 
-/obj/effect/shuttle_landmark/mercenary/transit
+/obj/shuttle_landmark/mercenary/transit
 	name = "In Transit"
 	landmark_tag = "merc_ship_transit"
 
-/obj/effect/shuttle_landmark/mercenary/NW_station
+/obj/shuttle_landmark/mercenary/NW_station
 	name = "Northwest of the Station"
 	landmark_tag = "merc_NW_urist"
 
-/obj/effect/shuttle_landmark/mercenary/N_station
+/obj/shuttle_landmark/mercenary/N_station
 	name = "North of the Station"
 	landmark_tag = "merc_N_urist"
 
-/obj/effect/shuttle_landmark/mercenary/NE_station
+/obj/shuttle_landmark/mercenary/NE_station
 	name = "Northeast of the Station"
 	landmark_tag = "merc_NE_urist"
 
-/obj/effect/shuttle_landmark/mercenary/SW_station
+/obj/shuttle_landmark/mercenary/SW_station
 	name = "Southwest of the Station"
 	landmark_tag = "merc_SW_urist"
 
-/obj/effect/shuttle_landmark/mercenary/S_station
+/obj/shuttle_landmark/mercenary/S_station
 	name = "Close South to the Station"
 	landmark_tag = "merc_S_urist"
 
-/obj/effect/shuttle_landmark/mercenary/SE_station
+/obj/shuttle_landmark/mercenary/SE_station
 	name = "Southeast of the Station"
 	landmark_tag = "merc_SE_urist"
 
-/obj/effect/shuttle_landmark/mercenary/planetside
+/obj/shuttle_landmark/mercenary/planetside
 	name = "Down on the Planet"
 	landmark_tag = "merc_ship_planet"
 	base_area = /area/planet/jungle
@@ -472,31 +472,31 @@
 	departure_message = "Your guests are pulling away, [GLOB.using_map.station_short] - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
 	..()
 
-/obj/effect/shuttle_landmark/raider_skipjack/start
+/obj/shuttle_landmark/raider_skipjack/start
 	name = "Raider Base"
 	landmark_tag = "raider_start_point"
 
-/obj/effect/shuttle_landmark/raider_skipjack/transit
+/obj/shuttle_landmark/raider_skipjack/transit
 	name = "In Transit"
 	landmark_tag = "raider_in_transit"
 
-/obj/effect/shuttle_landmark/raider_skipjack/NE_solars
+/obj/shuttle_landmark/raider_skipjack/NE_solars
 	name = "Northeast Solars"
 	landmark_tag = "raider_NE_urist"
 
-/obj/effect/shuttle_landmark/raider_skipjack/NW_solars
+/obj/shuttle_landmark/raider_skipjack/NW_solars
 	name = "Northwest Solars"
 	landmark_tag = "raider_NW_urist"
 
-/obj/effect/shuttle_landmark/raider_skipjack/SE_solars
+/obj/shuttle_landmark/raider_skipjack/SE_solars
 	name = "Southeast Solars"
 	landmark_tag = "raider_SE_urist"
 
-/obj/effect/shuttle_landmark/raider_skipjack/SW_solars
+/obj/shuttle_landmark/raider_skipjack/SW_solars
 	name = "Southwest Solars"
 	landmark_tag = "raider_SW_urist"
 
-/obj/effect/shuttle_landmark/raider_skipjack/planetside
+/obj/shuttle_landmark/raider_skipjack/planetside
 	name = "Planetside"
 	landmark_tag = "raider_planetside"
 	base_area = /area/planet/jungle

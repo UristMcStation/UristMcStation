@@ -681,7 +681,7 @@ GLOBAL_LIST_AS(duplicate_object_disallowed_vars, list(
 					temp_target_turf.underlays = old_underlays
 					for (var/obj/obj in source_turf)
 						if (!obj.simulated)
-							var/obj/effect/landmark/LM = obj	//Check for hologram landmarks
+							var/obj/landmark/LM = obj	//Check for hologram landmarks
 							if(!istype(LM) || !LM.can_copy)
 								continue
 						copied_movables += clone_atom(obj, TRUE, temp_target_turf)

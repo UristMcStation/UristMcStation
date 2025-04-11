@@ -519,7 +519,7 @@
 	projectiletype = /obj/item/projectile/bullet/rifle/military
 	maxHealth = 150
 	health = 150
-	corpse = /obj/effect/landmark/corpse/terran/marine
+	corpse = /obj/landmark/corpse/terran/marine
 
 	// AI spec
 	say_list_type = /datum/say_list/merc
@@ -533,7 +533,7 @@
 	icon_state = "terran_g_marine"
 	icon_living = "terran_g_marine"
 	icon_dead = "terran_g_marine_dead"
-	corpse = /obj/effect/landmark/corpse/terran/marine_ground
+	corpse = /obj/landmark/corpse/terran/marine_ground
 	projectilesound = 'sound/weapons/gunshot/gunshot2.ogg'
 	projectiletype = /obj/item/projectile/bullet/rifle
 	rapid = 0
@@ -557,7 +557,7 @@
 	projectiletype = /obj/item/projectile/bullet/pistol
 	maxHealth = 125
 	health = 125
-	corpse = /obj/effect/landmark/corpse/terran/officer
+	corpse = /obj/landmark/corpse/terran/officer
 
 	// AI spec
 	say_list_type = /datum/say_list/gunman
@@ -572,7 +572,7 @@
 	icon_living = "terran_g_officer"
 	icon_dead = "terran_g_officer_dead"
 	desc = "A Terran Confederacy Marine Officer. This one is wearing gear worn by ground assault forces."
-	corpse = /obj/effect/landmark/corpse/terran/marine_ground_officer
+	corpse = /obj/landmark/corpse/terran/marine_ground_officer
 
 
 /mob/living/simple_animal/hostile/urist/terran/marine_officer/ground/event
@@ -595,7 +595,7 @@
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
-	corpse = /obj/effect/landmark/corpse/terran/marinespace
+	corpse = /obj/landmark/corpse/terran/marinespace
 
 	// AI spec
 	say_list_type = /datum/say_list/merc
@@ -610,7 +610,7 @@
 	icon_state = "terran_g_space"
 	icon_living = "terran_g_space"
 	icon_dead = "terran_g_space_dead"
-	corpse = /obj/effect/landmark/corpse/terran/marine_ground_space
+	corpse = /obj/landmark/corpse/terran/marine_ground_space
 
 /mob/living/simple_animal/hostile/urist/terran/marine_space/ground/event
 	faction = "terran"
@@ -667,7 +667,7 @@
 	natural_weapon = /obj/item/melee/energy/sword/pirate/activated
 
 	unsuitable_atmos_damage = 15
-	var/corpse = /obj/effect/landmark/corpse/newpirate/melee
+	var/corpse = /obj/landmark/corpse/newpirate/melee
 	hiddenfaction = /datum/factions/pirate
 	faction = "pirate"
 
@@ -688,7 +688,7 @@
 	ranged = 1
 	rapid = 0
 	projectiletype = /obj/item/projectile/beam
-	corpse = /obj/effect/landmark/corpse/newpirate/laser
+	corpse = /obj/landmark/corpse/newpirate/laser
 	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
 
 /mob/living/simple_animal/hostile/urist/newpirate/laser/elite
@@ -700,7 +700,7 @@
 	ranged = 1
 	rapid = 0
 	projectiletype = /obj/item/projectile/beam
-	corpse = /obj/effect/landmark/corpse/newpirate/laser/elite
+	corpse = /obj/landmark/corpse/newpirate/laser/elite
 	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
 	maxHealth = 160
 	health = 160
@@ -723,7 +723,7 @@
 	ranged = 1
 	rapid = 2
 	projectiletype = /obj/item/projectile/bullet/rifle
-	corpse = /obj/effect/landmark/corpse/newpirate/ballistic
+	corpse = /obj/landmark/corpse/newpirate/ballistic
 	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/ranged_generic
 	maxHealth = 125
 	health = 125
@@ -736,7 +736,7 @@
 	icon_state = "newpirate_ballistic_space"
 	icon_living = "newpirate_ballistic_space"
 	icon_dead = "newpirate_ballistic_space_dead"
-	corpse = /obj/effect/landmark/corpse/newpirate/ballistic/space
+	corpse = /obj/landmark/corpse/newpirate/ballistic/space
 	unsuitable_atmos_damage = 0
 	min_gas = null
 	max_gas = null

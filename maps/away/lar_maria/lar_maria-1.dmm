@@ -2903,18 +2903,18 @@
 /obj/structure/hygiene/shower,
 /obj/landmark/corpse/lar_maria/test_subject,
 /obj/decal/cleanable/blood,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_access)
 "hl" = (
 /obj/structure/hygiene/shower,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_access)
 "hm" = (
 /obj/structure/hygiene/shower,
 /obj/decal/cleanable/blood,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_access)
 "hn" = (
@@ -2993,7 +2993,7 @@
 /area/lar_maria/vir_access)
 "hx" = (
 /obj/decal/cleanable/blood,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_access)
 "hy" = (
@@ -3125,7 +3125,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_access)
 "hO" = (
@@ -3136,7 +3136,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_access)
 "hP" = (
@@ -3148,7 +3148,7 @@
 	},
 /obj/landmark/corpse/lar_maria/zhp_guard/dark,
 /obj/decal/cleanable/blood,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_access)
 "hQ" = (
@@ -3391,7 +3391,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_access)
 "io" = (
@@ -3404,7 +3404,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_access)
 "ip" = (
@@ -3475,13 +3475,13 @@
 /turf/simulated/floor/tiled,
 /area/lar_maria/sec_wing)
 "iw" = (
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_access)
 "ix" = (
 /obj/decal/cleanable/blood,
 /mob/living/simple_animal/hostile/lar_maria/test_subject,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_access)
 "iy" = (
@@ -3558,7 +3558,7 @@
 /obj/structure/hygiene/shower{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_access)
 "iH" = (
@@ -3567,7 +3567,7 @@
 	},
 /obj/landmark/corpse/lar_maria/virologist,
 /obj/decal/cleanable/blood,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/vir_access)
 "iI" = (
@@ -3676,7 +3676,7 @@
 /area/lar_maria/sec_wing)
 "mE" = (
 /obj/structure/bed,
-/obj/effect/landmark/corpse/lar_maria/test_subject,
+/obj/landmark/corpse/lar_maria/test_subject,
 /turf/simulated/floor/tiled/white/monotile,
 /area/lar_maria/vir_aux)
 "ns" = (
@@ -3802,7 +3802,7 @@
 /turf/simulated/floor/plating,
 /area/lar_maria/cells)
 "Sz" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white/monotile,
 /area/lar_maria/vir_aux)
 "SK" = (

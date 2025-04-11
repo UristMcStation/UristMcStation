@@ -77,7 +77,7 @@
 /obj/machinery/ai_slipper/OnTopic(user, href_list)
 	if (href_list["toggleUse"])
 		if(!(cooldown_on || disabled))
-			new /obj/effect/effect/foam(src.loc)
+			new /obj/effect/foam(src.loc)
 			src.uses--
 			cooldown_on = 1
 			cooldown_time = world.timeofday + 100

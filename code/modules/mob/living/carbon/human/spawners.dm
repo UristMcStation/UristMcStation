@@ -1,5 +1,5 @@
 
-/*/obj/effect/spawner/carbon/human
+/*/obj/spawner/carbon/human
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "x"
 	invisibility = 0
@@ -22,7 +22,7 @@
 
 	var/mob/living/carbon/human/H
 
-/obj/effect/spawner/carbon/human/Initialize()
+/obj/spawner/carbon/human/Initialize()
 	. = ..()
 	H = new /mob/living/carbon/human(loc)
 	H.set_dir(dir)
@@ -110,63 +110,63 @@
 
 //Humans
 
-/obj/effect/landmark/corpse/graysonminer
+/obj/landmark/corpse/graysonminer
 	corpse_outfits = list(/singleton/hierarchy/outfit/grayson/miner)
 	damage = list("damage_all_brute" = 50, "damage_all_burn" = 0)
 
-/obj/effect/landmark/corpse/graysonminer/brokenarm
+/obj/landmark/corpse/graysonminer/brokenarm
 	damage = list("r_arm" = 35)
 
-/obj/effect/landmark/corpse/pcrc
+/obj/landmark/corpse/pcrc
 	corpse_outfits = list(/singleton/hierarchy/outfit/pcrc)
 
-/obj/effect/landmark/corpse/patient
+/obj/landmark/corpse/patient
 	corpse_outfits = list(/singleton/hierarchy/outfit/patient)
 
-/obj/effect/landmark/corpse/vaultrich
+/obj/landmark/corpse/vaultrich
 	corpse_outfits = list(/singleton/hierarchy/outfit/vaultrich)
 
 //Nanotrasen
 
-/obj/effect/landmark/corpse/nt
+/obj/landmark/corpse/nt
 	corpse_outfits = list(/singleton/hierarchy/outfit/nanotrasensci)
 
-/obj/effect/landmark/corpse/nt/hurt
+/obj/landmark/corpse/nt/hurt
 	damage = list("damage_all_brute" = 50, "damage_all_burn" = 50)
 
-/obj/effect/landmark/corpse/nt/hurt/loot
+/obj/landmark/corpse/nt/hurt/loot
 	corpse_outfits = list(/singleton/hierarchy/outfit/nanotrasensci/loot)
 
-/obj/effect/landmark/corpse/nt/exec
+/obj/landmark/corpse/nt/exec
 	corpse_outfits = list(/singleton/hierarchy/outfit/nanotrasensci/exec)
 
-/obj/effect/landmark/corpse/nt/exec/armed
+/obj/landmark/corpse/nt/exec/armed
 	corpse_outfits = list(/singleton/hierarchy/outfit/nanotrasensci/exec/armed)
 
 //Vox
 
-/obj/effect/landmark/corpse/vox
+/obj/landmark/corpse/vox
 	species = list(SPECIES_VOX)
 
-/obj/effect/landmark/corpse/vox/robed
+/obj/landmark/corpse/vox/robed
 	corpse_outfits = list(/singleton/hierarchy/outfit/vox/robes)
 
-/obj/effect/landmark/corpse/vox/medic
+/obj/landmark/corpse/vox/medic
 	corpse_outfits = list(/singleton/hierarchy/outfit/vox/medic)
 
-/obj/effect/landmark/corpse/vox/stealth
+/obj/landmark/corpse/vox/stealth
 	corpse_outfits = list(/singleton/hierarchy/outfit/vox/stealth)
 
-/obj/effect/landmark/corpse/vox/assault
+/obj/landmark/corpse/vox/assault
 	corpse_outfits = list(/singleton/hierarchy/outfit/vox/assault)
 
 //Skrell castes
 
-/obj/effect/landmark/corpse/skrell
+/obj/landmark/corpse/skrell
 	species = list(SPECIES_SKRELL)
 	//var/list/caste_colors
 
-/*/obj/effect/landmark/corpse/skrell/Initialize()
+/*/obj/landmark/corpse/skrell/Initialize()
 	if(caste_colors)
 		var/caste = pick(caste_colors)
 		caste[1] += rand(-7,7)
@@ -176,37 +176,37 @@
 		hair_color = list(caste[1],caste[2],caste[3])
 	. = ..()*/
 
-/obj/effect/landmark/corpse/skrell/katish
+/obj/landmark/corpse/skrell/katish
 	skin_colors_per_species = list(SPECIES_SKRELL = list(51, 153, 51))
 
-/obj/effect/landmark/corpse/skrell/malish
+/obj/landmark/corpse/skrell/malish
 	skin_colors_per_species = list(SPECIES_SKRELL = list(0, 153, 255))
 
-/obj/effect/landmark/corpse/skrell/malish/veymed
+/obj/landmark/corpse/skrell/malish/veymed
 	corpse_outfits = list(/singleton/hierarchy/outfit/veymed)
 
-/obj/effect/landmark/corpse/skrell/malish/veymed/head
+/obj/landmark/corpse/skrell/malish/veymed/head
 	corpse_outfits = list(/singleton/hierarchy/outfit/veymed/head)
 
-/obj/effect/landmark/corpse/skrell/kanin
+/obj/landmark/corpse/skrell/kanin
 	skin_colors_per_species = list(SPECIES_SKRELL = list(153, 102, 0))
 
-/obj/effect/landmark/corpse/skrell/talum //Worst caste
+/obj/landmark/corpse/skrell/talum //Worst caste
 	skin_colors_per_species = list(SPECIES_SKRELL = list(102, 0, 255))
 
 //Unathi clans
 
-/obj/effect/landmark/corpse/unathi
+/obj/landmark/corpse/unathi
 	species = list(SPECIES_UNATHI)
 
 //Teshari
 
-/obj/effect/landmark/corpse/teshari
+/obj/landmark/corpse/teshari
 	species = list(SPECIES_RESOMI)
 
 //Diona
 
-/obj/effect/landmark/corpse/diona
+/obj/landmark/corpse/diona
 	species = list(SPECIES_DIONA)
 
 //IPCs/Synths

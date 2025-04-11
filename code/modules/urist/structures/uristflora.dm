@@ -15,7 +15,7 @@
 
 // Shimmering Spawner -
 
-/obj/effect/spawner/structure/shimmeringorb/Initialize()
+/obj/spawner/structure/shimmeringorb/Initialize()
 	. = ..()
 	if(prob(25))
 		new /obj/structure/flora/shimmering_orb(loc)

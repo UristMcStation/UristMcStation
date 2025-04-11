@@ -7,7 +7,7 @@
 	health_max = 300
 	bound_width = 64
 	bound_height = 64
-	wreckage_path = /obj/effect/decal/mecha_wreckage/cvrt
+	wreckage_path = /obj/decal/mecha_wreckage/cvrt
 	var/obj/item/cell/cell
 
 /mob/living/exosuit/premade/cvrt/Initialize()
@@ -163,7 +163,7 @@
 	ME = new /obj/item/mech_equipment/tool/passenger
 	ME.attach(src)*/
 
-/obj/effect/decal/mecha_wreckage/cvrt
+/obj/decal/mecha_wreckage/cvrt
 	name = "CVR wreckage"
 	icon = 'icons/urist/vehicles/cvrt.dmi'
 	bound_width = 64
@@ -175,9 +175,9 @@
 /mob/living/exosuit/premade/cvrt/ryclies
 	icon_state = "rcvrt"
 	//initial_icon = "rcvrt"
-	wreckage_path = /obj/effect/decal/mecha_wreckage/rcvrt
+	wreckage_path = /obj/decal/mecha_wreckage/rcvrt
 
-/obj/effect/decal/mecha_wreckage/rcvrt
+/obj/decal/mecha_wreckage/rcvrt
 	name = "CVR wreckage"
 	icon = 'icons/urist/vehicles/cvrt.dmi'
 	bound_width = 64

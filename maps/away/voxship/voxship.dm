@@ -33,10 +33,10 @@
 		"Vox Scavenger Ship" = list("nav_hangar_voxship")
 	)
 
-/obj/effect/overmap/visitable/sector/vox_scav_ship/generate_skybox()
+/obj/overmap/visitable/sector/vox_scav_ship/generate_skybox()
 	return overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
 
-/obj/effect/overmap/visitable/sector/vox_scav_ship/get_skybox_representation()
+/obj/overmap/visitable/sector/vox_scav_ship/get_skybox_representation()
 	var/image/res = overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
 	res.blend_mode = BLEND_OVERLAY
 	res.SetTransform(scale = 0.3)

@@ -3,7 +3,7 @@
 /turf/unsimulated/wall/urist/other/border,
 /area/space)
 "ab" = (
-/obj/effect/step_trigger/teleporter{
+/obj/step_trigger/teleporter{
 	affect_ghosts = 1;
 	teleport_z = 6
 	},
@@ -16,7 +16,7 @@
 /turf/unsimulated/wall/urist/other/border,
 /area/planet/jungle/away)
 "ae" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 4
 	},
@@ -29,25 +29,25 @@
 /turf/simulated/floor/planet/plains,
 /area/planet/jungle/away)
 "ah" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test2";
 	dir = 8
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ai" = (
-/obj/effect/floor_decal/water_edge,
+/obj/floor_decal/water_edge,
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "aj" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test2";
 	dir = 4
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ak" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 8
 	},
@@ -57,42 +57,42 @@
 /turf/simulated/floor/planet/plains/clear,
 /area/planet/jungle/away)
 "am" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 5
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "an" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 6
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ao" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 10
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ap" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 9
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "aq" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test2";
 	dir = 2
 	},
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/jungle/away)
 "ar" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test2";
 	dir = 1
 	},
@@ -102,7 +102,7 @@
 /turf/simulated/wall/wood,
 /area/planet/jungle/away)
 "at" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 1
 	},
@@ -177,7 +177,7 @@
 /turf/simulated/floor/plating,
 /area/planet/jungle/away)
 "aH" = (
-/obj/effect/floor_decal/water_edge,
+/obj/floor_decal/water_edge,
 /turf/unsimulated/wall/urist/other/border,
 /area/planet/jungle/away)
 "aI" = (
@@ -187,11 +187,11 @@
 /turf/simulated/floor/planet/jungle/impenetrable,
 /area/planet/jungle/away)
 "aK" = (
-/obj/effect/landmark/animal_spawner/random/jungle/crosstrigger,
+/obj/landmark/animal_spawner/random/jungle/crosstrigger,
 /turf/simulated/floor/planet/jungle/impenetrable,
 /area/planet/jungle/away)
 "aL" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 4
 	},
@@ -201,7 +201,7 @@
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aN" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 8
 	},
@@ -214,70 +214,70 @@
 /turf/simulated/floor/planet/jungle/thick,
 /area/planet/jungle/away)
 "aQ" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 6
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aR" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test2";
 	dir = 2
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aS" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test2";
 	dir = 8
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aT" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 9
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aU" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 5
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aV" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test2";
 	dir = 4
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aW" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test2";
 	dir = 1
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aX" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 10
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aY" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 1
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "aZ" = (
-/obj/effect/floor_decal/water_edge,
+/obj/floor_decal/water_edge,
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/jungle/away)
 "ba" = (
@@ -287,7 +287,7 @@
 /turf/simulated/floor/planet/jungle/clear,
 /area/planet/jungle/away)
 "bc" = (
-/obj/effect/shuttle_landmark/nav_glloyd_jungle/nav2,
+/obj/shuttle_landmark/nav_glloyd_jungle/nav2,
 /turf/simulated/floor/planet/jungle/clear,
 /area/planet/jungle/away)
 "bd" = (
@@ -459,15 +459,15 @@
 	},
 /area/planet/jungle/away)
 "bJ" = (
-/obj/effect/template_loader/planet,
+/obj/urist_intangible/trigger/template_loader/planet,
 /turf/simulated/floor/planet/jungle/med,
 /area/planet/jungle/away)
 "bK" = (
-/obj/effect/shuttle_landmark/nav_glloyd_jungle/nav1,
+/obj/shuttle_landmark/nav_glloyd_jungle/nav1,
 /turf/simulated/floor/planet/jungle/clear,
 /area/planet/jungle/away)
 "bL" = (
-/obj/effect/template_loader/planet,
+/obj/urist_intangible/trigger/template_loader/planet,
 /turf/simulated/floor/planet/jungle/thick,
 /area/planet/jungle/away)
 "bM" = (
@@ -1094,7 +1094,7 @@
 /turf/simulated/floor/plating,
 /area/jungleoutpost/main)
 "dF" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/planet/jungle/away)
 "dG" = (
@@ -1105,7 +1105,7 @@
 /turf/simulated/floor/plating,
 /area/planet/jungle/away)
 "dI" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/main)
 "dJ" = (
@@ -1152,7 +1152,7 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/planet/jungle/away)
 "dP" = (
@@ -1276,7 +1276,7 @@
 	pixel_x = -5;
 	pixel_y = 30
 	},
-/obj/effect/floor_decal/corner/beige{
+/obj/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1286,14 +1286,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/beige{
+/obj/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "ed" = (
-/obj/effect/floor_decal/corner/beige{
+/obj/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1756,7 +1756,7 @@
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "eS" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -1765,7 +1765,7 @@
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "eT" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1775,7 +1775,7 @@
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "eU" = (
-/obj/effect/floor_decal/corner/beige{
+/obj/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1783,14 +1783,14 @@
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "eV" = (
-/obj/effect/floor_decal/corner/beige{
+/obj/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "eW" = (
-/obj/effect/floor_decal/corner/beige{
+/obj/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1803,7 +1803,7 @@
 /area/jungleoutpost/main)
 "eX" = (
 /obj/machinery/light,
-/obj/effect/floor_decal/corner/beige{
+/obj/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1821,11 +1821,11 @@
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "fa" = (
-/obj/effect/floor_decal/corner/yellow,
+/obj/floor_decal/corner/yellow,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "fb" = (
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -1833,7 +1833,7 @@
 /area/jungleoutpost/main)
 "fc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -1847,7 +1847,7 @@
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/main)
 "fd" = (
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -1868,7 +1868,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/jungleoutpost/main)
 "fg" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/medbay)
 "fh" = (
@@ -1957,11 +1957,11 @@
 /turf/simulated/wall,
 /area/jungleoutpost/medbay)
 "ft" = (
-/obj/effect/floor_decal/corner/paleblue/three_quarters{
+/obj/floor_decal/corner/paleblue/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/paleblue,
+/obj/floor_decal/corner/paleblue,
 /obj/structure/table/rack,
 /obj/item/roller_bed,
 /obj/item/roller_bed,
@@ -1975,8 +1975,8 @@
 /turf/simulated/floor/plating,
 /area/jungleoutpost/medbay)
 "fv" = (
-/obj/effect/floor_decal/corner/paleblue,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue,
+/obj/floor_decal/corner/paleblue{
 	dir = 1
 	},
 /obj/structure/cable{
@@ -1987,15 +1987,15 @@
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fw" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/paleblue,
+/obj/floor_decal/corner/paleblue,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fx" = (
-/obj/effect/floor_decal/corner/paleblue/three_quarters{
+/obj/floor_decal/corner/paleblue/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -2076,7 +2076,7 @@
 /obj/item/stack/material/steel{
 	amount = 50
 	},
-/obj/effect/floor_decal/corner/yellow/three_quarters{
+/obj/floor_decal/corner/yellow/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -2100,14 +2100,14 @@
 /obj/item/stack/material/glass{
 	amount = 50
 	},
-/obj/effect/floor_decal/corner/yellow/three_quarters{
+/obj/floor_decal/corner/yellow/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
 "fJ" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
 "fK" = (
@@ -2124,7 +2124,7 @@
 /obj/structure/table/rack,
 /obj/item/material/hatchet/wood,
 /obj/item/shovel,
-/obj/effect/floor_decal/corner/yellow/full,
+/obj/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
 "fM" = (
@@ -2137,7 +2137,7 @@
 /obj/item/storage/firstaid/surgery,
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker/painkiller,
-/obj/effect/floor_decal/corner/paleblue/three_quarters{
+/obj/floor_decal/corner/paleblue/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -2145,7 +2145,7 @@
 /area/jungleoutpost/medbay)
 "fO" = (
 /obj/machinery/optable,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2153,14 +2153,14 @@
 /area/jungleoutpost/medbay)
 "fP" = (
 /obj/structure/iv_stand,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fQ" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2173,7 +2173,7 @@
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fR" = (
-/obj/effect/floor_decal/corner/paleblue/three_quarters{
+/obj/floor_decal/corner/paleblue/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -2188,7 +2188,7 @@
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fS" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -2198,7 +2198,7 @@
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fX" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2207,14 +2207,14 @@
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fY" = (
-/obj/effect/floor_decal/corner/paleblue/full,
+/obj/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "fZ" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2235,7 +2235,7 @@
 /turf/simulated/floor/plating,
 /area/jungleoutpost/medbay)
 "gc" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -2247,11 +2247,11 @@
 /obj/machinery/sleeper{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/blue/three_quarters{
+/obj/floor_decal/corner/blue/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/paleblue,
+/obj/floor_decal/corner/paleblue,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "ge" = (
@@ -2299,7 +2299,7 @@
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/tank/oxygen_emergency_extended,
 /obj/item/storage/toolbox/electrical,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
 "gl" = (
@@ -2318,7 +2318,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2337,7 +2337,7 @@
 /turf/simulated/floor/planet/jungle,
 /area/jungleoutpost/engi)
 "go" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -2346,13 +2346,13 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "gq" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -2370,7 +2370,7 @@
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "gt" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2386,8 +2386,8 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/blue/three_quarters,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/blue/three_quarters,
+/obj/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -2407,7 +2407,7 @@
 /area/jungleoutpost/engi)
 "gx" = (
 /obj/structure/closet/toolcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
 "gy" = (
@@ -2418,7 +2418,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2432,7 +2432,7 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
 "gA" = (
@@ -2485,7 +2485,7 @@
 /turf/simulated/floor/planet/jungle,
 /area/planet/jungle/away)
 "gH" = (
-/obj/effect/overmap/visitable/sector/planetoid/glloyd_jungle,
+/obj/overmap/visitable/sector/planetoid/glloyd_jungle,
 /turf/simulated/floor/planet/jungle,
 /area/planet/jungle/away)
 "gI" = (
@@ -2497,33 +2497,33 @@
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "gK" = (
-/obj/effect/floor_decal/corner/green/full,
+/obj/floor_decal/corner/green/full,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "gL" = (
-/obj/effect/floor_decal/corner/green/full,
+/obj/floor_decal/corner/green/full,
 /obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "gM" = (
-/obj/effect/floor_decal/corner/paleblue/three_quarters,
+/obj/floor_decal/corner/paleblue/three_quarters,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "gN" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "gO" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -2537,10 +2537,10 @@
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "gP" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -2550,7 +2550,7 @@
 /obj/machinery/vending/medical{
 	req_access = newlist()
 	},
-/obj/effect/floor_decal/corner/paleblue/three_quarters{
+/obj/floor_decal/corner/paleblue/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -2583,7 +2583,7 @@
 /area/jungleoutpost/engi)
 "gV" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/camera/network/mining{
 	c_tag = "Outpost Engineering Storage";
 	dir = 4;
@@ -2593,7 +2593,7 @@
 /area/jungleoutpost/engi)
 "gW" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
 "gX" = (
@@ -2703,7 +2703,7 @@
 /area/jungleoutpost/engi)
 "hk" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
 "hl" = (
@@ -2716,7 +2716,7 @@
 /area/jungleoutpost/engi)
 "hn" = (
 /obj/structure/closet/secure_closet/engineering_welding,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/jungleoutpost/engi)
 "ho" = (
@@ -2727,7 +2727,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2783,7 +2783,7 @@
 /obj/structure/table/rack,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -2792,7 +2792,7 @@
 "hu" = (
 /obj/item/storage/firstaid/tactical,
 /obj/item/storage/firstaid/tactical,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -2803,7 +2803,7 @@
 /obj/item/storage/firstaid/combat,
 /obj/item/storage/firstaid/combat,
 /obj/item/storage/firstaid/combat,
-/obj/effect/floor_decal/corner/paleblue/three_quarters{
+/obj/floor_decal/corner/paleblue/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -2818,19 +2818,19 @@
 	icon_state = "body_scanner_0";
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/red/full,
+/obj/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "hx" = (
-/obj/effect/floor_decal/corner/yellow/full,
+/obj/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "hy" = (
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/jungleoutpost/medbay)
 "hz" = (
-/obj/effect/floor_decal/corner/lime,
-/obj/effect/floor_decal/corner/green/three_quarters{
+/obj/floor_decal/corner/lime,
+/obj/floor_decal/corner/green/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -2840,7 +2840,7 @@
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
 "hB" = (
-/obj/effect/floor_decal/corner/red/three_quarters{
+/obj/floor_decal/corner/red/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -2943,7 +2943,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -3041,14 +3041,14 @@
 	icon_state = "body_scannerconsole";
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/red/full,
+/obj/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "hU" = (
-/obj/effect/floor_decal/corner/lime{
+/obj/floor_decal/corner/lime{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/green{
+/obj/floor_decal/corner/green{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -3156,7 +3156,7 @@
 /turf/simulated/wall/r_wall,
 /area/jungleoutpost/engi)
 "ii" = (
-/obj/effect/floor_decal/corner/paleblue/three_quarters,
+/obj/floor_decal/corner/paleblue/three_quarters,
 /obj/item/storage/firstaid/surgery,
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker/painkiller,
@@ -3164,7 +3164,7 @@
 /area/jungleoutpost/medbay)
 "ij" = (
 /obj/machinery/optable,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -3175,11 +3175,11 @@
 /turf/simulated/floor/plating,
 /area/jungleoutpost/medbay)
 "il" = (
-/obj/effect/floor_decal/corner/lime{
+/obj/floor_decal/corner/lime{
 	icon_state = "corner_white";
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/green/three_quarters,
+/obj/floor_decal/corner/green/three_quarters,
 /obj/machinery/organ_printer/flesh/mapped,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -3215,7 +3215,7 @@
 	pixel_x = -22;
 	pixel_y = 0
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
 "iq" = (
@@ -3233,7 +3233,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
 "ir" = (
@@ -3296,7 +3296,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/corner/yellow{
+/obj/floor_decal/corner/yellow{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -3423,7 +3423,7 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/cable,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
@@ -3434,11 +3434,11 @@
 /area/jungleoutpost/engi)
 "iG" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
 "iH" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
@@ -3449,7 +3449,7 @@
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
 "iJ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/jungleoutpost/engi)
 "iK" = (
@@ -3480,7 +3480,7 @@
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "iN" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/floor_decal/corner/paleblue/diagonal,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -3493,7 +3493,7 @@
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "iO" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -3508,18 +3508,18 @@
 /turf/simulated/floor/plating,
 /area/jungleoutpost/main)
 "iR" = (
-/obj/effect/step_trigger/teleporter{
+/obj/step_trigger/teleporter{
 	affect_ghosts = 1;
 	teleport_z = 6
 	},
-/obj/effect/step_trigger/teleporter{
+/obj/step_trigger/teleporter{
 	affect_ghosts = 1;
 	teleport_z = 6
 	},
 /turf/unsimulated/wall/urist/other/border,
 /area/space)
 "re" = (
-/obj/effect/floor_decal/corner/paleblue/full,
+/obj/floor_decal/corner/paleblue/full,
 /obj/structure/salvageable/machine_os,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
@@ -3547,7 +3547,7 @@
 /turf/simulated/floor/plating,
 /area/planet/jungle/away)
 "Ol" = (
-/obj/effect/floor_decal/corner/paleblue/full,
+/obj/floor_decal/corner/paleblue/full,
 /obj/structure/salvageable/machine,
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)

@@ -13,7 +13,7 @@ var/global/const/access_contact = "ACCESS_CONTACT"	//202
 	spawn_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/lanius)
 
-/obj/effect/overmap/visitable/distress
+/obj/overmap/visitable/distress
 	name = "distress signal"
 	desc = "Emergency signal detected. No further data avaliable."
 	icon_state = "event"
@@ -30,11 +30,11 @@ var/global/const/access_contact = "ACCESS_CONTACT"	//202
 	landmark_transition = "nav_transit_lanius"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/distress
+/obj/shuttle_landmark/distress
 	name = "Unknown Navpoint"
 	landmark_tag = "distress_signal"
 
-/obj/effect/shuttle_landmark/contact_light_lanius
+/obj/shuttle_landmark/contact_light_lanius
 	name = "Unknown Navpoint"
 	landmark_tag = "contact_light_lanius"
 

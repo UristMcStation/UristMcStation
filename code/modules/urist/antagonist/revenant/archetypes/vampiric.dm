@@ -185,7 +185,7 @@
 	if(!istype(T))
 		return
 
-	var/obj/effect/gateway/hole = new(T)
+	var/obj/gateway/hole = new(T)
 	hole.density = FALSE
 
 	QDEL_IN(hole, 30 SECONDS)
@@ -221,7 +221,7 @@
 
 	src.visible_message(SPAN_WARNING("\The [src] yanks \his hand back sharply, leaving a portal behind!"))
 
-	var/obj/effect/gateway/hole = new(T)
+	var/obj/gateway/hole = new(T)
 	hole.density = FALSE
 
 	QDEL_IN(hole, 30 SECONDS)
@@ -487,4 +487,3 @@
 	isVerb = FALSE
 	verbpath = /mob/proc/bsrevenant_mutate_fangs
 	distortion_threshold = 6000 // 5 mins
-

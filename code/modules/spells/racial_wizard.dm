@@ -58,7 +58,7 @@
 	hud_state = "wiz_resomi"
 
 	summon_amt = 1
-	summon_type = list(/obj/effect/forcefield/mime)
+	summon_type = list(/obj/forcefield/mime)
 
 /spell/aoe_turf/conjure/summon/resomi/before_cast()
 	..()

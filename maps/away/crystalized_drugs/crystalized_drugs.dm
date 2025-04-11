@@ -12,24 +12,24 @@
 	generate_mining_by_z = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/bacchus)
 
-/obj/effect/overmap/visitable/sector/drug_lab
+/obj/overmap/visitable/sector/drug_lab
 	name = "bluespace wake traces"
 	desc = "Initial sector readings reported numerous bluespace wake traces from within this sector. Sensor reports indicate asteroids with abnormal refraction indexes are detected along with energy spikes."
 	icon_state = "object"
 	known = FALSE
 
-/obj/effect/overmap/visitable/sector/drug_lab/generate_skybox()
+/obj/overmap/visitable/sector/drug_lab/generate_skybox()
 	var/image/res = overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
 	res.blend_mode = BLEND_OVERLAY
 	return res
 
-/obj/effect/overmap/visitable/sector/drug_lab/get_skybox_representation()
+/obj/overmap/visitable/sector/drug_lab/get_skybox_representation()
 	var/image/res = overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)
 	res.blend_mode = BLEND_OVERLAY
 	res.SetTransform(scale = 0.5)
 	return res
 
-/obj/effect/overmap/visitable/ship/landable/bacchus
+/obj/overmap/visitable/ship/landable/bacchus
 	name = "ITV Bacchus"
 	classification = "cargo vessel"
 	shuttle = "ITV Bacchus"
@@ -48,7 +48,7 @@
 	range = 3
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/bacchus
+/obj/shuttle_landmark/bacchus
 	name = "Bacchus Dock"
 	landmark_tag = "nav_crystaldrug_bacchus"
 	docking_controller = "druglab"
@@ -73,7 +73,7 @@
 /area/crystaldrugs/bacchus/engine
 	name = "\improper ITV Bacchus Engine Compartment"
 
-/obj/effect/landmark/map_load_mark/crystal_drugs
+/obj/landmark/map_load_mark/crystal_drugs
 	templates = list(/datum/map_template/crystal_drugs_active,/datum/map_template/crystal_drugs_psycho)
 	load_centered = FALSE
 
@@ -87,18 +87,18 @@
 	id = "crystaldrugs_2"
 	mappaths = list('maps/away/crystalized_drugs/crystalized_drugs_active.dmm')
 
-/obj/effect/computer_file_creator/crystal_drugs_dc
+/obj/computer_file_creator/crystal_drugs_dc
 	file_info = "This week's vault code: 0451\[br]Delete this file after opening."
 	file_name = "delete_after_reading"
 
-/obj/effect/computer_file_creator/crystal_drugs_eml
+/obj/computer_file_creator/crystal_drugs_eml
 	file_info = "Hey Carter! Hope you're still holding out up there.\[br]Hope the Trade Union isn't working you too hard. I've been hearing some worrying stories about them, but nothing from your sector. I'm sure it's just a bad manager out there.\[br]Anyway, can't wait to see you home again soon!\[br]Love, Emilia"
 	file_name = "EML_from_emilia"
 
-/obj/effect/computer_file_creator/crystal_drugs_recipe
+/obj/computer_file_creator/crystal_drugs_recipe
 	file_info = "Found an interesting compound last night. Incredible rejuvinating effects on the rats we have lying around here.\[br]Some of our regular smugglers mentioned they'd be interested in buying some. Assistant, put together 30u ph, 10u peri, and 10u parox for when our buyers next arrive.\[br]The rats from yesterday are nowhere to be found, seems they've become more skittish since the test treatments. Perhaps a psychological side-effect?"
 	file_name = "special_recipe"
 
-/obj/effect/computer_file_creator/crystal_drugs_receipt
+/obj/computer_file_creator/crystal_drugs_receipt
 	file_info = "Order #97f2b\[br]Thank you for conducting business with Vey-Med Chemical Supply.\[br]Your pickup location is: Nyx-sector NT Trading Station ID#522\[br]If this is your first time purchasing, please meet with a Vey-Med representative to verify your identity for an access keycard."
 	file_name = "veymed_receipt"

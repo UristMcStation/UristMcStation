@@ -1,5 +1,5 @@
 //Dummy effect used solely to edit the opacity of a tile. Used for multi-tile doors.
-/obj/effect/opacity_dummy
+/obj/opacity_dummy
 	name = null
 	icon = null
 	icon_state = null

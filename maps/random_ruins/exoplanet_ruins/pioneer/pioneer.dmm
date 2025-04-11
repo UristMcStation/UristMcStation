@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "bt" = (
 /obj/machinery/power/port_gen/pacman,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/machinery/power/apc{
 	dir = 2;
@@ -15,8 +15,8 @@
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/cabin)
 "cg" = (
-/obj/effect/submap_landmark/joinable_submap/lonepioneer,
-/obj/effect/landmark/clear,
+/obj/submap_landmark/joinable_submap/lonepioneer,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "cB" = (
@@ -31,20 +31,20 @@
 /obj/machinery/gibber{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/cobweb2,
+/obj/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/monotile,
 /area/map_template/lonepioneer/cabin)
 "du" = (
 /obj/structure/sign/monkey_painting{
 	pixel_y = -32
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/inflatable_dispenser,
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/cabin)
 "dG" = (
 /obj/item/material/minihoe,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "dR" = (
@@ -52,7 +52,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/map_template/lonepioneer/cabin)
 "et" = (
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /obj/item/stack/material/rods,
 /turf/template_noop,
 /area/template_noop)
@@ -74,12 +74,12 @@
 /obj/structure/gravemarker{
 	desc = "A small grave cross, it reads: 'IMOGEN'"
 	},
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "gP" = (
 /obj/item/reagent_containers/glass/bucket,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "hL" = (
@@ -101,10 +101,10 @@
 /area/map_template/lonepioneer/cabin)
 "jA" = (
 /obj/machinery/smartfridge/drying_rack,
-/obj/effect/decal/cleanable/cobweb2{
+/obj/decal/cleanable/cobweb2{
 	icon_state = "cobweb1"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/cabin)
 "jB" = (
@@ -113,11 +113,11 @@
 /area/map_template/lonepioneer/cabin)
 "jC" = (
 /obj/item/storage/firstaid/surgery,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "kd" = (
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
@@ -129,24 +129,24 @@
 "kz" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/item/seeds/puretobaccoseed,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "lr" = (
-/obj/effect/landmark/clear,
-/obj/effect/landmark/clear,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
+/obj/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "mu" = (
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /obj/structure/cable{
 	dir = 1
 	},
 /turf/template_noop,
 /area/template_noop)
 "mJ" = (
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /obj/structure/lattice,
 /turf/template_noop,
 /area/template_noop)
@@ -172,7 +172,7 @@
 /area/map_template/lonepioneer/cabin)
 "pN" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/cabin)
 "qo" = (
@@ -186,14 +186,14 @@
 /area/map_template/lonepioneer/shed)
 "qw" = (
 /obj/item/boombox,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /obj/structure/lattice,
 /turf/template_noop,
 /area/template_noop)
 "rd" = (
 /obj/structure/hygiene/sink/well,
-/obj/effect/landmark/clear,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "sg" = (
@@ -221,16 +221,16 @@
 /area/map_template/lonepioneer/cabin)
 "tk" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /obj/structure/lattice,
 /turf/template_noop,
 /area/template_noop)
 "tq" = (
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "ts" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -240,7 +240,7 @@
 /area/map_template/lonepioneer/cabin)
 "tD" = (
 /obj/machinery/door/unpowered/simple/wood,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/cabin)
 "uI" = (
@@ -252,16 +252,16 @@
 "vg" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/item/seeds/cotton,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "vr" = (
 /obj/structure/inflatable/door,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "xe" = (
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /obj/item/material/shard,
 /turf/template_noop,
 /area/template_noop)
@@ -286,7 +286,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/shed)
 "Az" = (
-/obj/effect/submap_landmark/spawnpoint/lonepioneer,
+/obj/submap_landmark/spawnpoint/lonepioneer,
 /obj/machinery/light/small,
 /turf/simulated/floor/carpet/red,
 /area/map_template/lonepioneer/cabin)
@@ -353,7 +353,7 @@
 /obj/structure/gravemarker/cross{
 	desc = "A small grave with a string of dogtags on it."
 	},
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "KB" = (
@@ -371,7 +371,7 @@
 /area/template_noop)
 "LR" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "Ms" = (
@@ -392,13 +392,13 @@
 /area/map_template/lonepioneer/cabin)
 "Oe" = (
 /obj/item/material/knife/kitchen,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /obj/item/material/shard,
 /turf/template_noop,
 /area/template_noop)
 "OQ" = (
 /obj/item/material/hatchet,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "Pm" = (
@@ -415,11 +415,11 @@
 "PS" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/item/seeds/coffeeseed,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "QD" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
@@ -428,8 +428,8 @@
 /turf/simulated/floor/wood/walnut,
 /area/map_template/lonepioneer/shed)
 "Te" = (
-/obj/effect/landmark/clear,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "Tl" = (
@@ -444,7 +444,7 @@
 "TG" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/item/seeds/glowshroom,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "TK" = (
@@ -466,7 +466,7 @@
 /obj/structure/gravemarker/cross{
 	desc = "The grave reads: 'RED'"
 	},
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "UL" = (
@@ -479,7 +479,7 @@
 "VK" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/item/seeds/wheatseed,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "Wb" = (
@@ -512,7 +512,7 @@
 /area/map_template/lonepioneer/cabin)
 "WE" = (
 /obj/machinery/door/unpowered/simple/wood,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -524,13 +524,13 @@
 "Xd" = (
 /obj/item/shovel/spade,
 /obj/item/device/scanner/plant,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "Zo" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/item/seeds/towermycelium,
-/obj/effect/landmark/clear,
+/obj/landmark/clear,
 /turf/template_noop,
 /area/template_noop)
 "ZY" = (

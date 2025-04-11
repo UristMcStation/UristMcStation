@@ -59,7 +59,7 @@
 	name = "Casino Ship Navpoint #5"
 	landmark_tag = "nav_casino_antag"
 
-/obj/effect/shuttle_landmark/nav_casino/dock
+/obj/shuttle_landmark/nav_casino/dock
 	name = "Casino Ship Fore Dock"
 	landmark_tag = "nav_casino_dock"
 	docking_controller = "casino_dock"

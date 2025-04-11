@@ -22,7 +22,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "eP" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/standard,
 /obj/item/stack/material/aluminium/fifty,
 /obj/item/stack/material/aluminium/fifty,
@@ -65,7 +65,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "gM" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/machinery/biogenerator,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
@@ -160,7 +160,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "lQ" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/bar_soft/full,
 /turf/simulated/floor/tiled/white,
@@ -220,7 +220,7 @@
 /turf/space,
 /area/space)
 "oU" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -247,7 +247,7 @@
 /turf/space,
 /area/space)
 "qx" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/item/stack/material/cardboard/fifty,
 /obj/item/stack/material/cloth,
 /obj/item/stack/material/generic/bone,
@@ -276,7 +276,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "tn" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/rack,
 /obj/item/stack/animalhide/cat,
 /obj/item/stack/animalhide/corgi,
@@ -339,7 +339,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "xr" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/machinery/floor_light/mapped_off{
 	default_light_outer_range = 6;
 	default_light_inner_range = 2
@@ -362,7 +362,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "zp" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/standard,
 /obj/machinery/reagent_temperature/cooler,
 /turf/simulated/floor/tiled/white,
@@ -404,7 +404,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "Eq" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/bar_alc/full,
 /turf/simulated/floor/tiled/white,
@@ -462,7 +462,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "NM" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/bar_coffee/full,
 /turf/simulated/floor/tiled/white,
@@ -490,7 +490,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "QG" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
@@ -575,12 +575,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "Uq" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/machinery/seed_extractor,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "UD" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -638,7 +638,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "Zl" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/standard,
 /obj/machinery/fabricator/micro/bartender,
 /turf/simulated/floor/tiled/white,

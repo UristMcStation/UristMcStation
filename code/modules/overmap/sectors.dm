@@ -192,7 +192,7 @@ GLOBAL_LIST_EMPTY(known_overmap_sectors)
 // prior to being moved to the overmap. This blocks that. Use set_invisibility to adjust invisibility as needed instead.
 /obj/overmap/visitable/sector/hide()
 
-/obj/effect/overmap/visitable/sector/proc/generate_planet_image()
+/obj/overmap/visitable/sector/proc/generate_planet_image()
 	return
 
 /proc/build_overmap()

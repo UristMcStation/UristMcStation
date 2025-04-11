@@ -78,7 +78,7 @@
 	name = "\improper Derelict Atmospherics"
 	icon_state = "atmos"
 
-/obj/effect/overmap/visitable/sector/russianderelict
+/obj/overmap/visitable/sector/russianderelict
 	name = "\proper Kosmonaut Station 13"
 	desc = "Sensors detect an orbital station with an unusual profile and no life signs."
 	icon_state = "object"
@@ -93,17 +93,17 @@
 	spawn_cost = 1
 	area_usage_test_exempted_root_areas = list(/area/russianderelict)
 
-/obj/effect/shuttle_landmark/automatic/nav_russian_derelict/nav1
+/obj/shuttle_landmark/automatic/nav_russian_derelict/nav1
 	name = "Derelict Landing Zone #1"
 	landmark_tag = "nav_russian_derelict_1"
 	flags = SLANDMARK_FLAG_AUTOSET
 
-/obj/effect/shuttle_landmark/automatic/nav_russian_derelict/nav2
+/obj/shuttle_landmark/automatic/nav_russian_derelict/nav2
 	name = "Derelict Landing Zone #2"
 	landmark_tag = "nav_russian_derelict_2"
 	flags = SLANDMARK_FLAG_AUTOSET
 
-/obj/effect/shuttle_landmark/automatic/nav_russian_derelict/nav3
+/obj/shuttle_landmark/automatic/nav_russian_derelict/nav3
 	name = "Derelict Landing Zone #3"
 	landmark_tag = "nav_russian_derelict_3"
 	flags = SLANDMARK_FLAG_AUTOSET
@@ -255,7 +255,7 @@
 
 //russian SS13 sign from the old derelict - the red cyrillic one
 
-/obj/effect/floor_decal/urist/russian
+/obj/floor_decal/urist/russian
 	icon_state = "derelict1"
 
 //contract

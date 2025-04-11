@@ -6,7 +6,7 @@
 /turf/simulated/wall/r_wall/hull,
 /area/boarding_ship)
 "ac" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /turf/simulated/floor/tiled/techmaint,
 /area/boarding_ship)
 "ad" = (
@@ -17,7 +17,7 @@
 /area/boarding_ship)
 "af" = (
 /obj/structure/boarding/shipportal,
-/obj/effect/urist/triggers/boarding_landmark,
+/obj/urist_intangible/triggers/boarding_landmark,
 /turf/simulated/floor/tiled/techmaint,
 /area/boarding_ship)
 "ag" = (
@@ -79,7 +79,7 @@
 /obj/item/stack/material/glass{
 	amount = 50
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "aq" = (
@@ -103,7 +103,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "at" = (
-/obj/effect/urist/triggers/ai_defender_landmark/terran/marine,
+/obj/urist_intangible/triggers/ai_defender_landmark/terran/marine,
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "au" = (
@@ -115,7 +115,7 @@
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/tank/oxygen_emergency_extended,
 /obj/item/storage/toolbox/electrical,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "av" = (
@@ -130,11 +130,11 @@
 /area/boarding_ship)
 "aw" = (
 /obj/structure/closet/toolcloset,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "ax" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "ay" = (
@@ -146,7 +146,7 @@
 /area/boarding_ship)
 "aA" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "aB" = (
@@ -254,7 +254,7 @@
 /area/boarding_ship)
 "aR" = (
 /obj/structure/closet/secure_closet/engineering_welding,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "aS" = (
@@ -311,7 +311,7 @@
 /area/boarding_ship)
 "aY" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "aZ" = (
@@ -336,7 +336,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/boarding_ship)
 "bd" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/techmaint,
 /area/boarding_ship)
 "be" = (
@@ -400,15 +400,15 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/boarding_ship)
 "bo" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
+/obj/wallframe_spawn/reinforced_phoron,
 /turf/space,
 /area/boarding_ship)
 "bp" = (
-/obj/effect/urist/triggers/ai_defender_landmark/terran/space_marine,
+/obj/urist_intangible/triggers/ai_defender_landmark/terran/space_marine,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "bq" = (
-/obj/effect/urist/triggers/ai_defender_landmark/terran/space_marine,
+/obj/urist_intangible/triggers/ai_defender_landmark/terran/space_marine,
 /turf/simulated/floor/tiled/white,
 /area/boarding_ship)
 "br" = (
@@ -421,7 +421,7 @@
 /turf/simulated/floor/tiled/white,
 /area/boarding_ship)
 "bs" = (
-/obj/effect/urist/triggers/ai_defender_landmark/terran/space_marine,
+/obj/urist_intangible/triggers/ai_defender_landmark/terran/space_marine,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/boarding_ship)
 "bt" = (
@@ -429,7 +429,7 @@
 	icon_state = "shuttlechair";
 	dir = 4
 	},
-/obj/effect/urist/triggers/ai_defender_landmark/terran/officer,
+/obj/urist_intangible/triggers/ai_defender_landmark/terran/officer,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/boarding_ship)
 "bu" = (
@@ -502,7 +502,7 @@
 /obj/structure/closet/crate/secure/phoron,
 /obj/item/tank/phoron,
 /obj/item/tank/phoron,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "bG" = (
@@ -588,7 +588,7 @@
 /area/boarding_ship)
 "bR" = (
 /obj/structure/reagent_dispensers/watertank,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "bS" = (
@@ -608,11 +608,11 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "bU" = (
-/obj/effect/urist/triggers/ai_defender_landmark/terran/marine,
+/obj/urist_intangible/triggers/ai_defender_landmark/terran/marine,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/boarding_ship)
 "bV" = (
-/obj/effect/template_loader/ships,
+/obj/urist_intangible/trigger/template_loader/ships,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/boarding_ship)
 "bW" = (
@@ -620,7 +620,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/boarding_ship)
 "bX" = (
-/obj/effect/urist/triggers/ai_defender_landmark/terran/marine,
+/obj/urist_intangible/triggers/ai_defender_landmark/terran/marine,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "bY" = (
@@ -630,7 +630,7 @@
 /area/boarding_ship)
 "bZ" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "ca" = (
@@ -710,7 +710,7 @@
 /obj/item/gun/energy/laser,
 /obj/item/gun/energy/ionrifle,
 /obj/item/gun/energy/gun/small,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "co" = (
@@ -719,7 +719,7 @@
 	amount = 50
 	},
 /obj/item/storage/toolbox/mechanical,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "cp" = (
@@ -738,11 +738,11 @@
 	amount = 50
 	},
 /obj/item/clothing/gloves/insulated,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "cq" = (
-/obj/effect/urist/triggers/defender_landmark/terran,
+/obj/urist_intangible/triggers/defender_landmark/terran,
 /turf/simulated/floor/tiled/techmaint,
 /area/boarding_ship)
 

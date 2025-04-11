@@ -159,11 +159,11 @@
 
 	//playsound(usr.loc, 'bamf.ogg', 50, 0)
 
-	new/obj/effects/self_deleting(C.loc, icon('icons/effects/genetics.dmi', "cryokinesis"))
+	new/obj/urist_intangible/effects/self_deleting(C.loc, icon('icons/effects/genetics.dmi', "cryokinesis"))
 
 	return
 
-/obj/effects/self_deleting
+/obj/urist_intangible/effects/self_deleting
 	density = FALSE
 	opacity = 0
 	anchored = TRUE
@@ -171,7 +171,7 @@
 	desc = ""
 	//layer = 15
 
-/obj/effects/self_deleting/New(atom/location, var/icon/I, var/duration = 20, var/oname = "something")
+/obj/urist_intangible/effects/self_deleting/New(atom/location, var/icon/I, var/duration = 20, var/oname = "something")
 	..()
 	src.name = oname
 	loc=location

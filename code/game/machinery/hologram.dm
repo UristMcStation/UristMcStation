@@ -412,7 +412,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(masters[user])
 		if(isAI(user))
 			step_to(masters[user], user.eyeobj) // So it turns.
-			var/obj/effect/overlay/H = masters[user]
+			var/obj/overlay/H = masters[user]
 			H.dropInto(user.eyeobj)
 			masters[user] = H
 
@@ -431,7 +431,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			return 1
 
 		else
-			var/obj/effect/overlay/H = masters[user]
+			var/obj/overlay/H = masters[user]
 			var/dest = locate(src.x + x, src.y + y, src.z)
 			step_to(H, dest)
 			H.dropInto(dest)
@@ -440,7 +440,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 /obj/machinery/hologram/holopad/proc/set_dir_hologram(new_dir, mob/living/user)
 	if(masters[user])
-		var/obj/effect/overlay/hologram = masters[user]
+		var/obj/overlay/hologram = masters[user]
 		hologram.dir = new_dir
 
 /obj/machinery/hologram/holopad/proc/set_pad_effects(on = TRUE)

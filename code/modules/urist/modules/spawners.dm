@@ -26,7 +26,7 @@
 	var/radius = 2 //radius from around the selected origin to spawn mobs (0 is no radius, -1 is anywhere in the area)
 
 	// Special effects!
-	var/obj/effect/spawn_effect = null
+	var/obj/spawn_effect = null
 
 	// Spawn messaging
 	var/list/messages = null //messages spawner will pick from to display alongside spawning mobs
@@ -197,7 +197,7 @@
 	spawn_count = 4  // fireteam
 	interval = 2
 	variation = 4
-	spawn_effect = /obj/effect/effect/smoke // fake-smokenade; also covers up the occasional dodgy spawn locations
+	spawn_effect = /obj/effect/smoke // fake-smokenade; also covers up the occasional dodgy spawn locations
 
 
 /atom/movable/uspawner/endless
@@ -206,7 +206,7 @@
 	paused = FALSE
 	spawn_count = 0  // endless
 	radius = -1 // area-based by default, less predictable
-	spawn_effect = /obj/effect/sparks
+	spawn_effect = /obj/sparks
 
 	// bigger delay to avoid mobspam
 	interval = 30
@@ -221,7 +221,7 @@
 // NT deathsquads sent to clean up embarrassing messes
 /atom/movable/uspawner/squad/ntis_hit
 	faction = "NTIS"
-	spawn_effect = /obj/effect/sparks
+	spawn_effect = /obj/sparks
 
 	mobs = list(
 		/mob/living/simple_animal/hostile/urist/commando,
@@ -234,7 +234,7 @@
 
 /atom/movable/uspawner/endless/ntis_interdiction
 	faction = "NTIS"
-	spawn_effect = /obj/effect/sparks
+	spawn_effect = /obj/sparks
 
 	mobs = list(
 		/mob/living/simple_animal/hostile/urist/commando,
@@ -271,7 +271,7 @@
 // ANTAG strike team
 /atom/movable/uspawner/squad/antag_crew
 	faction = "alien"
-	spawn_effect = /obj/effect/effect/smoke
+	spawn_effect = /obj/effect/smoke
 
 	mobs = list(
 		/mob/living/simple_animal/hostile/urist/ANTAG,
@@ -289,7 +289,7 @@
 
 /atom/movable/uspawner/endless/antag_operation
 	faction = "alien"
-	spawn_effect = /obj/effect/effect/smoke
+	spawn_effect = /obj/effect/smoke
 
 	mobs = list(
 		/mob/living/simple_animal/hostile/urist/ANTAG,
@@ -328,7 +328,7 @@
 
 /atom/movable/uspawner/endless/cult_portal
 	faction = "cult"
-	spawn_effect = /obj/effect/gibspawner/human
+	spawn_effect = /obj/gibspawner/human
 
 	mobs = list(
 		/mob/living/simple_animal/hostile/urist/cultist,
@@ -453,7 +453,7 @@
 // RIP AND TEAR
 /atom/movable/uspawner/squad/doom
 	faction = "cult"
-	spawn_effect = /obj/effect/gibspawner/human
+	spawn_effect = /obj/gibspawner/human
 
 	mobs = list(
 		/mob/living/simple_animal/hostile/urist/mutant/ranged,
@@ -466,7 +466,7 @@
 
 /atom/movable/uspawner/endless/doom_eternal
 	faction = "cult"
-	spawn_effect = /obj/effect/gibspawner/human
+	spawn_effect = /obj/gibspawner/human
 
 	mobs = list(
 		/mob/living/simple_animal/hostile/urist/mutant/ranged,
@@ -496,7 +496,7 @@
 
 /atom/movable/uspawner/endless/toospoopy
 	faction = "cult"
-	spawn_effect = /obj/effect/effect/smoke
+	spawn_effect = /obj/effect/smoke
 
 	mobs = list(
 		/mob/living/simple_animal/hostile/urist/imp,
@@ -545,7 +545,7 @@
 // Weird-spooky, not Halloween-spooky
 /atom/movable/uspawner/squad/surreal
 	faction = "undead"
-	spawn_effect = /obj/effect/gibspawner/human
+	spawn_effect = /obj/gibspawner/human
 
 	mobs = list(
 		/mob/living/simple_animal/hostile/urist/hololab/holonautgrunt,
@@ -559,7 +559,7 @@
 
 /atom/movable/uspawner/endless/reality_rift
 	faction = "undead"
-	spawn_effect = /obj/effect/gibspawner/human
+	spawn_effect = /obj/gibspawner/human
 
 	mobs = list(
 		/mob/living/simple_animal/hostile/urist/hololab/holonautgrunt,

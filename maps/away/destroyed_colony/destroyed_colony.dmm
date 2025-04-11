@@ -58,7 +58,7 @@
 	},
 /area/planet/destroyed_colony)
 "am" = (
-/obj/effect/decal/mecha_wreckage/smallfighter,
+/obj/decal/mecha_wreckage/smallfighter,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "innermiddle"
 	},
@@ -153,7 +153,7 @@
 	},
 /area/planet/destroyed_colony)
 "az" = (
-/obj/effect/decal/mecha_wreckage/bigfighter,
+/obj/decal/mecha_wreckage/bigfighter,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "innermiddle"
 	},
@@ -201,7 +201,7 @@
 	},
 /area/planet/destroyed_colony)
 "aH" = (
-/obj/effect/decal/mecha_wreckage/bigfighter,
+/obj/decal/mecha_wreckage/bigfighter,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "verticalrightborderright0"
 	},
@@ -272,12 +272,12 @@
 /turf/simulated/wall,
 /area/planet/destroyed_colony)
 "aT" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "aU" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/structure/curtain/black,
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
@@ -296,7 +296,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "aY" = (
-/obj/effect/shuttle_landmark/nav_destroyed_colony/nav2,
+/obj/shuttle_landmark/nav_destroyed_colony/nav2,
 /turf/simulated/floor/planet/ariddirt/path,
 /area/planet/destroyed_colony)
 "aZ" = (
@@ -417,7 +417,7 @@
 /turf/simulated/floor/planet/ariddirt/high,
 /area/planet/destroyed_colony)
 "bv" = (
-/obj/effect/mine/frag,
+/obj/structure/mine/frag,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "hole"
 	},
@@ -426,7 +426,7 @@
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
 "bx" = (
-/obj/effect/shuttle_landmark/nav_destroyed_colony/nav1,
+/obj/shuttle_landmark/nav_destroyed_colony/nav1,
 /turf/simulated/floor/planet/ariddirt/path,
 /area/planet/destroyed_colony)
 "by" = (
@@ -439,7 +439,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "bA" = (
-/obj/effect/wingrille_spawn/reinforced/full,
+/obj/wingrille_spawn/reinforced/full,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "bB" = (
@@ -461,11 +461,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "bF" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "bG" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
 "bH" = (
@@ -488,7 +488,7 @@
 /turf/simulated/floor/lino,
 /area/planet/destroyed_colony)
 "bM" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/planet/ariddirt/high,
 /area/planet/destroyed_colony)
 "bN" = (
@@ -503,7 +503,7 @@
 /area/planet/destroyed_colony)
 "bP" = (
 /obj/structure/curtain/black,
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
 "bQ" = (
@@ -538,13 +538,13 @@
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
 "bZ" = (
-/obj/effect/mine/frag,
+/obj/structure/mine/frag,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "horizontaloutermain0"
 	},
 /area/planet/destroyed_colony)
 "cc" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/planet/ariddirt/low,
 /area/planet/destroyed_colony)
 "cd" = (
@@ -657,14 +657,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cw" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	icon_state = "chapel";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cx" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	icon_state = "chapel";
 	dir = 4
 	},
@@ -729,7 +729,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "cH" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	icon_state = "chapel";
 	dir = 8
 	},
@@ -737,7 +737,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cI" = (
-/obj/effect/floor_decal/chapel,
+/obj/floor_decal/chapel,
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
@@ -820,7 +820,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cX" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	icon_state = "chapel";
 	dir = 1
 	},
@@ -832,7 +832,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "cY" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	icon_state = "chapel";
 	dir = 4
 	},
@@ -849,7 +849,7 @@
 /turf/simulated/floor/carpet,
 /area/planet/destroyed_colony)
 "db" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	icon_state = "chapel";
 	dir = 1
 	},
@@ -857,7 +857,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "dc" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	icon_state = "chapel";
 	dir = 4
 	},
@@ -956,7 +956,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "du" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "verticalleftborderleft0"
 	},
@@ -1004,7 +1004,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "dD" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "dE" = (
@@ -1034,7 +1034,7 @@
 	},
 /area/planet/destroyed_colony)
 "dJ" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "horizontaloutermain0"
 	},
@@ -1157,13 +1157,13 @@
 	},
 /area/planet/destroyed_colony)
 "eg" = (
-/obj/effect/mine/frag,
+/obj/structure/mine/frag,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "horizontaltopborderbottom0"
 	},
 /area/planet/destroyed_colony)
 "eh" = (
-/obj/effect/decal/mecha_wreckage/smallfighter,
+/obj/decal/mecha_wreckage/smallfighter,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "horizontaltopborderbottom0"
 	},
@@ -1285,7 +1285,7 @@
 	},
 /area/planet/destroyed_colony)
 "ey" = (
-/obj/effect/decal/mecha_wreckage/smallfighter,
+/obj/decal/mecha_wreckage/smallfighter,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "horizontalinnermain1"
 	},
@@ -1362,7 +1362,7 @@
 	},
 /area/planet/destroyed_colony)
 "eM" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "horizontaloutermain2left"
 	},
@@ -1383,7 +1383,7 @@
 /turf/simulated/wall,
 /area/planet/destroyed_colony)
 "eQ" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/fixed/uristturf/geminus,
 /area/planet/destroyed_colony)
 "eR" = (
@@ -1446,21 +1446,21 @@
 /area/planet/destroyed_colony)
 "fb" = (
 /obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/random/contraband,
 /obj/random/contraband,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "fc" = (
 /obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/random/firstaid,
 /obj/random/firstaid,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "fd" = (
 /obj/structure/largecrate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/random/tank,
 /obj/random/tank,
 /turf/simulated/floor/tiled/dark,
@@ -1552,14 +1552,14 @@
 /area/planet/destroyed_colony)
 "fs" = (
 /obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/random/clothing,
 /obj/random/clothing,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "ft" = (
 /obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/random/suit,
 /obj/random/suit,
 /turf/simulated/floor/tiled/dark,
@@ -1618,7 +1618,7 @@
 	},
 /area/planet/destroyed_colony)
 "fD" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "fE" = (
@@ -1692,7 +1692,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "fP" = (
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "fQ" = (
@@ -1739,9 +1739,9 @@
 	},
 /area/planet/destroyed_colony)
 "fX" = (
-/obj/effect/landmark/costume/butler,
-/obj/effect/landmark/costume/maid,
-/obj/effect/landmark/costume/waiter,
+/obj/landmark/costume/butler,
+/obj/landmark/costume/maid,
+/obj/landmark/costume/waiter,
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/sl_suit,
 /obj/item/clothing/under/waiter,
@@ -1883,7 +1883,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "gv" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "verticalrightborderright0"
 	},
@@ -1925,7 +1925,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "gD" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "gE" = (
@@ -1936,7 +1936,7 @@
 	},
 /area/planet/destroyed_colony)
 "gF" = (
-/obj/effect/mine/frag,
+/obj/structure/mine/frag,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "innermiddle"
 	},
@@ -1946,19 +1946,19 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "gH" = (
-/obj/effect/decal/cleanable/blood/gibs/robot/limb,
+/obj/decal/cleanable/blood/gibs/robot/limb,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "gI" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "gJ" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "gK" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "gL" = (
@@ -1998,12 +1998,12 @@
 	},
 /area/planet/destroyed_colony)
 "gR" = (
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "gS" = (
 /obj/item/ammo_casing/rifle/used,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "gT" = (
@@ -2021,7 +2021,7 @@
 /area/planet/destroyed_colony)
 "gW" = (
 /obj/machinery/portable_atmospherics/hydroponics,
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/planet/dirt/clear,
 /area/planet/destroyed_colony)
 "gX" = (
@@ -2067,7 +2067,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "he" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /mob/living/simple_animal/hostile/alien/sentinel,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
@@ -2103,7 +2103,7 @@
 	},
 /area/planet/destroyed_colony)
 "hl" = (
-/obj/effect/decal/mecha_wreckage/smallfighter,
+/obj/decal/mecha_wreckage/smallfighter,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "horizontalbottomborderbottom0"
 	},
@@ -2138,8 +2138,8 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "hr" = (
-/obj/effect/decal/cleanable/blood/drip,
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /obj/item/scom/aliengun/a3,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
@@ -2159,7 +2159,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "hv" = (
-/obj/effect/decal/cleanable/vomit,
+/obj/decal/cleanable/vomit,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "hw" = (
@@ -2180,16 +2180,16 @@
 /area/planet/destroyed_colony)
 "hz" = (
 /obj/structure/log,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "hA" = (
 /obj/structure/closet/crate/internals/fuel,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "hB" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/secure/weapon,
 /obj/item/ammo_magazine/c10mm/TD10,
 /obj/item/gun/projectile/td10_pistol,
@@ -2200,12 +2200,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "hC" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/med_crate/burn,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "hD" = (
-/obj/effect/decal/cleanable/mucus,
+/obj/decal/cleanable/mucus,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "hE" = (
@@ -2222,7 +2222,7 @@
 /area/planet/destroyed_colony)
 "hG" = (
 /obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "hH" = (
@@ -2233,12 +2233,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "hI" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/med_crate/oxyloss,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "hJ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/radiation_gear,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
@@ -2248,7 +2248,7 @@
 /area/planet/destroyed_colony)
 "hL" = (
 /obj/structure/closet/crate/internals,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "hM" = (
@@ -2256,7 +2256,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "hN" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "hO" = (
@@ -2289,7 +2289,7 @@
 	pixel_x = 4;
 	pixel_y = 3
 	},
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "hR" = (
@@ -2309,16 +2309,16 @@
 /obj/item/ammo_magazine/c10mm/TD10,
 /obj/item/ammo_magazine/c10mm/TD10,
 /obj/item/ammo_magazine/c10mm/TD10,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "hU" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "hV" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/item/solar_assembly,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
@@ -2338,7 +2338,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "hZ" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "ia" = (
@@ -2348,7 +2348,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "ib" = (
-/obj/effect/decal/cleanable/vomit,
+/obj/decal/cleanable/vomit,
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "ic" = (
@@ -2358,19 +2358,19 @@
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "id" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/glass/fifty,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "ie" = (
 /obj/item/table_parts,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "if" = (
 /obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/wood/ten,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
@@ -2381,7 +2381,7 @@
 	},
 /area/planet/destroyed_colony)
 "ih" = (
-/obj/effect/decal/cleanable/spiderling_remains,
+/obj/decal/cleanable/spiderling_remains,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "ii" = (
@@ -2406,7 +2406,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "im" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/med_crate/trauma,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
@@ -2415,12 +2415,12 @@
 	icon_state = "crateopen";
 	opened = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/steel/fifty,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "io" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/largecrate,
 /obj/random/tank,
 /obj/random/tank,
@@ -2428,14 +2428,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "ip" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/paper_refill,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "iq" = (
 /obj/structure/window/reinforced/full,
 /obj/structure/grille,
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/pavement/lighting/empty,
 /area/planet/destroyed_colony)
 "ir" = (
@@ -2446,7 +2446,7 @@
 /turf/simulated/floor/pavement/lighting/empty,
 /area/planet/destroyed_colony)
 "is" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/wall,
 /area/planet/destroyed_colony)
 "it" = (
@@ -2456,7 +2456,7 @@
 	},
 /area/planet/destroyed_colony)
 "iu" = (
-/obj/effect/decal/mecha_wreckage/smallfighter,
+/obj/decal/mecha_wreckage/smallfighter,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "hole"
 	},
@@ -2467,7 +2467,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "iw" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "innermiddle"
 	},
@@ -2488,7 +2488,7 @@
 /turf/simulated/wall/r_wall,
 /area/planet/destroyed_colony)
 "iA" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/wall/r_wall,
 /area/planet/destroyed_colony)
 "iB" = (
@@ -2528,7 +2528,7 @@
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/item/tank/oxygen,
 /obj/item/storage/toolbox/electrical,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
 "iH" = (
@@ -2666,7 +2666,7 @@
 /area/planet/destroyed_colony)
 "jf" = (
 /obj/structure/table/woodentable,
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "jg" = (
@@ -2686,7 +2686,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "jj" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "jk" = (
@@ -2817,7 +2817,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "jJ" = (
-/obj/effect/overmap/visitable/sector/planetoid/destroyed_colony,
+/obj/overmap/visitable/sector/planetoid/destroyed_colony,
 /turf/simulated/floor/planet/ariddirt/low,
 /area/planet/destroyed_colony)
 "jK" = (
@@ -2978,7 +2978,7 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "kn" = (
@@ -2995,7 +2995,7 @@
 /turf/simulated/floor/carpet,
 /area/planet/destroyed_colony)
 "kq" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/carpet,
 /area/planet/destroyed_colony)
 "kr" = (
@@ -3174,7 +3174,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "kV" = (
-/obj/effect/mine/frag,
+/obj/structure/mine/frag,
 /turf/simulated/floor/pavement/lighting/empty,
 /area/planet/destroyed_colony)
 "kW" = (
@@ -3227,7 +3227,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "ld" = (
-/obj/effect/urist/spawn_bomb/abandoned,
+/obj/urist_intangible/spawn_bomb/abandoned,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "le" = (
@@ -3267,7 +3267,7 @@
 	},
 /area/planet/destroyed_colony)
 "lk" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -3277,7 +3277,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/destroyed_colony)
 "lm" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/pavement/lighting/empty,
 /area/planet/destroyed_colony)
 "ln" = (
@@ -3619,12 +3619,12 @@
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
 "mt" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /obj/random/medical,
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
 "mu" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
 "mv" = (
@@ -3640,7 +3640,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/destroyed_colony)
 "my" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/pavement/lighting/empty,
 /area/planet/destroyed_colony)
 "mz" = (
@@ -3657,7 +3657,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/destroyed_colony)
 "mB" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
 "mC" = (
@@ -3678,7 +3678,7 @@
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
 "mG" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
 "mH" = (
@@ -3686,7 +3686,7 @@
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
 "mI" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /obj/random/medical/lite,
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
@@ -3781,9 +3781,9 @@
 	},
 /area/planet/destroyed_colony)
 "nc" = (
-/obj/effect/landmark/costume/butler,
-/obj/effect/landmark/costume/maid,
-/obj/effect/landmark/costume/waiter,
+/obj/landmark/costume/butler,
+/obj/landmark/costume/maid,
+/obj/landmark/costume/waiter,
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/sl_suit,
 /obj/item/clothing/under/waiter,
@@ -3793,8 +3793,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "nd" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/effect/urist/spawn_bomb,
+/obj/wallframe_spawn/reinforced,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
 "ne" = (
@@ -3916,7 +3916,7 @@
 /turf/simulated/floor/wood,
 /area/planet/destroyed_colony)
 "nx" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},
@@ -3997,7 +3997,7 @@
 /turf/simulated/floor/lino,
 /area/planet/destroyed_colony)
 "nK" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "nL" = (
@@ -4074,15 +4074,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "nX" = (
-/obj/effect/floor_decal/industrial/traffic/corner,
+/obj/floor_decal/industrial/traffic/corner,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "nY" = (
-/obj/effect/floor_decal/industrial/traffic,
+/obj/floor_decal/industrial/traffic,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "nZ" = (
-/obj/effect/floor_decal/industrial/traffic{
+/obj/floor_decal/industrial/traffic{
 	icon_state = "stripe";
 	dir = 4
 	},
@@ -4121,14 +4121,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "of" = (
-/obj/effect/floor_decal/industrial/traffic/corner{
+/obj/floor_decal/industrial/traffic/corner{
 	icon_state = "stripecorner";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "og" = (
-/obj/effect/floor_decal/industrial/traffic{
+/obj/floor_decal/industrial/traffic{
 	icon_state = "stripe";
 	dir = 1
 	},
@@ -4184,7 +4184,7 @@
 	},
 /area/planet/destroyed_colony)
 "op" = (
-/obj/effect/mine/frag,
+/obj/structure/mine/frag,
 /obj/random/junk,
 /turf/simulated/floor/pavement/lighting/empty,
 /area/planet/destroyed_colony)
@@ -4219,7 +4219,7 @@
 	},
 /area/planet/destroyed_colony)
 "ov" = (
-/obj/effect/decal/mecha_wreckage/smallfighter,
+/obj/decal/mecha_wreckage/smallfighter,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "verticalinnermain2"
 	},
@@ -4237,7 +4237,7 @@
 	},
 /area/planet/destroyed_colony)
 "oy" = (
-/obj/effect/mine/frag,
+/obj/structure/mine/frag,
 /obj/item/remains/xeno,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "horizontalinnermain1"
@@ -4308,7 +4308,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "oL" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
@@ -4320,7 +4320,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "oN" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
@@ -4362,7 +4362,7 @@
 /area/planet/destroyed_colony)
 "oV" = (
 /obj/random/hat,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "oW" = (
@@ -4420,12 +4420,12 @@
 /turf/simulated/floor/tiled/freezer,
 /area/planet/destroyed_colony)
 "pg" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/random/junk,
 /turf/simulated/floor/pavement/lighting/empty,
 /area/planet/destroyed_colony)
 "ph" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
 	icon_state = "crateopen";
 	opened = 1
@@ -4443,7 +4443,7 @@
 /area/planet/destroyed_colony)
 "pj" = (
 /obj/item/remains/human,
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "pk" = (
@@ -4463,7 +4463,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "pn" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/structure/flora/pottedplant/large,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
@@ -4520,7 +4520,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "py" = (
-/obj/effect/decal/mecha_wreckage/bigfighter,
+/obj/decal/mecha_wreckage/bigfighter,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "horizontaloutermain0"
 	},
@@ -4532,7 +4532,7 @@
 	},
 /area/planet/destroyed_colony)
 "pA" = (
-/obj/effect/mine/frag,
+/obj/structure/mine/frag,
 /obj/random/junk,
 /turf/simulated/floor/fixed/destroyedroad/planet{
 	icon_state = "hole"
@@ -4583,7 +4583,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "pI" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /obj/structure/flora/pottedplant/minitree,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
@@ -4638,7 +4638,7 @@
 /area/planet/destroyed_colony)
 "pR" = (
 /obj/structure/closet/crate/internals/fuel,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/glass/fifty,
 /obj/item/stack/material/wood/ten,
 /obj/item/stack/material/phoron/ten,
@@ -4648,7 +4648,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "pS" = (
-/obj/effect/decal/cleanable/blood/gibs/robot/limb,
+/obj/decal/cleanable/blood/gibs/robot/limb,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "pT" = (
@@ -4818,7 +4818,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "qx" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
@@ -4843,7 +4843,7 @@
 /area/planet/destroyed_colony)
 "qC" = (
 /obj/structure/largecrate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/random/tank,
 /obj/random/tank,
 /obj/random/tank,
@@ -4865,7 +4865,7 @@
 /area/planet/destroyed_colony)
 "qG" = (
 /obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/random/material,
 /obj/random/material,
 /obj/random/material,
@@ -4888,7 +4888,7 @@
 /area/planet/destroyed_colony)
 "qJ" = (
 /obj/structure/largecrate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/random/medical,
 /obj/random/medical,
 /obj/random/medical/lite,
@@ -4905,7 +4905,7 @@
 /area/planet/destroyed_colony)
 "qL" = (
 /obj/structure/largecrate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/random/rare,
 /obj/random/contraband,
 /obj/random/contraband,
@@ -4914,13 +4914,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "qM" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /mob/living/simple_animal/hostile/alien/ravager,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "qN" = (
 /obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/random/junkfood,
 /obj/random/junkfood,
 /obj/random/junkfood,
@@ -4929,7 +4929,7 @@
 /area/planet/destroyed_colony)
 "qO" = (
 /obj/structure/largecrate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/item/ammo_magazine/c10mm,
 /obj/item/ammo_magazine/c10mm,
 /obj/item/ammo_magazine/c10mm/TD10,
@@ -4941,7 +4941,7 @@
 /area/planet/destroyed_colony)
 "qP" = (
 /obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/random/tool,
 /obj/random/tool,
 /obj/random/tool,
@@ -4955,7 +4955,7 @@
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
 "qR" = (
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
 "qS" = (
@@ -4967,7 +4967,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "qT" = (
-/obj/effect/floor_decal/industrial/traffic,
+/obj/floor_decal/industrial/traffic,
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
@@ -4992,7 +4992,7 @@
 	icon_state = "benchleft";
 	dir = 8
 	},
-/obj/effect/urist/spawn_bomb,
+/obj/urist_intangible/spawn_bomb,
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "qY" = (
@@ -5057,11 +5057,11 @@
 	},
 /area/planet/destroyed_colony)
 "ri" = (
-/obj/effect/mine/frag,
+/obj/structure/mine/frag,
 /turf/simulated/floor/plating,
 /area/planet/destroyed_colony)
 "rj" = (
-/obj/effect/floor_decal/industrial/traffic{
+/obj/floor_decal/industrial/traffic{
 	icon_state = "stripe";
 	dir = 1
 	},
@@ -5069,7 +5069,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/destroyed_colony)
 "rk" = (
-/obj/effect/floor_decal/industrial/traffic{
+/obj/floor_decal/industrial/traffic{
 	icon_state = "stripe";
 	dir = 1
 	},

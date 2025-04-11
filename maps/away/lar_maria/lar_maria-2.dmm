@@ -719,7 +719,7 @@
 	dir = 1;
 	pixel_y = -25
 	},
-/obj/effect/floor_decal/techfloor/orange,
+/obj/floor_decal/techfloor/orange,
 /turf/simulated/floor/plating,
 /area/lar_maria/solar_control)
 "bz" = (
@@ -736,7 +736,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/effect/floor_decal/techfloor/orange,
+/obj/floor_decal/techfloor/orange,
 /turf/simulated/floor/plating,
 /area/lar_maria/solar_control)
 "bA" = (
@@ -749,7 +749,7 @@
 	icon_state = "4-8"
 	},
 /obj/decal/cleanable/blood,
-/obj/effect/floor_decal/techfloor/orange,
+/obj/floor_decal/techfloor/orange,
 /turf/simulated/floor/plating,
 /area/lar_maria/solar_control)
 "bB" = (
@@ -764,7 +764,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/effect/floor_decal/techfloor/orange,
+/obj/floor_decal/techfloor/orange,
 /turf/simulated/floor/plating,
 /area/lar_maria/solar_control)
 "bC" = (
@@ -789,14 +789,14 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/engineering,
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/lar_maria/atmos)
 "bG" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/engineering,
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/lar_maria/atmos)
 "bH" = (
@@ -855,12 +855,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/lar_maria/atmos)
 "bQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/lar_maria/atmos)
 "bR" = (
@@ -893,7 +893,7 @@
 /area/lar_maria/dorms)
 "bW" = (
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/spline/fancy/wood/three_quarters,
+/obj/floor_decal/spline/fancy/wood/three_quarters,
 /turf/simulated/floor/wood/walnut,
 /area/lar_maria/dorms)
 "bX" = (
@@ -964,7 +964,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/lar_maria/atmos)
 "ck" = (
@@ -972,7 +972,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/lar_maria/atmos)
 "cl" = (
@@ -1187,14 +1187,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/lar_maria/atmos)
 "cU" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/lar_maria/atmos)
 "cV" = (
@@ -1494,7 +1494,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/lar_maria/atmos)
 "dR" = (
@@ -1507,7 +1507,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/catwalk_plated/dark,
+/obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/lar_maria/atmos)
 "dS" = (
@@ -1750,7 +1750,7 @@
 	},
 /obj/random/trash,
 /mob/living/simple_animal/hostile/lar_maria/virologist,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_m)
 "eJ" = (
@@ -1759,7 +1759,7 @@
 	dir = 1
 	},
 /obj/random/trash,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_m)
 "eK" = (
@@ -1837,7 +1837,7 @@
 /area/lar_maria/office)
 "eX" = (
 /obj/machinery/door/airlock,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_m)
 "eY" = (
@@ -1880,7 +1880,7 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/effect/landmark/corpse/lar_maria/virologist,
+/obj/landmark/corpse/lar_maria/virologist,
 /turf/simulated/floor/tiled/techfloor,
 /area/lar_maria/mess_hall)
 "fi" = (
@@ -1953,7 +1953,7 @@
 /area/lar_maria/head_m)
 "fs" = (
 /obj/decal/cleanable/blood,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_m)
 "ft" = (
@@ -2089,7 +2089,7 @@
 "fK" = (
 /obj/machinery/door/airlock,
 /obj/decal/cleanable/blood,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_m)
 "fL" = (
@@ -2184,14 +2184,14 @@
 /obj/structure/hygiene/shower{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_m)
 "ga" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_m)
 "gb" = (
@@ -2213,7 +2213,7 @@
 	},
 /obj/random/trash,
 /mob/living/simple_animal/hostile/lar_maria/virologist/female,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_f)
 "ge" = (
@@ -2300,17 +2300,17 @@
 /obj/random/trash,
 /obj/landmark/corpse/lar_maria/test_subject,
 /obj/decal/cleanable/blood,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_m)
 "gq" = (
 /obj/structure/table/standard,
 /obj/item/towel,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_m)
 "gr" = (
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_f)
 "gs" = (
@@ -2355,7 +2355,7 @@
 /area/lar_maria/mess_hall)
 "gy" = (
 /obj/structure/closet/athletic_mixed,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_m)
 "gz" = (
@@ -2488,21 +2488,21 @@
 "gU" = (
 /obj/machinery/door/window/westright,
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "gV" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "gW" = (
 /obj/structure/hygiene/sink/kitchen{
 	pixel_y = 25
 	},
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "gX" = (
@@ -2510,7 +2510,7 @@
 	pixel_y = 23;
 	req_access = newlist()
 	},
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "gY" = (
@@ -2594,16 +2594,16 @@
 /obj/structure/table/marble,
 /obj/machinery/door/firedoor,
 /obj/item/material/utensil/fork,
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "hl" = (
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "hm" = (
 /obj/machinery/cooker/grill,
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "hn" = (
@@ -2624,7 +2624,7 @@
 	dir = 1
 	},
 /mob/living/simple_animal/hostile/lar_maria/virologist/female,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_f)
 "hr" = (
@@ -2808,12 +2808,12 @@
 /obj/structure/table/marble,
 /obj/machinery/door/firedoor,
 /obj/item/material/rollingpin,
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "hJ" = (
 /obj/machinery/cooker/fryer,
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "hK" = (
@@ -2836,14 +2836,14 @@
 	dir = 4
 	},
 /obj/random/trash,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_f)
 "hO" = (
 /obj/structure/table/standard,
 /obj/item/towel,
 /obj/random/soap,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_f)
 "hP" = (
@@ -2935,17 +2935,17 @@
 /obj/machinery/door/firedoor,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/storage/fancy/egg_box/full,
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "ie" = (
 /obj/decal/cleanable/blood,
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "if" = (
 /obj/machinery/cooker/oven,
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "ig" = (
@@ -2967,17 +2967,17 @@
 /obj/structure/hygiene/shower{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_f)
 "ik" = (
 /obj/random/trash,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_f)
 "il" = (
 /obj/structure/closet/athletic_mixed,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_f)
 "in" = (
@@ -3134,19 +3134,19 @@
 /obj/structure/table/marble,
 /obj/machinery/door/firedoor,
 /obj/item/trash/plate,
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "iD" = (
 /obj/landmark/corpse/lar_maria/virologist_female,
 /obj/decal/cleanable/blood,
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "iE" = (
 /obj/structure/table/marble,
 /obj/machinery/cooker/cereal,
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "iF" = (
@@ -3292,26 +3292,26 @@
 "iX" = (
 /obj/machinery/vending/dinnerware,
 /obj/machinery/door/firedoor,
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "iY" = (
 /obj/structure/table/marble,
 /obj/machinery/microwave,
 /obj/machinery/light,
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "iZ" = (
 /obj/structure/table/marble,
 /obj/item/trash/plate,
 /obj/item/material/utensil/fork,
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/mess_hall)
 "ja" = (
 /obj/structure/table/marble,
-/obj/effect/floor_decal/corner/darkgrey/diagonal,
+/obj/floor_decal/corner/darkgrey/diagonal,
 /obj/item/reagent_containers/food/snacks/fish/space_carp,
 /obj/item/reagent_containers/food/snacks/fish/space_carp,
 /obj/item/reagent_containers/food/snacks/fish/space_carp,
@@ -3475,8 +3475,8 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/effect/landmark/corpse/lar_maria/test_subject,
-/obj/effect/decal/cleanable/blood,
+/obj/landmark/corpse/lar_maria/test_subject,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/plating,
 /area/lar_maria/solar_control)
 "lD" = (
@@ -3511,7 +3511,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/lar_maria/library)
 "mU" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/carpet/blue3,
 /area/lar_maria/dorms)
 "nb" = (
@@ -3535,7 +3535,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/lar_maria/library)
 "nX" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white/monotile,
 /area/lar_maria/head_m)
 "ob" = (
@@ -3547,8 +3547,8 @@
 /turf/simulated/floor/plating,
 /area/lar_maria/solar_control)
 "oE" = (
-/obj/effect/landmark/corpse/lar_maria/virologist,
-/obj/effect/decal/cleanable/blood,
+/obj/landmark/corpse/lar_maria/virologist,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/wood/walnut,
 /area/lar_maria/library)
 "pb" = (
@@ -3636,8 +3636,8 @@
 /turf/simulated/floor/plating,
 /area/lar_maria/atmos)
 "uh" = (
-/obj/effect/landmark/corpse/lar_maria/test_subject,
-/obj/effect/decal/cleanable/blood,
+/obj/landmark/corpse/lar_maria/test_subject,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/carpet/blue3,
 /area/lar_maria/dorms)
 "uq" = (
@@ -3672,7 +3672,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -3714,7 +3714,7 @@
 /area/lar_maria/hallway)
 "yw" = (
 /obj/machinery/door/airlock,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_f)
 "zI" = (
@@ -3761,18 +3761,18 @@
 	dir = 4
 	},
 /obj/random/trash,
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_f)
 "HJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/lar_maria/hallway)
 "IR" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/monotile,
 /area/lar_maria/dorms)
 "Kf" = (
@@ -3795,7 +3795,7 @@
 /area/lar_maria/dorms)
 "Pw" = (
 /obj/machinery/door/airlock,
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/carpet/blue3,
 /area/lar_maria/dorms)
 "Qn" = (
@@ -3807,7 +3807,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel_grid,
@@ -3824,7 +3824,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/lar_maria/mess_hall)
 "Rq" = (
-/obj/effect/floor_decal/corner/lightgrey/diagonal,
+/obj/floor_decal/corner/lightgrey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/lar_maria/head_m)
 "Tq" = (
@@ -3844,7 +3844,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/lar_maria/dorms)
 "Ur" = (
-/obj/effect/floor_decal/spline/fancy/wood/three_quarters,
+/obj/floor_decal/spline/fancy/wood/three_quarters,
 /turf/simulated/floor/wood/walnut,
 /area/lar_maria/library)
 "VZ" = (
@@ -3855,8 +3855,8 @@
 /turf/simulated/floor/plating,
 /area/lar_maria/hallway)
 "XN" = (
-/obj/effect/landmark/corpse/lar_maria/virologist_female,
-/obj/effect/decal/cleanable/blood,
+/obj/landmark/corpse/lar_maria/virologist_female,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/carpet/green,
 /area/lar_maria/dorms)
 "XP" = (
@@ -3872,7 +3872,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel_grid,

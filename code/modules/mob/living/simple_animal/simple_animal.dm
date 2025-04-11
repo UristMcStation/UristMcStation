@@ -257,7 +257,7 @@
 				var/obj/item/meat = new meat_type(get_turf(src))
 				meat.SetName("[src.name] [meat.name]")
 				if(can_bleed)
-					var/obj/effect/decal/cleanable/blood/splatter/splat = new(get_turf(src))
+					var/obj/decal/cleanable/blood/splatter/splat = new(get_turf(src))
 					splat.basecolor = bleed_colour
 					splat.update_icon()
 

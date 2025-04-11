@@ -110,7 +110,7 @@
 	component_hit = 25
 	rechargerate = 16 SECONDS
 	ammo_type = /obj/structure/shipammo/torpedo
-	projectile_type = /obj/effect/meteor/shipmissile/bigtorpedo
+	projectile_type = /obj/meteor/shipmissile/bigtorpedo
 	fire_sound = 'sound/weapons/railgun.ogg'
 	fire_amount = 1
 	can_intercept = TRUE

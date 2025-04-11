@@ -394,8 +394,8 @@
 			var/obj/item/projectile/P = projectile
 			P.launch(target_turf) //projectiles have their own special proc
 
-		else if(istype(projectile, /obj/effect/meteor))
-			var/obj/effect/meteor/M = projectile
+		else if(istype(projectile, /obj/meteor))
+			var/obj/meteor/M = projectile
 			M.dest = target_turf
 			spawn(0)
 				walk_towards(M, M.dest, 3) //meteors do their own thing too

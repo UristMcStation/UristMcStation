@@ -28,7 +28,7 @@
 	ai_holder = /datum/ai_holder/simple_animal/passive/nowandering
 
 //	unsuitable_atoms_damage = 15
-//	corpse = /obj/effect/landmark/mobcorpse/pirate
+//	corpse = /obj/landmark/mobcorpse/pirate
 	var/weapon1 = /obj/item/melee/energy/sword/pirate
 
 	var/list/speech_triggers = list()
