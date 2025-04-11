@@ -43,11 +43,11 @@ var/global/const/access_away_trading_station = "ACCESS_AWAY_TRADING_STATION"
 	name = "mining shuttle console"
 	shuttle_tag = "Nanotrasen Mining"
 
-/obj/effect/shuttle_landmark/ntminingshuttle
+/obj/shuttle_landmark/ntminingshuttle
 	name = "NT Mining Shuttle Landing Zone"
 	landmark_tag = "nav_ntmining_end"
 
-/obj/effect/shuttle_landmark/ntminingshuttle/start
+/obj/shuttle_landmark/ntminingshuttle/start
 	name = "Mining Shuttle Dock"
 	landmark_tag = "nav_ntmining_start"
 	docking_controller = "ntminingshuttle"

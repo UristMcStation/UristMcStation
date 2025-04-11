@@ -17,29 +17,31 @@
 /obj/structure/cult/pylon
 	name = "pylon"
 	desc = "A floating crystal that hums with an unearthly energy."
-	icon = 'icons/obj/pylon.dmi'
+	icon = 'icons/obj/structures/pylon.dmi'
 	icon_state = "pylon"
-	light_max_bright = 0.5
-	light_inner_range = 1
-	light_outer_range = 13
+	light_power = 0.5
+	light_range = 13
 	light_color = "#3e0000"
 	health_max = 20
 	health_min_damage = 4
 	damage_hitsound = 'sound/effects/Glasshit.ogg'
 
-/obj/structure/cult/pylon/attackby(obj/item/W, mob/user)
-	if (istype(W, /obj/item/natural_weapon/cult_builder))
-		if (!health_damaged())
-			to_chat(user, SPAN_WARNING("\The [src] is fully repaired."))
-		else
-			user.visible_message(
-				SPAN_NOTICE("\The [user] mends some of the cracks on \the [src]."),
-				SPAN_NOTICE("You repair some of \the [src]'s damage.")
-			)
-			restore_health(5)
-		return
 
-	..()
+/obj/structure/cult/pylon/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Cult Builder - Repair pylon
+	if (istype(tool, /obj/item/natural_weapon/cult_builder))
+		if (!health_damaged())
+			USE_FEEDBACK_FAILURE("\The [src] does not need repairs.")
+			return TRUE
+		user.visible_message(
+			SPAN_NOTICE("\The [user] mends some of the cracks on \the [src]."),
+			SPAN_NOTICE("You repair some of \the [src]'s damage.")
+		)
+		restore_health(5)
+		return TRUE
+
+	return ..()
+
 
 /obj/structure/cult/tome
 	name = "Desk"
@@ -56,7 +58,7 @@
 	icon = 'magic_pillar.dmi'
 */
 
-/obj/effect/gateway
+/obj/gateway
 	name = "gateway"
 	desc = "You're pretty sure that abyss is staring back."
 	icon = 'icons/effects/64x64.dmi'
@@ -69,8 +71,8 @@
 	anchored = TRUE
 	var/spawnable = null
 
-/obj/effect/gateway/active
-	light_outer_range=5
+/obj/gateway/active
+	light_range=5
 	light_color="#ff0000"
 	spawnable=list(
 		/mob/living/simple_animal/hostile/scarybat,
@@ -78,8 +80,7 @@
 		/mob/living/simple_animal/hostile/faithless
 	)
 
-/obj/effect/gateway/active/cult
-	light_outer_range=5
+/obj/gateway/active/cult
 	light_color="#ff0000"
 	spawnable=list(
 		/mob/living/simple_animal/hostile/scarybat/cult,
@@ -87,17 +88,17 @@
 		/mob/living/simple_animal/hostile/faithless/cult
 	)
 
-/obj/effect/gateway/active/New()
+/obj/gateway/active/New()
 	..()
-	addtimer(new Callback(src, .proc/create_and_delete), rand(30,60) SECONDS)
+	addtimer(new Callback(src, PROC_REF(create_and_delete)), rand(30,60) SECONDS)
 
 
-/obj/effect/gateway/active/proc/create_and_delete()
+/obj/gateway/active/proc/create_and_delete()
 	var/t = pick(spawnable)
 	new t(src.loc)
 	qdel(src)
 
-/obj/effect/gateway/active/Crossed(atom/A)
+/obj/gateway/active/Crossed(atom/A)
 	if(!istype(A, /mob/living))
 		return
 
@@ -114,8 +115,8 @@
 
 		M.AddMovementHandler(/datum/movement_handler/mob/transformation)
 		M.icon = null
-		M.overlays.Cut()
-		M.set_invisibility(101)
+		M.ClearOverlays()
+		M.set_invisibility(INVISIBILITY_ABSTRACT)
 
 		if(istype(M, /mob/living/silicon/robot))
 			var/mob/living/silicon/robot/Robot = M

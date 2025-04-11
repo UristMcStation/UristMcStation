@@ -8,7 +8,7 @@
 		if(jobban_isbanned(player.current, id))
 			return "Player is banned from this antagonist role."
 
-	if(is_type_in_list(player.assigned_job, blacklisted_jobs))
+	if(is_type_in_list(player.assigned_job, blacklisted_jobs) && !isghostmind(player))
 		return "Player's assigned job ([player.assigned_job]) is blacklisted from this antagonist role."
 
 	if(!(player.current.client.prefs.species in valid_species))
@@ -20,9 +20,9 @@
 			// Limits antag status to clients above player age, if the age system is being used.
 			if(C && config.use_age_restriction_for_jobs && isnum(C.player_age) && isnum(min_player_age) && (C.player_age < min_player_age))
 				return "Player's server age ([C.player_age]) is below the minimum player age ([min_player_age])."
-		if(is_type_in_list(player.assigned_job, restricted_jobs))
+		if(is_type_in_list(player.assigned_job, restricted_jobs) && !isghostmind(player))
 			return "Player's assigned job ([player.assigned_job]) is restricted from this antagonist role."
-		if(player.current && (player.current.status_flags & NO_ANTAG))
+		if(player.current && (player.current.status_flags & NO_ANTAG) && !isghostmind(player))
 			return "Player's mob has the NO_ANTAG flag set."
 	return FALSE
 
@@ -76,6 +76,7 @@
 	return (flags & (ANTAG_OVERRIDE_MOB|ANTAG_OVERRIDE_JOB))
 
 /proc/all_random_antag_types()
+	RETURN_TYPE(/list)
 	// No caching as the ANTAG_RANDOM_EXCEPTED flag can be added/removed mid-round.
 	var/list/antag_candidates = GLOB.all_antag_types_.Copy()
 	for(var/datum/antagonist/antag in antag_candidates)

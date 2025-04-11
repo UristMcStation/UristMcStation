@@ -51,7 +51,7 @@
 
 	if(trim)
 		//Maybe, we need trim text twice? Here and before copytext?
-		input = trim(input)
+		input = trimtext(input)
 
 	return input
 
@@ -220,7 +220,7 @@
 	var/padding_size = length_char(padding)
 	if (!padding_size)
 		return ""
-	var/padding_count = Ceil(size / padding_size)
+	var/padding_count = ceil(size / padding_size)
 	var/list/result = list()
 	for (var/i = padding_count to 1 step -1)
 		result += padding // pow2 strategies could be used here at the cost of complexity
@@ -268,10 +268,6 @@
 		if (text2ascii(text, i) > 32)
 			return copytext(text, 1, i + 1)
 	return ""
-
-//Returns a string with reserved characters and spaces before the first word and after the last word removed.
-/proc/trim(text)
-	return trim_left(trim_right(text))
 
 //Returns a string with the first element of the string capitalized.
 /proc/capitalize(text)
@@ -439,6 +435,8 @@
 	t = replacetext(t, "\[xynlogo\]", "<img src = xynlogo.png>")
 	t = replacetext(t, "\[fleetlogo\]", "<img src = fleetlogo.png>")
 	t = replacetext(t, "\[sfplogo\]", "<img src = sfplogo.png>")
+	t = replacetext(t, "\[falogo\]", "<img src = falogo.png>")
+	t = replacetext(t, "\[zhlogo\]", "<img src = zhlogo.png>")
 	t = replacetext(t, "\[nervalogo\]", "<img src = nervalogo.png>")
 	t = replacetext(t, "\[editorbr\]", "")
 	return t
@@ -496,6 +494,8 @@
 	t = replacetext(t, "<img src = daislogo.png>", "\[daislogo\]")
 	t = replacetext(t, "<img src = xynlogo.png>", "\[xynlogo\]")
 	t = replacetext(t, "<img src = sfplogo.png>", "\[sfplogo\]")
+	t = replacetext(t, "<img src = falogo.png>", "\[falogo\]")
+	t = replacetext(t, "<img src = zhlogo.png", "\[zhlogo\]")
 	t = replacetext(t, "<span class=\"paper_field\"></span>", "\[field\]")
 	t = replacetext(t, "<span class=\"redacted\">R E D A C T E D</span>", "\[redacted\]")
 	t = strip_html_properly(t)
@@ -670,6 +670,18 @@
 			return "Northwest"
 		if(337)
 			return "North-Northwest"
+
+
+/// Returns random hex of char length nibbles
+/proc/randhex(nibbles)
+	var/static/list/chars = list(
+		"0", "1", "2", "3", "4", "5", "6", "7",
+		"8", "9", "a", "b", "c", "d", "e", "f"
+	)
+	var/list/result = new (nibbles)
+	for (var/i = 1 to nibbles)
+		result[i] = chars[rand(1, 16)]
+	return jointext(result, null)
 
 
 /// Check if thing is an SUID. If other is supplied, check if other matches thing.

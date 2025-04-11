@@ -2,7 +2,7 @@
 /obj/machinery/pointdefense_control
 	name = "fire assist mainframe"
 	desc = "A specialized computer designed to synchronize a variety of weapon systems and a vessel's astronav data."
-	icon = 'icons/obj/artillery.dmi'
+	icon = 'icons/obj/machines/artillery.dmi'
 	icon_state = "control"
 	var/ui_template = "pointdefense_control.tmpl"
 	var/initial_id_tag
@@ -82,7 +82,7 @@
 	data["turrets"] = turrets
 	return data
 
-/obj/machinery/pointdefense_control/attackby(obj/item/thing, mob/user)
+/obj/machinery/pointdefense_control/use_tool(obj/item/thing, mob/living/user, list/click_params)
 	if(isMultitool(thing))
 		var/datum/extension/local_network_member/pointdefense = get_extension(src, /datum/extension/local_network_member)
 		pointdefense.get_new_tag(user)
@@ -92,13 +92,13 @@
 			var/list/pointdefense_controllers = lan.get_devices(/obj/machinery/pointdefense_control)
 			if(pointdefense_controllers && length(pointdefense_controllers) > 1)
 				lan.remove_device(src)
-		return
+		return TRUE
 	else
 		return ..()
 
 /obj/machinery/pointdefense
-	name = "\improper point defense battery"
-	icon = 'icons/obj/artillery.dmi'
+	name = "point defense battery"
+	icon = 'icons/obj/machines/artillery.dmi'
 	icon_state = "pointdefense"
 	desc = "A Kuiper pattern anti-meteor battery. Capable of destroying most threats in a single salvo."
 	density = TRUE
@@ -128,11 +128,12 @@
 		var/datum/extension/local_network_member/pointdefense = get_extension(src, /datum/extension/local_network_member)
 		pointdefense.set_tag(null, initial_id_tag)
 
-/obj/machinery/pointdefense/attackby(obj/item/thing, mob/user)
+/obj/machinery/pointdefense/use_tool(obj/item/thing, mob/living/user, list/click_params)
 	if(isMultitool(thing))
 		var/datum/extension/local_network_member/pointdefense = get_extension(src, /datum/extension/local_network_member)
 		pointdefense.get_new_tag(user)
 		return TRUE
+
 	return ..()
 
 //Guns cannot shoot through hull or generally dense turfs.
@@ -143,11 +144,11 @@
 	return TRUE
 
 /obj/machinery/pointdefense/proc/Shoot(weakref/target)
-	var/obj/effect/meteor/M = target.resolve()
+	var/obj/meteor/M = target.resolve()
 	if(!istype(M))
 		return
 	engaging = TRUE
-	addtimer(new Callback(src, .proc/finish_shot, target), rotation_speed)
+	addtimer(new Callback(src, PROC_REF(finish_shot), target), rotation_speed)
 	var/Angle = round(Get_Angle(src, M))
 	animate(
 		src,
@@ -172,7 +173,7 @@
 
 	engaging = FALSE
 	last_shot = world.time
-	var/obj/effect/meteor/M = target.resolve()
+	var/obj/meteor/M = target.resolve()
 	if(!istype(M))
 		return
 	//We throw a laser but it doesnt have to hit for meteor to explode
@@ -207,10 +208,10 @@
 	if(!istype(PC))
 		return
 
-	for(var/obj/effect/meteor/M in GLOB.meteor_list)
+	for(var/obj/meteor/M in GLOB.meteor_list)
 		var/already_targeted = FALSE
 		for(var/weakref/WR in PC.targets)
-			var/obj/effect/meteor/m = WR.resolve()
+			var/obj/meteor/m = WR.resolve()
 			if(m == M)
 				already_targeted = TRUE
 				break

@@ -1,7 +1,7 @@
 /obj/item/device/hailer
 	name = "hailer"
-	desc = "Used by obese officers to save their breath for running."
-	icon = 'icons/obj/hailer.dmi'
+	desc = "Used to project your voice, saving your breath to run up and down sets of stairs instead."
+	icon = 'icons/obj/tools/hailer.dmi'
 	icon_state = "voice0"
 	item_state = "flashbang"	//looks exactly like a flash (and nothing like a flashbang)
 	w_class = ITEM_SIZE_TINY
@@ -24,7 +24,7 @@
 	if(!new_message || new_message == "")
 		use_message = "Halt! Security!"
 	else
-		use_message = capitalize(copytext(sanitize(new_message), 1, MAX_MESSAGE_LEN))
+		use_message = capitalize(copytext(sanitize(new_message), 1, MAX_LNAME_LEN))
 
 	to_chat(usr, "You configure the hailer to shout \"[use_message]\".")
 

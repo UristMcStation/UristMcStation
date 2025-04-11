@@ -32,7 +32,8 @@
 #define HOME_SYSTEM_MARS       "Mars"
 #define HOME_SYSTEM_VENUS      "Venus"
 #define HOME_SYSTEM_CERES      "Ceres"
-#define HOME_SYSTEM_PLUTO      "Pluto"
+#define HOME_SYSTEM_KUIPERB      "Kuiper, Belt"
+#define HOME_SYSTEM_KUIPERD    "Kuiper, Interdust"
 #define HOME_SYSTEM_TAU_CETI   "Ceti Epsilon"
 #define HOME_SYSTEM_HELIOS	   "Eos"
 #define HOME_SYSTEM_TERRA 	   "Terra"
@@ -144,10 +145,9 @@
 
 // IPC cultures.
 #define CULTURE_POSITRONICS    "Positronic"
-
-#define HOME_SYSTEM_ROOT       "Root"
-
-#define FACTION_POSITRONICS    "Positronic Union"
+#define CULTURE_POSITRONICS_GEN1   "First Generation"
+#define CULTURE_POSITRONICS_GEN2   "Second Generation"
+#define CULTURE_POSITRONICS_GEN3   "Third Generation"
 
 // Diona cultures.
 #define CULTURE_DIONA          "Diona Chorus"

@@ -30,8 +30,9 @@
 	max_gas = null
 	minbodytemp = 0
 	faction = "malf_drone"
+	bleed_colour = SYNTH_BLOOD_COLOUR
 
-	var/datum/effect/effect/system/trail = /datum/effect/effect/system/trail/ion
+	var/datum/effect/trail = /datum/effect/trail/ion
 	var/malfunctioning = TRUE
 	var/hostile = FALSE
 	var/hostile_drone = FALSE
@@ -58,7 +59,7 @@
 		trail.start()
 
 
-/mob/living/simple_animal/hostile/retaliate/malf_drone/Allow_Spacemove(check_drift)
+/mob/living/simple_animal/hostile/retaliate/malf_drone/Process_Spacemove(allow_movement)
 	return TRUE
 
 
@@ -81,13 +82,13 @@
 	if (prob(1))
 		sparked = TRUE
 		visible_message(SPAN_WARNING("\The [src] shudders and shakes."))
-		var/datum/effect/effect/system/spark_spread/sparks = new
+		var/datum/effect/spark_spread/sparks = new
 		sparks.set_up(3, 1, src)
 		sparks.start()
 		health += rand(25, 50)
 	if (!sparked && prob(5))
 		sparked = TRUE
-		var/datum/effect/effect/system/spark_spread/sparks = new
+		var/datum/effect/spark_spread/sparks = new
 		sparks.set_up(3, 1, src)
 		sparks.start()
 	if (malfunctioning && prob(disabled ? 0 : 1))
@@ -118,7 +119,7 @@
 	if (exploding && prob(20))
 		visible_message(SPAN_WARNING("\The [src] begins to spark and shake violently!"))
 		if (!sparked)
-			var/datum/effect/effect/system/spark_spread/sparks = new
+			var/datum/effect/spark_spread/sparks = new
 			sparks.set_up(3, 1, src)
 			sparks.start()
 	if (!exploding && !disabled && prob(explode_chance))
@@ -146,7 +147,7 @@
 	if (has_loot)
 		var/turf/origin = get_turf(src)
 		if (origin)
-			var/datum/effect/effect/system/spark_spread/sparks = new
+			var/datum/effect/spark_spread/sparks = new
 			sparks.set_up(3, 1, origin)
 			sparks.start()
 			var/list/loot = list()

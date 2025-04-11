@@ -133,7 +133,7 @@
 	name = "bluespace artillery"
 	boarding_number = 1
 	boarding_delay = 6 MINUTES
-	boarding_mobs = list(/obj/effect/urist/spawn_bomb/bluespace_artillery)
+	boarding_mobs = list(/obj/urist_intangible/spawn_bomb/bluespace_artillery)
 	boarding_message = "Severe bluespace fluctuations detected, hostile Bluespace Artillery inbound! Immediately evacuate the affected area. Expected impact point:"
 	boarded_max = 5 //if it manages to fire this many times, we have bigger issues
 	counterboarding = TRUE

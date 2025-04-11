@@ -76,9 +76,9 @@ return_location()
 
 	// and some rounding to stop the increments jumping whole turfs - because byond favours certain angles
 	if(angle > -135 && angle < 45)
-		angle = Ceil(angle)
+		angle = ceil(angle)
 	else
-		angle = Floor(angle)
+		angle = floor(angle)
 
 	// calculate the offset per increment step
 	if(abs(angle) in list(0, 45, 90, 135, 180))		// check if the angle is a cardinal
@@ -110,6 +110,7 @@ return_location()
 	return sqrt(((offset_x / 32) ** 2) + ((offset_y / 32) ** 2))
 
 /datum/plot_vector/proc/return_location(datum/vector_loc/data)
+	RETURN_TYPE(/datum/vector_loc)
 	if(!data)
 		data = new()
 	data.loc = locate(round(loc_x / world.icon_size, 1), round(loc_y / world.icon_size, 1), loc_z)
@@ -132,4 +133,5 @@ return_turf()
 	var/pixel_y
 
 /datum/vector_loc/proc/return_turf()
+	RETURN_TYPE(/turf)
 	return loc

@@ -41,7 +41,7 @@ var/global/list/adminhelp_ignored_words = list("unknown","the","a","an","of","mo
 			if(!(word in adminhelp_ignored_words))
 				if(word == "ai" && !ai_found)
 					ai_found = 1
-					msg += "<b>[original_word] <A HREF='?_src_=holder;adminchecklaws=\ref[mob]'>(CL)</A></b> "
+					msg += "<b>[original_word] <A HREF='byond://?_src_=holder;adminchecklaws=\ref[mob]'>(CL)</A></b> "
 					continue
 				else
 					var/mob/found = ckeys[word]
@@ -52,10 +52,10 @@ var/global/list/adminhelp_ignored_words = list("unknown","the","a","an","of","mo
 					if(found)
 						if(!(found in mobs_found))
 							mobs_found += found
-							msg += "<b>[original_word] <A HREF='?_src_=holder;adminmoreinfo=\ref[found]'>(?)</A>"
+							msg += "<b>[original_word] <A HREF='byond://?_src_=holder;adminmoreinfo=\ref[found]'>(?)</A>"
 							if(!ai_found && isAI(found))
 								ai_found = 1
-								msg += " <A HREF='?_src_=holder;adminchecklaws=\ref[mob]'>(CL)</A>"
+								msg += " <A HREF='byond://?_src_=holder;adminchecklaws=\ref[mob]'>(CL)</A>"
 							msg += "</b> "
 							continue
 		msg += "[original_word] "
@@ -71,7 +71,7 @@ var/global/list/adminhelp_ignored_words = list("unknown","the","a","an","of","mo
 		to_chat(src, SPAN_COLOR("red", "Error: Admin-PM: You cannot send adminhelps (Muted)."))
 		return
 
-	adminhelped = 1 //Determines if they get the message to reply by clicking the name.
+	adminhelped = TRUE
 
 
 	//clean the input msg
@@ -107,6 +107,7 @@ var/global/list/adminhelp_ignored_words = list("unknown","the","a","an","of","mo
 			to_chat(src, SPAN_WARNING("Error: Private-Message: Client not found. They may have lost connection, so please be patient!"))
 		return
 
+	ticket.last_message_time = world.time
 	ticket.msgs += new /datum/ticket_msg(src.ckey, null, original_msg)
 	update_ticket_panels()
 
@@ -114,7 +115,7 @@ var/global/list/adminhelp_ignored_words = list("unknown","the","a","an","of","mo
 	//Options bar:  mob, details ( admin = 2, dev = 3, character name (0 = just ckey, 1 = ckey and character name), link? (0 no don't make it a link, 1 do so),
 	//		highlight special roles (0 = everyone has same looking name, 1 = antags / special roles get a golden name)
 
-	msg = SPAN_NOTICE("<b>[SPAN_COLOR("red", "HELP: ")][get_options_bar(mob, 2, 1, 1, 1, ticket)] (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>):</b> [msg]")
+	msg = SPAN_NOTICE("<b>[SPAN_COLOR("red", "HELP: ")][get_options_bar(mob, 2, 1, 1, 1, ticket)] (<a href='byond://?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='byond://?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>):</b> [msg]")
 
 	var/admin_number_afk = 0
 
@@ -126,11 +127,14 @@ var/global/list/adminhelp_ignored_words = list("unknown","the","a","an","of","mo
 				sound_to(X, 'sound/effects/adminhelp.ogg')
 			to_chat(X, msg)
 	//show it to the person adminhelping too
-	to_chat(src, SPAN_CLASS("staff_pm", "PM to-<b>Staff</b> (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>): [original_msg]"))
+	to_chat(src, SPAN_CLASS("staff_pm", "PM to-<b>Staff</b> (<a href='byond://?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>): [original_msg]"))
 	var/admin_number_present = length(GLOB.admins) - admin_number_afk
 	log_admin("HELP: [key_name(src)]: [original_msg] - heard by [admin_number_present] non-AFK admins.")
 	if(admin_number_present <= 0)
 		adminmsg2adminirc(src, null, "[html_decode(original_msg)] - !![admin_number_afk ? "All admins AFK ([admin_number_afk])" : "No admins online"]!!")
 	else
 		adminmsg2adminirc(src, null, "[html_decode(original_msg)]")
+
+
+	send_to_admin_discord(EXCOM_MSG_AHELP, "HELP: [key_name(src, highlight_special_characters = FALSE)]: [original_msg]")
 	return

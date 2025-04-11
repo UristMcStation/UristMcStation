@@ -17,7 +17,7 @@
 			return
 
 	// Things you might plausibly want to follow
-	if(istype(A,/atom/movable))
+	if(ismovable(A))
 		start_following(A)
 	// Otherwise jump
 	else
@@ -40,7 +40,7 @@
 			AltClickOn(target_turf)
 		return
 	if(modifiers["shift"])
-		examinate(A)
+		examinate(src, A)
 		return
 	A.attack_ghost(src)
 
@@ -55,10 +55,10 @@
 	if(!istype(user))
 		return
 	if(user.client && user.client.inquisitive_ghost)
-		user.examinate(src)
+		examinate(user, src)
 	return
 
 
-/obj/effect/portal/attack_ghost(mob/user as mob)
+/obj/portal/attack_ghost(mob/user as mob)
 	if(target)
 		user.forceMove(get_turf(target))

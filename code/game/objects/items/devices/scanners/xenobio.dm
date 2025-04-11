@@ -1,7 +1,7 @@
 /obj/item/device/scanner/xenobio
 	name = "xenolife scanner"
 	desc = "Multipurpose organic life scanner. With spectral breath analyzer you can find out what snacks Ian had! Or what gasses alien life breathes."
-	icon = 'icons/obj/xenolife_scanner.dmi'
+	icon = 'icons/obj/tools/xenolife_scanner.dmi'
 	icon_state = "xenobio"
 	item_state = "analyzer"
 	scan_sound = 'sound/effects/scanbeep.ogg'
@@ -17,8 +17,8 @@
 /obj/item/device/scanner/xenobio/is_valid_scan_target(atom/O)
 	if(is_type_in_list(O, valid_targets))
 		return TRUE
-	if(istype(O, /obj/structure/stasis_cage))
-		var/obj/structure/stasis_cage/cagie = O
+	if(istype(O, /obj/machinery/stasis_cage))
+		var/obj/machinery/stasis_cage/cagie = O
 		return !!cagie.contained
 	return FALSE
 
@@ -28,6 +28,7 @@
 	user.show_message(SPAN_NOTICE(scan_data))
 
 /proc/list_gases(gases)
+	RETURN_TYPE(/list)
 	. = list()
 	for(var/g in gases)
 		. += "[gas_data.name[g]] ([gases[g]]%)"
@@ -35,8 +36,8 @@
 
 /proc/xenobio_scan_results(mob/target)
 	. = list()
-	if(istype(target, /obj/structure/stasis_cage))
-		var/obj/structure/stasis_cage/cagie = target
+	if(istype(target, /obj/machinery/stasis_cage))
+		var/obj/machinery/stasis_cage/cagie = target
 		target = cagie.contained
 	if(istype(target, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = target
@@ -60,7 +61,7 @@
 		if(A.minbodytemp && A.maxbodytemp)
 			. += "Temperature comfort zone:\t[A.minbodytemp] K to [A.maxbodytemp] K"
 		var/area/map = locate(/area/overmap)
-		for(var/obj/effect/overmap/visitable/sector/exoplanet/P in map)
+		for(var/obj/overmap/visitable/sector/exoplanet/P in map)
 			if((A in P.animals) || is_type_in_list(A, P.repopulate_types))
 				GLOB.stat_fauna_scanned |= "[P.name]-[A.type]"
 				. += "New xenofauna species discovered!"

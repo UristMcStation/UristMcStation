@@ -48,7 +48,7 @@
 		else
 	return
 
-/obj/effect/urist/planet/rycliesii
+/obj/urist_intangible/planet/rycliesii
 	name = "Ryclies II"
 	desc = "Such a beautiful planet... You wish you would've come here before it was torn apart by the Galactic Crisis."
 	icon = 'icons/urist/events/planets.dmi'
@@ -58,10 +58,10 @@
 	layer = 2.0
 //	level = 1
 
-/obj/effect/urist/planet/ex_act(severity)
+/obj/urist_intangible/planet/ex_act(severity)
 	return
 
-/obj/effect/landmark/scom/target
+/obj/landmark/scom/target
 	invisibility = 101
 	var/artillery = 0
 	var/fire = 0
@@ -163,7 +163,7 @@
 			if("Cancel")
 				return
 			if("Yes")
-				for(var/obj/effect/landmark/scom/target/T in landmarks_list)
+				for(var/obj/landmark/scom/target/T in landmarks_list)
 					if(T.artillery == artillery && T.fire == fire)
 						explosion(T.loc, 1, 2, 5)
 						reload = 0
@@ -179,14 +179,14 @@
 			return
 		if("Yes")
 			to_world(FONT_LARGE(SPAN_DANGER("Mothership self-destruct sequence activated.")))
-			for(var/obj/effect/landmark/scom/bomb/B in landmarks_list)
+			for(var/obj/landmark/scom/bomb/B in landmarks_list)
 				B.incomprehensibleprocname()
 				sploded = 0
 				spawn(300)
 					B.incomprehensibleprocname()
 
 
-/obj/effect/urist/fakebomb
+/obj/urist_intangible/fakebomb
 	name = "explosion"
 	icon = 'icons/urist/96x96.dmi'
 	icon_state = "explosion"

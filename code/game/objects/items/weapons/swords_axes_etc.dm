@@ -17,17 +17,17 @@
 	slot_flags = SLOT_BELT
 	force = 10
 
-/obj/item/melee/classic_baton/attack(mob/M as mob, mob/living/user as mob)
+/obj/item/melee/classic_baton/use_before(mob/M as mob, mob/living/user as mob)
+	. = FALSE
 	if ((MUTATION_CLUMSY in user.mutations) && prob(50))
 		to_chat(user, SPAN_WARNING("You club yourself over the head."))
 		user.Weaken(3 * force)
-		if(ishuman(user))
+		if (ishuman(user))
 			var/mob/living/carbon/human/H = user
 			H.apply_damage(2*force, DAMAGE_BRUTE, BP_HEAD)
 		else
 			user.take_organ_damage(2*force, 0)
-		return
-	return ..()
+		return TRUE
 
 //Telescopic baton
 /obj/item/melee/telebaton
@@ -63,7 +63,6 @@
 	playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
 	add_fingerprint(user)
 	update_icon()
-	update_held_icon()
 
 /obj/item/melee/telebaton/on_update_icon()
 	if(on)
@@ -74,22 +73,17 @@
 		item_state = "telebaton_0"
 	if(length(blood_DNA))
 		generate_blood_overlay(TRUE) // Force recheck.
-		overlays.Cut()
-		overlays += blood_overlay
+		ClearOverlays()
+		AddOverlays(blood_overlay)
 
-/obj/item/melee/telebaton/attack(mob/target as mob, mob/living/user as mob)
-	if(on)
-		if ((MUTATION_CLUMSY in user.mutations) && prob(50))
-			to_chat(user, SPAN_WARNING("You club yourself over the head."))
-			user.Weaken(3 * force)
-			if(ishuman(user))
-				var/mob/living/carbon/human/H = user
-				H.apply_damage(2*force, DAMAGE_BRUTE, BP_HEAD)
-			else
-				user.take_organ_damage(2*force, 0)
-			return
-		if(..())
-			//playsound(src.loc, "swing_hit", 50, 1, -1)
-			return
-	else
-		return ..()
+/obj/item/melee/telebaton/use_before(mob/target as mob, mob/living/user as mob)
+	. = FALSE
+	if (on && (MUTATION_CLUMSY in user.mutations) && prob(50))
+		to_chat(user, SPAN_WARNING("You club yourself over the head."))
+		user.Weaken(3 * force)
+		if (ishuman(user))
+			var/mob/living/carbon/human/H = user
+			H.apply_damage(2*force, DAMAGE_BRUTE, BP_HEAD)
+		else
+			user.take_organ_damage(2*force, 0)
+		return TRUE

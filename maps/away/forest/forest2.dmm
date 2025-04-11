@@ -30,7 +30,7 @@
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
 "af" = (
-/obj/effect/floor_decal/planet/border/dirttograss{
+/obj/floor_decal/planet/border/dirttograss{
 	dir = 1
 	},
 /turf/simulated/floor/planet/temperate,
@@ -40,31 +40,31 @@
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "ah" = (
-/obj/effect/floor_decal/planet/border/dirttograss{
+/obj/floor_decal/planet/border/dirttograss{
 	dir = 5
 	},
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "ai" = (
-/obj/effect/floor_decal/planet/border/dirttograss{
+/obj/floor_decal/planet/border/dirttograss{
 	dir = 8
 	},
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "aj" = (
-/obj/effect/floor_decal/planet/border/dirttograss{
+/obj/floor_decal/planet/border/dirttograss{
 	dir = 4
 	},
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "ak" = (
-/obj/effect/floor_decal/planet/border/dirttograss{
+/obj/floor_decal/planet/border/dirttograss{
 	dir = 10
 	},
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "al" = (
-/obj/effect/floor_decal/planet/border/dirttograss,
+/obj/floor_decal/planet/border/dirttograss,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "am" = (
@@ -80,41 +80,41 @@
 /turf/simulated/floor/planet/snow,
 /area/planet/forest)
 "aq" = (
-/obj/effect/floor_decal/planet/border/snowtograss{
+/obj/floor_decal/planet/border/snowtograss{
 	dir = 8
 	},
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "ar" = (
-/obj/effect/floor_decal/planet/border/snowtograss{
+/obj/floor_decal/planet/border/snowtograss{
 	dir = 4
 	},
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "as" = (
-/obj/effect/floor_decal/planet/border/snowtograss{
+/obj/floor_decal/planet/border/snowtograss{
 	dir = 10
 	},
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "at" = (
-/obj/effect/floor_decal/planet/border/snowtograss,
+/obj/floor_decal/planet/border/snowtograss,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "au" = (
-/obj/effect/floor_decal/planet/border/snowtograss{
+/obj/floor_decal/planet/border/snowtograss{
 	dir = 6
 	},
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "av" = (
-/obj/effect/floor_decal/planet/border/dirttograss{
+/obj/floor_decal/planet/border/dirttograss{
 	dir = 9
 	},
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "ax" = (
-/obj/effect/floor_decal/planet/border/dirttograss{
+/obj/floor_decal/planet/border/dirttograss{
 	dir = 6
 	},
 /turf/simulated/floor/planet/temperate,
@@ -352,7 +352,7 @@
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "bJ" = (
-/obj/effect/shuttle_landmark/automatic/nav_caraway_forest/nav2,
+/obj/shuttle_landmark/automatic/nav_caraway_forest/nav2,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "bK" = (
@@ -376,7 +376,7 @@
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "bU" = (
-/obj/effect/floor_decal/planet/border/grasstodirt{
+/obj/floor_decal/planet/border/grasstodirt{
 	dir = 5
 	},
 /turf/simulated/floor/planet/dirt/temperate,
@@ -427,28 +427,28 @@
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "ci" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 6
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/forest)
 "cj" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 1
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/forest)
 "ck" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 10
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/forest)
 "cm" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test2";
 	dir = 2
 	},
@@ -459,14 +459,14 @@
 /turf/simulated/floor/planet/jungle/water/deep,
 /area/planet/forest)
 "co" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test2";
 	dir = 1
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/forest)
 "cp" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 10
 	},
@@ -485,36 +485,36 @@
 /turf/simulated/floor,
 /area/planet/forest/cabin2)
 "ct" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 5
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/forest)
 "cu" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test2";
 	dir = 4
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/forest)
 "cv" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test2";
 	dir = 1
 	},
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test2";
 	dir = 8
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/forest)
 "cw" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 9
 	},
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 10
 	},
@@ -537,7 +537,7 @@
 /turf/simulated/floor,
 /area/planet/forest/cabin2)
 "cz" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test2";
 	dir = 4
 	},
@@ -545,14 +545,14 @@
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/forest)
 "cA" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test2";
 	dir = 8
 	},
 /turf/simulated/floor/planet/jungle/water,
 /area/planet/forest)
 "cB" = (
-/obj/effect/floor_decal/water_edge{
+/obj/floor_decal/water_edge{
 	icon_state = "test";
 	dir = 9
 	},
@@ -565,7 +565,7 @@
 /turf/simulated/floor/wood,
 /area/planet/forest/cabin2)
 "cG" = (
-/obj/effect/floor_decal/planet/border/grasstosnow,
+/obj/floor_decal/planet/border/grasstosnow,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "cH" = (
@@ -594,7 +594,7 @@
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest/cabin1)
 "cO" = (
-/obj/effect/shuttle_landmark/automatic/nav_caraway_forest/nav1,
+/obj/shuttle_landmark/automatic/nav_caraway_forest/nav1,
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
 "cP" = (
@@ -657,14 +657,14 @@
 /area/planet/forest/cabin1)
 "cX" = (
 /obj/structure/closet/secure_closet/freezer/fridge,
-/obj/effect/floor_decal/corner/black/diagonal,
+/obj/floor_decal/corner/black/diagonal,
 /obj/item/reagent_containers/food/condiment/salt,
 /obj/item/storage/box/condimentbottles,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cabin1)
 "cY" = (
 /obj/structure/table/woodentable/mahogany,
-/obj/effect/floor_decal/corner/black/diagonal,
+/obj/floor_decal/corner/black/diagonal,
 /obj/item/material/kitchen/rollingpin,
 /obj/item/reagent_containers/glass/rag,
 /obj/item/reagent_containers/food/condiment/enzyme,
@@ -673,7 +673,7 @@
 "cZ" = (
 /obj/structure/table/woodentable/mahogany,
 /obj/machinery/microwave,
-/obj/effect/floor_decal/corner/black/diagonal,
+/obj/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cabin1)
 "da" = (
@@ -713,12 +713,12 @@
 /turf/simulated/floor,
 /area/planet/forest/cabin1)
 "dd" = (
-/obj/effect/floor_decal/corner/black/diagonal,
+/obj/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cabin1)
 "de" = (
 /obj/structure/table/woodentable/mahogany,
-/obj/effect/floor_decal/corner/black/diagonal,
+/obj/floor_decal/corner/black/diagonal,
 /obj/item/material/knife/kitchen,
 /obj/item/reagent_containers/food/condiment/small/peppermill,
 /obj/item/reagent_containers/food/condiment/small/saltshaker,
@@ -751,7 +751,7 @@
 /area/planet/forest/cabin1)
 "dg" = (
 /obj/structure/table/woodentable/mahogany,
-/obj/effect/floor_decal/corner/black/diagonal,
+/obj/floor_decal/corner/black/diagonal,
 /obj/machinery/reagentgrinder{
 	pixel_y = 4
 	},
@@ -935,7 +935,7 @@
 /area/planet/forest/cabin1)
 "iG" = (
 /obj/structure/scrap,
-/obj/effect/floor_decal/planet/border/grasstodirt{
+/obj/floor_decal/planet/border/grasstodirt{
 	dir = 8
 	},
 /turf/simulated/floor/planet/dirt/temperate,
@@ -980,22 +980,22 @@
 /area/planet/forest/cabin1)
 "tO" = (
 /obj/structure/scrap,
-/obj/effect/floor_decal/planet/border/grasstodirt{
+/obj/floor_decal/planet/border/grasstodirt{
 	dir = 1
 	},
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
 "uE" = (
-/obj/effect/floor_decal/planet/border/grasstodirt{
+/obj/floor_decal/planet/border/grasstodirt{
 	dir = 1
 	},
-/obj/effect/floor_decal/planet/border/dirttograss{
+/obj/floor_decal/planet/border/dirttograss{
 	dir = 10
 	},
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
 "uX" = (
-/obj/effect/floor_decal/planet/border/dirttograss{
+/obj/floor_decal/planet/border/dirttograss{
 	dir = 1
 	},
 /turf/simulated/floor/planet/dirt/temperate,
@@ -1023,14 +1023,14 @@
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
 "FB" = (
-/obj/effect/floor_decal/planet/border/grasstodirt{
+/obj/floor_decal/planet/border/grasstodirt{
 	dir = 10
 	},
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
 "HG" = (
 /obj/structure/flora/tree/planet/arid/small,
-/obj/effect/floor_decal/planet/border/dirttograss{
+/obj/floor_decal/planet/border/dirttograss{
 	dir = 10
 	},
 /turf/simulated/floor/planet/temperate,
@@ -1050,13 +1050,13 @@
 /area/planet/forest)
 "Np" = (
 /obj/structure/scrap,
-/obj/effect/floor_decal/planet/border/dirttograss{
+/obj/floor_decal/planet/border/dirttograss{
 	dir = 4
 	},
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
 "Sp" = (
-/obj/effect/floor_decal/planet/border/grasstodirt{
+/obj/floor_decal/planet/border/grasstodirt{
 	dir = 9
 	},
 /turf/simulated/floor/planet/dirt/temperate,
@@ -1077,7 +1077,7 @@
 /turf/simulated/floor,
 /area/planet/forest/cabin1)
 "TG" = (
-/obj/effect/floor_decal/planet/border/grasstodirt,
+/obj/floor_decal/planet/border/grasstodirt,
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
 "Vi" = (

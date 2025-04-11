@@ -63,17 +63,17 @@
 /datum/gear/accessory/ntaward
 	display_name = "corporate award selection"
 	description = "A medal or ribbon awarded to corporate personnel for significant accomplishments."
-	path = /obj/item/clothing/accessory/medal
-	cost = 8
-	flags = GEAR_HAS_NO_CUSTOMIZATION
+	path = /obj/item/storage/medalbox
+	cost = 6
+	flags = GEAR_HAS_NO_CUSTOMIZATION | GEAR_HAS_EXTENDED_DESCRIPTION
 
 
 /datum/gear/accessory/ntaward/New()
 	..()
 	var/ntawards = list()
-	ntawards["sciences medal"] = /obj/item/clothing/accessory/medal/bronze/nanotrasen
-	ntawards["distinguished service"] = /obj/item/clothing/accessory/medal/silver/nanotrasen
-	ntawards["command medal"] = /obj/item/clothing/accessory/medal/gold/nanotrasen
+	ntawards["sciences medal"] = /obj/item/storage/medalbox/corp_science
+	ntawards["distinguished service"] = /obj/item/storage/medalbox/corp_service
+	ntawards["command medal"] = /obj/item/storage/medalbox/corp_command
 	gear_tweaks += new/datum/gear_tweak/path(ntawards)
 
 
@@ -166,38 +166,46 @@
 
 /datum/gear/accessory/wristwatch
 	display_name = "wrist watch selection"
-	path = /obj/item/clothing/accessory/wristwatches
+	path = /obj/item/clothing/accessory/wristwatch
 	cost = 1
 	flags = GEAR_HAS_TYPE_SELECTION
 
 
 /datum/gear/accessory/pronouns
-	display_name = "pronoun badge selection"
-	description = "A selection of badges used to indicate the preferred pronouns of the wearer."
+	display_name = "pronoun badge, customisable"
+	description = "A badge used to indicate the preferred pronouns of the wearer."
 	path = /obj/item/clothing/accessory/pronouns
 
 
-/datum/gear/accessory/pronouns/New()
+/datum/gear/accessory/pride_pins
+	display_name = "pride pin selection, primary"
+	description = "A selection of pins used to signal membership or support of an identity or sexuality."
+	path = /obj/item/clothing/accessory/pride_pin
+	flags = GEAR_HAS_NO_CUSTOMIZATION
+
+
+/datum/gear/accessory/pride_pins/New()
 	..()
 	var/list/options = list()
-	options["they/them badge"] = /obj/item/clothing/accessory/pronouns/they
-	options["he/him badge"] = /obj/item/clothing/accessory/pronouns/hehim
-	options["she/her badge"] = /obj/item/clothing/accessory/pronouns/sheher
-	options["he/they badge"] = /obj/item/clothing/accessory/pronouns/hethey
-	options["she/they badge"] = /obj/item/clothing/accessory/pronouns/shethey
-	options["he/she badge"] = /obj/item/clothing/accessory/pronouns/heshe
-	options["ze/hir badge"] = /obj/item/clothing/accessory/pronouns/zehir
-	options["ask me badge"] = /obj/item/clothing/accessory/pronouns/ask
+	options["transgender pride pin"] = /obj/item/clothing/accessory/pride_pin/transgender
+	options["lesbian pride pin"] = /obj/item/clothing/accessory/pride_pin/lesbian
+	options["bisexual pride pin"] = /obj/item/clothing/accessory/pride_pin/bisexual
+	options["gay pride pin"] = /obj/item/clothing/accessory/pride_pin/gay
+	options["pansexual pride pin"] = /obj/item/clothing/accessory/pride_pin/pansexual
+	options["nonbinary pride pin"] = /obj/item/clothing/accessory/pride_pin/nonbinary
+	options["asexual pride pin"] = /obj/item/clothing/accessory/pride_pin/asexual
+	options["intersex pride pin"] = /obj/item/clothing/accessory/pride_pin/intersex
+	options["aromantic pride pin"] = /obj/item/clothing/accessory/pride_pin/aromantic
 	gear_tweaks += new /datum/gear_tweak/path (options)
 
 
-/datum/gear/accessory/pride_pins
-	display_name = "pride pin selection"
+/datum/gear/accessory/pride_pins_secondary
+	display_name = "pride pin selection, secondary"
 	description = "A selection of pins used to signal membership or support of an identity or sexuality."
 	path = /obj/item/clothing/accessory/pride_pin
 
 
-/datum/gear/accessory/pride_pins/New()
+/datum/gear/accessory/pride_pins_secondary/New()
 	..()
 	var/list/options = list()
 	options["transgender pride pin"] = /obj/item/clothing/accessory/pride_pin/transgender
@@ -216,4 +224,11 @@
 	display_name = "neckerchief, colour select"
 	description = "A piece of cloth tied around the neck. A favorite of Sailors and Partisans everywhere."
 	path = /obj/item/clothing/accessory/neckerchief
+	flags = GEAR_HAS_COLOR_SELECTION
+
+
+/datum/gear/accessory/stole
+	display_name = "stole, colour select"
+	description = "A long, colourful liturgical vestment used by Christian clergy."
+	path = /obj/item/clothing/accessory/stole
 	flags = GEAR_HAS_COLOR_SELECTION

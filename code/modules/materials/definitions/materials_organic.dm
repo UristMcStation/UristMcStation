@@ -3,9 +3,13 @@
 	lore_text = "A generic polymeric material. Probably the most flexible and useful substance ever created by human science; mostly used to make disposable cutlery."
 	stack_type = /obj/item/stack/material/plastic
 	flags = MATERIAL_BRITTLE
-	icon_base = "solid"
+	wall_icon_base = "solid"
 	door_icon_base = "plastic"
-	icon_reinf = "reinf_over"
+	wall_icon_reinf = "reinf_over"
+	wall_blend_icons = list(
+		"wood" = TRUE,
+		"stone" = TRUE
+	)
 	icon_colour = COLOR_WHITE
 	hardness = MATERIAL_FLEXIBLE
 	weight = 5
@@ -33,8 +37,14 @@
 	stack_type = /obj/item/stack/material/cardboard
 	flags = MATERIAL_BRITTLE
 	integrity = 10
-	icon_base = "solid"
-	icon_reinf = "reinf_over"
+	sheet_icon_base = "sheet-card"
+	wall_icon_base = "solid"
+	wall_icon_reinf = "reinf_over"
+	wall_flags = MATERIAL_PAINTABLE_MAIN|MATERIAL_PAINTABLE_STRIPE|MATERIAL_WALL_HAS_EDGES
+	wall_blend_icons = list(
+		"wood" = TRUE,
+		"stone" = TRUE
+	)
 	icon_colour = "#aaaaaa"
 	hardness = MATERIAL_SOFT
 	brute_armor = 1
@@ -52,6 +62,7 @@
 	display_name ="cotton"
 	use_name = "cotton"
 	icon_colour = "#ffffff"
+	sheet_icon_base = "skin"
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	door_icon_base = "wood"
 	ignition_point = T0C+232
@@ -59,7 +70,7 @@
 	flags = MATERIAL_PADDING
 	brute_armor = 1
 	conductive = 0
-	stack_type = null
+	stack_type = /obj/item/stack/material/cloth
 	hidden_from_codex = TRUE
 	construction_difficulty = MATERIAL_NORMAL_DIY
 
@@ -127,16 +138,18 @@
 	flags = MATERIAL_PADDING
 	ignition_point = T0C+232
 	melting_point = T0C+300
+	sheet_icon_base = "skin"
 	sheet_singular_name = "tile"
 	sheet_plural_name = "tiles"
 	conductive = 0
-	stack_type = null
+	stack_type = /obj/item/stack/tile/carpet
 	construction_difficulty = MATERIAL_NORMAL_DIY
 
 /material/skin
 	name = MATERIAL_SKIN_GENERIC
 	stack_type = /obj/item/stack/material/generic/skin
 	icon_colour = "#9e8c72"
+	sheet_icon_base = "skin"
 	flags = MATERIAL_PADDING
 	ignition_point = T0C+300
 	melting_point = T0C+300
@@ -251,6 +264,7 @@
 
 /material/bone
 	name = MATERIAL_BONE_GENERIC
+	sheet_icon_base = "bone"
 	sheet_singular_name = "length"
 	sheet_plural_name = "lengths"
 	icon_colour = "#f0edc7"
@@ -278,6 +292,8 @@
 
 /material/leather
 	icon_colour = "#5c4831"
+	sheet_icon_base = "sheet-leather"
+	sheet_has_plural_icon = FALSE
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	flags = MATERIAL_PADDING
 	ignition_point = T0C+300
@@ -314,10 +330,19 @@
 /material/growth
 	name = MATERIAL_GROWTH
 	display_name = "organic material"
-	icon_base = "cult"
+	sheet_icon_base = "skin"
+	wall_icon_base = "cult"
+	wall_flags = EMPTY_BITFIELD
+	wall_blend_icons = list(
+		"solid" = TRUE,
+		"wood" = TRUE,
+		"metal" = TRUE,
+		"stone" = TRUE
+	)
+	wall_flags = EMPTY_BITFIELD
 	door_icon_base = "cult"
 	table_icon_base = "cult"
-	icon_reinf = "reinf_cult"
+	wall_icon_reinf = "reinf_cult"
 	icon_colour = "#281744"
 	hardness = 80
 	brute_armor = 4

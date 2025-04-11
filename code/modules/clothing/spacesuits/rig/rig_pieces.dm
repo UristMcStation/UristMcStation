@@ -4,7 +4,7 @@
 
 /obj/item/clothing/head/helmet/space/rig
 	name = "helmet"
-	item_flags = ITEM_FLAG_THICKMATERIAL
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_INVALID_FOR_CHAMELEON
 	flags_inv = 		 HIDEEARS|HIDEEYES|HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	heat_protection =    HEAD|FACE|EYES
@@ -19,7 +19,7 @@
 
 /obj/item/clothing/gloves/rig
 	name = "gauntlets"
-	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT | ITEM_FLAG_INVALID_FOR_CHAMELEON
 	body_parts_covered = HANDS
 	heat_protection =    HANDS
 	cold_protection =    HANDS
@@ -28,7 +28,7 @@
 
 /obj/item/clothing/shoes/magboots/rig
 	name = "boots"
-	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT | ITEM_FLAG_INVALID_FOR_CHAMELEON
 	body_parts_covered = FEET
 	cold_protection = FEET
 	heat_protection = FEET
@@ -44,7 +44,7 @@
 	cold_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	// HIDEJUMPSUIT no longer needed, see "hides_uniform" and "update_component_sealed()" in rig.dm
 	flags_inv =          HIDETAIL | CLOTHING_BULKY
-	item_flags =         ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT
+	item_flags =         ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT | ITEM_FLAG_INVALID_FOR_CHAMELEON
 	//will reach 10 breach damage after 25 laser carbine blasts, 3 revolver hits, or ~1 PTR hit. Completely immune to smg or sts hits.
 	breach_threshold = 38
 	resilience = 0.2
@@ -55,16 +55,56 @@
 		)
 	var/list/supporting_limbs = list() //If not-null, automatically splints breaks. Checked when removing the suit.
 	equip_delay = null
+	var/obj/item/storage/internal/storage
+	var/max_w_class = ITEM_SIZE_NORMAL
+	var/slots = 2 STORAGE_FREEFORM
 	allowed = list(/obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank, /obj/item/device/suit_cooling_unit, /obj/item/storage/backpack)
+
+
+/obj/item/clothing/suit/space/rig/Destroy()
+	LAZYCLEARLIST(supporting_limbs)
+	QDEL_NULL(storage)
+	return ..()
+
+
+/obj/item/clothing/suit/space/rig/Initialize()
+	. = ..()
+	if (slots && max_w_class)
+		if (slots < 0)
+			storage = new /obj/item/storage/internal/pouch (src, (-slots) * BASE_STORAGE_COST(max_w_class), max_w_class)
+		else
+			storage = new /obj/item/storage/internal/pockets (src, slots, max_w_class)
+
+
+/obj/item/clothing/suit/space/rig/attack_hand(mob/living/user)
+	if (storage?.handle_attack_hand(user))
+		..(user)
+
+/obj/item/clothing/suit/space/rig/MouseDrop(obj/over)
+	if (storage?.handle_mousedrop(usr, over))
+		..(over)
+
+
+/obj/item/clothing/suit/space/rig/emp_act(severity)
+	storage?.emp_act(severity)
+	..()
+
+
+/obj/item/clothing/suit/space/rig/attempt_store_item(obj/item/I, mob/user, silent)
+	if (storage?.can_be_inserted(I, user, TRUE) && storage.handle_item_insertion(I, silent))
+		return TRUE
+	return ..()
 
 
 /obj/item/clothing/suit/space/rig/equipped(mob/M)
 	check_limb_support(M)
 	..()
 
+
 /obj/item/clothing/suit/space/rig/dropped(mob/user)
 	check_limb_support(user)
 	..()
+
 
 // Some space suits are equipped with reactive membranes that support broken limbs
 /obj/item/clothing/suit/space/rig/proc/can_support(mob/living/carbon/human/user)
@@ -127,7 +167,7 @@
 	body_parts_covered = HEAD|FACE|EYES
 	heat_protection =    HEAD|FACE|EYES
 	cold_protection =    HEAD|FACE|EYES
-	item_flags =         ITEM_FLAG_THICKMATERIAL|ITEM_FLAG_AIRTIGHT
+	item_flags =         ITEM_FLAG_THICKMATERIAL|ITEM_FLAG_AIRTIGHT|ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/lightrig
 	name = "suit"
@@ -136,7 +176,7 @@
 	heat_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	cold_protection =    UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	flags_inv =          HIDEJUMPSUIT
-	item_flags =         ITEM_FLAG_THICKMATERIAL
+	item_flags =         ITEM_FLAG_THICKMATERIAL|ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/shoes/lightrig
 	name = "boots"
@@ -145,6 +185,7 @@
 	heat_protection = FEET
 	species_restricted = null
 	gender = PLURAL
+	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/gloves/lightrig
 	name = "gloves"
@@ -154,3 +195,4 @@
 	cold_protection =    HANDS
 	species_restricted = null
 	gender = PLURAL
+	item_flags = ITEM_FLAG_INVALID_FOR_CHAMELEON

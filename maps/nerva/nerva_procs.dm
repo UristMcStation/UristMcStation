@@ -1,6 +1,6 @@
 /datum/map/nerva/ship_jump()
-	for(var/obj/effect/overmap/visitable/ship/combat/nerva/nerva)
-		new /obj/effect/ftl (get_turf(nerva))
+	for(var/obj/overmap/visitable/ship/combat/nerva/nerva)
+		new /obj/ftl (get_turf(nerva))
 		qdel(nerva)
 		animate(nerva, time = 0.5 SECONDS)
 		animate(alpha = 0, time = 0.5 SECONDS)

@@ -20,7 +20,7 @@
 /turf/simulated/wall/wood,
 /area/planet/forest/cabin1/attic)
 "f" = (
-/obj/effect/wingrille_spawn/reinforced/full,
+/obj/wingrille_spawn/reinforced/full,
 /turf/simulated/floor/wood,
 /area/planet/forest/cabin1/attic)
 "g" = (
@@ -42,7 +42,7 @@
 	},
 /area/planet/forest/cabin1/attic)
 "k" = (
-/obj/effect/landmark/map_data{
+/obj/landmark/map_data{
 	height = 3
 	},
 /turf/space,
@@ -58,7 +58,7 @@
 /area/planet/forest/upper)
 "n" = (
 /obj/structure/bed,
-/obj/effect/submap_landmark/joinable_submap/caraway_forest,
+/obj/submap_landmark/joinable_submap/caraway_forest,
 /turf/simulated/floor/wood,
 /area/planet/forest/cabin1/attic)
 "o" = (
@@ -113,7 +113,7 @@
 /turf/simulated/floor/wood,
 /area/planet/forest/cabin1/attic)
 "y" = (
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/upper)
 "z" = (
@@ -121,7 +121,7 @@
 /area/planet/forest/upper)
 "A" = (
 /obj/structure/bed,
-/obj/effect/submap_landmark/spawnpoint/forest_settler,
+/obj/submap_landmark/spawnpoint/forest_settler,
 /turf/simulated/floor/wood,
 /area/planet/forest/cabin1/attic)
 "C" = (

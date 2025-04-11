@@ -1,5 +1,5 @@
 /obj/structure/closet/crate/med_crate/trauma
-	name = "\improper Trauma crate"
+	name = "trauma crate"
 	desc = "A crate with trauma equipment."
 	closet_appearance = /singleton/closet_appearance/crate/medical/trauma
 
@@ -7,14 +7,14 @@
 	return list(
 		/obj/item/stack/medical/splint = 2,
 		/obj/item/stack/medical/advanced/bruise_pack = 10,
-		/obj/item/reagent_containers/pill/sugariron = 6,
+		/obj/item/storage/pill_bottle/sugariron = 1,
 		/obj/item/storage/pill_bottle/paracetamol = 2,
 		/obj/item/storage/pill_bottle/inaprovaline,
 		/obj/item/storage/pill_bottle/bicaridine,
 		)
 
 /obj/structure/closet/crate/med_crate/burn
-	name = "\improper Burn crate"
+	name = "burn crate"
 	desc = "A crate with burn equipment."
 	closet_appearance = /singleton/closet_appearance/crate/medical
 
@@ -29,7 +29,7 @@
 	)
 
 /obj/structure/closet/crate/med_crate/oxyloss
-	name = "\improper Low oxygen crate"
+	name = "low oxygen crate"
 	desc = "A crate with low oxygen equipment."
 	closet_appearance = /singleton/closet_appearance/crate/medical/oxygen
 
@@ -41,13 +41,12 @@
 		/obj/item/storage/pill_bottle/peridaxon,
 	)
 /obj/structure/closet/crate/med_crate/toxin
-	name = "\improper Toxin crate"
+	name = "toxin crate"
 	desc = "A crate with toxin equipment."
 	closet_appearance = /singleton/closet_appearance/crate/medical/toxins
 
 /obj/structure/closet/crate/med_crate/toxin/WillContain()
 	return list(
-		/obj/item/storage/firstaid/surgery,
 		/obj/item/storage/pill_bottle/dylovene = 2,
-		/obj/item/reagent_containers/pill/hyronalin = 12
+		/obj/item/storage/pill_bottle/hyronalin = 1
 			)

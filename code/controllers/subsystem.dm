@@ -39,7 +39,7 @@
 	var/init_start = 0                 // What timeofday did we start initializing?
 	var/init_finish                    // What timeofday did we finish initializing?
 
-	var/runlevels = RUNLEVELS_DEFAULT	//points of the game at which the SS can fire
+	var/runlevels = RUNLEVELS_GAME	//points of the game at which the SS can fire
 
 	var/static/list/failure_strikes //How many times we suspect a subsystem type has crashed the MC, 3 strikes and you're out!
 
@@ -169,8 +169,8 @@
 	init_state = SS_INITSTATE_STARTED
 	init_start = start_uptime
 	Initialize(start_uptime)
-	init_finish = Uptime()
-	. = (Uptime() - start_uptime) / 10
+	init_finish = uptime()
+	. = (uptime() - start_uptime) / 10
 	var/msg = "Initialized [name] subsystem within [.] second[. == 1 ? "" : "s"]!"
 	to_chat(world, SPAN_CLASS("boldannounce", "[msg]"))
 	log_world(msg)
@@ -195,7 +195,7 @@
 				build += "NO INIT"
 			else if (init_state == SS_INITSTATE_STARTED)
 				if (init_start)
-					build += "LOAD ([(Uptime() - init_start)/10]s)"
+					build += "LOAD ([(uptime() - init_start)/10]s)"
 				else
 					build += "LOAD"
 			else

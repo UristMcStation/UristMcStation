@@ -80,7 +80,8 @@
 		MATERIAL_BAUXITE =     TRUE,
 		MATERIAL_COPPER =      TRUE,
 		MATERIAL_ALUMINIUM =   TRUE,
-		MATERIAL_RUTILE = 	   TRUE
+		MATERIAL_RUTILE =      TRUE,
+		MATERIAL_BORAX =       TRUE
 	)
 	var/list/stored_matter = list()
 
@@ -114,7 +115,7 @@
 
 				// Process it.
 				if(can_digest_matter[mat])
-					owner.adjust_nutrition(max(1, Floor(digested/100)))
+					owner.adjust_nutrition(max(1, floor(digested/100)))
 					updated_stacks = TRUE
 				else if(can_process_matter[mat])
 					LAZYDISTINCTADD(check_materials, mat)
@@ -126,7 +127,7 @@
 			if(M && M.stack_type && stored_matter[mat] >= M.units_per_sheet)
 
 				// Remove as many sheets as possible from the gizzard.
-				var/sheets = Floor(stored_matter[mat]/M.units_per_sheet)
+				var/sheets = floor(stored_matter[mat]/M.units_per_sheet)
 				stored_matter[mat] -= M.units_per_sheet * sheets
 				if(stored_matter[mat] <= 0)
 					stored_matter -= mat
@@ -163,7 +164,4 @@
 /obj/item/organ/internal/stack/vox/removed()
 	var/obj/item/organ/external/head = owner.get_organ(parent_organ)
 	owner.visible_message(SPAN_DANGER("\The [src] rips gaping holes in \the [owner]'s [head.name] as it is torn loose!"))
-	head.take_external_damage(rand(15,20))
-	for(var/obj/item/organ/internal/O in head.contents)
-		O.take_internal_damage(rand(30,70))
 	..()

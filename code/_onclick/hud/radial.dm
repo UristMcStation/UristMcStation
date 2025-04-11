@@ -1,6 +1,3 @@
-#define NEXT_PAGE_ID "__next__"
-#define DEFAULT_CHECK_DELAY 20
-
 GLOBAL_LIST_EMPTY(radial_menus)
 
 /obj/screen/radial
@@ -32,7 +29,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 		closeToolTip(usr)
 
 /obj/screen/radial/slice/Click(location, control, params)
-	if(usr.client == parent.current_user)
+	if(parent && usr.client == parent.current_user)
 		if(next_page)
 			parent.next_page()
 		else
@@ -55,6 +52,9 @@ GLOBAL_LIST_EMPTY(radial_menus)
 		parent.finished = TRUE
 
 /datum/radial_menu
+	var/const/NEXT_PAGE_ID = "__next__"
+	var/const/DEFAULT_CHECK_DELAY = 2 SECONDS
+
 	var/list/choices = list() //List of choice id's
 	var/list/choices_icons = list() //choice_id -> icon
 	var/list/choices_values = list() //choice_id -> choice
@@ -138,7 +138,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 		if(length(current) == max_elements)
 			page_data[page] = current
 			page++
-			page_data.len++
+			LIST_INC(page_data)
 			current = list()
 		if(paged && length(current) == max_elements - 1)
 			current += NEXT_PAGE_ID
@@ -165,7 +165,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 			SetElement(E,page_choices[i],angle,anim = anim,anim_order = i)
 
 /datum/radial_menu/proc/HideElement(obj/screen/radial/slice/E)
-	E.overlays.Cut()
+	E.ClearOverlays()
 	E.alpha = 0
 	E.name = "None"
 	E.maptext = null
@@ -191,12 +191,11 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	//Visuals
 	E.alpha = 255
 	E.mouse_opacity = 1
-	E.overlays.Cut()
+	E.ClearOverlays()
 	if(choice_id == NEXT_PAGE_ID)
 		E.name = "Next Page"
 		E.next_page = TRUE
-		E.overlays.Add("radial_next")
-
+		E.AddOverlays("radial_next")
 	else
 		if(istext(choices_values[choice_id]))
 			E.name = choices_values[choice_id]
@@ -206,9 +205,8 @@ GLOBAL_LIST_EMPTY(radial_menus)
 		E.choice = choice_id
 		E.maptext = null
 		E.next_page = FALSE
-
 		if(choices_icons[choice_id])
-			E.overlays.Add(choices_icons[choice_id])
+			E.AddOverlays(choices_icons[choice_id])
 
 /datum/radial_menu/New()
 	close_button = new
@@ -243,7 +241,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 /datum/radial_menu/proc/extract_image(image/E, use_labels)
 	var/mutable_appearance/MA = new /mutable_appearance(E)
 	if(MA)
-		MA.layer = HUD_ABOVE_ITEM_LAYER
+		MA.layer = HUD_ABOVE_HUD_LAYER
 		MA.appearance_flags |= RESET_TRANSFORM
 		if(use_labels)
 			MA.maptext_width = 64
@@ -251,7 +249,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 			MA.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 			MA.maptext_x = -round(MA.maptext_width/2) + 16
 			MA.maptext_x = -round(MA.maptext_height/2) + 16
-			MA.maptext = "<center><span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px\">[E.name]</span></center>"
+			MA.maptext = STYLE_SMALLFONTS_OUTLINE("<center>[E.name]</center>", 7, COLOR_WHITE, COLOR_BLACK)
 
 	return MA
 
@@ -270,7 +268,7 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	//Blank
 	menu_holder = image(icon = 'icons/effects/effects.dmi', loc = anchor, icon_state = "nothing", layer = HUD_ABOVE_ITEM_LAYER)
 	menu_holder.appearance_flags |= KEEP_APART
-	menu_holder.vis_contents += elements + close_button
+	menu_holder.vis_contents |= (elements + close_button)
 	current_user.images += menu_holder
 
 /datum/radial_menu/proc/hide()
@@ -291,7 +289,6 @@ GLOBAL_LIST_EMPTY(radial_menus)
 				return
 			else
 				next_check = world.time + check_delay
-
 		stoplag(1)
 
 /datum/radial_menu/Destroy()
@@ -307,10 +304,11 @@ GLOBAL_LIST_EMPTY(radial_menus)
 	Choices should be a list where list keys are movables or text used for element names and return value
 	and list values are movables/icons/images used for element icons
 */
-
 /proc/show_radial_menu(mob/user, atom/anchor, list/choices, uniqueid, radius, datum/callback/custom_check, require_near = FALSE, tooltips = FALSE, no_repeat_close = FALSE, list/check_locs, use_labels = FALSE)
 	if(!user || !anchor || !length(choices))
 		return
+	if (istype(user.loc, /mob/living/exosuit))
+		anchor = user.loc
 	if(!uniqueid)
 		uniqueid = "defmenu_[any2ref(user)]_[any2ref(anchor)]"
 
@@ -326,22 +324,36 @@ GLOBAL_LIST_EMPTY(radial_menus)
 
 	var/datum/radial_menu/menu = new
 	GLOB.radial_menus[uniqueid] = menu
-
 	if(radius)
 		menu.radius = radius
-
 	if(istype(custom_check))
 		menu.custom_check_callback = custom_check
-
 	menu.anchor = anchor
 	menu.check_screen_border(user) //Do what's needed to make it look good near borders or on hud
 	menu.set_choices(choices, tooltips, use_labels)
 	menu.show_to(user)
 	menu.wait(user, anchor, require_near, check_locs)
-
 	var/answer = menu.selected_choice
 	qdel(menu)
 	GLOB.radial_menus -= uniqueid
 	return answer
 
 #define RADIAL_INPUT(user, choices) show_radial_menu(user, user, choices)
+
+/*
+	Helper to make a radial menu button with a name and icon for a given atom.
+*/
+/proc/make_item_radial_menu_button(atom/movable/AM, name_prefix = "", name_suffix = "")
+	var/image/radial_button = new
+	radial_button.appearance = AM
+	radial_button.plane = FLOAT_PLANE
+	radial_button.layer = FLOAT_LAYER
+	radial_button.name = "[name_prefix][AM.name][name_suffix]"
+	return radial_button
+
+/*
+	Helper to make a radial menu button for a set of atoms with their names and icons.
+*/
+/proc/make_item_radial_menu_choices(list/items, name_prefix = "", name_suffix = "")
+	for(var/atom/movable/AM in items)
+		LAZYSET(., AM, make_item_radial_menu_button(AM, name_prefix, name_suffix))

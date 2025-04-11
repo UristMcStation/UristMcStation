@@ -31,38 +31,16 @@
 	return 1
 
 
-/obj/item/device/assembly_holder/attach(obj/item/device/assembly/D, obj/item/device/assembly/D2, mob/user)
-	if((!D)||(!D2))
-		return 0
-	if((!istype(D))||(!istype(D2)))
-		return 0
-	if((D.secured)||(D2.secured))
-		return 0
-	if(user)
-		user.drop_from_inventory(D)
-		user.drop_from_inventory(D2)
-	D.holder = src
-	D2.holder = src
-	D.forceMove(src)
-	D2.forceMove(src)
-	a_left = D
-	a_right = D2
-	SetName("[D.name]-[D2.name] assembly")
-	update_icon()
-	usr.put_in_hands(src)
-	return 1
-
-
 /obj/item/device/assembly_holder/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(a_left)
-		overlays += "[a_left.icon_state]_left"
+		AddOverlays("[a_left.icon_state]_left")
 		for(var/O in a_left.attached_overlays)
-			overlays += "[O]_l"
+			AddOverlays("[O]_l")
 	if(a_right)
-		overlays += "[a_right.icon_state]_right"
+		AddOverlays("[a_right.icon_state]_right")
 		for(var/O in a_right.attached_overlays)
-			overlays += "[O]_r"
+			AddOverlays("[O]_r")
 	if(master)
 		master.update_icon()
 
@@ -112,21 +90,20 @@
 	return
 
 
-/obj/item/device/assembly_holder/attackby(obj/item/W as obj, mob/user as mob)
-	if(isScrewdriver(W))
-		if(!a_left || !a_right)
-			to_chat(user, SPAN_WARNING("BUG:Assembly part missing, please report this!"))
-			return
-		a_left.toggle_secure()
-		a_right.toggle_secure()
+/obj/item/device/assembly_holder/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Screwdriver - Toggle secured
+	if (isScrewdriver(tool))
+		a_left.set_secure(TRUE)
+		a_right.set_secure(TRUE)
 		secured = !secured
-		if(secured)
-			to_chat(user, SPAN_NOTICE("\The [src] is ready!"))
-		else
-			to_chat(user, SPAN_NOTICE("\The [src] can now be taken apart!"))
 		update_icon()
-		return
-	..()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] adjusts \a [src] with \a [tool]."),
+			SPAN_NOTICE("You adjust \the [src] with \the [tool]. It [secured ? "is now ready to use" : "can now be taken apart"].")
+		)
+		return TRUE
+
+	return ..()
 
 
 /obj/item/device/assembly_holder/attack_self(mob/user as mob)

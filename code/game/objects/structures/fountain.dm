@@ -1,7 +1,7 @@
 /obj/structure/fountain
 	name = "fountain"
 	desc = "A beautifully constructed fountain."
-	icon = 'icons/obj/fountain.dmi'
+	icon = 'icons/obj/structures/fountain.dmi'
 	icon_state = "fountain_g"
 	density = TRUE
 	anchored = TRUE
@@ -19,7 +19,7 @@
 /obj/structure/fountain/strange/Initialize()
 	. = ..()
 	light_color = get_random_colour(lower = 190)
-	set_light(0.6, 3, 5, 2, light_color)
+	set_light(5, 0.6, light_color)
 
 
 /obj/structure/fountain/strange/attack_hand(mob/living/user)

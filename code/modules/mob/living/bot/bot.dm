@@ -13,6 +13,8 @@
 	bone_material = null
 	bone_amount = 0
 
+	ignore_hazard_flags = HAZARD_FLAG_SHARD
+
 	var/obj/item/card/id/botcard = null
 	var/list/botcard_access = list()
 	var/on = 1
@@ -46,8 +48,9 @@
 
 	layer = HIDING_MOB_LAYER
 
-/mob/living/bot/New()
-	..()
+
+/mob/living/bot/Initialize(mapload)
+	. = ..()
 	update_icons()
 
 	botcard = new /obj/item/card/id(src)
@@ -55,6 +58,7 @@
 
 	access_scanner = new /obj(src)
 	access_scanner.req_access = req_access.Copy()
+
 
 /mob/living/bot/Initialize()
 	. = ..()
@@ -93,7 +97,6 @@
 	if (istype(id))
 		if (open)
 			USE_FEEDBACK_FAILURE("\The [src]'s access panel must be closed before you can lock it.")
-			to_chat(user, SPAN_WARNING("\The [src]'s access panel must be closed before you can lock it."))
 			return TRUE
 		var/id_name = GET_ID_NAME(id, tool)
 		if (!access_scanner.check_access(id))
@@ -193,7 +196,7 @@
 	return
 
 /mob/living/bot/proc/GetInteractStatus()
-	. = "Status: <A href='?src=\ref[src];command=toggle'>[on ? "On" : "Off"]</A>"
+	. = "Status: <A href='byond://?src=\ref[src];command=toggle'>[on ? "On" : "Off"]</A>"
 	. += "<BR>Behaviour controls are [locked ? "locked" : "unlocked"]"
 	. += "<BR>Maintenance panel is [open ? "opened" : "closed"]"
 
@@ -227,7 +230,7 @@
 
 	..(message, null, verb)
 
-/mob/living/bot/Bump(atom/A)
+/mob/living/bot/Bump(atom/A, called)
 	if(on && botcard && istype(A, /obj/machinery/door))
 		var/obj/machinery/door/D = A
 		if(!istype(D, /obj/machinery/door/firedoor) && !istype(D, /obj/machinery/door/blast) && D.check_access(botcard))
@@ -379,7 +382,7 @@
 	if(stat)
 		return 0
 	on = 1
-	set_light(0.5, 0.1, light_strength)
+	set_light(light_strength, 0.5)
 	update_icons()
 	resetTarget()
 	patrol_path = list()

@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/food/snacks/sushi
 	name = "sushi"
 	desc = "A small, neatly wrapped morsel. Itadakimasu!"
-	icon = 'icons/obj/sushi.dmi'
+	icon = 'icons/obj/food/sushi.dmi'
 	icon_state = "sushi_rice"
 	bitesize = 1
 	sushi_overlay = "fish"
@@ -20,7 +20,7 @@
 		var/image/I = image(icon, sushi_overlay)
 		if(sushi_overlay == "fish" || sushi_overlay == "meat")
 			I.color = topping.filling_color
-		overlays += I
+		AddOverlays(I)
 
 		if(istype(topping, /obj/item/reagent_containers/food/snacks/sashimi))
 			var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = topping
@@ -28,7 +28,7 @@
 		else
 			sushi_type = topping.name
 			if (text_starts_with(sushi_type, "raw"))
-				sushi_type = trim(copytext(sushi_type, 4))
+				sushi_type = trimtext(copytext(sushi_type, 4))
 		if(topping.reagents)
 			topping.reagents.trans_to(src, topping.reagents.total_volume)
 
@@ -39,7 +39,7 @@
 	else
 		var/image/I = image(icon, sushi_overlay)
 		I.color = "#ff4040"
-		overlays += I
+		AddOverlays(I)
 
 	if(istype(rice))
 		if(rice.reagents)
@@ -52,14 +52,14 @@
 
 /obj/item/reagent_containers/food/snacks/sushi/on_update_icon()
 	name = "[sushi_type] sushi"
-	overlays += "nori"
+	AddOverlays("nori")
 
 /////////////
 // SASHIMI //
 /////////////
 /obj/item/reagent_containers/food/snacks/sashimi
 	name = "sashimi"
-	icon = 'icons/obj/sushi.dmi'
+	icon = 'icons/obj/food/sushi.dmi'
 	desc = "Thinly sliced raw fish. Tasty."
 	icon_state = "sashimi"
 	color = "#ff4040"

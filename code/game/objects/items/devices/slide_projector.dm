@@ -7,12 +7,12 @@
 	max_storage_space = BASE_STORAGE_CAPACITY(ITEM_SIZE_SMALL)
 	use_sound = 'sound/effects/storage/toolbox.ogg'
 	var/static/list/projection_types = list(
-		/obj/item/photo = /obj/effect/projection/photo,
-		/obj/item/paper = /obj/effect/projection/paper,
-		/obj/item = /obj/effect/projection
+		/obj/item/photo = /obj/projection/photo,
+		/obj/item/paper = /obj/projection/paper,
+		/obj/item = /obj/projection
 	)
 	var/obj/item/current_slide
-	var/obj/effect/projection/projection
+	var/obj/projection/projection
 
 /obj/item/storage/slide_projector/Destroy()
 	current_slide = null
@@ -75,7 +75,7 @@
 /obj/item/storage/slide_projector/proc/stop_projecting()
 	if(projection)
 		QDEL_NULL(projection)
-	GLOB.moved_event.unregister(src, src, .proc/check_projections)
+	GLOB.moved_event.unregister(src, src, PROC_REF(check_projections))
 	set_light(0)
 	update_icon()
 
@@ -92,8 +92,8 @@
 			break
 	projection = new projection_type(target)
 	projection.set_source(current_slide)
-	GLOB.moved_event.register(src, src, .proc/check_projections)
-	set_light(0.1, 0.1, 1, 2, COLOR_WHITE) //Bit of light
+	GLOB.moved_event.register(src, src, PROC_REF(check_projections))
+	set_light(1, 0.1, COLOR_WHITE) //Bit of light
 	update_icon()
 
 /obj/item/storage/slide_projector/attack_self(mob/user)
@@ -102,7 +102,7 @@
 /obj/item/storage/slide_projector/interact(mob/user)
 	var/data = list()
 	if(projection)
-		data += "<a href='?src=\ref[src];stop_projector=1'>Disable projector</a>"
+		data += "<a href='byond://?src=\ref[src];stop_projector=1'>Disable projector</a>"
 	else
 		data += "Projector inactive"
 
@@ -113,7 +113,7 @@
 		if(I == current_slide)
 			table += "<td><b>[I.name]</b></td><td>SHOWING</td>"
 		else
-			table += "<td>[I.name]</td><td><a href='?src=\ref[src];set_active=[i]'>SHOW</a></td>"
+			table += "<td>[I.name]</td><td><a href='byond://?src=\ref[src];set_active=[i]'>SHOW</a></td>"
 		table += "</tr>"
 		i++
 	table += "</table>"
@@ -142,7 +142,7 @@
 	if(. == TOPIC_REFRESH)
 		interact(user)
 
-/obj/effect/projection
+/obj/projection
 	name = "projected slide"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "white"
@@ -153,20 +153,20 @@
 	alpha = 100
 	var/weakref/source
 
-/obj/effect/projection/Initialize()
+/obj/projection/Initialize()
 	. = ..()
-	set_light(0.1, 0.1, 1, 2, COLOR_WHITE) //Makes turning off the lights not invalidate projection
+	set_light(1, 0.1, COLOR_WHITE) //Makes turning off the lights not invalidate projection
 
-/obj/effect/projection/on_update_icon()
+/obj/projection/on_update_icon()
 	filters = filter(type="drop_shadow", color = COLOR_WHITE, size = 4, offset = 1,x = 0, y = 0)
 	project_icon()
 
-/obj/effect/projection/proc/project_icon()
+/obj/projection/proc/project_icon()
 	var/obj/item/I = source.resolve()
 	if(!istype(I))
 		qdel(src)
 		return
-	overlays.Cut()
+	ClearOverlays()
 	var/mutable_appearance/MA = new(I)
 	MA.plane = FLOAT_PLANE
 	MA.layer = FLOAT_LAYER
@@ -174,25 +174,25 @@
 	MA.alpha = 170
 	MA.pixel_x = 0
 	MA.pixel_y = 0
-	overlays |= MA
+	AddOverlays(MA)
 
-/obj/effect/projection/proc/set_source(obj/item/I)
+/obj/projection/proc/set_source(obj/item/I)
 	source = weakref(I)
 	desc = "It's currently showing \the [I]."
 	update_icon()
 
-/obj/effect/projection/examine(mob/user, distance)
+/obj/projection/examine(mob/user, distance)
 	. = ..()
 	var/obj/item/slide = source.resolve()
 	if(!istype(slide))
 		qdel(src)
 		return
-	return slide.examine(user, 1)
+	return slide.examine(user, 0, FALSE)
 
-/obj/effect/projection/photo
+/obj/projection/photo
 	alpha = 170
 
-/obj/effect/projection/photo/project_icon()
+/obj/projection/photo/project_icon()
 	var/obj/item/photo/slide = source.resolve()
 	if(!istype(slide))
 		qdel(src)
@@ -202,14 +202,14 @@
 	pixel_x = -32 * round(slide.photo_size/2)
 	pixel_y = -32 * round(slide.photo_size/2)
 
-/obj/effect/projection/paper
+/obj/projection/paper
 	alpha = 140
 
-/obj/effect/projection/paper/project_icon()
+/obj/projection/paper/project_icon()
 	var/obj/item/paper/P = source.resolve()
 	if(!istype(P))
 		qdel(src)
 		return
-	overlays.Cut()
+	ClearOverlays()
 	if(P.info)
 		icon_state = "text[rand(1,3)]"

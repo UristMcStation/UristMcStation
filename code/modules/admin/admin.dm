@@ -49,21 +49,21 @@ var/global/floorIsLava = 0
 	var/last_ckey = LAST_CKEY(M)
 	if(M.client)
 		body += " played by <b>[M.client]</b> "
-		body += "\[<A href='?src=\ref[src];editrights=show'>[M.client.holder ? M.client.holder.rank : "Player"]</A>\]"
+		body += "\[<A href='byond://?src=\ref[src];editrights=show'>[M.client.holder ? M.client.holder.rank : "Player"]</A>\]"
 	else if(last_ckey)
 		body += " (last occupied by ckey <b>[last_ckey]</b>)"
 
 	if(istype(M, /mob/new_player))
 		body += " <B>Hasn't Entered Game</B> "
 	else
-		body += " \[<A href='?src=\ref[src];revive=\ref[M]'>Heal</A>\] "
+		body += " \[<A href='byond://?src=\ref[src];revive=\ref[M]'>Heal</A>\] "
 
 	var/mob/living/exosuit/E = M
 	if(istype(E) && E.pilots)
 		body += "<br><b>Exosuit pilots:</b><br>"
 		for(var/mob/living/pilot in E.pilots)
 			body += "[pilot] "
-			body += " \[<A href='?src=\ref[src];pilot=\ref[pilot]'>link</a>\]<br>"
+			body += " \[<A href='byond://?src=\ref[src];pilot=\ref[pilot]'>link</a>\]<br>"
 
 	var/inactivity_time = M.client ? time_to_readable(M.client.inactivity) : null
 
@@ -73,52 +73,56 @@ var/global/floorIsLava = 0
 
 	body += {"
 		<br><br>\[
-		<a href='?_src_=vars;Vars=\ref[M]'>VV</a> -
-		<a href='?src=\ref[src];traitor=\ref[M]'>TP</a> -
-		<a href='?src=\ref[usr];priv_msg=\ref[M]'>PM</a> -
-		<a href='?src=\ref[src];narrateto=\ref[M]'>DN</a> -
+		<a href='byond://?_src_=vars;Vars=\ref[M]'>VV</a> -
+		<a href='byond://?src=\ref[src];traitor=\ref[M]'>TP</a> -
+		<a href='byond://?src=\ref[usr];priv_msg=\ref[M]'>PM</a> -
+		<a href='byond://?src=\ref[src];narrateto=\ref[M]'>DN</a> -
 		[admin_jump_link(M, src)]\] <br>
 		<b>Mob type:</b> [M.type]<br>
 		<b>Inactivity time:</b> [inactivity_time ? "[inactivity_time]" : "Logged out"]<br/>
 		<b>Logout time:</b> [logout_time ? "[logout_time] ago" : "N/A"]<br/><br/>
-		<A href='?src=\ref[src];paralyze=\ref[M]'>PARALYZE</A> |
-		<A href='?src=\ref[src];boot2=\ref[M]'>Kick</A> |
-		<A href='?_src_=holder;warn=[last_ckey]'>Warn</A> |
-		<A href='?src=\ref[src];newban=\ref[M];last_key=[last_ckey]'>Ban</A> |
-		<A href='?src=\ref[src];jobban2=\ref[M]'>Jobban</A> |
-		<A href='?src=\ref[src];notes=show;mob=\ref[M]'>Notes</A> |
+		<A href='byond://?src=\ref[src];paralyze=\ref[M]'>PARALYZE</A> |
+		<A href='byond://?src=\ref[src];boot2=\ref[M]'>Kick</A> |
+		<A href='byond://?_src_=holder;warn=[last_ckey]'>Warn</A> |
+		<A href='byond://?src=\ref[src];newban=\ref[M];last_key=[last_ckey]'>Ban</A> |
+		<A href='byond://?src=\ref[src];jobban2=\ref[M]'>Jobban</A> |
+		<A href='byond://?src=\ref[src];notes=show;mob=\ref[M]'>Notes</A> |
+		<A HREF='byond://?src=\ref[src];connections=\ref[M]'>Check Connections</A> |
+		<A HREF='byond://?src=\ref[src];bans=\ref[M]'>Check Bans</A> |
 	"}
+	if (M.ckey)
+		body += {"<a target="_blank" href="https://www.byond.com/members/[M.ckey]">View Byond Account</a> | "}
 
 	if (!istype(M, /mob/new_player) && !istype(M, /mob/observer))
-		body += "<A HREF='?src=\ref[src];cryo=\ref[M]'>Cryo Character</A> | "
+		body += "<A HREF='byond://?src=\ref[src];cryo=\ref[M]'>Cryo Character</A> | "
+		body += "<A HREF='byond://?src=\ref[src];equip_loadout=\ref[M]'>Equip Loadout</A> | "
 
 	if(M.client)
-		body += "<A HREF='?src=\ref[src];sendtoprison=\ref[M]'>Prison</A> | "
-		body += "<A HREF='?src=\ref[src];reloadsave=\ref[M]'>Reload Save</A> | "
-		body += "<A HREF='?src=\ref[src];reloadchar=\ref[M]'>Reload Character</A> | "
+		body += "<A HREF='byond://?src=\ref[src];sendtoprison=\ref[M]'>Prison</A> | "
+		body += "<A HREF='byond://?src=\ref[src];reloadsave=\ref[M]'>Reload Save</A> | "
+		body += "<A HREF='byond://?src=\ref[src];reloadchar=\ref[M]'>Reload Character</A> | "
 		var/muted = M.client.prefs.muted
 		body += {"<br><b>Mute: </b>
-			\[<A href='?src=\ref[src];mute=\ref[M];mute_type=[MUTE_IC]'><span style='font-color: [(muted & MUTE_IC)?"red":"blue"]'>IC</span></a> |
-			<A href='?src=\ref[src];mute=\ref[M];mute_type=[MUTE_OOC]'><span style='font-color: [(muted & MUTE_OOC)?"red":"blue"]'>OOC</span></a> |
-			<A href='?src=\ref[src];mute=\ref[M];mute_type=[MUTE_AOOC]'><span style='font-color: [(muted & MUTE_AOOC)?"red":"blue"]'>AOOC</span></a> |
-			<A href='?src=\ref[src];mute=\ref[M];mute_type=[MUTE_PRAY]'><span style='font-color: [(muted & MUTE_PRAY)?"red":"blue"]'>PRAY</span></a> |
-			<A href='?src=\ref[src];mute=\ref[M];mute_type=[MUTE_ADMINHELP]'><span style='font-color: [(muted & MUTE_ADMINHELP)?"red":"blue"]'>ADMINHELP</span></a> |
-			<A href='?src=\ref[src];mute=\ref[M];mute_type=[MUTE_DEADCHAT]'><span style='font-color: [(muted & MUTE_DEADCHAT)?"red":"blue"]'>DEADCHAT</span></a>\]
-			(<A href='?src=\ref[src];mute=\ref[M];mute_type=[MUTE_ALL]'><span style='font-color: [(muted & MUTE_ALL)?"red":"blue"]'>toggle all</span></a>)
+			\[<A href='byond://?src=\ref[src];mute=\ref[M];mute_type=[MUTE_IC]'><span style='font-color: [(muted & MUTE_IC)?"red":"blue"]'>IC</span></a> |
+			<A href='byond://?src=\ref[src];mute=\ref[M];mute_type=[MUTE_OOC]'><span style='font-color: [(muted & MUTE_OOC)?"red":"blue"]'>OOC</span></a> |
+			<A href='byond://?src=\ref[src];mute=\ref[M];mute_type=[MUTE_AOOC]'><span style='font-color: [(muted & MUTE_AOOC)?"red":"blue"]'>AOOC</span></a> |
+			<A href='byond://?src=\ref[src];mute=\ref[M];mute_type=[MUTE_PRAY]'><span style='font-color: [(muted & MUTE_PRAY)?"red":"blue"]'>PRAY</span></a> |
+			<A href='byond://?src=\ref[src];mute=\ref[M];mute_type=[MUTE_ADMINHELP]'><span style='font-color: [(muted & MUTE_ADMINHELP)?"red":"blue"]'>ADMINHELP</span></a> |
+			<A href='byond://?src=\ref[src];mute=\ref[M];mute_type=[MUTE_DEADCHAT]'><span style='font-color: [(muted & MUTE_DEADCHAT)?"red":"blue"]'>DEADCHAT</span></a>\]
+			(<A href='byond://?src=\ref[src];mute=\ref[M];mute_type=[MUTE_ALL]'><span style='font-color: [(muted & MUTE_ALL)?"red":"blue"]'>toggle all</span></a>)
 		"}
 		body += "<br><br><b>Staff Warning:</b> [M.client.staffwarn ? M.client.staffwarn : "No"]<br>"
 		if (!M.client.staffwarn)
-			body += "<A href='?src=\ref[src];setstaffwarn=\ref[M]'>Set StaffWarn</A>"
+			body += "<A href='byond://?src=\ref[src];setstaffwarn=\ref[M]'>Set StaffWarn</A>"
 		else
-			body += "<A href='?src=\ref[src];removestaffwarn=\ref[M]'>Remove StaffWarn</A>"
+			body += "<A href='byond://?src=\ref[src];removestaffwarn=\ref[M]'>Remove StaffWarn</A>"
 
 	body += {"<br><br>
-		<A href='?src=\ref[src];jumpto=\ref[M]'><b>Jump to</b></A> |
-		<A href='?src=\ref[src];getmob=\ref[M]'>Get</A> |
-		<A href='?src=\ref[src];sendmob=\ref[M]'>Send To</A>
+		<A href='byond://?src=\ref[src];jumpto=\ref[M]'><b>Jump to</b></A> |
+		<A href='byond://?src=\ref[src];getmob=\ref[M]'>Get</A>
 		<br><br>
-		[check_rights(R_ADMIN|R_MOD,0) ? "<A href='?src=\ref[src];traitor=\ref[M]'>Traitor panel</A> | " : "" ]
-		[check_rights(R_INVESTIGATE,0) ? "<A href='?src=\ref[src];skillpanel=\ref[M]'>Skill panel</A>" : "" ]
+		[check_rights(R_ADMIN|R_MOD,0) ? "<A href='byond://?src=\ref[src];traitor=\ref[M]'>Traitor panel</A> | " : "" ]
+		[check_rights(R_INVESTIGATE,0) ? "<A href='byond://?src=\ref[src];skillpanel=\ref[M]'>Skill panel</A>" : "" ]
 	"}
 
 	if(M.mind)
@@ -127,15 +131,15 @@ var/global/floorIsLava = 0
 		body += "<br>"
 		body += "[jointext(M.mind.summarize_goals(FALSE, TRUE, src), "<br>")]"
 		body += "<br>"
-		body += "<a href='?src=\ref[M.mind];add_goal=1'>Add Random Goal</a>"
+		body += "<a href='byond://?src=\ref[M.mind];add_goal=1'>Add Random Goal</a>"
 
 	body += "<br><br>"
 	body += "<b>Psionics:</b><br/>"
 	if(isliving(M))
 		var/mob/living/psyker = M
 		if(psyker.psi)
-			body += "<a href='?src=\ref[psyker.psi];remove_psionics=1'>Remove psionics.</a><br/><br/>"
-			body += "<a href='?src=\ref[psyker.psi];trigger_psi_latencies=1'>Trigger latencies.</a><br/>"
+			body += "<a href='byond://?src=\ref[psyker.psi];remove_psionics=1'>Remove psionics.</a><br/><br/>"
+			body += "<a href='byond://?src=\ref[psyker.psi];trigger_psi_latencies=1'>Trigger latencies.</a><br/>"
 		body += "<table width = '100%'>"
 		for(var/faculty in list(PSI_COERCION, PSI_PSYCHOKINESIS, PSI_REDACTION, PSI_ENERGISTICS))
 			var/singleton/psionic_faculty/faculty_singleton = SSpsi.get_faculty(faculty)
@@ -145,7 +149,7 @@ var/global/floorIsLava = 0
 				var/psi_title = GLOB.psychic_ranks_to_strings[i]
 				if(i == faculty_rank)
 					psi_title = "<b>[psi_title]</b>"
-				body += "<td><a href='?src=\ref[psyker.mind];set_psi_faculty_rank=[i];set_psi_faculty=[faculty]'>[psi_title]</a></td>"
+				body += "<td><a href='byond://?src=\ref[psyker.mind];set_psi_faculty_rank=[i];set_psi_faculty=[faculty]'>[psi_title]</a></td>"
 			body += "</tr>"
 		body += "</table>"
 
@@ -159,30 +163,30 @@ var/global/floorIsLava = 0
 			if(issmall(M))
 				body += "<B>Monkeyized</B> | "
 			else
-				body += "<A href='?src=\ref[src];monkeyone=\ref[M]'>Monkeyize</A> | "
+				body += "<A href='byond://?src=\ref[src];monkeyone=\ref[M]'>Monkeyize</A> | "
 
 			//Corgi
 			if(iscorgi(M))
 				body += "<B>Corgized</B> | "
 			else
-				body += "<A href='?src=\ref[src];corgione=\ref[M]'>Corgize</A> | "
+				body += "<A href='byond://?src=\ref[src];corgione=\ref[M]'>Corgize</A> | "
 
 			//AI / Cyborg
 			if(isAI(M))
 				body += "<B>Is an AI</B> "
 			else if(ishuman(M))
-				body += {"<A href='?src=\ref[src];makeai=\ref[M]'>Make AI</A> |
-					<A href='?src=\ref[src];makerobot=\ref[M]'>Make Robot</A> |
-					<A href='?src=\ref[src];makealien=\ref[M]'>Make Alien</A> |
-					<A href='?src=\ref[src];makeslime=\ref[M]'>Make Slime</A> |
-					<A href='?src=\ref[src];makezombie=\ref[M]'>Make Zombie</A> |
+				body += {"<A href='byond://?src=\ref[src];makeai=\ref[M]'>Make AI</A> |
+					<A href='byond://?src=\ref[src];makerobot=\ref[M]'>Make Robot</A> |
+					<A href='byond://?src=\ref[src];makealien=\ref[M]'>Make Alien</A> |
+					<A href='byond://?src=\ref[src];makeslime=\ref[M]'>Make Slime</A> |
+					<A href='byond://?src=\ref[src];makezombie=\ref[M]'>Make Zombie</A> |
 				"}
 
 			//Simple Animals
 			if(isanimal(M))
-				body += "<A href='?src=\ref[src];makeanimal=\ref[M]'>Re-Animalize</A> | "
+				body += "<A href='byond://?src=\ref[src];makeanimal=\ref[M]'>Re-Animalize</A> | "
 			else
-				body += "<A href='?src=\ref[src];makeanimal=\ref[M]'>Animalize</A> | "
+				body += "<A href='byond://?src=\ref[src];makeanimal=\ref[M]'>Animalize</A> | "
 
 			// DNA2 - Admin Hax
 			if(M.dna && iscarbon(M))
@@ -197,7 +201,7 @@ var/global/floorIsLava = 0
 					if(bname)
 						var/bstate=M.dna.GetSEState(block)
 						var/bcolor="[(bstate)?"#006600":"#ff0000"]"
-						body += "<A href='?src=\ref[src];togmutate=\ref[M];block=[block]' style='color:[bcolor];'>[bname]</A><sub>[block]</sub>"
+						body += "<A href='byond://?src=\ref[src];togmutate=\ref[M];block=[block]' style='color:[bcolor];'>[bname]</A><sub>[block]</sub>"
 					else
 						body += "[block]"
 					body+="</td>"
@@ -205,46 +209,46 @@ var/global/floorIsLava = 0
 
 			body += {"<br><br>
 				<b>Rudimentary transformation:</b>[FONT_NORMAL("<br>These transformations only create a new mob type and copy stuff over. They do not take into account MMIs and similar mob-specific things. The buttons in 'Transformations' are preferred, when possible.")]<br>
-				<A href='?src=\ref[src];simplemake=observer;mob=\ref[M]'>Observer</A> |
-				\[ Xenos: <A href='?src=\ref[src];simplemake=larva;mob=\ref[M]'>Larva</A>
-				<A href='?src=\ref[src];simplemake=human;species=Xenophage Drone;mob=\ref[M]'>Drone</A>
-				<A href='?src=\ref[src];simplemake=human;species=Xenophage Hunter;mob=\ref[M]'>Hunter</A>
-				<A href='?src=\ref[src];simplemake=human;species=Xenophage Sentinel;mob=\ref[M]'>Sentinel</A>
-				<A href='?src=\ref[src];simplemake=human;species=Xenophage Queen;mob=\ref[M]'>Queen</A> \] |
-				\[ Crew: <A href='?src=\ref[src];simplemake=human;mob=\ref[M]'>Human</A>
-				<A href='?src=\ref[src];simplemake=human;species=Unathi;mob=\ref[M]'>Unathi</A>
-				<A href='?src=\ref[src];simplemake=human;species=Skrell;mob=\ref[M]'>Skrell</A>
-				<A href='?src=\ref[src];simplemake=human;species=Vox;mob=\ref[M]'>Vox</A> \] | \[
-				<A href='?src=\ref[src];simplemake=nymph;mob=\ref[M]'>Nymph</A>
-				<A href='?src=\ref[src];simplemake=human;species='Diona';mob=\ref[M]'>Diona</A> \] |
-				\[ slime: <A href='?src=\ref[src];simplemake=slime;mob=\ref[M]'>Baby</A>,
-				<A href='?src=\ref[src];simplemake=adultslime;mob=\ref[M]'>Adult</A> \]
-				<A href='?src=\ref[src];simplemake=monkey;mob=\ref[M]'>Monkey</A> |
-				<A href='?src=\ref[src];simplemake=robot;mob=\ref[M]'>Cyborg</A> |
-				<A href='?src=\ref[src];simplemake=cat;mob=\ref[M]'>Cat</A> |
-				<A href='?src=\ref[src];simplemake=runtime;mob=\ref[M]'>Runtime</A> |
-				<A href='?src=\ref[src];simplemake=corgi;mob=\ref[M]'>Corgi</A> |
-				<A href='?src=\ref[src];simplemake=ian;mob=\ref[M]'>Ian</A> |
-				<A href='?src=\ref[src];simplemake=crab;mob=\ref[M]'>Crab</A> |
-				<A href='?src=\ref[src];simplemake=coffee;mob=\ref[M]'>Coffee</A> |
-				\[ Construct: <A href='?src=\ref[src];simplemake=constructarmoured;mob=\ref[M]'>Armoured</A> ,
-				<A href='?src=\ref[src];simplemake=constructbuilder;mob=\ref[M]'>Builder</A> ,
-				<A href='?src=\ref[src];simplemake=constructwraith;mob=\ref[M]'>Wraith</A> \]
-				<A href='?src=\ref[src];simplemake=shade;mob=\ref[M]'>Shade</A>
+				<A href='byond://?src=\ref[src];simplemake=observer;mob=\ref[M]'>Observer</A> |
+				\[ Xenos: <A href='byond://?src=\ref[src];simplemake=larva;mob=\ref[M]'>Larva</A>
+				<A href='byond://?src=\ref[src];simplemake=human;species=Xenophage Drone;mob=\ref[M]'>Drone</A>
+				<A href='byond://?src=\ref[src];simplemake=human;species=Xenophage Hunter;mob=\ref[M]'>Hunter</A>
+				<A href='byond://?src=\ref[src];simplemake=human;species=Xenophage Sentinel;mob=\ref[M]'>Sentinel</A>
+				<A href='byond://?src=\ref[src];simplemake=human;species=Xenophage Queen;mob=\ref[M]'>Queen</A> \] |
+				\[ Crew: <A href='byond://?src=\ref[src];simplemake=human;mob=\ref[M]'>Human</A>
+				<A href='byond://?src=\ref[src];simplemake=human;species=Unathi;mob=\ref[M]'>Unathi</A>
+				<A href='byond://?src=\ref[src];simplemake=human;species=Skrell;mob=\ref[M]'>Skrell</A>
+				<A href='byond://?src=\ref[src];simplemake=human;species=Vox;mob=\ref[M]'>Vox</A> \] | \[
+				<A href='byond://?src=\ref[src];simplemake=nymph;mob=\ref[M]'>Nymph</A>
+				<A href='byond://?src=\ref[src];simplemake=human;species='Diona';mob=\ref[M]'>Diona</A> \] |
+				\[ slime: <A href='byond://?src=\ref[src];simplemake=slime;mob=\ref[M]'>Baby</A>,
+				<A href='byond://?src=\ref[src];simplemake=adultslime;mob=\ref[M]'>Adult</A> \]
+				<A href='byond://?src=\ref[src];simplemake=monkey;mob=\ref[M]'>Monkey</A> |
+				<A href='byond://?src=\ref[src];simplemake=robot;mob=\ref[M]'>Cyborg</A> |
+				<A href='byond://?src=\ref[src];simplemake=cat;mob=\ref[M]'>Cat</A> |
+				<A href='byond://?src=\ref[src];simplemake=runtime;mob=\ref[M]'>Runtime</A> |
+				<A href='byond://?src=\ref[src];simplemake=corgi;mob=\ref[M]'>Corgi</A> |
+				<A href='byond://?src=\ref[src];simplemake=ian;mob=\ref[M]'>Ian</A> |
+				<A href='byond://?src=\ref[src];simplemake=crab;mob=\ref[M]'>Crab</A> |
+				<A href='byond://?src=\ref[src];simplemake=coffee;mob=\ref[M]'>Coffee</A> |
+				\[ Construct: <A href='byond://?src=\ref[src];simplemake=constructarmoured;mob=\ref[M]'>Armoured</A> ,
+				<A href='byond://?src=\ref[src];simplemake=constructbuilder;mob=\ref[M]'>Builder</A> ,
+				<A href='byond://?src=\ref[src];simplemake=constructwraith;mob=\ref[M]'>Wraith</A> \]
+				<A href='byond://?src=\ref[src];simplemake=shade;mob=\ref[M]'>Shade</A>
 				<br>
 			"}
 	body += {"<br><br>
 			<b>Other actions:</b>
 			<br>
-			<A href='?src=\ref[src];forcespeech=\ref[M]'>Forcesay</A> |
-			<a href='?src=\ref[src];cloneother=\ref[M]'>Clone Other</a>
+			<A href='byond://?src=\ref[src];forcespeech=\ref[M]'>Forcesay</A> |
+			<a href='byond://?src=\ref[src];cloneother=\ref[M]'>Clone Other</a>
 			"}
 	if (M.client)
 		body += {" |
-			<A href='?src=\ref[src];tdome1=\ref[M]'>Thunderdome 1</A> |
-			<A href='?src=\ref[src];tdome2=\ref[M]'>Thunderdome 2</A> |
-			<A href='?src=\ref[src];tdomeadmin=\ref[M]'>Thunderdome Admin</A> |
-			<A href='?src=\ref[src];tdomeobserve=\ref[M]'>Thunderdome Observer</A> |
+			<A href='byond://?src=\ref[src];tdome1=\ref[M]'>Thunderdome 1</A> |
+			<A href='byond://?src=\ref[src];tdome2=\ref[M]'>Thunderdome 2</A> |
+			<A href='byond://?src=\ref[src];tdomeadmin=\ref[M]'>Thunderdome Admin</A> |
+			<A href='byond://?src=\ref[src];tdomeobserve=\ref[M]'>Thunderdome Observer</A> |
 		"}
 	// language toggles
 	body += "<br><br><b>Languages:</b><br>"
@@ -255,9 +259,9 @@ var/global/floorIsLava = 0
 			if(!f) body += " | "
 			else f = 0
 			if(L in M.languages)
-				body += "<a href='?src=\ref[src];toglang=\ref[M];lang=[html_encode(k)]' style='color:#006600'>[k]</a>"
+				body += "<a href='byond://?src=\ref[src];toglang=\ref[M];lang=[html_encode(k)]' style='color:#006600'>[k]</a>"
 			else
-				body += "<a href='?src=\ref[src];toglang=\ref[M];lang=[html_encode(k)]' style='color:#ff0000'>[k]</a>"
+				body += "<a href='byond://?src=\ref[src];toglang=\ref[M];lang=[html_encode(k)]' style='color:#ff0000'>[k]</a>"
 
 	body += {"<br>
 		</body></html>
@@ -297,7 +301,7 @@ var/global/floorIsLava = 0
 				continue
 			note_keys -= t
 
-	dat += "<center><b>Search term:</b> <a href='?src=\ref[src];notes=set_filter'>[filter_term ? filter_term : "-----"]</a></center><hr>"
+	dat += "<center><b>Search term:</b> <a href='byond://?src=\ref[src];notes=set_filter'>[filter_term ? filter_term : "-----"]</a></center><hr>"
 
 	if(!note_keys)
 		dat += "No notes found."
@@ -305,7 +309,7 @@ var/global/floorIsLava = 0
 		dat += "<table>"
 		note_keys = sortList(note_keys)
 		for(var/t in note_keys)
-			dat += "<tr><td><a href='?src=\ref[src];notes=show;ckey=[t]'>[t]</a></td></tr>"
+			dat += "<tr><td><a href='byond://?src=\ref[src];notes=show;ckey=[t]'>[t]</a></td></tr>"
 		dat += "</table><br>"
 
 	var/datum/browser/popup = new(usr, "player_notes", "Player Notes", 400, 400)
@@ -374,7 +378,7 @@ var/global/floorIsLava = 0
 		<div style="text-align: center;">\
 			<b>Player Age</b>: [subject ? subject.player_age : "Not Connected"]\
 			<hr>\
-			<a href="?src=\ref[handler];add_player_info=[target]">Add Comment</a>\
+			<a href="byond://?src=\ref[handler];add_player_info=[target]">Add Comment</a>\
 		</div>\
 		<hr>\
 	"}
@@ -387,7 +391,7 @@ var/global/floorIsLava = 0
 		var/datum/player_info/comment = infos[i]
 		var/remove_button = ""
 		if (comment.author == user.key || check_rights(R_HOST, FALSE, user))
-			remove_button = {"<a href="?src=\ref[handler];remove_player_info=[target];remove_index=[i]">Remove</a>"}
+			remove_button = {"<a href="byond://?src=\ref[handler];remove_player_info=[target];remove_index=[i]">Remove</a>"}
 		body += {"\
 			<div style="text-align: right; margin-bottom: 8px;">\
 				<div style="text-align: left; border: 1px dashed #808080; padding: 2px;">[comment.content]</div>\
@@ -427,12 +431,12 @@ var/global/floorIsLava = 0
 				<BR>Note that this panel allows full freedom over the news network, there are no constrictions except the few basic ones. Don't break things!
 			"}
 			if(torch_network.wanted_issue)
-				dat+= "<HR><A href='?src=\ref[src];ac_view_wanted=1'>Read Wanted Issue</A>"
+				dat+= "<HR><A href='byond://?src=\ref[src];ac_view_wanted=1'>Read Wanted Issue</A>"
 
-			dat+= {"<HR><BR><A href='?src=\ref[src];ac_create_channel=1'>Create Feed Channel</A>
-				<BR><A href='?src=\ref[src];ac_view=1'>View Feed Channels</A>
-				<BR><A href='?src=\ref[src];ac_create_feed_story=1'>Submit new Feed story</A>
-				<BR><BR><A href='?src=\ref[usr];mach_close=newscaster_main'>Exit</A>
+			dat+= {"<HR><BR><A href='byond://?src=\ref[src];ac_create_channel=1'>Create Feed Channel</A>
+				<BR><A href='byond://?src=\ref[src];ac_view=1'>View Feed Channels</A>
+				<BR><A href='byond://?src=\ref[src];ac_create_feed_story=1'>Submit new Feed story</A>
+				<BR><BR><A href='byond://?src=\ref[usr];mach_close=newscaster_main'>Exit</A>
 			"}
 
 			var/wanted_already = 0
@@ -440,10 +444,10 @@ var/global/floorIsLava = 0
 				wanted_already = 1
 
 			dat+={"<HR><B>Feed Security functions:</B><BR>
-				<BR><A href='?src=\ref[src];ac_menu_wanted=1'>[(wanted_already) ? ("Manage") : ("Publish")] \"Wanted\" Issue</A>
-				<BR><A href='?src=\ref[src];ac_menu_censor_story=1'>Censor Feed Stories</A>
-				<BR><A href='?src=\ref[src];ac_menu_censor_channel=1'>Mark Feed Channel with [GLOB.using_map.company_name] D-Notice (disables and locks the channel.</A>
-				<BR><HR><A href='?src=\ref[src];ac_set_signature=1'>The newscaster recognises you as:<BR> [SPAN_COLOR("green", src.admincaster_signature)]</A>
+				<BR><A href='byond://?src=\ref[src];ac_menu_wanted=1'>[(wanted_already) ? ("Manage") : ("Publish")] \"Wanted\" Issue</A>
+				<BR><A href='byond://?src=\ref[src];ac_menu_censor_story=1'>Censor Feed Stories</A>
+				<BR><A href='byond://?src=\ref[src];ac_menu_censor_channel=1'>Mark Feed Channel with [GLOB.using_map.company_name] D-Notice (disables and locks the channel.</A>
+				<BR><HR><A href='byond://?src=\ref[src];ac_set_signature=1'>The newscaster recognises you as:<BR> [SPAN_COLOR("green", src.admincaster_signature)]</A>
 			"}
 		if(1)
 			dat+= "Feed Channels<HR>"
@@ -452,38 +456,38 @@ var/global/floorIsLava = 0
 			else
 				for(var/datum/feed_channel/CHANNEL in torch_network.network_channels)
 					if(CHANNEL.is_admin_channel)
-						dat+="<B><span style='background-color: LightGreen'><A href='?src=\ref[src];ac_show_channel=\ref[CHANNEL]'>[CHANNEL.channel_name]</A></span></B><BR>"
+						dat+="<B><span style='background-color: LightGreen'><A href='byond://?src=\ref[src];ac_show_channel=\ref[CHANNEL]'>[CHANNEL.channel_name]</A></span></B><BR>"
 					else
-						dat+="<B><A href='?src=\ref[src];ac_show_channel=\ref[CHANNEL]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? (SPAN_COLOR("red", "***")) : null ]<BR></B>"
-			dat+={"<BR><HR><A href='?src=\ref[src];ac_refresh=1'>Refresh</A>
-				<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Back</A>
+						dat+="<B><A href='byond://?src=\ref[src];ac_show_channel=\ref[CHANNEL]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? (SPAN_COLOR("red", "***")) : null ]<BR></B>"
+			dat+={"<BR><HR><A href='byond://?src=\ref[src];ac_refresh=1'>Refresh</A>
+				<BR><A href='byond://?src=\ref[src];ac_setScreen=[0]'>Back</A>
 			"}
 
 		if(2)
 			dat+={"
 				Creating new Feed Channel...
-				<HR><B><A href='?src=\ref[src];ac_set_channel_name=1'>Channel Name</A>:</B> [src.admincaster_feed_channel.channel_name]<BR>
-				<B><A href='?src=\ref[src];ac_set_signature=1'>Channel Author</A>:</B> [SPAN_COLOR("green", src.admincaster_signature)]<BR>
-				<B><A href='?src=\ref[src];ac_set_channel_lock=1'>Will Accept Public Feeds</A>:</B> [(src.admincaster_feed_channel.locked) ? ("NO") : ("YES")]<BR><BR>
-				<BR><A href='?src=\ref[src];ac_submit_new_channel=1'>Submit</A><BR><BR><A href='?src=\ref[src];ac_setScreen=[0]'>Cancel</A><BR>
+				<HR><B><A href='byond://?src=\ref[src];ac_set_channel_name=1'>Channel Name</A>:</B> [src.admincaster_feed_channel.channel_name]<BR>
+				<B><A href='byond://?src=\ref[src];ac_set_signature=1'>Channel Author</A>:</B> [SPAN_COLOR("green", src.admincaster_signature)]<BR>
+				<B><A href='byond://?src=\ref[src];ac_set_channel_lock=1'>Will Accept Public Feeds</A>:</B> [(src.admincaster_feed_channel.locked) ? ("NO") : ("YES")]<BR><BR>
+				<BR><A href='byond://?src=\ref[src];ac_submit_new_channel=1'>Submit</A><BR><BR><A href='byond://?src=\ref[src];ac_setScreen=[0]'>Cancel</A><BR>
 			"}
 		if(3)
 			dat+={"
 				Creating new Feed Message...
-				<HR><B><A href='?src=\ref[src];ac_set_channel_receiving=1'>Receiving Channel</A>:</B> [src.admincaster_feed_channel.channel_name]<BR>" //MARK
+				<HR><B><A href='byond://?src=\ref[src];ac_set_channel_receiving=1'>Receiving Channel</A>:</B> [src.admincaster_feed_channel.channel_name]<BR>" //MARK
 				<B>Message Author:</B> [SPAN_COLOR("green", src.admincaster_signature)]<BR>
-				<B><A href='?src=\ref[src];ac_set_new_message=1'>Message Body</A>:</B> [src.admincaster_feed_message.body] <BR>
-				<BR><A href='?src=\ref[src];ac_submit_new_message=1'>Submit</A><BR><BR><A href='?src=\ref[src];ac_setScreen=[0]'>Cancel</A><BR>
+				<B><A href='byond://?src=\ref[src];ac_set_new_message=1'>Message Body</A>:</B> [src.admincaster_feed_message.body] <BR>
+				<BR><A href='byond://?src=\ref[src];ac_submit_new_message=1'>Submit</A><BR><BR><A href='byond://?src=\ref[src];ac_setScreen=[0]'>Cancel</A><BR>
 			"}
 		if(4)
 			dat+={"
 					Feed story successfully submitted to [src.admincaster_feed_channel.channel_name].<BR><BR>
-					<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Return</A><BR>
+					<BR><A href='byond://?src=\ref[src];ac_setScreen=[0]'>Return</A><BR>
 				"}
 		if(5)
 			dat+={"
 				Feed Channel [src.admincaster_feed_channel.channel_name] created successfully.<BR><BR>
-				<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Return</A><BR>
+				<BR><A href='byond://?src=\ref[src];ac_setScreen=[0]'>Return</A><BR>
 			"}
 		if(6)
 			dat+="<B>[SPAN_COLOR("maroon", "ERROR: Could not submit Feed story to Network.</B>")]<HR><BR>"
@@ -491,7 +495,7 @@ var/global/floorIsLava = 0
 				dat+="[SPAN_COLOR("maroon", "Invalid receiving channel name.")]<BR>"
 			if(src.admincaster_feed_message.body == "" || src.admincaster_feed_message.body == "\[REDACTED\]")
 				dat+="[SPAN_COLOR("maroon", "Invalid message body.")]<BR>"
-			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[3]'>Return</A><BR>"
+			dat+="<BR><A href='byond://?src=\ref[src];ac_setScreen=[3]'>Return</A><BR>"
 		if(7)
 			dat+="<B>[SPAN_COLOR("maroon", "ERROR: Could not submit Feed Channel to Network.</B>")]<HR><BR>"
 			if(src.admincaster_feed_channel.channel_name =="" || src.admincaster_feed_channel.channel_name == "\[REDACTED\]")
@@ -503,7 +507,7 @@ var/global/floorIsLava = 0
 					break
 			if(check)
 				dat+="[SPAN_COLOR("maroon", "Channel name already in use.")]<BR>"
-			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[2]'>Return</A><BR>"
+			dat+="<BR><A href='byond://?src=\ref[src];ac_setScreen=[2]'>Return</A><BR>"
 		if(9)
 			dat+="<B>[src.admincaster_feed_channel.channel_name]: </B>[FONT_SMALL("\[created by: [SPAN_COLOR("maroon", src.admincaster_feed_channel.author)]\]")]<HR>"
 			if(src.admincaster_feed_channel.censored)
@@ -524,8 +528,8 @@ var/global/floorIsLava = 0
 							dat+="<img src='tmp_photo[i].png' width = '180'><BR><BR>"
 						dat+="[FONT_SMALL("\[Story by [SPAN_COLOR("maroon", MESSAGE.author)]\]")]<BR>"
 			dat+={"
-				<BR><HR><A href='?src=\ref[src];ac_refresh=1'>Refresh</A>
-				<BR><A href='?src=\ref[src];ac_setScreen=[1]'>Back</A>
+				<BR><HR><A href='byond://?src=\ref[src];ac_refresh=1'>Refresh</A>
+				<BR><A href='byond://?src=\ref[src];ac_setScreen=[1]'>Back</A>
 			"}
 		if(10)
 			dat+={"
@@ -538,8 +542,8 @@ var/global/floorIsLava = 0
 				dat+="<I>No feed channels found active...</I><BR>"
 			else
 				for(var/datum/feed_channel/CHANNEL in torch_network.network_channels)
-					dat+="<A href='?src=\ref[src];ac_pick_censor_channel=\ref[CHANNEL]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? (SPAN_COLOR("red", "***")) : null ]<BR>"
-			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Cancel</A>"
+					dat+="<A href='byond://?src=\ref[src];ac_pick_censor_channel=\ref[CHANNEL]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? (SPAN_COLOR("red", "***")) : null ]<BR>"
+			dat+="<BR><A href='byond://?src=\ref[src];ac_setScreen=[0]'>Cancel</A>"
 		if(11)
 			dat+={"
 				<B>[GLOB.using_map.company_name] D-Notice Handler</B><HR>
@@ -551,13 +555,13 @@ var/global/floorIsLava = 0
 				dat+="<I>No feed channels found active...</I><BR>"
 			else
 				for(var/datum/feed_channel/CHANNEL in torch_network.network_channels)
-					dat+="<A href='?src=\ref[src];ac_pick_d_notice=\ref[CHANNEL]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? (SPAN_COLOR("red", "***")) : null ]<BR>"
+					dat+="<A href='byond://?src=\ref[src];ac_pick_d_notice=\ref[CHANNEL]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? (SPAN_COLOR("red", "***")) : null ]<BR>"
 
-			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Back</A>"
+			dat+="<BR><A href='byond://?src=\ref[src];ac_setScreen=[0]'>Back</A>"
 		if(12)
 			dat+={"
 				<B>[src.admincaster_feed_channel.channel_name]: </B>[FONT_SMALL("\[ created by: [SPAN_COLOR("maroon", src.admincaster_feed_channel.author)] \]")]<BR>
-				[FONT_NORMAL("<A href='?src=\ref[src];ac_censor_channel_author=\ref[src.admincaster_feed_channel]'>[(src.admincaster_feed_channel.author=="\[REDACTED\]") ? ("Undo Author censorship") : ("Censor channel Author")]</A>")]<HR>
+				[FONT_NORMAL("<A href='byond://?src=\ref[src];ac_censor_channel_author=\ref[src.admincaster_feed_channel]'>[(src.admincaster_feed_channel.author=="\[REDACTED\]") ? ("Undo Author censorship") : ("Censor channel Author")]</A>")]<HR>
 			"}
 			if( !length(admincaster_feed_channel.messages) )
 				dat+="<I>No feed messages found in channel...</I><BR>"
@@ -565,13 +569,13 @@ var/global/floorIsLava = 0
 				for(var/datum/feed_message/MESSAGE in src.admincaster_feed_channel.messages)
 					dat+={"
 						-[MESSAGE.body] <BR>[FONT_SMALL("\[Story by [SPAN_COLOR("maroon", MESSAGE.author)]\]")]<BR>
-						[FONT_NORMAL("<A href='?src=\ref[src];ac_censor_channel_story_body=\ref[MESSAGE]'>[(MESSAGE.body == "\[REDACTED\]") ? ("Undo story censorship") : ("Censor story")]</A>  -  <A href='?src=\ref[src];ac_censor_channel_story_author=\ref[MESSAGE]'>[(MESSAGE.author == "\[REDACTED\]") ? ("Undo Author Censorship") : ("Censor message Author")]</A>")]<BR>
+						[FONT_NORMAL("<A href='byond://?src=\ref[src];ac_censor_channel_story_body=\ref[MESSAGE]'>[(MESSAGE.body == "\[REDACTED\]") ? ("Undo story censorship") : ("Censor story")]</A>  -  <A href='byond://?src=\ref[src];ac_censor_channel_story_author=\ref[MESSAGE]'>[(MESSAGE.author == "\[REDACTED\]") ? ("Undo Author Censorship") : ("Censor message Author")]</A>")]<BR>
 					"}
-			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[10]'>Back</A>"
+			dat+="<BR><A href='byond://?src=\ref[src];ac_setScreen=[10]'>Back</A>"
 		if(13)
 			dat+={"
 				<B>[src.admincaster_feed_channel.channel_name]: </B>[FONT_SMALL("\[ created by: [SPAN_COLOR("maroon", src.admincaster_feed_channel.author)] \]")]<BR>
-				Channel messages listed below. If you deem them dangerous to the [station_name()], you can <A href='?src=\ref[src];ac_toggle_d_notice=\ref[src.admincaster_feed_channel]'>Bestow a D-Notice upon the channel</A>.<HR>
+				Channel messages listed below. If you deem them dangerous to the [station_name()], you can <A href='byond://?src=\ref[src];ac_toggle_d_notice=\ref[src.admincaster_feed_channel]'>Bestow a D-Notice upon the channel</A>.<HR>
 			"}
 			if(src.admincaster_feed_channel.censored)
 				dat+={"
@@ -585,7 +589,7 @@ var/global/floorIsLava = 0
 					for(var/datum/feed_message/MESSAGE in src.admincaster_feed_channel.messages)
 						dat+="-[MESSAGE.body] <BR>[FONT_SMALL("\[Story by [SPAN_COLOR("maroon", MESSAGE.author)]\]")]<BR>"
 
-			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[11]'>Back</A>"
+			dat+="<BR><A href='byond://?src=\ref[src];ac_setScreen=[11]'>Back</A>"
 		if(14)
 			dat+="<B>Wanted Issue Handler:</B>"
 			var/wanted_already = 0
@@ -597,21 +601,21 @@ var/global/floorIsLava = 0
 				dat+="[FONT_NORMAL("<BR><I>A wanted issue is already in Feed Circulation. You can edit or cancel it below.")]</I>"
 			dat+={"
 				<HR>
-				<A href='?src=\ref[src];ac_set_wanted_name=1'>Criminal Name</A>: [src.admincaster_feed_message.author] <BR>
-				<A href='?src=\ref[src];ac_set_wanted_desc=1'>Description</A>: [src.admincaster_feed_message.body] <BR>
+				<A href='byond://?src=\ref[src];ac_set_wanted_name=1'>Criminal Name</A>: [src.admincaster_feed_message.author] <BR>
+				<A href='byond://?src=\ref[src];ac_set_wanted_desc=1'>Description</A>: [src.admincaster_feed_message.body] <BR>
 			"}
 			if(wanted_already)
 				dat+="<B>Wanted Issue created by:</B>[SPAN_COLOR("green", " [torch_network.wanted_issue.backup_author]")]<BR>"
 			else
 				dat+="<B>Wanted Issue will be created under prosecutor:</B>[SPAN_COLOR("green", " [src.admincaster_signature]")]<BR>"
-			dat+="<BR><A href='?src=\ref[src];ac_submit_wanted=[end_param]'>[(wanted_already) ? ("Edit Issue") : ("Submit")]</A>"
+			dat+="<BR><A href='byond://?src=\ref[src];ac_submit_wanted=[end_param]'>[(wanted_already) ? ("Edit Issue") : ("Submit")]</A>"
 			if(wanted_already)
-				dat+="<BR><A href='?src=\ref[src];ac_cancel_wanted=1'>Take down Issue</A>"
-			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Cancel</A>"
+				dat+="<BR><A href='byond://?src=\ref[src];ac_cancel_wanted=1'>Take down Issue</A>"
+			dat+="<BR><A href='byond://?src=\ref[src];ac_setScreen=[0]'>Cancel</A>"
 		if(15)
 			dat+={"
 				[SPAN_COLOR("green", "Wanted issue for [src.admincaster_feed_message.author] is now in Network Circulation.")]<BR><BR>
-				<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Return</A><BR>
+				<BR><A href='byond://?src=\ref[src];ac_setScreen=[0]'>Return</A><BR>
 			"}
 		if(16)
 			dat+="<B>[SPAN_COLOR("maroon", "ERROR: Wanted Issue rejected by Network.</B>")]<HR><BR>"
@@ -619,11 +623,11 @@ var/global/floorIsLava = 0
 				dat+="[SPAN_COLOR("maroon", "Invalid name for person wanted.")]<BR>"
 			if(src.admincaster_feed_message.body == "" || src.admincaster_feed_message.body == "\[REDACTED\]")
 				dat+="[SPAN_COLOR("maroon", "Invalid description.")]<BR>"
-			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Return</A><BR>"
+			dat+="<BR><A href='byond://?src=\ref[src];ac_setScreen=[0]'>Return</A><BR>"
 		if(17)
 			dat+={"
 				<B>Wanted Issue successfully deleted from Circulation</B><BR>
-				<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Return</A><BR>
+				<BR><A href='byond://?src=\ref[src];ac_setScreen=[0]'>Return</A><BR>
 			"}
 		if(18)
 			dat+={"
@@ -637,11 +641,11 @@ var/global/floorIsLava = 0
 				dat+="<BR><img src='tmp_photow.png' width = '180'>"
 			else
 				dat+="None"
-			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Back</A><BR>"
+			dat+="<BR><A href='byond://?src=\ref[src];ac_setScreen=[0]'>Back</A><BR>"
 		if(19)
 			dat+={"
 				[SPAN_COLOR("green", "Wanted issue for [src.admincaster_feed_message.author] successfully edited.")]<BR><BR>
-				<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Return</A><BR>
+				<BR><A href='byond://?src=\ref[src];ac_setScreen=[0]'>Return</A><BR>
 			"}
 		else
 			dat+="I'm sorry to break your immersion. This shit's bugged. Report this bug to Agouri, polyxenitopalidou@gmail.com"
@@ -662,7 +666,7 @@ var/global/floorIsLava = 0
 		var/r = t
 		if( findtext(r,"##") )
 			r = copytext( r, 1, findtext(r,"##") )//removes the description
-		dat += text("<tr><td>[t] (<A href='?src=\ref[src];removejobban=[r]'>unban</A>)</td></tr>")
+		dat += text("<tr><td>[t] (<A href='byond://?src=\ref[src];removejobban=[r]'>unban</A>)</td></tr>")
 	dat += "</table>"
 	show_browser(usr, dat, "window=ban;size=400x400")
 
@@ -671,19 +675,19 @@ var/global/floorIsLava = 0
 
 	var/dat = {"
 		<center><B>Game Panel</B></center><hr>\n
-		<A href='?src=\ref[src];c_mode=1'>Change Game Mode</A><br>
+		<A href='byond://?src=\ref[src];c_mode=1'>Change Game Mode</A><br>
 		"}
 	if(SSticker.master_mode == "secret")
-		dat += "<A href='?src=\ref[src];f_secret=1'>(Force Secret Mode)</A><br>"
+		dat += "<A href='byond://?src=\ref[src];f_secret=1'>(Force Secret Mode)</A><br>"
 
 	dat += {"
 		<BR>
-		<A href='?src=\ref[src];create_object=1'>Create Object</A><br>
-		<A href='?src=\ref[src];create_turf=1'>Create Turf</A><br>
-		<A href='?src=\ref[src];create_mob=1'>Create Mob</A><br>
-		<br><A href='?src=\ref[src];vsc=airflow'>Edit Airflow Settings</A><br>
-		<A href='?src=\ref[src];vsc=phoron'>Edit Phoron Settings</A><br>
-		<A href='?src=\ref[src];vsc=default'>Choose a default ZAS setting</A><br>
+		<A href='byond://?src=\ref[src];create_object=1'>Create Object</A><br>
+		<A href='byond://?src=\ref[src];create_turf=1'>Create Turf</A><br>
+		<A href='byond://?src=\ref[src];create_mob=1'>Create Mob</A><br>
+		<br><A href='byond://?src=\ref[src];vsc=airflow'>Edit Airflow Settings</A><br>
+		<A href='byond://?src=\ref[src];vsc=phoron'>Edit Phoron Settings</A><br>
+		<A href='byond://?src=\ref[src];vsc=default'>Choose a default ZAS setting</A><br>
 		"}
 
 	show_browser(usr, dat, "window=admin2;size=210x280")
@@ -700,7 +704,7 @@ var/global/floorIsLava = 0
 		if(active_category == category)
 			dat += SPAN_CLASS("linkOn", category.name)
 		else
-			dat += "<A href='?src=\ref[src];admin_secrets_panel=\ref[category]'>[category.name]</A> "
+			dat += "<A href='byond://?src=\ref[src];admin_secrets_panel=\ref[category]'>[category.name]</A> "
 	dat += "<HR>"
 
 	// If a category is selected, print its description and then options
@@ -710,7 +714,7 @@ var/global/floorIsLava = 0
 		for(var/datum/admin_secret_item/item in active_category.items)
 			if(!item.can_view(usr))
 				continue
-			dat += "<A href='?src=\ref[src];admin_secrets=\ref[item]'>[item.name()]</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];admin_secrets=\ref[item]'>[item.name()]</A><BR>"
 		dat += "<BR>"
 
 	var/datum/browser/popup = new(usr, "secrets", "Secrets", 550, 500)
@@ -753,7 +757,7 @@ var/global/floorIsLava = 0
 		log_admin("Announce: [key_name(usr)] : [message]")
 
 
-GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
+GLOBAL_VAR_AS(skip_allow_lists, FALSE)
 
 /datum/admins/proc/toggle_allowlists()
 	set category = "Server"
@@ -851,7 +855,7 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 	if (config.hub_visible && !world.reachable)
 		message_admins("WARNING: The server will not show up on the hub because byond is detecting that a firewall is blocking incoming connections.")
 
-	send2adminirc("[key_name(src)]" + long_message)
+	send_to_admin_discord(EXCOM_MSG_AHELP, "[key_name(src, highlight_special_characters = FALSE)]" + long_message)
 	log_and_message_admins(long_message)
 
 /datum/admins/proc/toggletraitorscaling()
@@ -1123,7 +1127,7 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 
 	if(!seedtype || !SSplants.seeds[seedtype])
 		return
-	new /obj/effect/vine(get_turf(usr), SSplants.seeds[seedtype])
+	new /obj/vine(get_turf(usr), SSplants.seeds[seedtype])
 	log_admin("[key_name(usr)] spawned [seedtype] vines at ([usr.x],[usr.y],[usr.z])")
 
 /datum/admins/proc/spawn_atom(object as text)
@@ -1241,66 +1245,66 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 		alert("Not before roundstart!", "Alert")
 		return
 
-	var/out = "[FONT_LARGE("<b>Current mode: [SSticker.mode.name] (<a href='?src=\ref[SSticker.mode];debug_antag=self'>[SSticker.mode.config_tag]</a>)</b>")]<br/>"
+	var/out = "[FONT_LARGE("<b>Current mode: [SSticker.mode.name] (<a href='byond://?src=\ref[SSticker.mode];debug_antag=self'>[SSticker.mode.config_tag]</a>)</b>")]<br/>"
 	out += "<hr>"
 
 	if(SSticker.mode.ert_disabled)
-		out += "<b>Emergency Response Teams:</b> <a href='?src=\ref[SSticker.mode];toggle=ert'>disabled</a>"
+		out += "<b>Emergency Response Teams:</b> <a href='byond://?src=\ref[SSticker.mode];toggle=ert'>disabled</a>"
 	else
-		out += "<b>Emergency Response Teams:</b> <a href='?src=\ref[SSticker.mode];toggle=ert'>enabled</a>"
+		out += "<b>Emergency Response Teams:</b> <a href='byond://?src=\ref[SSticker.mode];toggle=ert'>enabled</a>"
 	out += "<br/>"
 
 	if(SSticker.mode.deny_respawn)
-		out += "<b>Respawning:</b> <a href='?src=\ref[SSticker.mode];toggle=respawn'>disallowed</a>"
+		out += "<b>Respawning:</b> <a href='byond://?src=\ref[SSticker.mode];toggle=respawn'>disallowed</a>"
 	else
-		out += "<b>Respawning:</b> <a href='?src=\ref[SSticker.mode];toggle=respawn'>allowed</a>"
+		out += "<b>Respawning:</b> <a href='byond://?src=\ref[SSticker.mode];toggle=respawn'>allowed</a>"
 	out += "<br/>"
 
-	out += "<b>Shuttle delay multiplier:</b> <a href='?src=\ref[SSticker.mode];set=shuttle_delay'>[SSticker.mode.shuttle_delay]</a><br/>"
+	out += "<b>Shuttle delay multiplier:</b> <a href='byond://?src=\ref[SSticker.mode];set=shuttle_delay'>[SSticker.mode.shuttle_delay]</a><br/>"
 
 	if(SSticker.mode.auto_recall_shuttle)
-		out += "<b>Shuttle auto-recall:</b> <a href='?src=\ref[SSticker.mode];toggle=shuttle_recall'>enabled</a>"
+		out += "<b>Shuttle auto-recall:</b> <a href='byond://?src=\ref[SSticker.mode];toggle=shuttle_recall'>enabled</a>"
 	else
-		out += "<b>Shuttle auto-recall:</b> <a href='?src=\ref[SSticker.mode];toggle=shuttle_recall'>disabled</a>"
+		out += "<b>Shuttle auto-recall:</b> <a href='byond://?src=\ref[SSticker.mode];toggle=shuttle_recall'>disabled</a>"
 	out += "<br/><br/>"
 
 	if(SSticker.mode.event_delay_mod_moderate)
-		out += "<b>Moderate event time modifier:</b> <a href='?src=\ref[SSticker.mode];set=event_modifier_moderate'>[SSticker.mode.event_delay_mod_moderate]</a><br/>"
+		out += "<b>Moderate event time modifier:</b> <a href='byond://?src=\ref[SSticker.mode];set=event_modifier_moderate'>[SSticker.mode.event_delay_mod_moderate]</a><br/>"
 	else
-		out += "<b>Moderate event time modifier:</b> <a href='?src=\ref[SSticker.mode];set=event_modifier_moderate'>unset</a><br/>"
+		out += "<b>Moderate event time modifier:</b> <a href='byond://?src=\ref[SSticker.mode];set=event_modifier_moderate'>unset</a><br/>"
 
 	if(SSticker.mode.event_delay_mod_major)
-		out += "<b>Major event time modifier:</b> <a href='?src=\ref[SSticker.mode];set=event_modifier_severe'>[SSticker.mode.event_delay_mod_major]</a><br/>"
+		out += "<b>Major event time modifier:</b> <a href='byond://?src=\ref[SSticker.mode];set=event_modifier_severe'>[SSticker.mode.event_delay_mod_major]</a><br/>"
 	else
-		out += "<b>Major event time modifier:</b> <a href='?src=\ref[SSticker.mode];set=event_modifier_severe'>unset</a><br/>"
+		out += "<b>Major event time modifier:</b> <a href='byond://?src=\ref[SSticker.mode];set=event_modifier_severe'>unset</a><br/>"
 
 	out += "<hr>"
 
 	if(SSticker.mode.antag_tags && length(SSticker.mode.antag_tags))
 		out += "<b>Core antag templates:</b></br>"
 		for(var/antag_tag in SSticker.mode.antag_tags)
-			out += "<a href='?src=\ref[SSticker.mode];debug_antag=[antag_tag]'>[antag_tag]</a>.</br>"
+			out += "<a href='byond://?src=\ref[SSticker.mode];debug_antag=[antag_tag]'>[antag_tag]</a>.</br>"
 
 	if(SSticker.mode.round_autoantag)
-		out += "<b>Autotraitor <a href='?src=\ref[SSticker.mode];toggle=autotraitor'>enabled</a></b>."
+		out += "<b>Autotraitor <a href='byond://?src=\ref[SSticker.mode];toggle=autotraitor'>enabled</a></b>."
 		if(SSticker.mode.antag_scaling_coeff > 0)
-			out += " (scaling with <a href='?src=\ref[SSticker.mode];set=antag_scaling'>[SSticker.mode.antag_scaling_coeff]</a>)"
+			out += " (scaling with <a href='byond://?src=\ref[SSticker.mode];set=antag_scaling'>[SSticker.mode.antag_scaling_coeff]</a>)"
 		else
-			out += " (not currently scaling, <a href='?src=\ref[SSticker.mode];set=antag_scaling'>set a coefficient</a>)"
+			out += " (not currently scaling, <a href='byond://?src=\ref[SSticker.mode];set=antag_scaling'>set a coefficient</a>)"
 		out += "<br/>"
 	else
-		out += "<b>Autotraitor <a href='?src=\ref[SSticker.mode];toggle=autotraitor'>disabled</a></b>.<br/>"
+		out += "<b>Autotraitor <a href='byond://?src=\ref[SSticker.mode];toggle=autotraitor'>disabled</a></b>.<br/>"
 
 	out += "<b>All antag ids:</b>"
 	if(SSticker.mode.antag_templates && length(SSticker.mode.antag_templates))
 		for(var/datum/antagonist/antag in SSticker.mode.antag_templates)
 			antag.update_current_antag_max(SSticker.mode)
-			out += " <a href='?src=\ref[SSticker.mode];debug_antag=[antag.id]'>[antag.id]</a>"
+			out += " <a href='byond://?src=\ref[SSticker.mode];debug_antag=[antag.id]'>[antag.id]</a>"
 			out += " ([antag.get_antag_count()]/[antag.cur_max]) "
-			out += " <a href='?src=\ref[SSticker.mode];remove_antag_type=[antag.id]'>\[-\]</a><br/>"
+			out += " <a href='byond://?src=\ref[SSticker.mode];remove_antag_type=[antag.id]'>\[-\]</a><br/>"
 	else
 		out += " None."
-	out += " <a href='?src=\ref[SSticker.mode];add_antag_type=1'>\[+\]</a><br/>"
+	out += " <a href='byond://?src=\ref[SSticker.mode];add_antag_type=1'>\[+\]</a><br/>"
 
 	show_browser(usr, out, "window=edit_mode[src]")
 
@@ -1342,7 +1346,7 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 		else
 			to_chat(usr, "<b>SOMETHING SILICON [key_name(S, usr)]'s laws:</b>")
 
-		if (S.laws == null)
+		if (isnull(S.laws))
 			to_chat(usr, "[key_name(S, usr)]'s laws are null?? Contact a coder.")
 		else
 			S.laws.show_laws(usr)
@@ -1389,7 +1393,7 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 	if(istype(whom, /client))
 		C = whom
 		M = C.mob
-	else if(istype(whom, /mob))
+	else if(ismob(whom))
 		M = whom
 		C = M.client
 	else
@@ -1399,21 +1403,21 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 			return "<b>[key_name(C, link, name, highlight_special, ticket)]</b>"
 
 		if(1)	//Private Messages
-			return "<b>[key_name(C, link, name, highlight_special, ticket)](<A HREF='?_src_=holder;adminmoreinfo=\ref[M]'>?</A>)</b>"
+			return "<b>[key_name(C, link, name, highlight_special, ticket)](<A HREF='byond://?_src_=holder;adminmoreinfo=\ref[M]'>?</A>)</b>"
 
 		if(2)	//Admins
 			var/ref_mob = "\ref[M]"
-			return "<b>[key_name(C, link, name, highlight_special, ticket)](<A HREF='?_src_=holder;adminmoreinfo=[ref_mob]'>?</A>) (<A HREF='?_src_=holder;adminplayeropts=[ref_mob]'>PP</A>) (<A HREF='?_src_=vars;Vars=[ref_mob]'>VV</A>) (<A HREF='?_src_=holder;narrateto=[ref_mob]'>DN</A>) ([admin_jump_link(M)]) (<A HREF='?_src_=holder;check_antagonist=1'>CA</A>)</b>"
+			return "<b>[key_name(C, link, name, highlight_special, ticket)](<A HREF='byond://?_src_=holder;adminmoreinfo=[ref_mob]'>?</A>) (<A HREF='byond://?_src_=holder;adminplayeropts=[ref_mob]'>PP</A>) (<A HREF='byond://?_src_=vars;Vars=[ref_mob]'>VV</A>) (<A HREF='byond://?_src_=holder;narrateto=[ref_mob]'>DN</A>) ([admin_jump_link(M)]) (<A HREF='byond://?_src_=holder;check_antagonist=1'>CA</A>)</b>"
 
 		if(3)	//Devs
 			var/ref_mob = "\ref[M]"
-			return "<b>[key_name(C, link, name, highlight_special, ticket)](<A HREF='?_src_=vars;Vars=[ref_mob]'>VV</A>)([admin_jump_link(M)])</b>"
+			return "<b>[key_name(C, link, name, highlight_special, ticket)](<A HREF='byond://?_src_=vars;Vars=[ref_mob]'>VV</A>)([admin_jump_link(M)])</b>"
 
 /proc/ishost(client/C)
 	return check_rights(R_HOST, 0, C)
 
 //Prevents SDQL2 commands from changing admin permissions
-/datum/admins/SDQL_update(const/var_name, new_value)
+/datum/admins/SDQL_update(var_name, new_value)
 	return 0
 
 //
@@ -1447,6 +1451,7 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 	message_admins(SPAN_CLASS("adminnotice", "[key_name_admin(usr)] has put [frommob.ckey] in control of [tomob.name]."))
 	log_admin("[key_name(usr)] stuffed [frommob.ckey] into [tomob.name].")
 	tomob.ckey = frommob.ckey
+	tomob.teleop = null
 	qdel(frommob)
 	return 1
 
@@ -1566,7 +1571,7 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 
 	if(GLOB.adminfaxes)
 		for(var/obj/item/item in GLOB.adminfaxes)
-			data += "[item.name] - <a href='?_src_=holder;AdminFaxView=\ref[item]'>view message</a><br>"
+			data += "[item.name] - <a href='byond://?_src_=holder;AdminFaxView=\ref[item]'>view message</a><br>"
 	else
 		data += "<center>No faxes yet.</center>"
 	show_browser(usr, "<HTML><HEAD><TITLE>Fax History</TITLE></HEAD><BODY>[data]</BODY></HTML>", "window=FaxHistory;size=450x400")
@@ -1605,7 +1610,7 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 		if(!P.stamped)
 			P.stamped = new
 		P.stamped += /obj/item/stamp/boss
-		P.overlays += stampoverlay
+		P.AddOverlays(stampoverlay)
 
 	var/obj/item/rcvdcopy
 	var/obj/machinery/photocopier/faxmachine/destination = P.destinations[1]
@@ -1620,12 +1625,12 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 			log_admin("[key_name(src.owner)] replied to a fax message from [key_name(P.sender)]")
 			for(var/client/C as anything in GLOB.admins)
 				if((R_INVESTIGATE) & C.holder.rights)
-					to_chat(C, SPAN_CLASS("log_message", "[SPAN_CLASS("prefix", "FAX LOG:")][key_name_admin(src.owner)] replied to a fax message from [key_name_admin(P.sender)] (<a href='?_src_=holder;AdminFaxView=\ref[rcvdcopy]'>VIEW</a>)"))
+					to_chat(C, SPAN_CLASS("log_message", "[SPAN_CLASS("prefix", "FAX LOG:")][key_name_admin(src.owner)] replied to a fax message from [key_name_admin(P.sender)] (<a href='byond://?_src_=holder;AdminFaxView=\ref[rcvdcopy]'>VIEW</a>)"))
 		else
 			log_admin("[key_name(src.owner)] has sent a fax message to [destination.department]")
 			for(var/client/C as anything in GLOB.admins)
 				if((R_INVESTIGATE) & C.holder.rights)
-					to_chat(C, SPAN_CLASS("log_message", "[SPAN_CLASS("prefix", "FAX LOG:")][key_name_admin(src.owner)] has sent a fax message to [destination.department] (<a href='?_src_=holder;AdminFaxView=\ref[rcvdcopy]'>VIEW</a>)"))
+					to_chat(C, SPAN_CLASS("log_message", "[SPAN_CLASS("prefix", "FAX LOG:")][key_name_admin(src.owner)] has sent a fax message to [destination.department] (<a href='byond://?_src_=holder;AdminFaxView=\ref[rcvdcopy]'>VIEW</a>)"))
 	else
 		to_chat(src.owner, SPAN_WARNING("Message reply failed."))
 
@@ -1634,31 +1639,76 @@ GLOBAL_VAR_INIT(skip_allow_lists, FALSE)
 		faxreply = null
 	return
 
-/datum/admins/proc/setroundlength()
+
+/datum/admins/proc/SetRoundLength()
 	set category = "Server"
-	set desc = "Set the time the round-end vote will start in minutes."
 	set name = "Set Round Length"
-
-	if (GAME_STATE > RUNLEVEL_LOBBY)
-		to_chat(usr, SPAN_WARNING("You cannot change the round length after the game has started!"))
-		return
-
-	var/time = input("Set the time until the round-end vote occurs (IN MINUTES). Default is [config.vote_autotransfer_initial / 600]", "Set Round Length", 0) as null | num
-
-	if (!time || !isnum(time) || time < 0)
-		return
-
-	transfer_controller.timerbuffer = time MINUTES
-	log_and_message_admins("set the initial round-end vote time to [time] minutes after round-start.")
-
-/datum/admins/proc/toggleroundendvote()
-	set category = "Server"
-	set desc = "Toggle the continue vote on/off. Toggling off will cause round-end to occur when the next continue vote time would be."
-	set name = "Toggle Continue Vote"
-
+	set desc = "Set how long before the initial continue vote occurs (in minutes)."
 	if (GAME_STATE > RUNLEVEL_GAME)
 		to_chat(usr, SPAN_WARNING("The game is already ending!"))
 		return
+	var/current = round(round_duration_in_ticks / 600, 0.1)
+	var/response = input(usr, "Time in minutes before the continue vote will occur, or 0 to set to default.\nCurrent time: [current]m") as null | num
+	current = round(round_duration_in_ticks / 600, 0.1)
+	if (!isnum(response))
+		return
+	if (!response)
+		log_and_message_admins("set the time to first continue vote to default.")
+		config.vote_autotransfer_initial = initial(config.vote_autotransfer_initial)
+	else if (response > current)
+		log_and_message_admins("set time to first continue vote to [response] minutes.")
+		config.vote_autotransfer_initial = response
+		SSroundend.vote_check = (round_duration_in_ticks / 600) + response
+	else
+		to_chat(usr, SPAN_WARNING("You cannot set a continue vote time in the past."))
 
-	transfer_controller.do_continue_vote = !transfer_controller.do_continue_vote
-	log_and_message_admins("toggled the continue vote [transfer_controller.do_continue_vote ? "ON" : "OFF"]")
+/datum/admins/proc/SetMaximumRoundLength()
+	set category = "Server"
+	set name = "Set Maximum Round Length"
+	set desc = "Set the maximum length of a round in minutes."
+	if (GAME_STATE > RUNLEVEL_GAME)
+		to_chat(usr, SPAN_WARNING("The game is already ending!"))
+		return
+	var/current = round(round_duration_in_ticks / 600, 0.1)
+	var/response = input(usr, "Time in minutes when the round will end, or 0 to disable.\nCurrent time: [current]m") as null | num
+	if (!isnum(response))
+		return
+	if (!response)
+		log_and_message_admins("disabled max round length.")
+		config.maximum_round_length = response
+	else if (response > current)
+		log_and_message_admins("set max round length to [response] minutes.")
+		config.maximum_round_length = response
+	else
+		to_chat(usr, SPAN_WARNING("You cannot set a max round length in the past."))
+
+
+/datum/admins/proc/ToggleContinueVote()
+	set category = "Server"
+	set name = "Toggle Continue Vote"
+	set desc = "Toggle the continue vote on/off. Toggling off will cause round-end to occur when the next continue vote time would be."
+	if (GAME_STATE > RUNLEVEL_GAME)
+		to_chat(usr, SPAN_WARNING("The game is already ending!"))
+		return
+	SSroundend.vote_check = !SSroundend.vote_check
+	if (SSroundend.vote_check)
+		var/interval = config.vote_autotransfer_interval
+		if (!interval)
+			to_chat(usr, SPAN_WARNING("Continue votes not configured."))
+			SSroundend.vote_check = 0
+			return
+		SSroundend.vote_check = (round_duration_in_ticks / 600) + interval
+	log_and_message_admins("toggled continue votes [SSroundend.vote_check ? "ON" : "OFF"]")
+
+
+/datum/admins/proc/togglemoderequirementchecks()
+	set category = "Server"
+	set desc = "Toggle the gamemode requirement checks on/off. Toggling off will allow any gamemode to start regardless of readied players."
+	set name = "Toggle Gamemode Requirement Checks"
+
+	if (GAME_STATE > RUNLEVEL_LOBBY)
+		to_chat(usr, SPAN_WARNING("You cannot change the gamemode requirement checks after the game has started!"))
+		return
+
+	SSticker.skip_requirement_checks = !SSticker.skip_requirement_checks
+	log_and_message_admins("toggled the gamemode requirement checks [SSticker.skip_requirement_checks ? "OFF" : "ON"]")

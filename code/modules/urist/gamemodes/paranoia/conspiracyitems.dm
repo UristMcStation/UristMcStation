@@ -277,11 +277,11 @@
 	new /obj/item/clothing/mask/chameleon/voice/fleshmask(src)
 	make_exact_fit()
 
-/obj/effect/landmark/intelspawn
+/obj/landmark/intelspawn
 	icon_state = "x3"
 	var/probability = 50 //so that it can be tweaked for areas with various amounts of traffic
 
-/obj/effect/landmark/intelspawn/Initialize()
+/obj/landmark/intelspawn/Initialize()
 	. = ..()
 	invisibility = 101
 	return

@@ -3,8 +3,7 @@
 
 /singleton/hierarchy/supply_pack/nonessent/painters
 	name = "Art - Painting Supplies"
-	contains = list(/obj/item/device/paint_sprayer = 2,
-					/obj/item/device/cable_painter = 2)
+	contains = list(/obj/item/device/paint_sprayer = 2)
 	cost = 10
 	containername = "painting supplies crate"
 	containertype = /obj/structure/closet/crate
@@ -15,7 +14,7 @@
 	/obj/item/device/camera,
 	/obj/item/device/camera_film = 2,
 	/obj/item/storage/photo_album,
-	/obj/item/stack/package_wrap/twenty_five,
+	/obj/item/stack/package_wrap/cargo_wrap,
 	/obj/item/reagent_containers/glass/paint/red,
 	/obj/item/reagent_containers/glass/paint/green,
 	/obj/item/reagent_containers/glass/paint/blue,
@@ -24,7 +23,7 @@
 	/obj/item/reagent_containers/glass/paint/black,
 	/obj/item/reagent_containers/glass/paint/white,
 	/obj/item/contraband/poster,
-	/obj/item/wrapping_paper = 3)
+	/obj/item/stack/package_wrap/gift_wrap)
 	cost = 10
 	containername = "arts and Crafts crate"
 
@@ -188,7 +187,7 @@
 					/obj/item/clothing/head/pirate,
 					/obj/item/clothing/head/hasturhood,
 					/obj/item/clothing/head/powdered_wig,
-					/obj/item/clothing/head/hairflower,
+					/obj/item/clothing/head/hairflower/red,
 					/obj/item/clothing/head/hairflower/yellow,
 					/obj/item/clothing/head/hairflower/blue,
 					/obj/item/clothing/head/hairflower/pink,
@@ -296,14 +295,7 @@
 /singleton/hierarchy/supply_pack/nonessent/pronounbadges
 	name = "Costume - Pronoun Badge Crate"
 	contains = list(
-		/obj/item/clothing/accessory/pronouns/they = 2,
-		/obj/item/clothing/accessory/pronouns/hehim = 2,
-		/obj/item/clothing/accessory/pronouns/sheher = 2,
-		/obj/item/clothing/accessory/pronouns/hethey = 2,
-		/obj/item/clothing/accessory/pronouns/shethey = 2,
-		/obj/item/clothing/accessory/pronouns/heshe = 2,
-		/obj/item/clothing/accessory/pronouns/zehir = 2,
-		/obj/item/clothing/accessory/pronouns/ask = 2
+		/obj/item/clothing/accessory/pronouns = 5
 	)
-	cost = 20
+	cost = 10
 	containername = "pronoun badge crate"

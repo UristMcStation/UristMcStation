@@ -121,8 +121,8 @@
 		return
 
 	playsound(get_turf(src), 'sound/effects/teleport.ogg', 50, 1)
-	new /obj/effect/portal/wizard(start, end, 2 MINUTES)
-	new /obj/effect/portal/wizard(end, start, 2 MINUTES)
+	new /obj/portal/wizard(start, end, 2 MINUTES)
+	new /obj/portal/wizard(end, start, 2 MINUTES)
 
 	var/datum/bluespace_revenant/revenant = src?.mind?.bluespace_revenant
 	if(istype(revenant))
@@ -365,7 +365,7 @@ Proc needs to be fixed, it fails to locate a dest
 
 	var/randicon = rand(1, 9)
 	var/duration = rand(30 SECONDS, 90 SECONDS)
-	var/obj/effect/temporary/staticeffect = new (T, duration, 'icons/effects/static.dmi', "[randicon] light")
+	var/obj/temporary/staticeffect = new (T, duration, 'icons/effects/static.dmi', "[randicon] light")
 
 	if(istype(staticeffect))
 		return TRUE
@@ -461,4 +461,3 @@ Proc needs to be fixed, it fails to locate a dest
 	name = "Equivalent Exchange"
 	isVerb = TRUE
 	verbpath = /mob/proc/revenant_goldeater
-

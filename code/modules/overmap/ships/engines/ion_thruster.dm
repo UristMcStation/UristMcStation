@@ -37,7 +37,7 @@
 /obj/machinery/ion_engine
 	name = "ion propulsion device"
 	desc = "An advanced ion propulsion device, using energy and minutes amount of gas to generate thrust."
-	icon = 'icons/obj/ship_engine.dmi'
+	icon = 'icons/obj/machines/ship_engine.dmi'
 	icon_state = "nozzle"
 	power_channel = ENVIRON
 	idle_power_usage = 100
@@ -45,13 +45,18 @@
 	construct_state = /singleton/machine_construction/default/panel_closed
 	var/datum/ship_engine/ion/controller
 	var/thrust_limit = 1
-	var/on = 1
+	var/on = 0
 	var/burn_cost = 750
 	var/generated_thrust = 2.5
 
 /obj/machinery/ion_engine/Initialize()
 	. = ..()
 	controller = new(src)
+	for(var/ship in SSshuttle.ships)
+		var/obj/overmap/visitable/ship/S = ship
+		if(S.check_ownership(src))
+			S.engines |= controller
+			break
 
 /obj/machinery/ion_engine/Destroy()
 	QDEL_NULL(controller)
@@ -75,7 +80,7 @@
 	return thrust_limit * generated_thrust * on
 
 /obj/item/stock_parts/circuitboard/engine/ion
-	name = T_BOARD("ion propulsion device")
+	name = "circuit board (ion propulsion device)"
 	board_type = "machine"
 	icon_state = "mcontroller"
 	build_path = /obj/machinery/ion_engine

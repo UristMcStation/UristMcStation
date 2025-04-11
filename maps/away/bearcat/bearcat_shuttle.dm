@@ -10,14 +10,14 @@
 	range = 1
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/nav_bearcat/damselfly
+/obj/shuttle_landmark/nav_bearcat/damselfly
 	name = "Damselfly Dock"
 	landmark_tag = "nav_bearcat_dock"
 	docking_controller = "cargo"
 	base_area = /area/space
 	base_turf = /turf/space
 
-/obj/effect/shuttle_landmark/nav_bearcat/damselfly_transit
+/obj/shuttle_landmark/nav_bearcat/damselfly_transit
 	name = "In transit"
 	landmark_tag = "nav_bearcat_transit"
 

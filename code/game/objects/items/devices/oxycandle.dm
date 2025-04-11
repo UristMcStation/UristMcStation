@@ -1,7 +1,7 @@
 /obj/item/device/oxycandle
 	name = "oxygen candle"
 	desc = "A steel tube with the words 'OXYGEN - PULL CORD TO IGNITE' stamped on the side.\nA small label reads <span class='warning'>'WARNING: NOT FOR LIGHTING USE. WILL IGNITE FLAMMABLE GASSES'</span>"
-	icon = 'icons/obj/oxygen_candle.dmi'
+	icon = 'icons/obj/tools/oxygen_candle.dmi'
 	icon_state = "oxycandle"
 	item_state = "oxycandle"
 	w_class = ITEM_SIZE_SMALL // Should fit into internal's box or maybe pocket
@@ -11,8 +11,8 @@
 	var/on = 0
 	var/activation_sound = 'sound/effects/flare.ogg'
 	light_color = "#e58775"
-	light_outer_range = 2
-	light_max_bright = 1
+	light_range = 2
+	light_power = 1
 	var/brightness_on = 1 // Moderate-low bright.
 	action_button_name = null
 
@@ -20,10 +20,10 @@
 	..()
 	update_icon()
 
-/obj/item/device/oxycandle/afterattack(obj/O, mob/user, proximity)
-	if(proximity && istype(O) && on)
+/obj/item/device/oxycandle/use_after(obj/O, mob/living/user, click_parameters)
+	if(istype(O) && on)
 		O.HandleObjectHeating(src, user, 500)
-	..()
+		return TRUE
 
 /obj/item/device/oxycandle/attack_self(mob/user)
 	if(!on)
@@ -47,7 +47,6 @@
 		STOP_PROCESSING(SSprocessing, src)
 		on = 2
 		update_icon()
-		update_held_icon()
 		SetName("burnt oxygen candle")
 		desc += "This tube has exhausted its chemicals."
 		return
@@ -79,7 +78,6 @@
 		icon_state = "oxycandle"
 		item_state = icon_state
 		set_light(0)
-	update_held_icon()
 
 /obj/item/device/oxycandle/Destroy()
 	QDEL_NULL(air_contents)

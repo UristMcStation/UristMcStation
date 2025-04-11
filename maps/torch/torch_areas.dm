@@ -1,6 +1,6 @@
 /datum/map/torch
 
-	base_floor_type = /turf/simulated/floor/reinforced/airless
+	base_floor_type = /turf/simulated/floor/reinforced
 	base_floor_area = /area/torchexterior
 
 	post_round_safe_areas = list (
@@ -43,14 +43,14 @@
 /area/maintenance/substation/fifthdeck
 	name = "Fifth Deck Substation"
 
+/area/maintenance/substation/hangar
+	name = "Hangar Substation"
+
 //Fourth Deck (Z-1)
 /area/hallway/primary/fourthdeck/fore
 	name = "\improper Fourth Deck Fore Hallway"
 	icon_state = "hallF"
 
-/area/hallway/primary/fourthdeck/center
-	name = "\improper Fourth Deck Central Hallway"
-	icon_state = "hallC3"
 
 /area/hallway/primary/fourthdeck/aft
 	name = "\improper Fourth Deck Aft Hallway"
@@ -386,7 +386,7 @@
 /area/aquila
 	name = "\improper SEV Aquila"
 	icon_state = "shuttlered"
-	base_turf = /turf/simulated/floor/reinforced/airless
+	base_turf = /turf/simulated/floor/reinforced
 	requires_power = 1
 	dynamic_lighting = 1
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
@@ -596,13 +596,13 @@
 	name = "lift (third deck)"
 	lift_floor_label = "Deck 3"
 	lift_floor_name = "Habitation Deck"
-	lift_announce_str = "Arriving at Habitation Deck: Telecommunications. Mess Hall. Officer's Mess. Lounge. Observation. Hydroponics. Cryogenic Storage. Holodeck. Gym."
+	lift_announce_str = "Arriving at Habitation Deck: Mess Hall. Officer's Mess. Lounge. Observation. Hydroponics. Cryogenic Storage. Holodeck. Gym."
 
 /area/turbolift/torch_first
 	name = "lift (fourth deck)"
 	lift_floor_label = "Deck 4"
 	lift_floor_name = "Supply Deck"
-	lift_announce_str = "Arriving at Supply Deck: EVA. Docking Ports. Pathfinder's Office. Cargo Storage. Supply Office. Laundry. Sanitation."
+	lift_announce_str = "Arriving at Supply Deck: Telecommunications. EVA. Docking Ports. Pathfinder's Office. Cargo Storage. Supply Office. Laundry. Sanitation."
 
 /area/turbolift/torch_ground
 	name = "lift (fifth deck)"
@@ -737,6 +737,14 @@
 	name = "Bluespace Drive Containment"
 	icon_state = "engineering"
 	color = COLOR_BLUE_LIGHT
+	sound_env = LARGE_ENCLOSED
+	req_access = list(list(access_engine_equip, access_heads), access_engine, access_maint_tunnels)
+
+/area/engineering/bluespacebay
+	name = "Bluespace Drive Containment Control Room"
+	icon_state = "engineering"
+	color = COLOR_LUMINOL
+	sound_env = SMALL_ENCLOSED
 	req_access = list(list(access_engine_equip, access_heads), access_engine, access_maint_tunnels)
 
 /area/engineering/atmos/aux
@@ -765,6 +773,7 @@
 /area/vacant
 	name = "\improper Vacant Area"
 	icon_state = "construction"
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/vacant/armory
 	name = "\improper Vacant Armory"
@@ -791,17 +800,6 @@
 /area/vacant/monitoring
 	name = "\improper Auxiliary Monitoring Room"
 	icon_state = "engine_monitoring"
-
-/area/vacant/prototype
-	req_access = list(access_engine)
-
-/area/vacant/prototype/control
-	name = "\improper Prototype Fusion Reactor Control Room"
-	icon_state = "engine_monitoring"
-
-/area/vacant/prototype/engine
-	name = "\improper Prototype Fusion Reactor Chamber"
-	icon_state = "rust_reactor"
 
 /area/vacant/cargo
 	name = "\improper Requisitions Office"
@@ -917,15 +915,9 @@
 	sound_env = LARGE_ENCLOSED
 	req_access = list(access_hangar)
 
-/area/quartermaster/hangar/catwalks_port
-	name = "\improper Hangar Port Upper Walkway"
-	req_access = list()
+/area/quartermaster/hangar/catwalks
+	name = "\improper Upper Hangar Deck"
 	icon_state = "hangar_catwalk_p"
-
-/area/quartermaster/hangar/catwalks_starboard
-	name = "\improper Hangar Starboard Upper Walkway"
-	req_access = list()
-	icon_state = "hangar_catwalk_s"
 
 // Research
 /area/rnd/canister
@@ -936,6 +928,7 @@
 /area/rnd/development
 	name = "\improper Fabricator Lab"
 	icon_state = "devlab"
+	req_access = list(access_fabrication)
 
 /area/rnd/office
 	name = "\improper Research Paperwork Office"
@@ -958,13 +951,6 @@
 // Crew areas
 /area/crew_quarters
 	holomap_color = HOLOMAP_AREACOLOR_CREW
-
-/area/crew_quarters/bar
-	name = "\improper Bar"
-	icon_state = "bar"
-	sound_env = LARGE_SOFTFLOOR
-	req_access = list(access_kitchen)
-	lighting_tone = AREA_LIGHTING_WARM
 
 /area/crew_quarters/cryolocker
 	name = "\improper Cryogenic Storage Wardrobe"
@@ -1094,10 +1080,15 @@
 	icon_state = "security"
 	req_access = list(access_brig)
 
+/area/security/secure_storage
+	name = "\improper Security - Secure Storage"
+	icon_state = "security"
+	req_access = list(access_armory)
+
 /area/security/armoury
 	name = "\improper Security - Armory"
 	icon_state = "Warden"
-	req_access = list(access_armory)
+	req_access = list(access_hos)
 
 /area/security/detectives_office
 	name = "\improper Security - Investigations Office"
@@ -1355,6 +1346,7 @@
 	has_gravity = FALSE
 	turf_initializer = /singleton/turf_initializer/maintenance/space
 	req_access = list(access_external_airlocks, access_maint_tunnels)
+	turfs_airless = TRUE
 
 // CentCom
 
@@ -1401,6 +1393,7 @@
 	has_gravity = FALSE
 	base_turf = /turf/space
 	req_access = list(access_engine_equip)
+	turfs_airless = TRUE
 
 /area/solar/auxstarboard
 	name = "\improper Fore Starboard Solar Array"
@@ -1537,16 +1530,21 @@
 	sound_env = LARGE_ENCLOSED
 	req_access = list(access_engine, access_engine_equip)
 
-/area/engineering/drone_fabrication
-	name = "\improper Engineering Drone Fabrication"
-	icon_state = "drone_fab"
-	sound_env = SMALL_ENCLOSED
-	req_access = list(access_robotics)
-
 /area/engineering/engine_monitoring
 	name = "\improper Engine Monitoring Room"
 	icon_state = "engine_monitoring"
 	req_access = list(access_engine, access_engine_equip)
+
+/area/engineering/prototype
+	req_access = list(access_engine)
+
+/area/engineering/prototype/control
+	name = "\improper Prototype Fusion Reactor Control Room"
+	icon_state = "engine_monitoring"
+
+/area/engineering/prototype/engine
+	name = "\improper Prototype Fusion Reactor Chamber"
+	icon_state = "rust_reactor"
 
 /area/engineering/engine_smes
 	name = "\improper Engineering SMES"
@@ -1589,7 +1587,7 @@
 
 /area/assembly/robotics/laboratory
 	name = "\improper Robotics Laboratory"
-	req_access = list(list(access_medical,access_robotics))
+	req_access = list(list(access_medical,access_robotics, access_synth))
 
 /area/assembly/robotics/office
 	name = "\improper Robotics Office"

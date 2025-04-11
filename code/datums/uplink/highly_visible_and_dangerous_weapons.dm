@@ -12,28 +12,31 @@
 
 /datum/uplink_item/item/visible_weapons/shuriken
 	name = "Box of shurikens"
-	desc = "A small box with six shuriken, notably dangerous."
+	desc = "A small box with six shuriken, which have a high chance to embed into a limb."
 	item_cost = 16
 	path = /obj/item/storage/box/syndie_kit/shuriken
 
 /datum/uplink_item/item/visible_weapons/dartgun
 	name = "Dart Gun"
 	desc = "A gas-powered dart gun capable of delivering chemical payloads across short distances. \
+			Requires beakers to be added to the mixer to set what payload to deliver. \
 			Uses a unique cartridge loaded with hollow darts."
 	item_cost = 12
 	path = /obj/item/gun/projectile/dartgun
 
 /datum/uplink_item/item/visible_weapons/crossbow
 	name = "Energy Crossbow"
-	desc = "A self-recharging, almost silent weapon employed by stealth operatives."
+	desc = "A self-recharging, almost silent weapon employed by stealth operatives. \
+			The darts are coated with a toxin that stuns and poisons quickly."
 	item_cost = 24
 	path = /obj/item/gun/energy/crossbow
 
-/datum/uplink_item/item/visible_weapons/pikecube
+/* /datum/uplink_item/item/visible_weapons/pikecube    Urist Specific Change - Moved to Stealthy Catergory to be in the same area as the carp cube.
 	name = "Pike Cube"
 	desc = "While it looks like a normal monkey cube, the animal produced is, instead, a space pike. \ Note: The space pike does not like you."
 	item_cost = 36
 	path = /obj/item/reagent_containers/food/snacks/monkeycube/wrapped/pikecube
+*/
 
 /datum/uplink_item/item/visible_weapons/katana
 	name = "Katana"
@@ -50,15 +53,15 @@
 	antag_costs = list(MODE_PARANOIA = 96)
 
 /datum/uplink_item/item/visible_weapons/silenced
-	name = "Silenced Holdout Pistol"
-	desc = "A kit with a pocket-sized holdout pistol, silencer, and an extra magazine. \
+	name = "Silenced Holdout Pistol (9mm)"
+	desc = "A kit with a pocket-sized holdout 9mm pistol, silencer, and an extra magazine. \
 			Attaching the silencer will make it too big to conceal in your pocket."
 	item_cost = 20
 	path = /obj/item/storage/box/syndie_kit/silenced
 
 /datum/uplink_item/item/visible_weapons/broomstick
-	name = "Broomstick Pistol"
-	desc = "An antique pistol stolen from a museum. Be warned, it may be faulty and comes unloaded."
+	name = "Broomstick Pistol (9mm)"
+	desc = "An antique 9mm pistol stolen from a museum. Be warned, it may be faulty and comes unloaded."
 	item_cost = 40
 	path = /obj/item/gun/projectile/pistol/broomstick
 
@@ -75,8 +78,8 @@
 	path = /obj/item/gun/energy/gun
 
 /datum/uplink_item/item/visible_weapons/revolver //357 and 44 revolvers are functionally identical
-	name = "Revolver, .357"
-	desc = ".357 Magnum revolver, with ammunition."
+	name = "Magnum Revolver (15mm)"
+	desc = "A 15mm magnum revolver, with ammunition."
 	item_cost = 36
 	path = /obj/item/storage/backpack/satchel/syndie_kit/revolver
 
@@ -95,24 +98,24 @@
 
 //These are for traitors (or other antags, perhaps) to have the option of purchasing some merc gear.
 /datum/uplink_item/item/visible_weapons/submachinegun
-	name = "C20r Submachine Gun"
+	name = "C20r Submachine Gun (10mm)"
 	item_cost = 64
 	path = /obj/item/gun/projectile/automatic/c20r
 
 /datum/uplink_item/item/visible_weapons/assaultrifle
-	name = "STS-35 Assault Rifle"
+	name = "STS-35 Assault Rifle (7.62mm)"
 	item_cost = 68
 	path = /obj/item/gun/projectile/automatic/sts35
 
 /datum/uplink_item/item/visible_weapons/battlerifle
-	name = "Battle Rifle"
+	name = "Battle Rifle (5.56mm)"
 	desc = "Predecessor to the Assault Rifle, works just as well as the new guns."
 	item_cost = 65
 	path = /obj/item/gun/projectile/automatic/battlerifle
 	antag_roles = list(MODE_MERCENARY)
 
 /datum/uplink_item/item/visible_weapons/semistrip
-	name = "Carbine Rifle"
+	name = "Carbine Rifle (15mm)"
 	desc = "For arming your comrades on the (not so) cheap!"
 	item_cost = 55
 	path = /obj/item/gun/projectile/sniper/semistrip
@@ -139,38 +142,38 @@
 */
 
 /datum/uplink_item/item/visible_weapons/machine_pistol
-	name = "Standard Machine Pistol"
+	name = "Machine Pistol (10mm)"
 	desc = "A high rate of fire weapon in a smaller form factor, able to sling standard ammunition almost as quick as a submachine gun."
 	item_cost = 45
 	path = /obj/item/gun/projectile/automatic/machine_pistol
 
 /datum/uplink_item/item/visible_weapons/combat_shotgun
-	name = "Combat Shotgun"
+	name = "Combat Shotgun (12g)"
 	desc = "A high compacity, pump-action shotgun regularly used for repelling boarding parties in close range scenarios."
 	item_cost = 52
 	path = /obj/item/gun/projectile/shotgun/pump/combat
 	antag_roles = list(MODE_MERCENARY)
 
 /datum/uplink_item/item/visible_weapons/sawnoff
-	name = "Sawnoff Shotgun"
+	name = "Sawnoff Shotgun (12g)"
 	desc = "A shortened double-barrel shotgun, able to fire either one, or both, barrels at once."
 	item_cost = 40
 	path = /obj/item/gun/projectile/shotgun/doublebarrel/sawn
 
 /datum/uplink_item/item/visible_weapons/deagle
-	name = "Magnum Pistol"
-	desc = "A .50 pistol that packs a punch."
+	name = "Magnum Pistol (15mm)"
+	desc = "A 15mm pistol that packs a punch."
 	item_cost = 60
 	path = /obj/item/gun/projectile/pistol/magnum_pistol
 
 /datum/uplink_item/item/visible_weapons/sigsauer
-	name = "10mm Pistol"
+	name = "Military Pistol (10mm)"
 	item_cost = 40
 	path = /obj/item/gun/projectile/pistol/optimus
 
 /datum/uplink_item/item/visible_weapons/detective_revolver
-	name = "Small Revolver"
-	desc = "A pocket-sized holdout revolver. Easily concealable.."
+	name = "Small Revolver (9mm)"
+	desc = "A pocket-sized holdout revolver. Easily concealable."
 	item_cost = 24
 	path = /obj/item/gun/projectile/revolver/holdout
 
@@ -216,11 +219,18 @@
 	path = /obj/item/gun/energy/incendiary_laser
 
 /datum/uplink_item/item/visible_weapons/boltaction
-	name = "Bolt Action Rifle"
+	name = "Bolt Action Rifle (7.62mm)"
 	desc = "For arming your comrades on the cheap!"
 	item_cost = 12
 	path = /obj/item/gun/projectile/heavysniper/boltaction
 	antag_roles = list(MODE_REVOLUTIONARY)
+
+/datum/uplink_item/item/visible_weapons/sniperlaser
+	name = "Marksman Energy Rifle"
+	desc = "An energy based long-range weapon. Not as powerful as a sniper rifle, but it can be recharged."
+	item_cost = 50
+	path = /obj/item/gun/energy/sniperrifle
+	antag_roles = list(MODE_MERCENARY)
 
 /datum/uplink_item/item/visible_weapons/ionpistol
 	name = "Ion Pistol"

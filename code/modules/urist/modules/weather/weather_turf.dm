@@ -83,10 +83,10 @@ for when you don't want to mess with the obj weather
 
 DO NOT map it in en-masse to enable a lot of turfs,
 use area procs or whatever, or you'll break the map */
-/obj/effect/weather_enabler
+/obj/urist_intangible/weather_enabler
 	icon_state = "splash"
 
-/obj/effect/weather_enabler/New()
+/obj/urist_intangible/weather_enabler/New()
 	if(istype(src.loc, /turf))
 		var/turf/WT = src.loc
 		WT.weather_enable()

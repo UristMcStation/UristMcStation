@@ -18,8 +18,8 @@
 	var/list/weapons = list()
 	var/incombat = 0
 	var/aggressive = 0 //will always attack
-	var/obj/effect/overmap/visitable/ship/combat/target_ship
-	var/obj/effect/overmap/visitable/sector/station/home_station
+	var/obj/overmap/visitable/ship/combat/target_ship
+	var/obj/overmap/visitable/sector/station/home_station
 	min_gas = null
 	max_gas = null
 	minbodytemp = 0
@@ -65,8 +65,8 @@
 
 	if(!event)
 
-		if(istype(O, /obj/effect/overmap/visitable/ship/combat))
-			var/obj/effect/overmap/visitable/ship/combat/L = O
+		if(istype(O, /obj/overmap/visitable/ship/combat))
+			var/obj/overmap/visitable/ship/combat/L = O
 			if(L.canfight)
 				if(!L.incombat && !L.crossed)
 					L.Contact(src)
@@ -106,12 +106,12 @@
 */
 /mob/living/simple_animal/hostile/overmapship/proc/spawnmap()
 	if(target_ship == GLOB.using_map.overmap_ship && boardingmap)
-		for(var/obj/effect/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
+		for(var/obj/urist_intangible/trigger/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
 			S.mapfile = src.boardingmap
 			S.home_ship = src //checking whether the map has been loaded is now handled by the template loader, so it properly checks for completion
 			S.Load()
 			if(home_station && !home_station.known)
-				for(var/obj/effect/urist/triggers/station_disk/D in GLOB.trigger_landmarks)
+				for(var/obj/urist_intangible/triggers/station_disk/D in GLOB.trigger_landmarks)
 					if(D.faction_id == hiddenfaction.factionid)
 						D.spawn_disk(home_station)
 			boarded()
@@ -119,7 +119,7 @@
 
 /mob/living/simple_animal/hostile/overmapship/proc/despawnmap()
 	if(target_ship == GLOB.using_map.overmap_ship)
-		for(var/obj/effect/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
+		for(var/obj/urist_intangible/trigger/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
 			S.mapfile = "maps/shipmaps/ship_blank.dmm"
 			S.Load()
 		return
@@ -164,15 +164,15 @@
 		if(target_ship == GLOB.using_map.overmap_ship) //currently only the main ship can board, pending a rewrite of boarding code
 			//target_ship.autoannounce("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "public") //add name+designation if I get lists for that stuff
 
-			for(var/obj/effect/urist/triggers/boarding_landmark/L in GLOB.trigger_landmarks)
+			for(var/obj/urist_intangible/triggers/boarding_landmark/L in GLOB.trigger_landmarks)
 				new /obj/machinery/tele_beacon(L.loc)
 
-			for(var/obj/effect/urist/triggers/shipweapons/S in GLOB.trigger_landmarks)
+			for(var/obj/urist_intangible/triggers/shipweapons/S in GLOB.trigger_landmarks)
 				var/datum/shipcomponents/weapons/W = pick(weapons)
 				new W.weapon_type(S.loc)
 				qdel(S)
 
-			for(var/obj/effect/urist/triggers/ai_defender_landmark/A in GLOB.trigger_landmarks)
+			for(var/obj/urist_intangible/triggers/ai_defender_landmark/A in GLOB.trigger_landmarks)
 				A.spawn_mobs()
 
 			communicate(/singleton/communication_channel/dsay, GLOB.global_announcer, "<b>Ghosts can now join as a defender against ICS Nerva boarding using the verb under the IC tab. You have one minute to join.</b>", /singleton/dsay_communication/direct)

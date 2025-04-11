@@ -1,11 +1,9 @@
-
-
 // subtypes of stuff in here will be avoided when randomizing interactions.
-GLOBAL_LIST_INIT(random_chem_interaction_blacklist, list(
+GLOBAL_LIST_AS(random_chem_interaction_blacklist, list(
 	/datum/reagent/adminordrazine,
 	/datum/reagent/nanites,
 	/datum/reagent/water/holywater,
-	/datum/reagent/chloralhydrate/beer2,
+	/datum/reagent/chloralhydrate/beer,
 	/datum/reagent/tobacco,
 	/datum/reagent/drink,
 	/datum/reagent/crayon_dust,

@@ -20,10 +20,10 @@
 						is_multikeying = 1
 					if(matches)
 						if(M.client)
-							message_admins("[SPAN_DANGER("<B>Notice:</B>")] [SPAN_INFO("<A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as <A href='?src=\ref[usr];priv_msg=\ref[M]'>[key_name_admin(M)]</A>.")]", 1)
+							message_admins("[SPAN_DANGER("<B>Notice:</B>")] [SPAN_INFO("<A href='byond://?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as <A href='byond://?src=\ref[usr];priv_msg=\ref[M]'>[key_name_admin(M)]</A>.")]", 1)
 							log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)].")
 						else
-							message_admins("[SPAN_DANGER("<B>Notice:</B>")] [SPAN_INFO("<A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as [key_name_admin(M)] (no longer logged in).")]", 1)
+							message_admins("[SPAN_DANGER("<B>Notice:</B>")] [SPAN_INFO("<A href='byond://?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as [key_name_admin(M)] (no longer logged in).")]", 1)
 							log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)] (no longer logged in).")
 		if(is_multikeying && !client.warned_about_multikeying)
 			client.warned_about_multikeying = 1
@@ -52,7 +52,7 @@
 	if(check_rights((R_ADMIN|R_MOD),0,C))
 		to_chat(C,"[SPAN_CLASS("staffwarn", "StaffWarn: [client.ckey] [action]")]<br>[SPAN_NOTICE("[client.staffwarn]")]")
 		if(noise && C.get_preference_value(/datum/client_preference/staff/play_adminhelp_ping) == GLOB.PREF_HEAR)
-			sound_to(C, 'sound/ui/pm-notify.ogg')
+			sound_to(C, sound('sound/ui/pm-notify.ogg', volume = 25))
 
 /mob
 	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
@@ -63,7 +63,7 @@
 
 	// Add to player list if missing
 	if (!GLOB.player_list.Find(src))
-		ADD_SORTED(GLOB.player_list, src, /proc/cmp_mob_key)
+		ADD_SORTED(GLOB.player_list, src, GLOBAL_PROC_REF(cmp_mob_key))
 
 	update_Login_details()
 	world.update_status()
@@ -77,7 +77,8 @@
 
 	next_move = 1
 	set_sight(sight|SEE_SELF)
-	..()
+
+	client.statobj = src
 
 	my_client = client
 	logout_time = null
@@ -92,10 +93,10 @@
 	if(eyeobj)
 		eyeobj.possess(src)
 
-	l_general = new()
-	client.screen += l_general
+	darksight = new()
+	client.screen += darksight
 
-	CreateRenderers()
+	AddDefaultRenderers()
 
 	refresh_client_images()
 	reload_fullscreen() // Reload any fullscreen overlays this mob has.
@@ -105,6 +106,13 @@
 	if(machine)
 		machine.on_user_login(src)
 
+	if (SScharacter_setup.initialized && SSchat.initialized && !isnull(client.chatOutput))
+		if(client.get_preference_value(/datum/client_preference/goonchat) == GLOB.PREF_YES)
+			client.chatOutput.start()
+
+	if(ability_master && ability_master.ability_objects)
+		ability_master.update_abilities(TRUE, src)
+
 	//set macro to normal incase it was overriden (like cyborg currently does)
 	winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#d3b5b5")
 
@@ -112,3 +120,10 @@
 	. = ..()
 	if(internals && internal)
 		internals.icon_state = "internal1"
+
+/mob/observer/ghost/Login()
+	. = ..()
+	if(darksight)
+		darksight.icon_state = "ghost"
+		darksight.alpha = 127
+		darksight.SetTransform(2) //Max darksight

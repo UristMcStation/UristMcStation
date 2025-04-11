@@ -38,10 +38,10 @@
 	belt = /obj/item/storage/belt/utility/full
 	r_pocket = /obj/item/clothing/accessory/badge/tags/foxbat
 
-/obj/effect/submap_landmark/spawnpoint/lonepioneer
+/obj/submap_landmark/spawnpoint/lonepioneer
 	name = "Lone Pioneer"
 
-/obj/effect/submap_landmark/joinable_submap/lonepioneer
+/obj/submap_landmark/joinable_submap/lonepioneer
 	name = "Pioneer Cabin"
 	archetype = /singleton/submap_archetype/lonepioneer
 

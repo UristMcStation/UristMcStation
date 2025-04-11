@@ -27,7 +27,7 @@
 	close_button.parent = src
 
 /datum/radial_menu/persistent/element_chosen(choice_id,mob/user)
-	invoke(choices_values[choice_id])
+	invoke(select_proc_callback, choices_values[choice_id])
 
 /datum/radial_menu/persistent/proc/change_choices(list/newchoices, tooltips)
 	if(!length(newchoices))
@@ -49,7 +49,6 @@
 	Select_proc is the proc to be called each time an element on the menu is clicked, and should accept the chosen element as its final argument
 	Clicking the center button will return a choice of null
 */
-
 /proc/show_radial_menu_persistent(mob/user, atom/anchor, list/choices, datum/callback/select_proc, uniqueid, radius, tooltips = FALSE)
 	if(!user || !anchor || !length(choices) || !select_proc)
 		return

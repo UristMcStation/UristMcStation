@@ -92,7 +92,7 @@ var/global/ascii_reset = "[ascii_esc]\[0m"
 /datum/unit_test/proc/get_safe_turf()
 	if(!safe_landmark)
 		for(var/landmark in landmarks_list)
-			if(istype(landmark, /obj/effect/landmark/test/safe_turf))
+			if(istype(landmark, /obj/landmark/test/safe_turf))
 				safe_landmark = landmark
 				break
 	return get_turf(safe_landmark)
@@ -100,7 +100,7 @@ var/global/ascii_reset = "[ascii_esc]\[0m"
 /datum/unit_test/proc/get_space_turf()
 	if(!space_landmark)
 		for(var/landmark in landmarks_list)
-			if(istype(landmark, /obj/effect/landmark/test/space_turf))
+			if(istype(landmark, /obj/landmark/test/space_turf))
 				space_landmark = landmark
 				break
 	return get_turf(space_landmark)
@@ -118,6 +118,7 @@ var/global/ascii_reset = "[ascii_esc]\[0m"
  */
 
 /proc/get_test_datums()
+	RETURN_TYPE(/list)
 	. = list()
 	for(var/test in subtypesof(/datum/unit_test))
 		var/datum/unit_test/d = test
@@ -132,7 +133,7 @@ var/global/ascii_reset = "[ascii_esc]\[0m"
 	if(world.time > end_time)
 		test.fail("Unit Tests Ran out of time")   // This should never happen, and if it does either fix your unit tests to be faster or if you can make them async checks.
 		return
-	if (test.start_test() == null)	// Runtimed.
+	if (isnull(test.start_test()))	// Runtimed.
 		test.fail("Test Runtimed")
 	return 1
 
@@ -157,19 +158,26 @@ var/global/ascii_reset = "[ascii_esc]\[0m"
 	else
 		log_unit_test("[ascii_red]**** \[[failed_unit_tests]\\[total_unit_tests]\] Unit Tests Failed [skipped_message]****[ascii_reset]")
 
-/datum/admins/proc/run_unit_test(datum/unit_test/unit_test_type in get_test_datums())
+/datum/admins/proc/run_unit_test()
 	set name = "Run Unit Test"
 	set desc = "Runs the selected unit test - Remember to enable Debug Log Messages"
 	set category = "Debug"
 
-	if(!unit_test_type)
-		return
-
 	if(!check_rights(R_DEBUG))
 		return
 
-	log_and_message_admins("has started the unit test '[initial(unit_test_type.name)]'")
-	var/datum/unit_test/test = new unit_test_type
+	var/list/options = list()
+	var/list/test_datums = get_test_datums()
+	for (var/datum/unit_test/unit_test_type as anything in test_datums)
+		options["[initial(unit_test_type.name)]"] = unit_test_type
+	options = sortAssoc(options)
+	var/datum/unit_test/selected_unit_test_type = input(usr, "Runs the selected unit test - Remember to enable Debug Log Messages", "Run Unit Test", null) as null|anything in options
+	if (!selected_unit_test_type || !options["[selected_unit_test_type]"])
+		return
+	selected_unit_test_type = options["[selected_unit_test_type]"]
+
+	log_and_message_admins("has started the unit test '[initial(selected_unit_test_type.name)]'")
+	var/datum/unit_test/test = new selected_unit_test_type
 	var/end_unit_tests = world.time + MAX_UNIT_TEST_RUN_TIME
 	do_unit_test(test, end_unit_tests, FALSE)
 	if(test.async)
@@ -177,10 +185,10 @@ var/global/ascii_reset = "[ascii_esc]\[0m"
 			sleep(20)
 	unit_test_final_message()
 
-/obj/effect/landmark/test/safe_turf
+/obj/landmark/test/safe_turf
 	name = "safe_turf" // At creation, landmark tags are set to: "landmark*[name]"
 	desc = "A safe turf should be an as large block as possible of livable, passable turfs, preferably at least 3x3 with the marked turf as the center."
 
-/obj/effect/landmark/test/space_turf
+/obj/landmark/test/space_turf
 	name = "space_turf"
 	desc = "A space turf should be an as large block as possible of space, preferably at least 3x3 with the marked turf as the center."

@@ -171,6 +171,8 @@
 	if(!length(sounds))
 		if(owner.pulse())
 			sounds += "faint pulse"
+	if(status & ORGAN_ARTERY_CUT)
+		sounds += "rushing liquid"
 	return sounds
 
 /singleton/diagnostic_sign
@@ -183,7 +185,7 @@
 
 /singleton/diagnostic_sign/proc/get_description(mob/user)
 	. = descriptor
-	. += "<small><a href='?src=\ref[src];show_diagnostic_hint=1'>(?)</a></small>"
+	. += "<small><a href='byond://?src=\ref[src];show_diagnostic_hint=1'>(?)</a></small>"
 	return
 
 /singleton/diagnostic_sign/Topic(href, list/href_list)

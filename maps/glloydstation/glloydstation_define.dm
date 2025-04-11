@@ -58,14 +58,14 @@
 		"the captain's pinpointer" = /obj/item/pinpointer
 		)
 
-/obj/effect/overmap/visitable/urist
+/obj/overmap/visitable/urist
 	name = "NSS Urist"
 	desc = "Starbase records report: NT owned, unknown crew status."
 	base = TRUE
 	start_x = 11
 	start_y = 12
 
-/obj/effect/overmap/visitable/uristplanet
+/obj/overmap/visitable/uristplanet
 	name = "Nyx Phi III"
 	desc = "Geneseeded world detected, possible intelligent life detected."
 	base = TRUE

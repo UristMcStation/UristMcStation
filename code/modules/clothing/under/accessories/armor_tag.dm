@@ -8,7 +8,7 @@
 		slot_wear_suit_str = 'icons/mob/onmob/onmob_modular_armor.dmi'
 	)
 	icon_state = null
-	slot = ACCESSORY_SLOT_ARMOR_M
+	slot = ACCESSORY_SLOT_ARMOR_MISC
 	w_class = ITEM_SIZE_TINY
 
 	sprite_sheets = list(
@@ -32,6 +32,11 @@
 	name = "\improper SAARE tag"
 	desc = "An armor tag with the acronym SAARE printed in olive-green lettering on it."
 	icon_state = "saaretag"
+
+/obj/item/clothing/accessory/armor_tag/sfp
+	name = "\improper SFP tags"
+	desc = "A set of high-visibility armor tags made of reflective materials. The pale blue rectangle is a hallmark of the Sol Federal Police."
+	icon_state = "sfptag"
 
 
 /obj/item/clothing/accessory/armor_tag/press

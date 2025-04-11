@@ -28,6 +28,7 @@
 		CALCULATE_NEIGHBORS(src, ao_neighbors, T, AO_TURF_CHECK(T))
 
 /proc/make_ao_image(corner, i, px = 0, py = 0, pz = 0, pw = 0)
+	RETURN_TYPE(/image)
 	var/list/cache = SSao.image_cache
 	var/cstr = "[corner]"
 	var/key = "[cstr]-[i]-[px]/[py]/[pz]/[pw]"
@@ -75,7 +76,7 @@
 
 #define CUT_AO(TARGET, AO_LIST) \
 	if (TARGET && AO_LIST) { \
-		TARGET.overlays -= AO_LIST; \
+		TARGET.CutOverlays(AO_LIST); \
 		AO_LIST.Cut(); \
 	}
 
@@ -89,7 +90,7 @@
 	} \
 	UNSETEMPTY(AO_LIST); \
 	if (AO_LIST) { \
-		TARGET.overlays |= AO_LIST; \
+		TARGET.AddOverlays(AO_LIST); \
 	}
 
 /turf/proc/update_ao()

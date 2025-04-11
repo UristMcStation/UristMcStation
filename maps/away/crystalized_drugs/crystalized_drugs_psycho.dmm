@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/effect/decal/cleanable/blood/splatter/human{
+/obj/decal/cleanable/blood/splatter/human{
 	icon_state = "splatter2"
 	},
 /turf/template_noop,
@@ -9,8 +9,8 @@
 /turf/template_noop,
 /area/template_noop)
 "aV" = (
-/obj/effect/landmark/corpse/doctor,
-/obj/effect/decal/cleanable/blood,
+/obj/landmark/corpse/doctor,
+/obj/decal/cleanable/blood,
 /turf/template_noop,
 /area/template_noop)
 "bc" = (
@@ -18,7 +18,7 @@
 /turf/template_noop,
 /area/template_noop)
 "bd" = (
-/obj/effect/decal/cleanable/blood/splatter/human{
+/obj/decal/cleanable/blood/splatter/human{
 	icon_state = "splatter6";
 	dir = 4
 	},
@@ -66,7 +66,7 @@
 /turf/template_noop,
 /area/template_noop)
 "hf" = (
-/obj/effect/decal/cleanable/blood/tracks/fake/body{
+/obj/decal/cleanable/blood/tracks/fake/body{
 	icon_state = "trail2";
 	dir = 8;
 	coming_dir = 0;
@@ -74,11 +74,11 @@
 	coming_dir_2 = 0;
 	going_dir_2 = 0
 	},
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/template_noop,
 /area/template_noop)
 "hk" = (
-/obj/effect/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
 /turf/template_noop,
 /area/template_noop)
 "hu" = (
@@ -90,7 +90,7 @@
 /turf/template_noop,
 /area/template_noop)
 "lS" = (
-/obj/effect/decal/cleanable/blood/tracks/fake/body{
+/obj/decal/cleanable/blood/tracks/fake/body{
 	icon_state = "trail2";
 	dir = 8;
 	coming_dir = 4;
@@ -101,12 +101,12 @@
 /turf/template_noop,
 /area/template_noop)
 "me" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/template_noop,
 /area/template_noop)
 "mh" = (
-/obj/effect/landmark/corpse/newpirate/laser,
-/obj/effect/decal/cleanable/blood,
+/obj/landmark/corpse/newpirate/laser,
+/obj/decal/cleanable/blood,
 /turf/template_noop,
 /area/template_noop)
 "ms" = (
@@ -114,7 +114,7 @@
 /turf/template_noop,
 /area/template_noop)
 "mK" = (
-/obj/effect/decal/cleanable/blood/tracks/fake/body{
+/obj/decal/cleanable/blood/tracks/fake/body{
 	icon_state = "trail2";
 	dir = 1;
 	going_dir = 1;
@@ -125,21 +125,21 @@
 /turf/template_noop,
 /area/template_noop)
 "mN" = (
-/obj/effect/decal/cleanable/blood/splatter/human{
+/obj/decal/cleanable/blood/splatter/human{
 	icon_state = "splatter6";
 	dir = 9
 	},
 /turf/template_noop,
 /area/template_noop)
 "nF" = (
-/obj/effect/decal/cleanable/blood/splatter/human{
+/obj/decal/cleanable/blood/splatter/human{
 	icon_state = "splatter1"
 	},
 /turf/template_noop,
 /area/template_noop)
 "og" = (
-/obj/effect/landmark/corpse/newpirate/laser,
-/obj/effect/decal/cleanable/blood/tracks/fake/body{
+/obj/landmark/corpse/newpirate/laser,
+/obj/decal/cleanable/blood/tracks/fake/body{
 	icon_state = "trail2";
 	dir = 8;
 	coming_dir = 4;
@@ -150,7 +150,7 @@
 /turf/template_noop,
 /area/template_noop)
 "on" = (
-/obj/effect/decal/cleanable/blood/splatter/human{
+/obj/decal/cleanable/blood/splatter/human{
 	icon_state = "splatter3";
 	dir = 4
 	},
@@ -161,7 +161,7 @@
 /turf/template_noop,
 /area/template_noop)
 "qM" = (
-/obj/effect/decal/cleanable/blood/splatter/human{
+/obj/decal/cleanable/blood/splatter/human{
 	icon_state = "splatter3";
 	dir = 1
 	},
@@ -178,9 +178,9 @@
 /turf/template_noop,
 /area/template_noop)
 "sb" = (
-/obj/effect/landmark/corpse/newpirate/laser,
-/obj/effect/decal/cleanable/blood,
-/obj/effect/decal/cleanable/blood/tracks/fake/body{
+/obj/landmark/corpse/newpirate/laser,
+/obj/decal/cleanable/blood,
+/obj/decal/cleanable/blood/tracks/fake/body{
 	icon_state = "trail2";
 	coming_dir = 2;
 	coming_dir_2 = 0;
@@ -193,7 +193,7 @@
 /turf/template_noop,
 /area/template_noop)
 "sz" = (
-/obj/effect/decal/cleanable/blood/splatter/human{
+/obj/decal/cleanable/blood/splatter/human{
 	icon_state = "splatter3"
 	},
 /turf/template_noop,
@@ -209,7 +209,7 @@
 /turf/template_noop,
 /area/template_noop)
 "wq" = (
-/obj/effect/decal/cleanable/blood/tracks/fake/footprints{
+/obj/decal/cleanable/blood/tracks/fake/footprints{
 	dir = 1;
 	going_dir = 0;
 	coming_dir_2 = 0;
@@ -224,7 +224,7 @@
 /turf/template_noop,
 /area/template_noop)
 "zU" = (
-/obj/effect/decal/cleanable/blood/tracks/fake/body{
+/obj/decal/cleanable/blood/tracks/fake/body{
 	icon_state = "trail2";
 	dir = 1;
 	coming_dir = 8;
@@ -235,7 +235,7 @@
 /turf/template_noop,
 /area/template_noop)
 "AL" = (
-/obj/effect/decal/cleanable/blood/tracks/fake/body{
+/obj/decal/cleanable/blood/tracks/fake/body{
 	icon_state = "trail2";
 	dir = 1;
 	going_dir = 0;
@@ -246,7 +246,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Bh" = (
-/obj/effect/decal/cleanable/blood/splatter/human{
+/obj/decal/cleanable/blood/splatter/human{
 	icon_state = "splatter6";
 	dir = 8
 	},
@@ -257,21 +257,21 @@
 /turf/template_noop,
 /area/template_noop)
 "Cj" = (
-/obj/effect/decal/cleanable/blood/splatter/human{
+/obj/decal/cleanable/blood/splatter/human{
 	icon_state = "splatter5";
 	dir = 4
 	},
 /turf/template_noop,
 /area/template_noop)
 "Cq" = (
-/obj/effect/decal/cleanable/blood/splatter/human{
+/obj/decal/cleanable/blood/splatter/human{
 	icon_state = "splatter5";
 	dir = 8
 	},
 /turf/template_noop,
 /area/template_noop)
 "DM" = (
-/obj/effect/decal/cleanable/blood/tracks/fake/footprints{
+/obj/decal/cleanable/blood/tracks/fake/footprints{
 	icon_state = "human2";
 	dir = 1;
 	coming_dir = 0;
@@ -286,8 +286,8 @@
 /turf/template_noop,
 /area/template_noop)
 "Fe" = (
-/obj/effect/landmark/corpse/newpirate/melee,
-/obj/effect/decal/cleanable/blood/drip,
+/obj/landmark/corpse/newpirate/melee,
+/obj/decal/cleanable/blood/drip,
 /turf/template_noop,
 /area/template_noop)
 "Fn" = (
@@ -309,7 +309,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Iu" = (
-/obj/effect/decal/cleanable/blood/tracks/fake/footprints{
+/obj/decal/cleanable/blood/tracks/fake/footprints{
 	dir = 1
 	},
 /turf/template_noop,
@@ -323,8 +323,8 @@
 /turf/template_noop,
 /area/template_noop)
 "Jz" = (
-/obj/effect/landmark/corpse/newpirate/ballistic,
-/obj/effect/decal/cleanable/blood/tracks/fake/footprints{
+/obj/landmark/corpse/newpirate/ballistic,
+/obj/decal/cleanable/blood/tracks/fake/footprints{
 	dir = 4;
 	coming_dir = 0;
 	going_dir = 4;
@@ -338,16 +338,16 @@
 /turf/template_noop,
 /area/template_noop)
 "Kf" = (
-/obj/effect/decal/cleanable/blood/splatter/human{
+/obj/decal/cleanable/blood/splatter/human{
 	icon_state = "splatter6";
 	dir = 6
 	},
 /turf/template_noop,
 /area/template_noop)
 "KZ" = (
-/obj/effect/landmark/corpse/newpirate/melee,
-/obj/effect/decal/cleanable/blood,
-/obj/effect/decal/cleanable/blood/tracks/fake/body{
+/obj/landmark/corpse/newpirate/melee,
+/obj/decal/cleanable/blood,
+/obj/decal/cleanable/blood/tracks/fake/body{
 	icon_state = "trail2";
 	dir = 4;
 	coming_dir = 0;
@@ -358,7 +358,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Lr" = (
-/obj/effect/decal/cleanable/blood/tracks/fake/footprints{
+/obj/decal/cleanable/blood/tracks/fake/footprints{
 	dir = 4;
 	coming_dir = 8;
 	going_dir = 4;
@@ -376,8 +376,8 @@
 /turf/template_noop,
 /area/template_noop)
 "LG" = (
-/obj/effect/decal/cleanable/blood,
-/obj/effect/decal/cleanable/blood/tracks/fake/body{
+/obj/decal/cleanable/blood,
+/obj/decal/cleanable/blood/tracks/fake/body{
 	icon_state = "trail2";
 	dir = 1;
 	going_dir = 1;
@@ -395,7 +395,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Ox" = (
-/obj/effect/decal/cleanable/blood/splatter/human{
+/obj/decal/cleanable/blood/splatter/human{
 	icon_state = "splatter2";
 	dir = 5
 	},
@@ -407,15 +407,15 @@
 /turf/template_noop,
 /area/template_noop)
 "Pz" = (
-/obj/effect/landmark/corpse/newpirate/melee,
-/obj/effect/decal/cleanable/blood,
+/obj/landmark/corpse/newpirate/melee,
+/obj/decal/cleanable/blood,
 /turf/template_noop,
 /area/template_noop)
 "Rk" = (
-/obj/effect/decal/cleanable/blood/splatter/human{
+/obj/decal/cleanable/blood/splatter/human{
 	icon_state = "splatter1"
 	},
-/obj/effect/decal/cleanable/blood/tracks/fake/footprints{
+/obj/decal/cleanable/blood/tracks/fake/footprints{
 	icon_state = "human2";
 	dir = 1;
 	coming_dir = 0;
@@ -430,7 +430,7 @@
 /turf/template_noop,
 /area/template_noop)
 "TF" = (
-/obj/effect/decal/cleanable/blood/tracks/fake/footprints{
+/obj/decal/cleanable/blood/tracks/fake/footprints{
 	dir = 4;
 	coming_dir = 4;
 	going_dir = 1;
@@ -444,8 +444,8 @@
 /turf/template_noop,
 /area/template_noop)
 "TW" = (
-/obj/effect/decal/cleanable/blood,
-/obj/effect/decal/cleanable/blood/tracks/fake/footprints{
+/obj/decal/cleanable/blood,
+/obj/decal/cleanable/blood/tracks/fake/footprints{
 	dir = 4;
 	coming_dir = 0;
 	going_dir = 4;
@@ -479,7 +479,7 @@
 /turf/template_noop,
 /area/template_noop)
 "WM" = (
-/obj/effect/decal/cleanable/blood/splatter/human{
+/obj/decal/cleanable/blood/splatter/human{
 	icon_state = "splatter4"
 	},
 /turf/template_noop,
@@ -491,7 +491,7 @@
 /turf/template_noop,
 /area/template_noop)
 "Xp" = (
-/obj/effect/decal/cleanable/blood/tracks/fake/body{
+/obj/decal/cleanable/blood/tracks/fake/body{
 	dir = 1;
 	coming_dir_2 = 0;
 	going_dir_2 = 8;

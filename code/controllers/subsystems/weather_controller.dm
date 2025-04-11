@@ -40,12 +40,12 @@ SUBSYSTEM_DEF(weather)
 /datum/controller/subsystem/weather/proc/update_active()
 	var/list/responsive = list()
 	for(var/i in active_cache)
-		if(istype(i, /obj/effect/weather))
-			var/obj/effect/weather/WO = i
+		if(istype(i, /obj/urist_intangible/weather))
+			var/obj/urist_intangible/weather/WO = i
 			if(WO.WActive()) //not active, not processed
 				responsive += WO
 		else if(istype(i, /turf))
-			var/obj/effect/weather/WTu = i
+			var/obj/urist_intangible/weather/WTu = i
 			if(WTu.WActive())
 				responsive += WTu
 	active_cache.Cut()
@@ -54,12 +54,12 @@ SUBSYSTEM_DEF(weather)
 /datum/controller/subsystem/weather/proc/get_weather_objs()
 	var/act_weathers = list()
 	for(var/i in weather_cache)
-		if(istype(i, /obj/effect/weather))
-			var/obj/effect/weather/WO = i
+		if(istype(i, /obj/urist_intangible/weather))
+			var/obj/urist_intangible/weather/WO = i
 			if(WO.weather_check_in()) //should be always true while object exists and should change
 				act_weathers += WO
 		else if(istype(i, /turf))
-			var/obj/effect/weather/WTu = i
+			var/obj/urist_intangible/weather/WTu = i
 			if(WTu.weather_check_in())
 				act_weathers += WTu
 	return act_weathers
@@ -68,8 +68,8 @@ SUBSYSTEM_DEF(weather)
 /datum/controller/subsystem/weather/proc/change_weather(initial = 0)
 	var/list/processed = list()
 	for(var/weather_handler in weather_cache)
-		if(istype(weather_handler, /obj/effect/weather))
-			var/obj/effect/weather/WO = weather_handler
+		if(istype(weather_handler, /obj/urist_intangible/weather))
+			var/obj/urist_intangible/weather/WO = weather_handler
 			var/area/WA = get_area(WO)
 			if(!(WA in processed))
 				processed += WA
@@ -131,8 +131,8 @@ SUBSYSTEM_DEF(weather)
 
 /datum/controller/subsystem/weather/proc/inflict_effects()
 	for(var/weatherhandler in active_cache)
-		if(istype(weatherhandler, /obj/effect/weather))
-			var/obj/effect/weather/WO = weatherhandler
+		if(istype(weatherhandler, /obj/urist_intangible/weather))
+			var/obj/urist_intangible/weather/WO = weatherhandler
 			if(!(WO.weather_safe) && WO.weather_check_in())
 				WO.inflictW()
 		else if(istype(weatherhandler, /turf))

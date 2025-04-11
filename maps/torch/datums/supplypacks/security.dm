@@ -19,15 +19,6 @@
 	containername = "security armor crate"
 	access = access_security
 
-/singleton/hierarchy/supply_pack/security/solarmor
-	name = "Armor - Peacekeeper"
-	contains = list(/obj/item/clothing/suit/armor/pcarrier/blue/sol = 2,
-					/obj/item/clothing/head/helmet/solgov =2)
-	cost = 30
-	containertype = /obj/structure/closet/crate/secure
-	containername = "peacekeeper armor crate"
-	access = access_emergency_armory
-
 /singleton/hierarchy/supply_pack/security/comarmor
 	name = "Armor - Command"
 	contains = list(/obj/item/clothing/suit/armor/pcarrier/medium/command = 2,
@@ -37,31 +28,13 @@
 	containername = "command armor crate"
 	access = access_heads
 
-/singleton/hierarchy/supply_pack/security/nanoarmor
-	name = "Armor - Corporate"
-	contains = list(/obj/item/clothing/suit/armor/pcarrier/medium/nt = 2,
-					/obj/item/clothing/head/helmet/nt/guard =2)
-	cost = 20
-	containertype = /obj/structure/closet/crate/secure
-	containername = "corporate armor crate"
-	access = access_nanotrasen
-
-/singleton/hierarchy/supply_pack/security/lightnanoarmor
-	name = "Armor - Corporate light"
-	contains = list(/obj/item/clothing/suit/armor/pcarrier/light/nt = 2,
-					/obj/item/clothing/head/helmet/nt/guard =2)
-	cost = 15
-	containertype = /obj/structure/closet/crate/secure
-	containername = "corporate light armor crate"
-	access = access_nanotrasen
-
 /singleton/hierarchy/supply_pack/security/pistol
 	name = "Weapons - Ballistic sidearms"
 	contains = list(
-		/obj/item/gun/projectile/pistol/m22f = 2,
-		/obj/item/gun/projectile/pistol/m19 = 2,
-		/obj/item/ammo_magazine/pistol/double = 2,
-		/obj/item/ammo_magazine/pistol = 2
+		/obj/item/gun/projectile/pistol/m22f/empty = 2,
+		/obj/item/gun/projectile/pistol/m19/empty = 2,
+		/obj/item/storage/box/ammo/doublestack,
+		/obj/item/storage/box/ammo/pistol
 	)
 	cost = 50
 	containertype = /obj/structure/closet/crate/secure/weapon
@@ -107,12 +80,12 @@
 
 /singleton/hierarchy/supply_pack/security/pdw
 	name = "Weapons - Ballistic PDWs"
-	contains = list(/obj/item/gun/projectile/automatic/wt550 = 2)
+	contains = list(/obj/item/gun/projectile/automatic/sec_smg/empty = 2)
 	cost = 40
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "\improper Ballistic PDW crate"
 	access = access_emergency_armory
-	security_level = SUPPLY_SECURITY_HIGH
+	security_level = SUPPLY_SECURITY_ELEVATED
 
 /singleton/hierarchy/supply_pack/security/bullpup
 	name = "Weapons - Heavy ballistic rifles"
@@ -134,16 +107,22 @@
 
 /singleton/hierarchy/supply_pack/security/pistolammo
 	name = "Ammunition - pistol magazines"
-	contains = list(/obj/item/ammo_magazine/pistol/double = 4)
+	contains = list(
+		/obj/item/storage/box/ammo/pistol = 3,
+		/obj/item/storage/box/ammo/doublestack = 3
+	)
 	cost = 30
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "pistol ammunition crate"
-	access = access_security
+	access = access_hos
 	security_level = SUPPLY_SECURITY_ELEVATED
 
 /singleton/hierarchy/supply_pack/security/pistolammorubber
 	name = "Ammunition - pistol rubber"
-	contains = list(/obj/item/ammo_magazine/pistol/double/rubber = 4)
+	contains = list(
+		/obj/item/storage/box/ammo/pistol/rubber = 4,
+		/obj/item/storage/box/ammo/doublestack/rubber = 2
+	)
 	cost = 20
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "pistol rubber ammunition crate"
@@ -151,7 +130,10 @@
 
 /singleton/hierarchy/supply_pack/security/pistolammopractice
 	name = "Ammunition - pistol practice ammo"
-	contains = list(/obj/item/ammo_magazine/pistol/double/practice = 8)
+	contains = list(
+		/obj/item/ammo_magazine/pistol/double/practice = 4,
+		/obj/item/ammo_magazine/pistol/practice = 4
+	)
 	cost = 20
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "pistol practice ammunition crate"

@@ -1,7 +1,7 @@
 /obj/item/material/bell
 	name = "bell"
 	desc = "A bell to ring to get people's attention. Don't break it."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/structures/bells.dmi'
 	icon_state = "bell"
 	max_force = 5
 	force_multiplier = 0.8
@@ -30,11 +30,6 @@
 		)
 		playsound(src, normal_sound, 20)
 	flick("bell_dingeth", src)
-
-
-/obj/item/material/bell/apply_hit_effect()
-	. = ..()
-	shatter()
 
 
 /obj/item/material/bell/glass

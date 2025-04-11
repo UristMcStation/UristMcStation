@@ -38,10 +38,12 @@
 		power_equip = 0
 		power_environ = 0
 	power_change()		// all machines set to current power level, also updates lighting icon
+	if (turfs_airless)
+		return INITIALIZE_HINT_LATELOAD
 
-/area/Destroy()
-	..()
-	return QDEL_HINT_HARDDEL
+/area/LateInitialize(mapload)
+	turfs_airless = FALSE
+
 
 // Changes the area of T to A. Do not do this manually.
 // Area is expected to be a non-null instance.
@@ -138,7 +140,7 @@
 /// Sets a fire alarm in the area, if one is not already active.
 /area/proc/fire_alert()
 	if(!fire)
-		fire = 1	//used for firedoor checks
+		fire = TRUE	//used for firedoor checks
 		update_icon()
 		mouse_opacity = 0
 		if(!all_doors)
@@ -154,7 +156,7 @@
 /// Clears an active fire alarm from the area.
 /area/proc/fire_reset()
 	if (fire)
-		fire = 0	//used for firedoor checks
+		fire = FALSE	//used for firedoor checks
 		update_icon()
 		mouse_opacity = 0
 		if(!all_doors)
@@ -241,14 +243,13 @@
 	if(!istype(A,/mob/living))	return
 
 	var/mob/living/L = A
-	if(!L.ckey)	return
 
 	if(!L.lastarea)
 		L.lastarea = get_area(L.loc)
 	var/area/newarea = get_area(L.loc)
 	var/area/oldarea = L.lastarea
 	if(oldarea.has_gravity != newarea.has_gravity)
-		if(newarea.has_gravity == 1 && !MOVING_DELIBERATELY(L)) // Being ready when you change areas allows you to avoid falling.
+		if(newarea.has_gravity == 1 && MOVING_QUICKLY(L)) // Being not hasty when you change areas allows you to avoid falling.
 			thunk(L)
 		L.update_floating()
 
@@ -322,22 +323,21 @@
 		var/mob/living/carbon/human/H = mob
 		if(!H.buckled)
 			if(!MOVING_DELIBERATELY(H))
-				H.AdjustStunned(5)
-				H.AdjustWeakened(5)
-			else
 				H.AdjustStunned(3)
 				H.AdjustWeakened(3)
+			else
+				H.AdjustStunned(1.5)
+				H.AdjustWeakened(1.5)
 			to_chat(mob, SPAN_NOTICE("The sudden appearance of gravity makes you fall to the floor!"))
 
 /// Trigger for the prison break event. Causes lighting to overload and dooes to open. Has no effect if the area lacks an APC or the APC is turned off.
 /area/proc/prison_break()
-	var/obj/machinery/power/apc/theAPC = get_apc()
-	if(theAPC && theAPC.operating)
-		for(var/obj/machinery/power/apc/temp_apc in src)
+	if (apc?.operating)
+		for (var/obj/machinery/power/apc/temp_apc in src)
 			temp_apc.overload_lighting(70)
-		for(var/obj/machinery/door/airlock/temp_airlock in src)
+		for (var/obj/machinery/door/airlock/temp_airlock in src)
 			temp_airlock.prison_open()
-		for(var/obj/machinery/door/window/temp_windoor in src)
+		for (var/obj/machinery/door/window/temp_windoor in src)
 			temp_windoor.open()
 
 /// Returns boolean. Whether or not the area is considered to have gravity.

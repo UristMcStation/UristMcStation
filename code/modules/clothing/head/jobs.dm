@@ -88,6 +88,10 @@
 	name = "heliodor surgical cap"
 	color = "#aad539"
 
+/obj/item/clothing/head/surgery/lavender
+	name = "lavender surgical cap"
+	color = "#bebbee"
+
 //Berets
 /obj/item/clothing/head/beret
 	name = "beret"
@@ -170,7 +174,7 @@
 /obj/item/clothing/head/beret/deathsquad
 	name = "heavy asset protection beret"
 	desc = "An armored red beret adorned with the crest of corporate asset protection. Doesn't sacrifice style or safety."
-	icon_state = "beret_red"
+	icon_state = "beret_corporate_red"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_RIFLE,

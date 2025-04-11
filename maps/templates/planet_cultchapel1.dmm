@@ -16,7 +16,7 @@
 "p" = (/turf/simulated/floor/wood,/area/planet/jungle/away)
 "q" = (/obj/machinery/door/unpowered/simple/iron,/turf/simulated/floor/wood,/area/planet/jungle/away)
 "r" = (/turf/simulated/floor/cult,/area/planet/jungle/away)
-"s" = (/obj/structure/cult/talisman,/obj/effect/gibspawner/human,/obj/effect/landmark/corpse/russian/ranged,/turf/simulated/floor/cult,/area/planet/jungle/away)
+"s" = (/obj/structure/cult/talisman,/obj/gibspawner/human,/obj/landmark/corpse/russian/ranged,/turf/simulated/floor/cult,/area/planet/jungle/away)
 "t" = (/turf/simulated/floor/planet/jungle/path,/area/planet/jungle/away)
 "u" = (/obj/machinery/door/unpowered/simple/wood,/turf/simulated/floor/wood{icon_state = "wood_broken3"},/area/planet/jungle/away)
 "v" = (/obj/structure/curtain/black{pixel_y = -32},/turf/simulated/floor/wood,/area/planet/jungle/away)

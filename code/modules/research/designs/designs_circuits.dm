@@ -275,6 +275,13 @@
 	build_path = /obj/item/stock_parts/circuitboard/anomaly_container
 	sort_string = "HABAL"
 
+/datum/design/circuit/stasis_cage
+	name = "stasis cage"
+	id = "stasis cage"
+	req_tech = list(TECH_BLUESPACE = 3, TECH_ENGINEERING = 4, TECH_BIO = 3)
+	build_path = /obj/item/stock_parts/circuitboard/stasis_cage
+	sort_string = "HABAM"
+
 /datum/design/circuit/rdservercontrol
 	name = "R&D server control console"
 	id = "rdservercontrol"
@@ -448,15 +455,8 @@
 	name = "chemical heating system"
 	id = "chemheater"
 	req_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 1)
-	build_path = /obj/item/stock_parts/circuitboard/reagent_heater
+	build_path = /obj/item/stock_parts/circuitboard/reagent_temp
 	sort_string = "JCAAE"
-
-/datum/design/circuit/reagent_cooler
-	name = "chemical cooling system"
-	id = "chemcooler"
-	req_tech = list(TECH_POWER = 2, TECH_ENGINEERING = 1)
-	build_path = /obj/item/stock_parts/circuitboard/reagent_heater/cooler
-	sort_string = "JCAAF"
 
 /datum/design/circuit/atmos_control
 	name = "atmospherics control console"
@@ -840,13 +840,6 @@
 	build_path = /obj/item/stock_parts/circuitboard/tele_beacon
 	sort_string = "XAAAF"
 
-/datum/design/circuit/bluespacedrive
-	name = "Naophoros-pattern bluespace puncturer"
-	id = "bluespacedrive"
-	req_tech = list(TECH_BLUESPACE = 12, TECH_POWER = 12, TECH_ENGINEERING = 12) // You are not supposed to get this
-	build_path = /obj/item/stock_parts/circuitboard/bluespacedrive
-	sort_string = "XAAAG"
-
 /datum/design/circuit/shipsensors
 	name = "Broad-band sensor suite"
 	id = "shipsensors"
@@ -867,3 +860,10 @@
 	req_tech = list(TECH_ENGINEERING = 1)
 	build_path = /obj/item/stock_parts/circuitboard/shipmap
 	sort_string = "SAAAT"
+
+/datum/design/circuit/drone_pad
+	name = "transport drone landing pad"
+	id = "drone_pad"
+	req_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 2)
+	build_path = /obj/item/stock_parts/circuitboard/drone_pad
+	sort_string = "TDRP"

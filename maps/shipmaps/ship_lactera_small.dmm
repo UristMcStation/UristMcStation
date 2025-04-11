@@ -78,7 +78,7 @@
 	},
 /area/boarding_ship)
 "am" = (
-/obj/effect/urist/triggers/ai_defender_landmark/lactera/leader,
+/obj/urist_intangible/triggers/ai_defender_landmark/lactera/leader,
 /turf/unsimulated/floor/uristturf/other/scom{
 	icon_state = "9,7"
 	},
@@ -93,7 +93,7 @@
 	},
 /area/boarding_ship)
 "ao" = (
-/obj/effect/urist/triggers/defender_landmark/lactera,
+/obj/urist_intangible/triggers/defender_landmark/lactera,
 /turf/unsimulated/floor/uristturf/other/scom{
 	icon_state = "9,7"
 	},
@@ -173,13 +173,13 @@
 	},
 /area/boarding_ship)
 "aA" = (
-/obj/effect/urist/triggers/ai_defender_landmark/lactera/heavy,
+/obj/urist_intangible/triggers/ai_defender_landmark/lactera/heavy,
 /turf/unsimulated/floor/uristturf/other/scom{
 	icon_state = "5,1"
 	},
 /area/boarding_ship)
 "aB" = (
-/obj/effect/urist/triggers/ai_defender_landmark/lactera,
+/obj/urist_intangible/triggers/ai_defender_landmark/lactera,
 /turf/unsimulated/floor/uristturf/other/scom{
 	icon_state = "5,1"
 	},
@@ -219,7 +219,7 @@
 	},
 /area/boarding_ship)
 "aH" = (
-/obj/effect/urist/triggers/ai_defender_landmark/lactera,
+/obj/urist_intangible/triggers/ai_defender_landmark/lactera,
 /turf/unsimulated/floor/uristturf/other/scom{
 	icon_state = "1,1"
 	},
@@ -320,13 +320,13 @@
 	},
 /area/boarding_ship)
 "ba" = (
-/obj/effect/urist/triggers/ai_defender_landmark/lactera,
+/obj/urist_intangible/triggers/ai_defender_landmark/lactera,
 /turf/unsimulated/floor/uristturf/other/scom{
 	icon_state = "0,15.1"
 	},
 /area/boarding_ship)
 "bb" = (
-/obj/effect/urist/triggers/ai_defender_landmark/lactera,
+/obj/urist_intangible/triggers/ai_defender_landmark/lactera,
 /turf/unsimulated/floor/uristturf/other/scom{
 	icon_state = "9,7"
 	},
@@ -451,26 +451,26 @@
 	},
 /area/boarding_ship)
 "bu" = (
-/obj/effect/urist/triggers/ai_defender_landmark/lactera,
+/obj/urist_intangible/triggers/ai_defender_landmark/lactera,
 /turf/unsimulated/floor/uristturf/other/scom{
 	icon_state = "1,15"
 	},
 /area/boarding_ship)
 "bv" = (
-/obj/effect/urist/triggers/ai_defender_landmark/lactera,
+/obj/urist_intangible/triggers/ai_defender_landmark/lactera,
 /turf/unsimulated/floor/uristturf/other/scom{
 	icon_state = "0,15"
 	},
 /area/boarding_ship)
 "bw" = (
 /obj/structure/boarding/shipportal,
-/obj/effect/urist/triggers/boarding_landmark,
+/obj/urist_intangible/triggers/boarding_landmark,
 /turf/unsimulated/floor/uristturf/other/scom{
 	icon_state = "0,15.1"
 	},
 /area/boarding_ship)
 "bx" = (
-/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/obj/landmark/scom/bomb/boarding/biglactship,
 /turf/unsimulated/floor/uristturf/other/scom{
 	icon_state = "5,1"
 	},
@@ -479,7 +479,7 @@
 	},
 /area/boarding_ship)
 "by" = (
-/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/obj/landmark/scom/bomb/boarding/biglactship,
 /turf/unsimulated/floor/uristturf/other/scom{
 	icon_state = "5,1"
 	},
@@ -489,51 +489,51 @@
 	},
 /area/boarding_ship)
 "bz" = (
-/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/obj/landmark/scom/bomb/boarding/biglactship,
 /turf/unsimulated/wall/urist/other{
 	icon_state = "1,0";
 	dir = 5
 	},
 /area/boarding_ship)
 "bA" = (
-/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/obj/landmark/scom/bomb/boarding/biglactship,
 /turf/unsimulated/floor/uristturf/other/scom{
 	icon_state = "0,15"
 	},
 /area/boarding_ship)
 "bB" = (
-/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/obj/landmark/scom/bomb/boarding/biglactship,
 /turf/unsimulated/wall/urist/other/see{
 	icon_state = "0,14"
 	},
 /area/boarding_ship)
 "bC" = (
-/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/obj/landmark/scom/bomb/boarding/biglactship,
 /turf/unsimulated/floor/uristturf/other/scom{
 	icon_state = "1,15"
 	},
 /area/boarding_ship)
 "bD" = (
-/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/obj/landmark/scom/bomb/boarding/biglactship,
 /turf/unsimulated/wall/urist/other{
 	icon_state = "3,15";
 	dir = 4
 	},
 /area/boarding_ship)
 "bE" = (
-/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/obj/landmark/scom/bomb/boarding/biglactship,
 /turf/unsimulated/wall/urist/other/see{
 	icon_state = "0,11"
 	},
 /area/boarding_ship)
 "bF" = (
-/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/obj/landmark/scom/bomb/boarding/biglactship,
 /turf/unsimulated/floor/uristturf/other/scom{
 	icon_state = "0,15.1"
 	},
 /area/boarding_ship)
 "bG" = (
-/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/obj/landmark/scom/bomb/boarding/biglactship,
 /turf/unsimulated/wall/urist/other{
 	icon_state = "3,15";
 	dir = 8
@@ -546,7 +546,7 @@
 	},
 /area/space)
 "bI" = (
-/obj/effect/landmark/scom/bomb/boarding/biglactship,
+/obj/landmark/scom/bomb/boarding/biglactship,
 /turf/unsimulated/wall/urist/other{
 	icon_state = "3,15";
 	dir = 1

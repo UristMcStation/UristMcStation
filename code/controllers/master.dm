@@ -65,12 +65,10 @@ var/global/datum/controller/master/Master = new
 
 
 /datum/controller/master/New()
-	Uptime() //Uptime as close to boot as possible to set its statics
 	if (!global.diary)
 		global.diary = file("data/logs/[time2text(world.timeofday, "YYYY/MM/DD", -world.timezone)].log")
 	if (!config)
 		config = new
-		world.fps = config.fps
 	total_run_times = list()
 	// Highlander-style: there can only be one! Kill off the old and replace it with the new.
 	var/list/_subsystems = list()
@@ -99,10 +97,10 @@ var/global/datum/controller/master/Master = new
 	reverseRange(subsystems)
 	for(var/datum/controller/subsystem/ss in subsystems)
 		if (ss.flags & SS_NEEDS_SHUTDOWN)
-			var/time = Uptime()
+			var/time = uptime()
 			report_progress("Shutting down [ss] subsystem...")
 			ss.Shutdown()
-			report_progress("[ss] shutdown in [(Uptime() - time)/10]s.")
+			report_progress("[ss] shutdown in [(uptime() - time)/10]s.")
 	report_progress("Shutdown complete.")
 
 // Returns 1 if we created a new mc, 0 if we couldn't due to a recent restart,
@@ -172,7 +170,7 @@ var/global/datum/controller/master/Master = new
 // 	Make a subsystem, give it the SS_NO_FIRE flag, and do your work in it's Initialize()
 /datum/controller/master/Initialize(delay, init_sss)
 	set waitfor = FALSE
-	var/start_uptime = Uptime()
+	var/start_uptime = uptime()
 
 	if(delay)
 		sleep(delay)
@@ -191,10 +189,10 @@ var/global/datum/controller/master/Master = new
 	for (var/datum/controller/subsystem/SS in subsystems)
 		if (SS.flags & SS_NO_INIT)
 			continue
-		SS.DoInitialize(Uptime())
+		SS.DoInitialize(uptime())
 		CHECK_TICK
 	current_ticklimit = tick_limit_default
-	var/msg = "Initializations complete within [(Uptime() - start_uptime) / 10] second\s!"
+	var/msg = "Initializations complete within [(uptime() - start_uptime) / 10] second\s!"
 	report_progress(msg)
 	log_world(msg)
 
@@ -202,6 +200,7 @@ var/global/datum/controller/master/Master = new
 
 	if (!current_runlevel)
 		sound_to(world, sound('sound/ui/lobby-notify.ogg', volume = 20))
+		callHook("game_ready")
 		SetRunLevel(RUNLEVEL_LOBBY)
 
 	// Sort subsystems by display setting for easy access.
@@ -289,7 +288,7 @@ var/global/datum/controller/master/Master = new
 	var/cached_runlevel = current_runlevel
 	var/list/current_runlevel_subsystems = runlevel_sorted_subsystems[cached_runlevel]
 
-	init_timeofday = Uptime()
+	init_timeofday = uptime()
 	init_time = world.time
 
 	iteration = 1
@@ -299,7 +298,7 @@ var/global/datum/controller/master/Master = new
 	//the actual loop.
 
 	while (1)
-		tickdrift = max(0, MC_AVERAGE_FAST(tickdrift, (((Uptime() - init_timeofday) - (world.time - init_time)) / world.tick_lag)))
+		tickdrift = max(0, MC_AVERAGE_FAST(tickdrift, (((uptime() - init_timeofday) - (world.time - init_time)) / world.tick_lag)))
 		var/starting_tick_usage = world.tick_usage
 		if (processing <= 0)
 			current_ticklimit = tick_limit_default
@@ -589,13 +588,20 @@ var/global/datum/controller/master/Master = new
 	if (PreventUpdateStat(time))
 		return ..()
 	..({"\
-		Hub: [config.hub_visible ? "Y" : "N"]  \
-		FPS: [world.fps]  \
-		Ticks: [world.time / world.tick_lag]  \
 		Alive: [Master.processing ? "Y" : "N"]  \
+		Ticks: [world.time / world.tick_lag]  \
 		Cycle: [Master.iteration]  \
-		Drift: [Round(Master.tickdrift)] | [Percent(Master.tickdrift, world.time / world.tick_lag, 1)]%
-	"})
+		Drift: [Round(Master.tickdrift)] | [Percent(Master.tickdrift, world.time / world.tick_lag, 1)]%\n\
+		FPS: [world.fps]  \
+		CPU: [round(world.cpu, 0.1)]%  \
+		MAP: [round(world.map_cpu, 0.1)]%  \
+		Atoms: [length(world.contents)]\n\
+		Server: [world.byond_version].[world.byond_build]  \
+		World Size: <[world.maxx],[world.maxy],[world.maxz]>\n\
+		Hub: [config.hub_visible ? "Y" : "N"]  \
+		Reachable: [world.reachable ? "Y" : "N"]  \
+		Address: [world.internet_address]:[world.port]\
+	"}) //515: add 'Compiler: [BYOND_VERSION].[BYOND_BUILD]' after Server
 
 
 /datum/controller/master/StartLoadingMap()

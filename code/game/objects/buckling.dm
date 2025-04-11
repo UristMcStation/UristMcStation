@@ -11,6 +11,9 @@
 	var/buckle_sound = 'sound/effects/buckle.ogg'
 	var/breakout_time
 
+	///Verb used when the object is punched. If defined, overrides the punch's usual verb
+	var/attacked_verb
+
 	/**
 	*  A list of (x, y, z) to offset buckled_mob by, or null.
 	*  Best assigned to reference a static list, eg:
@@ -87,8 +90,9 @@
 		return FALSE
 	var/list/grabbed_by_mobs = list()
 	for (var/obj/item/grab/grab in target.grabbed_by)
-		if (grab.assailant != user)
-			grabbed_by_mobs += grab.assailant
+		if (grab.assailant == user || grab.assailant == target)
+			continue
+		grabbed_by_mobs += "\the [grab.assailant]"
 	if (length(grabbed_by_mobs))
 		if (!silent)
 			to_chat(user, SPAN_WARNING("\The [target] is being grabbed by [english_list(grabbed_by_mobs)] and can't be buckled by you."))
@@ -102,7 +106,7 @@
 			to_chat(user, SPAN_WARNING("\The [target] must be restrained to buckle them to \the [src]."))
 		return FALSE
 	if (user)
-		if (user.incapacitated())
+		if (user != target && user.incapacitated())
 			if (!silent)
 				to_chat(user, SPAN_WARNING("You're in no condition to buckle things right now."))
 			return FALSE
@@ -181,7 +185,7 @@
 /obj/proc/AttemptBuckle(mob/living/target, mob/living/user, silent = FALSE)
 	if (!istype(target))
 		return FALSE
-	if (target == user || target.a_intent == I_HELP)
+	if (target == user || target.a_intent == I_HELP || target.incapacitated())
 		return user_buckle_mob(target, user, silent)
 	if (!can_buckle(target, user, silent))
 		return FALSE
@@ -202,7 +206,7 @@
  * Returns boolean. Whether or not the buckling was successful.
  */
 /obj/proc/AttemptUnbuckle(mob/living/user, silent = FALSE)
-	if (buckled_mob && (buckled_mob == user || buckled_mob.a_intent == I_HELP))
+	if (buckled_mob && (buckled_mob == user || buckled_mob.a_intent == I_HELP || buckled_mob.incapacitated()))
 		return user_unbuckle_mob(user, silent)
 	if (!can_unbuckle(user, silent))
 		return FALSE
@@ -233,7 +237,7 @@
 	M.UpdateLyingBuckledAndVerbStatus()
 	M.update_floating()
 	buckled_mob = M
-	GLOB.destroyed_event.register(buckled_mob, src, /obj/proc/clear_buckle)
+	GLOB.destroyed_event.register(buckled_mob, src, PROC_REF(clear_buckle))
 	if (buckle_sound)
 		playsound(src, buckle_sound, 20)
 	post_buckle_mob(M)
@@ -250,7 +254,7 @@
 		if (buckled_mob.buckled != src)
 			log_debug(append_admin_tools("A buckled mob ([buckled_mob.name] ([buckled_mob.type])) is buckled to multiple objects at once. This has been auto-corrected.", buckled_mob, get_turf(src)))
 			buckled_mob = null
-			GLOB.destroyed_event.unregister(., src, /obj/proc/clear_buckle)
+			GLOB.destroyed_event.unregister(., src, PROC_REF(clear_buckle))
 			return
 		. = buckled_mob
 		buckled_mob.buckled = null
@@ -259,7 +263,7 @@
 		buckled_mob.update_floating()
 		buckled_mob = null
 
-		GLOB.destroyed_event.unregister(., src, /obj/proc/clear_buckle)
+		GLOB.destroyed_event.unregister(., src, PROC_REF(clear_buckle))
 		post_buckle_mob(.)
 
 
@@ -274,7 +278,7 @@
 		buckled_mob = null // In case unbuckle failed
 	if (_buckled_mob.buckled == src)
 		_buckled_mob.buckled = null
-	GLOB.destroyed_event.unregister(., src, /obj/proc/clear_buckle)
+	GLOB.destroyed_event.unregister(., src, PROC_REF(clear_buckle))
 
 /obj/proc/post_buckle_mob(mob/living/M)
 	if (buckle_pixel_shift)
@@ -330,6 +334,7 @@
 				exclude_mobs = list(M)
 			)
 			to_chat(M, SPAN_DANGER("\The [user] buckles you to \the [src]."))
+			add_fingerprint(M)
 
 
 /**
@@ -350,16 +355,16 @@
 	if(M)
 		if(M != user)
 			user.visible_message(
-				SPAN_WARNING("\The [user] unbuckles \the [M] from \the [src]."),
-				SPAN_DANGER("You unbuckle \the [M] from \the [src]"),
+				SPAN_NOTICE("\The [user] unbuckles \the [M] from \the [src]."),
+				SPAN_NOTICE("You unbuckle \the [M] from \the [src]"),
 				SPAN_NOTICE("You hear metal clanking."),
 				exclude_mobs = list(M)
 			)
 			to_chat(M, SPAN_DANGER("\The [user] unbuckles you from \the [src]."))
 		else
 			user.visible_message(\
-				SPAN_WARNING("\The [user] unbuckles themselves from \the [src]."),
-				SPAN_DANGER("You unbuckle yourself from \the [src]."),
+				SPAN_NOTICE("\The [user] unbuckles themselves from \the [src]."),
+				SPAN_NOTICE("You unbuckle yourself from \the [src]."),
 				SPAN_NOTICE("You hear metal clanking.")
 			)
 		add_fingerprint(user)

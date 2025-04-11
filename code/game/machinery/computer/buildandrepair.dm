@@ -2,19 +2,19 @@
 
 /obj/machinery/constructable_frame/computerframe
 	name = "computer frame"
-	icon = 'icons/obj/stock_parts.dmi'
+	icon = 'icons/obj/machines/frames.dmi'
 	icon_state = "unwired"
 	obj_flags = OBJ_FLAG_ROTATABLE
 	expected_machine_type = "computer"
 
 /obj/machinery/constructable_frame/computerframe/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	switch(construct_state && construct_state.type)
 		if(/singleton/machine_construction/frame/awaiting_circuit)
 			icon_state = "wired"
 		if(/singleton/machine_construction/frame/awaiting_parts)
 			icon_state = "wired"
-			overlays += "circuit"
+			AddOverlays("circuit")
 		else
 			icon_state = "unwired"
 

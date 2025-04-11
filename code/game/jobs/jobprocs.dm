@@ -24,29 +24,29 @@
 		if(V!=usr)
 			V.show_message("[H] looks as if a wall is in front of them.", 3, "", 2)
 	to_chat(usr, "You form a wall in front of yourself.")
-	new /obj/effect/forcefield/mime(locate(usr.x,usr.y,usr.z))
+	new /obj/forcefield/mime(locate(usr.x,usr.y,usr.z))
 	return
 
 ///////////Mimewalls///////////
-
-/obj/effect/forcefield/mime
+/* //these are located in forcewall.dm, under wizard spells
+/obj/forcefield/mime
 	icon_state = "empty"
 	name = "invisible wall"
 	desc = "You have a bad feeling about this."
 	var/timeleft = 300
 	var/last_process = 0
 
-/obj/effect/forcefield/mime/New()
+/obj/forcefield/mime/New()
 	..()
 	last_process = world.time
 	START_PROCESSING(SSobj, src)
 
-/obj/effect/forcefield/mime/Process()
+/obj/forcefield/mime/Process()
 	timeleft -= (world.time - last_process)
 	if(timeleft <= 0)
 		STOP_PROCESSING(SSobj, src)
 		qdel(src)
-
+*/
 ///////////////////////////////
 
 /client/proc/mimespeak()

@@ -59,6 +59,35 @@
 	max_ammo = 5
 	multiple_sprites = 1
 
+/obj/item/ammo_magazine/shotholder
+	name = "shotgun slug holder"
+	desc = "A convenient pouch that holds 12 gauge shells."
+	icon_state = "shotholder"
+	caliber = CALIBER_SHOTGUN
+	ammo_type = /obj/item/ammo_casing/shotgun
+	matter = list(MATERIAL_STEEL = 1440)
+	max_ammo = 4
+	multiple_sprites = 1
+	var/marking_color
+
+/obj/item/ammo_magazine/shotholder/on_update_icon()
+	..()
+	ClearOverlays()
+	if(marking_color)
+		var/image/I = image(icon, "shotholder-marking")
+		I.color = marking_color
+		AddOverlays(I)
+
+/obj/item/ammo_magazine/shotholder/attack_hand(mob/user)
+	if((user.a_intent == I_HURT) && (length(stored_ammo)))
+		var/obj/item/ammo_casing/C = stored_ammo[length(stored_ammo)]
+		stored_ammo-=C
+		user.put_in_hands(C)
+		user.visible_message("\The [user] removes \a [C] from [src].", SPAN_NOTICE("You remove \a [C] from [src]."))
+		update_icon()
+	else
+		..()
+
 /obj/item/ammo_magazine/shotholder/shell
 	name = "shotgun shell holder"
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
@@ -158,6 +187,10 @@
 /obj/item/ammo_magazine/pistol/rubber
 	labels = list("rubber")
 	ammo_type = /obj/item/ammo_casing/pistol/rubber
+
+/obj/item/ammo_magazine/pistol/practice
+	labels = list("practice")
+	ammo_type = /obj/item/ammo_casing/pistol/practice
 
 /obj/item/ammo_magazine/pistol/double
 	name = "doublestack pistol magazine"
@@ -296,7 +329,7 @@
 	caliber = CALIBER_RIFLE_MILITARY
 	matter = list(MATERIAL_STEEL = 1800)
 	ammo_type = /obj/item/ammo_casing/rifle/military
-	max_ammo = 15
+	max_ammo = 18
 	multiple_sprites = 1
 
 /obj/item/ammo_magazine/mil_rifle/heavy
@@ -313,7 +346,7 @@
 	icon_state = "bullpup_light"
 	labels = list("light")
 	ammo_type = /obj/item/ammo_casing/rifle/military/light
-	max_ammo = 20
+	max_ammo = 14
 
 /obj/item/ammo_magazine/mil_rifle/light/empty
 	initial_ammo = 0

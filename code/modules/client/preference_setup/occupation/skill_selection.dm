@@ -81,11 +81,10 @@
 //Sets up skills_allocated
 /datum/preferences/proc/sanitize_skills(list/input)
 	. = list()
-	var/datum/species/S = all_species[species]
 	for(var/job_name in SSjobs.titles_to_datums)
 		var/datum/job/job = SSjobs.get_by_title(job_name)
 		var/input_skills = list()
-		if((job in input) && istype(input[job], /list))
+		if((job in input) && islist(input[job]))
 			input_skills = input[job]
 
 		var/L = list()
@@ -102,9 +101,6 @@
 					sum += spent
 
 		points_by_job[job] = job.skill_points							//We compute how many points we had.
-		if(!job.no_skill_buffs)
-			points_by_job[job] += S.skills_from_age(age)				//Applies the species-appropriate age modifier.
-			points_by_job[job] += S.job_skill_buffs[job.type]			//Applies the per-job species modifier, if any.
 
 		if((points_by_job[job] >= sum) && sum)				//we didn't overspend, so use sanitized imported data
 			.[job] = L
@@ -189,7 +185,7 @@
 			for(var/singleton/hierarchy/skill/perk in S.children)
 				dat += get_skill_row(job, perk)
 	dat += "</table>"
-	return JOINTEXT(dat)
+	return jointext(dat, null)
 
 /datum/category_item/player_setup_item/occupation/proc/get_skill_row(datum/job/job, singleton/hierarchy/skill/S)
 	var/list/dat = list()
@@ -197,11 +193,11 @@
 	var/level = min + (pref.skills_allocated[job] ? pref.skills_allocated[job][S] : 0)				//the current skill level
 	var/cap = pref.get_max_affordable(job, S) //if selecting the skill would make you overspend, it won't be shown
 	dat += "<tr style='text-align:left;'>"
-	dat += "<th><a href='?src=\ref[src];skillinfo=\ref[S]'>[S.name] ([pref.get_spent_points(job, S)])</a></th>"
+	dat += "<th><a href='byond://?src=\ref[src];skillinfo=\ref[S]'>[S.name] ([pref.get_spent_points(job, S)])</a></th>"
 	for(var/i = SKILL_MIN, i <= SKILL_MAX, i++)
 		dat += skill_to_button(S, job, level, i, min, cap)
 	dat += "</tr>"
-	return JOINTEXT(dat)
+	return jointext(dat, null)
 
 /datum/category_item/player_setup_item/occupation/proc/open_skill_setup(mob/user, datum/job/job)
 	panel = new(user, "skill-selection", "Skill Selection: [job.title]", 770, 850, src)
@@ -229,5 +225,5 @@
 
 /datum/category_item/player_setup_item/occupation/proc/add_link(singleton/hierarchy/skill/skill, datum/job/job, text, style, value)
 	if(pref.check_skill_prerequisites(job, skill))
-		return "<a class=[style] href='?src=\ref[src];hit_skill_button=\ref[skill];at_job=\ref[job];newvalue=[value]'>[text]</a>"
+		return "<a class=[style] href='byond://?src=\ref[src];hit_skill_button=\ref[skill];at_job=\ref[job];newvalue=[value]'>[text]</a>"
 	return text

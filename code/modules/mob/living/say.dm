@@ -41,19 +41,46 @@ var/global/list/department_radio_keys = list(
 	  ":J" = "Hailing", ".J" = "Hailing",
 
 	  //kinda localization -- rastaf0
-	  //same keys as above, but on russian keyboard layout. This file uses cp1251 as encoding.
-	  ":ê" = "right ear",	".ê" = "right ear",
-	  ":ä" = "left ear",	".ä" = "left ear",
-	  ":ø" = "intercom",	".ø" = "intercom",
-	  ":ð" = "department",	".ð" = "department",
-	  ":ñ" = "Command",		".ñ" = "Command",
-	  ":ò" = "Science",		".ò" = "Science",
-	  ":ü" = "Medical",		".ü" = "Medical",
-	  ":ó" = "Engineering",	".ó" = "Engineering",
-	  ":û" = "Security",	".û" = "Security",
-	  ":ö" = "whisper",		".ö" = "whisper",
-	  ":å" = "Mercenary",	".å" = "Mercenary",
-	  ":é" = "Supply",		".é" = "Supply",
+	  //same keys as above, but on russian keyboard layout.
+	  ":к" = "right ear",	".к" = "right ear",
+	  ":д" = "left ear",	".д" = "left ear",
+	  ":ш" = "intercom",	".ш" = "intercom",
+	  ":р" = "department",	".р" = "department",
+	  ":с" = "Command",		".с" = "Command",
+	  ":т" = "Science",		".т" = "Science",
+	  ":ь" = "Medical",		".ь" = "Medical",
+	  ":у" = "Engineering", ".у" = "Engineering",
+	  ":ы" = "Security",	".ы" = "Security",
+	  ":ц" = "whisper",		".ц" = "whisper",
+	  ":е" = "Mercenary",	".е" = "Mercenary",
+	  ":ч" = "Raider",		".ч" = "Raider",
+	  ":г" = "Supply",		".г" = "Supply",
+	  ":м" = "Service",		".м" = "Service",
+	  ":з" = "AI Private",	".з" = "AI Private",
+	  ":я" = "Entertainment",".я" = "Entertainment",
+	  ":н" = "Exploration",		".н" = "Exploration",
+	  ":щ" = "Response Team",".щ" = "Response Team",
+	  ":о" = "Hailing", ".о" = "Hailing",
+
+	  ":К" = "right ear",	".К" = "right ear",
+	  ":Д" = "left ear",	".Д" = "left ear",
+	  ":Ш" = "intercom",	".Ш" = "intercom",
+	  ":Р" = "department",	".Р" = "department",
+	  ":С" = "Command",		".С" = "Command",
+	  ":Т" = "Science",		".Т" = "Science",
+	  ":Ь" = "Medical",		".Ь" = "Medical",
+	  ":У" = "Engineering", ".У" = "Engineering",
+	  ":Ы" = "Security",	".Ы" = "Security",
+	  ":Ц" = "whisper",		".Ц" = "whisper",
+	  ":Е" = "Mercenary",	".Е" = "Mercenary",
+	  ":Ч" = "Raider",		".Ч" = "Raider",
+	  ":Г" = "Supply",		".Г" = "Supply",
+	  ":М" = "Service",		".М" = "Service",
+	  ":З" = "AI Private",	".З" = "AI Private",
+	  ":Я" = "Entertainment",".Я" = "Entertainment",
+	  ":Н" = "Exploration",		".Н" = "Exploration",
+	  ":Щ" = "Response Team",".Щ" = "Response Team",
+	  ":О" = "Hailing", ".О" = "Hailing",
 )
 
 
@@ -103,12 +130,7 @@ var/global/list/channel_to_radio_key = new
 
 	. = 0
 
-	if((MUTATION_HULK in mutations) && health >= 25 && length(message))
-		message = "[uppertext(message)]!!!"
-		verb = pick("yells","roars","hollers")
-		message_data[3] = 0
-		. = 1
-	else if(slurring)
+	if(slurring)
 		message = slur(message)
 		verb = pick("slobbers","slurs")
 		. = 1
@@ -194,7 +216,7 @@ var/global/list/channel_to_radio_key = new
 	// This is broadcast to all mobs with the language,
 	// irrespective of distance or anything else.
 	if(speaking && (speaking.flags & HIVEMIND))
-		speaking.broadcast(src,trim(message))
+		speaking.broadcast(src,trimtext(message))
 		return 1
 
 	if((is_muzzled()) && !(speaking && (speaking.flags & SIGNLANG)))
@@ -290,10 +312,10 @@ var/global/list/channel_to_radio_key = new
 			if(O) //It's possible that it could be deleted in the meantime.
 				O.hear_talk(src, message, verb, speaking)
 
-	var/list/whisper_floating = list()
+	var/list/eavesdroppers = list()
 	if(whispering)
-		var/eavesdroping_range = 5
 		var/list/eavesdroping = list()
+		var/eavesdroping_range = 5
 		var/list/eavesdroping_obj = list()
 		get_mobs_and_objs_in_view_fast(T, eavesdroping_range, eavesdroping, eavesdroping_obj)
 		eavesdroping -= listening
@@ -302,12 +324,16 @@ var/global/list/channel_to_radio_key = new
 			if(M)
 				M.hear_say(stars(message), verb, speaking, alt_name, italics, src, speech_sound, sound_vol)
 				if(M.client)
-					speech_bubble_recipients |= M.client
-					whisper_floating |= M.client
+					eavesdroppers |= M.client
+
 		for(var/obj/O in eavesdroping)
 			spawn(0)
 				if(O) //It's possible that it could be deleted in the meantime.
 					O.hear_talk(src, stars(message), verb, speaking)
+
+	invoke_async(src, /atom/movable/proc/animate_chat, message, speaking, italics, speech_bubble_recipients)
+	if (length(eavesdroppers))
+		invoke_async(src, /atom/movable/proc/animate_chat, stars(message), speaking, italics, eavesdroppers)
 
 	if(mind)
 		mind.last_words = message
@@ -317,8 +343,7 @@ var/global/list/channel_to_radio_key = new
 	else
 		log_say("[name]/[key] : [message]")
 
-	invoke_async(src, /atom/movable/proc/animate_chat, message, speaking, italics, speech_bubble_recipients, whisper_floating, 3 SECONDS)
-
+	speech_bubble_recipients = speech_bubble_recipients | eavesdroppers
 	if (length(speech_bubble_recipients))
 		var/speech_intent = say_test(message)
 		var/image/speech_bubble = image('icons/mob/talk.dmi', src, "h[speech_intent]")
@@ -330,6 +355,8 @@ var/global/list/channel_to_radio_key = new
 		animate(speech_bubble, alpha = 255, time = 1 SECOND, easing = QUAD_EASING)
 		animate(time = 1 SECOND)
 		animate(alpha = 0, pixel_y = 8, time = 1 SECOND, easing = QUAD_EASING)
+
+
 	return 1
 
 
@@ -338,7 +365,7 @@ var/global/list/channel_to_radio_key = new
 		O.hear_signlang(message, verb, language, src)
 	return 1
 
-/obj/effect/speech_bubble
+/obj/speech_bubble
 	var/mob/parent
 
 /mob/living/proc/GetVoice()

@@ -114,7 +114,7 @@
 	..()
 
 //experiment - object-based sunlight.
-/obj/effect/sun
+/obj/urist_intangible/sun
 	name = "sun"
 	desc = "You really shouldn't be seeing this."
 	invisibility = 101

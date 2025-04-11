@@ -48,6 +48,9 @@
 /datum/uplink_category/badassery
 	name = "Badassery"
 
+/datum/uplink_category/structures_and_vehicles
+	name = "Structures & Vehicles"
+
 /datum/uplink_category/telecrystals
 	name = "Telecrystal Materialization"
 

@@ -1,7 +1,7 @@
 #include "station_areas.dm"
 #include "../mining/mining_areas.dm"
 
-/obj/effect/overmap/visitable/sector/station/nanotrasentrading
+/obj/overmap/visitable/sector/station/nanotrasentrading
 	name = "NanoTrasen trading station"
 	desc = "A NanoTrasen trading station, dock here to trade with its many merchants and mine for resources via an on-station shuttle."
 	faction = /datum/factions/nanotrasen
@@ -16,19 +16,19 @@
 		"nav_nanotrading_3"
 		)
 
-/obj/effect/shuttle_landmark/nav_nanotrasentrading/nav1
+/obj/shuttle_landmark/nav_nanotrasentrading/nav1
 	name = "Visitor's Bay"
 	landmark_tag = "nav_nanotrading_1"
 	base_area = /area/spacestations/nanotrasenspace
 	base_turf = /turf/simulated/floor/plating
 
-/obj/effect/shuttle_landmark/nav_nanotrasentrading/nav2
+/obj/shuttle_landmark/nav_nanotrasentrading/nav2
 	name = "Loading Bay"
 	landmark_tag = "nav_nanotrading_2"
 	base_area = /area/spacestations/nanotrasenspace
 	base_turf = /turf/simulated/floor/plating
 
-/obj/effect/shuttle_landmark/nav_nanotrasentrading/nav3
+/obj/shuttle_landmark/nav_nanotrasentrading/nav3
 	name = "Auxiliary Docking Bay"
 	landmark_tag = "nav_nanotrading_3"
 	base_area = /area/spacestations/nanotrasenspace
@@ -47,7 +47,7 @@
 
 //nt mining outpost
 /*
-/obj/effect/overmap/visitable/sector/station/nanotrasenmining
+/obj/overmap/visitable/sector/station/nanotrasenmining
 	name = "NanoTrasen mining outpost"
 	desc = "A NanoTrasen mining outpost on a largely uninhabited planet, dock here to engage in trading."
 	faction = "nanotrasen"
@@ -61,11 +61,11 @@
 		"nav_nanomining_1"
 		)
 
-/obj/effect/shuttle_landmark/nav_nanotrasenmining/nav1
+/obj/shuttle_landmark/nav_nanotrasenmining/nav1
 	name = "Docking Navpoint #1"
 	landmark_tag = "nav_nanomining_1"
 
-/obj/effect/shuttle_landmark/nav_nanotrasenmining/nav1
+/obj/shuttle_landmark/nav_nanotrasenmining/nav1
 	name = "Docking Navpoint #2"
 	landmark_tag = "nav_nanomining_2"
 
@@ -80,7 +80,7 @@
 
 //tc
 
-/obj/effect/overmap/visitable/sector/station/tccolony
+/obj/overmap/visitable/sector/station/tccolony
 	name = "Terran Confederacy colony"
 	desc = "A small Terran Confederacy colony on a largely uninhabited planet, dock here to engage in trading."
 	faction = "nanotrasen"
@@ -94,11 +94,11 @@
 		"nav_tccolony_2"
 		)
 
-/obj/effect/shuttle_landmark/nav_nanotrasenmining/nav1
+/obj/shuttle_landmark/nav_nanotrasenmining/nav1
 	name = "Docking Navpoint #1"
 	landmark_tag = "nav_tccolony_1"
 
-/obj/effect/shuttle_landmark/nav_nanotrasenmining/nav1
+/obj/shuttle_landmark/nav_nanotrasenmining/nav1
 	name = "Docking Navpoint #2"
 	landmark_tag = "nav_tccolony_2"
 

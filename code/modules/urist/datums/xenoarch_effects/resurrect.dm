@@ -78,7 +78,7 @@
 			holder.visible_message(SPAN_CLASS("alien", "\The [SM]'s eyes open in a flash of light!"))
 			if (prob(20))
 				var/turf/simulated/floor/F = get_turf(holder)
-				new /obj/effect/decal/cleanable/ash(F)
+				new /obj/decal/cleanable/ash(F)
 				qdel(holder)
 		else if (ishuman(L))
 			var/mob/living/carbon/human/H = L
@@ -98,6 +98,6 @@
 				already_reviving = FALSE
 				if (prob(60))
 					var/turf/simulated/floor/F = get_turf(holder)
-					new /obj/effect/decal/cleanable/ash(F)
+					new /obj/decal/cleanable/ash(F)
 					qdel(holder)
 		already_reviving = FALSE

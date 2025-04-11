@@ -9,7 +9,6 @@
 	var/start_pressure = 25*ONE_ATMOSPHERE
 	var/filling // list of gas ratios to use.
 
-	level = ATOM_LEVEL_UNDER_TILE
 	dir = 2
 	initialize_directions = 2
 	density = TRUE
@@ -37,7 +36,7 @@
 		update_icon()
 
 /obj/machinery/atmospherics/unary/tank/set_initial_level()
-	level = ATOM_LEVEL_UNDER_TILE // Always on top, apparently.
+	level = ATOM_LEVEL_OVER_TILE // Always on top, apparently.
 
 // required for paint sprayers to work due to an override in pipes.dm
 /obj/machinery/atmospherics/unary/tank/set_color(new_color)
@@ -58,20 +57,24 @@
 /obj/machinery/atmospherics/unary/tank/return_air()
 	return air_contents
 
-/obj/machinery/atmospherics/unary/tank/attackby(obj/item/W as obj, mob/user as mob)
-	if(isWrench(W))
-		if (air_contents.return_pressure() > 2*ONE_ATMOSPHERE)
-			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
-			add_fingerprint(user)
-			return 1
+/obj/machinery/atmospherics/unary/tank/use_tool(obj/item/W, mob/living/user, list/click_params)
+	if(!isWrench(W))
+		return ..()
 
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
-		to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
+	if (air_contents.return_pressure() > 2*ONE_ATMOSPHERE)
+		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
+		return TRUE
 
-		if (do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT))
-			user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src]."), SPAN_NOTICE("You have unfastened \the [src]."), "You hear a ratchet.")
-			new /obj/item/pipe/tank(loc, src)
-			qdel(src)
+	playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
+	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
+
+	if (!do_after(user, (W.toolspeed * 4) SECONDS, src, DO_REPAIR_CONSTRUCT))
+		return TRUE
+
+	user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src]."), SPAN_NOTICE("You have unfastened \the [src]."), "You hear a ratchet.")
+	new /obj/item/pipe/tank(loc, src)
+	qdel(src)
+	return TRUE
 
 /obj/machinery/atmospherics/unary/tank/air
 	name = "Pressure Tank (Air)"
@@ -116,7 +119,6 @@
 	color =  PIPE_COLOR_WHITE
 	connect_types = CONNECT_TYPE_REGULAR|CONNECT_TYPE_REGULAR|CONNECT_TYPE_SCRUBBER|CONNECT_TYPE_FUEL
 	w_class = ITEM_SIZE_HUGE
-	level = ATOM_LEVEL_UNDER_TILE
 	dir = SOUTH
 	constructed_path = /obj/machinery/atmospherics/unary/tank
 	pipe_class = PIPE_CLASS_UNARY

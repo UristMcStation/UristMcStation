@@ -18,6 +18,11 @@
 		Drink up!;\
 		The best drinks in space.\
 	"}
+	antag_slogans = {"\
+		Robust Softdrinks: The only robust product Sol has ever produced!;\
+		Hey you! Yes you! Come drink some diabetes in a can!;\
+		You've tried the best, now make do with the rest. Space-Cola!\
+	"}
 	prices = list(
 		/obj/item/reagent_containers/food/drinks/cans/cola = 1,
 		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 1,
@@ -26,19 +31,29 @@
 		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 2,
 		/obj/item/reagent_containers/food/drinks/cans/space_up = 1,
 		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 1,
-		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 1
+		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 1,
+		/obj/item/reagent_containers/food/drinks/cans/syndicola = 5
 	)
 	products = list(
-		/obj/item/reagent_containers/food/drinks/cans/cola = 10,
-		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 10,
-		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 10,
-		/obj/item/reagent_containers/food/drinks/cans/ionbru = 10,
-		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 10,
-		/obj/item/reagent_containers/food/drinks/cans/space_up = 10,
-		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 10,
-		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 10
+		/obj/item/reagent_containers/food/drinks/cans/cola = 0,
+		/obj/item/reagent_containers/food/drinks/cans/space_mountain_wind = 0,
+		/obj/item/reagent_containers/food/drinks/cans/dr_gibb = 0,
+		/obj/item/reagent_containers/food/drinks/cans/ionbru = 0,
+		/obj/item/reagent_containers/food/drinks/cans/waterbottle = 0,
+		/obj/item/reagent_containers/food/drinks/cans/space_up = 0,
+		/obj/item/reagent_containers/food/drinks/cans/iced_tea = 0,
+		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 0,
+		/obj/item/reagent_containers/food/drinks/cans/syndicola = 0
+	)
+	rare_products = list(
+		/obj/item/reagent_containers/food/drinks/cans/syndicola = 30,
+		/obj/item/pen/reagent/sleepy = 35
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
 		/obj/item/reagent_containers/food/snacks/liquidfood = 6
+	)
+	antag = list(
+		/obj/item/storage/box/syndie_kit/toxin = 1,
+		/obj/item/pen/reagent/sleepy = 0
 	)

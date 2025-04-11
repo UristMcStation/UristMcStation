@@ -1,7 +1,7 @@
 // Map object.
 /obj/turbolift_map_holder
 	name = "turbolift map placeholder"
-	icon = 'icons/obj/turbolift_preview_3x3.dmi'
+	icon = 'icons/obj/structures/turbolift_preview_3x3.dmi'
 	dir = SOUTH         // Direction of the holder determines the placement of the lift control panel and doors.
 	var/depth = 1       // Number of floors to generate, including the initial floor.
 	var/lift_size_x = 2 // Number of turfs on each axis to generate in addition to the first
@@ -59,7 +59,7 @@
 
 		if(NORTH)
 
-			int_panel_x = ux + Floor(lift_size_x/2)
+			int_panel_x = ux + floor(lift_size_x/2)
 			int_panel_y = uy + 1
 			ext_panel_x = ux
 			ext_panel_y = ey + 2
@@ -76,7 +76,7 @@
 
 		if(SOUTH)
 
-			int_panel_x = ux + Floor(lift_size_x/2)
+			int_panel_x = ux + floor(lift_size_x/2)
 			int_panel_y = ey - 1
 			ext_panel_x = ex
 			ext_panel_y = uy - 2
@@ -94,7 +94,7 @@
 		if(EAST)
 
 			int_panel_x = ux+1
-			int_panel_y = uy + Floor(lift_size_y/2)
+			int_panel_y = uy + floor(lift_size_y/2)
 			ext_panel_x = ex+2
 			ext_panel_y = ey
 
@@ -111,7 +111,7 @@
 		if(WEST)
 
 			int_panel_x = ex-1
-			int_panel_y = uy + Floor(lift_size_y/2)
+			int_panel_y = uy + floor(lift_size_y/2)
 			ext_panel_x = ux-2
 			ext_panel_y = uy
 

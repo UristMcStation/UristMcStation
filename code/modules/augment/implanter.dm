@@ -1,8 +1,8 @@
 /obj/item/device/augment_implanter
-	name = "augment autodoc"
+	name = "augment implanter"
 	desc = "An oblong box with an irregular shape and a seam running down the center."
-	icon = 'icons/obj/surgery.dmi'
-	icon_state = "compact_bionic_module"
+	icon = 'icons/obj/tools/augment_implanter.dmi'
+	icon_state = "augment_implanter"
 	w_class = ITEM_SIZE_NORMAL
 	origin_tech = list(TECH_DATA = 3, TECH_ESOTERIC = 3)
 	var/obj/item/organ/internal/augment/augment
@@ -28,29 +28,35 @@
 		to_chat(user, "It seems to be empty.")
 		return
 	to_chat(user, SPAN_BOLD("It contains:"))
-	augment.examine(user)
+	augment.examine(arglist(args))
 
 
-/obj/item/device/augment_implanter/attackby(obj/item/I, mob/living/user)
-	if (isCrowbar(I) && augment)
+/obj/item/device/augment_implanter/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Crowbar - Remove augment
+	if (isCrowbar(tool))
+		if (!augment)
+			USE_FEEDBACK_FAILURE("\The [src] has no augment to remove.")
+			return TRUE
+		playsound(src, 'sound/items/Crowbar.ogg', 50, TRUE)
 		user.visible_message(
-			SPAN_ITALIC("\The [user] starts to remove \the [augment] from \the [src]."),
-			SPAN_WARNING("You start to remove \the [augment] from \the [src]."),
-			SPAN_ITALIC("You hear metal creaking.")
+			SPAN_NOTICE("\The [user] starts to remove \a [augment] from \a [src] with \a [tool]."),
+			SPAN_NOTICE("You start to remove \a [augment] from \the [src] with \the [tool].")
 		)
-		playsound(user, 'sound/items/Crowbar.ogg', 50, TRUE)
-		if (!do_after(user, 10 SECONDS, src, DO_PUBLIC_UNIQUE) || !augment)
-			return
-		user.visible_message(
-			SPAN_ITALIC("\The [user] removes \the [augment] from \the [src]."),
-			SPAN_WARNING("You remove \the [augment] from \the [src]."),
-			SPAN_ITALIC("You hear a clunk.")
-		)
-		playsound(user, 'sound/items/Deconstruct.ogg', 50, TRUE)
+		if (!do_after(user, (tool.toolspeed * 10) SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+			return TRUE
+		if (!augment)
+			USE_FEEDBACK_FAILURE("\The [src] has no augment to remove.")
+			return TRUE
 		user.put_in_hands(augment)
+		playsound(src, 'sound/items/Crowbar.ogg', 50, TRUE)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] removes \a [augment] from \a [src] with \a [tool]."),
+			SPAN_NOTICE("You remove \a [augment] from \the [src] with \the [tool].")
+		)
 		augment = null
-		return
-	..()
+		return TRUE
+
+	return ..()
 
 
 /obj/item/device/augment_implanter/attack_self(mob/living/carbon/human/user)
@@ -96,10 +102,11 @@
 		if (loc != old_loc)
 			return
 	var/success = instant
+	var/datum/pronouns/pronouns = user.choose_from_pronouns()
 	if (!instant)
 		working = TRUE
 		to_chat(user, SPAN_WARNING("\icon[src] Commencing procedure. " + SPAN_DANGER("Please remain calm.")))
-		user.visible_message(SPAN_WARNING("\The [user] places \his [parent.name] against \the [src]."))
+		user.visible_message(SPAN_WARNING("\The [user] places [pronouns.his] [parent.name] against \the [src]."))
 		if (!do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
 			goto FailedAugmentImplant
 		user.visible_message(SPAN_DANGER("\The [src] purrs maliciously and unfurls its armatures with frightening speed!"))
@@ -141,7 +148,7 @@
 	FailedAugmentImplant:
 	working = FALSE
 	if (!success)
-		user.visible_message(SPAN_DANGER("\The [src] falls away from \the [user], leaving \his [parent.name] a mangled mess!"))
+		user.visible_message(SPAN_DANGER("\The [src] falls away from \the [user], leaving [pronouns.his] [parent.name] a mangled mess!"))
 		parent.take_general_damage(15)
 		return
 	to_chat(user, SPAN_WARNING("\icon[src] Procedure complete. ") + SPAN_NOTICE("Have a nice day."))
@@ -161,7 +168,7 @@
 	augment = /obj/item/organ/internal/augment/active/item/popout_shotgun
 
 /obj/item/device/augment_implanter/nerve_dampeners
-	augment = /obj/item/organ/internal/augment/active/nerve_dampeners
+	augment = /obj/item/organ/internal/augment/active/nerve_dampeners/hidden
 
 /obj/item/device/augment_implanter/internal_air_system
 	augment = /obj/item/organ/internal/augment/active/internal_air_system/hidden

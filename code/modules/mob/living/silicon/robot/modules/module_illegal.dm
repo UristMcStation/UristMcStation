@@ -15,10 +15,14 @@
 		/obj/item/tank/jetpack/carbondioxide
 	)
 	var/id
+	access = list(
+		access_syndicate
+	)
+	use_map_synth_access = FALSE
 
 /obj/item/robot_module/syndicate/Initialize()
 	for(var/singleton/hierarchy/skill/skill in GLOB.skills)
-		skills[skill.type] = SKILL_EXPERT
+		skills[skill.type] = SKILL_EXPERIENCED
 	. = ..()
 
 /obj/item/robot_module/syndicate/build_equipment(mob/living/silicon/robot/R)

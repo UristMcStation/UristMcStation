@@ -6,7 +6,7 @@
 /turf/simulated/wall/r_wall/hull,
 /area/boarding_ship)
 "ac" = (
-/obj/effect/wallframe_spawn/reinforced/hull,
+/obj/wallframe_spawn/reinforced/hull,
 /turf/simulated/wall/r_wall/rglass_wall,
 /area/boarding_ship)
 "ad" = (
@@ -299,7 +299,7 @@
 /turf/simulated/floor/tiled/white,
 /area/boarding_ship)
 "aN" = (
-/obj/effect/urist/triggers/defender_landmark/pirate,
+/obj/urist_intangible/triggers/defender_landmark/pirate,
 /turf/simulated/floor/tiled/white,
 /area/boarding_ship)
 "aP" = (
@@ -617,7 +617,7 @@
 /area/boarding_ship)
 "bE" = (
 /obj/structure/closet/walllocker/emerglocker/north,
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "bF" = (
@@ -647,7 +647,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "bI" = (
-/obj/effect/urist/triggers/shipweapons,
+/obj/urist_intangible/triggers/shipweapons,
 /obj/structure/shipweapons/hardpoint/attached,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
@@ -727,7 +727,7 @@
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "bQ" = (
-/obj/effect/template_loader/ships,
+/obj/urist_intangible/trigger/template_loader/ships,
 /turf/simulated/wall/r_wall,
 /area/boarding_ship)
 "bR" = (
@@ -771,7 +771,7 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "bX" = (
-/obj/effect/urist/triggers/ai_defender_landmark/pirate,
+/obj/urist_intangible/triggers/ai_defender_landmark/pirate,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "bY" = (
@@ -860,7 +860,7 @@
 	icon_state = "window"
 	},
 /obj/item/storage/firstaid/surgery,
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white/monotile,
 /area/boarding_ship)
 "cl" = (
@@ -889,7 +889,7 @@
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "cn" = (
-/obj/effect/urist/triggers/ai_defender_landmark/pirate,
+/obj/urist_intangible/triggers/ai_defender_landmark/pirate,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "co" = (
@@ -1130,7 +1130,7 @@
 /obj/item/modular_computer/telescreen/preset/engineering{
 	pixel_y = 23
 	},
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "cR" = (
@@ -1200,7 +1200,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "de" = (
@@ -1249,7 +1249,7 @@
 	icon_state = "intact"
 	},
 /obj/structure/catwalk,
-/obj/effect/urist/triggers/ai_defender_landmark/pirate,
+/obj/urist_intangible/triggers/ai_defender_landmark/pirate,
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "dk" = (
@@ -1308,7 +1308,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/urist/triggers/ai_defender_landmark/pirate,
+/obj/urist_intangible/triggers/ai_defender_landmark/pirate,
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "dt" = (
@@ -1325,7 +1325,7 @@
 /area/boarding_ship)
 "du" = (
 /obj/structure/catwalk,
-/obj/effect/urist/triggers/boarding_landmark,
+/obj/urist_intangible/triggers/boarding_landmark,
 /obj/structure/boarding/shipportal,
 /turf/simulated/floor/plating,
 /area/boarding_ship)
@@ -1435,7 +1435,7 @@
 	pixel_x = 0;
 	pixel_y = -23
 	},
-/obj/effect/urist/triggers/ai_defender_landmark/pirate,
+/obj/urist_intangible/triggers/ai_defender_landmark/pirate,
 /obj/machinery/light/small/red,
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
@@ -1602,7 +1602,7 @@
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "ec" = (
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "ed" = (
@@ -1619,7 +1619,7 @@
 	pixel_x = -12;
 	pixel_y = 2
 	},
-/obj/effect/decal/cleanable/vomit,
+/obj/decal/cleanable/vomit,
 /turf/simulated/floor/tiled/white/monotile,
 /area/boarding_ship)
 "ee" = (
@@ -1630,7 +1630,7 @@
 /turf/simulated/floor/carpet/red,
 /area/boarding_ship)
 "ef" = (
-/obj/effect/floor_decal/borderfloor/full,
+/obj/floor_decal/borderfloor/full,
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "eg" = (
@@ -1720,13 +1720,13 @@
 /area/boarding_ship)
 "es" = (
 /obj/item/storage/bag/cash,
-/obj/effect/floor_decal/borderfloor/full,
+/obj/floor_decal/borderfloor/full,
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "et" = (
 /obj/structure/closet/walllocker/emerglocker/west,
-/obj/effect/urist/triggers/ai_defender_landmark/pirate,
-/obj/effect/floor_decal/borderfloor{
+/obj/urist_intangible/triggers/ai_defender_landmark/pirate,
+/obj/floor_decal/borderfloor{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
@@ -1739,8 +1739,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/filth,
-/obj/effect/floor_decal/borderfloor{
+/obj/decal/cleanable/filth,
+/obj/floor_decal/borderfloor{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -1891,8 +1891,8 @@
 /turf/simulated/floor/tiled/freezer,
 /area/boarding_ship)
 "eK" = (
-/obj/effect/urist/triggers/ai_defender_landmark/pirate/ballistic,
-/obj/effect/floor_decal/borderfloor/full,
+/obj/urist_intangible/triggers/ai_defender_landmark/pirate/ballistic,
+/obj/floor_decal/borderfloor/full,
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "eL" = (
@@ -2021,7 +2021,7 @@
 /area/boarding_ship)
 "fb" = (
 /obj/machinery/computer/ship/navigation,
-/obj/effect/decal/cleanable/cobweb,
+/obj/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "fc" = (
@@ -2039,7 +2039,7 @@
 	dir = 4;
 	icon_state = "console"
 	},
-/obj/effect/urist/triggers/station_disk/pirate,
+/obj/urist_intangible/triggers/station_disk/pirate,
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "ff" = (
@@ -2073,7 +2073,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/urist/triggers/ai_defender_landmark/pirate/ballistic,
+/obj/urist_intangible/triggers/ai_defender_landmark/pirate/ballistic,
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "fi" = (
@@ -2095,7 +2095,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "fk" = (
-/obj/effect/landmark/scom/bomb/boarding/pirateship,
+/obj/landmark/scom/bomb/boarding/pirateship,
 /turf/simulated/floor/tiled/white,
 /area/boarding_ship)
 "fl" = (
@@ -2120,19 +2120,19 @@
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "fo" = (
-/obj/effect/landmark/scom/bomb/boarding/pirateship,
+/obj/landmark/scom/bomb/boarding/pirateship,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "fp" = (
-/obj/effect/landmark/scom/bomb/boarding/pirateship,
+/obj/landmark/scom/bomb/boarding/pirateship,
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "fq" = (
-/obj/effect/landmark/scom/bomb/boarding/pirateship,
+/obj/landmark/scom/bomb/boarding/pirateship,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "fr" = (
-/obj/effect/landmark/scom/bomb/boarding/pirateship,
+/obj/landmark/scom/bomb/boarding/pirateship,
 /turf/simulated/wall/r_wall/hull,
 /area/boarding_ship)
 "fs" = (
@@ -2140,7 +2140,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "ft" = (
-/obj/effect/landmark/scom/bomb/boarding/pirateship,
+/obj/landmark/scom/bomb/boarding/pirateship,
 /turf/simulated/wall/r_wall,
 /area/boarding_ship)
 "fT" = (
@@ -2177,7 +2177,7 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -2189,7 +2189,7 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/structure/catwalk,
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "ke" = (
@@ -2205,11 +2205,11 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "kM" = (
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "po" = (
@@ -2220,7 +2220,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/boarding_ship)
 "pv" = (
-/obj/effect/decal/cleanable/ash,
+/obj/decal/cleanable/ash,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "sx" = (
@@ -2246,15 +2246,15 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/cleanable/filth,
-/obj/effect/floor_decal/borderfloor{
+/obj/decal/cleanable/filth,
+/obj/floor_decal/borderfloor{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "ux" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
@@ -2265,8 +2265,8 @@
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "yo" = (
-/obj/effect/decal/cleanable/blood/oil,
-/obj/effect/decal/cleanable/blood/splatter/human,
+/obj/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/splatter/human,
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "Ag" = (
@@ -2299,7 +2299,7 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "AW" = (
-/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/decal/cleanable/blood/gibs/robot,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "Cx" = (
@@ -2309,7 +2309,7 @@
 	pixel_y = 4
 	},
 /obj/machinery/optable,
-/obj/effect/decal/cleanable/blood/splatter/human,
+/obj/decal/cleanable/blood/splatter/human,
 /turf/simulated/floor/tiled/white/monotile,
 /area/boarding_ship)
 "CL" = (
@@ -2333,7 +2333,7 @@
 /area/boarding_ship)
 "FG" = (
 /obj/structure/catwalk,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "GT" = (
@@ -2399,7 +2399,7 @@
 	dir = 1;
 	icon_state = "firelight1"
 	},
-/obj/effect/floor_decal/borderfloor/full,
+/obj/floor_decal/borderfloor/full,
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "WG" = (
@@ -2412,7 +2412,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "Xx" = (
@@ -2441,7 +2441,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "Yk" = (
@@ -2449,11 +2449,11 @@
 	req_access = list();
 	emagged = 1
 	},
-/obj/effect/decal/cleanable/cobweb2,
+/obj/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "Yr" = (
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "Yw" = (
@@ -2464,7 +2464,7 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/boarding_ship)
 "YJ" = (
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "Zg" = (
@@ -2475,8 +2475,8 @@
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "ZW" = (
-/obj/effect/decal/cleanable/filth,
-/obj/effect/floor_decal/borderfloor{
+/obj/decal/cleanable/filth,
+/obj/floor_decal/borderfloor{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},

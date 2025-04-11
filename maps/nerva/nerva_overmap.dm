@@ -1,4 +1,4 @@
-/obj/effect/overmap/visitable/ship/combat/nerva
+/obj/overmap/visitable/ship/combat/nerva
 	name = "ICS Nerva"
 	ship_name = "ICS Nerva"
 	classification = "large class vessel"	//???
@@ -49,26 +49,26 @@
 		"hostile"
 	)
 
-/obj/effect/overmap/visitable/ship/combat/nerva/Initialize()
+/obj/overmap/visitable/ship/combat/nerva/Initialize()
 	GLOB.using_map.overmap_ship = src
 
 	.=..()
 
-/obj/effect/overmap/visitable/ship/landable/trajan
+/obj/overmap/visitable/ship/landable/trajan
 	name = "Trajan"
 	shuttle = "Trajan"
 	fore_dir = NORTH
 	vessel_mass = 1000
 	vessel_size = SHIP_SIZE_SMALL
 
-/obj/effect/overmap/visitable/ship/landable/hadrian
+/obj/overmap/visitable/ship/landable/hadrian
 	name = "Hadrian"
 	shuttle = "Hadrian"
 	fore_dir = EAST
 	vessel_mass = 750
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/effect/overmap/visitable/ship/combat/nerva/pve_mapfire(projectile_type)
+/obj/overmap/visitable/ship/combat/nerva/pve_mapfire(projectile_type)
 	if(ispath(projectile_type))
 		var/turf/start_turf = spaceDebrisStartLoc(pick(GLOB.cardinal), 6)
 		var/turf/target_turf = locate(100, 100, 6) //set up values for enemy ships

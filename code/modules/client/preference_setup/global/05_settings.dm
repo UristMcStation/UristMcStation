@@ -61,13 +61,13 @@
 		var/selected_option = pref_mob.get_preference_value(client_pref.key)
 		for(var/option in client_pref.options)
 			var/is_selected = selected_option == option
-			. += "<td><a class='[is_selected ? "linkOn" : ""]' href='?src=\ref[src];pref=[client_pref.key];value=[option]'><b>[option]</b></a>"
+			. += "<td><a class='[is_selected ? "linkOn" : ""]' href='byond://?src=\ref[src];pref=[client_pref.key];value=[option]'><b>[option]</b></a>"
 
 		. += "</tr>"
 
 	. += "</table>"
 
-	return jointext(., "")
+	return jointext(., null)
 
 /datum/category_item/player_setup_item/player_global/settings/OnTopic(href,list/href_list, mob/user)
 	var/mob/pref_mob = preference_mob()
@@ -87,8 +87,6 @@
 			return prefs.preference_values[cp.key]
 		else
 			return null
-	else
-		log_error("Client is lacking preferences: [log_info_line(src)]")
 
 /client/proc/set_preference(preference, set_preference)
 	var/datum/client_preference/cp = get_client_preference(preference)

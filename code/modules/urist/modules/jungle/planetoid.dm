@@ -1,4 +1,4 @@
-/obj/effect/overmap/visitable/sector/planetoid
+/obj/overmap/visitable/sector/planetoid
 	name = "a generic planetoid"
 	in_space = FALSE //can't spacewalk to a planet
 	is_planet = TRUE
@@ -7,21 +7,21 @@
 	var/atmo_color = COLOR_WHITE //do we have atmos, and if so, what color are the clouds
 	var/has_rings = FALSE //do we have rings?
 
-/obj/effect/overmap/visitable/sector/planetoid/New(nloc, max_x, max_y)
+/obj/overmap/visitable/sector/planetoid/New(nloc, max_x, max_y)
 	if(!static_name)
 		name = "[generate_planet_name()], \a [name]"
 
 	..()
 
-/obj/effect/overmap/visitable/sector/planetoid/Initialize()
+/obj/overmap/visitable/sector/planetoid/Initialize()
 	. = ..()
 
 	generate_planet_image()
 
-/obj/effect/overmap/visitable/sector/planetoid/get_skybox_representation()
+/obj/overmap/visitable/sector/planetoid/get_skybox_representation()
 	return skybox_image
 
-/obj/effect/overmap/visitable/sector/planetoid/generate_planet_image()
+/obj/overmap/visitable/sector/planetoid/generate_planet_image()
 	if(!surface_color)
 		surface_color = color
 

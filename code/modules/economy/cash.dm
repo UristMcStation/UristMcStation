@@ -2,7 +2,7 @@
 	name = "0 thalers"
 	desc = "It's worth 0 thalers."
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/money.dmi'
 	icon_state = "spacecash1"
 	opacity = 0
 	density = FALSE
@@ -17,30 +17,35 @@
 	var/worth = 0
 	var/static/denominations = list(1000,500,200,100,50,20,10,1)
 
-/obj/item/spacecash/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/spacecash/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/spacecash))
-		if(istype(W, /obj/item/spacecash/ewallet)) return 0
+		if (istype(W, /obj/item/spacecash/ewallet))
+			return ..()
 
 		var/obj/item/spacecash/bundle/bundle
 		if(!istype(W, /obj/item/spacecash/bundle))
 			var/obj/item/spacecash/cash = W
-			bundle = new (src.loc)
+			bundle = new (loc)
 			bundle.worth += cash.worth
 			qdel(cash)
 		else //is bundle
 			bundle = W
-		bundle.worth += src.worth
+		bundle.worth += worth
 		bundle.update_icon()
 		if(istype(user, /mob/living/carbon/human))
 			var/mob/living/carbon/human/h_user = user
 			h_user.drop_from_inventory(bundle)
 			h_user.put_in_hands(bundle)
-		to_chat(user, SPAN_NOTICE("You add [src.worth] [GLOB.using_map.local_currency_name] worth of money to the bundles.<br>It holds [bundle.worth] [GLOB.using_map.local_currency_name] now."))
+		to_chat(user, SPAN_NOTICE("You add [worth] [GLOB.using_map.local_currency_name] worth of money to the bundles.<br>It holds [bundle.worth] [GLOB.using_map.local_currency_name] now."))
 		qdel(src)
+		return TRUE
 
-	else if(istype(W, /obj/item/gun/launcher/money))
+	if (istype(W, /obj/item/gun/launcher/money))
 		var/obj/item/gun/launcher/money/L = W
 		L.absorb_cash(src, user)
+		return TRUE
+
+	return ..()
 
 /obj/item/spacecash/proc/getMoneyImages()
 	if(icon_state)
@@ -72,29 +77,23 @@
 		. += "spacecash1"
 
 /obj/item/spacecash/bundle/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	var/list/images = src.getMoneyImages()
 
-	if(!mapped)
-		for(var/A in images)
-			var/image/banknote = image('icons/obj/items.dmi', A)
-			banknote.SetTransform(
-				rotation = pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45),
-				offset_x = rand(-6, 6),
-				offset_y = rand(-4, 8)
-			)
-			src.overlays += banknote
+	for(var/A in images)
+		var/image/banknote = image('icons/obj/money.dmi', A)
+		banknote.SetTransform(
+			rotation = pick(-45, -27.5, 0, 0, 0, 0, 0, 0, 0, 27.5, 45),
+			offset_x = rand(-6, 6),
+			offset_y = rand(-4, 8)
+		)
+		AddOverlays(banknote)
 
 	src.desc = "They are worth [worth] [GLOB.using_map.local_currency_name]."
 	if(worth in denominations)
 		src.SetName("[worth] [GLOB.using_map.local_currency_name]")
 	else
 		src.SetName("pile of [worth] [GLOB.using_map.local_currency_name]")
-
-	if(length(overlays) <= 2)
-		w_class = ITEM_SIZE_TINY
-	else
-		w_class = ITEM_SIZE_SMALL
 
 /obj/item/spacecash/bundle/attack_hand(mob/user as mob)
 	if (user.get_inactive_hand() == src)

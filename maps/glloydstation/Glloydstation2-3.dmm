@@ -1324,7 +1324,7 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "dI" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /obj/item/scalpel{
 	pixel_y = 12
 	},
@@ -1373,11 +1373,11 @@
 /turf/simulated/floor/plating,
 /area/space)
 "dP" = (
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "dQ" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /obj/structure/bed/chair,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/handcuffs,
@@ -1411,7 +1411,7 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "dW" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /obj/item/device/assembly/signaler,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
@@ -1552,7 +1552,7 @@
 /turf/space,
 /area/space)
 "er" = (
-/obj/effect/template_loader/space,
+/obj/urist_intangible/trigger/template_loader/space,
 /turf/space,
 /area/space)
 "es" = (

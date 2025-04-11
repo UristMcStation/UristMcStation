@@ -13,6 +13,9 @@
 	edge = TRUE
 	attack_verb = list("stabbed", "sliced", "cut")
 
+/obj/item/material/armblade/can_embed()
+	return FALSE
+
 /obj/item/material/armblade/mounted
 	name = "hardsuit armblade"
 	desc = "An extra large, extra sharp armblade. Rip and tear."

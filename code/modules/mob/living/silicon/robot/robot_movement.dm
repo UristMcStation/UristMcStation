@@ -8,15 +8,18 @@
 		return 1
 	return 0
 
-/mob/living/silicon/robot/Allow_Spacemove()
-	if(module)
-		for(var/obj/item/tank/jetpack/J in module.equipment)
-			if(J && J.allow_thrust(0.01))
-				return 1
-	. = ..()
+/mob/living/silicon/robot/Process_Spacemove(allow_movement)
+	if (!module)
+		return ..()
+
+	for (var/obj/item/tank/jetpack/jetpack in module.equipment)
+		if (jetpack?.allow_thrust(0.01))
+			return TRUE
+
+	return ..()
 
 
-/mob/living/silicon/robot/movement_delay()
+/mob/living/silicon/robot/movement_delay(singleton/move_intent/using_intent = move_intent)
 	var/tally = ..()
 
 	// Subtract 1 to match Human base movement_delay of -1

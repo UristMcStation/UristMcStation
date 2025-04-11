@@ -3,7 +3,7 @@
 */
 
 
-/obj/effect/effect/smoke/chill_mist
+/obj/effect/smoke/chill_mist
 	name = "fog"
 	layer = ABOVE_HUMAN_LAYER
 	opacity = 0
@@ -11,7 +11,7 @@
 	time_to_live = 1500
 
 
-/obj/effect/effect/smoke/chill_mist/affect(var/mob/living/carbon/M)
+/obj/effect/smoke/chill_mist/affect(var/mob/living/carbon/M)
 	// This DELIBERATELY ignores normal smoke protection checks and has no clothes checks;
 	// it's supposed to be an unnaturally cold fog
 
@@ -30,14 +30,14 @@
 	return 1
 
 
-/obj/effect/effect/smoke/chill_mist/Move()
+/obj/effect/smoke/chill_mist/Move()
 	..()
 	for(var/mob/living/carbon/M in get_turf(src))
 		src.affect(M)
 
 
 /datum/effect/effect/system/smoke_spread/chill_mist
-	smoke_type = /obj/effect/effect/smoke/chill_mist
+	smoke_type = /obj/effect/smoke/chill_mist
 
 
 /datum/power/revenant/distortion/fog_cold
@@ -67,7 +67,7 @@
 	return TRUE
 
 
-/obj/effect/effect/smoke/spoopyfog
+/obj/effect/smoke/spoopyfog
 	name = "fog"
 	layer = ABOVE_HUMAN_LAYER
 	opacity = 0
@@ -76,7 +76,7 @@
 
 
 /datum/effect/effect/system/smoke_spread/spoopyfog
-	smoke_type = /obj/effect/effect/smoke/spoopyfog
+	smoke_type = /obj/effect/smoke/spoopyfog
 
 
 /datum/power/revenant/distortion/fog_plain

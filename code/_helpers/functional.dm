@@ -32,15 +32,25 @@
 #undef PREPARE_ARGUMENTS
 #undef PREPARE_INPUT
 
-/proc/is_atom_predicate(value, feedback_receiver)
-	. = isatom(value)
+/proc/is_loc_predicate(value, feedback_receiver)
+	. = isloc(value)
 	if(!. && feedback_receiver)
 		to_chat(feedback_receiver, SPAN_WARNING("Value must be an atom."))
+
+/proc/is_tom_predicate(value, feedback_receiver)
+	. = istom(value)
+	if(!. && feedback_receiver)
+		to_chat(feedback_receiver, SPAN_WARNING("Value must be a turf or movable."))
 
 /proc/is_num_predicate(value, feedback_receiver)
 	. = isnum(value)
 	if(!. && feedback_receiver)
 		to_chat(feedback_receiver, SPAN_WARNING("Value must be a numeral."))
+
+/proc/is_int_predicate(value, feedback_receiver)
+	. = value == round(value)
+	if (!. && feedback_receiver)
+		to_chat(feedback_receiver, SPAN_WARNING("Value must be a whole number."))
 
 /proc/is_non_zero_predicate(value, feedback_receiver)
 	. = value != 0
@@ -80,6 +90,7 @@
 
 
 /proc/where(list/list_to_filter, list/predicates, list/extra_predicate_input)
+	RETURN_TYPE(/list)
 	. = list()
 	for(var/entry in list_to_filter)
 		var/predicate_input
@@ -92,6 +103,7 @@
 			. += entry
 
 /proc/map(list/list_to_map, map_proc)
+	RETURN_TYPE(/list)
 	. = list()
 	for(var/entry in list_to_map)
 		. += call(map_proc)(entry)

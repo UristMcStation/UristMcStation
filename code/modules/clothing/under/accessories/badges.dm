@@ -30,13 +30,13 @@
 /obj/item/clothing/accessory/badge/OnTopic(mob/user, list/href_list)
 	if (href_list["look_at_me"])
 		if (istype(user))
-			user.examinate(src)
+			examinate(user, src)
 			return TOPIC_HANDLED
 
 
 /obj/item/clothing/accessory/badge/get_examine_line()
 	. = ..()
-	. += "  <a href='?src=\ref[src];look_at_me=1'>\[View\]</a>"
+	. += "  <a href='byond://?src=\ref[src];look_at_me=1'>\[View\]</a>"
 
 
 /obj/item/clothing/accessory/badge/examine(user)
@@ -58,11 +58,13 @@
 			user.visible_message(SPAN_NOTICE("[user] displays their [src.name].\nIt reads: [badge_string]."),SPAN_NOTICE("You display your [src.name]. It reads: [badge_string]."))
 
 
-/obj/item/clothing/accessory/badge/attack(mob/living/carbon/human/M, mob/living/user)
-	if (isliving(user))
+/obj/item/clothing/accessory/badge/use_before(mob/living/carbon/human/M, mob/living/user)
+	. = FALSE
+	if (isliving(user) && istype(M))
 		user.visible_message(SPAN_DANGER("[user] invades [M]'s personal space, thrusting \the [src] into their face insistently."),SPAN_DANGER("You invade [M]'s personal space, thrusting \the [src] into their face insistently."))
 		if (stored_name)
 			to_chat(M, SPAN_WARNING("It reads: [stored_name], [badge_string]."))
+		return TRUE
 
 
 /obj/item/clothing/accessory/badge/investigator
@@ -129,19 +131,19 @@
 	return 1
 
 
-/obj/item/clothing/accessory/badge/holo/attackby(obj/item/O, mob/user)
+/obj/item/clothing/accessory/badge/holo/use_tool(obj/item/O, mob/living/user, list/click_params)
 	if (istype(O, /obj/item/card/id) || istype(O, /obj/item/modular_computer))
 		var/obj/item/card/id/id_card = O.GetIdCard()
 		if (!id_card)
-			return
+			return ..()
 		if ((badge_access in id_card.access) || emagged)
 			to_chat(user, "You imprint your ID details onto the badge.")
 			set_name(id_card.registered_name)
 			set_desc(user)
 		else
-			to_chat(user, "[src] rejects your ID, and flashes 'Insufficient access!'")
-		return
-	..()
+			to_chat(user, "\The [src] rejects your ID, and flashes 'Insufficient access!'")
+		return TRUE
+	return ..()
 
 
 /obj/item/storage/box/holobadge
@@ -222,7 +224,7 @@
 
 
 /obj/item/clothing/accessory/badge/tags/skrell
-	name = "\improper Skrellian holobadge"
+	name = "skrellian holobadge"
 	desc = "A high tech Skrellian holobadge, designed to project information about the owner."
 	icon_state = "skrell_badge"
 	badge_string = null

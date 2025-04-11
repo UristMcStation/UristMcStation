@@ -22,7 +22,7 @@
 	gas_data.breathed_product[gas_id] = reagent.type
 
 	if(reagent.gas_overlay)
-		var/obj/effect/gas_overlay/I = new()
+		var/obj/gas_overlay/I = new()
 		I.icon_state = reagent.gas_overlay
 		I.color = initial(reagent.color)
 		gas_data.tile_overlay[gas_id] = I
@@ -34,7 +34,7 @@
 /obj/machinery/portable_atmospherics/reagent_sublimator
 	name = "reagent sublimator"
 	desc = "An advanced machine that converts liquid or solid reagents into gasses."
-	icon = 'icons/obj/subliminator.dmi'
+	icon = 'icons/obj/machines/subliminator.dmi'
 	icon_state = "sublimator-off-unloaded-notank"
 	density = TRUE
 	use_power = POWER_USE_IDLE
@@ -100,10 +100,12 @@
 	update_icon()
 	return TRUE
 
-/obj/machinery/portable_atmospherics/reagent_sublimator/attackby(obj/item/thing, mob/user)
+/obj/machinery/portable_atmospherics/reagent_sublimator/use_tool(obj/item/thing, mob/living/user, list/click_params)
 	if(istype(thing, /obj/item/tank))
 		to_chat(user, SPAN_WARNING("\The [src] has no socket for a gas tank."))
-	else if(istype(thing, /obj/item/reagent_containers))
+		return TRUE
+
+	if (istype(thing, /obj/item/reagent_containers))
 		if(container)
 			to_chat(user, SPAN_WARNING("\The [src] is already loaded with \the [container]."))
 		else if(user.unEquip(thing, src))
@@ -111,8 +113,9 @@
 			user.visible_message(SPAN_NOTICE("\The [user] loads \the [thing] into \the [src]."))
 			verbs |= /obj/machinery/portable_atmospherics/reagent_sublimator/proc/remove_container
 		update_icon()
-	else
-		. = ..()
+		return TRUE
+
+	return ..()
 
 /obj/machinery/portable_atmospherics/reagent_sublimator/Process()
 

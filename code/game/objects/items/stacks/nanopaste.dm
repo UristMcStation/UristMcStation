@@ -8,9 +8,9 @@
 	amount = 10
 
 
-/obj/item/stack/nanopaste/attack(mob/living/M as mob, mob/user as mob)
+/obj/item/stack/nanopaste/use_after(mob/living/M as mob, mob/user as mob)
 	if (!istype(M) || !istype(user))
-		return 0
+		return FALSE
 	if (istype(M,/mob/living/silicon/robot))	//Repairing cyborgs
 		var/mob/living/silicon/robot/R = M
 		if (R.getBruteLoss() || R.getFireLoss() )
@@ -23,6 +23,7 @@
 				SPAN_NOTICE("You apply some [src] at [R]'s damaged areas."))
 		else
 			to_chat(user, SPAN_NOTICE("All [R]'s systems are nominal."))
+		return TRUE
 
 	if (istype(M,/mob/living/carbon/human))		//Repairing robolimbs
 		var/mob/living/carbon/human/H = M
@@ -30,19 +31,20 @@
 
 		if(!S)
 			to_chat(user, SPAN_WARNING("\The [M] is missing that body part."))
-			return
+			return TRUE
 
 		if(BP_IS_BRITTLE(S))
 			to_chat(user, SPAN_WARNING("\The [M]'s [S.name] is hard and brittle - \the [src] cannot repair it."))
-			return
+			return TRUE
 
 		if(S && BP_IS_ROBOTIC(S) && S.hatch_state == HATCH_OPENED)
-			if(!S.get_damage())
+			if (!S.get_damage())
 				to_chat(user, SPAN_NOTICE("Nothing to fix here."))
-			else if(can_use(1))
+			else if (can_use(1))
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				S.heal_damage(15, 15, robo_repair = 1)
 				H.updatehealth()
 				use(1)
 				user.visible_message(SPAN_NOTICE("\The [user] applies some nanite paste on [user != M ? "[M]'s [S.name]" : "[S]"] with [src]."),\
 				SPAN_NOTICE("You apply some nanite paste on [user == M ? "your" : "[M]'s"] [S.name]."))
+			return TRUE

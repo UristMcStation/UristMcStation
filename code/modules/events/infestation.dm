@@ -50,7 +50,7 @@
 			max_number = 6
 			vermstring = "lizards"
 		if(VERM_SPIDERS)
-			spawn_types = list(/obj/effect/spider/spiderling)
+			spawn_types = list(/obj/spider/spiderling)
 			max_number = 3
 			vermstring = "spiders"
 		if(VERM_POSSUMS)
@@ -74,14 +74,14 @@
 		var/num = 0
 		for(var/i = 1 to severity)
 			num += rand(2,max_number)
-		log_and_message_admins("Vermin infestation spawned ([vermstring] x[num]) in \the [location]", location = pick_area_turf(location))
+		log_and_message_admins("Vermin infestation spawned ([vermstring] x[num]) in \the [location]", user = null, location = pick_area_turf(location))
 		while(length(vermin_turfs) && num > 0)
 			var/turf/simulated/floor/T = pick(vermin_turfs)
 			vermin_turfs.Remove(T)
 			num--
 
 			var/spawn_type = pick(spawn_types)
-			var/obj/effect/spider/spiderling/S = new spawn_type(T)
+			var/obj/spider/spiderling/S = new spawn_type(T)
 			if(istype(S))
 				S.amount_grown = -1
 

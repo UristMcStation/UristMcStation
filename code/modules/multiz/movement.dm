@@ -110,7 +110,7 @@
 	return 0
 
 /mob/living/carbon/human/can_ztravel()
-	if(Allow_Spacemove())
+	if(Process_Spacemove())
 		return 1
 
 	if(Check_Shoegrip())	//scaling hull with magboots
@@ -119,7 +119,7 @@
 				return 1
 
 /mob/living/silicon/robot/can_ztravel()
-	if(Allow_Spacemove()) //Checks for active jetpack
+	if(Process_Spacemove()) //Checks for active jetpack
 		return 1
 
 	for(var/turf/simulated/T in trange(1,src)) //Robots get "magboots"
@@ -142,8 +142,7 @@
 		return
 
 	// No gravity in space, apparently.
-	var/area/area = get_area(src)
-	if(!area.has_gravity())
+	if(!has_gravity())
 		return
 
 	if(throwing)
@@ -158,7 +157,7 @@
 /atom/movable/proc/begin_falling(lastloc, below)
 	if (QDELETED(src))
 		return
-	addtimer(new Callback(src, /atom/movable/proc/fall_callback, below), 0)
+	addtimer(new Callback(src, PROC_REF(fall_callback), below), 0)
 
 /atom/movable/proc/fall_callback(turf/below)
 	var/mob/M = src
@@ -200,7 +199,7 @@
 /obj/effect/can_fall(anchor_bypass = FALSE, turf/location_override = loc)
 	return FALSE
 
-/obj/effect/decal/cleanable/can_fall(anchor_bypass = FALSE, turf/location_override = loc)
+/obj/decal/cleanable/can_fall(anchor_bypass = FALSE, turf/location_override = loc)
 	return TRUE
 
 /obj/item/pipe/can_fall(anchor_bypass = FALSE, turf/location_override = loc)
@@ -243,6 +242,7 @@
 						SPAN_NOTICE("\The [src]'s suit whirrs loudly as \the [rig] absorbs the fall!"),
 						SPAN_NOTICE("You hear an electric <i>*whirr*</i> right after the slam!")
 					)
+
 		if (fall_damage())
 			for (var/mob/living/M in landing.contents)
 				if (M == src)
@@ -264,6 +264,13 @@
 /mob/living/carbon/human/handle_fall_effect(turf/landing)
 	if(species && species.handle_fall_special(src, landing))
 		return
+	if(src.mind && src.mind.changeling && src.mind.changeling.tendons_reinforced)
+		return
+	var/obj/item/rig/rig = get_rig()
+	if (istype(rig))
+		for (var/obj/item/rig_module/actuators/A in rig.installed_modules)
+			if (A.active && rig.check_power_cost(src, 50 KILOWATTS, A, 0))
+				return
 
 	var/obj/item/rig/rig = get_rig()
 	if (istype(rig))
@@ -365,7 +372,7 @@
 	. = ..()
 	owner = user
 	follow()
-	GLOB.moved_event.register(owner, src, /atom/movable/z_observer/proc/follow)
+	GLOB.moved_event.register(owner, src, PROC_REF(follow))
 
 /atom/movable/z_observer/proc/follow()
 
@@ -389,9 +396,9 @@
 	qdel(src)
 
 /atom/movable/z_observer/Destroy()
-	GLOB.moved_event.unregister(owner, src, /atom/movable/z_observer/proc/follow)
+	GLOB.moved_event.unregister(owner, src, PROC_REF(follow))
 	owner = null
-	. = ..()
+	return ..()
 
 /atom/movable/z_observer/can_fall()
 	return FALSE

@@ -129,7 +129,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "as" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	color = "#d2af6e"
 	},
 /obj/machinery/light{
@@ -140,7 +140,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "at" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e"
 	},
 /turf/simulated/floor/tiled/dark{
@@ -148,7 +148,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "au" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e"
 	},
 /obj/machinery/light{
@@ -159,7 +159,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "av" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 8;
 	icon_state = "warningcorner"
@@ -177,7 +177,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "ax" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	color = "#d2af6e"
 	},
 /turf/simulated/floor/tiled/dark{
@@ -185,7 +185,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "ay" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 6;
 	icon_state = "warning"
@@ -200,7 +200,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "aA" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 10;
 	icon_state = "warning"
@@ -210,7 +210,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "aB" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 8;
 	icon_state = "warningcorner"
@@ -245,7 +245,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "aF" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 4;
 	icon_state = "warning"
@@ -271,11 +271,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "aI" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
 "aJ" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 4;
 	icon_state = "warning"
@@ -354,7 +354,7 @@
 /turf/unsimulated/floor/plating,
 /area/spacestations/nanotrasenspace)
 "aX" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -422,7 +422,7 @@
 /turf/simulated/floor/tiled/white,
 /area/spacestations/nanotrasenspace)
 "bg" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 4;
 	icon_state = "warning"
@@ -579,7 +579,7 @@
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
 "bF" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -697,13 +697,13 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "bV" = (
-/obj/effect/shuttle_landmark/nav_nanotrasentrading/nav1,
+/obj/shuttle_landmark/nav_nanotrasentrading/nav1,
 /turf/simulated/floor/plating{
 	color = "#bbbbbb"
 	},
 /area/spacestations/nanotrasenspace)
 "bW" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 1
 	},
@@ -960,7 +960,7 @@
 "cK" = (
 /obj/structure/table/standard,
 /obj/item/device/t_scanner,
-/obj/effect/decal/cleanable/cobweb,
+/obj/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
 "cL" = (
@@ -976,11 +976,11 @@
 /area/spacestations/nanotrasenspace)
 "cN" = (
 /obj/structure/sign/urist/nt,
-/obj/effect/paint/sun,
+/obj/paint/sun,
 /turf/simulated/wall/titanium,
 /area/spacestations/ntminingshuttle/start)
 "cO" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 4;
 	icon_state = "warningcorner"
@@ -990,7 +990,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "cP" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 5;
 	icon_state = "warning"
@@ -1023,7 +1023,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "cU" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 9;
 	icon_state = "warning"
@@ -1074,7 +1074,7 @@
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
 "db" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 1;
 	icon_state = "warningcorner"
@@ -1084,7 +1084,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "dd" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 4;
 	icon_state = "warningcorner"
@@ -1095,7 +1095,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "de" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 1
 	},
@@ -1104,7 +1104,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "df" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 1
 	},
@@ -1114,7 +1114,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "dg" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	color = "#d2af6e";
 	dir = 1;
 	icon_state = "warningcorner"
@@ -1141,7 +1141,7 @@
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
 "dl" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
@@ -1231,11 +1231,11 @@
 	},
 /area/spacestations/nanotrasenspace)
 "dB" = (
-/obj/effect/shuttle_landmark/supply/station,
+/obj/shuttle_landmark/supply/station,
 /turf/simulated/floor/plating,
 /area/spacestations/nanotrasenspace)
 "dC" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 8
 	},
@@ -1245,7 +1245,7 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dD" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 9
 	},
 /obj/machinery/light{
@@ -1254,14 +1254,14 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dE" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dF" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 5
 	},
@@ -1271,37 +1271,37 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dG" = (
-/obj/effect/shuttle_landmark/nav_nanotrasentrading/nav2,
+/obj/shuttle_landmark/nav_nanotrasentrading/nav2,
 /turf/simulated/floor/plating{
 	color = "#bbbbbb"
 	},
 /area/spacestations/nanotrasenspace)
 "dH" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dI" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dJ" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dK" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "dL" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -1363,7 +1363,7 @@
 	},
 /area/spacestations/ntminingshuttle/start)
 "eT" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -1372,7 +1372,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "eW" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -1382,18 +1382,18 @@
 	},
 /area/spacestations/nanotrasenspace)
 "fj" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "fI" = (
-/obj/effect/floor_decal/corner/red/three_quarters{
+/obj/floor_decal/corner/red/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -1402,7 +1402,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "fN" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -1418,7 +1418,7 @@
 /area/spacestations/nanotrasenspace)
 "gW" = (
 /obj/machinery/vending/coffee,
-/obj/effect/floor_decal/corner/blue/three_quarters{
+/obj/floor_decal/corner/blue/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -1427,7 +1427,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "hn" = (
-/obj/effect/shuttle_landmark/nav_nanotrasentrading,
+/obj/shuttle_landmark/nav_nanotrasentrading,
 /turf/simulated/floor/plating{
 	color = "#bbbbbb"
 	},
@@ -1435,7 +1435,7 @@
 "hw" = (
 /obj/item/modular_computer/laptop/preset/records,
 /obj/structure/table/reinforced,
-/obj/effect/floor_decal/corner/red/three_quarters{
+/obj/floor_decal/corner/red/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -1444,7 +1444,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "hx" = (
-/obj/effect/floor_decal/corner/blue,
+/obj/floor_decal/corner/blue,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
@@ -1464,7 +1464,7 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "iV" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 6;
 	icon_state = "warning"
@@ -1494,7 +1494,7 @@
 	},
 /area/spacestations/ntminingshuttle/start)
 "je" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -1517,7 +1517,7 @@
 	dir = 1
 	},
 /obj/item/modular_computer/laptop/preset/records,
-/obj/effect/floor_decal/corner/red/three_quarters{
+/obj/floor_decal/corner/red/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -1548,7 +1548,7 @@
 /area/spacestations/nanotrasenspace)
 "kz" = (
 /obj/structure/filingcabinet,
-/obj/effect/floor_decal/corner/red/three_quarters{
+/obj/floor_decal/corner/red/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -1567,7 +1567,7 @@
 	},
 /area/spacestations/ntminingshuttle/start)
 "kP" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -1576,14 +1576,14 @@
 	},
 /area/spacestations/nanotrasenspace)
 "kR" = (
-/obj/effect/floor_decal/ntlogo{
+/obj/floor_decal/ntlogo{
 	icon_state = "ntlogo";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "lh" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -1609,7 +1609,7 @@
 	},
 /area/spacestations/ntminingshuttle/start)
 "lN" = (
-/obj/effect/floor_decal/corner/red,
+/obj/floor_decal/corner/red,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
@@ -1637,7 +1637,7 @@
 	},
 /area/spacestations/ntminingshuttle/start)
 "mQ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
@@ -1651,13 +1651,13 @@
 	},
 /area/spacestations/ntminingshuttle/start)
 "nX" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/spacestations/nanotrasenspace)
 "oq" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 10
 	},
 /obj/machinery/light{
@@ -1692,7 +1692,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "pc" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -1709,7 +1709,7 @@
 	name = "transit blast door";
 	opacity = 0
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -1734,13 +1734,13 @@
 	pixel_y = 9
 	},
 /obj/item/pen,
-/obj/effect/floor_decal/corner/red/three_quarters,
+/obj/floor_decal/corner/red/three_quarters,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
 "qy" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 9
 	},
@@ -1767,7 +1767,7 @@
 /obj/machinery/tele_pad{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 5
 	},
@@ -1799,7 +1799,7 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "sl" = (
-/obj/effect/floor_decal/ntlogo{
+/obj/floor_decal/ntlogo{
 	icon_state = "ntlogo";
 	dir = 4
 	},
@@ -1808,7 +1808,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "sA" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 10;
 	icon_state = "warning"
@@ -1818,11 +1818,11 @@
 	},
 /area/spacestations/nanotrasenspace)
 "ta" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -1852,7 +1852,7 @@
 	},
 /area/spacestations/ntminingshuttle/start)
 "uk" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 5
 	},
@@ -1867,24 +1867,24 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/visible,
-/obj/effect/shuttle_landmark/ntminingshuttle/start,
+/obj/shuttle_landmark/ntminingshuttle/start,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
 /area/spacestations/ntminingshuttle/start)
 "uK" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 10
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "vk" = (
-/obj/effect/floor_decal/ntlogo,
+/obj/floor_decal/ntlogo,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
@@ -1896,21 +1896,21 @@
 	name = "Transit Checkpoint";
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "vu" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
 "vK" = (
 /obj/structure/filingcabinet,
-/obj/effect/floor_decal/corner/red/three_quarters{
+/obj/floor_decal/corner/red/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -1926,7 +1926,7 @@
 	},
 /obj/item/pen,
 /obj/structure/window/reinforced,
-/obj/effect/floor_decal/corner/red/three_quarters,
+/obj/floor_decal/corner/red/three_quarters,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "vW" = (
@@ -1938,7 +1938,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "wu" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -1950,7 +1950,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "wF" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -1962,12 +1962,12 @@
 	},
 /area/spacestations/nanotrasenspace)
 "wL" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 4;
 	icon_state = "warning"
 	},
-/obj/effect/overmap/visitable/sector/station/nanotrasentrading,
+/obj/overmap/visitable/sector/station/nanotrasentrading,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
@@ -1991,7 +1991,7 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "xd" = (
-/obj/effect/floor_decal/ntlogo{
+/obj/floor_decal/ntlogo{
 	icon_state = "ntlogo";
 	dir = 1
 	},
@@ -2007,7 +2007,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/spacestations/nanotrasenspace)
 "xl" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2020,7 +2020,7 @@
 	icon_state = "plant-22"
 	},
 /obj/machinery/light,
-/obj/effect/floor_decal/corner/blue/three_quarters{
+/obj/floor_decal/corner/blue/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -2034,7 +2034,7 @@
 	icon_state = "tube1";
 	pixel_y = 0
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2043,7 +2043,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "xu" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2053,12 +2053,12 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "yg" = (
-/obj/effect/floor_decal/ntlogo,
+/obj/floor_decal/ntlogo,
 /obj/structure/table/reinforced,
 /turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "yn" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2068,7 +2068,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "yr" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2087,21 +2087,21 @@
 	},
 /area/spacestations/ntminingshuttle/start)
 "yH" = (
-/obj/effect/floor_decal/ntlogo{
+/obj/floor_decal/ntlogo{
 	icon_state = "ntlogo";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "yU" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "za" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 1
 	},
@@ -2127,7 +2127,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2160,7 +2160,7 @@
 	},
 /area/spacestations/ntminingshuttle/start)
 "Bv" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 10
 	},
@@ -2169,7 +2169,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "Cm" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2177,7 +2177,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "Cn" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2194,7 +2194,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "Cp" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -2217,7 +2217,7 @@
 	},
 /area/spacestations/ntminingshuttle/start)
 "CC" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2238,13 +2238,13 @@
 	icon_state = "plant-22"
 	},
 /obj/machinery/light,
-/obj/effect/floor_decal/corner/blue/three_quarters,
+/obj/floor_decal/corner/blue/three_quarters,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
 "CK" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -2252,22 +2252,22 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "CV" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "Dz" = (
-/obj/effect/paint/sun,
+/obj/paint/sun,
 /turf/simulated/wall/titanium,
 /area/spacestations/ntminingshuttle/start)
 "DM" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -2276,7 +2276,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "DN" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 9;
 	icon_state = "warning"
@@ -2299,7 +2299,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "Fq" = (
-/obj/effect/floor_decal/corner/red/three_quarters,
+/obj/floor_decal/corner/red/three_quarters,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
@@ -2330,7 +2330,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "Gm" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 8
 	},
@@ -2342,7 +2342,7 @@
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-22"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2354,7 +2354,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "Ii" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 5;
 	icon_state = "warning"
@@ -2364,20 +2364,20 @@
 	},
 /area/spacestations/nanotrasenspace)
 "IS" = (
-/obj/effect/floor_decal/corner/blue/three_quarters,
+/obj/floor_decal/corner/blue/three_quarters,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
 /area/spacestations/nanotrasenspace)
 "Ji" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "JY" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2423,20 +2423,20 @@
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced,
 /obj/item/modular_computer/laptop/preset/records,
-/obj/effect/floor_decal/corner/red/three_quarters{
+/obj/floor_decal/corner/red/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "LX" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
+/obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
 /area/spacestations/ntminingshuttle/start)
 "Nf" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -2463,7 +2463,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "NO" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/spacestations/nanotrasenspace)
 "NP" = (
@@ -2497,7 +2497,7 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "Oi" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -2506,7 +2506,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "Ok" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2520,7 +2520,7 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "Op" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 4
 	},
@@ -2535,14 +2535,14 @@
 	name = "Transit Checkpoint";
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "OV" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e"
 	},
 /turf/simulated/floor/plating{
@@ -2551,11 +2551,11 @@
 /area/spacestations/nanotrasenspace)
 "Pn" = (
 /obj/structure/filingcabinet,
-/obj/effect/floor_decal/corner/red/three_quarters,
+/obj/floor_decal/corner/red/three_quarters,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "Pr" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2576,7 +2576,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/red/three_quarters{
+/obj/floor_decal/corner/red/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -2595,14 +2595,14 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "PV" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1";
@@ -2612,7 +2612,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "Qi" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	color = "#d2af6e";
 	dir = 1
 	},
@@ -2630,7 +2630,7 @@
 	},
 /area/spacestations/ntminingshuttle/start)
 "QZ" = (
-/obj/effect/floor_decal/ntlogo{
+/obj/floor_decal/ntlogo{
 	icon_state = "ntlogo";
 	dir = 8
 	},
@@ -2639,14 +2639,14 @@
 	},
 /area/spacestations/nanotrasenspace)
 "Rl" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/machinery/tele_projector,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/spacestations/nanotrasenspace)
 "Rq" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark{
@@ -2654,7 +2654,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "RN" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 6
 	},
@@ -2670,7 +2670,7 @@
 	name = "transit blast door";
 	opacity = 0
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -2679,7 +2679,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "Sq" = (
-/obj/effect/floor_decal/corner/blue/three_quarters{
+/obj/floor_decal/corner/blue/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -2689,7 +2689,7 @@
 /area/spacestations/nanotrasenspace)
 "SH" = (
 /obj/machinery/vending/cigarette,
-/obj/effect/floor_decal/corner/blue/three_quarters{
+/obj/floor_decal/corner/blue/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -2720,14 +2720,14 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "Tk" = (
-/obj/effect/floor_decal/ntlogo{
+/obj/floor_decal/ntlogo{
 	icon_state = "ntlogo";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "Tq" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 6
 	},
@@ -2756,11 +2756,11 @@
 /obj/machinery/computer/shuttle_control/ntminingshuttle{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 8
 	},
@@ -2784,7 +2784,7 @@
 	},
 /area/spacestations/ntminingshuttle/start)
 "Vo" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 10
 	},
@@ -2801,7 +2801,7 @@
 	icon_state = "benchleft";
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2813,7 +2813,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2824,7 +2824,7 @@
 	icon_state = "benchright";
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2836,7 +2836,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 5
 	},
@@ -2847,7 +2847,7 @@
 "Ws" = (
 /obj/item/modular_computer/laptop/preset/records,
 /obj/structure/table/reinforced,
-/obj/effect/floor_decal/corner/red/three_quarters{
+/obj/floor_decal/corner/red/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -2859,14 +2859,14 @@
 "WK" = (
 /obj/item/modular_computer/laptop/preset/records,
 /obj/structure/table/reinforced,
-/obj/effect/floor_decal/corner/red/three_quarters{
+/obj/floor_decal/corner/red/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/nanotrasenspace)
 "WN" = (
-/obj/effect/floor_decal/corner/red/three_quarters{
+/obj/floor_decal/corner/red/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 8
 	},
@@ -2878,7 +2878,7 @@
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-22"
 	},
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2890,7 +2890,7 @@
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced,
 /obj/item/modular_computer/laptop/preset/records,
-/obj/effect/floor_decal/corner/red/three_quarters{
+/obj/floor_decal/corner/red/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 4
 	},
@@ -2899,7 +2899,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "YH" = (
-/obj/effect/floor_decal/corner/blue{
+/obj/floor_decal/corner/blue{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2909,7 +2909,7 @@
 /turf/simulated/floor/tiled/old_tile,
 /area/spacestations/nanotrasenspace)
 "YJ" = (
-/obj/effect/floor_decal/corner/red/three_quarters{
+/obj/floor_decal/corner/red/three_quarters{
 	icon_state = "corner_white_three_quarters";
 	dir = 1
 	},
@@ -2918,7 +2918,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "YO" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -2934,7 +2934,7 @@
 /turf/simulated/floor/tiled,
 /area/spacestations/nanotrasenspace)
 "Zo" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 9
 	},
@@ -2943,7 +2943,7 @@
 	},
 /area/spacestations/nanotrasenspace)
 "Zr" = (
-/obj/effect/floor_decal/corner/red{
+/obj/floor_decal/corner/red{
 	icon_state = "corner_white";
 	dir = 9
 	},
@@ -2963,7 +2963,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	icon_state = "warning";
 	dir = 1
 	},

@@ -3029,7 +3029,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "in" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -3038,7 +3038,7 @@
 /turf/simulated/floor/plating/airless,
 /area/space)
 "io" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -4137,7 +4137,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/teleporter)
 "lm" = (
-/obj/effect/template_loader/space,
+/obj/urist_intangible/trigger/template_loader/space,
 /turf/space,
 /area/space)
 "ln" = (

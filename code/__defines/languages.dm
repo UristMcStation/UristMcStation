@@ -38,6 +38,7 @@
 #define LANGUAGE_DRONE_GLOBAL      "Drone Talk"
 #define LANGUAGE_CHANGELING_GLOBAL "Changeling"
 #define LANGUAGE_BORER_GLOBAL      "Cortical Link"
+#define LANGUAGE_LEGION_GLOBAL     "Nexus Link"
 #define LANGUAGE_LEGALESE          "Legalese"
 
 // Language flags.

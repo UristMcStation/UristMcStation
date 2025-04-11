@@ -7,7 +7,7 @@
 	var/chargelevel = 0
 	var/chargelevelmax = 10
 	var/artifact_id = ""
-	var/effect_type = 0
+	var/effect_type = EFFECT_UNKNOWN
 	var/toggled = FALSE
 	var/on_time //time artifact should stay on for when toggled
 
@@ -57,7 +57,7 @@
 	. = ..()
 
 /datum/artifact_effect/proc/ToggleActivate(reveal_toggle = 1)
-	addtimer(new Callback(src, .proc/DoActivation, reveal_toggle), 0)
+	addtimer(new Callback(src, PROC_REF(DoActivation), reveal_toggle), 0)
 
 /datum/artifact_effect/proc/DoActivation(reveal_toggle = 1)
 	if (toggled && activated)
@@ -66,7 +66,7 @@
 	if(activated)
 		activated = FALSE
 	else
-		addtimer(new Callback(src, /datum/artifact_effect/proc/toggle_off), on_time)
+		addtimer(new Callback(src, PROC_REF(toggle_off)), on_time)
 		activated = TRUE
 		toggled = TRUE
 	if(reveal_toggle && holder)
@@ -87,7 +87,7 @@
 				holder.underlays.Remove(active_effect)
 
 		var/atom/toplevelholder = holder
-		while(!isnull(toplevelholder.loc) && !istype(toplevelholder.loc, /turf))
+		while(!isnull(toplevelholder.loc) && !isturf(toplevelholder.loc))
 			toplevelholder = toplevelholder.loc
 		toplevelholder.visible_message(SPAN_WARNING("[icon2html(toplevelholder, viewers(get_turf(toplevelholder)))] [toplevelholder] [display_msg]"))
 

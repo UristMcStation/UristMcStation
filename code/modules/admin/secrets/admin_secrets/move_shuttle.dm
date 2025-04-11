@@ -19,11 +19,11 @@
 	var/datum/shuttle/S = SSshuttle.shuttles[shuttle_tag]
 
 	var/list/destinations = list()
-	for(var/obj/effect/shuttle_landmark/WP in world)
+	for(var/obj/shuttle_landmark/WP in world)
 		destinations += WP
 
-	var/obj/effect/shuttle_landmark/destination = input(user, "Select the destination.") as null|anything in destinations
+	var/obj/shuttle_landmark/destination = input(user, "Select the destination.") as null|anything in destinations
 	if (!destination) return
 
 	S.attempt_move(destination)
-	log_and_message_admins("moved the [shuttle_tag] shuttle to [destination] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[destination.x];Y=[destination.y];Z=[destination.z]'>JMP</a>)", user)
+	log_and_message_admins("moved the [shuttle_tag] shuttle to [destination] (<A HREF='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[destination.x];Y=[destination.y];Z=[destination.z]'>JMP</a>)", user)

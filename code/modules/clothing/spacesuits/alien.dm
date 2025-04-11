@@ -31,6 +31,7 @@
 // Can't be equipped by any other species due to bone structure and vox cybernetics.
 /obj/item/clothing/suit/space/vox
 	icon = 'icons/obj/clothing/species/vox/obj_suit_vox.dmi'
+	item_icons = list(slot_wear_suit_str = 'icons/mob/species/vox/onmob_suit_vox.dmi')
 	w_class = ITEM_SIZE_NORMAL
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/tank)
 	armor = list(
@@ -47,10 +48,12 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	species_restricted = list(SPECIES_VOX)
 	flags_inv = HIDEJUMPSUIT
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 
 /obj/item/clothing/head/helmet/space/vox
 	icon = 'icons/obj/clothing/species/vox/obj_head_vox.dmi'
+	item_icons = list(slot_head_str = 'icons/mob/species/vox/onmob_head_vox.dmi')
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_PISTOL,
@@ -64,12 +67,13 @@
 	item_flags = 0
 	flags_inv = 0
 	species_restricted = list(SPECIES_VOX)
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_AIRTIGHT | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/head/helmet/space/vox/pressure
 	name = "alien helmet"
 	icon_state = "vox-pressure"
 	desc = "A huge, armoured, pressurized helmet. Looks like an ancient human diving suit."
-	light_overlay = "invis_light"
+	light_overlay = "helmet_light_alt"
 
 /obj/item/clothing/suit/space/vox/pressure
 	name = "alien pressure suit"
@@ -80,7 +84,7 @@
 	name = "alien visor"
 	icon_state = "vox-carapace"
 	desc = "A glowing visor. The light slowly pulses, and seems to follow you."
-	light_overlay = "invis_light"
+	light_overlay = "helmet_light_alt"
 
 /obj/item/clothing/suit/space/vox/carapace
 	name = "alien carapace armour"
@@ -91,7 +95,7 @@
 	name = "alien stealth helmet"
 	icon_state = "vox-stealth"
 	desc = "A smoothly contoured, matte-black alien helmet."
-	light_overlay = "invis_light"
+	light_overlay = "helmet_light_alt"
 
 /obj/item/clothing/suit/space/vox/stealth
 	name = "alien stealth suit"
@@ -102,7 +106,7 @@
 	name = "alien goggled helmet"
 	icon_state = "vox-medic"
 	desc = "An alien helmet with enormous goggled lenses."
-	light_overlay = "invis_light"
+	light_overlay = "helmet_light_alt"
 
 /obj/item/clothing/suit/space/vox/medic
 	name = "alien armour"
@@ -142,6 +146,7 @@
 /obj/item/clothing/under/vox
 	has_sensor = 0
 	species_restricted = list(SPECIES_VOX)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/under/vox/vox_casual
 	name = "alien clothing"
@@ -161,17 +166,20 @@
 	name = "insulated gauntlets"
 	icon_state = "gloves-vox"
 	item_state = "gloves-vox"
+	item_icons = list(slot_gloves_str = 'icons/mob/species/vox/onmob_hands_vox.dmi')
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	species_restricted = list(SPECIES_VOX)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/shoes/magboots/vox
-
 	desc = "A pair of heavy, jagged armoured foot pieces, seemingly suitable for a velociraptor."
 	name = "vox magclaws"
 	item_state = "boots-vox"
 	icon_state = "boots-vox"
+	item_icons = list(slot_shoes_str = 'icons/mob/species/vox/onmob_feet_vox.dmi')
 	species_restricted = list(SPECIES_VOX)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 	action_button_name = "Toggle the magclaws"
 
@@ -220,3 +228,4 @@
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05
 	species_restricted = list(SPECIES_NABBER)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON

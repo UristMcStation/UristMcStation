@@ -78,11 +78,11 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 	dat = nervalaw
 
-/obj/effect/decal/warning_stripes/urist
+/obj/decal/warning_stripes/urist
 	name = "warning decal"
 	icon = 'icons/urist/items/uristdecals.dmi'
 
-/obj/effect/decal/warning_stripes/urist/arrow
+/obj/decal/warning_stripes/urist/arrow
 	name = "guide arrow"
 	icon_state = "arrow"
 
@@ -113,10 +113,10 @@ Please only put items here that don't have a huge definition - Glloyd											
 	throwforce = 10
 	w_class = 3
 	var/charged = 1
-	var/rend_type = /obj/effect/rend
+	var/rend_type = /obj/urist_intangible/rend
 
 
-/obj/effect/rend
+/obj/urist_intangible/rend
 	name = "Tear in the fabric of reality"
 	desc = "You should run now"
 	icon = 'icons/obj/wizard.dmi'
@@ -126,7 +126,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	anchored = TRUE
 	var/spawn_type = /obj/singularity/narsie/wizard
 
-/obj/effect/rend/New()
+/obj/urist_intangible/rend/New()
 	..()
 	spawn(50)
 		new spawn_type(loc)
@@ -134,26 +134,26 @@ Please only put items here that don't have a huge definition - Glloyd											
 		return
 	return
 
-/obj/effect/rend/cow
+/obj/urist_intangible/rend/cow
 	desc = "Reverberates with the sound of ten thousand moos."
 	var/cowsleft = 20
 
-/obj/effect/rend/cow/Initialize()
+/obj/urist_intangible/rend/cow/Initialize()
 	. = ..()
 	START_PROCESSING(SSobj, src)
 
-/obj/effect/rend/cow/Destroy()
+/obj/urist_intangible/rend/cow/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	..()
 
-/obj/effect/rend/cow/Process()
+/obj/urist_intangible/rend/cow/Process()
 	if(locate(/mob) in loc) return
 	new /mob/living/simple_animal/passive/cow(loc)
 	cowsleft--
 	if(cowsleft <= 0)
 		qdel(src)
 
-/obj/effect/rend/cow/attackby(obj/item/I as obj, mob/user as mob)
+/obj/urist_intangible/rend/cow/attackby(obj/item/I as obj, mob/user as mob)
 	if(istype(I, /obj/item/nullrod))
 		visible_message("<span class='danger'>[I] strikes a blow against \the [src], banishing it!</span>")
 		spawn(1)
@@ -161,7 +161,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 		return
 	..()
 
-/obj/effect/rend/sm
+/obj/urist_intangible/rend/sm
 	spawn_type = /mob/living/simple_animal/hostile/smshard
 
 /obj/item/veilrender/attack_self(mob/user as mob)
@@ -175,12 +175,12 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/item/veilrender/vealrender
 	name = "veal render"
 	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast farm."
-	rend_type = /obj/effect/rend/cow
+	rend_type = /obj/urist_intangible/rend/cow
 
 /obj/item/veilrender/sm
 	name = "glowing blade"
 	desc = "An odd blade with a pale yellow glow. <span class='danger'>It strains your eyes to look at.</span>"
-	rend_type = /obj/effect/rend/sm
+	rend_type = /obj/urist_intangible/rend/sm
 
 //Medals. Noone uses them, but I like them, so fuck you all.
 

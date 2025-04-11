@@ -6,7 +6,7 @@ var/global/list/cached_icons = list()
 /obj/item/reagent_containers/glass/paint
 	desc = "It's a paint bucket."
 	name = "paint bucket"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools/paint_bucket.dmi'
 	icon_state = "paintbucket"
 	item_state = "paintcan"
 	matter = list(MATERIAL_ALUMINIUM = 200)
@@ -18,19 +18,17 @@ var/global/list/cached_icons = list()
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/paint_hex = "#fe191a"
 
-/obj/item/reagent_containers/glass/paint/afterattack(turf/simulated/target, mob/user, proximity)
-	if(!proximity) return
+/obj/item/reagent_containers/glass/paint/use_after(turf/simulated/target, mob/living/user, click_parameters)
 	if(istype(target) && reagents.total_volume > 5)
 		if (reagents.should_admin_log())
 			var/contained = reagentlist()
-			if (istype(target, /mob))
+			if (ismob(target))
 				admin_attack_log(user, target, "Used \the [name] containing [contained] to splash the victim.", "Was splashed by \the [name] containing [contained].", "used \the [name] containing [contained] to splash")
 			else
 				admin_attacker_log(user, "Used \the [name] containing [contained] to splash \the [target]")
 		user.visible_message(SPAN_WARNING("\The [target] has been splashed with something by [user]!"))
 		reagents.trans_to_turf(target, 5)
-	else
-		return ..()
+		return TRUE
 
 /obj/item/reagent_containers/glass/paint/Initialize()
 	. = ..()
@@ -39,11 +37,11 @@ var/global/list/cached_icons = list()
 		update_icon()
 
 /obj/item/reagent_containers/glass/paint/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(reagents.total_volume)
 		var/image/filling = image('icons/obj/reagentfillings.dmi', src, "paintbucket")
 		filling.color = reagents.get_color()
-		overlays += filling
+		AddOverlays(filling)
 
 /obj/item/reagent_containers/glass/paint/red
 	name = "red paint bucket"

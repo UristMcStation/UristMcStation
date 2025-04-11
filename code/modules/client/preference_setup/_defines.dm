@@ -6,14 +6,14 @@ if(!singletons_by_name) \
 	for(var/singleton_type in singletons_by_type) \
 	{\
 		var##singleton_prototype/singleton_instance = singletons_by_type[singleton_type];\
-		ADD_SORTED(singletons_by_name, singleton_instance.name, /proc/cmp_text_asc);\
+		ADD_SORTED(singletons_by_name, singleton_instance.name, GLOBAL_PROC_REF(cmp_text_asc));\
 		singletons_by_name[singleton_instance.name] = singleton_instance;\
 	}\
 }
 
 /// Full Options Button.
 #define FBTN(key, value, label, title, style) \
-"[title ? "[title]: " : ""]<a href=\"?src=\ref[src];[key]=[value]\"[style ? " style=\"[style]\"" : ""]>[label]</a>"
+"[title ? "[title]: " : ""]<a href=\"byond://?src=\ref[src];[key]=[value]\"[style ? " style=\"[style]\"" : ""]>[label]</a>"
 
 /// Value-passing Styled Button.
 #define VSBTN(key, value, label, style) FBTN(key, value, label, "", style)

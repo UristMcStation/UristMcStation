@@ -40,7 +40,7 @@
 /obj/item/clothing/head/helmet/space/emergency
 	name = "emergency space helmet"
 	icon_state = "spacebowl"
-	light_overlay = "yellow_light"
+	light_overlay = "helmet_light_wide"
 	desc = "A simple helmet with a built-in light. Smells like mothballs."
 	flash_protection = FLASH_PROTECTION_NONE
 
@@ -57,5 +57,6 @@
 	name = "spacesuit helmet"
 	desc = "A special helmet designed for work in a hazardous, low-pressure environment. The tinting can be toggled for flash protection at the cost of worse visibility."
 	icon_state = "spacebowl"
+	item_state = "spacebowl"
 	light_overlay = "yellow_light"
 	tinted = FALSE

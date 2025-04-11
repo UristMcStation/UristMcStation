@@ -67,15 +67,6 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 
 
-/obj/item/clothing/suit/cyborg_suit
-	name = "cyborg suit"
-	desc = "Suit for a cyborg costume."
-	icon_state = "death"
-	obj_flags = OBJ_FLAG_CONDUCTIBLE
-	fire_resist = T0C+5200
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-
-
 /obj/item/clothing/suit/greatcoat
 	name = "great coat"
 	desc = "A heavy great coat."
@@ -105,6 +96,7 @@
 	icon_state = "overalls"
 	item_state = "overalls"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS
+	species_restricted = list("exclude",SPECIES_NABBER)
 
 
 /obj/item/clothing/suit/syndicatefake
@@ -124,7 +116,7 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
 
 /obj/item/clothing/suit/hastur
-	name = "Hastur's Robes"
+	name = "\improper Hastur's Robes"
 	desc = "Robes not meant to be worn by man."
 	icon_state = "hastur"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
@@ -132,7 +124,7 @@
 
 
 /obj/item/clothing/suit/imperium_monk
-	name = "Imperium monk"
+	name = "\improper Imperium monk robe"
 	desc = "Have YOU killed a xenos today?"
 	icon_state = "imperium_monk"
 	body_parts_covered = HEAD|UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
@@ -140,7 +132,7 @@
 
 
 /obj/item/clothing/suit/chickensuit
-	name = "Chicken Suit"
+	name = "chicken suit"
 	desc = "A suit made long ago by the ancient empire KFC."
 	icon_state = "chickensuit"
 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS|FEET
@@ -149,7 +141,7 @@
 
 
 /obj/item/clothing/suit/monkeysuit
-	name = "Monkey Suit"
+	name = "monkey suit"
 	desc = "A suit that looks like a primate."
 	icon_state = "monkeysuit"
 	body_parts_covered = UPPER_TORSO|ARMS|LOWER_TORSO|LEGS|FEET|HANDS
@@ -158,7 +150,7 @@
 
 
 /obj/item/clothing/suit/holidaypriest
-	name = "Holiday Priest"
+	name = "holiday priest robe"
 	desc = "This is a nice holiday my son."
 	icon_state = "holidaypriest"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
@@ -202,38 +194,12 @@
 	icon_state = "ianshirt"
 	body_parts_covered = UPPER_TORSO|ARMS
 
-//pyjamas
-//originally intended to be pinstripes >.>
-
-/obj/item/clothing/under/bluepyjamas
-	name = "blue pyjamas"
-	desc = "Slightly old-fashioned sleepwear."
-	icon_state = "blue_pyjamas"
-	item_state = "blue_pyjamas"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-
-/obj/item/clothing/under/redpyjamas
-	name = "red pyjamas"
-	desc = "Slightly old-fashioned sleepwear."
-	icon_state = "red_pyjamas"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
-
 //coats
 
 /obj/item/clothing/suit/leathercoat
 	name = "leather coat"
 	desc = "A long, thick black leather coat."
 	icon_state = "leathercoat"
-
-/obj/item/clothing/suit/browncoat
-	name = "brown leather coat"
-	desc = "A long, brown leather coat."
-	icon_state = "browncoat"
-
-/obj/item/clothing/suit/neocoat
-	name = "black coat"
-	desc = "A flowing, black coat."
-	icon_state = "neocoat"
 
 //stripper
 /obj/item/clothing/under/stripper
@@ -242,13 +208,13 @@
 /obj/item/clothing/under/stripper/stripper_pink
 	name = "pink swimsuit"
 	desc = "A rather skimpy pink swimsuit."
-	icon_state = "stripper_p_under"
+	icon_state = "stripper_p"
 	siemens_coefficient = 1
 
 /obj/item/clothing/under/stripper/stripper_green
 	name = "green swimsuit"
 	desc = "A rather skimpy green swimsuit."
-	icon_state = "stripper_g_under"
+	icon_state = "stripper_g"
 	siemens_coefficient = 1
 
 /obj/item/clothing/suit/stripper/stripper_pink
@@ -312,34 +278,30 @@
 	icon_state = "swim_red"
 	siemens_coefficient = 1
 
-/obj/item/clothing/suit/poncho/colored
+/obj/item/clothing/suit/poncho
 	name = "poncho"
 	desc = "A simple, comfortable poncho."
 	species_restricted = null
 	icon_state = "classicponcho"
 
-/obj/item/clothing/suit/poncho/colored/green
+/obj/item/clothing/suit/poncho/green
 	name = "green poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is green."
-	species_restricted = null
 	icon_state = "greenponcho"
 
-/obj/item/clothing/suit/poncho/colored/red
+/obj/item/clothing/suit/poncho/red
 	name = "red poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is red."
-	species_restricted = null
 	icon_state = "redponcho"
 
-/obj/item/clothing/suit/poncho/colored/purple
+/obj/item/clothing/suit/poncho/purple
 	name = "purple poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is purple."
-	species_restricted = null
 	icon_state = "purpleponcho"
 
-/obj/item/clothing/suit/poncho/colored/blue
+/obj/item/clothing/suit/poncho/blue
 	name = "blue poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is blue."
-	species_restricted = null
 	icon_state = "blueponcho"
 
 /obj/item/clothing/suit/storage/toggle/bomber
@@ -381,11 +343,16 @@
 	icon_state = "brown_jacket_nt"
 
 /obj/item/clothing/suit/storage/toggle/agent_jacket
-	name = "agent jacket"
+	name = "\improper SFP jacket"
 	desc = "A black leather jacket belonging to an agent of the Sol Federal Police."
 	icon_state = "agent_jacket"
 	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA)
 	body_parts_covered = UPPER_TORSO|ARMS
+
+/obj/item/clothing/suit/storage/toggle/agent_jacket/formal
+	name = "formal SFP coat"
+	desc = "A black suit jacket belonging to an agent of the Sol Federal Police. It is of exceptional quality."
+	icon_state = "agent_formal"
 
 /obj/item/clothing/suit/storage/toggle/hoodie
 	name = "hoodie"
@@ -419,30 +386,34 @@
 	desc = "A warm, black sweatshirt."
 	color = COLOR_DARK_GRAY
 
+/obj/item/clothing/suit/storage/agent_rain
+	name = "\improper SFP patrol cloak"
+	desc = "A black raincloak belonging to an agent of the Sol Federal Police. It is almost certainly wind and waterproof."
+	icon_state = "agent_raincloak"
+	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA)
+	blood_overlay_type = "coat"
+
 /obj/item/clothing/suit/storage/mbill
 	name = "shipping jacket"
 	desc = "A green jacket bearing the logo of Major Bill's Shipping."
 	icon_state = "mbill"
 
-/obj/item/clothing/suit/poncho/roles/security
+/obj/item/clothing/suit/poncho/security
 	name = "security poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is black and red, which are standard Security colors."
-	species_restricted = null
 	icon_state = "secponcho"
 
-/obj/item/clothing/suit/poncho/roles/medical
+/obj/item/clothing/suit/poncho/medical
 	name = "medical poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is white with a blue tint, which are standard Medical colors."
-	species_restricted = null
 	icon_state = "medponcho"
 
-/obj/item/clothing/suit/poncho/roles/engineering
+/obj/item/clothing/suit/poncho/engineering
 	name = "engineering poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is yellow and orange, which are standard Engineering colors."
-	species_restricted = null
 	icon_state = "engiponcho"
 
-/obj/item/clothing/suit/poncho/roles/science
+/obj/item/clothing/suit/poncho/science
 	name = "science poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is white with purple trim, standard NanoTrasen Science colors."
 	icon = 'icons/urist/restored/suits.dmi'
@@ -450,16 +421,15 @@
 	item_icons = URIST_ALL_ONMOBS
 	item_state = "sciponcho"
 
-/obj/item/clothing/suit/poncho/roles/science/nanotrasen
+/obj/item/clothing/suit/poncho/nanotrasen
 	name = "\improper NanoTrasen poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is white with a few red stripes, colors of NanoTrasen. Go NanoTrasen!"
 	icon = 'icons/obj/clothing/obj_suit.dmi'
 	icon_state = "sciponcho_nt"
 
-/obj/item/clothing/suit/poncho/roles/cargo
+/obj/item/clothing/suit/poncho/cargo
 	name = "cargo poncho"
 	desc = "A simple, comfortable cloak without sleeves. This one is tan and grey, which are standard Cargo colors."
-	species_restricted = null
 	icon_state = "cargoponcho"
 
 /*
@@ -491,7 +461,7 @@
 	icon_state = "trackjacketwhite"
 
 /obj/item/clothing/suit/storage/toggle/track/gcc
-	name = "GCC track jacket"
+	name = "\improper GCC track jacket"
 	desc = "An Independent track jacket, for the truly cheeki breeki."
 	icon_state = "trackjackettcc"
 

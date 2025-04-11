@@ -9,28 +9,43 @@
 	obj_flags = OBJ_FLAG_ROTATABLE
 	var/propelled = 0 // Check for fire-extinguisher-driven chairs
 	buckle_movable = TRUE
+	dismantle_return = 1
 
 /obj/structure/bed/chair/do_simple_ranged_interaction(mob/user)
 	if(!buckled_mob && user)
 		rotate(user)
 	return TRUE
 
-/obj/structure/bed/chair/attackby(obj/item/W as obj, mob/user as mob)
-	..()
-	if(!padding_material && istype(W, /obj/item/assembly/shock_kit))
-		var/obj/item/assembly/shock_kit/SK = W
-		if(!SK.status)
-			to_chat(user, SPAN_NOTICE("\The [SK] is not ready to be attached!"))
-			return
-		if(!user.unEquip(SK))
-			return
-		var/obj/structure/bed/chair/e_chair/E = new (src.loc, material.name)
-		playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-		E.set_dir(dir)
-		E.part = SK
-		SK.forceMove(E)
-		SK.master = E
-		qdel(src)
+
+/obj/structure/bed/chair/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Shock Kit - Attach shock kit
+	if (istype(tool, /obj/item/assembly/shock_kit))
+		if (padding_material)
+			USE_FEEDBACK_FAILURE("\The [src]'s [padding_material.display_name] must be removed before you can attach \the [tool].")
+			return TRUE
+		if (!user.unEquip(tool))
+			FEEDBACK_UNEQUIP_FAILURE(user, tool)
+			return TRUE
+		var/obj/item/assembly/shock_kit/shock_kit = tool
+		if (!shock_kit.status)
+			USE_FEEDBACK_FAILURE("\The [tool] is not ready to be attached to \the [src].")
+			return TRUE
+		var/obj/structure/bed/chair/e_chair/electric_chair = new (loc, material.name)
+		playsound(src, 'sound/items/Deconstruct.ogg', 50, TRUE)
+		electric_chair.set_dir(dir)
+		electric_chair.part = shock_kit
+		shock_kit.forceMove(electric_chair)
+		shock_kit.master = electric_chair
+		transfer_fingerprints_to(electric_chair)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] attaches \a [tool] to \the [src], creating \a [electric_chair]."),
+			SPAN_NOTICE("You attach \the [tool] to \the [src], creating \a [electric_chair].")
+		)
+		qdel_self()
+		return TRUE
+
+	return ..()
+
 
 /obj/structure/bed/chair/post_buckle_mob()
 	update_icon()
@@ -38,15 +53,14 @@
 
 /obj/structure/bed/chair/on_update_icon()
 	..()
-
 	var/cache_key = "[base_icon]-[material.name]-over"
 	if(isnull(stool_cache[cache_key]))
-		var/image/I = image('icons/obj/furniture.dmi', "[base_icon]_over")
+		var/image/I = image(icon, "[base_icon]_over")
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
 			I.color = material.icon_colour
 		I.layer = ABOVE_HUMAN_LAYER
 		stool_cache[cache_key] = I
-	overlays |= stool_cache[cache_key]
+	AddOverlays(stool_cache[cache_key])
 	// Padding overlay.
 	if(padding_material)
 		var/padding_cache_key = "[base_icon]-padding-[padding_material.name]-over"
@@ -56,7 +70,7 @@
 				I.color = padding_material.icon_colour
 			I.layer = ABOVE_HUMAN_LAYER
 			stool_cache[padding_cache_key] = I
-		overlays |= stool_cache[padding_cache_key]
+		AddOverlays(stool_cache[padding_cache_key])
 
 	if(buckled_mob)
 		if(padding_material)
@@ -67,7 +81,7 @@
 			if(material_alteration & MATERIAL_ALTERATION_COLOR)
 				I.color = material.icon_colour
 			stool_cache[cache_key] = I
-		overlays |= stool_cache[cache_key]
+		AddOverlays(stool_cache[cache_key])
 		if(padding_material)
 			cache_key = "[base_icon]-padding-armrest-[padding_material.name]"
 			if(isnull(stool_cache[cache_key]))
@@ -76,7 +90,7 @@
 				if(material_alteration & MATERIAL_ALTERATION_COLOR)
 					I.color = padding_material.icon_colour
 				stool_cache[cache_key] = I
-			overlays |= stool_cache[cache_key]
+			AddOverlays(stool_cache[cache_key])
 
 /obj/structure/bed/chair/rotate(mob/user)
 	if(!CanPhysicallyInteract(user))
@@ -127,6 +141,7 @@
 	desc = "It's a chair. It looks comfy."
 	icon_state = "comfychair_preview"
 	base_icon = "comfychair"
+	dismantle_return = 3
 
 /obj/structure/bed/chair/comfy/brown/New(newloc, newmaterial = DEFAULT_FURNITURE_MATERIAL)
 	..(newloc, newmaterial, MATERIAL_LEATHER_GENERIC)
@@ -168,7 +183,7 @@
 	..()
 	var/image/I = image(icon, "[base_icon]_special")
 	I.layer = ABOVE_HUMAN_LAYER
-	overlays |= I
+	AddOverlays(I)
 
 /obj/structure/bed/chair/comfy/captain/New(newloc, newmaterial = DEFAULT_FURNITURE_MATERIAL)
 	..(newloc,MATERIAL_STEEL,"blue")
@@ -179,6 +194,7 @@
 	icon_state = "armchair_preview"
 	base_icon = "armchair"
 	buckle_movable = FALSE
+	dismantle_return = 4
 
 /obj/structure/bed/chair/armchair/brown/New(newloc, newmaterial = DEFAULT_FURNITURE_MATERIAL)
 	..(newloc, newmaterial, MATERIAL_LEATHER_GENERIC)
@@ -215,6 +231,7 @@
 	icon_state = "officechair_preview"
 	base_icon = "officechair"
 	anchored = FALSE
+	dismantle_return = 5
 
 /obj/structure/bed/chair/office/Move()
 	. = ..()
@@ -224,11 +241,11 @@
 			if (propelled)
 				for (var/mob/O in src.loc)
 					if (O != occupant)
-						Bump(O)
+						Bump(O, TRUE)
 			else
 				unbuckle_mob()
 
-/obj/structure/bed/chair/office/Bump(atom/A)
+/obj/structure/bed/chair/office/Bump(atom/A, called)
 	..()
 	if(!buckled_mob)	return
 
@@ -264,6 +281,7 @@
 	desc = "It's an office chair. It looks comfy."
 	icon_state = "comfyofficechair_preview"
 	base_icon = "comfyofficechair"
+	dismantle_return = 7
 
 /obj/structure/bed/chair/office/comfy/brown/New(newloc, newmaterial = DEFAULT_FURNITURE_MATERIAL)
 	..(newloc, newmaterial, MATERIAL_LEATHER_GENERIC)
@@ -317,7 +335,7 @@
 		I.layer = ABOVE_HUMAN_LAYER
 		if(material_alteration & MATERIAL_ALTERATION_COLOR)
 			I.color = material.icon_colour
-		overlays |= I
+		AddOverlays(I)
 
 /obj/structure/bed/chair/shuttle/blue/New(newloc, newmaterial = DEFAULT_FURNITURE_MATERIAL)
 	..(newloc,MATERIAL_STEEL,"blue")
@@ -334,16 +352,15 @@
 	base_icon = "wooden_chair"
 	icon_state = "wooden_chair_preview"
 	color = WOOD_COLOR_GENERIC
+	/// String (One of `MATERIAL_*`). Base material for the chair. Only used if `New()` is not passed a material.
 	var/chair_material = MATERIAL_WOOD
 	buckle_movable = FALSE
+	bed_flags = BED_FLAG_CANNOT_BE_PADDED
+	dismantle_return = 3
 
-/obj/structure/bed/chair/wood/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack) || istype(W, /obj/item/wirecutters))
-		return
-	..()
-
-/obj/structure/bed/chair/wood/New(newloc)
-	..(newloc, chair_material)
+/obj/structure/bed/chair/wood/New(newloc, _material)
+	..(newloc, _material? _material : chair_material)
+	set_color(material.icon_colour)
 
 /obj/structure/bed/chair/wood/mahogany
 	color = WOOD_COLOR_RICH
@@ -388,16 +405,19 @@
 	icon_state = "pew"
 	base_icon = "pew"
 	color = WOOD_COLOR_GENERIC
+	/// String (One of `MATERIAL_*`). Base material for the chair. Only used if `New()` is not passed a material.
 	var/material/pew_material = MATERIAL_WOOD
 	obj_flags = 0
 	buckle_movable = FALSE
+	dismantle_return = 4
 
 /obj/structure/bed/chair/pew/left
 	icon_state = "pew_left"
 	base_icon = "pew_left"
 
-/obj/structure/bed/chair/pew/New(newloc)
-	..(newloc, pew_material)
+/obj/structure/bed/chair/pew/New(newloc, _material)
+	..(newloc, _material? _material : pew_material)
+	set_color(material.icon_colour)
 
 /obj/structure/bed/chair/pew/mahogany
 	color = WOOD_COLOR_RICH

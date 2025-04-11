@@ -1,5 +1,5 @@
-/mob/living/New()
-	..()
+/mob/living/Initialize(mapload)
+	. = ..()
 	if(stat == DEAD)
 		add_to_dead_mob_list()
 	else
@@ -7,7 +7,7 @@
 
 	selected_image = image(icon('icons/misc/buildmode.dmi'), loc = src, icon_state = "ai_sel")
 
-/mob/living/examine(mob/user, distance, infix, suffix)
+/mob/living/examine(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (admin_paralyzed)
 		to_chat(user, SPAN_DEBUG("OOC: They have been paralyzed by staff. Please avoid interacting with them unless cleared to do so by staff."))
@@ -64,7 +64,7 @@ default behaviour is:
 		return 0
 	return ..()
 
-/mob/living/Bump(atom/movable/AM, yes)
+/mob/living/Bump(atom/movable/AM, called)
 
 	// This is boilerplate from /atom/movable/Bump() but in all honest
 	// I have no clue what is going on in the logic below this and I'm
@@ -75,7 +75,7 @@ default behaviour is:
 	// End boilerplate.
 
 	spawn(0)
-		if ((!( yes ) || now_pushing) || !loc)
+		if ((!( called ) || now_pushing) || !loc)
 			return
 
 		now_pushing = 1
@@ -137,7 +137,7 @@ default behaviour is:
 			var/saved_dir = AM.dir
 			if (confused && !MOVING_DELIBERATELY(src))
 				AM.slam_into(src)
-			if (!istype(AM, /atom/movable) || AM.anchored)
+			if (!ismovable(AM) || AM.anchored)
 				return
 			if (!now_pushing)
 				now_pushing = 1
@@ -198,6 +198,12 @@ default behaviour is:
 		var/obj/item/device/gps/G = locate() in src
 		if(istype(G))
 			stat("Coordinates:", "[G.fetch_coordinates()]")
+		var/obj/item/clothing/under/U = locate() in src
+		if (istype(U))
+			var/obj/item/clothing/accessory/wristwatch/W = locate() in U.accessories
+			if (istype(W))
+				stat("Local Time:", "[stationtime2text()]")
+				stat("Local Date:", "[stationdate2text()]")
 
 		if(evacuation_controller)
 			var/eta_status = evacuation_controller.get_status_panel_eta()
@@ -326,12 +332,6 @@ default behaviour is:
 		//Leave this commented out, it will cause storage items to exponentially add duplicate to the list
 		//for(var/obj/item/storage/S in Storage.return_inv()) //Check for storage items
 		//	L += get_contents(S)
-
-		for(var/obj/item/gift/G in Storage.return_inv()) //Check for gift-wrapped items
-			L += G.gift
-			if(istype(G.gift, /obj/item/storage))
-				L += get_contents(G.gift)
-
 		for(var/obj/item/smallDelivery/D in Storage.return_inv()) //Check for package wrapped items
 			L += D.wrapped
 			if(istype(D.wrapped, /obj/item/storage)) //this should never happen
@@ -343,11 +343,6 @@ default behaviour is:
 		L += src.contents
 		for(var/obj/item/storage/S in src.contents)	//Check for storage items
 			L += get_contents(S)
-
-		for(var/obj/item/gift/G in src.contents) //Check for gift-wrapped items
-			L += G.gift
-			if(istype(G.gift, /obj/item/storage))
-				L += get_contents(G.gift)
 
 		for(var/obj/item/smallDelivery/D in src.contents) //Check for package wrapped items
 			L += D.wrapped
@@ -363,7 +358,7 @@ default behaviour is:
 			return 1
 	return 0
 
-/mob/living/proc/can_inject(mob/user, target_zone)
+/mob/living/proc/can_inject(mob/user, target_zone, ignore_thick_clothing)
 	return 1
 
 /mob/living/proc/get_organ_target()
@@ -449,7 +444,7 @@ default behaviour is:
 	drowsyness = 0
 	druggy = 0
 	jitteriness = 0
-	confused = 0
+	clear_confused()
 
 	heal_overall_damage(getBruteLoss(), getFireLoss())
 
@@ -579,7 +574,7 @@ default behaviour is:
 			if (prob(75))
 				if(istype(G))
 					M.visible_message(SPAN_WARNING("[G.affecting] has been pulled from [G.assailant]'s grip by [src]!"), SPAN_WARNING("[G.affecting] has been pulled from your grip by [src]!"))
-					qdel(G)
+					G.current_grab.let_go(G)
 		if (!length(M.grabbed_by))
 			M.handle_pull_damage(src)
 
@@ -605,8 +600,7 @@ default behaviour is:
 				return set_dir(get_dir(src, pulling))
 
 /mob/living/proc/handle_pull_damage(mob/living/puller)
-	var/area/A = get_area(src)
-	if(!A.has_gravity)
+	if(!has_gravity())
 		return
 	var/turf/location = get_turf(src)
 	if(lying && prob(getBruteLoss() / 6))
@@ -674,7 +668,7 @@ default behaviour is:
 			holster.clear_holster()
 		to_chat(src, SPAN_WARNING("You extricate yourself from \the [holster]."))
 		H.forceMove(get_turf(H))
-	else if(istype(H.loc,/obj))
+	else if(isobj(H.loc))
 		to_chat(src, SPAN_WARNING("You struggle free of \the [H.loc]."))
 		H.forceMove(get_turf(H))
 
@@ -685,8 +679,8 @@ default behaviour is:
 	if(buckled)
 		if(buckled.can_buckle)
 			buckled.user_unbuckle_mob(src)
-		else if (istype(buckled, /obj/effect/vine))
-			var/obj/effect/vine/V = buckled
+		else if (istype(buckled, /obj/vine))
+			var/obj/vine/V = buckled
 			spawn() V.manual_unbuckle(src)
 		else
 			to_chat(usr, SPAN_WARNING("You can't seem to escape from \the [buckled]!"))
@@ -705,6 +699,7 @@ default behaviour is:
 	set category = "IC"
 
 	resting = !resting
+	UpdateLyingBuckledAndVerbStatus()
 	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]"))
 
 //called when the mob receives a bright flash
@@ -785,6 +780,10 @@ default behaviour is:
 		to_chat(possessor, SPAN_WARNING("\The [src] already has a player."))
 		return 0
 
+	var/ask = alert(possessor, "Are you sure you want to possess [src.name]?", "Possess mob?", "Yes", "No")
+	if (ask != "Yes")
+		return 0
+
 	message_admins(SPAN_CLASS("adminnotice", "[key_name_admin(possessor)] has taken control of \the [src]."))
 	log_admin("[key_name(possessor)] took control of \the [src].")
 	src.ckey = possessor.ckey
@@ -813,7 +812,7 @@ default behaviour is:
 
 /mob/living/update_icons()
 	if(auras)
-		overlays |= auras
+		AddOverlays(auras)
 
 /mob/living/proc/add_aura(obj/aura/aura)
 	LAZYDISTINCTADD(auras,aura)
@@ -830,14 +829,14 @@ default behaviour is:
 		for(var/a in auras)
 			remove_aura(a)
 	GLOB.living_players -= src
-	qdel(selected_image)
+	QDEL_NULL(selected_image)
 	return ..()
 
 /mob/living/proc/melee_accuracy_mods()
 	. = 0
 	if(incapacitated(INCAPACITATION_UNRESISTING))
 		. += 100
-	if(confused)
+	if(is_confused())
 		. += 10
 	if(weakened)
 		. += 15
@@ -852,7 +851,7 @@ default behaviour is:
 	. = 0
 	if(jitteriness)
 		. -= 2
-	if(confused)
+	if(is_confused())
 		. -= 2
 	if(eye_blind)
 		. -= 5
@@ -915,3 +914,9 @@ default behaviour is:
 /mob/living/proc/jump_layer_shift_end()
 	jumping = FALSE
 	reset_layer()
+
+/mob/living/proc/visible_emote(act_desc)
+	custom_emote(1, act_desc)
+
+/mob/living/proc/audible_emote(act_desc)
+	custom_emote(2, act_desc)

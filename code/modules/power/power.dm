@@ -8,7 +8,7 @@
 
 /obj/machinery/power
 	name = null
-	icon = 'icons/obj/power.dmi'
+	icon = 'icons/obj/machines/power/supermatter.dmi'
 	anchored = TRUE
 	var/datum/powernet/powernet = null
 	use_power = POWER_USE_OFF
@@ -65,6 +65,13 @@
 	else
 		return 0
 
+/obj/machinery/power/post_anchor_change()
+	if(anchored && !MACHINE_IS_BROKEN(src)) // Powernet connection stuff.
+		connect_to_network()
+	else
+		disconnect_from_network()
+	..()
+
 // connect the machine to a powernet if a node cable is present on the turf
 /obj/machinery/power/proc/connect_to_network()
 	var/turf/T = src.loc
@@ -87,14 +94,12 @@
 
 // attach a wire to a power machine - leads from the turf you are standing on
 //almost never called, overwritten by all power machines but terminal and generator
-/obj/machinery/power/attackby(obj/item/W, mob/user)
+/obj/machinery/power/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if((. = ..()))
 		return
 
 	if(isCoil(W))
-
 		var/obj/item/stack/cable_coil/coil = W
-
 		var/turf/T = user.loc
 
 		if(!T.is_plating() || !istype(T, /turf/simulated/floor))
@@ -105,6 +110,8 @@
 
 		coil.PlaceCableOnTurf(T, user)
 		return TRUE
+
+	return ..()
 
 ///////////////////////////////////////////
 // Powernet handling helpers
@@ -165,6 +172,7 @@
 // excluding source, that match the direction d
 // if unmarked==1, only return those with no powernet
 /proc/power_list(turf/T, source, d, unmarked=0, cable_only = 0)
+	RETURN_TYPE(/list)
 	. = list()
 
 	var/reverse = d ? GLOB.reverse_dir[d] : 0
@@ -222,6 +230,7 @@
 
 //Merge two powernets, the bigger (in cable length term) absorbing the other
 /proc/merge_powernets(datum/powernet/net1, datum/powernet/net2)
+	RETURN_TYPE(/datum/powernet)
 	if(!net1 || !net2) //if one of the powernet doesn't exist, return
 		return
 
@@ -253,9 +262,9 @@
 //No animations will be performed by this proc.
 /proc/electrocute_mob(mob/living/carbon/M as mob, power_source, obj/source, siemens_coeff = 1.0)
 	var/area/source_area
-	if(istype(power_source,/area))
+	if(isarea(power_source))
 		source_area = power_source
-		power_source = source_area.get_apc()
+		power_source = source_area.apc
 	if(istype(power_source,/obj/structure/cable))
 		var/obj/structure/cable/Cable = power_source
 		power_source = Cable.powernet

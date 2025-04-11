@@ -16,6 +16,7 @@
 			stone
 			metal
 			solid
+			wood
 			cult
 		DOORS
 			stone
@@ -78,12 +79,28 @@
 	var/destruction_desc = "breaks apart" // Fancy string for barricades/tables/objects exploding.
 
 	// Icons
-	var/icon_colour                                      // Colour applied to products of this material.
-	var/icon_base = "metal"                              // Wall and table base icon tag. See header.
-	var/door_icon_base = "metal"                         // Door base icon tag. See header.
-	var/icon_reinf = "reinf_metal"                       // Overlay used
+	/// String (Colour). Colour applied to products of this material.
+	var/icon_colour
+	/// String. Base icon state for material stacks.
+	var/sheet_icon_base = "sheet"
+	/// String. Icon overlay used for reinforced stacks.
+	var/sheet_icon_reinf = "reinf-overlay"
+	/// Boolean (Default `TRUE`). If set, material stacks will have alt icons for plural or max.
+	var/sheet_has_plural_icon = TRUE
+	/// String. Wall base icon state. See header.
+	var/wall_icon_base = "metal"
+	/// String. Icon overlay used for reinforced walls.
+	var/wall_icon_reinf = "reinf_metal"
+	/// Bitflag. What icon layers to look for
+	var/wall_flags = MATERIAL_PAINTABLE_MAIN
+	/// Which wall icon types walls of this material type will consider blending with. Assoc list (icon string = TRUE/FALSE)
+	var/list/wall_blend_icons = list()
+	/// String. Unpowered door base icon state. See header.
+	var/door_icon_base = "metal"
+	/// String. Table base icon state.
 	var/table_icon_base = "metal"
-	var/table_reinf = "reinf_metal"
+	/// String. Table icon state for reinforcement overlays.
+	var/table_icon_reinf = "reinf_metal"
 	var/list/stack_origin_tech = list(TECH_MATERIAL = 1) // Research level for stacks.
 
 	// Attributes
@@ -106,7 +123,7 @@
 	var/list/window_options = list()
 
 	// Damage values.
-	var/hardness = MATERIAL_HARD            // Prob of wall destruction by hulk, used for edge damage in weapons.
+	var/hardness = MATERIAL_HARD // Used for edge damage in weapons.
 	var/weight = 20              // Determines blunt damage/throwforce for weapons.
 
 	// Noise when someone is faceplanted onto a table made of this material.
@@ -142,12 +159,12 @@
 // Placeholders for light tiles and rglass.
 /material/proc/reinforce(mob/user, obj/item/stack/material/used_stack, obj/item/stack/material/target_stack)
 	if(!used_stack.can_use(1))
-		to_chat(user, SPAN_WARNING("You need need at least one [used_stack.singular_name] to reinforce [target_stack]."))
+		USE_FEEDBACK_STACK_NOT_ENOUGH(used_stack, 1, "to reinforce \the [target_stack].")
 		return
 
 	var/needed_sheets = 2 * used_stack.matter_multiplier
 	if(!target_stack.can_use(needed_sheets))
-		to_chat(user, SPAN_WARNING("You need need at least [needed_sheets] [target_stack.plural_name] for reinforcement with [used_stack]."))
+		USE_FEEDBACK_STACK_NOT_ENOUGH(target_stack, needed_sheets, "for reinforcement with \the [used_stack].")
 		return
 
 	var/material/reinf_mat = used_stack.material
@@ -160,8 +177,7 @@
 	var/target_loc = target_stack.loc
 	var/obj/item/stack/material/S = target_stack.split(needed_sheets)
 	S.reinf_material = reinf_mat
-	S.update_strings()
-	S.update_icon()
+	S.update_materials()
 	S.dropInto(target_loc)
 
 /material/proc/build_wired_product(mob/user, obj/item/stack/used_stack, obj/item/stack/target_stack)
@@ -238,7 +254,7 @@
 /material/proc/place_dismantled_product(turf/target,is_devastated)
 	if (is_devastated)
 		var/return_count = rand(1, 2)
-		if (place_shard(target, return_count) == null)
+		if (isnull(place_shard(target, return_count)))
 			place_sheet(target, return_count)
 	else
 		place_sheet(target, 2)

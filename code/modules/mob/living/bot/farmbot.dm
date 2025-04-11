@@ -22,12 +22,14 @@
 
 	var/obj/structure/reagent_dispensers/watertank/tank
 
-/mob/living/bot/farmbot/New(newloc, newTank)
-	..(newloc)
+
+/mob/living/bot/farmbot/Initialize(mapload, newTank)
+	. = ..()
 	if(!newTank)
 		newTank = new /obj/structure/reagent_dispensers/watertank(src)
 	tank = newTank
 	tank.forceMove(src)
+
 
 /mob/living/bot/farmbot/premade
 	name = "Old Ben"
@@ -46,20 +48,20 @@
 		. += "error: not found"
 
 /mob/living/bot/farmbot/GetInteractPanel()
-	. = "Water plants : <a href='?src=\ref[src];command=water'>[waters_trays ? "Yes" : "No"]</a>"
-	. += "<br>Refill watertank : <a href='?src=\ref[src];command=refill'>[refills_water ? "Yes" : "No"]</a>"
-	. += "<br>Weed plants: <a href='?src=\ref[src];command=weed'>[uproots_weeds ? "Yes" : "No"]</a>"
-	. += "<br>Replace fertilizer: <a href='?src=\ref[src];command=replacenutri'>[replaces_nutriment ? "Yes" : "No"]</a>"
-	. += "<br>Collect produce: <a href='?src=\ref[src];command=collect'>[collects_produce ? "Yes" : "No"]</a>"
-	. += "<br>Remove dead plants: <a href='?src=\ref[src];command=removedead'>[removes_dead ? "Yes" : "No"]</a>"
+	. = "Water plants : <a href='byond://?src=\ref[src];command=water'>[waters_trays ? "Yes" : "No"]</a>"
+	. += "<br>Refill watertank : <a href='byond://?src=\ref[src];command=refill'>[refills_water ? "Yes" : "No"]</a>"
+	. += "<br>Weed plants: <a href='byond://?src=\ref[src];command=weed'>[uproots_weeds ? "Yes" : "No"]</a>"
+	. += "<br>Replace fertilizer: <a href='byond://?src=\ref[src];command=replacenutri'>[replaces_nutriment ? "Yes" : "No"]</a>"
+	. += "<br>Collect produce: <a href='byond://?src=\ref[src];command=collect'>[collects_produce ? "Yes" : "No"]</a>"
+	. += "<br>Remove dead plants: <a href='byond://?src=\ref[src];command=removedead'>[removes_dead ? "Yes" : "No"]</a>"
 
 /mob/living/bot/farmbot/GetInteractMaintenance()
 	. = "Plant identifier status: "
 	switch(emagged)
 		if(0)
-			. += "<a href='?src=\ref[src];command=emag'>Normal</a>"
+			. += "<a href='byond://?src=\ref[src];command=emag'>Normal</a>"
 		if(1)
-			. += "<a href='?src=\ref[src];command=emag'>Scrambled (DANGER)</a>"
+			. += "<a href='byond://?src=\ref[src];command=emag'>Scrambled (DANGER)</a>"
 		if(2)
 			. += "ERROROROROROR-----"
 
@@ -154,7 +156,7 @@
 			if(0)
 				return
 			if(FARMBOT_COLLECT)
-				action = "water" // Needs a better one
+				action = "collect" // Needs a better one
 				update_icons()
 				visible_message(SPAN_NOTICE("[src] starts [T.dead? "removing the plant from" : "harvesting"] \the [A]."))
 				busy = 1
@@ -239,7 +241,7 @@
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(Tsec)
 
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+	var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 	s.set_up(3, 1, src)
 	s.start()
 	qdel(src)

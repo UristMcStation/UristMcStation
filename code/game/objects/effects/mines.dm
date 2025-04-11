@@ -1,4 +1,4 @@
-/obj/effect/mine
+/obj/structure/mine
 	name = "Mine"
 	desc = "I Better stay away from that thing."
 	density = FALSE
@@ -10,15 +10,15 @@
 	var/triggered = 0
 
 
-/obj/effect/mine/Initialize()
+/obj/structure/mine/Initialize()
 	. = ..()
 	icon_state = "uglyminearmed"
 
 
-/obj/effect/mine/Crossed(AM as mob|obj)
+/obj/structure/mine/Crossed(AM as mob|obj)
 	Bumped(AM)
 
-/obj/effect/mine/Bumped(mob/M as mob|obj)
+/obj/structure/mine/Bumped(mob/M as mob|obj)
 
 	if(triggered) return
 
@@ -28,7 +28,7 @@
 		triggered = 1
 		call(src,triggerproc)(M)
 
-/obj/effect/mine/proc/triggerrad(obj)
+/obj/structure/mine/proc/triggerrad(obj)
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread()
 	s.set_up(3, 1, src)
 	s.start()
@@ -38,7 +38,7 @@
 	spawn(0)
 		qdel(src)
 
-/obj/effect/mine/proc/triggerstun(obj)
+/obj/structure/mine/proc/triggerstun(obj)
 	if(ismob(obj))
 		var/mob/M = obj
 		M.Stun(30)
@@ -48,7 +48,7 @@
 	spawn(0)
 		qdel(src)
 
-/obj/effect/mine/proc/triggern2o(obj)
+/obj/structure/mine/proc/triggern2o(obj)
 	//example: n2o triggerproc
 	//note: im lazy
 
@@ -59,7 +59,7 @@
 	spawn(0)
 		qdel(src)
 
-/obj/effect/mine/proc/triggerphoron(obj)
+/obj/structure/mine/proc/triggerphoron(obj)
 	for (var/turf/simulated/floor/target in range(1,src))
 		if(!target.blocks_air)
 			target.assume_gas(GAS_PHORON, 30)
@@ -69,7 +69,7 @@
 	spawn(0)
 		qdel(src)
 
-/obj/effect/mine/proc/triggerkick(obj)
+/obj/structure/mine/proc/triggerkick(obj)
 	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
 	s.set_up(3, 1, src)
 	s.start()
@@ -77,37 +77,37 @@
 	spawn(0)
 		qdel(src)
 
-/obj/effect/mine/proc/explode(obj)
+/obj/structure/mine/proc/explode(obj)
 	explosion(loc, 3, EX_ACT_HEAVY)
 	spawn(0)
 		qdel(src)
 
-/obj/effect/mine/dnascramble
+/obj/structure/mine/dnascramble
 	name = "Radiation Mine"
 	icon_state = "uglymine"
 	triggerproc = "triggerrad"
 
-/obj/effect/mine/phoron
+/obj/structure/mine/phoron
 	name = "Phoron Mine"
 	icon_state = "uglymine"
 	triggerproc = "triggerphoron"
 
-/obj/effect/mine/kick
+/obj/structure/mine/kick
 	name = "Kick Mine"
 	icon_state = "uglymine"
 	triggerproc = "triggerkick"
 
-/obj/effect/mine/n2o
+/obj/structure/mine/n2o
 	name = "N2O Mine"
 	icon_state = "uglymine"
 	triggerproc = "triggern2o"
 
-/obj/effect/mine/stun
+/obj/structure/mine/stun
 	name = "Stun Mine"
 	icon_state = "uglymine"
 	triggerproc = "triggerstun"
 
-/obj/effect/mine/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
+/obj/structure/mine/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover) && mover.checkpass(PASS_FLAG_GRILLE))
 		return 1
 	else

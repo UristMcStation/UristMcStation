@@ -20,6 +20,8 @@ Tiny, weak, and mostly harmless alone. dangerous in groups.
 	flash_vulnerability = 0 // We dont have eyes, why should we care about light?
 	bleed_colour = COLOR_VIOLET
 	color = COLOR_GRAY
+	min_gas = null
+	max_gas = null
 
 	ai_holder = /datum/ai_holder/simple_animal/melee/leech
 
@@ -50,7 +52,7 @@ Tiny, weak, and mostly harmless alone. dangerous in groups.
 	if(!.)
 		return FALSE
 
-	if(target_mob)
+	if(ai_holder.target)
 		belly -= 3
 	else
 		belly -= 1
@@ -58,7 +60,7 @@ Tiny, weak, and mostly harmless alone. dangerous in groups.
 /obj/structure/leech_spawner
 	name = "rigus regzorfra" // Similar naming to exoplanet flora, but not quite.
 	desc = "Wait... Something is wrong about this one." // Someone is actually checking for pests, let's reward them.
-	icon = 'icons/obj/hydroponics_growing.dmi'
+	icon = 'icons/obj/flora/hydroponics_growing.dmi'
 	icon_state = "alien1-1" // Placeholder until initalize. If seen like this, something went wrong.
 	color = COLOR_GRAY
 	anchored = TRUE

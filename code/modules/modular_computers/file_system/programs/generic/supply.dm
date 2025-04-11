@@ -171,6 +171,7 @@
 
 		var/datum/supply_order/O = new /datum/supply_order()
 		O.ordernum = SSsupply.ordernum
+		O.timestamp = stationtime2text()
 		O.object = P
 		O.orderedby = idname
 		O.reason = reason
@@ -233,9 +234,24 @@
 
 		return 1
 
+	if(href_list["order_back_to_pending"])
+		var/id = text2num(href_list["order_back_to_pending"])
+		var/datum/supply_order/SO = find_order_by_id(id, SSsupply.shoppinglist)
+		if(SO)
+			SSsupply.requestlist += SO
+			SSsupply.shoppinglist -= SO
+			SSsupply.points += SO.object.cost
+
+		else
+			to_chat(user, SPAN_WARNING("Could not find order number [id] to move back to pending."))
+
+		return 1
+
 	if(href_list["deny_order"])
 		var/id = text2num(href_list["deny_order"])
 		var/datum/supply_order/SO = find_order_by_id(id, SSsupply.requestlist)
+		if(alert(user, "Are you sure?", "Deny Order", "Yes", "No") != "Yes")
+			return 1
 		if(SO)
 			SSsupply.requestlist -= SO
 		else
@@ -246,6 +262,8 @@
 	if(href_list["cancel_order"])
 		var/id = text2num(href_list["cancel_order"])
 		var/datum/supply_order/SO = find_order_by_id(id, SSsupply.shoppinglist)
+		if(alert(user, "Are you sure?", "Cancel Order", "Yes", "No") != "Yes")
+			return 1
 		if(SO)
 			SSsupply.shoppinglist -= SO
 			SSsupply.points += SO.object.cost
@@ -261,6 +279,8 @@
 	if(href_list["delete_order"])
 		var/id = text2num(href_list["delete_order"])
 		var/datum/supply_order/SO = find_order_by_id(id, SSsupply.donelist)
+		if(alert(user, "Are you sure?", "Delete Order", "Yes", "No") != "Yes")
+			return 1
 		if(SO)
 			SSsupply.donelist -= SO
 		else
@@ -365,6 +385,7 @@
 /datum/nano_module/supply/proc/order_to_nanoui(datum/supply_order/SO, list_id)
 	return list(list(
 		"id" = SO.ordernum,
+		"time" = SO.timestamp,
 		"object" = SO.object.name,
 		"orderer" = SO.orderedby,
 		"cost" = SO.object.cost,
@@ -385,6 +406,7 @@
 	var/t = ""
 	t += "<h3>[GLOB.using_map.station_name] Supply Requisition Reciept</h3><hr>"
 	t += "INDEX: #[O.ordernum]<br>"
+	t += "TIME: [O.timestamp]<br>"
 	t += "REQUESTED BY: [O.orderedby]<br>"
 	t += "RANK: [O.orderedrank]<br>"
 	t += "REASON: [O.reason]<br>"
@@ -397,7 +419,7 @@
 
 /datum/nano_module/supply/proc/print_summary(mob/user)
 	var/t = ""
-	t += "<center><BR><b><large>[GLOB.using_map.station_name]</large></b><BR><i>[station_date]</i><BR><i>Export overview<field></i></center><hr>"
+	t += "<center><BR><b><large>[GLOB.using_map.station_name]</large></b><BR><i>[GLOB.station_date]</i><BR><i>Export overview<field></i></center><hr>"
 	for(var/source in SSsupply.point_source_descriptions)
 		t += "[SSsupply.point_source_descriptions[source]]: [SSsupply.point_sources[source] || 0]<br>"
 	print_text(t, user)

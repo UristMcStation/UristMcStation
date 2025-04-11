@@ -1,5 +1,5 @@
 // A list of types that will not attempt to perform surgery if the user is on help intent.
-GLOBAL_LIST_INIT(surgery_tool_exceptions, list(
+GLOBAL_LIST_AS(surgery_tool_exceptions, list(
 	/obj/item/auto_cpr,
 	/obj/item/device/scanner/health,
 	/obj/item/shockpaddles,
@@ -8,7 +8,8 @@ GLOBAL_LIST_INIT(surgery_tool_exceptions, list(
 	/obj/item/reagent_containers/syringe,
 	/obj/item/reagent_containers/borghypo
 ))
-GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
+
+GLOBAL_LIST_EMPTY(surgery_tool_exception_cache)
 
 /* SURGERY STEPS */
 /singleton/surgery_step
@@ -149,7 +150,7 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 			. -= 7
 		else if(locate(/obj/structure/table, T))
 			. -= 10
-		else if(locate(/obj/effect/rune, T))
+		else if(locate(/obj/rune, T))
 			. -= 10
 	. = max(., 0)
 
@@ -186,12 +187,14 @@ GLOBAL_LIST_INIT(surgery_tool_exception_cache, new)
 
 	// Which surgery, if any, do we actually want to do?
 	var/singleton/surgery_step/S
-	if(LAZYLEN(possible_surgeries) == 1)
-		S = possible_surgeries[1]
-	else if(LAZYLEN(possible_surgeries) >= 1)
-		//if(user.client) // In case of future autodocs.
-		//	S = input(user, "Which surgery would you like to perform?", "Surgery") as null|anything in possible_surgeries
-		if(S && !user.client)
+	if (user.client && length(possible_surgeries))
+		if (length(possible_surgeries) == 1 && user.get_preference_value(/datum/client_preference/surgery_skip_radial))
+			S = possible_surgeries[1]
+		else
+			S = show_radial_menu(user, M, possible_surgeries, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))
+		if (!user.use_sanity_check(M))
+			S = null
+		if (S && !user.skill_check_multiple(S.get_skill_reqs(user, M, src, zone)))
 			S = pick(possible_surgeries)
 		else
 			S = show_radial_menu(user, M, possible_surgeries, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))

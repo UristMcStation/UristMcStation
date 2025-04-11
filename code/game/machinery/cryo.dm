@@ -2,7 +2,7 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell
 	name = "cryo cell"
-	icon = 'icons/obj/cryogenics.dmi' // map only
+	icon = 'icons/obj/machines/medical/cryogenics.dmi' // map only
 	icon_state = "pod_preview"
 	density = TRUE
 	anchored = TRUE
@@ -28,9 +28,16 @@
 
 	var/current_heat_capacity = 50
 
+	var/temperature_warning_threshhold = 170
+	var/temperature_danger_threshhold = T0C
+
+	var/fast_stasis_mult = 0.8
+	var/slow_stasis_mult = 1.25
+	var/current_stasis_mult = 1
+
 /obj/machinery/atmospherics/unary/cryo_cell/Initialize()
 	. = ..()
-	icon = 'icons/obj/cryogenics_split.dmi'
+	icon = 'icons/obj/machines/medical/cryogenics_split.dmi'
 	update_icon()
 	atmos_init()
 
@@ -82,6 +89,7 @@
 		temperature_archived = air_contents.temperature
 		heat_gas_contents()
 		expel_gas()
+		queue_icon_update()
 
 	if(abs(temperature_archived-air_contents.temperature) > 1)
 		network.update = 1
@@ -138,9 +146,9 @@
 
 	data["cellTemperature"] = round(air_contents.temperature)
 	data["cellTemperatureStatus"] = "good"
-	if(air_contents.temperature > T0C) // if greater than 273.15 kelvin (0 celsius)
+	if(air_contents.temperature >= temperature_danger_threshhold) // if greater than 273.15 kelvin (0 celsius)
 		data["cellTemperatureStatus"] = "bad"
-	else if(air_contents.temperature > 225)
+	else if(air_contents.temperature >= temperature_warning_threshhold)
 		data["cellTemperatureStatus"] = "average"
 
 	data["isBeakerLoaded"] = beaker ? 1 : 0
@@ -150,6 +158,10 @@
 	if(beaker)
 		data["beakerLabel"] = beaker.name
 		data["beakerVolume"] = beaker.reagents.total_volume
+
+	data["fast_stasis_mult"] = fast_stasis_mult
+	data["slow_stasis_mult"] = slow_stasis_mult
+	data["current_stasis_mult"] = current_stasis_mult
 
 	// update the ui if it exists, returns null if no ui is passed/found
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
@@ -192,55 +204,83 @@
 		go_out()
 		return TOPIC_REFRESH
 
+	if(href_list["goFast"])
+		current_stasis_mult = fast_stasis_mult
+		update_icon()
+		return TOPIC_REFRESH
+
+	if(href_list["goRegular"])
+		current_stasis_mult = 1
+		update_icon()
+		return TOPIC_REFRESH
+
+	if(href_list["goSlow"])
+		current_stasis_mult = slow_stasis_mult
+		update_icon()
+		return TOPIC_REFRESH
+
 /obj/machinery/atmospherics/unary/cryo_cell/state_transition(singleton/machine_construction/default/new_state)
 	. = ..()
 	if(istype(new_state))
 		updateUsrDialog()
 
-/obj/machinery/atmospherics/unary/cryo_cell/attackby(obj/G, mob/user as mob)
-	if(component_attackby(G, user))
+/obj/machinery/atmospherics/unary/cryo_cell/use_tool(obj/item/G, mob/living/user, list/click_params)
+	if (!istype(G, /obj/item/reagent_containers/glass))
+		return ..()
+
+	if (beaker)
+		to_chat(user, SPAN_WARNING("A beaker is already loaded into the machine."))
 		return TRUE
-	if(istype(G, /obj/item/reagent_containers/glass))
-		if(beaker)
-			to_chat(user, SPAN_WARNING("A beaker is already loaded into the machine."))
-			return
-		if(!user.unEquip(G, src))
-			return // Temperature will be adjusted on Entered()
-		beaker =  G
-		user.visible_message("[user] adds \a [G] to \the [src]!", "You add \a [G] to \the [src]!")
-	else if(istype(G, /obj/item/grab))
-		var/obj/item/grab/grab = G
-		if(!ismob(grab.affecting))
-			return
-		for(var/mob/living/carbon/slime/M in range(1,grab.affecting))
-			if(M.Victim == grab.affecting)
-				to_chat(user, "[grab.affecting.name] will not fit into the cryo because they have a slime latched onto their head.")
-				return
-		if(put_mob(grab.affecting))
-			qdel(G)
-	return
+	if (!user.unEquip(G, src))
+		return TRUE
+
+	beaker =  G
+	user.visible_message("\The [user] adds \a [G] to \the [src]!", "You add \a [G] to \the [src]!")
+	return TRUE
 
 /obj/machinery/atmospherics/unary/cryo_cell/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	icon_state = "pod[on]"
 	var/image/I
 
+	if(panel_open)
+		AddOverlays("pod_panel")
+
 	I = image(icon, "pod[on]_top")
 	I.pixel_z = 32
-	overlays += I
+	AddOverlays(I)
 
 	if(occupant)
 		var/image/pickle = image(occupant.icon, occupant.icon_state)
-		pickle.overlays = occupant.overlays
-		pickle.pixel_z = 18
-		overlays += pickle
+		pickle.CopyOverlays(occupant)
+		pickle.pixel_z = 11
+		AddOverlays(pickle)
 
 	I = image(icon, "lid[on]")
-	overlays += I
+	AddOverlays(I)
 
 	I = image(icon, "lid[on]_top")
 	I.pixel_z = 32
-	overlays += I
+	AddOverlays(I)
+
+	if (powered())
+		var/warn_state = "off"
+		if (on)
+			warn_state = "safe"
+			if (air_contents.temperature >= temperature_danger_threshhold)
+				warn_state = "danger"
+			else if (air_contents.temperature >= temperature_warning_threshhold)
+				warn_state = "warn"
+		I = overlay_image(icon, "lights_[warn_state]")
+		AddOverlays(I)
+		I = overlay_image(icon, "lights_[warn_state]_top")
+		I.pixel_z = 32
+		AddOverlays(I)
+		AddOverlays(emissive_appearance(icon, "lights_mask"))
+		I = emissive_appearance(icon, "lights_mask_top")
+		I.pixel_z = 32
+		AddOverlays(I)
+
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/process_occupant()
 	if(air_contents.total_moles < 10)
@@ -289,60 +329,61 @@
 /obj/machinery/atmospherics/unary/cryo_cell/AltClick(mob/user)
 	if(CanDefaultInteract(user))
 		go_out()
-	else
-		..()
+		return TRUE
+	return ..()
 
 /obj/machinery/atmospherics/unary/cryo_cell/CtrlClick(mob/user)
 	if(CanDefaultInteract(user))
 		on = !on
 		update_icon()
+		return TRUE
+	return FALSE
 
-/obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/M as mob)
-	if (inoperable())
-		to_chat(usr, SPAN_WARNING("The cryo cell is not functioning."))
-		return
-	if (!istype(M))
-		to_chat(usr, SPAN_DANGER("The cryo cell cannot handle such a lifeform!"))
-		return
-	if (occupant)
-		to_chat(usr, SPAN_DANGER("The cryo cell is already occupied!"))
-		return
-	if (M.abiotic())
-		to_chat(usr, SPAN_WARNING("Subject may not have abiotic items on."))
-		return
-	if(!node)
-		to_chat(usr, SPAN_WARNING("The cell is not correctly connected to its pipe network!"))
-		return
-	if (M.client)
-		M.client.perspective = EYE_PERSPECTIVE
-		M.client.eye = src
-	M.stop_pulling()
-	M.forceMove(src)
-	M.ExtinguishMob()
-	if(M.health > -100 && (M.health < 0 || M.sleeping))
-		to_chat(M, SPAN_NOTICE("<b>You feel a cold liquid surround you. Your skin starts to freeze up.</b>"))
-	occupant = M
+/obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/target, mob/user)
+	add_fingerprint(user) //Add fingerprints for trying to go in.
+	if (!do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE))
+		return FALSE
+	if (!user_can_move_target_inside(target, user))
+		return FALSE
+	if (target.client)
+		target.client.perspective = EYE_PERSPECTIVE
+		target.client.eye = src
+	target.stop_pulling()
+	target.forceMove(src)
+	target.ExtinguishMob()
+	if (target.health > -100 && (target.health < 0 || target.sleeping))
+		to_chat(target, SPAN_NOTICE("<b>You feel a cold liquid surround you. Your skin starts to freeze up.</b>"))
+	occupant = target
 	current_heat_capacity = HEAT_CAPACITY_HUMAN
 	update_use_power(POWER_USE_ACTIVE)
-	add_fingerprint(usr)
+	if (user != target)
+		add_fingerprint(target) //Add fingerprints of the person stuffed in.
 	update_icon()
 	SetName("[name] ([occupant])")
-	return 1
+	target.remove_grabs_and_pulls()
+	return TRUE
 
-	//Like grab-putting, but for mouse-dropping.
+/obj/machinery/atmospherics/unary/cryo_cell/user_can_move_target_inside(mob/target, mob/user)
+	if (occupant)
+		to_chat(user, SPAN_WARNING("\The [src] is already occupied!"))
+		return FALSE
+	if (!node)
+		to_chat(usr, SPAN_WARNING("The cell is not correctly connected to its pipe network!"))
+		return FALSE
+	return ..()
+
 /obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(mob/target, mob/user)
-	if(!CanMouseDrop(target, user))
+	if (!CanMouseDrop(target, user) || !ismob(target))
 		return
-	if (!istype(target))
+	if (!user_can_move_target_inside(target, user))
 		return
-	if (target.buckled)
-		to_chat(user, SPAN_WARNING("Unbuckle the subject before attempting to move them."))
-		return
-	user.visible_message(SPAN_NOTICE("\The [user] begins placing \the [target] into \the [src]."), SPAN_NOTICE("You start placing \the [target] into \the [src]."))
-	if(!do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE))
-		return
-	put_mob(target)
 
+	user.visible_message(SPAN_NOTICE("\The [user] begins placing \the [target] into \the [src]."), SPAN_NOTICE("You start placing \the [target] into \the [src]."))
+	put_mob(target, user)
+
+/obj/machinery/atmospherics/unary/cryo_cell/use_grab(obj/item/grab/grab, list/click_params) //Grab is deleted at the level of put_mob if all checks are passed.
+	MouseDrop_T(grab.affecting, grab.assailant)
+	return TRUE
 
 /obj/machinery/atmospherics/unary/cryo_cell/verb/move_eject()
 	set name = "Eject occupant"
@@ -367,13 +408,9 @@
 	set name = "Move Inside"
 	set category = "Object"
 	set src in oview(1)
-	for(var/mob/living/carbon/slime/M in range(1,usr))
-		if(M.Victim == usr)
-			to_chat(usr, "You're too busy getting your life sucked out of you.")
-			return
 	if (usr.stat != 0)
 		return
-	put_mob(usr)
+	put_mob(usr, usr)
 	return
 
 /obj/machinery/atmospherics/unary/cryo_cell/return_air()
@@ -394,6 +431,12 @@
 		return loc.return_air()
 	else
 		return null
+
+/obj/machinery/atmospherics/unary/cryo_cell/RefreshParts()
+	..()
+	var/stasis_coeff = total_component_rating_of_type(/obj/item/stock_parts/manipulator)
+	fast_stasis_mult = max(1 - (stasis_coeff * 0.06), 0.66)
+	slow_stasis_mult = min(1 + (stasis_coeff * 0.08), 1.5)
 
 /datum/data/function/proc/reset()
 	return

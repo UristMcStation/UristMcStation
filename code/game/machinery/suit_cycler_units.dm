@@ -1,60 +1,49 @@
 /obj/machinery/suit_cycler/engineering
-	name = "Engineering suit cycler"
+	name = "engineering suit cycler"
 	model_text = "Engineering"
 	req_access = list(access_construction)
 	available_modifications = list(/singleton/item_modifier/space_suit/engineering, /singleton/item_modifier/space_suit/atmos)
 	species = list(SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_UNATHI, SPECIES_RESOMI) //Add Unathi when sprites exist for their suits.
 
-/obj/machinery/suit_cycler/engineering/alt
-	available_modifications = list(
-		/singleton/item_modifier/space_suit/engineering/alt,
-		/singleton/item_modifier/space_suit/atmos/alt,
-		/singleton/item_modifier/space_suit/hazard
-	)
-
 /obj/machinery/suit_cycler/mining
-	name = "Mining suit cycler"
+	name = "mining suit cycler"
 	model_text = "Mining"
 	req_access = list(access_mining)
 	available_modifications = list(/singleton/item_modifier/space_suit/mining)
 	species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI)
 
-
 /obj/machinery/suit_cycler/salvage
-	name = "Salvage suit cycler"
+	name = "salvage suit cycler"
 	model_text = "Salvage"
 	available_modifications = list(/singleton/item_modifier/space_suit/salvage)
 	species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI)
 
 /obj/machinery/suit_cycler/science
-	name = "Excavation suit cycler"
+	name = "excavation suit cycler"
 	model_text = "Excavation"
 	req_access = list(access_xenoarch)
 	available_modifications = list(/singleton/item_modifier/space_suit/science)
 	species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI)
 
 /obj/machinery/suit_cycler/security
-	name = "Security suit cycler"
+	name = "security suit cycler"
 	model_text = "Security"
 	req_access = list(access_security)
-	available_modifications = list(/singleton/item_modifier/space_suit/security, /singleton/item_modifier/space_suit/security/alt)
+	available_modifications = list(/singleton/item_modifier/space_suit/security)
 	species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI)
 
 /obj/machinery/suit_cycler/security/alt
 	available_modifications = list(/singleton/item_modifier/space_suit/security/alt)
 
 /obj/machinery/suit_cycler/medical
-	name = "Medical suit cycler"
+	name = "medical suit cycler"
 	model_text = "Medical"
 	req_access = list(access_medical)
 	available_modifications = list(/singleton/item_modifier/space_suit/medical)
 	species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI,SPECIES_RESOMI)
 
-/obj/machinery/suit_cycler/medical/alt
-	available_modifications = list(/singleton/item_modifier/space_suit/medical/alt)
-
 /obj/machinery/suit_cycler/syndicate
-	name = "Nonstandard suit cycler"
+	name = "nonstandard suit cycler"
 	model_text = "Nonstandard"
 	req_access = list(access_syndicate)
 	available_modifications = list(/singleton/item_modifier/space_suit/mercenary)
@@ -62,15 +51,8 @@
 	can_repair = 1
 
 /obj/machinery/suit_cycler/pilot
-	name = "Pilot suit cycler"
+	name = "pilot suit cycler"
 	model_text = "Pilot"
 	req_access = list(access_mining_office)
 	available_modifications = list(/singleton/item_modifier/space_suit/pilot)
 	species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI)
-
-/obj/machinery/suit_cycler/command
-	name = "Command suit cycler"
-	model_text = "Command"
-	req_access = list(access_bridge)
-	available_modifications = list(/singleton/item_modifier/space_suit/command)
-	species = list(SPECIES_HUMAN,SPECIES_SKRELL)

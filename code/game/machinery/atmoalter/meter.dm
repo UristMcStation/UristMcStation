@@ -1,7 +1,7 @@
 /obj/machinery/meter
 	name = "meter"
 	desc = "A gas flow meter."
-	icon = 'icons/obj/meter.dmi'
+	icon = 'icons/obj/atmospherics/meter.dmi'
 	icon_state = "meterX"
 	var/atom/target = null //A pipe for the base type
 	anchored = TRUE
@@ -32,7 +32,7 @@
 /obj/machinery/meter/proc/set_target(atom/new_target)
 	clear_target()
 	target = new_target
-	GLOB.destroyed_event.register(target, src, .proc/clear_target)
+	GLOB.destroyed_event.register(target, src, PROC_REF(clear_target))
 
 /obj/machinery/meter/proc/clear_target()
 	if(target)

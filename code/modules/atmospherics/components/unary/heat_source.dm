@@ -4,8 +4,8 @@
 /obj/machinery/atmospherics/unary/heater
 	name = "gas heating system"
 	desc = "Heats gas when connected to a pipe network."
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "heater_0"
+	icon = 'icons/obj/atmospherics/temperature_machines.dmi'
+	icon_state = "heater"
 	density = TRUE
 	anchored = TRUE
 	use_power = POWER_USE_OFF
@@ -14,6 +14,7 @@
 	construct_state = /singleton/machine_construction/default/panel_closed
 	uncreated_component_parts = null
 	stat_immune = 0
+	layer = STRUCTURE_LAYER
 
 	machine_name = "gas heating system"
 	machine_desc = "While active, this machine increases the temperature of a connected gas line to the configured amount. Gas pressure increases with heat."
@@ -51,14 +52,19 @@
 
 
 /obj/machinery/atmospherics/unary/heater/on_update_icon()
-	if(node)
-		if(use_power && heating)
-			icon_state = "heater_1"
-		else
-			icon_state = "heater"
-	else
-		icon_state = "heater_0"
-	return
+	ClearOverlays()
+	if(panel_open)
+		AddOverlays("freezer_panel")
+	if(is_powered())
+		AddOverlays(emissive_appearance(icon, "freezer_lights"))
+		AddOverlays("freezer_lights")
+		if(node)
+			if(use_power && heating)
+				AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
+				AddOverlays("[icon_state]_lights_working")
+			else
+				AddOverlays(emissive_appearance(icon, "freezer_lights_standby"))
+				AddOverlays("freezer_lights_standby")
 
 
 /obj/machinery/atmospherics/unary/heater/Process()

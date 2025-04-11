@@ -41,7 +41,7 @@
 		if(!mat_colour)
 			mat_colour = material_def.icon_colour
 		stored_material[material_def.type] += taking_material
-		stacks_used = max(stacks_used, Ceil(taking_material/material_def.units_per_sheet))
+		stacks_used = max(stacks_used, ceil(taking_material/material_def.units_per_sheet))
 		if(storage_capacity[material_def.type] == stored_material[material_def.type])
 			. = SUBSTANCE_TAKEN_FULL
 		else if(. != SUBSTANCE_TAKEN_FULL)
@@ -50,9 +50,8 @@
 		if(mat_colour)
 			var/image/adding_mat_overlay = image(icon, "[base_icon_state]_mat")
 			adding_mat_overlay.color = mat_colour
-			material_overlays += adding_mat_overlay
-			update_icon()
-			addtimer(new Callback(src, /obj/machinery/fabricator/proc/remove_mat_overlay, adding_mat_overlay), 1 SECOND)
+			AddOverlays(adding_mat_overlay)
+			addtimer(new Callback(src, TYPE_PROC_REF(/atom, CutOverlays), adding_mat_overlay), 1 SECOND)
 		if(istype(thing, /obj/item/stack))
 			var/obj/item/stack/S = thing
 			S.use(stacks_used)
@@ -71,8 +70,11 @@
 	else
 		to_chat(user, SPAN_WARNING("\The [src] cannot process \the [thing]."))
 
-/obj/machinery/fabricator/attackby(obj/item/O, mob/user)
-	if(component_attackby(O, user) || stat)
+/obj/machinery/fabricator/use_tool(obj/item/O, mob/living/user, list/click_params)
+	if ((. = ..()))
+		return
+	if(stat)
+		to_chat(user, SPAN_WARNING("\The [src] is not operating."))
 		return TRUE
 	if(panel_open && (isMultitool(O) || isWirecutter(O)))
 		attack_hand(user)
@@ -98,7 +100,6 @@
 			qdel(O)
 		updateUsrDialog()
 		return TRUE
-	. = ..()
 
 /obj/machinery/fabricator/physical_attack_hand(mob/user)
 	if(fab_status_flags & FAB_SHOCKED)

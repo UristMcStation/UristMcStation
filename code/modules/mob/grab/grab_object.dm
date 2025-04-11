@@ -44,8 +44,8 @@
 
 	var/obj/item/organ/O = get_targeted_organ()
 	SetName("[initial(name)] ([O.name])")
-	GLOB.dismembered_event.register(affecting, src, .proc/on_organ_loss)
-	GLOB.zone_selected_event.register(assailant.zone_sel, src, .proc/on_target_change)
+	GLOB.dismembered_event.register(affecting, src, PROC_REF(on_organ_loss))
+	GLOB.zone_selected_event.register(assailant.zone_sel, src, PROC_REF(on_target_change))
 
 /obj/item/grab/examine(mob/user)
 	. = ..()
@@ -53,6 +53,9 @@
 	to_chat(user, "A grab on \the [affecting]'s [O.name].")
 
 /obj/item/grab/Process()
+	if (!use_sanity_check(affecting))
+		current_grab.let_go(src)
+		return
 	current_grab.process(src)
 
 /obj/item/grab/attack_self(mob/user)
@@ -65,27 +68,22 @@
 		else
 			upgrade()
 
-/obj/item/grab/attack(mob/M, mob/living/user)
-
-	// Relying on BYOND proc ordering isn't working, so go go ugly workaround.
-	if(ishuman(user) && affecting == M)
-		var/mob/living/carbon/human/H = user
-		if(H.check_psi_grab(src))
-			return
-	// End workaround
-
-	current_grab.hit_with_grab(src)
 
 /obj/item/grab/resolve_attackby(atom/A, mob/user, click_params)
+	if (ishuman(user) && affecting == A)
+		var/mob/living/carbon/human/H = user
+		if (H.check_psi_grab(src))
+			return TRUE
+	// End workaround
 	if (QDELETED(src) || !assailant)
 		return TRUE
 	if (A.use_grab(src, user, click_params))
-		assailant.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		action_used()
 		if (current_grab.downgrade_on_action)
 			downgrade()
 		return TRUE
-	return ..()
+	else return current_grab.hit_with_grab(src)
 
 /obj/item/grab/dropped()
 	..()
@@ -220,11 +218,14 @@
 /obj/item/grab/proc/leave_forensic_traces()
 	if (!affecting)
 		return
+
 	var/obj/item/clothing/C = affecting.get_covering_equipped_item_by_zone(target_zone)
 	if(istype(C))
 		C.leave_evidence(assailant)
 		if(prob(50))
 			C.ironed_state = WRINKLES_WRINKLY
+	else
+		affecting.add_fingerprint(assailant) //If no clothing; add fingerprint to mob proper.
 
 /obj/item/grab/proc/upgrade(bypass_cooldown = FALSE)
 	if(!check_upgrade_cooldown() && !bypass_cooldown)
@@ -297,9 +298,10 @@
 /obj/item/grab/proc/force_stand()
 	return current_grab.force_stand
 
-/obj/item/grab/attackby(obj/W, mob/user)
+/obj/item/grab/use_tool(obj/item/item, mob/living/user, list/click_params)
 	if(user == assailant)
-		current_grab.item_attack(src, W)
+		current_grab.item_attack(src, item)
+	return ..()
 
 /obj/item/grab/proc/can_absorb()
 	return current_grab.can_absorb
@@ -336,3 +338,25 @@
 
 /obj/item/grab/proc/resolve_openhand_attack()
 		return current_grab.resolve_openhand_attack(src)
+
+
+/**
+ * Validates that `assailant` can still perform an action with `affecting` and `target`. Performs some grab-specific
+ *   checks, then passes through to `assailant.use_sanity_check()` with both `src` and `affecting`.
+ *
+ * **Parameters**:
+ * - `target` - The atom being interacted with.
+ * - `flags` (Bitflag, any of `SANITY_CHECK_*`, default `SANITY_CHECK_DEFAULT`) - Bitflags of additional settings. See `code\__defines\misc.dm`.
+ *
+ * Returns boolean.
+ */
+/obj/item/grab/proc/use_sanity_check(atom/target, flags = SANITY_CHECK_DEFAULT)
+	if (QDELETED(src) || QDELETED(assailant))
+		return FALSE
+	// Sanity check the grab itself, allowing hand swapping
+	if (!assailant.use_sanity_check(target, src, flags & ~SANITY_CHECK_TOOL_IN_HAND))
+		return FALSE
+	// Sanity check the victim
+	if (!assailant.use_sanity_check(target, affecting, flags))
+		return FALSE
+	return TRUE

@@ -668,7 +668,7 @@
 	mineral = "phoron"
 	terrain_type = null
 
-/obj/effect/floor_decal/water_edge
+/obj/floor_decal/water_edge
 	name = "murky water"
 	desc = "thick, murky water"
 	icon = 'icons/urist/jungle/turfs.dmi'
@@ -805,7 +805,7 @@
 	. = ..()
 	icon_state = "dirt-rough[rand(0,4)]"
 
-/obj/effect/floor_decal/planet/border
+/obj/floor_decal/planet/border
 	temperature = 283.15 //10C
 	name = "forest floor"
 	desc = "Patchy bits of moss, grass, dirt, and leaves"
@@ -816,16 +816,16 @@
 	light_falloff_curve = 0.5
 	light_color = "#ffffff"
 
-/obj/effect/floor_decal/planet/border/grasstodirt
+/obj/floor_decal/planet/border/grasstodirt
 	icon_state = "grasstodirt_new"
 
-/obj/effect/floor_decal/planet/border/dirttograss
+/obj/floor_decal/planet/border/dirttograss
 	icon_state = "dirttograss_new"
 
-/obj/effect/floor_decal/planet/border/grasstosnow
+/obj/floor_decal/planet/border/grasstosnow
 	icon_state = "grasstosnow"
 
-/obj/effect/floor_decal/planet/border/snowtograss
+/obj/floor_decal/planet/border/snowtograss
 	icon_state = "snowtograss"
 
 /turf/simulated/floor/planet/snow

@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory/storage
 	abstract_type = /obj/item/clothing/accessory/storage
 	name = "base storage accessory"
-	icon_state = "webbing"
+	icon_state = null
 	slot = ACCESSORY_SLOT_UTILITY
 	w_class = ITEM_SIZE_NORMAL
 	accessory_flags = ACCESSORY_REMOVABLE | ACCESSORY_HIGH_VISIBILITY
@@ -38,9 +38,10 @@
 		..(over_object)
 
 
-/obj/item/clothing/accessory/storage/attackby(obj/item/I, mob/user)
+/obj/item/clothing/accessory/storage/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if (container)
-		return container.attackby(I, user)
+		return container.use_tool(tool, user)
+	return ..()
 
 
 /obj/item/clothing/accessory/storage/emp_act(severity)
@@ -149,7 +150,7 @@
 /obj/item/clothing/accessory/storage/knifeharness/Initialize()
 	. = ..()
 	if (container)
-		container.can_hold = list(
+		container.contents_allowed = list(
 			/obj/item/material/hatchet,
 			/obj/item/material/knife
 		)
@@ -168,15 +169,14 @@
 /obj/item/clothing/accessory/storage/bandolier/Initialize()
 	. = ..()
 	if (container)
-		container.can_hold = list(
+		container.contents_allowed = list(
 			/obj/item/ammo_casing,
 			/obj/item/grenade,
 			/obj/item/material/knife,
 			/obj/item/material/star,
 			/obj/item/rcd_ammo,
 			/obj/item/reagent_containers/syringe,
-			/obj/item/reagent_containers/hypospray,
-			/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+			/obj/item/reagent_containers/hypospray/autoinjector,
 			/obj/item/syringe_cartridge,
 			/obj/item/plastique,
 			/obj/item/clothing/mask/smokable,

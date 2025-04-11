@@ -1,7 +1,7 @@
 /obj/machinery/tele_projector
 	name = "projector"
 	desc = "This machine is capable of projecting a miniature wormhole leading directly to its provided target."
-	icon = 'icons/obj/teleporter.dmi'
+	icon = 'icons/obj/machines/teleporter.dmi'
 	icon_state = "station"
 	density = TRUE
 	anchored = TRUE
@@ -21,7 +21,7 @@
 /obj/machinery/tele_projector/proc/clear_computer()
 	if (!computer)
 		return
-	GLOB.destroyed_event.unregister(computer, src, /obj/machinery/tele_projector/proc/lost_computer)
+	GLOB.destroyed_event.unregister(computer, src, PROC_REF(lost_computer))
 	computer = null
 
 
@@ -35,7 +35,7 @@
 		return
 	clear_computer()
 	computer = _computer
-	GLOB.destroyed_event.register(computer, src, /obj/machinery/tele_projector/proc/lost_computer)
+	GLOB.destroyed_event.register(computer, src, PROC_REF(lost_computer))
 
 
 /obj/machinery/tele_projector/power_change()
@@ -46,17 +46,17 @@
 
 
 /obj/machinery/tele_projector/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if (computer?.active)
 		update_use_power(POWER_USE_ACTIVE)
 		var/image/I = image(icon, src, "[initial(icon_state)]_active_overlay")
 		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		I.layer = ABOVE_LIGHTING_LAYER
-		overlays += I
+		AddOverlays(I)
 	else
 		update_use_power(POWER_USE_IDLE)
 		if (operable())
 			var/image/I = image(icon, src, "[initial(icon_state)]_idle_overlay")
 			I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 			I.layer = ABOVE_LIGHTING_LAYER
-			overlays += I
+			AddOverlays(I)

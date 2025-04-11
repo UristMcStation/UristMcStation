@@ -4,7 +4,7 @@
 /obj/item/reagent_containers/pill
 	name = "pill"
 	desc = "A pill."
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'icons/obj/pills.dmi'
 	icon_state = null
 	item_state = "pill"
 	randpixel = 7
@@ -19,58 +19,58 @@
 	if(!icon_state)
 		icon_state = "pill[rand(1, 5)]" //preset pills only use colour changing or unique icons
 
-/obj/item/reagent_containers/pill/attack(mob/M as mob, mob/user as mob, def_zone)
-		//TODO: replace with standard_feed_mob() call.
+/obj/item/reagent_containers/pill/use_before(mob/M as mob, mob/user as mob)
+	. = FALSE
+	if (!istype(M))
+		return FALSE
 
-	if(M == user)
-		if(!M.can_eat(src))
-			return
+	if (M == user)
+		if (!M.can_eat(src))
+			return TRUE
 
 		M.visible_message(SPAN_NOTICE("[M] swallows a pill."), SPAN_NOTICE("You swallow \the [src]."), null, 2)
-		if(reagents.total_volume)
+		if (reagents.total_volume)
 			reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 		qdel(src)
-		return 1
+		return TRUE
 
-	else if(istype(M, /mob/living/carbon/human))
-		if(!M.can_force_feed(user, src))
-			return
+	if (ishuman(M))
+		if (!M.can_force_feed(user, src))
+			return TRUE
 
 		user.visible_message(SPAN_WARNING("[user] attempts to force [M] to swallow \the [src]."))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		if(!do_after(user, 3 SECONDS, M, DO_MEDICAL))
-			return
+		if (!do_after(user, 3 SECONDS, M, DO_MEDICAL))
+			return TRUE
 
 		if (user.get_active_hand() != src)
-			return
+			return TRUE
 
 		user.visible_message(SPAN_WARNING("[user] forces [M] to swallow \the [src]."))
 		var/contained = reagentlist()
 		if (reagents.should_admin_log())
 			admin_attack_log(user, M, "Fed the victim with [name] (Reagents: [contained])", "Was fed [src] (Reagents: [contained])", "used [src] (Reagents: [contained]) to feed")
-		if(reagents.total_volume)
+		if (reagents.total_volume)
 			reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
 		qdel(src)
-		return 1
+		return TRUE
 
-	return 0
+/obj/item/reagent_containers/pill/use_after(atom/target, mob/living/user, click_parameters)
+	if (target.is_open_container() && target.reagents)
+		if (!target.reagents.total_volume)
+			to_chat(user, SPAN_NOTICE("\The [target] is empty. Can't dissolve \the [src]."))
+			return TRUE
 
-/obj/item/reagent_containers/pill/afterattack(obj/target, mob/user, proximity)
-	if(!proximity) return
-
-	if(target.is_open_container() && target.reagents)
-		if(!target.reagents.total_volume)
-			to_chat(user, SPAN_NOTICE("[target] is empty. Can't dissolve \the [src]."))
-			return
-		to_chat(user, SPAN_NOTICE("You dissolve \the [src] in [target]."))
+		to_chat(user, SPAN_NOTICE("You dissolve \the [src] in \the [target]."))
 
 		if (reagents.should_admin_log())
 			admin_attacker_log(user, "spiked \a [target] with a pill. Reagents: [reagentlist()]")
 		reagents.trans_to(target, reagents.total_volume)
 		for(var/mob/O in viewers(2, user))
-			O.show_message(SPAN_WARNING("[user] puts something in \the [target]."), 1)
+			O.show_message(SPAN_WARNING("\The [user] puts something in \the [target]."), 1)
 		qdel(src)
-	return
+		return TRUE
+	else return FALSE
 
 ////////////////////////////////////////////////////////////////////////////////
 /// Pills. END
@@ -322,12 +322,12 @@
 
 
 /obj/item/reagent_containers/pill/hyronalin
-	name = "Hyronalin (7u)"
+	name = "Hyronalin (10u)"
 	desc = "Used to treat radiation poisoning."
 	icon_state = "pill1"
 /obj/item/reagent_containers/pill/hyronalin/New()
 	..()
-	reagents.add_reagent(/datum/reagent/hyronalin, 7)
+	reagents.add_reagent(/datum/reagent/hyronalin, 10)
 	color = reagents.get_color()
 
 /obj/item/reagent_containers/pill/antirad
@@ -399,7 +399,7 @@
 
 // Chopping up pills
 
-/obj/item/reagent_containers/pill/attackby(obj/item/W, mob/user)
+/obj/item/reagent_containers/pill/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(is_sharp(W) || istype(W, /obj/item/card/id))
 		user.visible_message(
 			SPAN_WARNING("\The [user] starts to gently cut up \the [src] with \a [W]!"),
@@ -421,5 +421,6 @@
 			reagents.trans_to_obj(J, reagents.total_volume)
 		J.get_appearance()
 		qdel(src)
+		return TRUE
 
 	return ..()

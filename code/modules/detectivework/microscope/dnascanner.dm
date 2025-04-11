@@ -2,8 +2,8 @@
 /obj/machinery/dnaforensics
 	name = "DNA analyzer"
 	desc = "A high tech machine that is designed to read DNA samples properly."
-	icon = 'icons/obj/forensics.dmi'
-	icon_state = "dnaopen"
+	icon = 'icons/obj/machines/forensics/dna_scanner.dmi'
+	icon_state = "dna"
 	anchored = TRUE
 	density = TRUE
 
@@ -15,25 +15,28 @@
 	var/last_process_worldtime = 0
 	var/report_num = 0
 
-/obj/machinery/dnaforensics/attackby(obj/item/W, mob/user as mob)
+/obj/machinery/dnaforensics/use_tool(obj/item/W, mob/living/user, list/click_params)
+	if(!istype(W, /obj/item/forensics/swab))
+		return .. ()
 
+	var/obj/item/forensics/swab/swab = W
 	if(bloodsamp)
 		to_chat(user, SPAN_WARNING("There is already a sample in the machine."))
-		return
+		return TRUE
 
 	if(closed)
 		to_chat(user, SPAN_WARNING("Open the cover before inserting the sample."))
-		return
+		return TRUE
 
-	var/obj/item/forensics/swab/swab = W
 	if(istype(swab) && swab.is_used())
 		if(!user.unEquip(W, src))
-			return
-		src.bloodsamp = swab
+			return TRUE
+		bloodsamp = swab
 		to_chat(user, SPAN_NOTICE("You insert \the [W] into \the [src]."))
+		return TRUE
 	else
 		to_chat(user, SPAN_WARNING("\The [src] only accepts used swabs."))
-		return
+		return TRUE
 
 /obj/machinery/dnaforensics/ui_interact(mob/user, ui_key = "main",datum/nanoui/ui = null)
 	if(!is_powered()) return
@@ -104,9 +107,7 @@
 	if(bloodsamp)
 		var/obj/item/paper/P = new(src)
 		P.SetName("[src] report #[++report_num]: [bloodsamp.name]")
-		P.stamped = list(/obj/item/stamp)
-		P.overlays = list("paper_stamped")
-		//dna data itself
+		P.SetOverlays("paper_stamped")
 		var/data = "No scan information available."
 		if(bloodsamp.dna != null || bloodsamp.trace_dna != null)
 			data = "Spectometric analysis on provided sample has determined the presence of DNA.<br><br>"
@@ -144,10 +145,15 @@
 	src.update_icon()
 
 /obj/machinery/dnaforensics/on_update_icon()
-	..()
-	if(is_powered() && scanning)
-		icon_state = "dnaworking"
+	ClearOverlays()
+	if(panel_open)
+		AddOverlays("[icon_state]_panel")
+	if(is_powered())
+		AddOverlays(emissive_appearance(icon, "[icon_state]_screen"))
+		AddOverlays("[icon_state]_screen")
+	else if(is_powered() && scanning)
+		AddOverlays("[icon_state]_working")
+		AddOverlays(emissive_appearance(icon, "[icon_state]_screen_working"))
+		AddOverlays("[icon_state]_screen_working")
 	else if(closed)
-		icon_state = "dnaclosed"
-	else
-		icon_state = "dnaopen"
+		AddOverlays("[icon_state]_closed")

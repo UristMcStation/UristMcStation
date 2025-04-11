@@ -43,17 +43,17 @@
 		user.y = teleport_y
 //		user.z = teleport_z
 
-	var/obj/effect/gateway/G1 = new /obj/effect/gateway(get_step(src, EAST))
-	var/obj/effect/gateway/G2 = new /obj/effect/gateway(get_step(src, WEST))
-	var/obj/effect/gateway/G3 = new /obj/effect/gateway(src.loc)
+	var/obj/gateway/G1 = new /obj/gateway(get_step(src, EAST))
+	var/obj/gateway/G2 = new /obj/gateway(get_step(src, WEST))
+	var/obj/gateway/G3 = new /obj/gateway(src.loc)
 
 	G1.density = FALSE
 	G2.density = FALSE
 	G3.density = FALSE
 
-	var/obj/effect/step_trigger/teleporter/urist/T1 = new /obj/effect/step_trigger/teleporter/urist(get_step(src, EAST))
-	var/obj/effect/step_trigger/teleporter/urist/T2 = new /obj/effect/step_trigger/teleporter/urist(get_step(src, WEST))
-	var/obj/effect/step_trigger/teleporter/urist/T3 = new /obj/effect/step_trigger/teleporter/urist(src.loc)
+	var/obj/step_trigger/teleporter/urist/T1 = new /obj/step_trigger/teleporter/urist(get_step(src, EAST))
+	var/obj/step_trigger/teleporter/urist/T2 = new /obj/step_trigger/teleporter/urist(get_step(src, WEST))
+	var/obj/step_trigger/teleporter/urist/T3 = new /obj/step_trigger/teleporter/urist(src.loc)
 
 	T1.teleport_x = teleport_x
 	T1.teleport_y = teleport_y
@@ -110,7 +110,7 @@
 	density = TRUE
 	anchored = TRUE
 
-/obj/effect/step_trigger/teleporter/urist/New()
+/obj/step_trigger/teleporter/urist/New()
 	if(!teleport_z)
 		teleport_z = src.z
 	if(!teleport_y)

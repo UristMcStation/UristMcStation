@@ -1,7 +1,7 @@
 /obj/machinery/replicator
 	name = "alien machine"
 	desc = "It's some kind of pod with strange wires and gadgets all over it."
-	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon = 'icons/obj/xenoarchaeology_finds.dmi'
 	icon_state = "borgcharger0(old)"
 	density = TRUE
 
@@ -44,7 +44,7 @@
 	/obj/item/caution,
 	/obj/item/caution/cone,
 	/obj/item/crowbar,
-	/obj/item/material/clipboard,
+	/obj/item/material/folder/clipboard,
 	/obj/item/cell/standard,
 	/obj/item/circular_saw,
 	/obj/item/material/hatchet,
@@ -119,15 +119,19 @@
 	var/dat = "The control panel displays an incomprehensible selection of controls, many with unusual markings or text around them.<br>"
 	dat += "<br>"
 	for(var/index=1, index<=length(construction), index++)
-		dat += "<A href='?src=\ref[src];activate=[index]'>\[[construction[index]]\]</a><br>"
+		dat += "<A href='byond://?src=\ref[src];activate=[index]'>\[[construction[index]]\]</a><br>"
 
 	show_browser(user, dat, "window=alien_replicator")
 
-/obj/machinery/replicator/attackby(obj/item/W as obj, mob/living/user as mob)
-	if(!user.unEquip(W, src))
+/obj/machinery/replicator/use_tool(obj/item/W, mob/living/user, list/click_params)
+	if ((. = ..()))
 		return
+
+	if(!user.unEquip(W, src))
+		return TRUE
 	stored_materials.Add(W)
-	src.visible_message(SPAN_NOTICE("\The [user] inserts \the [W] into \the [src]."))
+	visible_message(SPAN_NOTICE("\The [user] inserts \the [W] into \the [src]."))
+	return TRUE
 
 /obj/machinery/replicator/OnTopic(user, href_list)
 	if(href_list["activate"])

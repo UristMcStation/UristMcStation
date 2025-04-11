@@ -19,6 +19,7 @@
 	burst_delay = 2
 	mag_insert_sound = 'sound/weapons/guns/interaction/smg_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/smg_magout.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_4mm.ogg'
 
 	//machine pistol, easier to one-hand with
 	firemodes = list(
@@ -43,6 +44,7 @@
 	ammo_type = /obj/item/ammo_casing/pistol
 	magazine_type = /obj/item/ammo_magazine/machine_pistol
 	allowed_magazines = /obj/item/ammo_magazine/machine_pistol //more damage compared to the wt550, smaller mag size
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	one_hand_penalty = 2
 
 	firemodes = list(
@@ -55,15 +57,15 @@
 	..()
 	icon_state = "mpistolen"
 	if(ammo_magazine)
-		overlays += image(icon, "mag")
+		AddOverlays(image(icon, "mag"))
 
 	if(!ammo_magazine || !LAZYLEN(ammo_magazine.stored_ammo))
 		icon_state = "mpistolen-empty"
-		overlays += image(icon, "[initial(icon_state)]-ammo0")
+		AddOverlays(image(icon, "[initial(icon_state)]-ammo0"))
 	else if(LAZYLEN(ammo_magazine.stored_ammo) <= 0.5 * ammo_magazine.max_ammo)
-		overlays += image(icon, "[initial(icon_state)]-ammo1")
+		AddOverlays(image(icon, "[initial(icon_state)]-ammo1"))
 	else
-		overlays += image(icon, "[initial(icon_state)]-ammo2")
+		AddOverlays(image(icon, "[initial(icon_state)]-ammo2"))
 
 /obj/item/gun/projectile/automatic/c20r
 	name = "10mm submachine gun"
@@ -121,10 +123,11 @@
 	one_hand_penalty = 8
 	accuracy_power = 7
 	accuracy = 2
-	bulk = GUN_BULK_RIFLE + 1
+	bulk = GUN_BULK_HEAVY_RIFLE
 	wielded_item_state = "arifle-wielded"
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 
 	//Assault rifle, burst fire degrades quicker than SMG, worse one-handing penalty, slightly increased move delay
 	firemodes = list(
@@ -156,10 +159,11 @@
 	slot_flags = SLOT_BELT
 	ammo_type = /obj/item/ammo_casing/pistol/small
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/smg_top/rubber
+	magazine_type = /obj/item/ammo_magazine/smg_top
 	allowed_magazines = /obj/item/ammo_magazine/smg_top
 	accuracy_power = 7
 	one_hand_penalty = 3
+	fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 	jam_chance = 0
 
 	//machine pistol, like SMG but easier to one-hand with
@@ -172,11 +176,14 @@
 /obj/item/gun/projectile/automatic/wt550/on_update_icon()
 	..()
 	if(ammo_magazine)
-		overlays += image(icon, "mag-[round(length(ammo_magazine.stored_ammo),5)]")
+		AddOverlays(image(icon, "mag-[round(length(ammo_magazine.stored_ammo),5)]"))
 	if(ammo_magazine && LAZYLEN(ammo_magazine.stored_ammo))
-		overlays += image(icon, "ammo-ok")
+		AddOverlays(image(icon, "ammo-ok"))
 	else
-		overlays += image(icon, "ammo-bad")
+		AddOverlays(image(icon, "ammo-bad"))
+
+/obj/item/gun/projectile/automatic/sec_smg/empty
+	starts_loaded = FALSE
 
 /obj/item/gun/projectile/automatic/z8
 	name = "bullpup assault rifle"
@@ -203,6 +210,7 @@
 	burst_delay = 4
 	mag_insert_sound = 'sound/weapons/guns/interaction/batrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/batrifle_magout.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 	firemodes = list(
 		list(mode_name="semi auto",       burst=1,    fire_delay=null,    move_delay=null, use_launcher=null, one_hand_penalty=8, burst_accuracy=null, dispersion=null),
 		list(mode_name="3-round bursts", burst=3,    fire_delay=null, move_delay=6,    use_launcher=null, one_hand_penalty=9, burst_accuracy=list(0,-1,-1), dispersion=list(0.0, 0.6, 1.0)),
@@ -210,26 +218,38 @@
 		)
 
 	var/use_launcher = 0
+
+	///Determines if bullpup spawns with launcher, used in Initialize()
+	var/has_launcher = TRUE
 	var/obj/item/gun/launcher/grenade/underslung/launcher
 
 /obj/item/gun/projectile/automatic/z8/Initialize()
 	. = ..()
-	launcher = new(src)
+	if (has_launcher)
+		launcher = new(src)
 
-/obj/item/gun/projectile/automatic/z8/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/grenade)))
-		launcher.load(I, user)
-	else
-		..()
 
-/obj/item/gun/projectile/automatic/z8/attack_hand(mob/user)
-	if(user.get_inactive_hand() == src && use_launcher)
+/obj/item/gun/projectile/automatic/z8/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Grenade - Load launcher
+	if (istype(tool, /obj/item/grenade) && launcher)
+		launcher.load(tool, user)
+		return TRUE
+
+	return ..()
+
+/obj/item/gun/projectile/automatic/bullpup_rifle/toggle_safety(mob/user)
+	..()
+	if(launcher)
+		launcher.safety_state = safety_state //Set the launcher's safety to be equivalent to the bullpup's.
+
+/obj/item/gun/projectile/automatic/bullpup_rifle/attack_hand(mob/user)
+	if(user.get_inactive_hand() == src && launcher && use_launcher)
 		launcher.unload(user)
 	else
 		..()
 
 /obj/item/gun/projectile/automatic/z8/Fire(atom/target, mob/living/user, params, pointblank=0, reflex=0, dual_wield=0)
-	if(use_launcher)
+	if(launcher && use_launcher)
 		launcher.Fire(target, user, params, pointblank, reflex)
 		if(!launcher.chambered)
 			switch_firemodes() //switch back automatically
@@ -248,6 +268,8 @@
 
 /obj/item/gun/projectile/automatic/z8/examine(mob/user)
 	. = ..()
+	if(!launcher)
+		return
 	if(launcher.chambered)
 		to_chat(user, "\The [launcher] has \a [launcher.chambered] loaded.")
 	else
@@ -255,19 +277,18 @@
 
 /obj/item/gun/projectile/automatic/z8/light
 	name = "light bullpup assault rifle"
-	desc = "The standard-issue rifle of the SCGDF, the Z9 Pitbull is the modern answer to violence's question. It has been given a blued finish with a Sol yellow stripe on its stock for easy identification of its owner."
+	desc = "The standard-issue rifle of the SCGDF. The Z9 Pitbull is the modern answer to violence's question. It has been given a blued finish with a Sol yellow stripe for easy identification of its owner. It's slightly more accurate than its larger cousin, the Z8."
 	icon = 'icons/obj/guns/bullpup_rifle_light.dmi'
 	item_state = "z9carbine"
 	magazine_type = /obj/item/ammo_magazine/mil_rifle/light
 	one_hand_penalty = 6 //Slightly lighter than the Z8. Still don't try it.
+	bulk = GUN_BULK_LIGHT_RIFLE
+	has_launcher = FALSE
 	wielded_item_state = "z9carbine-wielded"
 	firemodes = list( //Two round bursts. More accurate than the Z8 due to less maximum dispersion. More delay between shots, however, so slower.
 		list(mode_name="semi auto",       burst=1,    fire_delay=null,    move_delay=null, use_launcher=null, one_hand_penalty=6, burst_accuracy=null, dispersion=null),
-		list(mode_name="2-round bursts", burst=2,    fire_delay=null, move_delay=6,    use_launcher=null, one_hand_penalty=7, burst_accuracy=list(0,-1), dispersion=list(0.0, 0.6)),
-		list(mode_name="fire grenades",  burst=null, fire_delay=null, move_delay=null, use_launcher=1,    one_hand_penalty=10, burst_accuracy=null, dispersion=null)
+		list(mode_name="2-round bursts", burst=2,    fire_delay=null, move_delay=6,    use_launcher=null, one_hand_penalty=7, burst_accuracy=list(0,-1), dispersion=list(0.0, 0.6))
 		)
-
-
 
 /obj/item/gun/projectile/automatic/l6_saw
 	name = "light machine gun"
@@ -292,6 +313,7 @@
 	wielded_item_state = "gun_wielded"
 	mag_insert_sound = 'sound/weapons/guns/interaction/lmg_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/lmg_magout.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	can_special_reload = FALSE
 
 	//LMG, better sustained fire accuracy than assault rifles (comparable to SMG), higer move delay and one-handing penalty
@@ -384,10 +406,11 @@
 	one_hand_penalty = 10
 	accuracy_power = 9
 	accuracy = 1
-	bulk = GUN_BULK_RIFLE + 1
+	bulk = GUN_BULK_HEAVY_RIFLE
 	wielded_item_state = "battlerifle-wielded"
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 
 	//Battle Rifle is only accurate in semi-automatic fire.
 	firemodes = list(
@@ -422,6 +445,7 @@
 	one_hand_penalty = 20
 	mag_insert_sound = 'sound/weapons/guns/interaction/lmg_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/lmg_magout.ogg'
+	fire_sound = 'sound/weapons/gunshot/minigun.ogg'
 	can_special_reload = FALSE
 
 	firemodes = list(

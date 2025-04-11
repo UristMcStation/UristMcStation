@@ -6,7 +6,7 @@
 /turf/simulated/wall/r_wall/hull,
 /area/boarding_ship)
 "ac" = (
-/obj/effect/wallframe_spawn/reinforced/hull,
+/obj/wallframe_spawn/reinforced/hull,
 /turf/simulated/wall/r_wall/rglass_wall,
 /area/boarding_ship)
 "ad" = (
@@ -824,7 +824,7 @@
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "bT" = (
-/obj/effect/template_loader/ships,
+/obj/urist_intangible/trigger/template_loader/ships,
 /turf/simulated/wall/r_wall,
 /area/boarding_ship)
 "bU" = (
@@ -984,7 +984,7 @@
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "cp" = (
-/obj/effect/urist/triggers/ai_defender_landmark/rebel,
+/obj/urist_intangible/triggers/ai_defender_landmark/rebel,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
 "cq" = (
@@ -1421,7 +1421,7 @@
 	icon_state = "intact"
 	},
 /obj/structure/catwalk,
-/obj/effect/urist/triggers/ai_defender_landmark/rebel,
+/obj/urist_intangible/triggers/ai_defender_landmark/rebel,
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "dp" = (
@@ -1561,7 +1561,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/urist/triggers/ai_defender_landmark/rebel,
+/obj/urist_intangible/triggers/ai_defender_landmark/rebel,
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "dA" = (
@@ -1736,7 +1736,7 @@
 	pixel_x = 0;
 	pixel_y = -23
 	},
-/obj/effect/urist/triggers/ai_defender_landmark/rebel,
+/obj/urist_intangible/triggers/ai_defender_landmark/rebel,
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "dQ" = (
@@ -2058,7 +2058,7 @@
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "eB" = (
-/obj/effect/urist/triggers/defender_landmark/rebel/miner,
+/obj/urist_intangible/triggers/defender_landmark/rebel/miner,
 /turf/simulated/floor/tiled/steel_grid,
 /area/boarding_ship)
 "eC" = (
@@ -2081,7 +2081,7 @@
 /area/boarding_ship)
 "eF" = (
 /obj/structure/closet/walllocker/emerglocker/west,
-/obj/effect/urist/triggers/ai_defender_landmark/rebel,
+/obj/urist_intangible/triggers/ai_defender_landmark/rebel,
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "eG" = (
@@ -2207,7 +2207,7 @@
 /area/boarding_ship)
 "eQ" = (
 /obj/structure/catwalk,
-/obj/effect/urist/triggers/boarding_landmark,
+/obj/urist_intangible/triggers/boarding_landmark,
 /obj/structure/boarding/shipportal,
 /turf/simulated/floor/plating,
 /area/boarding_ship)
@@ -2471,7 +2471,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/urist/triggers/ai_defender_landmark/rebel,
+/obj/urist_intangible/triggers/ai_defender_landmark/rebel,
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "fw" = (

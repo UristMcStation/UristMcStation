@@ -8,28 +8,31 @@
 	icon_living = "phoron"
 	icon_dead = "phoron_dead"
 
-	maxHealth = 225
-	health = 225
+	maxHealth = 200
+	health = 200
 	taser_kill = FALSE //You will need more than a peashooter to kill the juggernaut.
 
 	natural_weapon = /obj/item/natural_weapon/bite/spider/phorogenic
 
 	attack_armor_pen = 15
 
-	movement_cooldown = 10
+	movement_cooldown = 4
+	base_attack_cooldown = 2 SECOND
 
 	poison_chance = 30
 	poison_per_bite = 0.5
 	poison_type = /datum/reagent/toxin/phoron
+
+	mob_size = MOB_LARGE
 
 	var/exploded = FALSE
 	var/explosion_radius = 7
 	var/explosion_max_power = EX_ACT_DEVASTATING
 
 	/// Lower bound for explosion delay.
-	var/explosion_delay_lower	= 3 SECONDS
+	var/explosion_delay_lower	= 1 SECONDS
 	/// Upper bound for explosion delay.
-	var/explosion_delay_upper	= 5 SECONDS
+	var/explosion_delay_upper	= 4 SECONDS
 
 /mob/living/simple_animal/hostile/giant_spider/phorogenic/Initialize()
 	SetTransform(scale = 1.25)
@@ -38,7 +41,7 @@
 /mob/living/simple_animal/hostile/giant_spider/phorogenic/death()
 	visible_message(SPAN_DANGER("\The [src]'s body begins to rupture!"))
 	var/delay = rand(explosion_delay_lower, explosion_delay_upper)
-	addtimer(new Callback(src, .proc/flash, delay), 0)
+	addtimer(new Callback(src, PROC_REF(flash), delay), 0)
 
 	return ..()
 

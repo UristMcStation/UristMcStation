@@ -4,36 +4,36 @@
 	death(1)
 	ADD_TRANSFORMATION_MOVEMENT_HANDLER(src)
 	icon = null
-	set_invisibility(101)
+	set_invisibility(INVISIBILITY_ABSTRACT)
 	UpdateLyingBuckledAndVerbStatus()
 	remove_from_dead_mob_list()
 
-	var/atom/movable/overlay/animation = new(src)
+	var/atom/movable/fake_overlay/animation = new(src)
 	animation.icon_state = "blank"
 	animation.icon = 'icons/mob/mob.dmi'
 
 	flick(anim, animation)
 	if(do_gibs) gibs(loc, dna)
 
-	addtimer(new Callback(src, .proc/check_delete, animation), 15)
+	addtimer(new Callback(src, PROC_REF(check_delete), animation), 15)
 
-/mob/proc/check_delete(atom/movable/overlay/animation)
+/mob/proc/check_delete(atom/movable/fake_overlay/animation)
 	if(animation)	qdel(animation)
 	if(src)			qdel(src)
 
 //This is the proc for turning a mob into ash. Mostly a copy of gib code (above).
 //Originally created for wizard disintegrate. I've removed the virus code since it's irrelevant here.
 //Dusting robots does not eject the MMI, so it's a bit more powerful than gib() /N
-/mob/proc/dust(anim="dust-m",remains=/obj/effect/decal/cleanable/ash)
+/mob/proc/dust(anim="dust-m",remains=/obj/decal/cleanable/ash)
 	death(1)
 
 	if(stat == DEAD)
 		ghostize(FALSE) //Ghosts the mob here so it keeps its sprite
 
-	var/atom/movable/overlay/animation = null
+	var/atom/movable/fake_overlay/animation = null
 	ADD_TRANSFORMATION_MOVEMENT_HANDLER(src)
 	icon = null
-	set_invisibility(101)
+	set_invisibility(INVISIBILITY_ABSTRACT)
 
 	animation = new(loc)
 	animation.icon_state = "blank"
@@ -44,7 +44,7 @@
 	new remains(loc)
 
 	remove_from_dead_mob_list()
-	addtimer(new Callback(src, .proc/check_delete, animation), 15)
+	addtimer(new Callback(src, PROC_REF(check_delete), animation), 15)
 
 
 /mob/proc/death(gibbed,deathmessage="seizes up and falls limp...", show_dead_message = "You have died.")
@@ -77,7 +77,7 @@
 
 	//TODO:  Change death state to health_dead for all these icon files.  This is a stop gap.
 	if(healths)
-		healths.overlays.Cut() // This is specific to humans but the relevant code is here; shouldn't mess with other mobs.
+		healths.ClearOverlays()
 		if("health7" in icon_states(healths.icon))
 			healths.icon_state = "health7"
 		else

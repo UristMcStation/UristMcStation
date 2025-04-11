@@ -45,6 +45,7 @@
 			continue
 		pads += pad
 		pad.interference = TRUE
+		pad.interlude_chance = 30 * severity
 	for (var/obj/machinery/bluespacedrive/drive in SSmachines.machinery)
 		if (!(drive.z in affecting_z))
 			continue
@@ -53,7 +54,7 @@
 		drive.set_light(1, 8, 25, 15, COLOR_CYAN_BLUE)
 		if (severity <= EVENT_LEVEL_MODERATE)
 			continue
-		addtimer(new Callback(drive, /obj/machinery/bluespacedrive/proc/create_flash, TRUE, turf_conversion_range), 2 SECONDS)
+		addtimer(new Callback(drive, TYPE_PROC_REF(/obj/machinery/bluespacedrive, create_flash), TRUE, turf_conversion_range), 2 SECONDS)
 	if (severity <= EVENT_LEVEL_MODERATE)
 		return
 	for (var/obj/structure/stairs/stair in world)
@@ -76,7 +77,7 @@
 				z_level = pick(affecting_z)
 			)
 			var/effect_state = pick("cyan_sparkles", "blue_electricity_constant", "shieldsparkles", "empdisabled")
-			var/obj/effect/temporary/temp_effect = new (turf, 1 SECONDS, 'icons/effects/effects.dmi', effect_state)
+			var/obj/temporary/temp_effect = new (turf, 1 SECONDS, 'icons/effects/effects.dmi', effect_state)
 			temp_effect.set_light(1, 1, 2, 3, COLOR_CYAN_BLUE)
 			if (prob(mob_spawn_chance) && length(mobs) < maximum_mobs && !turf.is_dense())
 				turf.visible_message(SPAN_DANGER("A sudden burst of energy gives birth to some sort of ghost-like entity!"))
@@ -91,7 +92,7 @@
 		zlevels = affecting_z
 	)
 	for (var/obj/machinery/bluespacedrive/drive in drives)
-		addtimer(new Callback(drive, /obj/machinery/bluespacedrive/proc/do_pulse), 20 SECONDS)
+		addtimer(new Callback(drive, TYPE_PROC_REF(/obj/machinery/bluespacedrive, do_pulse)), 20 SECONDS)
 	for (var/mob/mob in GLOB.player_list)
 		if (istype(mob, /mob/new_player))
 			continue
@@ -105,12 +106,13 @@
 /datum/event/bsd_instability/end()
 	for (var/obj/machinery/tele_pad/pad in pads)
 		pad.interference = FALSE
+		pad.interlude_chance = 0
 	for (var/obj/machinery/bluespacedrive/drive in drives)
 		drive.instability_event_active = FALSE
 		drive.set_light(1, 5, 15, 10, COLOR_CYAN)
 		for (var/turf/simulated/floor/floor in range(turf_conversion_range, drive))
 			if (istype(floor.flooring, /singleton/flooring/bluespace))
-				floor.set_flooring(GET_SINGLETON(initial(floor.flooring)))
+				floor.ChangeTurf(/turf/simulated/floor/plating)
 	for (var/obj/structure/stairs/stair in stairs)
 		stair.bluespace_affected = FALSE
 	for (var/obj/structure/ladder/ladder in ladders)

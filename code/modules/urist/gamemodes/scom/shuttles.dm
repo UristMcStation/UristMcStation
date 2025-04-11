@@ -74,7 +74,7 @@
 	waypoint_station = "SCOM_S1_BASE"
 	waypoint_offsite = "SCOM_S1_M0"
 
-/obj/effect/shuttle_landmark/SCOM/S1/base
+/obj/shuttle_landmark/SCOM/S1/base
 	name = "Shuttle 1 - Base"
 	landmark_tag = "SCOM_S1_BASE"
 	base_turf = /turf/unsimulated/floor/plating
@@ -85,7 +85,7 @@
 	waypoint_station = "SCOM_S2_BASE"
 	waypoint_offsite = "SCOM_S2_M0"
 
-/obj/effect/shuttle_landmark/SCOM/S2/base
+/obj/shuttle_landmark/SCOM/S2/base
 	name = "Shuttle 2 - Base"
 	landmark_tag = "SCOM_S2_BASE"
 	base_turf = /turf/unsimulated/floor/plating
@@ -145,7 +145,7 @@
 		for(var/obj/machinery/scom/shuttle_control/SC in SSmachines.machinery)
 			SC.fuckoff = 0
 
-		for(var/obj/effect/landmark/scom/enemyspawn/R in landmarks_list)
+		for(var/obj/landmark/scom/enemyspawn/R in landmarks_list)
 			if(mission == R.mission)
 				R.spawnmobs()
 
@@ -180,8 +180,8 @@
 							destination.teleport_to(C)
 
 //	else if(location == 1)
-		/*for(var/R in typesof (/obj/effect/landmark/scom/enemyspawn))
-			var/obj/effect/landmark/scom/enemyspawn/S = new R
+		/*for(var/R in typesof (/obj/landmark/scom/enemyspawn))
+			var/obj/landmark/scom/enemyspawn/S = new R
 			if(mission == S.mission)
 				S.spawnmobs()
 				qdel(S)*/

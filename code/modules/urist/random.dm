@@ -7,19 +7,19 @@
 
 var/global/respawntime = 6000 //default 10 mins, adding the var so we can change it for different roundtypes. gotta keep the action rollin'
 
-/obj/effect/landmark/costume/monkeysuit/Initialize()
+/obj/landmark/costume/monkeysuit/Initialize()
 	. = ..()
 	new /obj/item/clothing/suit/monkeysuit(src.loc)
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/shuttle_landmark
+/obj/shuttle_landmark
 	var/special = FALSE
 	var/spawn_id = null
 
-/obj/effect/shuttle_landmark/proc/on_landing()
+/obj/shuttle_landmark/proc/on_landing()
 	return
 
-/obj/effect/urist/spawn_bomb
+/obj/urist_intangible/spawn_bomb
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "grabbed1"
 	invisibility = 101
@@ -27,11 +27,11 @@ var/global/respawntime = 6000 //default 10 mins, adding the var so we can change
 	var/severity = EX_ACT_DEVASTATING
 	var/ex_range = 9
 
-/obj/effect/urist/spawn_bomb/Initialize()
+/obj/urist_intangible/spawn_bomb/Initialize()
 	.=..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/effect/urist/spawn_bomb/LateInitialize()
+/obj/urist_intangible/spawn_bomb/LateInitialize()
 	if(empulse)
 		empulse(src.loc, 5, 0, 0)
 
@@ -40,10 +40,10 @@ var/global/respawntime = 6000 //default 10 mins, adding the var so we can change
 
 	qdel(src)
 
-/obj/effect/urist/spawn_bomb/abandoned //we're only doing light damage here, mostly just to break windows and make things look weathered.
+/obj/urist_intangible/spawn_bomb/abandoned //we're only doing light damage here, mostly just to break windows and make things look weathered.
 	severity = EX_ACT_LIGHT
 	ex_range = 8
 
-/obj/effect/urist/spawn_bomb/bluespace_artillery
+/obj/urist_intangible/spawn_bomb/bluespace_artillery
 	ex_range = 14
 	severity = EX_ACT_DEVASTATING

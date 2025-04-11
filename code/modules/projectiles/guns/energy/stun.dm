@@ -13,6 +13,12 @@
 		list(mode_name="shock", projectile_type=/obj/item/projectile/beam/stun/shock),
 		)
 
+/obj/item/gun/energy/taser/disposable
+	name = "disposable electrolaser"
+	desc = "The NT Mk30 NL is a small, disposable gun used for non-lethal takedowns. This is a cheaper model commonly issued to police forces to supplement their service weapons. It can switch between high and low intensity stun shots."
+	max_shots = 10
+	disposable = TRUE
+
 /obj/item/gun/energy/taser/carbine
 	name = "electrolaser carbine"
 	desc = "The NT Mk44 NL is a high capacity gun used for non-lethal takedowns. It can switch between high and low intensity stun shots."
@@ -75,7 +81,7 @@
 	wielded_item_state = "stunrifle-wielded"
 
 /obj/item/gun/energy/crossbow
-	name = "mini energy-crossbow"
+	name = "mini energy crossbow"
 	desc = "A weapon favored by many mercenary stealth specialists."
 	icon = 'icons/obj/guns/energy_crossbow.dmi'
 	icon_state = "crossbow"

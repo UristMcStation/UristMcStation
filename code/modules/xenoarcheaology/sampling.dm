@@ -1,7 +1,7 @@
 /obj/item/rocksliver
 	name = "rock sliver"
 	desc = "It looks extremely delicate."
-	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon = 'icons/obj/xenoarchaeology_finds.dmi'
 	icon_state = "sliver1"
 	randpixel = 8
 	w_class = ITEM_SIZE_TINY
@@ -82,7 +82,7 @@
 /obj/item/device/core_sampler
 	name = "core sampler"
 	desc = "Used to extract geological core samples."
-	icon = 'icons/obj/sampler.dmi'
+	icon = 'icons/obj/tools/sampler.dmi'
 	icon_state = "sampler0"
 	item_state = "screwdriver_brown"
 	w_class = ITEM_SIZE_TINY
@@ -96,19 +96,29 @@
 	if(distance <= 2)
 		to_chat(user, SPAN_NOTICE("Used to extract geological core samples - this one is [sampled_turf ? "full" : "empty"], and has [num_stored_bags] bag[num_stored_bags != 1 ? "s" : ""] remaining."))
 
-/obj/item/device/core_sampler/attackby(obj/item/I, mob/living/user)
-	if(istype(I, /obj/item/evidencebag))
-		if(length(I.contents))
-			to_chat(user, SPAN_WARNING("\The [I] is full."))
-			return
-		if(num_stored_bags < 10)
-			qdel(I)
-			num_stored_bags += 1
-			to_chat(user, SPAN_NOTICE("You insert \the [I] into \the [src]."))
-		else
-			to_chat(user, SPAN_WARNING("\The [src] can not fit any more bags."))
-	else
-		return ..()
+
+/obj/item/device/core_sampler/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Evidence Bag - Insert bag
+	if (istype(tool, /obj/item/evidencebag))
+		if (length(tool.contents))
+			USE_FEEDBACK_FAILURE("\The [tool] needs to be empty to add it to \the [src].")
+			return TRUE
+		if (num_stored_bags >= 10)
+			USE_FEEDBACK_FAILURE("\The [src] can't hold any more bags.")
+			return TRUE
+		if (!user.unEquip(tool, src))
+			FEEDBACK_UNEQUIP_FAILURE(user, tool)
+			return TRUE
+		num_stored_bags++
+		user.visible_message(
+			SPAN_NOTICE("\The [user] adds \a [tool] to \a [src]."),
+			SPAN_NOTICE("You add \the [tool] to \the [src]. It now holds [num_stored_bags].")
+		)
+		qdel(tool)
+		return TRUE
+
+	return ..()
+
 
 /obj/item/device/core_sampler/proc/sample_item(item_to_sample, mob/user)
 	var/datum/geosample/geo_data
@@ -142,8 +152,10 @@
 			//update the sample bag
 			filled_bag.icon_state = "evidence"
 			var/image/I = image("icon"=R, "layer"=FLOAT_LAYER)
-			filled_bag.overlays += I
-			filled_bag.overlays += "evidence"
+			filled_bag.AddOverlays(list(
+				I,
+				"evidence"
+			))
 			filled_bag.w_class = ITEM_SIZE_TINY
 			filled_bag.stored_item = R
 
@@ -155,7 +167,7 @@
 	if(filled_bag)
 		to_chat(user, SPAN_NOTICE("You eject the full sample bag."))
 		var/success = 0
-		if(istype(src.loc, /mob))
+		if(ismob(loc))
 			var/mob/M = src.loc
 			success = M.put_in_inactive_hand(filled_bag)
 		if(!success)

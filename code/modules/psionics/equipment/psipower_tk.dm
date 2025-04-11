@@ -9,14 +9,14 @@
 	. = ..()
 
 /obj/item/psychic_power/telekinesis/Process()
-	if(!focus || !istype(focus.loc, /turf) || get_dist(get_turf(focus), get_turf(owner)) > owner.psi.get_rank(PSI_PSYCHOKINESIS))
+	if(!focus || !isturf(focus.loc) || get_dist(get_turf(focus), get_turf(owner)) > owner.psi.get_rank(PSI_PSYCHOKINESIS))
 		owner.drop_from_inventory(src)
 		return
 	. = ..()
 
 /obj/item/psychic_power/telekinesis/proc/set_focus(atom/movable/_focus)
 
-	if(!_focus.simulated || !istype(_focus.loc, /turf))
+	if(!_focus.simulated || !isturf(_focus.loc))
 		return FALSE
 
 	var/check_paramount
@@ -37,11 +37,11 @@
 		return FALSE
 
 	focus = _focus
-	overlays.Cut()
+	ClearOverlays()
 	var/image/I = image(icon = focus.icon, icon_state = focus.icon_state)
 	I.color = focus.color
-	I.overlays = focus.overlays
-	overlays += I
+	I.CopyOverlays(focus)
+	AddOverlays(I)
 	return TRUE
 
 /obj/item/psychic_power/telekinesis/attack_self(mob/user)
@@ -76,9 +76,9 @@
 	else
 		user.visible_message(SPAN_DANGER("\The [user] gestures sharply!"))
 		sparkle()
-		if(!istype(target, /turf) && istype(focus,/obj/item) && target.Adjacent(focus))
+		if(!isturf(target) && istype(focus,/obj/item) && target.Adjacent(focus))
 			var/obj/item/I = focus
-			var/resolved = target.attackby(I, user, user:get_organ_target())
+			var/resolved = I.resolve_attackby(target, user)
 			if(!resolved && target && I)
 				I.afterattack(target,user,1) // for splashing with beakers
 		else
@@ -92,7 +92,7 @@
 /obj/item/psychic_power/telekinesis/proc/sparkle()
 	set waitfor = 0
 	if(focus)
-		var/obj/effect/overlay/O = new /obj/effect/overlay(get_turf(focus))
+		var/obj/overlay/O = new /obj/overlay(get_turf(focus))
 		O.name = "sparkles"
 		O.anchored = TRUE
 		O.density = FALSE

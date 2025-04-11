@@ -1,7 +1,7 @@
 /obj/machinery/optable
-	name = "Operating Table"
+	name = "operating table"
 	desc = "Used for advanced medical procedures."
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/machines/medical/operatingtable.dmi'
 	icon_state = "table2-idle"
 	density = TRUE
 	anchored = TRUE
@@ -56,27 +56,12 @@
 			if (prob(25))
 				src.set_density(0)
 
-/obj/machinery/optable/attackby(obj/item/O, mob/user)
-	if (istype(O, /obj/item/grab))
-		var/obj/item/grab/G = O
-		if(iscarbon(G.affecting) && check_table(G.affecting))
-			take_victim(G.affecting,usr)
-			qdel(O)
-			return
-	return ..()
-
 /obj/machinery/optable/state_transition(singleton/machine_construction/default/new_state)
 	. = ..()
 	if(istype(new_state))
 		updateUsrDialog()
 
 /obj/machinery/optable/physical_attack_hand(mob/user)
-	if(MUTATION_HULK in user.mutations)
-		visible_message(SPAN_DANGER("\The [usr] destroys \the [src]!"))
-		src.set_density(0)
-		qdel(src)
-		return TRUE
-
 	if(!victim)
 		to_chat(user, SPAN_WARNING("There is nobody on \the [src]. It would be pointless to turn the suppressor on."))
 		return TRUE
@@ -107,12 +92,6 @@
 	else
 		return 0
 
-
-/obj/machinery/optable/MouseDrop_T(mob/target, mob/user)
-	if (target.loc != loc)
-		step(target, get_dir(target, loc))
-	..()
-
 /obj/machinery/optable/proc/check_victim()
 	if(!victim || !victim.lying || victim.loc != loc)
 		suppressing = FALSE
@@ -127,6 +106,9 @@
 						connected_monitor.update_victim(H)
 					break
 	icon_state = (victim && victim.pulse()) ? "table2-active" : "table2-idle"
+	ClearOverlays()
+	if(victim && !suppressing)
+		AddOverlays("table2-warning")
 	if(victim)
 		if(suppressing && victim.sleeping < 3)
 			victim.Sleeping(3 - victim.sleeping)
@@ -139,14 +121,18 @@
 /obj/machinery/optable/proc/take_victim(mob/living/carbon/C, mob/living/carbon/user as mob)
 	if (C == user)
 		user.visible_message("[user] climbs on \the [src].","You climb on \the [src].")
+		add_fingerprint(user)
 	else
 		visible_message(SPAN_NOTICE("\The [C] has been laid on \the [src] by [user]."))
+		add_fingerprint(C)
+		add_fingerprint(user)
 	if (C.client)
 		C.client.perspective = EYE_PERSPECTIVE
 		C.client.eye = src
 	C.Weaken(5)
 	C.dropInto(loc)
-	src.add_fingerprint(user)
+	C.set_dir(SOUTH) //Make patient lie on their back.
+	C.remove_grabs_and_pulls()
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
 		src.victim = H
@@ -160,10 +146,19 @@
 	var/mob/living/M = user
 	if(user.stat || user.restrained() || !iscarbon(target) || !check_table(target))
 		return
+	for (var/obj/item/grab/grab in target.grabbed_by)
+		if (grab.assailant == target || grab.assailant == user)
+			continue
+		USE_FEEDBACK_FAILURE("\The [target] is being grabbed by \the [grab.assailant] and can't be placed on \the [src].")
+		return
 	if(istype(M))
 		take_victim(target,user)
 	else
 		return ..()
+
+/obj/machinery/optable/use_grab(obj/item/grab/grab, list/click_params)
+	MouseDrop_T(grab.affecting, grab.assailant) //Grab will be deleted at level of take_victim if all checks pass.
+	return TRUE
 
 /obj/machinery/optable/climb_on()
 	if(usr.stat || !ishuman(usr) || usr.restrained() || !check_table(usr))

@@ -1,16 +1,16 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
 
 /obj/machinery/containment_field
-	name = "Containment Field"
+	name = "containment field"
 	desc = "An energy field."
-	icon = 'icons/obj/singularity.dmi'
+	icon = 'icons/obj/machines/power/singularity.dmi'
 	icon_state = "Contain_F"
 	anchored = TRUE
 	density = FALSE
 	unacidable = TRUE
 	use_power = POWER_USE_OFF
 	uncreated_component_parts = null
-	light_outer_range = 4
+	light_range = 4
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	var/obj/machinery/field_generator/FG1 = null
 	var/obj/machinery/field_generator/FG2 = null

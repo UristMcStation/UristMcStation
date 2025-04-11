@@ -7,7 +7,7 @@
 /obj/item/device/scanner/mining
 	name = "ore detector"
 	desc = "A complex device used to locate ore deep underground."
-	icon = 'icons/obj/ore_analyzer.dmi'
+	icon = 'icons/obj/tools/ore_analyzer.dmi'
 	icon_state = "ore"
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	use_delay = 50
@@ -63,7 +63,7 @@
 
 /obj/item/disk/survey
 	name = "survey data disk"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/datadisks.dmi'
 	icon_state = "nucleardisk"
 	var/data
 
@@ -80,6 +80,7 @@
 
 //Returns list of two elements, 1 is text output, 2 is amoutn of GEP data
 /proc/mineral_scan_results(turf/simulated/target)
+	RETURN_TYPE(/list)
 	var/list/metals = list(
 		ORE_SURFACE = 0,
 		ORE_PRECIOUS = 0,

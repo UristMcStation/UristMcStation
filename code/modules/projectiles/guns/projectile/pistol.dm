@@ -34,6 +34,7 @@
 	caliber = CALIBER_PISTOL
 	magazine_type = /obj/item/ammo_magazine/pistol
 	allowed_magazines = /obj/item/ammo_magazine/pistol
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	accuracy_power = 7
 	var/empty_icon = TRUE  //If it should change icon when empty
 	var/ammo_indicator = FALSE
@@ -47,11 +48,11 @@
 			icon_state = "[initial(icon_state)]-e"
 	if(ammo_indicator)
 		if(!ammo_magazine || !LAZYLEN(ammo_magazine.stored_ammo))
-			overlays += image(icon, "[initial(icon_state)]-ammo0")
+			AddOverlays(image(icon, "[initial(icon_state)]-ammo0"))
 		else if(LAZYLEN(ammo_magazine.stored_ammo) <= 0.5 * ammo_magazine.max_ammo)
-			overlays += image(icon, "[initial(icon_state)]-ammo1")
+			AddOverlays(image(icon, "[initial(icon_state)]-ammo1"))
 		else
-			overlays += image(icon, "[initial(icon_state)]-ammo2")
+			AddOverlays(image(icon, "[initial(icon_state)]-ammo2"))
 
 /obj/item/gun/projectile/pistol/sec
 	name = "pistol"
@@ -62,6 +63,9 @@
 	accuracy = -1
 	fire_delay = 6
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+
+/obj/item/gun/projectile/pistol/sec/empty
+	starts_loaded = FALSE
 
 /obj/item/gun/projectile/pistol/sec/lethal
 	magazine_type = /obj/item/ammo_magazine/pistol
@@ -107,6 +111,7 @@
 	allowed_magazines = /obj/item/ammo_magazine/magnum
 	mag_insert_sound = 'sound/weapons/guns/interaction/hpistol_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/hpistol_magout.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	accuracy = 2
 	one_hand_penalty = 2
 	bulk = 3
@@ -196,20 +201,32 @@
 			return
 	..()
 
-/obj/item/gun/projectile/pistol/holdout/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/silencer))
+
+/obj/item/gun/projectile/pistol/holdout/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Silencer - Attach silencer
+	if (istype(tool, /obj/item/silencer))
 		if (silenced)
-			to_chat(user, SPAN_WARNING("\The [src] is already silenced."))
-			return
-		if(!user.unEquip(I, src))
-			return//put the silencer into the gun
-		to_chat(user, SPAN_NOTICE("You screw \the [I] onto \the [src]."))
+			if (silencer)
+				USE_FEEDBACK_FAILURE("\The [src] already has \a [silencer] attached.")
+			else
+				USE_FEEDBACK_FAILURE("\The [src] is already silenced.")
+			return TRUE
+		if (!user.unEquip(tool, src))
+			FEEDBACK_FAILURE(user, tool)
+			return TRUE
 		silenced = TRUE
-		silencer = I
+		silencer = tool
 		w_class = ITEM_SIZE_NORMAL
 		update_icon()
-		return
-	..()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] screws \a [tool] onto \a [src]."),
+			SPAN_NOTICE("You screw \a [tool] onto \a [src]."),
+			range = 2
+		)
+		return TRUE
+
+	return ..()
+
 
 /obj/item/gun/projectile/pistol/holdout/on_update_icon()
 	..()

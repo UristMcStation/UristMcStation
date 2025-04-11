@@ -10,7 +10,7 @@
 /obj/structure/monolith
 	name = "monolith"
 	desc = "An obviously artifical structure of unknown origin. The symbols '𒁀𒀝 𒋢𒌦 𒉡 𒋺𒂊' are engraved on the base." //for the sake of the reader, "BAKU SUUN NU TAKE"
-	icon = 'icons/obj/monolith.dmi'
+	icon = 'icons/obj/structures/monolith.dmi'
 	icon_state = "jaggy1"
 	layer = ABOVE_HUMAN_LAYER
 	density = TRUE
@@ -24,31 +24,31 @@
 	if(A)
 		color = A.icon_colour
 	if(GLOB.using_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		var/obj/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 		if(istype(E))
 			desc += "\nThere are images on it: [E.get_engravings()]"
 	update_icon()
 
 /obj/structure/monolith/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(active)
 		var/image/I = image(icon,"[icon_state]decor")
 		I.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
 		I.color = get_random_colour(0, 150, 255)
 		I.layer = ABOVE_LIGHTING_LAYER
 		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		overlays += I
-		set_light(0.3, 0.1, 2, l_color = I.color)
+		AddOverlays(I)
+		set_light(2, 0.3, l_color = I.color)
 
 	var/turf/simulated/floor/exoplanet/T = get_turf(src)
 	if(istype(T))
 		var/image/I = overlay_image(icon, "dugin", T.dirt_color, RESET_COLOR)
-		overlays += I
+		AddOverlays(I)
 
 /obj/structure/monolith/attack_hand(mob/user)
 	visible_message("[user] touches \the [src].")
 	if(GLOB.using_map.use_overmap && istype(user,/mob/living/carbon/human))
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		var/obj/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 		if(istype(E))
 			var/mob/living/carbon/human/H = user
 			if(!H.isSynthetic())

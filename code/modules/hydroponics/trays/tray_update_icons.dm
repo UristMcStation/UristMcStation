@@ -9,7 +9,7 @@
 	else
 		SetName(initial(name))
 
-	overlays.Cut()
+	ClearOverlays()
 	var/new_overlays = list()
 	// Updates the plant overlay.
 	if(seed)
@@ -17,7 +17,7 @@
 			var/ikey = "[seed.get_trait(TRAIT_PLANT_ICON)]-dead"
 			var/image/dead_overlay = SSplants.plant_icon_cache["[ikey]"]
 			if(!dead_overlay)
-				dead_overlay = image('icons/obj/hydroponics_growing.dmi', "[ikey]")
+				dead_overlay = image('icons/obj/flora/hydroponics_growing.dmi', "[ikey]")
 				dead_overlay.color = DEAD_PLANT_COLOUR
 			new_overlays |= dead_overlay
 		else
@@ -37,7 +37,7 @@
 				ikey = "[seed.get_trait(TRAIT_PRODUCT_ICON)]"
 				var/image/harvest_overlay = SSplants.plant_icon_cache["product-[ikey]-[seed.get_trait(TRAIT_PLANT_COLOUR)]"]
 				if(!harvest_overlay)
-					harvest_overlay = image('icons/obj/hydroponics_products.dmi', "[ikey]")
+					harvest_overlay = image('icons/obj/flora/hydroponics_products.dmi', "[ikey]")
 					harvest_overlay.color = seed.get_trait(TRAIT_PRODUCT_COLOUR)
 					SSplants.plant_icon_cache["product-[ikey]-[harvest_overlay.color]"] = harvest_overlay
 				new_overlays |= harvest_overlay
@@ -67,11 +67,12 @@
 			set_density(0)
 		set_opacity(0)
 
-	overlays |= new_overlays
+	AddOverlays(new_overlays)
 
 	// Update bioluminescence.
 	if(seed && seed.get_trait(TRAIT_BIOLUM))
-		set_light(0.5, 0.1, 3, l_color = seed.get_trait(TRAIT_BIOLUM_COLOUR))
+		var/biolum_power = seed.get_potency_curve()
+		set_light(6 * biolum_power, biolum_power, l_color = seed.get_trait(TRAIT_BIOLUM_COLOUR))
 	else
 		set_light(0)
 

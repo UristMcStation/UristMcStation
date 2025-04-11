@@ -5,19 +5,19 @@
 #define SCOM_HRDR 38
 /* I'd rather have those defined in scom.dm, but the preprocessor is a douche */
 
-/obj/effect/landmark/scom/enemyspawn
+/obj/landmark/scom/enemyspawn
 	var/mission = 0
 	var/spawntype = 0
 	var/difflevel = 0
 	var/spawnprob = 100 //used for scaling down spawns
 //	invisibility = 101
 
-/obj/effect/landmark/scom/enemyspawn/Initialize()
+/obj/landmark/scom/enemyspawn/Initialize()
 	. = ..()
 	invisibility = 101
 	return
 
-/obj/effect/landmark/scom/enemyspawn/proc/spawnmobs() //we call this when the shuttle does the thing with the stuff
+/obj/landmark/scom/enemyspawn/proc/spawnmobs() //we call this when the shuttle does the thing with the stuff
 	if(scom_lowpop_scale)
 		spawnprob = max((round(SCOMplayerC/(SCOM_NORM)*100)),33)
 		//Scales like for 5 people even if there's only one - that's SCOM, baby!
@@ -85,113 +85,113 @@
 		qdel(src)
 
 
-/obj/effect/landmark/scom/enemyspawn/easy
+/obj/landmark/scom/enemyspawn/easy
 	difflevel = 1
 
-/obj/effect/landmark/scom/enemyspawn/norm
+/obj/landmark/scom/enemyspawn/norm
 	icon_state = "x3"
 	difflevel = 2
 
-/obj/effect/landmark/scom/enemyspawn/hard
+/obj/landmark/scom/enemyspawn/hard
 	icon_state = "x"
 	difflevel = 3
 
-/obj/effect/landmark/scom/enemyspawn/harder
+/obj/landmark/scom/enemyspawn/harder
 	icon_state = "x"
 	difflevel = 4
 
-/obj/effect/landmark/scom/enemyspawn/easy/m1
+/obj/landmark/scom/enemyspawn/easy/m1
 	mission = 1
 
-/obj/effect/landmark/scom/enemyspawn/easy/m2
+/obj/landmark/scom/enemyspawn/easy/m2
 	mission = 2
 
-/obj/effect/landmark/scom/enemyspawn/easy/m3
+/obj/landmark/scom/enemyspawn/easy/m3
 	mission = 3
 
-/obj/effect/landmark/scom/enemyspawn/easy/m4
+/obj/landmark/scom/enemyspawn/easy/m4
 	mission = 4
 
-/obj/effect/landmark/scom/enemyspawn/easy/m5
+/obj/landmark/scom/enemyspawn/easy/m5
 	mission = 5
 
-/obj/effect/landmark/scom/enemyspawn/easy/m6
+/obj/landmark/scom/enemyspawn/easy/m6
 	mission = 6
 
-/obj/effect/landmark/scom/enemyspawn/easy/m7
+/obj/landmark/scom/enemyspawn/easy/m7
 	mission = 7
 
-/obj/effect/landmark/scom/enemyspawn/easy/m8
+/obj/landmark/scom/enemyspawn/easy/m8
 	mission = 8
 
-/obj/effect/landmark/scom/enemyspawn/norm/m1
+/obj/landmark/scom/enemyspawn/norm/m1
 	mission = 1
 
-/obj/effect/landmark/scom/enemyspawn/norm/m2
+/obj/landmark/scom/enemyspawn/norm/m2
 	mission = 2
 
-/obj/effect/landmark/scom/enemyspawn/norm/m3
+/obj/landmark/scom/enemyspawn/norm/m3
 	mission = 3
 
-/obj/effect/landmark/scom/enemyspawn/norm/m4
+/obj/landmark/scom/enemyspawn/norm/m4
 	mission = 4
 
-/obj/effect/landmark/scom/enemyspawn/norm/m5
+/obj/landmark/scom/enemyspawn/norm/m5
 	mission = 5
 
-/obj/effect/landmark/scom/enemyspawn/norm/m6
+/obj/landmark/scom/enemyspawn/norm/m6
 	mission = 6
 
-/obj/effect/landmark/scom/enemyspawn/norm/m7
+/obj/landmark/scom/enemyspawn/norm/m7
 	mission = 7
 
-/obj/effect/landmark/scom/enemyspawn/norm/m8
+/obj/landmark/scom/enemyspawn/norm/m8
 	mission = 8
 
-/obj/effect/landmark/scom/enemyspawn/hard/m1
+/obj/landmark/scom/enemyspawn/hard/m1
 	mission = 1
 
-/obj/effect/landmark/scom/enemyspawn/hard/m2
+/obj/landmark/scom/enemyspawn/hard/m2
 	mission = 2
 
-/obj/effect/landmark/scom/enemyspawn/hard/m3
+/obj/landmark/scom/enemyspawn/hard/m3
 	mission = 3
 
-/obj/effect/landmark/scom/enemyspawn/hard/m4
+/obj/landmark/scom/enemyspawn/hard/m4
 	mission = 4
 
-/obj/effect/landmark/scom/enemyspawn/hard/m5
+/obj/landmark/scom/enemyspawn/hard/m5
 	mission = 5
 
-/obj/effect/landmark/scom/enemyspawn/hard/m6
+/obj/landmark/scom/enemyspawn/hard/m6
 	mission = 6
 
-/obj/effect/landmark/scom/enemyspawn/hard/m7
+/obj/landmark/scom/enemyspawn/hard/m7
 	mission = 7
 
-/obj/effect/landmark/scom/enemyspawn/hard/m8
+/obj/landmark/scom/enemyspawn/hard/m8
 	mission = 8
 
-/obj/effect/landmark/scom/enemyspawn/harder/m1
+/obj/landmark/scom/enemyspawn/harder/m1
 	mission = 1
 
-/obj/effect/landmark/scom/enemyspawn/harder/m2
+/obj/landmark/scom/enemyspawn/harder/m2
 	mission = 2
 
-/obj/effect/landmark/scom/enemyspawn/harder/m3
+/obj/landmark/scom/enemyspawn/harder/m3
 	mission = 3
 
-/obj/effect/landmark/scom/enemyspawn/harder/m4
+/obj/landmark/scom/enemyspawn/harder/m4
 	mission = 4
 
-/obj/effect/landmark/scom/enemyspawn/harder/m5
+/obj/landmark/scom/enemyspawn/harder/m5
 	mission = 5
 
-/obj/effect/landmark/scom/enemyspawn/harder/m6
+/obj/landmark/scom/enemyspawn/harder/m6
 	mission = 6
 
-/obj/effect/landmark/scom/enemyspawn/harder/m7
+/obj/landmark/scom/enemyspawn/harder/m7
 	mission = 7
 
-/obj/effect/landmark/scom/enemyspawn/harder/m8
+/obj/landmark/scom/enemyspawn/harder/m8
 	mission = 8

@@ -5,7 +5,7 @@
 /obj/item/defibrillator
 	name = "auto-resuscitator"
 	desc = "A device that delivers powerful shocks via detachable paddles to resuscitate incapacitated patients."
-	icon = 'icons/obj/defibrillator.dmi'
+	icon = 'icons/obj/tools/defibrillator.dmi'
 	icon_state = "defibunit"
 	item_state = "defibunit"
 	slot_flags = SLOT_BACK
@@ -15,7 +15,6 @@
 	origin_tech = list(TECH_BIO = 4, TECH_POWER = 2)
 	matter = list(MATERIAL_STEEL = 5000, MATERIAL_PLASTIC = 2000, MATERIAL_GLASS = 1500, MATERIAL_ALUMINIUM = 1000)
 	action_button_name = "Remove/Replace Paddles"
-
 	var/obj/item/shockpaddles/linked/paddles
 	var/obj/item/cell/bcell = null
 
@@ -51,12 +50,12 @@
 				new_overlays += "[initial(icon_state)]-powered"
 
 	if(bcell)
-		var/ratio = Ceil(bcell.percent()/25) * 25
+		var/ratio = ceil(bcell.percent()/25) * 25
 		new_overlays += "[initial(icon_state)]-charge[ratio]"
 	else
 		new_overlays += "[initial(icon_state)]-nocell"
 
-	overlays = new_overlays
+	SetOverlays(new_overlays)
 
 /obj/item/defibrillator/examine(mob/user)
 	. = ..()
@@ -65,7 +64,7 @@
 	else
 		to_chat(user, "There is no cell inside.")
 
-/obj/item/defibrillator/ui_action_click()
+/obj/item/defibrillator/ui_action_click(mob/living/user)
 	toggle_paddles()
 
 /obj/item/defibrillator/attack_hand(mob/user)
@@ -85,19 +84,23 @@
 		M.put_in_any_hand_if_possible(src)
 
 
-/obj/item/defibrillator/attackby(obj/item/W, mob/user, params)
+/obj/item/defibrillator/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(W == paddles)
 		reattach_paddles(user)
-	else if(istype(W, /obj/item/cell))
+		return TRUE
+
+	else if (istype(W, /obj/item/cell))
 		if(bcell)
-			to_chat(user, SPAN_NOTICE("\the [src] already has a cell."))
-		else
-			if(!user.unEquip(W))
-				return
-			W.forceMove(src)
-			bcell = W
-			to_chat(user, SPAN_NOTICE("You install a cell in \the [src]."))
-			update_icon()
+			to_chat(user, SPAN_WARNING("\The [src] already has a cell."))
+			return TRUE
+		if (!user.unEquip(W))
+			FEEDBACK_UNEQUIP_FAILURE(user, W)
+			return TRUE
+		W.forceMove(src)
+		bcell = W
+		to_chat(user, SPAN_NOTICE("You install a cell in \the [src]."))
+		update_icon()
+		return TRUE
 
 	else if(isScrewdriver(W))
 		if(bcell)
@@ -106,8 +109,9 @@
 			bcell = null
 			to_chat(user, SPAN_NOTICE("You remove the cell from \the [src]."))
 			update_icon()
-	else
-		return ..()
+			return TRUE
+
+	return ..()
 
 /obj/item/defibrillator/emag_act(uses, mob/user)
 	if(paddles)
@@ -201,13 +205,14 @@
 /obj/item/shockpaddles
 	name = "defibrillator paddles"
 	desc = "A pair of plastic-gripped paddles with flat metal surfaces that are used to deliver powerful electric shocks."
-	icon = 'icons/obj/defibrillator.dmi'
+	icon = 'icons/obj/tools/defibrillator.dmi'
 	icon_state = "defibpaddles"
 	item_state = "defibpaddles"
 	gender = PLURAL
 	force = 2
 	throwforce = 6
 	w_class = ITEM_SIZE_LARGE
+
 
 	var/safety = 1 //if you can zap people with the paddles on harm mode
 	var/combat = 0 //If it can be used to revive people wearing thick clothing (e.g. spacesuits)
@@ -240,7 +245,6 @@
 	else
 		wielded = 0
 		SetName(initial(name))
-	update_icon()
 	..()
 
 /obj/item/shockpaddles/on_update_icon()
@@ -296,12 +300,13 @@
 /obj/item/shockpaddles/proc/checked_use(charge_amt)
 	return 0
 
-/obj/item/shockpaddles/attack(mob/living/M, mob/living/user, target_zone)
+/obj/item/shockpaddles/use_before(mob/living/M, mob/living/user)
+	. = FALSE
 	var/mob/living/carbon/human/H = M
-	if(!istype(H) || user.a_intent == I_HURT)
-		return ..() //Do a regular attack. Harm intent shocking happens as a hit effect
+	if (!istype(H) || user.a_intent != I_HELP)
+		return FALSE
 
-	if(can_use(user, H))
+	if (can_use(user, H))
 		busy = 1
 		update_icon()
 
@@ -309,8 +314,7 @@
 
 		busy = 0
 		update_icon()
-
-	return 1
+	return TRUE
 
 //Since harm-intent now skips the delay for deliberate placement, you have to be able to hit them in combat in order to shock people.
 /obj/item/shockpaddles/apply_hit_effect(mob/living/target, mob/living/user, hit_zone)
@@ -385,7 +389,7 @@
 		var/obj/item/cell/C = potato.cell
 		C.give(chargecost)
 	H.AdjustSleeping(-60)
-	log_and_message_admins("used \a [src] to revive [key_name(H)].")
+	log_and_message_admins("used \a [src] to revive [key_name(H)].", user)
 
 
 /obj/item/shockpaddles/proc/do_electrocute(mob/living/carbon/human/H, mob/user, target_zone)
@@ -395,7 +399,7 @@
 		return
 
 	//no need to spend time carefully placing the paddles, we're just trying to shock them
-	user.visible_message(SPAN_DANGER("\The [user] slaps [src] onto [H]'s [affecting.name]."), SPAN_DANGER("You overcharge [src] and slap them onto [H]'s [affecting.name]."))
+	user.visible_message(SPAN_DANGER("\The [user] slaps [src] onto [H]'s [affecting.name]. [safety? "However, it fizzles out as the safety indicator flashes.": ""]"), SPAN_DANGER("You overcharge [src] and slap them onto [H]'s [affecting.name]. [safety? "However, it fizzles out as the safety indicator flashes.": ""]"))
 
 	//Just stop at awkwardly slapping electrodes on people if the safety is enabled
 	if(safety)
@@ -485,10 +489,10 @@
 		safety = new_safety
 		if(safety)
 			make_announcement("beeps, \"Safety protocols enabled!\"", "notice")
-			playsound(get_turf(src), 'sound/machines/defib_safetyon.ogg', 50, 0)
+			playsound(get_turf(src), 'sound/machines/defib_SafetyOn.ogg', 50, 0)
 		else
 			make_announcement("beeps, \"Safety protocols disabled!\"", "warning")
-			playsound(get_turf(src), 'sound/machines/defib_safetyoff.ogg', 50, 0)
+			playsound(get_turf(src), 'sound/machines/defib_safetyOff.ogg', 50, 0)
 		update_icon()
 	..()
 
@@ -520,6 +524,33 @@
 	safety = 0
 	wielded = 1
 
+	/// The defib module these paddles provide behavior for
+	var/obj/item/rig_module/device/defib/module
+
+/obj/item/shockpaddles/rig/Destroy()
+	if (module)
+		module.device = null
+		module = null
+	return ..()
+
+/obj/item/shockpaddles/rig/update_twohanding()
+	return
+
+/obj/item/shockpaddles/rig/can_use(mob/living/user, mob/living/carbon/human/target)
+	. = ..()
+	if (!.)
+		return
+	var/mob/living/carbon/human/wearer = module?.holder?.wearer
+	if (!wearer)
+		return FALSE
+	if (!wearer.HandsEmpty())
+		if (wearer == user)
+			to_chat(user, SPAN_WARNING("You need two hands free to do that."))
+		else
+			to_chat(user, SPAN_WARNING("\The [wearer] needs two hands free to do that."))
+		return FALSE
+	return TRUE
+
 /obj/item/shockpaddles/rig/check_charge(charge_amt)
 	if(istype(src.loc, /obj/item/rig_module/device/defib))
 		var/obj/item/rig_module/device/defib/module = src.loc
@@ -540,9 +571,12 @@
 */
 /obj/item/shockpaddles/linked
 	var/obj/item/defibrillator/base_unit
+	icon_state = "defibpaddles0"
 
 /obj/item/shockpaddles/linked/New(newloc, obj/item/defibrillator/defib)
 	base_unit = defib
+	if(base_unit.bcell)
+		icon_state = "defibpaddles1"
 	..(newloc)
 
 /obj/item/shockpaddles/linked/Destroy()

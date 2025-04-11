@@ -1,6 +1,6 @@
 #include "icarus_areas.dm"
 
-/obj/effect/overmap/visitable/sector/planetoid/icarus
+/obj/overmap/visitable/sector/planetoid/icarus
 	name = "forest planetoid"
 	desc = "Sensors detect anomalous radiation area with the presence of artificial structures."
 	icon_state = "globe"
@@ -11,16 +11,16 @@
 		"nav_icarus_antag"
 	)
 
-/obj/effect/overmap/visitable/sector/planetoid/icarus/New(nloc, max_x, max_y)
+/obj/overmap/visitable/sector/planetoid/icarus/New(nloc, max_x, max_y)
 	name = "[generate_planet_name()], \a [name]"
 	..()
 
-/obj/effect/icarus/irradiate
+/obj/icarus/irradiate
 	var/radiation_power = 20//20 Bq. Dangerous but survivable for 10-15 minutes if crew is too lazy to read away map description
 	var/datum/radiation_source/S
 	var/req_range = 100//to cover whole level
 
-/obj/effect/icarus/irradiate/Initialize()
+/obj/icarus/irradiate/Initialize()
 	. = ..()
 	S = new()
 	S.flat = TRUE
@@ -31,7 +31,7 @@
 	S.update_rad_power(radiation_power)
 	SSradiation.add_source(S)
 
-/obj/effect/icarus/irradiate/Destroy()
+/obj/icarus/irradiate/Destroy()
 	. = ..()
 	QDEL_NULL(S)
 
@@ -44,17 +44,17 @@
 	generate_mining_by_z = list(1,2)
 	area_coherency_test_exempt_areas = list(/area/icarus/open)
 
-/obj/effect/shuttle_landmark/nav_icarus/nav1
+/obj/shuttle_landmark/nav_icarus/nav1
 	name = "Planetary Navpoint #1"
 	landmark_tag = "nav_icarus_1"
 	flags = SLANDMARK_FLAG_AUTOSET
 
-/obj/effect/shuttle_landmark/nav_icarus/nav2
+/obj/shuttle_landmark/nav_icarus/nav2
 	name = "Planetary Navpoint #2"
 	landmark_tag = "nav_icarus_2"
 	flags = SLANDMARK_FLAG_AUTOSET
 
-/obj/effect/shuttle_landmark/nav_icarus/nav3
+/obj/shuttle_landmark/nav_icarus/nav3
 	name = "Planetary Navpoint #3"
 	landmark_tag = "nav_icarus_antag"
 	flags = SLANDMARK_FLAG_AUTOSET

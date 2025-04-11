@@ -4,7 +4,7 @@
 /obj/machinery/organ_printer
 	name = "organ printer"
 	desc = "It's a machine that prints organs."
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/machines/fabricators/organprinters.dmi'
 	icon_state = "bioprinter"
 
 	anchored = TRUE
@@ -23,17 +23,25 @@
 	// These should be subtypes of /obj/item/organ
 	var/list/products = list()
 
+/obj/machinery/organ_printer/Initialize()
+	. = ..()
+	queue_icon_update()
+
 /obj/machinery/organ_printer/state_transition(singleton/machine_construction/default/new_state)
 	. = ..()
 	if(istype(new_state))
 		updateUsrDialog()
 
 /obj/machinery/organ_printer/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(panel_open)
-		overlays += "[icon_state]_panel_open"
+		AddOverlays("[icon_state]_panel")
 	if(printing)
-		overlays += "[icon_state]_working"
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
+		AddOverlays("[icon_state]_lights_working")
+	else if(is_powered())
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
 
 /obj/machinery/organ_printer/examine(mob/user)
 	. = ..()
@@ -136,7 +144,7 @@
 
 /obj/machinery/organ_printer/robot/dismantle()
 	if(stored_matter >= matter_amount_per_sheet)
-		new /obj/item/stack/material/steel(get_turf(src), Floor(stored_matter/matter_amount_per_sheet))
+		new /obj/item/stack/material/steel(get_turf(src), floor(stored_matter/matter_amount_per_sheet))
 	return ..()
 
 /obj/machinery/organ_printer/robot/print_organ(choice)
@@ -149,7 +157,7 @@
 	playsound(src.loc, 'sound/machines/ding.ogg', 50, 1)
 	return O
 
-/obj/machinery/organ_printer/robot/attackby(obj/item/W, mob/user)
+/obj/machinery/organ_printer/robot/use_tool(obj/item/W, mob/living/user, list/click_params)
 	var/add_matter = 0
 	var/object_name = "[W]"
 
@@ -157,35 +165,38 @@
 		if((max_stored_matter-stored_matter) >= matter_amount_per_sheet)
 			var/obj/item/stack/S = W
 			var/space_left = max_stored_matter - stored_matter
-			var/sheets_to_take = min(S.amount, Floor(space_left/matter_amount_per_sheet))
+			var/sheets_to_take = min(S.amount, floor(space_left/matter_amount_per_sheet))
 			if(sheets_to_take > 0)
 				add_matter = min(max_stored_matter - stored_matter, sheets_to_take*matter_amount_per_sheet)
 				S.use(sheets_to_take)
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is too full."))
+			return TRUE
 
-	else if(istype(W,/obj/item/organ))
+	if(istype(W,/obj/item/organ))
 		var/obj/item/organ/O = W
 		if((O.organ_tag in products) && istype(O, products[O.organ_tag][1]))
 			if(!BP_IS_ROBOTIC(O))
 				to_chat(user, SPAN_WARNING("\The [src] only accepts robotic organs."))
-				return
+				return TRUE
 			if(max_stored_matter == stored_matter)
 				to_chat(user, SPAN_WARNING("\The [src] is too full."))
-			else
-				var/recycle_worth = Floor(products[O.organ_tag][2] * 0.5)
-				if((max_stored_matter-stored_matter) >= recycle_worth)
-					add_matter = recycle_worth
-					qdel(O)
+				return TRUE
+
+			var/recycle_worth = floor(products[O.organ_tag][2] * 0.5)
+			if((max_stored_matter-stored_matter) >= recycle_worth)
+				add_matter = recycle_worth
+				qdel(O)
+			return TRUE
 		else
 			to_chat(user, SPAN_WARNING("\The [src] does not know how to recycle \the [O]."))
-			return
+			return TRUE
 
 	stored_matter += add_matter
-
 	if(add_matter)
 		to_chat(user, SPAN_INFO("\The [src] processes \the [object_name]. Levels of stored matter now: [stored_matter]"))
-		return
+		return TRUE
+
 	return ..()
 // END ROBOT ORGAN PRINTER
 
@@ -195,6 +206,7 @@
 	desc = "It's a machine that prints replacement organs."
 	icon_state = "bioprinter"
 	base_type = /obj/machinery/organ_printer/flesh
+	construct_state = /singleton/machine_construction/default/panel_closed/cannot_print
 	machine_name = "bioprinter"
 	machine_desc = "Bioprinters can create surrogate organs for many species by using a blood sample from the intended recipient. Uses meat for biological matter."
 	// null amount means it will calculate the cost based on get_organ_cost()
@@ -204,7 +216,7 @@
 		/obj/item/organ = null
 		)
 	var/datum/dna/loaded_dna_datum
-	var/datum/species/loaded_species //For quick refrencing
+	var/singleton/species/loaded_species //For quick refrencing
 
 /obj/machinery/organ_printer/flesh/mapped/Initialize()
 	. = ..()
@@ -246,19 +258,20 @@
 
 	..(user, choice)
 
-/obj/machinery/organ_printer/flesh/attackby(obj/item/W, mob/user)
+/obj/machinery/organ_printer/flesh/use_tool(obj/item/W, mob/living/user, list/click_params)
 	// Load with matter for printing.
 	for(var/path in amount_list)
 		if(istype(W, path))
 			if(max_stored_matter == stored_matter)
 				to_chat(user, SPAN_WARNING("\The [src] is too full."))
-				return
+				return TRUE
 			if(!user.unEquip(W))
-				return
+				return TRUE
 			var/add_matter = amount_list[path] ? amount_list[path] : 0.5*get_organ_cost(W)
 			stored_matter += min(add_matter, max_stored_matter - stored_matter)
 			to_chat(user, SPAN_INFO("\The [src] processes \the [W]. Levels of stored biomass now: [stored_matter]"))
 			qdel(W)
+			return TRUE
 
 	// DNA sample from syringe.
 	if(istype(W,/obj/item/reagent_containers/syringe))
@@ -274,7 +287,10 @@
 				products = get_possible_products()
 				to_chat(user, SPAN_INFO("You inject the blood sample into the bioprinter."))
 				return TRUE
-		to_chat(user, SPAN_NOTICE("\The [src] displays an error: no viable blood sample could be obtained from \the [W]."))
+		else
+			to_chat(user, SPAN_NOTICE("\The [src] displays an error: no viable blood sample could be obtained from \the [W]."))
+			return TRUE
+
 	return ..()
 
 /obj/machinery/organ_printer/flesh/proc/get_possible_products()

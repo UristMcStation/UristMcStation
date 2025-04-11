@@ -48,6 +48,11 @@
 	use_power_cost = 0//Already handled by defib, but it's 150 Wh, normal defib takes 100
 	device = /obj/item/shockpaddles/rig
 
+/obj/item/rig_module/device/defib/Initialize()
+	. = ..()
+	var/obj/item/shockpaddles/rig/paddles = device
+	paddles.module = src
+
 /obj/item/rig_module/device/drill
 	name = "hardsuit mounted drill"
 	desc = "A very heavy diamond-tipped drill."
@@ -96,7 +101,7 @@
 	scanner.put_disk_in_hand(holder.wearer)
 
 /obj/item/rig_module/device/rcd
-	name = "RCD mount"
+	name = "\improper RCD mount"
 	desc = "A cell-powered rapid construction device for a hardsuit."
 	icon_state = "rcd"
 	interface_name = "mounted RCD"
@@ -124,9 +129,8 @@
 	if(!target.Adjacent(holder.wearer))
 		return 0
 
-	var/resolved = target.attackby(device,holder.wearer)
-	if(!resolved && device && target)
-		device.afterattack(target,holder.wearer,1)
+	var/mob/user = holder.wearer
+	device.resolve_attackby(target, user)
 	return 1
 
 
@@ -222,7 +226,7 @@
 	if(!charge)
 		return 0
 
-	var/chems_to_use = 10
+	var/chems_to_use = 5
 	if(charge.charges <= 0)
 		to_chat(H, SPAN_DANGER("Insufficient chems!"))
 		return 0
@@ -310,7 +314,7 @@
 	holder.speech = null
 	holder.verbs -= /obj/item/rig/proc/alter_voice
 
-/obj/item/rig_module/voice/engage()
+/obj/item/rig_module/voice/engage(atom/target)
 
 	if(!..())
 		return 0
@@ -360,7 +364,7 @@
 	origin_tech = list(TECH_MATERIAL = 6,  TECH_ENGINEERING = 7)
 	var/obj/item/tank/jetpack/rig/jets
 
-/obj/item/rig_module/maneuvering_jets/engage()
+/obj/item/rig_module/maneuvering_jets/engage(atom/target)
 	if(!..())
 		return 0
 	jets.toggle_rockets()
@@ -477,6 +481,7 @@
 
 /obj/item/rig_module/cooling_unit
 	name = "mounted cooling unit"
+	icon_state = "cooling"
 	toggleable = 1
 	origin_tech = list(TECH_MAGNET = 2, TECH_MATERIAL = 2, TECH_ENGINEERING = 5)
 	interface_name = "mounted cooling unit"
@@ -515,11 +520,11 @@
 	var/atom/movable/locked
 	var/datum/beam = null
 	var/max_dist = 4
-	var/obj/effect/effect/warp/small/warpeffect = null
+	var/obj/effect/warp/small/warpeffect = null
 
 /obj/item/rig_module/kinetic_module/proc/beamdestroyed()
 	if(beam)
-		GLOB.destroyed_event.unregister(beam, src, .proc/beamdestroyed)
+		GLOB.destroyed_event.unregister(beam, src, PROC_REF(beamdestroyed))
 		beam = null
 	if(locked)
 		if(holder.wearer)
@@ -548,8 +553,8 @@
 				to_chat(user, SPAN_NOTICE("Unable to lock on [target]."))
 				return
 			locked = AM
-			beam = holder.wearer.Beam(BeamTarget = target, icon_state = "r_beam", maxdistance = max_dist, beam_type = /obj/effect/ebeam/warp)
-			GLOB.destroyed_event.register(beam, src, .proc/beamdestroyed)
+			beam = holder.wearer.Beam(BeamTarget = target, icon_state = "r_beam", maxdistance = max_dist, beam_type = /obj/ebeam/warp)
+			GLOB.destroyed_event.register(beam, src, PROC_REF(beamdestroyed))
 
 			animate(target,pixel_y= initial(target.pixel_y) - 2,time=1 SECOND, easing = SINE_EASING, flags = ANIMATION_PARALLEL, loop = -1)
 			animate(pixel_y= initial(target.pixel_y) + 2,time=1 SECOND)
@@ -560,7 +565,6 @@
 			return
 		else if(target != locked)
 			if(locked in view(holder.wearer))
-				admin_attack_log(holder.wearer, holder.loc, "used [src] to throw their target at [target].")
 				endanimation() //End animation without waiting for delete, so throw won't be affected
 				locked.throw_at(target, 14, 1.5, holder.wearer)
 				locked = null

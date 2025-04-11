@@ -4,7 +4,7 @@
 	anchored = TRUE
 	density = TRUE
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
-	icon = 'icons/obj/virology.dmi'
+	icon = 'icons/obj/machines/research/virology.dmi'
 	icon_state = "analyser"
 
 	idle_power_usage = 20
@@ -63,41 +63,48 @@
 	ui_interact(user)
 	return TRUE
 
-/obj/machinery/radiocarbon_spectrometer/attackby(obj/I as obj, mob/user as mob)
+/obj/machinery/radiocarbon_spectrometer/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(scanning)
 		to_chat(user, SPAN_WARNING("You can't do that while [src] is scanning!"))
-	else
-		if(istype(I, /obj/item/stack/nanopaste))
-			var/choice = alert("What do you want to do with the nanopaste?","Radiometric Scanner","Scan nanopaste","Fix seal integrity")
-			if(choice == "Fix seal integrity")
-				var/obj/item/stack/nanopaste/N = I
-				var/amount_used = min(N.get_amount(), 10 - scanner_seal_integrity / 10)
-				N.use(amount_used)
-				scanner_seal_integrity = round(scanner_seal_integrity + amount_used * 10)
-				return
-		if(istype(I, /obj/item/reagent_containers/glass))
-			var/choice = alert("What do you want to do with the container?","Radiometric Scanner","Add coolant","Empty coolant","Scan container")
-			if(choice == "Add coolant")
-				var/obj/item/reagent_containers/glass/G = I
-				var/amount_transferred = min(src.reagents.maximum_volume - src.reagents.total_volume, G.reagents.total_volume)
-				G.reagents.trans_to(src, amount_transferred)
-				to_chat(user, SPAN_INFO("You empty [amount_transferred]u of coolant into [src]."))
-				update_coolant()
-				return
-			else if(choice == "Empty coolant")
-				var/obj/item/reagent_containers/glass/G = I
-				var/amount_transferred = min(G.reagents.maximum_volume - G.reagents.total_volume, src.reagents.total_volume)
-				src.reagents.trans_to(G, amount_transferred)
-				to_chat(user, SPAN_INFO("You remove [amount_transferred]u of coolant from [src]."))
-				update_coolant()
-				return
-		if(scanned_item)
-			to_chat(user, SPAN_WARNING("\The [src] already has \a [scanned_item] inside!"))
-			return
-		if(!user.unEquip(I, src))
-			return
-		scanned_item = I
-		to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
+		return TRUE
+
+	if ((. = ..()))
+		return
+
+	if (istype(I, /obj/item/stack/nanopaste))
+		var/choice = alert("What do you want to do with the nanopaste?","Radiometric Scanner","Scan nanopaste","Fix seal integrity")
+		if(choice == "Fix seal integrity")
+			var/obj/item/stack/nanopaste/N = I
+			var/amount_used = min(N.get_amount(), 10 - scanner_seal_integrity / 10)
+			N.use(amount_used)
+			scanner_seal_integrity = round(scanner_seal_integrity + amount_used * 10)
+			return TRUE
+
+	if (istype(I, /obj/item/reagent_containers/glass))
+		var/choice = alert("What do you want to do with the container?","Radiometric Scanner","Add coolant","Empty coolant","Scan container")
+		if(choice == "Add coolant")
+			var/obj/item/reagent_containers/glass/G = I
+			var/amount_transferred = min(reagents.maximum_volume - reagents.total_volume, G.reagents.total_volume)
+			G.reagents.trans_to(src, amount_transferred)
+			to_chat(user, SPAN_INFO("You empty [amount_transferred]u of coolant into \the [src]."))
+			update_coolant()
+			return TRUE
+		else if(choice == "Empty coolant")
+			var/obj/item/reagent_containers/glass/G = I
+			var/amount_transferred = min(G.reagents.maximum_volume - G.reagents.total_volume, src.reagents.total_volume)
+			reagents.trans_to(G, amount_transferred)
+			to_chat(user, SPAN_INFO("You remove [amount_transferred]u of coolant from \the [src]."))
+			update_coolant()
+			return TRUE
+
+	if (scanned_item)
+		to_chat(user, SPAN_WARNING("\The [src] already has \a [scanned_item] inside!"))
+		return TRUE
+	if (!user.unEquip(I, src))
+		return TRUE
+	scanned_item = I
+	to_chat(user, SPAN_NOTICE("You put \the [I] into \the [src]."))
+	return TRUE
 
 /obj/machinery/radiocarbon_spectrometer/proc/update_coolant()
 	var/total_purity = 0
@@ -293,7 +300,7 @@
 
 		var/anom_found = 0
 		if(G)
-			data = " - Spectometric analysis on mineral sample has determined type [finds_as_strings[responsive_carriers.Find(G.source_mineral)]]<br>"
+			data = " - Spectometric analysis on mineral sample has determined type [GLOB.responsive_carriers_to_finds[G.source_mineral]]<br>"
 			if(G.age_billion > 0)
 				data += " - Radiometric dating shows age of [G.age_billion].[G.age_million] billion years<br>"
 			else if(G.age_million > 0)
@@ -302,10 +309,8 @@
 				data += " - Radiometric dating shows age of [G.age_thousand * 1000 + G.age] years<br>"
 			data += " - Chromatographic analysis shows the following materials present:<br>"
 			for(var/carrier in G.find_presence)
-				if(G.find_presence[carrier])
-					var/index = responsive_carriers.Find(carrier)
-					if(index > 0 && index <= length(finds_as_strings))
-						data += "	> [100 * G.find_presence[carrier]]% [finds_as_strings[index]]<br>"
+				if (G.find_presence[carrier] && GLOB.responsive_carriers_to_finds[carrier])
+					data += "	> [100 * G.find_presence[carrier]]% [GLOB.responsive_carriers_to_finds[carrier]]<br>"
 
 			if(G.artifact_id && G.artifact_distance >= 0)
 				anom_found = 1

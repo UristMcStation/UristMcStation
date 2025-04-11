@@ -1,7 +1,7 @@
-/obj/effect/portal
+/obj/portal
 	name = "portal"
 	desc = "Looks unstable. Best to test it with the clown."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/portals.dmi'
 	icon_state = "portal"
 	density = TRUE
 	unacidable = TRUE
@@ -11,25 +11,25 @@
 	var/dangerous = 0
 	var/failchance = 0
 
-/obj/effect/portal/Bumped(mob/M as mob|obj)
+/obj/portal/Bumped(mob/M as mob|obj)
 	spawn(0)
 		src.teleport(M)
 		return
 	return
 
-/obj/effect/portal/Crossed(AM as mob|obj)
+/obj/portal/Crossed(AM as mob|obj)
 	spawn(0)
 		src.teleport(AM)
 		return
 	return
 
-/obj/effect/portal/attack_hand(mob/user as mob)
+/obj/portal/attack_hand(mob/user as mob)
 	spawn(0)
 		src.teleport(user)
 		return
 	return
 
-/obj/effect/portal/New(start, end, delete_after = 300, failure_rate)
+/obj/portal/New(start, end, delete_after = 300, failure_rate)
 	..()
 	if(failure_rate)
 		failchance = failure_rate
@@ -43,11 +43,11 @@
 		spawn(delete_after)
 			qdel(src)
 
-/obj/effect/portal/Destroy()
+/obj/portal/Destroy()
 	target = null
 	. = ..()
 
-/obj/effect/portal/proc/teleport(atom/movable/M as mob|obj)
+/obj/portal/proc/teleport(atom/movable/M as mob|obj)
 	if(istype(M, /obj/effect)) //sparks don't teleport
 		return
 	if (icon_state == "portal1")
@@ -55,7 +55,7 @@
 	if (!( target ))
 		qdel(src)
 		return
-	if (istype(M, /atom/movable))
+	if (ismovable(M))
 		if(dangerous && prob(failchance)) //oh dear a problem, put em in deep space
 			var/destination_z = GLOB.using_map.get_transit_zlevel(z)
 			do_teleport(M, locate(rand(TRANSITIONEDGE, world.maxx - TRANSITIONEDGE), rand(TRANSITIONEDGE, world.maxy -TRANSITIONEDGE), destination_z), 0)

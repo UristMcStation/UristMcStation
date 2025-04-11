@@ -1,7 +1,7 @@
 /obj/item/reagent_containers/borghypo
 	name = "robot hypospray"
 	desc = "An advanced chemical synthesizer and injection system, designed for heavy-duty medical equipment."
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'icons/obj/tools/syringe.dmi'
 	item_state = "hypo"
 	icon_state = "borghypo"
 	amount_per_transfer_from_this = 5
@@ -56,22 +56,25 @@
 					reagent_volumes[T] = min(reagent_volumes[T] + 5, volume)
 	return 1
 
-/obj/item/reagent_containers/borghypo/attack(mob/living/M, mob/user, target_zone)
-	if(!istype(M))
-		return
+/obj/item/reagent_containers/borghypo/use_before(mob/living/M, mob/user)
+	. = FALSE
+	if (!istype(M))
+		return FALSE
 
-	if(mode && !reagent_volumes[reagent_ids[mode]])
+	if (mode && !reagent_volumes[reagent_ids[mode]])
 		to_chat(user, SPAN_WARNING("\The [src] is empty."))
-		return
+		return TRUE
 	var/obj/item/reagent_containers/container = null
 	if (!mode)
 		container = dispense.resolve()
 		if (!valid_container(user, container))
 			to_chat(user, SPAN_WARNING("Can't find the container to dispense from."))
-			return
+			return TRUE
 		if (!container.reagents?.total_volume)
 			to_chat(user, SPAN_WARNING("\The [container] is empty."))
+			return TRUE
 
+	var/target_zone = user.zone_sel.selecting
 	var/allow = M.can_inject(user, target_zone)
 	if (allow)
 		if (allow == INJECTION_PORT)
@@ -79,11 +82,11 @@
 			if(!do_after(user, INJECTION_PORT_DELAY, M, do_flags = DO_MEDICAL))
 				return
 		to_chat(user, SPAN_NOTICE("You inject [M] with the injector."))
-		if(ishuman(M))
+		if (ishuman(M))
 			var/mob/living/carbon/human/H = M
 			H.custom_pain(SPAN_WARNING("You feel a tiny prick!"), 1, TRUE, H.get_organ(user.zone_sel.selecting))
 
-		if(M.reagents)
+		if (M.reagents)
 			if (mode)
 				var/datum/reagent/R = reagent_ids[mode]
 				var/should_admin_log = initial(R.should_admin_log)
@@ -93,6 +96,7 @@
 				if (should_admin_log)
 					admin_inject_log(user, M, src, R, transferred)
 				to_chat(user, SPAN_NOTICE("[transferred] units injected. [reagent_volumes[R]] units remaining."))
+				return TRUE
 			else
 				var/datum/reagents/R = container.reagents
 				var/should_admin_log = R.should_admin_log()
@@ -101,7 +105,7 @@
 				if (should_admin_log)
 					admin_inject_log(user, M, src, contained, transferred)
 				to_chat(user, SPAN_NOTICE("[transferred] units injected. [R.total_volume] units remaining in \the [container]."))
-	return
+				return TRUE
 
 /obj/item/reagent_containers/borghypo/attack_self(mob/user as mob)
 	ui_interact(user)
@@ -203,7 +207,7 @@
 /obj/item/reagent_containers/borghypo/service
 	name = "cyborg drink synthesizer"
 	desc = "A portable drink dispencer."
-	icon = 'icons/obj/drinks.dmi'
+	icon = 'icons/obj/food/drinks/misc.dmi'
 	icon_state = "shaker"
 	charge_cost = 5
 	recharge_time = 3
@@ -245,25 +249,24 @@
 		/datum/reagent/ethanol/coffee/kahlua
 		)
 
-/obj/item/reagent_containers/borghypo/service/attack(mob/M, mob/user)
-	return
+/obj/item/reagent_containers/borghypo/service/use_before(mob/M, mob/user)
+	return FALSE //We don't want the service borg to be able to inject alcohol into blood.
 
-/obj/item/reagent_containers/borghypo/service/afterattack(obj/target, mob/user, proximity)
-	if(!proximity)
-		return
-
-	if(!target.is_open_container() || !target.reagents)
-		return
-
+/obj/item/reagent_containers/borghypo/service/use_after(obj/target, mob/living/user, click_parameters)
+	if (!target.reagents)
+		return FALSE
+	if(!target.is_open_container())
+		to_chat(user, SPAN_WARNING("\The [target] is capped."))
+		return TRUE
 	if(!target.reagents.get_free_space())
-		to_chat(user, SPAN_WARNING("[target] is full."))
-		return
+		to_chat(user, SPAN_WARNING("\The [target] is full."))
+		return TRUE
 
 	if (mode)
 		var/datum/reagent/R = reagent_ids[mode]
 		if(!reagent_volumes[R])
-			to_chat(user, SPAN_WARNING("[src] is out of this reagent, give it some time to refill."))
-			return
+			to_chat(user, SPAN_WARNING("\The [src] is out of this reagent, give it some time to refill."))
+			return TRUE
 		var/transferred = min(amount_per_transfer_from_this, reagent_volumes[R])
 		target.reagents.add_reagent(R, transferred)
 		reagent_volumes[R] -= transferred
@@ -272,17 +275,18 @@
 		var/obj/item/reagent_containers/container = dispense.resolve()
 		if (!valid_container(user, container))
 			to_chat(user, SPAN_WARNING("Can't find the container to dispense from."))
-			return
+			return TRUE
 		var/datum/reagents/R = container.reagents
 		if (!R || !R.total_volume)
 			to_chat(user, SPAN_WARNING("\The [container] is empty."))
 		var/transferred = R.trans_to_holder(target.reagents, amount_per_transfer_from_this)
 		to_chat(user, "You transfer [transferred] units of the solution to [target].")
+	return TRUE
 
 
 /obj/item/robot_rack/bottle
 	name = "bottle rack"
-	icon = 'icons/obj/chemical.dmi'
+	icon = 'icons/obj/chemical_storage.dmi'
 	icon_state = "bottle-1"
 	object_type = /obj/item/reagent_containers/glass/bottle
 	capacity = 4
@@ -297,9 +301,11 @@
 		if (istype(hypo))
 			to_chat(user, "Its contents are available to \the [hypo].")
 
-// Extra message for if you try to pick up beakers
-/obj/item/robot_rack/bottle/resolve_attackby(obj/O, mob/user, click_params)
-	if (!istype(O, object_type) && istype(O, /obj/item/reagent_containers/glass))
-		to_chat(user, SPAN_WARNING("\The [O] is the wrong shape for \the [src]."))
-		return
-	. = ..()
+
+/obj/item/robot_rack/bottle/use_before(atom/target, mob/living/user, click_parameters)
+	// Can't pick up beakers
+	if (!istype(target, object_type) && istype(target, /obj/item/reagent_containers/glass))
+		USE_FEEDBACK_FAILURE("\The [target] is the wrong shape for \the [src].")
+		return TRUE
+
+	return ..()

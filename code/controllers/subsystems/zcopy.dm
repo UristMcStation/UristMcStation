@@ -1,12 +1,13 @@
-#define SHADOWER_DARKENING_FACTOR 0.6	// The multiplication factor for openturf shadower darkness. Lighting will be multiplied by this.
-#define SHADOWER_DARKENING_COLOR "#999999"	// The above, but as an RGB string for lighting-less turfs.
+#define SHADOWER_DARKENING_FACTOR 0.8	// The multiplication factor for openturf shadower darkness. Lighting will be multiplied by this.
+#define SHADOWER_DARKENING_COLOR "#00000033"	// The above, but as an RGB string for lighting-less turfs.
+//Bay can't do multiplicative lighting for zmimic currently so we change alpha, this does mean full lit turfs need a different colour. TODO: Take another look at zmimic render setup
 
 SUBSYSTEM_DEF(zcopy)
 	name = "Z-Copy"
 	wait = 1
 	init_order = SS_INIT_ZCOPY
 	priority = SS_PRIORITY_ZCOPY
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	runlevels = RUNLEVELS_PREGAME | RUNLEVELS_GAME
 
 	var/list/queued_turfs = list()
 	var/qt_idex = 1
@@ -181,6 +182,9 @@ SUBSYSTEM_DEF(zcopy)
 			T.z_generation += 1
 			T.z_queued -= 1
 
+			if (T.above)
+				T.above.update_mimic()
+
 			if (no_mc_tick)
 				CHECK_TICK
 			else if (MC_TICK_CHECK)
@@ -257,7 +261,7 @@ SUBSYSTEM_DEF(zcopy)
 			TO.plane = t_target
 			TO.mouse_opacity = initial(TO.mouse_opacity)
 
-		T.queue_ao(T.ao_neighbors_mimic == null)	// If ao_neighbors hasn't been set yet, we need to do a rebuild
+		T.queue_ao(isnull(T.ao_neighbors_mimic))	// If ao_neighbors hasn't been set yet, we need to do a rebuild
 
 		// Explicitly copy turf delegates so they show up properly on below levels.
 		//   I think it's possible to get this to work without discrete delegate copy objects, but I'd rather this just work.
@@ -268,7 +272,7 @@ SUBSYSTEM_DEF(zcopy)
 			var/atom/movable/openspace/turf_mimic/DC = T.below.mimic_above_copy
 			DC.appearance = T.below
 			DC.mouse_opacity = initial(DC.mouse_opacity)
-			DC.plane = OPENTURF_MAX_PLANE
+			DC.plane = OPENTURF_MAX_PLANE - turf_depth - 1
 
 		else if (T.below.mimic_above_copy)
 			QDEL_NULL(T.below.mimic_above_copy)
@@ -284,7 +288,7 @@ SUBSYSTEM_DEF(zcopy)
 
 			// Special case: these are merged into the shadower to reduce memory usage.
 			if (object.type == /atom/movable/lighting_overlay)
-				//T.shadower.copy_lighting(object)
+				T.shadower.copy_lighting(object)
 				continue
 
 			if (!object.bound_overlay)	// Generate a new overlay if the atom doesn't already have one.
@@ -297,6 +301,7 @@ SUBSYSTEM_DEF(zcopy)
 			var/have_performed_fixup = FALSE
 
 			switch (object.type)
+				// Layering for recursive mimic needs to be inherited.
 				if (/atom/movable/openspace/mimic)
 					var/atom/movable/openspace/mimic/OOO = object
 					original_type = OOO.mimiced_type
@@ -490,7 +495,7 @@ SUBSYSTEM_DEF(zcopy)
 
 		if (mutated)
 			for (var/i in 1 to length(fixed_overlays))
-				if (fixed_overlays[i] == null)
+				if (isnull(fixed_overlays[i]))
 					fixed_overlays[i] = appearance:overlays[i]
 
 	// Scan & fix underlays
@@ -507,7 +512,7 @@ SUBSYSTEM_DEF(zcopy)
 
 		if (mutated)
 			for (var/i in 1 to  length(fixed_overlays))
-				if (fixed_underlays[i] == null)
+				if (isnull(fixed_underlays[i]))
 					fixed_underlays[i] = appearance:underlays[i]
 
 	// If we did nothing (no violations), don't bother creating a new appearance
@@ -524,7 +529,7 @@ SUBSYSTEM_DEF(zcopy)
 		MA.layer = FLY_LAYER	// probably fine
 
 	if (fixed_overlays)
-		MA.overlays = fixed_overlays
+		MA.AddOverlays(fixed_overlays)
 
 	if (fixed_underlays)
 		MA.underlays = fixed_underlays
@@ -533,7 +538,7 @@ SUBSYSTEM_DEF(zcopy)
 
 	return MA
 
-#define FMT_DEPTH(X) (X == null ? "(null)" : X)
+#define FMT_DEPTH(X) (isnull(X) ? "(null)" : X)
 
 // This is a dummy object used so overlays can be shown in the analyzer.
 /atom/movable/openspace/debug

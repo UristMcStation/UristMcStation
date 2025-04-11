@@ -9,15 +9,17 @@ var/global/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	else \
 		{speed_var = SANITIZE_SPEED((speed_var + v_diff)/(1 + speed_var*v_diff/(max_speed ** 2)))}
 // Uses Lorentzian dynamics to avoid going too fast.
-
-/obj/effect/overmap/visitable/ship
+#define SENSOR_COEFFICENT 1000
+/obj/overmap/visitable/ship
 	name = "generic ship"
 	desc = "Space faring vessel."
 	icon_state = "ship"
+	requires_contact = TRUE
 	var/classification = "Ship"			//Let's allow for more detail on comms/consoles
 	var/ship_name = "generic ship"		//So we don't have the descriptor in the ship name
 	var/moving_state = "ship_moving"
 	var/list/consoles
+	var/list/sensors
 
 	var/vessel_mass = 10000             // tonnes, arbitrary number, affects acceleration provided by engines
 	var/vessel_size = SHIP_SIZE_LARGE	// arbitrary number, affects how likely are we to evade meteors
@@ -31,59 +33,75 @@ var/global/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	var/burn_delay = 1 SECOND           // how often ship can do burns
 	var/fore_dir = NORTH                // what dir ship flies towards for purpose of moving stars effect procs
 
+	/// How much it increases identification process each scan
+	var/base_sensor_visibility = 10
+
+	var/list/navigation_viewers // list of weakrefs to people viewing the overmap via this ship
+
 	var/list/engines = list()
 	var/engines_state = 0 //global on/off toggle for all engines
 	var/thrust_limit = 1  //global thrust limit for all engines, 0..1
 	var/halted = 0        //admin halt or other stop.
 	var/skill_needed = SKILL_NONE  //piloting skill needed to steer it without going in random dir
 
-/obj/effect/overmap/visitable/ship/Initialize()
+/obj/overmap/visitable/ship/Initialize()
 	. = ..()
 	glide_size = world.icon_size
 	min_speed = round(min_speed, SHIP_MOVE_RESOLUTION)
 	max_speed = round(max_speed, SHIP_MOVE_RESOLUTION)
 	SSshuttle.ships += src
 	START_PROCESSING(SSobj, src)
+	base_sensor_visibility = initial(base_sensor_visibility) + round(sqrt(vessel_mass/SENSOR_COEFFICENT),1)
 
-/obj/effect/overmap/visitable/ship/Destroy()
+/obj/overmap/visitable/ship/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	SSshuttle.ships -= src
-	if(LAZYLEN(consoles))
+	if(length(consoles))
 		for(var/obj/machinery/computer/ship/machine in consoles)
 			if(machine.linked == src)
 				machine.linked = null
 		consoles = null
+	if (length(sensors))
+		for (var/obj/machinery/shipsensors/machine in sensors)
+			if (machine.linked == src)
+				machine.linked = null
+		sensors = null
 	. = ..()
 
-/obj/effect/overmap/visitable/ship/relaymove(mob/user, direction, accel_limit)
+/obj/overmap/visitable/ship/relaymove(mob/user, direction, accel_limit)
 	accelerate(direction, accel_limit)
 
 
-/obj/effect/overmap/visitable/ship/proc/is_still()
+/obj/overmap/visitable/ship/proc/is_still()
 	return !MOVING(speed[1]) && !MOVING(speed[2])
 
-/obj/effect/overmap/visitable/ship/get_scan_data(mob/user)
+/obj/overmap/visitable/ship/get_scan_data(mob/user)
 	. = ..()
+	var/list/extra_data = list("Mass: [vessel_mass] tons.")
 	if(!is_still())
-		. += "<br>Heading: [get_heading_angle()], speed [get_speed() * 1000]"
+		extra_data += "Heading: [get_heading_angle()], speed [get_speed() * 1000]"
+	if(instant_contact)
+		extra_data += "<b>It is broadcasting a distress signal.</b>"
+	. += jointext(extra_data, "<br>")
+
 
 //Projected acceleration based on information from engines
-/obj/effect/overmap/visitable/ship/proc/get_acceleration()
+/obj/overmap/visitable/ship/proc/get_acceleration()
 	return round(2 * (get_total_thrust()/get_vessel_mass()), SHIP_MOVE_RESOLUTION)
 
 //Does actual burn and returns the resulting acceleration
-/obj/effect/overmap/visitable/ship/proc/get_burn_acceleration()
+/obj/overmap/visitable/ship/proc/get_burn_acceleration()
 	return round(2 * (burn() / get_vessel_mass()), SHIP_MOVE_RESOLUTION)
 
-/obj/effect/overmap/visitable/ship/proc/get_vessel_mass()
+/obj/overmap/visitable/ship/proc/get_vessel_mass()
 	. = vessel_mass
-	for(var/obj/effect/overmap/visitable/ship/ship in src)
+	for(var/obj/overmap/visitable/ship/ship in src)
 		. += ship.get_vessel_mass()
 
-/obj/effect/overmap/visitable/ship/proc/get_speed()
+/obj/overmap/visitable/ship/proc/get_speed()
 	return round(sqrt(speed[1] ** 2 + speed[2] ** 2), SHIP_MOVE_RESOLUTION)
 
-/obj/effect/overmap/visitable/ship/proc/get_heading()
+/obj/overmap/visitable/ship/proc/get_heading()
 	var/res = 0
 	if(MOVING(speed[1]))
 		if(speed[1] > 0)
@@ -97,13 +115,13 @@ var/global/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 			res |= SOUTH
 	return res
 
-/obj/effect/overmap/visitable/ship/proc/get_heading_angle()
+/obj/overmap/visitable/ship/proc/get_heading_angle()
 	var/res = 0
 	if (MOVING(speed[1]) || MOVING(speed[2]))
 		res = (round(Atan2(speed[1], -speed[2])) + 450)%360
 	return res
 
-/obj/effect/overmap/visitable/ship/proc/adjust_speed(n_x, n_y)
+/obj/overmap/visitable/ship/proc/adjust_speed(n_x, n_y)
 	CHANGE_SPEED_BY(speed[1], n_x)
 	CHANGE_SPEED_BY(speed[2], n_y)
 	for(var/zz in map_z)
@@ -113,7 +131,7 @@ var/global/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 			toggle_move_stars(zz, fore_dir)
 	update_icon()
 
-/obj/effect/overmap/visitable/ship/proc/get_brake_path()
+/obj/overmap/visitable/ship/proc/get_brake_path()
 	if(!get_acceleration())
 		return INFINITY
 	if(is_still())
@@ -126,7 +144,7 @@ var/global/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	var/burns_per_grid = 1/ (burn_delay * get_speed())
 	return round(num_burns/burns_per_grid)
 
-/obj/effect/overmap/visitable/ship/proc/decelerate(accel_limit)
+/obj/overmap/visitable/ship/proc/decelerate(accel_limit)
 	if ((!speed[1] && !speed[2]) || !can_burn())
 		return
 	last_burn = world.time
@@ -137,7 +155,7 @@ var/global/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	else
 		adjust_speed(-(speed[1] * delta) / mag, -(speed[2] * delta) / mag)
 
-/obj/effect/overmap/visitable/ship/proc/accelerate(direction, accel_limit)
+/obj/overmap/visitable/ship/proc/accelerate(direction, accel_limit)
 	if (!direction || !can_burn())
 		return
 	last_burn = world.time
@@ -149,16 +167,16 @@ var/global/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		dy *= 0.5
 	adjust_speed(delta * dx, delta * dy)
 
-/obj/effect/overmap/visitable/ship/Process()
+/obj/overmap/visitable/ship/Process()
 	if(!halted && !is_still())
 		var/list/deltas = list(0,0)
 		for(var/i = 1 to 2)
 			if(MOVING(speed[i]))
 				position[i] += speed[i] * OVERMAP_SPEED_CONSTANT
 				if(position[i] < 0)
-					deltas[i] = Ceil(position[i])
+					deltas[i] = ceil(position[i])
 				else if(position[i] > 0)
-					deltas[i] = Floor(position[i])
+					deltas[i] = floor(position[i])
 				if(deltas[i] != 0)
 					position[i] -= deltas[i]
 					position[i] += (deltas[i] > 0) ? -1 : 1
@@ -168,8 +186,9 @@ var/global/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		if(newloc && loc != newloc)
 			Move(newloc)
 			handle_wraparound()
+	sensor_visibility = min(round(base_sensor_visibility + get_speed_sensor_increase(), 1), 100)
 
-/obj/effect/overmap/visitable/ship/on_update_icon()
+/obj/overmap/visitable/ship/on_update_icon()
 	pixel_x = position[1] * (world.icon_size/2)
 	pixel_y = position[2] * (world.icon_size/2)
 	if(!is_still())
@@ -186,15 +205,15 @@ var/global/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 					M.client.pixel_y = pixel_y
 	..()
 
-/obj/effect/overmap/visitable/ship/proc/burn()
+/obj/overmap/visitable/ship/proc/burn()
 	for(var/datum/ship_engine/E in engines)
 		. += E.burn()
 
-/obj/effect/overmap/visitable/ship/proc/get_total_thrust()
+/obj/overmap/visitable/ship/proc/get_total_thrust()
 	for(var/datum/ship_engine/E in engines)
 		. += E.get_thrust()
 
-/obj/effect/overmap/visitable/ship/proc/can_burn()
+/obj/overmap/visitable/ship/proc/can_burn()
 	if(halted)
 		return 0
 	if (world.time < last_burn + burn_delay)
@@ -203,14 +222,14 @@ var/global/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		. |= E.can_burn()
 
 //deciseconds to next step
-/obj/effect/overmap/visitable/ship/proc/ETA()
+/obj/overmap/visitable/ship/proc/ETA()
 	. = INFINITY
 	for(var/i = 1 to 2)
 		if(MOVING(speed[i]))
 			. = min(., ((speed[i] > 0 ? 1 : -1) - position[i]) / speed[i])
-	. = max(Ceil(.),0)
+	. = max(ceil(.),0)
 
-/obj/effect/overmap/visitable/ship/proc/handle_wraparound()
+/obj/overmap/visitable/ship/proc/handle_wraparound()
 	var/nx = x
 	var/ny = y
 	var/low_edge = 1
@@ -231,21 +250,21 @@ var/global/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 	if(T)
 		forceMove(T)
 
-/obj/effect/overmap/visitable/ship/proc/halt()
+/obj/overmap/visitable/ship/proc/halt()
 	adjust_speed(-speed[1], -speed[2])
 	halted = 1
 
-/obj/effect/overmap/visitable/ship/proc/unhalt()
+/obj/overmap/visitable/ship/proc/unhalt()
 	if(!SSshuttle.overmap_halted)
 		halted = 0
 
-/obj/effect/overmap/visitable/ship/Bump(atom/A)
+/obj/overmap/visitable/ship/Bump(atom/A, called)
 	if(istype(A,/turf/unsimulated/map/edge))
 		handle_wraparound()
 	..()
 
 
-/obj/effect/overmap/visitable/ship/populate_sector_objects()
+/obj/overmap/visitable/ship/populate_sector_objects()
 	..()
 	for(var/obj/machinery/computer/ship/S in SSmachines.machinery)
 		S.attempt_hook_up(src)
@@ -253,8 +272,11 @@ var/global/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 		if(check_ownership(E.holder))
 			engines |= E
 
-/obj/effect/overmap/visitable/ship/proc/get_landed_info()
+/obj/overmap/visitable/ship/proc/get_landed_info()
 	return "This ship cannot land."
+
+/obj/overmap/visitable/ship/proc/get_speed_sensor_increase()
+	return min(get_speed() * 1000, 50) //Engines should never increase sensor visibility by more than 50.
 
 #undef MOVING
 #undef SANITIZE_SPEED

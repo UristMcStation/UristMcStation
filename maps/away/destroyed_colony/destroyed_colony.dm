@@ -7,7 +7,7 @@
 	icon_state = "yellow"
 	icon = 'icons/turf/areas.dmi'
 
-/obj/effect/overmap/visitable/sector/planetoid/destroyed_colony
+/obj/overmap/visitable/sector/planetoid/destroyed_colony
 	name = "destroyed colony"
 	desc = "A former Terran Confederation colony, any settlements on this world were destroyed during the Galactic Crisis. Little remains, but sensors are detecting a faint distress signal from a destroyed settlement."
 	icon_state = "globe"
@@ -18,13 +18,13 @@
 		"nav_destroyed_colony_2"
 		)
 
-/obj/effect/shuttle_landmark/nav_destroyed_colony/nav1
+/obj/shuttle_landmark/nav_destroyed_colony/nav1
 	name = "Planetary Navpoint #1"
 	landmark_tag = "nav_destroyed_colony_1"
 	base_area = /area/planet/destroyed_colony
 	base_turf = /turf/simulated/floor/planet/ariddirt/clear
 
-/obj/effect/shuttle_landmark/nav_destroyed_colony/nav2
+/obj/shuttle_landmark/nav_destroyed_colony/nav2
 	name = "Planetary Navpoint #2"
 	landmark_tag = "nav_destroyed_colony_2"
 	base_area = /area/planet/destroyed_colony

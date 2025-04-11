@@ -39,11 +39,11 @@
 	add_fingerprint(user)
 	user.set_machine(src)
 	var/dat = list()
-	dat += "Photography mode is currently: <a href='?src=\ref[src];photo=1'>[on ? "On" : "Off"]</a><br>"
-	dat += "Photography focus is currently: <a href='?src=\ref[src];focus=1'>[size]</a><br>"
-	dat += "Channel name is: <a href='?src=\ref[src];channel=1'>[channel ? channel : "unidentified broadcast"]</a><br>"
-	dat += "Video streaming is: <a href='?src=\ref[src];video=1'>[camera.status ? "Online" : "Offline"]</a><br>"
-	dat += "Microphone is: <a href='?src=\ref[src];sound=1'>[radio.broadcasting ? "Online" : "Offline"]</a><br>"
+	dat += "Photography mode is currently: <a href='byond://?src=\ref[src];photo=1'>[on ? "On" : "Off"]</a><br>"
+	dat += "Photography focus is currently: <a href='byond://?src=\ref[src];focus=1'>[size]</a><br>"
+	dat += "Channel name is: <a href='byond://?src=\ref[src];channel=1'>[channel ? channel : "unidentified broadcast"]</a><br>"
+	dat += "Video streaming is: <a href='byond://?src=\ref[src];video=1'>[camera.status ? "Online" : "Offline"]</a><br>"
+	dat += "Microphone is: <a href='byond://?src=\ref[src];sound=1'>[radio.broadcasting ? "Online" : "Offline"]</a><br>"
 	dat += "Sound is being broadcasted on frequency: [format_frequency(radio.frequency)] ([get_frequency_default_name(radio.frequency)])<br>"
 	var/datum/browser/popup = new(user, "Press Camera Drone", "EyeBuddy", 300, 390, src)
 	popup.set_content(jointext(dat,null))
@@ -92,15 +92,15 @@
 		H.update_inv_l_hand()
 
 /* Assembly by a roboticist */
-/obj/item/robot_parts/head/attackby(obj/item/device/assembly/S, mob/user as mob)
+/obj/item/robot_parts/head/use_tool(obj/item/S, mob/living/user, list/click_params)
 	if ((!istype(S, /obj/item/device/assembly/infra)))
-		..()
-		return
+		return ..()
 	var/obj/item/TVAssembly/A = new(user)
 	qdel(S)
 	user.put_in_hands(A)
 	to_chat(user, SPAN_NOTICE("You add the infrared sensor to the robot head."))
 	qdel(src)
+	return TRUE
 
 /* Using camcorder icon as I can't sprite.
 Using robohead because of restricting to roboticist */
@@ -113,7 +113,7 @@ Using robohead because of restricting to roboticist */
 	var/buildstep = 0
 	w_class = ITEM_SIZE_LARGE
 
-/obj/item/TVAssembly/attackby(obj/item/W, mob/user)
+/obj/item/TVAssembly/use_tool(obj/item/W, mob/living/user, list/click_params)
 	switch(buildstep)
 		if(0)
 			if(istype(W, /obj/item/robot_parts/robot_component/camera))
@@ -121,30 +121,32 @@ Using robohead because of restricting to roboticist */
 				qdel(W)
 				desc = "This TV camera assembly has a camera module."
 				buildstep++
+				return TRUE
 		if(1)
 			if(istype(W, /obj/item/device/taperecorder))
 				qdel(W)
 				buildstep++
 				to_chat(user, SPAN_NOTICE("You add the tape recorder to [src]"))
 				desc = "This TV camera assembly has a camera and audio module."
-				return
+				return TRUE
 		if(2)
 			if(isCoil(W))
 				var/obj/item/stack/cable_coil/C = W
-				if(!C.use(3))
-					to_chat(user, SPAN_NOTICE("You need three cable coils to wire the devices."))
+				if(!C.can_use(3))
+					to_chat(user, SPAN_WARNING("You need three cable coils to wire the devices."))
 					..()
-					return
+					return TRUE
+				C.use(3)
 				buildstep++
 				to_chat(user, SPAN_NOTICE("You wire the assembly"))
 				desc = "This TV camera assembly has wires sticking out."
-				return
+				return TRUE
 		if(3)
 			if(isWirecutter(W))
 				to_chat(user, SPAN_NOTICE(" You trim the wires."))
 				buildstep++
 				desc = "This TV camera assembly needs casing."
-				return
+				return TRUE
 		if(4)
 			if(istype(W, /obj/item/stack/material/steel))
 				var/obj/item/stack/material/steel/S = W
@@ -154,5 +156,5 @@ Using robohead because of restricting to roboticist */
 					var/turf/T = get_turf(src)
 					new /obj/item/device/camera/tvcamera(T)
 					qdel(src)
-					return
-	..()
+					return TRUE
+	return ..()

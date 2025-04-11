@@ -7,14 +7,14 @@
 	suffixes = list("maps/event/sfv_arbiter/sfv_arbiter.dmm")
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/sfv_arbiter)
 
-/obj/effect/overmap/visitable/sector/sfv_arbiter_space
+/obj/overmap/visitable/sector/sfv_arbiter_space
 	name = "Sensor Anomaly"
 	desc = "Sensors readings are confused and inaccurate on this grid sector."
-	in_space = TRUE
 	icon_state = "event"
 	hide_from_reports = TRUE
+	sensor_visibility = 10
 
-/obj/effect/overmap/visitable/ship/landable/sfv_arbiter
+/obj/overmap/visitable/ship/landable/sfv_arbiter
 	name = "SFV Arbiter"
 	desc = "A standard, armed transport shuttle belonging to the Sol Fleet. It's transponder reads 'SFV Arbiter'."
 	shuttle = "SFV Arbiter"
@@ -23,7 +23,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_SMALL
 	vessel_mass = 1000
-	known = FALSE
+
 	initial_generic_waypoints = list(
 		"nav_sfv_arbiter_1",
 		"nav_sfv_arbiter_2",

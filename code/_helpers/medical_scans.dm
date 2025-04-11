@@ -1,4 +1,5 @@
 /mob/living/carbon/human/proc/get_raw_medical_data(tag = FALSE)
+	RETURN_TYPE(/list)
 	var/mob/living/carbon/human/H = src
 	var/list/scan = list()
 
@@ -115,6 +116,7 @@
 	return scan
 
 /proc/display_medical_data_header(list/scan, skill_level = SKILL_DEFAULT)
+	RETURN_TYPE(/list)
 	//In case of problems, abort.
 	var/dat = list()
 	skill_level = SKILL_PROF //This isn't an ideal fix, however it will at least last throughout merges.
@@ -133,10 +135,11 @@
 	dat += "<tr><td><strong>Scan Results For:</strong></td><td>[scan["name"]]</td></tr>"
 	dat += "<tr><td><strong>Scan performed at:</strong></td><td>[scan["time"]]</td></tr>"
 
-	dat = JOINTEXT(dat)
+	dat = jointext(dat, null)
 	return dat
 
 /proc/display_medical_data_health(list/scan, skill_level = SKILL_DEFAULT)
+	RETURN_TYPE(/list)
 	//In case of problems, abort.
 	if(!scan["name"])
 		return "<center>[SPAN_BAD("<strong>SCAN READOUT ERROR.</strong>")]</center>"
@@ -279,7 +282,7 @@
 	/*
 			<tr><td colspan='2'>You see a lot of numbers and abbreviations here, but you have no clue what any of this means.</td></tr>
 	*/
-	dat = JOINTEXT(dat)
+	dat = jointext(dat, null)
 
 	return dat
 
@@ -327,7 +330,7 @@
 			row += "<span>[english_list(E["scan_results"], nothing_text="&nbsp;")]</span>"
 			row += "</td>"
 		row += "</tr>"
-		subdat += JOINTEXT(row)
+		subdat += jointext(row, null)
 	dat += subdat
 	subdat = list()
 
@@ -375,7 +378,7 @@
 		dat += "<tr><td colspan='3'>[SPAN_CLASS("average", "Retinal misalignment detected.")]</td></tr>"
 	dat += "</table></center></td></tr>"
 
-	dat = JOINTEXT(dat)
+	dat = jointext(dat, null)
 	return dat
 
 /proc/display_medical_data(list/scan, skill_level = SKILL_DEFAULT, TT = FALSE)
@@ -401,7 +404,7 @@
 	if(TT)
 		dat += "</tt>"
 
-	dat = JOINTEXT(dat)
+	dat = jointext(dat, null)
 	return dat
 
 /proc/get_severity(amount, tag = FALSE)

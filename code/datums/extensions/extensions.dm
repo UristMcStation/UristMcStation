@@ -13,8 +13,18 @@
 	holder = null
 	. = ..()
 
-/datum
-	var/list/datum/extension/extensions
+/**
+ * Lazylist (Type paths - Types of `/datum/extension`). List of extensions currently set for this datum.
+ *
+ * Not recommended to set or reference directly. See the following procs instead:
+ * - `/proc/set_extension()`
+ * - `/proc/get_or_create_extension()`
+ * - `/proc/get_extension()`
+ * - `/proc/has_extension()`
+ * - `/proc/construct_extension_instance()`
+ * - `/proc/remove_extension()`
+ */
+/datum/var/list/datum/extension/extensions
 
 //Variadic - Additional positional arguments can be given. Named arguments might not work so well
 /proc/set_extension(datum/source, datum/extension/extension_type)
@@ -39,12 +49,14 @@
 		source.extensions[extension_base_type] = extension_data
 
 /proc/get_or_create_extension(datum/source, datum/extension/extension_type)
+	RETURN_TYPE(/datum/extension)
 	var/base_type = initial(extension_type.base_type)
 	if(!has_extension(source, base_type))
 		set_extension(arglist(args))
 	return get_extension(source, base_type)
 
 /proc/get_extension(datum/source, base_type)
+	RETURN_TYPE(/datum/extension)
 	if(!source.extensions)
 		return
 	. = source.extensions[base_type]
@@ -60,6 +72,7 @@
 	return !!(source.extensions && source.extensions[base_type])
 
 /proc/construct_extension_instance(extension_type, datum/source, list/arguments)
+	RETURN_TYPE(/datum/extension)
 	arguments = list(source) + arguments
 	return new extension_type(arglist(arguments))
 
