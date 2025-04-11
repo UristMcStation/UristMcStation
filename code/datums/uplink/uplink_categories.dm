@@ -40,7 +40,7 @@
 	name = "Medical & Food"
 
 /datum/uplink_category/hardsuit_modules
-	name = "Hardsuit Modules"
+	name = "RIG Hardsuit Modules"
 
 /datum/uplink_category/services
 	name = "Jamming & Announcements"
