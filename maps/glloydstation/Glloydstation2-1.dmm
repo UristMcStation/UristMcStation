@@ -13890,7 +13890,7 @@
 	},
 /obj/machinery/mass_driver{
 	dir = 4;
-	id_tag = "chapelgun";
+	id_tag = "chapelgun"
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/effect/floor_decal/corner/black/diagonal{
@@ -14494,17 +14494,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/fore)
 "aFn" = (
-/obj/machinery/button/remote/driver{
-	id_tag = "chapelgun";
-	name = "Chapel Mass Driver";
-	pixel_x = 25
-	},
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/button/mass_driver{
+	pixel_x = 32;
+	id_tag = "chapelgun"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hallway/primary/fore)
 "aFo" = (
@@ -41528,11 +41527,6 @@
 /turf/simulated/floor/tiled,
 /area/rnd/mixing)
 "bGp" = (
-/obj/machinery/button/remote/driver{
-	id_tag = "toxinsdriver";
-	pixel_x = -25;
-	pixel_y = 3
-	},
 /obj/item/device/radio/intercom{
 	dir = 2;
 	name = "Station Intercom (General)";
@@ -41544,14 +41538,15 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/alarm{
-	pixel_y = 30
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
 "bGr" = (
 /obj/machinery/computer/modular/preset/aislot/research{
 	dir = 8
+	},
+/obj/machinery/button/mass_driver{
+	pixel_y = 32;
+	id_tag = "toxinsdriver"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
@@ -42481,6 +42476,11 @@
 	c_tag = "Toxins Mass Driver";
 	dir = 4;
 	icon_state = "camera"
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -23;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/mixing)
@@ -79141,17 +79141,13 @@
 	icon_state = "0-4";
 	d2 = 4
 	},
-/obj/machinery/button/remote/airlock{
-	desiredstate = 1;
-	id_tag = "engine_electrical_maintenance";
-	name = "Door Bolt Control";
-	pixel_x = 5;
-	pixel_y = -25;
-	req_access = list("ACCESS_ENGINEERING");
-	specialfunctions = 4
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
+	},
+/obj/machinery/button/alternate/door/bolts{
+	pixel_y = -32;
+	name = "Door Bolt Control";
+	id_tag = "engine_electrical_maintenance"
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_smes)
@@ -79371,7 +79367,7 @@
 	locked = 1;
 	name = "Engine Electrical Maintenance";
 	req_access = list("ACCESS_ENGINEERING");
-	id_tag = "engine_electrical_maintenance";
+	id_tag = "engine_electrical_maintenance"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -79429,6 +79425,15 @@
 	req_access = list("ACCESS_ENGINEERING")
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/button/remote/airlock{
+	desiredstate = 1;
+	id_tag = "engine_electrical_maintenance";
+	name = "Door Bolt Control";
+	pixel_x = 5;
+	pixel_y = -25;
+	req_access = list("ACCESS_ENGINEERING");
+	specialfunctions = 4
+	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_airlock)
 "deD" = (
