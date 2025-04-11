@@ -118,7 +118,7 @@
 /obj/item/gun/energy/lactera/verb_pickup()
 	var/mob/living/carbon/human/M = usr
 	if(!istype(M, /mob/living/carbon/human/lactera))
-//	if(M.species != /datum/species/xenos/lactera)
+//	if(M.species != singleton/species/xenos/lactera)
 		to_chat(M, "<span class='warning'>The alien gun turns inert when you touch it.</span>")
 		new inertstate(src.loc)
 		qdel(src)

@@ -361,10 +361,10 @@
 	if(!istype(H))
 		return
 
-	var/datum/species/curr_species = null
+	var/singleton/species/curr_species = null
 
 	if(!istype(curr_species))
-		var/datum/species/new_species = new H.species.type()
+		var/singleton/species/new_species = new H.species.type()
 
 		if(!istype(new_species))
 			return

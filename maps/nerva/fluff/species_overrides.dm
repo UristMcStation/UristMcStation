@@ -1,5 +1,5 @@
 //humans
-/datum/species/human
+/singleton/species/human
 	description = "Humanity originated in the Sol system, and over the last five centuries has spread \
 	colonies across a wide swathe of space. They hold a wide range of forms and creeds.<br/><br/> \
 	Although the Terran Confederacy maintains control over much of human-controlled space, it is currently \
@@ -41,7 +41,7 @@
 	are roughly as intelligent as a human on the smarter side of average, and are fast learners. Positronics are both owned \
 	and free: many are shackled, but some have full citizenship, and others have found, bought, or fought their way to freedom."
 
-/datum/species/machine
+/singleton/species/machine
 	available_cultural_info = list(
 		TAG_CULTURE = list(
 			CULTURE_POSITRONICS
