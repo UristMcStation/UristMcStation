@@ -12,6 +12,17 @@
 	company_short = "NT"
 	ert_context = "NanoTrasen"
 	lobby_screens = list('maps/glloydstation/glloydstation_lobby.png')
+	lobby_tracks = list(
+		/singleton/audio/track/df_theme,
+		/singleton/audio/track/digit_one,
+		/singleton/audio/track/dilbert,
+		/singleton/audio/track/chasing_time,
+		/singleton/audio/track/human,
+		/singleton/audio/track/lysendraa,
+		/singleton/audio/track/level3_mod,
+		/singleton/audio/track/rimward_cruise,
+		/singleton/audio/track/ambispace
+	)
 	current_lobby_screen = 'maps/glloydstation/glloydstation_lobby.png'
 
 	station_levels = list(1)
