@@ -136,7 +136,7 @@
 		)
 	hats = list(\
 		/obj/item/clothing/head/hardhat,\
-		/obj/item/clothing/head/hardhat/dblue,\
+		/obj/item/clothing/head/hardhat/blue,\
 		/obj/item/clothing/head/hardhat/orange,\
 		/obj/item/clothing/head/hardhat/red,\
 		/obj/item/clothing/head/hardhat/white,\

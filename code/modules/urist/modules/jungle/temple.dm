@@ -228,7 +228,7 @@
 			var/obj/structure/closet/crate/secure/gear/C = new(src.loc)
 			var/num = rand(2,6)
 			for(var/i=0,i<num,i++)
-				var/spawn_type = pick(/obj/item/device/flashlight/flare, /obj/item/trash/candle, /obj/item/flame/candle, /obj/item/storage/box/matches)
+				var/spawn_type = pick(/obj/item/device/flashlight/flare, /obj/item/trash/candle, /obj/item/flame/candle, /obj/item/storage/fancy/matches/matchbox)
 				new spawn_type(C)
 		if("engineering")
 			var/obj/structure/closet/crate/secure/gear/C = new(src.loc)
