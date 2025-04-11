@@ -36,7 +36,7 @@
 		src.affect(M)
 
 
-/datum/effect/effect/system/smoke_spread/chill_mist
+/datum/effect/smoke_spread/chill_mist
 	smoke_type = /obj/effect/smoke/chill_mist
 
 
@@ -60,7 +60,7 @@
 		return
 
 	// There's a reason behind this varname and it's horrible. --scr
-	var/datum/effect/effect/system/smoke_spread/chill_mist/funfog = new()
+	var/datum/effect/smoke_spread/chill_mist/funfog = new()
 	funfog.set_up(5, 0, T)
 	funfog.start()
 
@@ -75,7 +75,7 @@
 	time_to_live = 3000
 
 
-/datum/effect/effect/system/smoke_spread/spoopyfog
+/datum/effect/smoke_spread/spoopyfog
 	smoke_type = /obj/effect/smoke/spoopyfog
 
 
@@ -99,7 +99,7 @@
 		return
 
 	// There's a reason behind this varname and it's horrible. --scr
-	var/datum/effect/effect/system/smoke_spread/spoopyfog/funfog = new()
+	var/datum/effect/smoke_spread/spoopyfog/funfog = new()
 	funfog.attach(T)
 	funfog.set_up(5, 0, T)
 	funfog.start()

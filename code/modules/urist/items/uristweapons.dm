@@ -27,48 +27,60 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //dual saber proc
 
-/obj/item/melee/energy/sword/attackby(obj/item/W, mob/living/user)
-	..()
-	if(istype(W, /obj/item/melee/energy/sword))
-		if(W == src)
-			to_chat(user, "<span class='notice'>You try to attach the end of the energy sword to... itself. You're not very smart, are you?</span>")
-			if(ishuman(user))
-				user.adjustBrainLoss(10)
+/obj/item/melee/energy/sword/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	if(!istype(tool, /obj/item/melee/energy/sword))
+		return FALSE
+
+	if(tool == src)
+		to_chat(user, SPAN_NOTICE("You try to attach the end of the energy sword to... itself. You're not very smart, are you?"))
+		if(ishuman(user))
+			user.adjustBrainLoss(10)
+		return TRUE
+
+	to_chat(user, SPAN_NOTICE("You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool."))
+
+	// This is straight-up spaghetti from hell.
+	if(src.blade_color == "red")
+		if(istype(tool, /obj/item/melee/energy/sword/blue))
+			new /obj/item/melee/energy/sword/dualsaber/purple(user.loc)
+		else if(istype(tool, /obj/item/melee/energy/sword/yellow))
+			new /obj/item/melee/energy/sword/dualsaber/orange(user.loc)
 		else
-			to_chat(user, "<span class='notice'>You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool.</span>")
-			if(src.blade_color == "red")
-				if(istype(W, /obj/item/melee/energy/sword/blue))
-					new /obj/item/melee/energy/sword/dualsaber/purple(user.loc)
-				else if(istype(W, /obj/item/melee/energy/sword/yellow))
-					new /obj/item/melee/energy/sword/dualsaber/orange(user.loc)
-				else
-					new /obj/item/melee/energy/sword/dualsaber/red(user.loc)
-			if(src.blade_color == "blue")
-				if(istype(W, /obj/item/melee/energy/sword/red))
-					new /obj/item/melee/energy/sword/dualsaber/purple(user.loc)
-				else if(istype(W, /obj/item/melee/energy/sword/yellow))
-					new /obj/item/melee/energy/sword/dualsaber/green(user.loc)
-				else
-					new /obj/item/melee/energy/sword/dualsaber/blue(user.loc)
-			if(src.blade_color == "yellow")
-				if(istype(W, /obj/item/melee/energy/sword/red))
-					new /obj/item/melee/energy/sword/dualsaber/orange(user.loc)
-				else if(istype(W, /obj/item/melee/energy/sword/blue))
-					new /obj/item/melee/energy/sword/dualsaber/green(user.loc)
-				else
-					new /obj/item/melee/energy/sword/dualsaber/yellow(user.loc)
-			if(src.blade_color == "green")
-				new /obj/item/melee/energy/sword/dualsaber/green(user.loc)
-			if(src.blade_color == "purple")
-				new /obj/item/melee/energy/sword/dualsaber/purple(user.loc)
-			if(src.blade_color == "orange")
-				new /obj/item/melee/energy/sword/dualsaber/orange(user.loc)
-			if(src.blade_color == "black")
-				new /obj/item/melee/energy/sword/dualsaber(user.loc)
-			user.remove_from_mob(W)
-			user.remove_from_mob(src)
-			qdel(W)
-			qdel(src)
+			new /obj/item/melee/energy/sword/dualsaber/red(user.loc)
+
+	if(src.blade_color == "blue")
+		if(istype(tool, /obj/item/melee/energy/sword/red))
+			new /obj/item/melee/energy/sword/dualsaber/purple(user.loc)
+		else if(istype(tool, /obj/item/melee/energy/sword/yellow))
+			new /obj/item/melee/energy/sword/dualsaber/green(user.loc)
+		else
+			new /obj/item/melee/energy/sword/dualsaber/blue(user.loc)
+
+	if(src.blade_color == "yellow")
+		if(istype(tool, /obj/item/melee/energy/sword/red))
+			new /obj/item/melee/energy/sword/dualsaber/orange(user.loc)
+		else if(istype(tool, /obj/item/melee/energy/sword/blue))
+			new /obj/item/melee/energy/sword/dualsaber/green(user.loc)
+		else
+			new /obj/item/melee/energy/sword/dualsaber/yellow(user.loc)
+
+	if(src.blade_color == "green")
+		new /obj/item/melee/energy/sword/dualsaber/green(user.loc)
+
+	if(src.blade_color == "purple")
+		new /obj/item/melee/energy/sword/dualsaber/purple(user.loc)
+
+	if(src.blade_color == "orange")
+		new /obj/item/melee/energy/sword/dualsaber/orange(user.loc)
+
+	if(src.blade_color == "black")
+		new /obj/item/melee/energy/sword/dualsaber(user.loc)
+
+	user.remove_from_mob(tool)
+	user.remove_from_mob(src)
+	qdel(tool)
+	qdel(src)
+	return TRUE
 
 //misc melee weapons
 
@@ -254,12 +266,11 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 //the code for tapping someone with the cane
 
-/obj/item/cane/white/attack(mob/M as mob, mob/user as mob)
-	if(user.a_intent == I_HELP)
+/obj/item/cane/white/use_before(atom/target, mob/user, click_params)
+	var/mob/M = target
+	if(istype(M) && user.a_intent == I_HELP)
 		user.visible_message("<span class='notice'>\The [user] has lightly tapped [M] on the ankle with their white cane!</span>")
 		return TRUE
-	else
-		. = ..()
 
 
 //a telescopic white cane, click on it in hand to extend and retract it

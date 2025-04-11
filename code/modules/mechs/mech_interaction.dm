@@ -267,8 +267,8 @@
 		return FALSE
 
 	if(!user.IsAdvancedToolUser()) //no mechs allowed for xenophages
- 		return FALSE
-		
+		return FALSE
+
 	return TRUE
 
 /mob/living/exosuit/proc/enter(mob/user, silent = FALSE, check_incap = TRUE, instant = FALSE)
@@ -373,6 +373,7 @@
 		user.visible_message(
 			SPAN_WARNING("\The [user] starts forcing \the [src]'s emergency [body.hatch_descriptor] release using \a [tool]."),
 			SPAN_WARNING("You start forcing \the [src]'s emergency [body.hatch_descriptor] release using \the [tool].")
+		)
 		if(!do_after(user, delay, src, DO_PUBLIC_UNIQUE))
 			return
 		if (!body)

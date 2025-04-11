@@ -88,7 +88,7 @@
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "wolfflight"
 	item_state = "lamp"
-	flashlight_max_bright = 0.5
+	flashlight_power = 0.5
 	light_color = "#e09d37"
 	w_class = 4
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
@@ -120,8 +120,8 @@
 	invisibility = 101
 	anchored = TRUE
 	light_color = "#fcfcb6"
-	light_max_bright = 1
-	light_outer_range = 127
+	light_power = 1
+	light_range = 127
 
 /obj/machinery/light/chromatic
 	name = "chromatic light"

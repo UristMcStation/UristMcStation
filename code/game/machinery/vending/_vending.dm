@@ -91,8 +91,8 @@
 	var/shooting_chance = 2 //The chance that items are being shot per tick
 	var/scan_id = TRUE
 	var/obj/item/material/coin/coin
-	var/light_max_bright_on = 0.2
-	var/light_outer_range_on = 2
+	var/light_power_on = 0.2
+	var/light_range_on = 2
 
 
 /obj/machinery/vending/Destroy()
@@ -156,11 +156,11 @@
 	var/light_color
 	if (IsShowingAntag())
 		light_color = COLOR_RED
-		light_max_bright_on = 0.4
+		light_power_on = 0.4
 	if (!is_powered() || MACHINE_IS_BROKEN(src))
 		set_light(0)
 	else
-		set_light(light_outer_range_on, light_max_bright_on, light_color)
+		set_light(light_range_on, light_power_on, light_color)
 
 
 /obj/machinery/vending/on_update_icon()

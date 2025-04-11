@@ -126,28 +126,37 @@
 			return TRUE
 		mybag = tool
 		update_icon()
-		updateUsrDialog()	if(istype(tool, /obj/item/clothing/mask/plunger) && !myplunger)
+		updateUsrDialog()
 		if(!user.unEquip(tool, src))
 			FEEDBACK_UNEQUIP_FAILURE(tool, src)
 			return TRUE
-		myplunger = I
+
+	if(istype(tool, /obj/item/clothing/mask/plunger) && !myplunger)
+		if(!user.unEquip(tool, src))
+			FEEDBACK_UNEQUIP_FAILURE(tool, src)
+			return
+		myplunger = tool
 		update_icon()
 		updateUsrDialog()
-		to_chat(user, SPAN_NOTICE("You put [I] into [src]."))
+		to_chat(user, SPAN_NOTICE("You put [tool] into [src]."))
 
-	else if(istype(I, /obj/item/gun) && !mygun)
-		if(!user.unEquip(I, src))
+	else if(istype(tool, /obj/item/gun) && !mygun)
+		if(!user.unEquip(tool, src))
+			FEEDBACK_UNEQUIP_FAILURE(tool, src)
 			return
-		mygun = I
+		mygun = tool
 		update_icon()
 		updateUsrDialog()
-		to_chat(user, SPAN_NOTICE("You put [I] into [src]."))
+		to_chat(user, SPAN_NOTICE("You put [tool] into [src]."))
 
-	else if(istype(I, /obj/item/device/lightreplacer) && !myreplacer)
-		if(!user.unEquip(I, src))
+	else if(istype(tool, /obj/item/device/lightreplacer) && !myreplacer)
+		if(!user.unEquip(tool, src))
+			FEEDBACK_UNEQUIP_FAILURE(tool, src)
 			return
-		myreplacer = I
 
+		myreplacer = tool
+		update_icon()
+		updateUsrDialog()
 		user.visible_message(
 			SPAN_NOTICE("\The [user] puts \a [tool] on \the [src]."),
 			SPAN_NOTICE("You put \the [tool] on \the [src].")

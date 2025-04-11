@@ -67,7 +67,7 @@
 
 	if(hair_color)
 		if(hair_color == "RAND")
-			var/datum/species/target_species = all_species[species]
+			var/singleton/species/target_species = all_species[species]
 			hair_color = target_species.get_random_hair_color()
 		H.change_hair_color(hair_color[1],hair_color[2],hair_color[3])
 		H.change_facial_hair_color(hair_color[1],hair_color[2],hair_color[3])

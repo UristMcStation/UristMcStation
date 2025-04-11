@@ -28,7 +28,7 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 	name = "Schrodinger's Crate"
 	desc = "What happens if you open it?"
 
-/obj/structure/largecrate/schrodinger/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/largecrate/schrodinger/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/crowbar))
 		var/mob/living/simple_animal/passive/cat/Cat1 = new(loc)
 		Cat1.apply_damage(250)//,TOX)

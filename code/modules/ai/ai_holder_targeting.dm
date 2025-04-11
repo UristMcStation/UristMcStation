@@ -126,8 +126,8 @@
 			if (L.status_flags & NOTARGET)
 				return FALSE
 
-		else if (istype(the_target, /mob/living/exosuit))	//Exosuits are living??? This check needs to go in here now
-			var/mob/living/exosuit/M = the_target
+		else if (istype(target, /mob/living/exosuit))	//Exosuits are living??? This check needs to go in here now
+			var/mob/living/exosuit/M = target
 			var/will_attack = FALSE
 			for (var/mob/pilot in M.pilots)
 				will_attack =  will_attack || can_attack(pilot)
@@ -139,11 +139,9 @@
 			if (L.stat == UNCONSCIOUS)	// Do we have mauling? Yes? Then maul people who are sleeping but not SSD
 				return mauling
 
-
 		if (holder.IIsAlly(L))
 			return FALSE
 		return TRUE
-
 
 	if (istype(target, /obj/machinery/porta_turret))
 		var/obj/machinery/porta_turret/P = target
@@ -153,6 +151,7 @@
 			return FALSE // Don't shoot allied turrets.
 		if (!P.raised && !P.raising)
 			return FALSE // Turrets won't get hurt if they're still in their cover.
+
 	return TRUE
 
 // For checking "soft loss" of a target. Some mobs can chase after a target if they cannot immediately see it.

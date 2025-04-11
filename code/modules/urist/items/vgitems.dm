@@ -62,13 +62,18 @@
 		playsound(src, selected_sound, volume, shiftpitch)
 		spam_flag = world.timeofday
 
-/obj/item/soundsynth/attack(mob/living/M as mob, mob/living/user as mob, def_zone)
+/obj/item/soundsynth/use_before(mob/living/M as mob, mob/living/user as mob, def_zone)
 	if(M == user)
 		pick_sound()
+		return TRUE
+
 	else if(spam_flag + 2 SECONDS < world.timeofday)
 		playsound(get_turf(M), selected_sound, volume, shiftpitch)
 		spam_flag = world.timeofday
 		//to_chat(M, selected_sound) //this doesn't actually go to their chat very much at all.
+		return TRUE
+
+	return FALSE
 
 
 /obj/item/device/megaphone/clown

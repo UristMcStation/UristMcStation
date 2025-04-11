@@ -3,7 +3,7 @@
 #define RANK_COMMAND 3
 #define RANK_SUPPORT 4
 
-GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
+GLOBAL_TYPED_NEW(scommies, /datum/antagonist/scom)
 
 /proc/isscom(mob/player)
 	if(!GLOB.scommies || !player.mind)

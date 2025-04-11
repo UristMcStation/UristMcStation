@@ -1,4 +1,4 @@
-GLOBAL_LIST_INIT(fusion_plants, new)
+GLOBAL_LIST_EMPTY(fusion_plants)
 
 /datum/fusion_plant
 	var/id_tag

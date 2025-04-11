@@ -68,7 +68,7 @@
 	icon_state = "hivefab"
 	pixel_x = 0
 	pixel_y = 0
-	light_outer_range = 2
+	light_range = 2
 	light_color = COLOR_SABER_RED
 	density = TRUE
 	anchored = TRUE
@@ -100,7 +100,7 @@
 /obj/gateway/artifact/fabricator/on_death()
 	visible_message(SPAN_DANGER("[src] blows apart!"))
 	new /obj/decal/cleanable/blood/gibs/robot (src.loc)
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+	var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 	s.set_up(3, 1, src)
 	s.start()
 	for(var/obj/gateway/artifact/fabricator/king/A in world)

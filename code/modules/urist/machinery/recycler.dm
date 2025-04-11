@@ -33,21 +33,25 @@ var/global/const/SAFETY_COOLDOWN = 100
 	update_icon()
 
 
-/obj/machinery/recycler/attackby(obj/item/I, var/mob/user)
+/obj/machinery/recycler/use_tool(obj/item/I, var/mob/user, click_params)
+	add_fingerprint(user)
+
 	if(istype(I, /obj/item/card/emag) && !emagged)
 		emagged = TRUE
 		if(safety_mode)
 			safety_mode = 0
 			update_icon()
 		playsound(src.loc, "sparks", 75, 1, -1)
+		return TRUE
+
 	else if(istype(I, /obj/item/screwdriver) && emagged)
 		emagged = FALSE
 		update_icon()
-		to_chat(user, "<span class='notice'>You reset the crusher to its default factory settings.</span>")
+		to_chat(user, SPAN_NOTICE("You reset the crusher to its default factory settings."))
+		return TRUE
+
 	else
-		..()
-		return
-	add_fingerprint(user)
+		return ..()
 
 /obj/machinery/recycler/on_update_icon()
 	..()

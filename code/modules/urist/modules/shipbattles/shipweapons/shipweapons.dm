@@ -330,15 +330,14 @@
 		return "Out of Ammo"
 	return "Ready to Fire"
 
-/obj/machinery/shipweapons/attackby(obj/item/W as obj, mob/living/user as mob)
+/obj/machinery/shipweapons/use_tool(obj/item/W as obj, mob/living/user as mob, click_params)
 	var/turf/T = get_turf(src)
 	if(isScrewdriver(W) && locate(/obj/structure/shipweapons/hardpoint) in T)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		to_chat(user, "<span class='warning'>You unsecure the wires and unscrew the external hatches: the weapon is no longer ready to fire.</span>")
 		DeconstructWeapon() //moving this to a proc lets us change how things deconstruct for certain weapons. this is done to allow something like the torpedo launcher to just be sawn out of it's place or w/e
-
-	else
-		..()
+		return TRUE
+	return ..()
 
 /obj/machinery/shipweapons/proc/DeconstructWeapon()
 	if(linkedcomputer)

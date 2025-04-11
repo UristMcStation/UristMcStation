@@ -43,7 +43,7 @@
 	if(is_rigged)
 		to_chat(user, "<span class='warning'>There is \a [attached_device] attached to the warhead.</span>")
 
-/obj/item/shipweapons/torpedo_warhead/attackby(obj/item/I, mob/user as mob)
+/obj/item/shipweapons/torpedo_warhead/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/crowbar))
 		if(riggedstate == CIRCUITRY_EXPOSED && !attached_device) // can't close it if it's got something it's not supposed to have.
 			to_chat(user, "<span class='notice'>You carefully close the warhead's circuitry panel.</span>")

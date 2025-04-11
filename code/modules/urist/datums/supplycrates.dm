@@ -12,7 +12,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/largecrate/turtle //Lisacrates are perfect for images
 	icon_state = "lisacrate"
 
-/obj/structure/largecrate/turtle/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/largecrate/turtle/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/crowbar))
 		new /mob/living/simple_animal/turtle(loc)
 	..()

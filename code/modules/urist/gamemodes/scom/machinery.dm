@@ -73,7 +73,7 @@
 	show_browser(user, dat, "window=autolathe")
 	onclose(user, "autolathe")
 
-/obj/machinery/scom/scomscience/attackby(obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/scom/scomscience/use_tool(obj/item/O, mob/living/user, list/click_params)
 	if (busy)
 		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
 		return
@@ -332,7 +332,7 @@
 		if(isturf(src.loc))
 			var/turf/destination = src.loc
 			A.forceMove(destination)
-			var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
+			var/datum/effect/spark_spread/sparks = new /datum/effect/spark_spread()
 			sparks.set_up(2, 1, src)
 			sparks.start()
 

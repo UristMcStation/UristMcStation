@@ -1,4 +1,4 @@
-/datum/chemical_reaction/pilk
+/singleton/reaction/pilk
 	name = "Pilk"
 	result = /datum/reagent/drink/pilk
 	required_reagents = list(/datum/reagent/drink/milk = 1, /datum/reagent/drink/space_cola = 1)
@@ -22,7 +22,7 @@
 	..()
 	M.adjustBrainLoss(0.1)
 
-/datum/chemical_reaction/napalk
+/singleton/reaction/napalk
 	name = "Napalk"
 	result = /datum/reagent/drink/napalk
 	required_reagents = list(/datum/reagent/drink/pilk = 1, /datum/reagent/napalm = 1)
@@ -45,7 +45,7 @@
 	M.adjustToxLoss(0.5)
 	M.adjustBrainLoss(0.2)
 
-/datum/chemical_reaction/spacelube // Restores Space Lube from Bay Merge.
+/singleton/reaction/spacelube // Restores Space Lube from Bay Merge.
 	name = "Space Lube"
 	result = /datum/reagent/lube
 	required_reagents = list(/datum/reagent/water = 1, /datum/reagent/silicon = 1, /datum/reagent/acetone = 1)

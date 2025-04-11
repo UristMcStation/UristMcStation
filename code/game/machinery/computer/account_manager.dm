@@ -52,8 +52,8 @@
 
 	ui_interact(user)
 
-/obj/machinery/computer/accounts/attackby(obj/O, mob/user)
-	if(!istype(O, /obj/item/card/id))
+/obj/machinery/computer/accounts/use_tool(obj/item/I, mob/living/user, list/click_params)
+	if(!istype(I, /obj/item/card/id))
 		return ..()
 
 	//Although not necessary; it's nice to be able to set the email and account info to the ID, so that they can ID login to email and swipe to pay at vendors

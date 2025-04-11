@@ -94,8 +94,8 @@
 	var/randomize_quantity = 1
 	var/inflate_value = 0 //only use this with randomize_value = 0, otherwise it will have no effect
 
-	var/species_type = /datum/species/human
-	var/datum/species/my_species
+	var/species_type = /singleton/species/human
+	var/singleton/species/my_species
 //	var/language_override = 0
 
 /datum/ai_holder/simple_animal/passive/nowandering

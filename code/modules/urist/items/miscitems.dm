@@ -116,7 +116,7 @@
 	..()
 	update_icon()*/
 
-/obj/item/stack/material/rods/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/stack/material/rods/use_tool(obj/item/W, mob/living/user, list/click_params)
 	var/obj/item/stack/material/rods/R = src
 
 	if(W.sharp && W.edge && !sharp)
@@ -229,7 +229,7 @@
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
 	default_material = "wood"
 
-/obj/item/material/woodwirerod/attackby(obj/item/I, mob/user as mob)
+/obj/item/material/woodwirerod/use_tool(obj/item/I, mob/living/user, list/click_params)
 	..()
 	var/obj/item/finished
 	if(istype(I, /obj/item/material/shard) || istype(I, /obj/item/material/small_blade) || istype(I, /obj/item/material/large_blade))
@@ -307,7 +307,7 @@
 		location.hotspot_expose(700, 5)
 		return
 
-/obj/item/flame/torch/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/flame/torch/use_tool(obj/item/W, mob/living/user, list/click_params)
 	..()
 	if(burnt || lit)
 		return
@@ -422,7 +422,7 @@
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "axehead"
 
-/obj/item/improv/axe_head/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/improv/axe_head/use_tool(obj/item/W, mob/living/user, list/click_params)
 	..()
 
 	if(istype(W, /obj/item/stack/material/rods))
@@ -443,7 +443,7 @@
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "pickaxehead"
 
-/obj/item/improv/pickaxe_head/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/improv/pickaxe_head/use_tool(obj/item/W, mob/living/user, list/click_params)
 	..()
 
 	if(istype(W, /obj/item/stack/material/rods))
@@ -895,8 +895,8 @@
 	attack_verb = list ("smacked", "thwacked", "thunked")
 	matter = list(MATERIAL_STEEL = 100, MATERIAL_GLASS = 100, MATERIAL_PLASTIC = 150)
 	hitsound = "swing_hit"
-	flashlight_max_bright = 0.75
-	flashlight_outer_range = 6
+	flashlight_power = 0.75
+	flashlight_range = 6
 
 //blueshield action figure
 /obj/item/toy/figure/blueshield

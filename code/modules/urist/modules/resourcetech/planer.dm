@@ -15,7 +15,7 @@
 	construct_state = /singleton/machine_construction/default/panel_closed
 
 
-/obj/machinery/carpentry/planer/attackby(obj/item/I, mob/user as mob)
+/obj/machinery/carpentry/planer/use_tool(obj/item/I, mob/living/user, list/click_params)
 
 	if(istype(I, /obj/item/wrench))
 		if(busy)
@@ -86,7 +86,7 @@
 	active_power_usage = 800
 	construct_state = /singleton/machine_construction/default/panel_closed
 
-/obj/machinery/carpentry/woodprocessor/attackby(obj/item/I, mob/user as mob)
+/obj/machinery/carpentry/woodprocessor/use_tool(obj/item/I, mob/living/user, list/click_params)
 
 	if(istype(I, /obj/item/stack/material/wood) || istype(I, /obj/item/stack/material/r_wood))
 		if(busy)

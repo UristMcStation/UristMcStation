@@ -13,7 +13,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon_state = "seclite"
 	item_state = "seclite"
 	force = 9 // Not as good as a stun baton.
-	flashlight_max_bright = 0.6 // A little better than the standard flashlight.
+	flashlight_power = 0.6 // A little better than the standard flashlight.
 
 //Fucking powergamers
 
@@ -153,7 +153,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	if(cowsleft <= 0)
 		qdel(src)
 
-/obj/urist_intangible/rend/cow/attackby(obj/item/I as obj, mob/user as mob)
+/obj/urist_intangible/rend/cow/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/nullrod))
 		visible_message("<span class='danger'>[I] strikes a blow against \the [src], banishing it!</span>")
 		spawn(1)

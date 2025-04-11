@@ -72,7 +72,7 @@
 		if(8) to_chat(user, "It has both tires, a transmission and a loosely attached battery.")
 		if(9) to_chat(user, "It has both tires, a transmission and a firmly attached battery.")
 
-/obj/structure/vehicle_frame/motorcycle/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/vehicle_frame/motorcycle/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/stack/material/rods))
 		if(buildstate == 0)
 			var/obj/item/stack/material/rods/R = W
@@ -173,8 +173,8 @@
 	fire_dam_coeff = 0.6
 	brute_dam_coeff = 0.5
 //	debris_path = /obj/structure/scrap/vehicle
-	light_max_bright = 5
-	light_outer_range = 6
+	light_power = 5
+	light_range = 6
 	var/idle_sound = 'sound/urist/vehicle/bike_idle.ogg'
 	var/start_sound = 'sound/urist/vehicle/bike_start.ogg'
 	space_speed = 0

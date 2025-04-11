@@ -28,11 +28,11 @@
 	name = "electric engine"
 	desc = "A battery-powered engine used to power a small vehicle."
 	icon_state = "engine_electric"
-	trail_type = /datum/effect/effect/system/trail/ion
+	trail_type = /datum/effect/trail/ion
 	cost_per_move = 200	// W
 	var/obj/item/cell/cell
 
-/obj/item/engine/electric/attackby(obj/item/I, var/mob/user)
+/obj/item/engine/electric/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I,/obj/item/cell))
 		if(cell)
 			to_chat(user, "<span class='warning'>There is already a cell in \the [src].</span>")
@@ -72,7 +72,7 @@
 	name = "thermal engine"
 	desc = "A fuel-powered engine used to power a small vehicle."
 	icon_state = "engine_fuel"
-	trail_type = /datum/effect/effect/system/trail/thermal
+	trail_type = /datum/effect/trail/thermal
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/obj/temp_reagents_holder
 	var/fuel_points = 0
@@ -88,7 +88,7 @@
 	temp_reagents_holder.create_reagents(15)
 	temp_reagents_holder.atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
-/obj/item/engine/thermal/attackby(obj/item/I, var/mob/user)
+/obj/item/engine/thermal/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I,/obj/item/reagent_containers) && I.is_open_container())
 		if(istype(I,/obj/item/reagent_containers/food/snacks) || istype(I,/obj/item/reagent_containers/pill))
 			return 0

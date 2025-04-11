@@ -84,7 +84,7 @@
 	color = rgb(255,113,0)
 
 
-/obj/structure/bed/chair/couch/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/bed/chair/couch/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/wrench))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		new /obj/item/stack/material/steel(src.loc)
@@ -145,7 +145,7 @@
 	anchored = TRUE
 	layer = 9
 
-/obj/structure/flora/pottedplant/Nienplants/Glloydtree/attackby(obj/item/I, mob/user as mob)
+/obj/structure/flora/pottedplant/Nienplants/Glloydtree/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/carpentry/axe))
 		to_chat(user, "<span class='notice'>Your axe bounces off the tree! Holy shit, is it metal? Cheapass Nanotrasen corporate bastards.</span>")
 		return

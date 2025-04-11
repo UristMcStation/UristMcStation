@@ -82,20 +82,20 @@
 		else
 			icon_state = spent_icon
 
-/obj/item/ammo_casing/shotgun/attackby(obj/item/I, mob/user)
+/obj/item/ammo_casing/shotgun/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/ammo_casing/shotgun))
 		var/obj/item/ammo_casing/shotgun/empty_check = I
 		if(!empty_check.BB)
 			return
 		var/obj/item/ammo_magazine/bundle/shotbundle/C = new /obj/item/ammo_magazine/bundle/shotbundle()
-		C.attackby(I, user)
-		C.attackby(src, user)
+		C.use_tool(I, user, click_params)
+		C.use_tool(src, user, click_params)
 		user.put_in_hands(C)
 		return
 	if(istype(I, /obj/item/ammo_magazine/bundle/shotbundle))
 		if(!BB)
 			return
-		I.attackby(src, user)
+		I.use_tool(src, user, click_params)
 		return
 	..()
 
