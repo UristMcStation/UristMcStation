@@ -61,7 +61,7 @@
 
 	var/scoped = 0
 
-/obj/item/gun/projectile/manualcycle/hunterrifle/attackby(obj/item/I, mob/user) //i really need to make a parent class for guns that can be modified, but right now it's only the one so fuck it. //GlloydTODO
+/obj/item/gun/projectile/manualcycle/hunterrifle/use_tool(obj/item/I, mob/living/user, list/click_params) //i really need to make a parent class for guns that can be modified, but right now it's only the one so fuck it. //GlloydTODO
 	..()
 
 	if(istype(I, /obj/item/gunattachment/scope/huntrifle) && !scoped)

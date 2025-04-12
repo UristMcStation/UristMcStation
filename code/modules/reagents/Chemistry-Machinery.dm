@@ -98,9 +98,6 @@
 
 	return ..()
 
-	else
-		return ..()
-
 /obj/machinery/chem_master/proc/eject_beaker(mob/user)
 	if(!beaker)
 		return

@@ -107,7 +107,7 @@
 		return P
 	return 0
 
-/obj/machinery/processor/attackby(obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/processor/use_tool(obj/item/O, mob/living/user, list/click_params)
 	if(src.processing)
 		to_chat(user, "<span class='warning'> The processor is in the process of processing.</span>")
 		return 1

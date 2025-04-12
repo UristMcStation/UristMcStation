@@ -134,7 +134,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon_state = "poker_tableparts"
 	obj_flags = null
 
-/*/obj/item/table_parts/wood/attackby(obj/item/I, mob/user as mob)
+/*/obj/item/table_parts/wood/use_tool(obj/item/I, mob/living/user, list/click_params)
 	..()
 	if(istype(I, /obj/item/stack/tile/grass))
 		var/obj/item/stack/tile/grass/R = I
@@ -243,7 +243,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "tallcabinet"
 
-/obj/structure/filingcabinet/wood/attackby(obj/item/P, mob/user as mob)
+/obj/structure/filingcabinet/wood/use_tool(obj/item/P, mob/living/user, list/click_params)
 	if(istype(P, /obj/item/screwdriver))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You disassemble \the [src].</span>")
@@ -302,7 +302,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "rack"
 
-/obj/structure/table/rack/wood/attackby(obj/item/P, mob/user as mob)
+/obj/structure/table/rack/wood/use_tool(obj/item/P, mob/living/user, list/click_params)
 	if(istype(P, /obj/item/wrench))
 		playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You disassemble \the [src].</span>")
@@ -373,7 +373,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	var/buildstate = 0
 	layer = BELOW_OBJ_LAYER
 
-/obj/structure/raft/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/raft/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(!built)
 		if(istype(W,/obj/item/stack/material/wood))
 			if(buildstate == 0)

@@ -36,7 +36,7 @@ var/global/list/eventwarp3 = list()
 	icon_state = "ticket"
 	w_class = 2
 
-/obj/item/train/ticket/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/train/ticket/use_tool(obj/item/W, mob/living/user, list/click_params)
 	..()
 	if(istype(W, /obj/item/stamp))
 		user.visible_message("[user] stamps the ticket with the stamp. All aboard!", "You stamp the ticket with the stamp.", "You hear the sound of something being stamped.")
@@ -64,7 +64,7 @@ var/global/list/eventwarp3 = list()
 	anchored = TRUE
 	density = TRUE
 
-/obj/structure/train/engine/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/train/engine/use_tool(obj/item/W, mob/living/user, list/click_params)
 	..()
 	if(istype(W, /obj/item/train/ore))
 		user.visible_message("[user] tosses the coal into the engine!", "You toss the coal ore into the engine.", "You hear the sound of flames roaring.")

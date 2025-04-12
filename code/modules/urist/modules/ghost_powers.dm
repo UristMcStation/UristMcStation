@@ -3,7 +3,7 @@
 // Works like the Cult spookiness, but independent of Cultmode logic
 // Can be used to enable spookiness without faking having cultists.
 // Not boolean, each source of spoop should bump this by +1 until it's done (i.e. more like a counter)
-GLOBAL_VAR_INIT(globally_spooky, 0)
+GLOBAL_VAR_AS(globally_spooky, 0)
 
 
 /proc/add_global_spookiness()

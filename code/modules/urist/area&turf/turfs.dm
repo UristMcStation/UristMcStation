@@ -142,7 +142,7 @@ transit/east is the same thing now AFAIK
 	icon_state="catwalk[dirs]"
 
 
-/turf/simulated/floor/plating/airless/catwalk/attackby(obj/item/C as obj, mob/user as mob)
+/turf/simulated/floor/plating/airless/catwalk/use_tool(obj/item/C, mob/living/user, list/click_params)
 	if(!C || !user)
 		return 0
 	if(isScrewdriver(C))
@@ -283,11 +283,11 @@ transit/east is the same thing now AFAIK
 	icon = 'icons/urist/turf/floorsplus.dmi'
 	icon_state = "innermiddle"
 
-/turf/simulated/floor/fixed/destroyedroad/attackby(obj/item/C, var/mob/user)
+/turf/simulated/floor/fixed/destroyedroad/use_tool(obj/item/C, var/mob/user, click_params)
 	if(isCrowbar(C))
 		to_chat(user, "<span class='notice'>There aren't any openings big enough to pry it away...</span>")
-		return
-	return ..()
+		return TRUE
+	return FALSE
 
 /turf/simulated/floor/fixed/destroyedroad/ex_act(severity)
 	return
@@ -295,10 +295,8 @@ transit/east is the same thing now AFAIK
 //		ChangeTurf(get_base_turf_by_area(src))
 
 /turf/simulated/floor/fixed/destroyedroad/planet
-	light_max_bright = 0.4
-	light_inner_range = 0.1
-	light_outer_range = 1.5
-	light_falloff_curve = 0.5
+	light_power = 0.4
+	light_range = 1.5
 
 /turf/simulated/floor/fixed/destroyedroad/planet/Initialize()
 	light_color = SSskybox.background_color

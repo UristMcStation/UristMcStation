@@ -349,21 +349,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 
 	..()
 
-/**
- * Proc to link/unlink PDAs
- */
-
-/obj/machinery/hologram/holopad/proc/link_pda(obj/item/modular_computer/pda/pda)
-	if (!istype(pda))
-		return
-	LAZYADD(linked_pdas, pda)
-	GLOB.destroyed_event.register(pda, src, .proc/unlink_pda)
-
-
-/obj/machinery/hologram/holopad/proc/unlink_pda(obj/item/modular_computer/pda/pda)
-	LAZYREMOVE(linked_pdas, pda)
-	GLOB.destroyed_event.unregister(pda, src, .proc/unlink_pda)
-
 /obj/machinery/hologram/holopad/proc/create_holo(mob/living/user, isAI = FALSE, turf/T = loc)
 	var/obj/overlay/hologram = new(T)//Spawn a blank effect at the location.
 	if(caller_id)
@@ -530,13 +515,6 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 			end_call()
 			return
 		connected.broadcast_message(M, text, verb, speaking)
-
-/obj/machinery/hologram/holopad/proc/move_hologram(mob/living/silicon/ai/user)
-	if(masters[user])
-		step_to(masters[user], user.eyeobj) // So it turns.
-		var/obj/overlay/H = masters[user]
-		H.dropInto(user.eyeobj)
-		masters[user] = H
 
 //Leaving this here, but as far as I can see, nowhere actually calls this proc???
 /obj/machinery/hologram/holopad/see_emote(mob/living/M, text)

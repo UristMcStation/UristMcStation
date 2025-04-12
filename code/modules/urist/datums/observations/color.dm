@@ -21,7 +21,7 @@
 //			/list/old_matrix: client.color before the change
 //			/list/new_matrix: client.color after the change
 
-GLOBAL_DATUM_INIT(colormatrix_set_event, /singleton/observ/colormatrix_set, new)
+GLOBAL_TYPED_NEW(colormatrix_set_event, /singleton/observ/colormatrix_set)
 
 /singleton/observ/colormatrix_set
 	name = "Client Color Set"

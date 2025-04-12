@@ -28,7 +28,7 @@
 // mutants with leaky batteries, or any other perspective that fits the rolled powerset.
 */
 
-GLOBAL_DATUM_INIT(bluespace_revenants, /datum/antagonist/bluespace_revenant, new)
+GLOBAL_TYPED_NEW(bluespace_revenants, /datum/antagonist/bluespace_revenant)
 GLOBAL_LIST(revenant_powerinstances)
 
 

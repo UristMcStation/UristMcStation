@@ -172,9 +172,14 @@
 	default_material = "wood"
 	applies_material_colour = 0
 
-/obj/item/material/kitchen/chopsticks/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/material/kitchen/chopsticks/use_before(atom/target, mob/living/user, click_params)
+	var/mob/living/M = target
+	if(!istype(M))
+		return FALSE
+
 	if ((MUTATION_CLUMSY in user.mutations) && prob(50) && user.unEquip(src))
 		to_chat(user, "<span class='warning'>You somehow manage to lodge the chopsticks firmly into your nose.</span>")
 		user.Paralyse(3)
-		return
-	return ..()
+		return TRUE
+
+	return FALSE

@@ -166,7 +166,7 @@
 	overlays.Cut()
 	if(open)
 		icon_state = "laptop"
-		light_outer_range = 3
+		light_range = 3
 		if(uploading)
 			var/global/image/screen = image('icons/obj/machines/computer.dmi',icon_state="command")
 			overlays = list(screen)
@@ -176,41 +176,56 @@
 			overlays = list(screen)
 			desc = "A clamshell portable computer. It is open."
 	else
-		light_outer_range = 0
+		light_range = 0
 		icon_state = "adv-laptop-closed"
 		desc = "A clamshell portable computer. It is closed."
 
-/obj/item/device/inteluplink/attackby(obj/item/I,mob/user as mob)
+/obj/item/device/inteluplink/use_tool(obj/item/I, mob/user, click_params)
 	if(!open)
-		return
+		return FALSE
+
 	if(istype(I,/obj/item/conspiracyintel))
 		var/obj/item/conspiracyintel/C = I
+
 		if(cmptext(C.faction,faction))
 			to_chat(user, "<span class='notice'>\The [C] you are trying to upload belongs to the faction you're trying to send it to.</span>")
-			return
+			return TRUE
+
 		if(cmptext(C.faction,alliedf))
 			to_chat(user, "<span class='notice'>\The [faction] does not need any more data on [C.faction].</span>")
-			return
+			return TRUE
+
 		if(!(C.upload_id))
 			C.upload_id = rand(1,9999) //should be more than enough to be unique
+
 		if(lastuploaded == C.upload_id)
 			progress = cached_progress
 		else
 			progress = 0
+
 		lastuploaded = C.upload_id
 		uploading = 1
 		update_icon()
-		user.visible_message("<span class='notice'>[user] starts typing commands on \the [src]'s keyboard frantically!</span>","<span class='notice'>You start scanning and uploading \the [C] to the [faction]'s databases.</span>","<span class='notice'>You hear someone frantically typing on a keyboard.</span>")
+		user.visible_message(
+			SPAN_NOTICE("[user] starts typing commands on \the [src]'s keyboard frantically!"),
+			SPAN_NOTICE("You start scanning and uploading \the [C] to the [faction]'s databases."),
+			SPAN_NOTICE("You hear someone frantically typing on a keyboard.")
+		)
 		var/uploadamount = min(5,(100 - progress))
 		var/initial_obj_loc = C.loc
+
 		while(do_after(user, 50, src, 0, 5))
 			if(!(C.loc == initial_obj_loc))
 				break
+
 			if(!(open))
 				break
+
 			progress += uploadamount
+
 			if(progress == (round(progress, 10))) //kind of an odd method, but cuts down on the spam
 				to_chat(user, "<span class='notice'>Upload progress at: [progress]%</span>")
+
 			if(progress >= 100)
 				user.visible_message("<span class='notice'>\The [src] buzzes and shreds the [C] as a progress bar reaches completion.</span>","<span class='notice'>\The [src] buzzes and shreds the [C] as a progress bar reaches completion.</span>","<span class='notice'>You hear a buzz and the sound of utterly annihilated paper.</span>")
 				if(prob(50))
@@ -226,6 +241,7 @@
 				if (!isnull(crystals))
 					new /obj/item/stack/telecrystal(src.loc, crystals)
 				qdel(C)
+
 		if(progress < 100)
 			cached_progress = progress
 			uploading = 0

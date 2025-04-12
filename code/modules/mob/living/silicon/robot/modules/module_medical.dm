@@ -149,9 +149,9 @@
 		var/obj/item/reagent_containers/spray/PS = emag
 		PS.reagents.add_reagent(/datum/reagent/acid/polyacid, 2 * amount)
 	..()
-	var/obj/item/reagent_containers/spray/sterilizine/S = locate() in equipment
-	if (S)
-		S.reagents.add_reagent(/datum/reagent/sterilizine, 10 * amount)
+	var/obj/item/reagent_containers/spray/sterilizine/ST = locate() in equipment
+	if(ST)
+		ST.reagents.add_reagent(/datum/reagent/sterilizine, 10 * amount)
 
 /* unincluded as the medical module has all of this
 /obj/item/robot_module/medical/crisis

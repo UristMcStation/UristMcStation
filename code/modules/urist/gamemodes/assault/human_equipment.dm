@@ -95,7 +95,7 @@
 	anchored = TRUE
 	density = TRUE
 
-/obj/structure/assaultshieldgen/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/assaultshieldgen/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/weldingtool))
 		var/obj/item/weldingtool/WT = W
 		if (WT.remove_fuel(0,user))

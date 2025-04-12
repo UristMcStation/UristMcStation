@@ -117,20 +117,20 @@
 	src.add_fingerprint(usr)
 	return
 
-/obj/machinery/dna_scannernew/attackby(var/obj/item/item as obj, var/mob/user as mob)
-	if(istype(item, /obj/item/reagent_containers/glass))
+/obj/machinery/dna_scannernew/use_tool(obj/item/I, mob/living/user, list/click_params)
+	if(istype(I, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
 			return
 
-		beaker = item
+		beaker = I
 		user.drop_item()
-		item.loc = src
+		I.loc = src
 		user.visible_message("\The [user] adds \a [item] to \the [src]!", "You add \a [item] to \the [src]!")
 		return
-	else if (!istype(item, /obj/item/grab))
+	else if (!istype(I, /obj/item/grab))
 		return
-	var/obj/item/grab/G = item
+	var/obj/item/grab/G = I
 	if (!ismob(G.affecting))
 		return
 	if (src.occupant)

@@ -13,7 +13,7 @@
 	var/grinded = 0
 
 
-/obj/machinery/monkey_recycler/attackby(obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/monkey_recycler/use_tool(obj/item/O, mob/living/user, list/click_params)
 
 	if (src.stat != 0) //NOPOWER etc
 		return

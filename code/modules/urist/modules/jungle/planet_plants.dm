@@ -42,7 +42,7 @@
 
 	else ..()
 
-/obj/structure/bush/attackby(obj/I as obj, var/mob/user as mob)
+/obj/structure/bush/use_tool(obj/item/I, mob/living/user, list/click_params)
 	//hatchets can clear away undergrowth
 	if(istype(I, /obj/item/material/hatchet) || istype(I, /obj/item/material/sword/machete) || istype(I, /obj/item/carpentry/axe))
 		if(indestructable)
@@ -172,7 +172,7 @@ var/global/jungle_plants_init = 0
 	else
 		to_chat(user, "<span class='warning'> There are no fruit left on [src].</span>")
 
-/obj/structure/jungle_plant/attackby(obj/I as obj, var/mob/user as mob)
+/obj/structure/jungle_plant/use_tool(obj/item/I, mob/living/user, list/click_params)
 	//hatchets can clear away undergrowth
 	if(istype(I, /obj/item/material/hatchet) || istype(I, /obj/item/material/sword/machete) || istype(I, /obj/item/carpentry/axe))
 
@@ -204,7 +204,7 @@ var/global/jungle_plants_init = 0
 		icon_state = "reedbush_4"
 	..()
 
-/obj/structure/flora/reeds/attackby(obj/I as obj, var/mob/user as mob)
+/obj/structure/flora/reeds/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/material/hatchet) || istype(I, /obj/item/material/sword/machete) || istype(I, /obj/item/carpentry/axe))
 		user.visible_message("<span class='danger'>[user] begins clearing away [src].</span>","<span class='danger'>You begin clearing away [src].</span>")
 		spawn(rand(5,10))

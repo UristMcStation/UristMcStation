@@ -25,7 +25,7 @@
 	head_hair_style = "Resomi Plumage"
 	. = ..(mapload, SPECIES_RESOMI)
 
-/mob/living/carbon/human/skrell/Initialize(mapload))
+/mob/living/carbon/human/skrell/Initialize(mapload)
 	head_hair_style = "Skrell Male Tentacles"
 	. = ..(mapload, SPECIES_SKRELL)
 

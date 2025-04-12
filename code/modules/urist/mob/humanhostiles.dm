@@ -479,7 +479,7 @@
 
 /mob/living/simple_animal/hostile/urist/cultist/death()
 	..()
-	var/datum/effect/effect/system/smoke_spread/bad/deathsmoke = new
+	var/datum/effect/smoke_spread/bad/deathsmoke = new
 	deathsmoke.set_up(5,0,src.loc,null)
 	deathsmoke.start()
 	qdel(src)

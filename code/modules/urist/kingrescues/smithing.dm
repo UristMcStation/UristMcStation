@@ -16,7 +16,7 @@
 	density = FALSE
 	anchored = TRUE
 
-/obj/structure/blacksmithingfurnace/furnace/attackby(obj/item/W, mob/user, click_params)
+/obj/structure/blacksmithingfurnace/furnace/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/ore/iron))
 		user.drop_item(W)
 		playsound(loc, 'sound/urist/furnace.ogg', 100, 5, 5)
@@ -171,7 +171,7 @@
 		qdel(src)
 
 
-/obj/item/ore/hot/attackby(obj/item/W, mob/user, click_params)
+/obj/item/ore/hot/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if((istype(W, /obj/item/hammer)) && (locate(/obj/structure/anvil) in loc))
 		if(!busy)
 			busy = 1
@@ -222,7 +222,7 @@
 	anchored = TRUE
 	var/busy = 0
 
-/obj/structure/anvil/attackby(obj/item/W, mob/user)
+/obj/structure/anvil/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/ore/hot) || istype(W,/obj/item/stack/material))
 		user.drop_from_inventory(W, src.loc)
 
@@ -328,7 +328,7 @@
 
 //keeping the old stocks just incase i change my mind. but for now, we're just going to use the imp rifle stock
 
-/obj/item/gunsmith/stock/long/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/gunsmith/stock/long/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/gunsmith/barrel/long))
 		var/obj/item/gunsmith/gun2/long/I = new /obj/item/gunsmith/gun2/long(get_turf(src))
 		to_chat(user, "You put the barrel onto the stock.")
@@ -340,7 +340,7 @@
 	else
 		..()
 
-/obj/item/gunsmith/stock/short/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/gunsmith/stock/short/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/gunsmith/barrel/short))
 		var/obj/item/gunsmith/gun2/short/I = new /obj/item/gunsmith/gun2/short(get_turf(src))
 		to_chat(user, "You put the barrel onto the stock.")
@@ -355,7 +355,7 @@
 
 //////////////////////////////////////
 
-/obj/item/gunsmith/stock/flintlock/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/gunsmith/stock/flintlock/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/gunsmith/barrel/flintlock))
 		var/obj/item/gunsmith/gun2/flintlock/I = new /obj/item/gunsmith/gun2/flintlock(get_turf(src))
 		to_chat(user, "You put the barrel onto the stock.")
@@ -369,7 +369,7 @@
 
 /////////////////////////////////////
 
-/obj/item/gunsmith/gun2/long/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/gunsmith/gun2/long/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/gunsmith/parts))
 		var/obj/item/gun/projectile/manualcycle/musket/I = new /obj/item/gun/projectile/manualcycle/musket(get_turf(src))
 		to_chat(user, "You put the parts onto the unfinished gun.")
@@ -381,7 +381,7 @@
 	else
 		..()
 
-/obj/item/gunsmith/gun2/short/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/gunsmith/gun2/short/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/gunsmith/parts))
 		var/obj/item/gun/projectile/manualcycle/musket/short/I = new /obj/item/gun/projectile/manualcycle/musket/short(get_turf(src))
 		to_chat(user, "You put the parts onto the unfinished gun.")
@@ -393,7 +393,7 @@
 	else
 		..()
 
-/obj/item/gunsmith/gun2/flintlock/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/gunsmith/gun2/flintlock/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/gunsmith/parts))
 		var/obj/item/gun/projectile/manualcycle/musket/flintlock/I = new /obj/item/gun/projectile/manualcycle/musket/flintlock(get_turf(src))
 		to_chat(user, "You put the parts onto the unfinished gun.")

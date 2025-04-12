@@ -108,22 +108,22 @@
 	build_path = /obj/machinery/computer/account_database
 
 /obj/item/stock_parts/circuitboard/account_manager
-	name = "circuit board (accounts management console")
+	name = "circuit board (accounts management console)"
 	build_path = /obj/machinery/computer/accounts
 
 /obj/item/stock_parts/circuitboard/guestpass
-	name = "circuit board (guest pass terminal")
+	name = "circuit board (guest pass terminal)"
 	build_path = /obj/machinery/computer/guestpass
 
 /obj/item/stock_parts/circuitboard/combat_computer
-	name = "circuit board (unrecognized combat computer")
+	name = "circuit board (unrecognized combat computer)"
 	build_path = /obj/machinery/computer/combatcomputer
 
 /obj/item/stock_parts/circuitboard/combat_computer/nerva
-	name = "circuit board (ICS Nerva combat computer")
+	name = "circuit board (ICS Nerva combat computer)"
 	build_path = /obj/machinery/computer/combatcomputer/nerva
 
 /obj/item/stock_parts/circuitboard/cloning_computer
-	name = "circuit board (cloning control console")
+	name = "circuit board (cloning control console)"
 	build_path = /obj/machinery/computer/cloning
 	origin_tech = list(TECH_DATA = 3, TECH_BIO = 3,)

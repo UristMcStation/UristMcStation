@@ -32,7 +32,7 @@
 	if(prob(50))
 		icon_state = "fish2"
 
-/obj/item/fish/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/fish/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/material/knife/kitchen))
 		to_chat(user, SPAN_NOTICE("You chop up the fish into wonderful fish fillet."))
 		new /obj/item/reagent_containers/food/snacks/fishmeat(user.loc)
