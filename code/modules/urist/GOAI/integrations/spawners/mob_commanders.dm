@@ -224,14 +224,22 @@
 	var/singleton/hierarchy/outfit/antag = outfit_by_type(/singleton/hierarchy/outfit/ANTAG)
 	antag.equip(M, equip_adjustments = OUTFIT_ADJUSTMENT_SKIP_SURVIVAL_GEAR)
 
-	var/obj/item/gun/projectile/colt/gun = null
+	var/list/gun_types = list(
+		/obj/item/gun/projectile/colt,
+		/obj/item/gun/projectile/pistol/sec/lethal,
+		/obj/item/gun/projectile/pistol/sec/wood/lethal,
+		/obj/item/gun/projectile/pistol/holdout
+	)
+
+	var/obj/item/gun/projectile/gun = null
+	var/selected_gun = pick(gun_types)
 
 	if(!gun)
-		gun = new(M)
+		gun = new selected_gun(M)
 		M.equip_to_slot_or_del(gun, slot_r_hand)
 
 	if(!gun)
-		gun = new(M)
+		gun = new selected_gun(M)
 		M.equip_to_slot_or_del(gun, slot_l_hand)
 
 	if(spawn_commander)

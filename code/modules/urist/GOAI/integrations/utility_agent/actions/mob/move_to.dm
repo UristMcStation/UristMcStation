@@ -92,7 +92,7 @@
 	return
 
 
-/datum/utility_ai/mob_commander/proc/SteerTo(var/datum/ActionTracker/tracker, var/atom/position, var/timeout = null, var/min_dist = 0)
+/datum/utility_ai/mob_commander/proc/SteerTo(var/datum/ActionTracker/tracker, var/atom/position, var/timeout = null, var/min_dist = 0, var/fuzz_x = 0, var/fuzz_y = 0, var/permissive_adjacents = null)
 	/*
 	// Fancier movement; will *keep* walking to the target. Also a fair bit faster, for Reasons (TM).
 	//
@@ -106,7 +106,14 @@
 		return
 
 	if(isnull(position))
-		RUN_ACTION_DEBUG_LOG("Target position is null | <@[src]> | [__FILE__] -> L[__LINE__]")
+		RUN_ACTION_DEBUG_LOG("Raw target position is null | <@[src]> | [__FILE__] -> L[__LINE__]")
+		tracker.SetFailed()
+		return
+
+	var/pathing_timeout = DEFAULT_IF_NULL(timeout, 100)
+	var/timedelta = (world.time - tracker.creation_time)
+
+	if(timedelta > pathing_timeout)
 		tracker.SetFailed()
 		return
 
@@ -116,7 +123,29 @@
 		RUN_ACTION_DEBUG_LOG("No owned mob found for [src.name] AI @ L[__LINE__] in [__FILE__]")
 		return
 
-	GOAI_LOG_DEBUG_WORLD("[pawn] is running to [position] [COORDS_TUPLE(position)]")
+	var/turf/true_position = get_turf(position)
+
+	if(fuzz_x && fuzz_y)
+		/*
+		// If we can see the target pos, fuzzing would make the AI look dumb.
+		// Fuzzing is used to simulate the AI 'guessing' where the target is
+		// (mainly for pursuit/search-type actions).
+		var/list/ai_view = src.brain?.perceptions?[SENSE_SIGHT_CURR]
+		if(!(position in ai_view))
+			var/fuzzed_x = clamp(position.x + rand(-fuzz_x, fuzz_x), 1, world.maxx)
+			var/fuzzed_y = clamp(position.y + rand(-fuzz_y, fuzz_y), 1, world.maxy)
+			true_position = locate(fuzzed_x, fuzzed_y, position.z)
+		*/
+		var/fuzzed_x = clamp(position.x + rand(-fuzz_x, fuzz_x), 1, world.maxx)
+		var/fuzzed_y = clamp(position.y + rand(-fuzz_y, fuzz_y), 1, world.maxy)
+		true_position = locate(fuzzed_x, fuzzed_y, position.z)
+
+	if(!istype(true_position))
+		RUN_ACTION_DEBUG_LOG("Fuzzed target position is null | <@[src]> | [__FILE__] -> L[__LINE__]")
+		tracker.SetFailed()
+		return
+
+	GOAI_LOG_DEBUG("[pawn] is running to [true_position] [COORDS_TUPLE(true_position)]")
 
 	src.allow_wandering = TRUE
 
@@ -126,11 +155,20 @@
 		tracker.SetDone()
 		return
 
-	if((!src.active_path || src.active_path.target != position))
-		var/stored_path = StartNavigateTo(position, _min_dist, null)
+	var/use_permissive_adjacencies = DEFAULT_IF_NULL(permissive_adjacents, FALSE)
+	var/used_adjproc = use_permissive_adjacencies ? /proc/fCardinalTurfsNoblocksObjpermissive : null
+
+	if((!src.active_path || src.active_path.target != true_position))
+		var/stored_path = StartNavigateTo(
+			true_position,
+			_min_dist,
+			null,
+			adjproc = used_adjproc
+		)
+
 		if(isnull(stored_path))
 			tracker.SetFailed()
-			RUN_ACTION_DEBUG_LOG("FAILED: No path to [position] found for [src.name] AI @ L[__LINE__] in [__FILE__]")
+			RUN_ACTION_DEBUG_LOG("FAILED: No path to [true_position] found for [src.name] AI @ L[__LINE__] in [__FILE__]")
 			src.brain?.SetMemory("UnreachableRunMovePath", position, 500)
 			return
 

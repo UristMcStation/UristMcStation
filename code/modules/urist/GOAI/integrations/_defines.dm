@@ -22,7 +22,7 @@
 # define MEM_TIME_LONGTERM 1000000
 
 # define MEM_AITICK_MULT_SHORTTERM 8
-# define MEM_AITICK_MULT_MIDTERM 16
+# define MEM_AITICK_MULT_MIDTERM 24
 
 // Keys for the memory dict
 # define MEM_SHOTAT "ShotAt"
