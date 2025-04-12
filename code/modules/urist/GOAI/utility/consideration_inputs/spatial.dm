@@ -18,6 +18,9 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_manhattan_distance_to_req
 	var/from_memory = consideration_args?["from_memory"]
 	var/from_ctx = consideration_args?["from_context"]
 
+	var/z_cost_mult = consideration_args?["zmult"]
+	z_cost_mult = DEFAULT_IF_NULL(z_cost_mult, ASTAR_ZMOVE_BASE_PENALTY)
+
 	if(isnull(from_ctx))
 		from_ctx = !from_memory
 
@@ -50,7 +53,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_manhattan_distance_to_req
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_manhattan_distance_to_requester query_target is null ([query_target || "null"]) @ L[__LINE__] in [__FILE__]")
 		return default
 
-	var/result = ManhattanDistance(requester_entity, query_target)
+	var/result = MANHATTAN_DISTANCE_THREED(requester_entity, query_target, PLUS_INF, z_cost_mult)
 	return result
 
 
@@ -67,6 +70,9 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_chebyshev_distance_to_req
 	if(!istype(requester_entity))
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("Requesting identity is invalid (from [NULL_TO_TEXT(requester)] raw val) @ L[__LINE__] in [__FILE__]")
 		return null
+
+	var/z_cost_mult = consideration_args?["zmult"]
+	z_cost_mult = DEFAULT_IF_NULL(z_cost_mult, ASTAR_ZMOVE_BASE_PENALTY)
 
 	var/from_memory = consideration_args?["from_memory"]
 
@@ -98,7 +104,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_chebyshev_distance_to_req
 		DEBUGLOG_UTILITY_INPUT_FETCHERS("consideration_input_chebyshev_distance_to_requester query_target is null ([query_target || "null"]) @ L[__LINE__] in [__FILE__]")
 		return null
 
-	var/result = ChebyshevDistance(requester_entity, query_target)
+	var/result = CHEBYSHEV_DISTANCE_THREED(requester_entity, query_target, PLUS_INF, z_cost_mult)
 	return result
 
 

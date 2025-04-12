@@ -40,8 +40,12 @@
 
 #define COORDS_TUPLE_2D(A) "([A?.x], [A?.y])"
 #define COORDS_TUPLE_3D(A) "([A?.x], [A?.y], [A?.z])"
+// YOLO variants if you know the target has coords
+#define COORDS_TUPLE_2D_UNSAFE(A) "([A?:x], [A?:y])"
+#define COORDS_TUPLE_3D_UNSAFE(A) "([A?:x], [A?:y], [A?:z])"
 // defaulting:
 #define COORDS_TUPLE COORDS_TUPLE_3D
+#define COORDS_TUPLE_UNSAFE COORDS_TUPLE_3D_UNSAFE
 #define LOCATION_WITH_COORDS(At) "[get_turf(At)] @ [COORDS_TUPLE(At)]"
 
 // 1 (SOUTH) + 2 (NORTH) + 4 (EAST) + 8 (WEST) == 15

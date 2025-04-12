@@ -122,7 +122,15 @@ PathNode
 	var/list/path_node_by_position = list()
 
 	if(!start)
-		return 0
+		return
+
+	var/initial_dist = call(dist)(start, end)
+
+	if(!isnull(min_target_dist) && (initial_dist <= min_target_dist))
+		// We are within min-dist - we're happy enough where we started.
+		// It is literally impossible to get a lower-cost path if no edges are negative.
+		MOVEMENT_DEBUG_LOG("[src]: path from [COORDS_TUPLE_UNSAFE(start)] -> [COORDS_TUPLE_UNSAFE(end)] not needed, within min-dist")
+		return path
 
 	open.Enqueue(new /PathNode(start, null, 0, call(dist)(start, end), 0))
 

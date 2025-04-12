@@ -57,6 +57,7 @@
 	var/allow_path_following = TRUE
 	var/allow_steering = TRUE
 	var/allow_nudging = TRUE
+	var/require_stairs_in_loc = FALSE
 
 	while(pending_checks --> 0)
 		var/do_path_following = (allow_path_following && src.active_path && !src.active_path.IsDone() && (localdist < 12))
@@ -192,7 +193,7 @@
 					// find a turf corresponding to the pathstep, but on our current Z and get_dir() it
 					//var/turf/flattened_pathstep_loc = locate(pathstep.x, pathstep.y, curr_loc.z)
 					//if(isnull(staircase) || (staircase.dir != get_dir(curr_loc, flattened_pathstep_loc)))
-					if(isnull(currloc_staircase))
+					if(isnull(currloc_staircase) && require_stairs_in_loc)
 						MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: skipping [pathstep] @ [COORDS_TUPLE(pathstep)] - no staircase found at [curr_loc] @ [COORDS_TUPLE(curr_loc)] <-")
 						continue
 

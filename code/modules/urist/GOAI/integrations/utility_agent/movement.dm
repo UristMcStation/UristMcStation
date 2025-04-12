@@ -209,7 +209,7 @@
 	return startchunk
 
 
-/datum/utility_ai/mob_commander/proc/BuildPathTrackerTo(var/trg, var/min_dist = 0, var/avoid = null, var/inh_frustration = 0, var/costproc = null)
+/datum/utility_ai/mob_commander/proc/BuildPathTrackerTo(var/trg, var/min_dist = 0, var/avoid = null, var/inh_frustration = 0, var/costproc = null, var/adjproc = null)
 	var/datum/ActivePathTracker/pathtracker = null
 	var/cost_function = (isnull(costproc) ? DEFAULT_GOAI_DISTANCE_PROC : costproc)
 	//var/list/adjacency_args = list(owner = src))
@@ -218,16 +218,17 @@
 		trg,
 		min_dist,
 		avoid,
+		adjproc = adjproc,
 		distanceproc = cost_function
 	)
 
-	if(path)
+	if(istype(path))
 		pathtracker = new /datum/ActivePathTracker(trg, path, min_dist, inh_frustration)
 
 	return pathtracker
 
 
-/datum/utility_ai/mob_commander/proc/StartNavigateTo(var/trg, var/min_dist = 0, var/avoid = null, var/inh_frustration = 0, var/costproc = null, var/max_mindist = 2)
+/datum/utility_ai/mob_commander/proc/StartNavigateTo(var/atom/trg, var/min_dist = 0, var/avoid = null, var/inh_frustration = 0, var/costproc = null, var/adjproc = null, var/max_mindist = null)
 	src.is_repathing = 1
 
 	var/atom/pawn = src.GetPawn()
@@ -236,24 +237,39 @@
 		src.is_repathing = 0
 		return
 
+	var/safe_max_mindist = DEFAULT_IF_NULL(max_mindist, min_dist + 2)
+
 	var/used_min_dist = min_dist - 1
 	var/datum/ActivePathTracker/pathtracker = null
 
 	while(isnull(pathtracker))
-		if(++used_min_dist > max_mindist)
+		if(++used_min_dist > safe_max_mindist)
 			break
 
-		pathtracker = BuildPathTrackerTo(trg, used_min_dist, avoid, inh_frustration, costproc)
+		pathtracker = BuildPathTrackerTo(trg, used_min_dist, avoid, inh_frustration, costproc, adjproc)
+
+		#ifdef MOVEMENT_DEBUG_LOGGING
+		if(pathtracker)
+			MOVEMENT_DEBUG_LOG("[src]: Created a pathtracker from [pawn.loc] [COORDS_TUPLE(pawn.loc)] -> [trg] @ [COORDS_TUPLE(trg)] at min_dist=[used_min_dist]/[safe_max_mindist].")
+		else
+			MOVEMENT_DEBUG_LOG("[src]: Failed to build a pathtracker from [pawn.loc] [COORDS_TUPLE(pawn.loc)] -> [trg] @ [COORDS_TUPLE(trg)] at min_dist=[used_min_dist]/[safe_max_mindist]")
+		#endif
 
 	if(pathtracker)
 		src.active_path = pathtracker
 		src.brain.SetMemory(MEM_PATH_ACTIVE, pathtracker.path)
-		MOVEMENT_DEBUG_LOG("[src]: Created a pathtracker to [trg] @ [pawn.loc] [COORDS_TUPLE(pawn.loc)]")
+		#ifdef MOVEMENT_DEBUG_LOGGING
+		MOVEMENT_DEBUG_LOG("[src]: Created a pathtracker from [pawn.loc] [COORDS_TUPLE(pawn.loc)] -> [trg] @ [COORDS_TUPLE(trg)]. Steps: [json_encode(pathtracker.path)]")
+		var/stepidx = 1
+		for(var/pathstep in pathtracker.path)
+			MOVEMENT_DEBUG_LOG("- [pathtracker] [stepidx]: [pathstep] ([COORDS_TUPLE_UNSAFE(pathstep)])")
+			stepidx++
+		#endif
 
 	else
 		#ifdef MOVEMENT_DEBUG_LOGGING
 		var/turf/pawnloc = get_turf(pawn)
-		MOVEMENT_DEBUG_LOG("[src]: Could not build a pathtracker to [trg] @ [pawnloc] [COORDS_TUPLE(pawnloc)]")
+		MOVEMENT_DEBUG_LOG("[src]: Could not build a pathtracker for: [pawnloc] @ [COORDS_TUPLE(pawnloc)] -> [trg] @ [COORDS_TUPLE(trg)]")
 		#endif
 		src.brain.SetMemory("PendingMovementTarget", trg, 100)
 		src.is_repathing = 0
@@ -268,7 +284,7 @@
 
 	src.is_repathing = 0
 
-	return src.active_path
+	return pathtracker
 
 
 /datum/utility_ai/mob_commander/proc/CancelNavigate()
@@ -335,6 +351,15 @@
 	if(step_result == MOVEMENT_HANDLED)
 		src.brain?.SetMemory("MyPrevLocation", curr_pos)
 		step_result = TRUE
+
+	else
+		// Bump stuff - to open doors etc.
+		var/turf/bump_pos = get_step(pawn, movedir)
+		if(istype(bump_pos))
+			for(var/obj/border_obstacle in bump_pos)
+				if(!border_obstacle.CanPass(true_pawn, true_pawn.loc, 1, 0))
+					true_pawn.Bump(border_obstacle, 1)
+					break
 	# endif
 
 	return step_result

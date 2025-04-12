@@ -6,7 +6,7 @@
 	// max length of stored enemies
 	var/max_enemies = DEFAULT_MAX_ENEMIES
 
-	// max distance to count friendlies
+	// max distance to count enemies
 	var/enemy_dist_cutoff = 12
 
 	// do raycasts from the enemies to us and sets a flag if enabled (nonzero)
@@ -23,6 +23,11 @@
 	var/ignore_dead = TRUE
 
 	var/sense_side_delay_mult = 1
+
+	// =====      Trackercheat      =====
+	// This is a (provisional) name for an optional module that cheats in a bit of clairvoyance.
+	// If enabled, enemies are stored longer
+	var/trackercheat_enabled = FALSE
 
 
 /sense/combatant_commander_eyes/proc/UpdatePerceptions(var/datum/utility_ai/mob_commander/owner)
@@ -189,6 +194,10 @@
 	// Short-term - otherwise AI will be clairvoyant
 	owner_brain.SetMemory(MEM_FRIENDS, friends, owner.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
 	owner_brain.SetMemory(MEM_ENEMIES, enemies, owner.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
+
+	var/midterm_enemies = owner_brain.GetMemoryValue("EnemiesMidterm")
+	if(!midterm_enemies)
+		owner_brain.SetMemory("EnemiesMidterm", enemies, owner.ai_tick_delay * MEM_AITICK_MULT_MIDTERM)
 
 	if(length(friend_positions))
 		owner_brain.SetMemory(MEM_FRIENDS_POSITIONS, friend_positions, owner.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
