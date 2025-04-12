@@ -698,7 +698,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "autumn"
 	blood_overlay_type = "armorblood"
 	armor = list(melee = 20, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 0, rad = 10)
-	allowed = list(/obj/item/material/knife, /obj/item/material/knife/kitchen/cleaver, /obj/item/stamp, /obj/item/reagent_containers/food/drinks/flask, /obj/item/melee, /obj/item/device/flash, /obj/item/storage/box/matches, /obj/item/clothing/mask/smokable/cigarette, /obj/item/storage/fancy/smokable, /obj/item/tank, /obj/item/device/flashlight, /obj/item/gun/energy, /obj/item/gun/projectile, /obj/item/scalpel, /obj/item/cautery, /obj/item/hemostat, /obj/item/retractor)
+	allowed = list(/obj/item/material/knife, /obj/item/material/knife/kitchen/cleaver, /obj/item/stamp, /obj/item/reagent_containers/food/drinks/flask, /obj/item/melee, /obj/item/device/flash, /obj/item/storage/fancy/matches/matchbox, /obj/item/clothing/mask/smokable/cigarette, /obj/item/storage/fancy/smokable, /obj/item/tank, /obj/item/device/flashlight, /obj/item/gun/energy, /obj/item/gun/projectile, /obj/item/scalpel, /obj/item/cautery, /obj/item/hemostat, /obj/item/retractor)
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = 263.15
 

@@ -165,7 +165,7 @@
 		/obj/item/photo,
 		/obj/item/paper,
 		/obj/item/paper_bundle,
-		/obj/item/folder,
+		/obj/item/material/folder,
 		/obj/item/device/camera_film
 	)
 

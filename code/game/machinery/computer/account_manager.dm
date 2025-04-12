@@ -510,7 +510,7 @@
 				M.initial_account = acc
 
 				//More paperwork! This time for pins and account info. Only the crewmember should know this, so we'll put it in an envelope with a seal
-				var/obj/item/folder/envelope/P = new /obj/item/folder/envelope(src.loc)
+				var//obj/item/material/folder/envelope/P = new /obj/item/material/folder/envelope(src.loc)
 				P.name = "envelope - Account Details: [acc.owner_name] (CONFIDENTIAL)"
 				P.desc += "\nA large red label on the front reads \"CONFIDENTIAL - For account holder eyes only\""
 				var/obj/item/paper/R = new /obj/item/paper(P)
