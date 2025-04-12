@@ -70,12 +70,24 @@
 	return
 
 
+// RAILINGS
+/obj/structure/railing
+	blocker_gen_enabled = FALSE // temporary, railings break multiz pathfinding fsr -_-
+
+/obj/structure/railing/GenerateBlocker()
+	if(!src.density)
+		return
+
+	var/datum/directional_blocker/blocker = new(src.dir, src.dir, FALSE, TRUE)
+	return blocker
+
+
 // TABLE
 /obj/structure/table/GenerateBlocker()
 	var/datum/directional_blocker/blocker_data = null
 
 	if(src.flipped)
-		blocker_data = new(src.dir, FALSE, TRUE)
+		blocker_data = new(src.dir, src.dir, FALSE, TRUE)
 
 	else
 		blocker_data = new(ALL_CARDINAL_DIRS, TRUE, TRUE)
@@ -88,10 +100,10 @@
 	var/datum/directional_blocker/blocker_data = null
 
 	if(src.is_fulltile())
-		blocker_data = new(ALL_CARDINAL_DIRS, TRUE, TRUE)
+		blocker_data = new(ALL_CARDINAL_DIRS, ALL_CARDINAL_DIRS, TRUE, TRUE)
 
 	else
-		blocker_data = new(src.dir, FALSE, TRUE)
+		blocker_data = new(src.dir, src.dir, FALSE, TRUE)
 
 	return blocker_data
 

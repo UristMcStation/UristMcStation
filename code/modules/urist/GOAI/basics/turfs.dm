@@ -153,6 +153,19 @@
 		if(!object.density)
 			continue
 
+		# ifdef GOAI_SS13_SUPPORT
+		/*
+		// This warrants some explaining.
+		// The railings are usually used to make stairs look nicer.
+		// The railings are also an absolute blight upon multi-Z pathfinding.
+		// I don't quite know WHY, but I currently do not have time to fix it at source.
+		// I also don't want to enable object-permissive mode by default. So, it's a weird special case for now.
+		var/obj/structure/railing/stupid_railing = object
+		if(istype(stupid_railing))
+			continue
+		*/
+		# endif
+
 		if(check_objects_permissive)
 			var/mob/M = object
 			if(istype(M))

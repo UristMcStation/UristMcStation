@@ -68,9 +68,10 @@ GLOBAL_VAR(global_marketwatch_running)
 // Currently uses a random number AND a world.time to ensure collisions are extremely unlikely
 #define MARKETWATCH_TICKER_ID_HASH(MaxRand) "[rand(1, MaxRand)]-[world.time]"
 
-
+/*
 /mob/verb/CheckMarketWatch()
 	to_chat(usr, "Running MarketWatch ID is: [NULL_TO_TEXT(GOAI_LIBBED_GLOB_ATTR(global_marketwatch_running))]")
+*/
 
 /proc/StartGlobalMarketwatch(var/tickrate = null, var/my_id = null)
 	/* Starts a backgrounded Marketwatch system, which maintains the global_marketplace.

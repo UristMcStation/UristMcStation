@@ -304,6 +304,117 @@
 					"curve_proc": "/proc/curve_antilinear"
 				}
 			]
+		},
+		{
+			"name": "Charge In Punch", 
+			"description": "Close the distance and throw a punch", 
+			"handler": "/datum/utility_ai/mob_commander/proc/ChargeInPunch", 
+			"priority": 0,
+			"context_procs": ["/proc/ctxfetcher_get_memory_value_array"], 
+			"context_args": [
+				{
+					"input_key": "Enemies",
+					"output_context_key": "threat"
+				}
+			],
+			"considerations": [
+				{
+					"name": "IsFoe-RunPunch",
+					"lo_mark": -1, 
+					"hi_mark": 1, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_relationship_score", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antilinear"
+				},
+				{
+					"name": "MeleeAffinity",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_get_personality_trait", 
+					"input_args": {
+						"input_key": "MeleeAffinity",
+						"default": 0
+					},
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "ClDistanceToThreat",
+					"lo_mark": 2, 
+					"hi_mark": 8, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_chebyshev_distance_to_requester", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antilinear"
+				}
+			]
+		},
+		{
+			"name": "Pursue Enemy", 
+			"description": "Follow any enemies that are no longer nearby.", 
+			"handler": "/datum/utility_ai/mob_commander/proc/SteerTo", 
+			"priority": 12,
+			"context_procs": ["/proc/ctxfetcher_get_memory_value_array"], 
+			"context_args": [
+				{
+					"input_key": "EnemiesMidterm",
+					"output_context_key": "position"
+				}
+			],
+			"args": {
+				"timeout": 100,
+				"permissive_adjacents": 1,
+				"min_dist": 3,
+				"fuzz_x": 6,
+				"fuzz_y": 6
+			},
+			"considerations": [
+				{
+					"name": "IsFoe-Pursue",
+					"lo_mark": -1, 
+					"hi_mark": 1, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_relationship_score", 
+					"input_args": {
+						"input_key": "position",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antilinear"
+				},
+				{
+					"name": "ClDistanceToThreatMin",
+					"lo_mark": 0, 
+					"hi_mark": 5, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_chebyshev_distance_to_requester", 
+					"input_args": {
+						"input_key": "position",
+						"from_context": 1,
+						"zmult": 4
+					},
+					"curve_proc": "/proc/curve_binary"
+				},
+				{
+					"name": "ClDistanceToThreat",
+					"lo_mark": 8, 
+					"hi_mark": 40, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_chebyshev_distance_to_requester", 
+					"input_args": {
+						"input_key": "position",
+						"from_context": 1,
+						"zmult": 4
+					},
+					"curve_proc": "/proc/curve_antisquare"
+				}
+			]
 		}
 	]
 }

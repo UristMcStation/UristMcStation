@@ -162,7 +162,7 @@
 	# ifndef GOAI_SS13_SUPPORT
 	// Dev only faked implementation
 	var/atom/target = (isnull(cached_target) ? GetTarget() : cached_target)
-	if(isnull(target))
+	if(!istype(target))
 		return FALSE
 
 	target.MeleeHitBy(pawn)

@@ -12,7 +12,7 @@
 
 
 
-/datum/utility_ai/proc/AiAStar(var/start, var/end, var/adjacent, var/dist, var/max_nodes, var/max_node_depth = 30, var/min_target_dist = 0, var/min_node_dist, var/list/adj_args = null, var/list/exclude = null)
+/datum/utility_ai/proc/AiAStar(var/start, var/end, var/adjacent, var/dist, var/max_nodes, var/max_node_depth = 0, var/min_target_dist = 0, var/min_node_dist, var/list/adj_args = null, var/list/exclude = null)
 	/* AStar pathfinding algorithm.
 	// For SS13 purposes, this is essentially my (scrdest's) fork of the OG SS13 AStar for merge-compatibility WITH OOP STUFF ON TOP.
 	// This is meant to provide access to instance vars and, if you must, override stuff in subclasses (ugh)
@@ -33,10 +33,15 @@
 	var/list/path_node_by_position = list()
 
 	if(!start)
-		return 0
+		return
 
 	var/initial_dist = call(dist)(start, end)
 	initial_dist += INTRISIC_COST_QUERY(start, end)
+
+	if(!isnull(min_target_dist) && (initial_dist <= min_target_dist))
+		// We are within min-dist - we're happy enough where we started.
+		// It is literally impossible to get a lower-cost path if no edges are negative.
+		return list()
 
 	open.Enqueue(new /PathNode(start, null, 0, initial_dist, 0))
 

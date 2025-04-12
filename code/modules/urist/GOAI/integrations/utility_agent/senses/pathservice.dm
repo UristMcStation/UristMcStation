@@ -145,6 +145,12 @@
 	// Only run if units are simulated properly and not abstracted
 	min_lod = GOAI_LOD_UNIT_LOW
 
+	var/target_source_memory = "ai_target"
+	var/target_output_memory = MEM_PATH_ACTIVE
+
+	var/target_pos_fuzz_x = 0
+	var/target_pos_fuzz_y = 0
+
 
 /sense/combatant_commander_utility_wayfinder_smartobjectey/proc/DraftMoveToPrecise(var/datum/utility_ai/mob_commander/owner, var/atom/position, var/max_node_depth = null, var/min_target_dist = null, var/path_ttl = null)
 	if(!(owner && istype(owner)))
@@ -159,14 +165,18 @@
 	var/atom/target_pos = position
 
 	if(isnull(target_pos))
-		target_pos = owner_brain.GetMemoryValue("ai_target", null, FALSE, TRUE, TRUE)
+		target_pos = owner_brain.GetMemoryValue(src.target_source_memory, null, FALSE, TRUE, TRUE)
 		RUN_ACTION_DEBUG_LOG("Target position is [target_pos] | <@[src]> | [__FILE__] -> L[__LINE__]")
 
 	if(isnull(target_pos))
 		RUN_ACTION_DEBUG_LOG("Target position is null | <@[src]> | [__FILE__] -> L[__LINE__]")
 		return
 
-	var/turf/target = get_turf(target_pos)
+	var/turf/target_raw = get_turf(target_pos)
+	var/target_x = clamp(target_raw.x + rand(-src.target_pos_fuzz_x, src.target_pos_fuzz_x), 1, world.maxx)
+	var/target_y = clamp(target_raw.y + rand(-src.target_pos_fuzz_y, src.target_pos_fuzz_y), 1, world.maxy)
+
+	var/turf/target = locate(target_x, target_y, target_raw.z)
 
 	if(!istype(target))
 		RUN_ACTION_DEBUG_LOG("Target position did not resolve to a turf! | <@[src]> | [__FILE__] -> L[__LINE__]")
@@ -245,10 +255,17 @@
 	*/
 	// create a new abstract Path SmartObject
 	var/datum/path_smartobject/path_so = new(path, _path_name)
-	var/paths[1]; paths[_path_name] = path_so
 
-	owner_brain.SetMemory("AbstractSmartPaths", paths, _path_ttl)
-	owner_brain.SetMemory(MEM_PATH_ACTIVE, path, _path_ttl)
+	var/list/smart_paths = owner_brain.GetMemoryValue("AbstractSmartPaths")
+
+	if(!istype(smart_paths))
+		var/paths[1]; paths[_path_name] = path_so
+		owner_brain.SetMemory("AbstractSmartPaths", paths, _path_ttl)
+	else
+		smart_paths.Add(path_so)
+		owner_brain.SetMemory("AbstractSmartPaths", smart_paths, _path_ttl)
+
+	owner_brain.SetMemory(target_output_memory, path, _path_ttl)
 
 	#ifdef ENABLE_GOAI_DEBUG_BEAM_GIZMOS
 	if(path)
