@@ -37,8 +37,11 @@
 	else
 		tracker.failed_ticks++
 
+	/*
+	// runtimes, because bad null-checks on HUD
 	if(tracker.failed_ticks)
 		var/mob/living/L = pawn
 		if(istype(L))
 			L.swap_hand()
+	*/
 	return
