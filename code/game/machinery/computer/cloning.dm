@@ -1,7 +1,7 @@
 /obj/machinery/computer/cloning
 	name = "cloning control console"
 	desc = "A console used for controlling a cloning pod and a DNA scanner. Owing to NanoTrasen's monopoly on cloning software and technology, the computer requires 'cloning verification disks' to be inserted before cloning can take place."
-	icon = 'icons/obj/computer.dmi'
+	icon = 'icons/obj/machines/computer.dmi'
 	icon_keyboard = "med_key"
 	icon_screen = "dna"
 	light_color = "#315ab4"
@@ -467,7 +467,7 @@
 /obj/item/disk/cloning_charge
 	name = "cloning verification disk (one charge)"
 	desc = "A disk that is required for the cloning process. Thanks to NanoTrasen's monopoly on cloning technology, all cloning requires an expensive verification disk to add 'verification charges' to a cloning machine, that are used upon cloning. This disk has one charge."
-	icon = 'icons/obj/cloning.dmi'
+	icon = 'icons/obj/datadisks.dmi'
 	icon_state = "datadisk1"
 	var/charges = 1
 

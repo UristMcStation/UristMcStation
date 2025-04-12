@@ -21,7 +21,7 @@
 	desc = "An electronically-lockable pod for growing organic tissue."
 	density = TRUE
 	anchored = TRUE
-	icon = 'icons/obj/cloning.dmi'
+	icon = 'icons/obj/machines/medical/cloning.dmi'
 	icon_state = "pod_0"
 	req_access = list(access_medical) //For premature unlocking.
 	construct_state = /singleton/machine_construction/default/panel_closed
@@ -376,7 +376,7 @@
 //TO-DO: Make the genetics machine accept them.
 /obj/item/disk/data
 	name = "Cloning Data Disk"
-	icon = 'icons/obj/cloning.dmi'
+	icon = 'icons/obj/datadisks.dmi'
 	icon_state = "datadisk0" //Gosh I hope syndies don't mistake them for the nuke disk.
 	item_state = "card-id"
 	w_class = ITEM_SIZE_SMALL

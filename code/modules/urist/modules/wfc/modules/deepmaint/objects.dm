@@ -1,6 +1,6 @@
 
 /obj/deepmaint_light
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'icons/obj/structures/lighting.dmi'
 	icon_state = "floor1"
 	layer = BELOW_OBJ_LAYER
 	anchored = TRUE

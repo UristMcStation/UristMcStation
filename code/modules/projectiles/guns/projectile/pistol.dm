@@ -87,7 +87,7 @@
 	desc = "The HelTek Optimus, best known as the standard-issue sidearm for the Terran Navy. Uses 10mm rounds."
 	magazine_type = /obj/item/ammo_magazine/pistol/double
 	allowed_magazines = /obj/item/ammo_magazine/pistol/double
-	icon = 'packs/faction_iccgn/weapons.dmi'
+	icon = 'packs/factions/iccgn/weapons.dmi'
 	icon_state = "optimus"
 	item_state = "secgundark"
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2, TECH_ESOTERIC = 8)

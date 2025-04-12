@@ -206,7 +206,7 @@
 	name = "personal arms safe"
 	max_storage_space = 24
 	req_access = list(access_bridge)
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/structures/safe.dmi'
 	icon_state = "safe"
 	icon_opened = "safe0"
 	icon_locking = "safeb"
