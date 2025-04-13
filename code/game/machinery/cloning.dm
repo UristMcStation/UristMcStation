@@ -6,7 +6,7 @@
 #define CLONE_BIOMASS 150
 
 /obj/item/stock_parts/circuitboard/clonepod
-	name = T_BOARD("cloning pod")
+	name = "circuit board (cloning pod)"
 	build_path = /obj/machinery/clonepod
 	board_type = "machine"
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_BIO = 4, TECH_DATA = 4)

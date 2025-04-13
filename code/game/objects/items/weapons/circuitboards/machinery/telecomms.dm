@@ -74,7 +74,7 @@
 							/obj/item/stock_parts/subspace/crystal = 1)
 
 /obj/item/stock_parts/circuitboard/telecomms/holopad
-	name = T_BOARD("holopad circuit")
+	name = "circuit board (holopad circuit)"
 	build_path = /obj/machinery/hologram/holopad
 	origin_tech = list(TECH_BLUESPACE = 2, TECH_ENGINEERING = 2)
 	req_components = list(
@@ -84,7 +84,7 @@
 							/obj/item/stock_parts/subspace/treatment = 1)
 
 /obj/item/stock_parts/circuitboard/telecomms/holopad/longrange
-	name = T_BOARD("long-range holopad circuit")
+	name = "circuit board (long-range holopad circuit)"
 	build_path = /obj/machinery/hologram/holopad/longrange
 	origin_tech = list(TECH_BLUESPACE = 5, TECH_ENGINEERING = 5)
 	req_components = list(

@@ -370,13 +370,13 @@ SUBSYSTEM_DEF(supply)
 	var/reason = null
 	var/orderedrank = null //used for supply console printing
 
-/datum/controller/subsystem/supply/proc/make_trade(obj/object, var/count = 1)
+/datum/controller/subsystem/supply/proc/make_trade(obj/object, count = 1)
 	. = find_item_value(object, count)
 	if(.)
 		sold_items[object.type] += count
 	return .
 
-/datum/controller/subsystem/supply/proc/find_item_value(obj/object, var/count = 1, var/use_reinf_material = FALSE) //here we get the value of the items being traded
+/datum/controller/subsystem/supply/proc/find_item_value(obj/object, count = 1, use_reinf_material = FALSE) //here we get the value of the items being traded
 	if(!object)
 		return 0
 
@@ -408,7 +408,7 @@ SUBSYSTEM_DEF(supply)
 		sell_value = sell_value*(1 - src.price_modifier)**amount_sold	//A = P(1 + r/n)^nt		--Current price, factoring multiple previous compounded sales
 	return calculate_multiple_sales(sell_value, count, sell_modifier)
 
-/datum/controller/subsystem/supply/proc/calculate_multiple_sales(value, var/count, var/sell_modifier = 1)
+/datum/controller/subsystem/supply/proc/calculate_multiple_sales(value, count, sell_modifier = 1)
 	if(!value || !count)
 		return 0
 	var/newPrice = value * sell_modifier

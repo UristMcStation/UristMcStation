@@ -37,7 +37,7 @@
 
 /////////////////////////// DNA MACHINES
 /obj/item/stock_parts/circuitboard/clonescanner
-	name = T_BOARD("cloning scanner")
+	name = "circuit board (cloning scanner)"
 	build_path = /obj/machinery/dna_scannernew
 	board_type = "machine"
 	origin_tech = list(TECH_DATA = 3, TECH_BIO = 3)

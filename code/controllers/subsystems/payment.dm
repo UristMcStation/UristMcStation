@@ -91,7 +91,7 @@ SUBSYSTEM_DEF(payment_controller)
 /datum/controller/subsystem/payment_controller/proc/TimeUntilPayday()
 	return timerbuffer - round_duration_in_ticks
 
-/datum/controller/subsystem/payment_controller/proc/PayPeople(var/sponsor = pick(brand))
+/datum/controller/subsystem/payment_controller/proc/PayPeople(sponsor = pick(brand))
 	var/datum/computer_file/data/email_account/server = ntnet_global.find_email_by_name(EMAIL_PAYROLL)
 	var/this_slogan = pick(slogan)
 	var/nanotrasen_nag = pick(nanotrasen_nags)

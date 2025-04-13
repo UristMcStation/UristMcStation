@@ -21,7 +21,7 @@
 	var/map_pad_link_id = "" as text //who's my friend
 
 /obj/item/stock_parts/circuitboard/telepad
-	name = T_BOARD("telepad")
+	name = "circuit board (telepad)"
 	build_path = /obj/machinery/power/quantumpad
 	board_type = "machine"
 	origin_tech = list(TECH_POWER = 6, TECH_ENGINEERING = 4, TECH_BLUESPACE = 4)

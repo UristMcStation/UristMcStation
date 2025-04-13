@@ -75,7 +75,6 @@
 #define CULTURE_HUMAN_IOLAUS   			"Iolan"
 #define CULTURE_HUMAN_BRAHE    			"Brahite"
 #define CULTURE_HUMAN_EOS      			"Eosic"
-#define CULTURE_HUMAN_SPACER   			"Spacer"
 #define CULTURE_HUMAN_OFFWORLD 			"Offworlder"
 #define CULTURE_HUMAN_SOLCOL   			"Solar-Colonial"
 #define CULTURE_HUMAN_THEIA	   			"Theian"
