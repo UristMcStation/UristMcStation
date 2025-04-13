@@ -116,7 +116,7 @@ GLOBAL_LIST_EMPTY(vox_artifact_spawners)
 		)
 
 /obj/structure/voxuplink/attack_hand(mob/living/carbon/human/user)
-	var/obj/item/organ/internal/voxstack/stack = user.internal_organs_by_name[BP_STACK]
+	var/obj/item/organ/internal/stack/vox/stack = user.internal_organs_by_name[BP_STACK]
 	if(istype(stack) || ignore_wl)
 		if(!working)
 			var/choice = input(user, "What would you like to request from Apex? You have [favors] favors left!", "Shoal Beacon") as null|anything in rewards
@@ -201,7 +201,7 @@ GLOBAL_LIST_EMPTY(vox_artifact_spawners)
 		SPAN_NOTICE("\The [user] starts tinkering with [src.name]."),
 		SPAN_NOTICE("You start to analyze \the [src.name]."),
 	)
-	var/obj/item/organ/internal/voxstack/stack = user.internal_organs_by_name[BP_STACK]
+	var/obj/item/organ/internal/stack/vox/stack = user.internal_organs_by_name[BP_STACK]
 	if (istype(stack))
 		if (do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE | DO_BAR_OVER_USER))
 			to_chat(user, SPAN_NOTICE("\The [src.name] disappears after a moment, leaving something behind.\nYou were able to send it back to arkship, but Apex did not appreciate your actions."))
