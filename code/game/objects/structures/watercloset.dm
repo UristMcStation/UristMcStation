@@ -547,21 +547,17 @@
 	if (!do_after(user, 4 SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
 		return TRUE
 	tool.clean_blood()
+
+	if(istype(O, /obj/item/organ/external/head))
+		var/obj/item/organ/external/head/head = O
+		head.forehead_graffiti = null
+		head.graffiti_style = null
+
 	user.visible_message(
 		SPAN_NOTICE("\The [user] washes \a [tool] in \the [src]."),
 		SPAN_NOTICE("You wash \the [tool] in \the [src].")
 	)
 	return TRUE
-
-
-	O.clean_blood()
-	if(istype(O, /obj/item/organ/external/head))
-		var/obj/item/organ/external/head/head = O
-		head.forehead_graffiti = null
-		head.graffiti_style = null
-	user.visible_message( \
-		SPAN_NOTICE("[user] washes \a [I] using \the [src]."), \
-		SPAN_NOTICE("You wash \a [I] using \the [src]."))
 
 
 /obj/structure/hygiene/sink/kitchen

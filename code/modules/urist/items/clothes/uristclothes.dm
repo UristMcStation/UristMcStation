@@ -698,7 +698,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "autumn"
 	blood_overlay_type = "armorblood"
 	armor = list(melee = 20, bullet = 20, laser = 5, energy = 5, bomb = 5, bio = 0, rad = 10)
-	allowed = list(/obj/item/material/knife, /obj/item/material/knife/kitchen/cleaver, /obj/item/stamp, /obj/item/reagent_containers/food/drinks/flask, /obj/item/melee, /obj/item/device/flash, /obj/item/storage/box/matches, /obj/item/clothing/mask/smokable/cigarette, /obj/item/storage/fancy/smokable, /obj/item/tank, /obj/item/device/flashlight, /obj/item/gun/energy, /obj/item/gun/projectile, /obj/item/scalpel, /obj/item/cautery, /obj/item/hemostat, /obj/item/retractor)
+	allowed = list(/obj/item/material/knife, /obj/item/material/knife/kitchen/cleaver, /obj/item/stamp, /obj/item/reagent_containers/food/drinks/flask, /obj/item/melee, /obj/item/device/flash, /obj/item/storage/fancy/matches/matchbox, /obj/item/clothing/mask/smokable/cigarette, /obj/item/storage/fancy/smokable, /obj/item/tank, /obj/item/device/flashlight, /obj/item/gun/energy, /obj/item/gun/projectile, /obj/item/scalpel, /obj/item/cautery, /obj/item/hemostat, /obj/item/retractor)
 	cold_protection = UPPER_TORSO|LOWER_TORSO|ARMS
 	min_cold_protection_temperature = 263.15
 
@@ -723,7 +723,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	item_icons = list("slot_suit" = 'icons/mob/onmob/onmob_suit.dmi')
 	icon_state = "deus_blueshield"
-	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_C)
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_CHEST)
 
 //more pants
 
@@ -790,7 +790,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	blood_overlay_type = "armorblood"
 	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
-	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_C)
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_CHEST)
 	accessories = list(/obj/item/clothing/accessory/armor_plate/medium)
 
 /obj/item/clothing/under/urist/blackwarden
@@ -1294,8 +1294,7 @@ Update 26/07/2014 - All generic clothing goes under obj/item/clothing/under/uris
 	item_state = "nervasecarmour"
 	blood_overlay_type = "armorblood"
 	armor = list(melee = 50, bullet = 45, laser = 40, energy = 25, bomb = 30, bio = 0, rad = 0)
-	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
-	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
+	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_LEGS, ACCESSORY_SLOT_ARMOR_STORAGE)
 	accessories = list(/obj/item/clothing/accessory/storage/pouches/large)
 
 //rescued colored spacesuits from bay. too nice to let go

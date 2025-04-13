@@ -14,7 +14,6 @@
 	name = "Jungle planetoid"
 	desc = "Geneseeded world detected, possible intelligent life detected."
 	icon_state = "globe"
-	known = FALSE
 	color = "#538224"
 	water_color = "#1e160a"
 	initial_generic_waypoints = list(

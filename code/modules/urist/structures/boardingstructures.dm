@@ -3,7 +3,7 @@
 /obj/structure/boarding/shipportal //this is for returning from the map ships
 	name = "portal"
 	desc = "Looks unstable. Best to test it with the clown."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/portals.dmi'
 	icon_state = "portal"
 	var/block_pirate_teleport = TRUE
 	density = TRUE
@@ -79,8 +79,8 @@
 /obj/structure/boarding/self_destruct
 	var/triggered = FALSE
 	name = "self destruct mechanism"
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "bus"
+	icon = 'icons/obj/machines/computer.dmi'
+	icon_state = "aiupload"
 	anchored = TRUE
 	density = TRUE
 	var/shipid = null

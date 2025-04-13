@@ -1,5 +1,5 @@
 //Stand-in until this is made more lore-friendly.
-/datum/species/xenos
+/singleton/species/xenos
 	name = SPECIES_XENO
 	name_plural = "Xenophages"
 
@@ -110,21 +110,21 @@
 		TAG_RELIGION =  RELIGION_OTHER
 	)
 
-/datum/species/xenos/get_bodytype(mob/living/carbon/H)
+/singleton/species/xenos/get_bodytype(mob/living/carbon/H)
 	return "Xenophage"
 
-/datum/species/xenos/can_understand(mob/other)
+/singleton/species/xenos/can_understand(mob/other)
 
 	if(istype(other,/mob/living/carbon/alien/larva))
 		return 1
 
 	return 0
 
-/datum/species/xenos/hug(mob/living/carbon/human/H,var/mob/living/target)
+/singleton/species/xenos/hug(mob/living/carbon/human/H,var/mob/living/target)
 	H.visible_message("<span class='notice'>[H] caresses [target] with countless prickling, needle-like legs.</span>", \
 					"<span class='notice'>You caress [target] with countless prickling, needle-like legs.</span>")
 
-/datum/species/xenos/handle_post_spawn(mob/living/carbon/human/H)
+/singleton/species/xenos/handle_post_spawn(mob/living/carbon/human/H)
 
 	H.faction = "alien"
 	if(H.mind)
@@ -139,7 +139,7 @@
 		H.SetName(H.real_name)
 	..()
 
-/datum/species/xenos/handle_environment_special(mob/living/carbon/human/H)
+/singleton/species/xenos/handle_environment_special(mob/living/carbon/human/H)
 
 	var/turf/T = H.loc
 	if(!T) return
@@ -156,7 +156,7 @@
 		started_healing["\ref[H]"] = null
 	..()
 
-/datum/species/xenos/proc/regenerate(mob/living/carbon/human/H)
+/singleton/species/xenos/proc/regenerate(mob/living/carbon/human/H)
 
 	var/heal_rate = weeds_heal_rate
 	var/mend_prob = 10
@@ -214,7 +214,7 @@
 
 	return FALSE
 
-/datum/species/xenos/drone
+/singleton/species/xenos/drone
 	name = "Xenophage Drone"
 	weeds_plasma_rate = 15
 	slowdown = -1
@@ -247,14 +247,14 @@
 		/mob/living/carbon/human/proc/corrosive_acid
 		)
 
-/datum/species/xenos/drone/handle_post_spawn(mob/living/carbon/human/H)
+/singleton/species/xenos/drone/handle_post_spawn(mob/living/carbon/human/H)
 
 	var/mob/living/carbon/human/A = H
 	if(!istype(A))
 		return ..()
 	..()
 
-/datum/species/xenos/hunter
+/singleton/species/xenos/hunter
 
 	name = "Xenophage Hunter"
 	weeds_plasma_rate = 5
@@ -292,7 +292,7 @@
 		TAG_RELIGION =  RELIGION_OTHER
 	)
 
-/datum/species/xenos/sentinel
+/singleton/species/xenos/sentinel
 	name = "Xenophage Sentinel"
 	weeds_plasma_rate = 10
 	slowdown = -1
@@ -327,7 +327,7 @@
 		TAG_RELIGION =  RELIGION_OTHER
 	)
 
-/datum/species/xenos/queen
+/singleton/species/xenos/queen
 
 	name = "Xenophage Queen"
 	total_health = 500
@@ -398,5 +398,5 @@
 		"storage2" =     list("loc" = ui_storage2,  "name" = "Right Pocket", "slot" = slot_r_store,   "state" = "pocket"),
 		)
 
-/datum/species/xenos/can_shred(mob/living/carbon/human/H, ignore_intent, ignore_antag)
+/singleton/species/xenos/can_shred(mob/living/carbon/human/H, ignore_intent, ignore_antag)
 	return TRUE

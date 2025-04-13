@@ -56,8 +56,8 @@
 
 	if(isturf(M.loc))
 		var/turf/T = M.loc
-		if(shadow_check(T, 2, 1))
-			M.alpha = 0
+		if(shadow_check(T, 0.1, 1))
+			M.alpha = 1
 		else
 			M.alpha = round(255 * 0.80)
 	else

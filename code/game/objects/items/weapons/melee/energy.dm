@@ -290,17 +290,21 @@
 	else
 		item_state = initial(icon_state)
 
-/obj/item/melee/energy/sword/dualsaber/attack(target as mob, mob/living/user as mob)
-	..()
+/obj/item/melee/energy/sword/dualsaber/use_before(atom/target, mob/living/user as mob, click_params)
+	. = ..()
+
 	if((MUTATION_CLUMSY in user.mutations) && (wielded) &&prob(40))
 		to_chat(user, "<span class='warning'> You twirl around a bit before losing your balance and impaling yourself on the [src].</span>")
 		user.take_organ_damage(20,25)
 		return
+
 	if((wielded) && prob(50))
 		spawn(0)
 			for(var/i in list(1,2,4,8,4,2,1,2,4,8,4,2))
 				user.set_dir(i)
 				sleep(1)
+
+	return
 
 /obj/item/melee/energy/sword/dualsaber/update_twohanding()
 	var/mob/living/M = loc

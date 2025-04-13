@@ -9,7 +9,7 @@
 	icon_override = 'icons/uristmob/belt_mirror.dmi'
 	icon_state = "beltRobo"
 	storage_slots = 7
-	can_hold = list(
+	contents_allowed = list(
  	/obj/item/crowbar,
  	/obj/item/screwdriver,
  	/obj/item/weldingtool,
@@ -39,7 +39,7 @@
 	icon = 'icons/urist/items/clothes/belt.dmi'
 	icon_override = 'icons/uristmob/belt_mirror.dmi'
 	storage_slots = 1
-	can_hold = list(
+	contents_allowed = list(
 		/obj/item/modular_computer/pda
 		)
 
@@ -110,6 +110,6 @@
 	storage_slots = 7
 	max_w_class = 3
 	max_storage_space = 24
-	can_hold = list(
+	contents_allowed = list(
 		/obj/item
 		)

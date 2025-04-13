@@ -193,8 +193,11 @@
 	if (locked)
 		return FALSE
 	return ..()
+
 /obj/item/storage/secure/safe/Initialize()
-	. = ..()	for(var/obj/item/I in get_turf(src))
+	. = ..()
+
+	for(var/obj/item/I in get_turf(src))
 		handle_item_insertion(I,1)
 
 // -----------------------------
@@ -207,7 +210,7 @@
 	name = "personal arms safe"
 	max_storage_space = 24
 	req_access = list(access_bridge)
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/structures/safe.dmi'
 	icon_state = "safe"
 	icon_opened = "safe0"
 	icon_locking = "safeb"
@@ -218,7 +221,7 @@
 	max_w_class = ITEM_SIZE_HUGE
 	anchored = TRUE
 	density = FALSE
-	cant_hold = list(/obj/item/storage/secure/briefcase)
+	contents_banned = list(/obj/item/storage/secure/briefcase)
 	startswith = list(
 	/obj/item/gun/energy/taser = 1,
 	/obj/item/gun/projectile/revolver/hi2521r = 1,

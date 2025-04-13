@@ -1,4 +1,4 @@
-GLOBAL_DATUM_INIT(xenomorphs, /datum/antagonist/xenos, new)
+GLOBAL_TYPED_NEW(xenomorphs, /datum/antagonist/xenos)
 
 /datum/antagonist/xenos
 	id = MODE_XENOMORPH

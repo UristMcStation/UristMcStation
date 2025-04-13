@@ -34,12 +34,14 @@
 				H.UpdateDamageIcon()
 	return
 
-/obj/item/storage/bible/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/storage/bible/use_before(atom/target, mob/living/user, click_parameters)
+	var/mob/living/M = target
+	if(!istype(M))
+		return FALSE
 
-	var/chaplain = 0
+	var/chaplain = FALSE
 	if(user.mind && (user.mind.assigned_role == "Chaplain"))
-		chaplain = 1
-
+		chaplain = TRUE
 
 	admin_attack_log(src, M, "Used the [src.name] to attack [M.name] ([M.ckey])", "Has been attacked with [src.name] by [user.name] ([user.ckey])", "bible attack")
 
@@ -48,6 +50,7 @@
 	if (!(istype(user, /mob/living/carbon/human)) && SSticker.mode.name != "monkey")
 		to_chat(user, "<span class='warning'> You don't have the dexterity to do this!</span>")
 		return
+
 	if(!chaplain)
 		to_chat(user, "<span class='warning'> The book sizzles in your hands.</span>")
 		user.take_organ_damage(0,10)
@@ -80,11 +83,13 @@
 			for(var/mob/O in viewers(M, null))
 				O.show_message(text("<span class='danger'>[] beats [] over the head with []!</span>", user, M, src), 1)
 			playsound(src.loc, "punch", 25, 1, -1)
+
 	else if(M.stat == 2)
 		for(var/mob/O in viewers(M, null))
 			O.show_message(text("<span class='danger'>[] smacks []'s lifeless corpse with [].</span>", user, M, src), 1)
 		playsound(src.loc, "punch", 25, 1, -1)
-	return
+
+	return TRUE
 
 /obj/item/storage/bible/bible
 	name = "\improper Bible"

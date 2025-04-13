@@ -522,7 +522,7 @@
 		/mob/living/simple_animal/hostile/urist/newpirate/ballistic,
 		/mob/living/simple_animal/hostile/urist/newpirate/ballistic,
 		/mob/living/simple_animal/hostile/urist/newpirate,
-		/mob/living/simple_animal/hostile/pirate,
+		/mob/living/simple_animal/hostile/human/pirate,
 		/mob/living/simple_animal/hostile/urist/recon/unathi
 	)
 
@@ -537,7 +537,7 @@
 		/mob/living/simple_animal/hostile/urist/newpirate/ballistic,
 		/mob/living/simple_animal/hostile/urist/newpirate/ballistic,
 		/mob/living/simple_animal/hostile/urist/newpirate,
-		/mob/living/simple_animal/hostile/pirate,
+		/mob/living/simple_animal/hostile/human/pirate,
 		/mob/living/simple_animal/hostile/urist/recon/unathi
 	)
 

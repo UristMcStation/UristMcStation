@@ -81,7 +81,7 @@
 	throw_range = 20
 
 
-/obj/item/hollowpineapple/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/hollowpineapple/use_tool(obj/item/W, mob/living/user, list/click_params)
 	..()
 	if(istype(W, /obj/item/circular_saw) || istype(W, /obj/item/material/hatchet) || istype(W, /obj/item/material/knife/kitchen) || istype(W, /obj/item/material/knife) || istype(W, /obj/item/material/knife/ritual))
 		to_chat(user, "<span class='notice'>You use [W] to carve the pineapple into a mug!</span>")
@@ -100,7 +100,7 @@
 	throw_range = 20
 
 
-/obj/item/hollowcoconut/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/hollowcoconut/use_tool(obj/item/W, mob/living/user, list/click_params)
 	..()
 	if(istype(W, /obj/item/circular_saw) || istype(W, /obj/item/material/hatchet) || istype(W, /obj/item/material/knife/kitchen) || istype(W, /obj/item/material/knife) || istype(W, /obj/item/material/knife/ritual))
 		to_chat(user, "<span class='notice'>You use [W] to carve the coconut shell into a mug!</span>")

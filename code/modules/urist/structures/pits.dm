@@ -10,7 +10,7 @@
 	var/punji = 0
 	var/animal_safe
 
-/obj/structure/pit/attackby(obj/item/W, mob/user)
+/obj/structure/pit/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if( istype(W,/obj/item/shovel) )
 		if(punji)
 			to_chat(user, "<span class='notice'>Remove the sharpened sticks before filling it up.</span>")
@@ -189,7 +189,7 @@
 		/obj/item/clothing/suit/storage/toggle/brown_jacket,
 		/obj/item/clothing/suit/storage/toggle/hoodie,
 		/obj/item/clothing/suit/storage/toggle/hoodie/black,
-		/obj/item/clothing/suit/poncho/colored
+		/obj/item/clothing/suit/poncho
 		)
 	loot = pick(suits)
 	new loot(C)
@@ -272,7 +272,7 @@
 
 	message = "Here lies [nam], [born] - [died]."
 
-/obj/structure/gravemarker/attackby(obj/item/W, mob/user)
+/obj/structure/gravemarker/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/material/hatchet))
 		visible_message("<span class = 'warning'>\The [user] starts hacking away at \the [src] with \the [W].</span>")
 		if(!do_after(user, 30))

@@ -199,7 +199,7 @@
 	//equip_cooldown = 60
 
 /obj/item/missile/heavy
-	icon = 'icons/obj/grenade.dmi'
+	icon = 'icons/obj/weapons/grenade.dmi'
 	icon_state = "missile"
 	throwforce = 15
 

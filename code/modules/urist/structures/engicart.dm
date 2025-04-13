@@ -25,7 +25,7 @@
 	to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
 	return
 
-/obj/structure/engineeringcart/attackby(obj/item/I, mob/user)
+/obj/structure/engineeringcart/use_tool(obj/item/I, mob/living/user, list/click_params)
 	var/fail_msg = "<span class='notice'>There is already one of those in [src].</span>"
 	if(istype(I, /obj/item/stack/material/glass))
 		if(!myglass)

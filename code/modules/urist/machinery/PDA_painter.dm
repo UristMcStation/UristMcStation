@@ -39,7 +39,7 @@
 		src.colorlist += D
 
 
-/obj/machinery/pdapainter/attackby(obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/pdapainter/use_tool(obj/item/O, mob/living/user, list/click_params)
 	if(istype(O, /obj/item/modular_computer/pda))
 		if(storedpda)
 			to_chat(user, "There is already a PDA inside.")

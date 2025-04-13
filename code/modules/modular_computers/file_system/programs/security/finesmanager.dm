@@ -1,4 +1,4 @@
-GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()))
+GLOBAL_LIST_AS(all_fines, list("fineNum" = rand(1000,2500), "records" = list()))
 
 /datum/computer_file/program/finesmanager
 	filename = "digitalfines"

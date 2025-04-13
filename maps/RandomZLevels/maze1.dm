@@ -25,7 +25,7 @@
 /obj/structure/maze/diamond
 	name = "diamond"
 	icon_state = "sheet-diamond"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/materials/materials.dmi'
 	anchored = TRUE
 	density = TRUE
 

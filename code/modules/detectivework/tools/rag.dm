@@ -125,6 +125,7 @@
 		admin_attack_log(user, M, "used \the [src] (ignited) to attack", "was attacked using \the [src] (ignited)", "attacked with \the [src] (ignited)")
 		M.IgniteMob()
 		return TRUE
+
 	else if (reagents.total_volume)
 		if (iscarbon(target) && user.a_intent == I_HELP && user.zone_sel.selecting == BP_HEAD)
 			var/mob/living/carbon/C = target
@@ -156,7 +157,7 @@
 				SPAN_WARNING("You hear some struggling and muffled cries of surprise")
 			)
 
-				var/grab_time = 3 SECONDS
+			var/grab_time = 3 SECONDS
 
 			if (!do_after(user, grab_time, target, DO_PUBLIC_UNIQUE))
 				return TRUE
@@ -174,7 +175,8 @@
 		else
 			wipe_down(target, user)
 			return TRUE
-	if (user.zone_sel.selecting == BP_MOUTH)
+
+	else if (user.zone_sel.selecting == BP_MOUTH)
 		to_chat(user, SPAN_WARNING("\The [src] is too dry to use on \the [target]!"))
 		return TRUE
 

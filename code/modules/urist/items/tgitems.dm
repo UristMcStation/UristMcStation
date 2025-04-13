@@ -13,7 +13,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon_state = "seclite"
 	item_state = "seclite"
 	force = 9 // Not as good as a stun baton.
-	flashlight_max_bright = 0.6 // A little better than the standard flashlight.
+	flashlight_power = 0.6 // A little better than the standard flashlight.
 
 //Fucking powergamers
 
@@ -99,14 +99,14 @@ Please only put items here that don't have a huge definition - Glloyd											
 	max_storage_space = 21 //check values!
 	max_w_class = 3
 	w_class = 4 //Bigger than a book because physics
-	can_hold = list(/obj/item/book, /obj/item/spellbook) //No bibles, consistent with bookcase
+	contents_allowed = list(/obj/item/book, /obj/item/spellbook) //No bibles, consistent with bookcase
 
 //moo000ooo000ooo
 
 /obj/item/veilrender //WTF, it was removed for now discernible reason in the spellsystem port
 	name = "veil render"
 	desc = "A wicked curved blade of alien origin, recovered from the ruins of a vast city."
-	icon = 'icons/obj/wizard.dmi'
+	icon = 'icons/obj/cult.dmi'
 	icon_state = "render"
 	item_state = "render"
 	force = 15
@@ -119,7 +119,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 /obj/urist_intangible/rend
 	name = "Tear in the fabric of reality"
 	desc = "You should run now"
-	icon = 'icons/obj/wizard.dmi'
+	icon = 'icons/obj/rift.dmi'
 	icon_state = "rift"
 	density = TRUE
 	unacidable = 1
@@ -153,7 +153,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	if(cowsleft <= 0)
 		qdel(src)
 
-/obj/urist_intangible/rend/cow/attackby(obj/item/I as obj, mob/user as mob)
+/obj/urist_intangible/rend/cow/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/nullrod))
 		visible_message("<span class='danger'>[I] strikes a blow against \the [src], banishing it!</span>")
 		spawn(1)
@@ -326,7 +326,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	storage_slots = 5
 	max_storage_space = 15 //check values!
 	level = 1
-	cant_hold = list(/obj/item/storage/backpack/satchel/flat) //muh recursive backpacks
+	contents_banned = list(/obj/item/storage/backpack/satchel/flat) //muh recursive backpacks
 
 /obj/item/storage/backpack/satchel/flat/hide(intact)
 	if(intact)
@@ -372,7 +372,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon_state = "cig_paper_pack"
 	storage_slots = 10
 	key_type = /obj/item/paper/cig
-	can_hold = list(/obj/item/paper/cig)
+	contents_allowed= list(/obj/item/paper/cig)
 	startswith = list(/obj/item/paper/cig/fancy/nt = 10)
 
 

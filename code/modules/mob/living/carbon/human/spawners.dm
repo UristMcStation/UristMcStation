@@ -67,7 +67,7 @@
 
 	if(hair_color)
 		if(hair_color == "RAND")
-			var/datum/species/target_species = all_species[species]
+			var/singleton/species/target_species = all_species[species]
 			hair_color = target_species.get_random_hair_color()
 		H.change_hair_color(hair_color[1],hair_color[2],hair_color[3])
 		H.change_facial_hair_color(hair_color[1],hair_color[2],hair_color[3])
@@ -218,7 +218,7 @@
 	uniform = /obj/item/clothing/under/rank/scientist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen
 	shoes = /obj/item/clothing/shoes/white
-	back = /obj/item/storage/backpack/toxins
+	back = /obj/item/storage/backpack/corpsci
 	l_ear = /obj/item/device/radio/headset/headset_sci
 
 /singleton/hierarchy/outfit/nanotrasensci/loot

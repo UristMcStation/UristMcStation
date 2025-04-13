@@ -24,14 +24,14 @@
 	item_flags = 0
 	obj_flags = 0
 
-/obj/item/stack/tile/attackby(obj/item/I as obj, var/mob/user as mob)
+/obj/item/stack/tile/use_tool(obj/item/I as obj, var/mob/user as mob, click_params)
 	if(is_sharp(I) && throwforce < 20)
-		to_chat(user, "<span class = 'notice'>You begin to sharpen \the [src] with \the [I].</span>")
+		to_chat(user, SPAN_NOTICE("You begin to sharpen \the [src] with \the [I]."))
 		if(do_after(user, 30, src))
-			to_chat(user, "<span class = 'notice'>You sharpen \the [src]'s edges to a sharp point.</span>")
+			to_chat(user, SPAN_NOTICE("You sharpen \the [src]'s edges to a sharp point."))
 			throwforce = 20
-			return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/stack/tile/verb/place_above()
 	set name = "Place Tile Above"
@@ -46,7 +46,7 @@
 		return
 
 	if(locate(/obj/structure/lattice, target))
-		target.attackby(src, src.loc)
+		target.use_tool(src, src.loc)
 		to_chat(usr, "<span class='notice'>You slide \the [src] into the lattice above.</span>")
 		playsound(usr, 'sound/weapons/Genhit.ogg', 50, 1)
 	else

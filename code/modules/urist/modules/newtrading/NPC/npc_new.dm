@@ -9,7 +9,7 @@
 	my_species = new species_type()
 	create_base_icon()
 
-	var/datum/species/S = all_species[my_species.name]
+	var/singleton/species/S = all_species[my_species.name]
 	var/singleton/cultural_info/culture/C = SSculture.get_culture(S.default_cultural_info[TAG_CULTURE])
 	if(istype(C))
 		real_name = C.get_random_name(gender)

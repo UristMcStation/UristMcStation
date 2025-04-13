@@ -12,7 +12,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/machinery/vending/urist/autodrobe
 	name = "\improper AutoDrobe"
 	desc = "A vending machine for costumes."
-	icon = 'icons/obj/vending.dmi'
+	icon = 'icons/obj/machines/vending.dmi'
 	icon_state = "theater"
 	icon_deny = "theater-deny"
 	req_access = list(access_theatre) // Theatre access needed, unless hacked.
@@ -21,7 +21,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	products = list(/obj/item/clothing/suit/chickensuit = 1,/obj/item/clothing/head/chicken = 1,/obj/item/clothing/under/gladiator = 1,
 					/obj/item/clothing/head/helmet/gladiator = 1,/obj/item/clothing/under/gimmick/rank/captain/suit = 1,/obj/item/clothing/head/flatcap = 1,
 					/obj/item/clothing/suit/storage/toggle/labcoat/mad = 1,/obj/item/clothing/glasses/gglasses = 1,/obj/item/clothing/shoes/jackboots = 1,
-					/obj/item/clothing/under/schoolgirl = 1,/obj/item/clothing/head/kitty = 1,/obj/item/clothing/under/blackskirt = 1,/obj/item/clothing/head/beret = 1,
+					/obj/item/clothing/under/schoolgirl = 1,/obj/item/clothing/head/kitty = 1,/obj/item/clothing/under/skirt = 1,/obj/item/clothing/head/beret = 1,
 					/obj/item/clothing/accessory/wcoat = 1,/obj/item/clothing/under/suit_jacket = 1,/obj/item/clothing/head/that =1,/obj/item/clothing/head/cueball = 1,
 					/obj/item/clothing/under/scratch = 1,/obj/item/clothing/under/kilt = 1,/obj/item/clothing/head/beret = 1,/obj/item/clothing/accessory/wcoat = 1,
 					/obj/item/clothing/glasses/monocle =1,/obj/item/clothing/head/bowler = 1,/obj/item/cane = 1,/obj/item/clothing/under/sl_suit = 1,
@@ -73,13 +73,13 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	vend_reply = "Enjoy your beautiful new dress!"
 	icon_state = "dress"
 	products = list(/obj/item/clothing/under/urist/dress/teal = 5,/obj/item/clothing/under/urist/dress/yellow = 5,/obj/item/clothing/under/urist/dress/white1 = 5,/obj/item/clothing/under/urist/dress/white2 = 5,/obj/item/clothing/under/dress/dress_fire = 5,/obj/item/clothing/under/dress/dress_green = 5,/obj/item/clothing/under/dress/dress_orange = 5,/obj/item/clothing/under/dress/dress_pink = 5,
-					/obj/item/clothing/under/dress/dress_saloon = 5,/obj/item/clothing/under/dress/plaid_blue = 5,/obj/item/clothing/under/dress/plaid_purple = 5,/obj/item/clothing/under/dress/plaid_red = 5,/obj/item/clothing/under/urist/dress/red = 5,
+					/obj/item/clothing/under/dress/dress_saloon = 5,/obj/item/clothing/under/skirt/plaid_blue = 5,/obj/item/clothing/under/urist/dress/red = 5,
 					/obj/item/clothing/under/sundress = 5,/obj/item/clothing/under/wedding/bride_white = 5,/obj/item/clothing/under/urist/formal/blacktango = 5,
 					/obj/item/clothing/under/urist/dress/white3 = 5,/obj/item/clothing/under/urist/dress/pink = 5,/obj/item/clothing/under/urist/dress/gold = 5,
 					/obj/item/clothing/under/urist/dress/purple = 5,/obj/item/clothing/under/urist/dress/green = 5,/obj/item/clothing/under/urist/dress/black = 5,
 					/obj/item/clothing/under/urist/dress/polkadot = 5,/obj/item/clothing/under/urist/dress/dress_blouse = 5,/obj/item/clothing/under/sakura_hokkaido_kimono = 1,/obj/item/clothing/under/urist/dress/princess = 2,/obj/item/clothing/head/princessbow = 2)
 	prices = list(/obj/item/clothing/under/urist/dress/teal = 250,/obj/item/clothing/under/urist/dress/yellow = 250,/obj/item/clothing/under/urist/dress/white1 = 250,/obj/item/clothing/under/urist/dress/white2 = 250,/obj/item/clothing/under/dress/dress_fire = 250,/obj/item/clothing/under/dress/dress_green = 250,/obj/item/clothing/under/dress/dress_orange = 250,/obj/item/clothing/under/dress/dress_pink = 250,
-					/obj/item/clothing/under/dress/dress_saloon = 250,/obj/item/clothing/under/dress/plaid_blue = 250,/obj/item/clothing/under/dress/plaid_purple = 250,/obj/item/clothing/under/dress/plaid_red = 250,/obj/item/clothing/under/urist/dress/red = 250,
+					/obj/item/clothing/under/dress/dress_saloon = 250,/obj/item/clothing/under/skirt/plaid_blue = 250,/obj/item/clothing/under/urist/dress/red = 250,
 					/obj/item/clothing/under/urist/dress/white3 = 250, /obj/item/clothing/under/urist/dress/pink = 250, /obj/item/clothing/under/urist/dress/gold = 250, /obj/item/clothing/under/urist/dress/purple = 250, /obj/item/clothing/under/urist/dress/green = 250, /obj/item/clothing/under/urist/dress/black = 250,
 					/obj/item/clothing/under/sundress = 250,/obj/item/clothing/under/wedding/bride_white = 250,/obj/item/clothing/under/urist/formal/blacktango = 250,
 					/obj/item/clothing/under/urist/dress/polkadot = 250,/obj/item/clothing/under/urist/dress/dress_blouse = 250,/obj/item/clothing/under/sakura_hokkaido_kimono = 600,/obj/item/clothing/under/urist/dress/princess = 500,/obj/item/clothing/head/princessbow = 100)

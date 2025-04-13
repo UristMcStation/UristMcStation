@@ -47,7 +47,7 @@
 	set category = "Anomalous Powers"
 	set desc = "*Painfully* fleshcraft your arm into a vicious blade. Reality won't like this one bit."
 
-	if(bsrevenant_generic_weapon(/obj/item/melee/arm_blade))
+	if(bsrevenant_generic_weapon(/obj/item/melee/changeling/arm_blade))
 		return
 
 	return
@@ -361,10 +361,10 @@
 	if(!istype(H))
 		return
 
-	var/datum/species/curr_species = null
+	var/singleton/species/curr_species = null
 
 	if(!istype(curr_species))
-		var/datum/species/new_species = new H.species.type()
+		var/singleton/species/new_species = new H.species.type()
 
 		if(!istype(new_species))
 			return

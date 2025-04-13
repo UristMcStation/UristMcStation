@@ -60,13 +60,18 @@
 
 
 /mob/living/simple_animal/use_weapon(obj/item/weapon, mob/user, list/click_params)
-	// Attempt attack
-	var/result = weapon.attack(src, user, user.zone_sel ? user.zone_sel.selecting : ran_zone())
-	if (result && ai_holder)
-		ai_holder.react_to_attack(user)
-		return TRUE
+	var/starting_health = src.health
 
-	return ..()
+	// let them attack...
+	. = ..()
+
+	// Only react if we got hit
+	// NOTE: this is a hack, we SHOULD be using Observers for this instead.
+	var/delta_health = (src.health - starting_health)
+
+	if (ai_holder && (delta_health < 0))
+		ai_holder.react_to_attack(user)
+	return .
 
 
 /mob/living/simple_animal/use_tool(obj/item/tool, mob/user, list/click_params)

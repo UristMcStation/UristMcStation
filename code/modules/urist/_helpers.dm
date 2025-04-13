@@ -359,22 +359,17 @@
 	M.Translate(1,-6)
 	src.transform = M
 
-/proc/get_light_amt(turf/T, var/ignore_red = 0)
-	// Stolen from diona/life.dm since it was needed in various places. Ignore_red parameter for extra spoopy.
-	var/light_amount = 0
-	var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
+/proc/get_light_amt(turf/T)
+	// Stolen from diona/life.dm since it was needed in various places.
+	var/light_amount = 0.5 // default
 
-	if(L)
-		if(ignore_red)
-			light_amount = L.lum_g + L.lum_b
-		else
-			light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
-	else
-		light_amount =  10
+	if(!istype(T))
+		return light_amount
 
+	light_amount = T.get_lumcount()
 	return light_amount
 
-/proc/shadow_check(turf/T, var/max_light = 2, var/or_equal = 0)
+/proc/shadow_check(turf/T, var/max_light = 0.1, var/or_equal = FALSE)
 	//True if light below max_light threshold, false otherwise
 	var/light_amt = get_light_amt(T)
 	if(or_equal)

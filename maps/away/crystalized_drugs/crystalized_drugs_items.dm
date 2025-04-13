@@ -88,8 +88,8 @@ var/global/const/access_drug_smuggler = "ACCESS_DRUG_SMUGGLER"
 /obj/random/ammo_magazine_smug
 	name = "Random Ammo Magazine"
 	desc = "This is smuggler's random ammo magazine."
-	icon = 'icons/obj/ammo.dmi'
-	icon_state = "magnum"
+	icon = 'icons/obj/weapons/ammo.dmi'
+	icon_state = "spdloader_small"
 
 /obj/random/ammo_magazine_smug/spawn_choices()
 	return list(

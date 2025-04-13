@@ -4,7 +4,7 @@
 	icon = 'code/modules/urist/modules/newtrading/NPC/npc.dmi'
 	icon_state = "Teshari_m"
 
-	species_type = /datum/species/teshari
+	species_type = /singleton/species/teshari
 	say_list_type = /datum/say_list/teshari
 	speech_triggers = list(/datum/npc_speech_trigger/teshari/teshari, /datum/npc_speech_trigger/teshari/skrell, /datum/npc_speech_trigger/teshari/qerrbalak)
 

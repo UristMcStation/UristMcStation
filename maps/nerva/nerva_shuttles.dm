@@ -210,7 +210,7 @@
 	base_area = /area/spacestations/nanotrasenspace
 	base_turf = /turf/simulated/floor/reinforced
 
-/datum/shuttle/autodock/ferry/supply/drone/attempt_move(obj/effect/shuttle_landmark/destination)
+/datum/shuttle/autodock/ferry/supply/drone/attempt_move(obj/shuttle_landmark/destination)
 	if(!destination)
 		return FALSE
 

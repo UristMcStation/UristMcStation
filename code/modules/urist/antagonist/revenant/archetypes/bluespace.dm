@@ -263,7 +263,7 @@ Proc needs to be fixed, it fails to locate a dest
 	if(!istype(angerymachine))
 		return FALSE
 
-	var/datum/effect/effect/system/spark_spread/sparkFX = new()
+	var/datum/effect/spark_spread/sparkFX = new()
 	sparkFX.set_up(3, 0, T)
 	sparkFX.start()
 
@@ -299,7 +299,7 @@ Proc needs to be fixed, it fails to locate a dest
 	if(istype(M))
 		empIsSafe = (get_dist(T, M) > 2)
 
-	var/datum/effect/effect/system/spark_spread/sparkFX = new()
+	var/datum/effect/spark_spread/sparkFX = new()
 	sparkFX.set_up(3, 0, T)
 	sparkFX.start()
 

@@ -179,10 +179,10 @@
 	return PROCESS_KILL
 
 /turf/unsimulated/wall/supermatter/no_spread/attack_ghost(mob/user as mob)
-	user.examinate(src)
+	examinate(user, src)
 
 /turf/unsimulated/wall/supermatter/no_spread/attack_ai(mob/user as mob)
-	return user.examinate(src)
+	return examinate(user, src)
 
 /turf/unsimulated/wall/supermatter/no_spread/attack_hand(mob/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] reaches out and touches \the [src]... And then blinks out of existance.</span>",\
@@ -193,7 +193,7 @@
 
 	Consume(user)
 
-/turf/unsimulated/wall/supermatter/no_spread/attackby(obj/item/W as obj, mob/living/user as mob)
+/turf/unsimulated/wall/supermatter/no_spread/use_tool(obj/item/W, mob/living/user, list/click_params)
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
 		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
 		"<span class=\"warning\">Everything suddenly goes silent.</span>")

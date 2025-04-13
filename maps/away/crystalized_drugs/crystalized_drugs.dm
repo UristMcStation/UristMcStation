@@ -16,7 +16,6 @@
 	name = "bluespace wake traces"
 	desc = "Initial sector readings reported numerous bluespace wake traces from within this sector. Sensor reports indicate asteroids with abnormal refraction indexes are detected along with energy spikes."
 	icon_state = "object"
-	known = FALSE
 
 /obj/overmap/visitable/sector/drug_lab/generate_skybox()
 	var/image/res = overlay_image('icons/skybox/rockbox.dmi', "rockbox", COLOR_ASTEROID_ROCK, RESET_COLOR)

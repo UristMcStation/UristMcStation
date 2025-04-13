@@ -83,7 +83,6 @@
 	desc = "Sensors detect an orbital station with an unusual profile and no life signs."
 	icon_state = "object"
 	assigned_contracts = list(/datum/contract/russianderelict)
-	known = FALSE
 
 /datum/map_template/ruin/away_site/russianderelict
 	name = "Russian derelict"
@@ -212,12 +211,12 @@
 /obj/structure/oldturret
 	name = "broken turret"
 	desc = "An obsolete model of turret, long non-functional."
-	icon = 'icons/obj/turrets.dmi'
+	icon = 'icons/obj/machines/turrets.dmi'
 	icon_state = "turretCover"
 
 /obj/random/single/russiancola
 	name = "randomly spawned russian cola"
-	icon = 'icons/obj/drinks.dmi'
+	icon = 'icons/obj/food/drinks/cans.dmi'
 	icon_state = "art_bru"
 
 /obj/item/gun/projectile/automatic/spaceak/empty
@@ -238,7 +237,7 @@
 
 /obj/structure/sign/russianplaque
 	name = "commemorative plaque"
-	icon = 'icons/obj/decals.dmi'
+	icon = 'icons/obj/structures/decals.dmi'
 	icon_state = "lightplaque"
 	desc = "космическая-станция-13\nфорпост класса разработчика\nстанция сдана 30.12.2322\nво славу тружеников третьего советского союза"
 

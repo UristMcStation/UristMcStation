@@ -172,7 +172,7 @@
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 
 /obj/projectile/ship/heavy_laser
-	light_max_bright = 1
+	light_power = 1
 
 /obj/projectile/ship/heavy_laser/tracer
 	icon_state = "beam_heavy"
