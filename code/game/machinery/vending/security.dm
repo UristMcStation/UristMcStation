@@ -42,6 +42,10 @@
 		/obj/item/clothing/glasses/sunglasses = 2,
 		/obj/item/storage/box/donut = 2
 	)
+
+	premium = list(
+		/obj/item/clothing/mask/balaclava = 1
+	)
 	antag = list(
 		/obj/item/device/uplink_service/fake_command_report = 1,
 		/obj/item/clothing/accessory/armor_plate/sneaky = 0,

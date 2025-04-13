@@ -160,6 +160,9 @@
 			if(istype(held, /obj/item/gun) && prob(80))
 				var/obj/item/gun/G = held
 				G.Fire(T, holder)
+			if(istype(held, /obj/item/grenade) && prob(70))
+				var/obj/item/grenade/C = held
+				C.activate(H)
 			else
 				holder.throw_item(T)
 		else

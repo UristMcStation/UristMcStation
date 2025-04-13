@@ -3507,6 +3507,7 @@
 #include "code\modules\urist\machinery\uristvending.dm"
 #include "code\modules\urist\machinery\kitchen\foods.dm"
 #include "code\modules\urist\machinery\kitchen\oven.dm"
+#include "code\modules\urist\mob\goonanimals.dm"
 #include "code\modules\urist\mob\hair.dm"
 #include "code\modules\urist\mob\humanhostiles.dm"
 #include "code\modules\urist\mob\mob_defines.dm"

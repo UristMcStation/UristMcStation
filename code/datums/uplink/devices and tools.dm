@@ -90,10 +90,10 @@
 
 /datum/uplink_item/item/tools/encryptionkey_binary
 	name = "Binary Translator Key"
-	desc = "This headset encryption key will allow you to both listen and speak on the binary channel that \
-	synthetics and AI have access to. Remember, non-synths don't normally have access to this channel, so talking in it will raise suspicion. \
+	desc = "This headset encryption key will allow you to listen to the binary channel that \
+	synthetics and AI have access to. Remember, non-synths don't normally have access to this channel, so try not to reveal to other crew you can hear this channel. \
 	Use a screwdriver on your headset to exchange keys."
-	item_cost = 20
+	item_cost = 18
 	path = /obj/item/device/encryptionkey/binary
 
 
