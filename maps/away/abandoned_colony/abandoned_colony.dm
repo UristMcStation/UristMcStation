@@ -23,7 +23,6 @@
 	desc = "A former Terran Confederation colony, evacuated during the Galactic Crisis. It is now a 'Graveworld', one of the many broken monuments to the billions of dead and displaced across the galaxy. However, sensors are detecting signs of life on the surface."
 	icon_state = "globe"
 	color = "#7f8274"
-	known = FALSE
 	assigned_contracts = list(/datum/contract/shiphunt/graveworld_alien)
 	initial_generic_waypoints = list(
 		"nav_abandoned_colony_1",

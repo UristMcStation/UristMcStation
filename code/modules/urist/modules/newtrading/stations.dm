@@ -11,7 +11,6 @@
 	var/busy = FALSE
 	var/spawn_ships = FALSE
 	var/mob/living/simple_animal/hostile/overmapship/patrolship = null //if you piss us off, we start spawning the big boys
-	known = TRUE
 	icon = 'icons/urist/misc/overmap.dmi'
 	icon_state = "station1"
 	var/station_holder = null //the holder for station battles
@@ -80,4 +79,3 @@
 
 /obj/overmap/visitable/sector/station/hostile
 	hide_from_reports = TRUE
-	known = FALSE

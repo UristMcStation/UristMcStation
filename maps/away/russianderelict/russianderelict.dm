@@ -83,7 +83,6 @@
 	desc = "Sensors detect an orbital station with an unusual profile and no life signs."
 	icon_state = "object"
 	assigned_contracts = list(/datum/contract/russianderelict)
-	known = FALSE
 
 /datum/map_template/ruin/away_site/russianderelict
 	name = "Russian derelict"

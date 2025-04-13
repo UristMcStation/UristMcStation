@@ -47,7 +47,7 @@
 	set category = "Anomalous Powers"
 	set desc = "*Painfully* fleshcraft your arm into a vicious blade. Reality won't like this one bit."
 
-	if(bsrevenant_generic_weapon(/obj/item/melee/arm_blade))
+	if(bsrevenant_generic_weapon(/obj/item/melee/changeling/arm_blade))
 		return
 
 	return

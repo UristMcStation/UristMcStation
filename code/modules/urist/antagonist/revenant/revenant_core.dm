@@ -49,8 +49,7 @@ GLOBAL_LIST(revenant_powerinstances)
 	id = MODE_BSREVENANT
 	role_text = "Bluespace Revenant"
 	role_text_plural = "Bluespace Revenants"
-	restricted_jobs = list(/datum/job/captain, /datum/job/hos)
-	protected_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/detective)
+	restricted_jobs = list(/datum/job/captain, /datum/job/hos, /datum/job/officer, /datum/job/warden, /datum/job/detective)
 	blacklisted_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job/submap)
 	feedback_tag = "revenant_objective"
 
@@ -67,4 +66,3 @@ GLOBAL_LIST(revenant_powerinstances)
 	initial_spawn_req = 1
 	initial_spawn_target = 2
 	skill_setter = /datum/antag_skill_setter/station
-

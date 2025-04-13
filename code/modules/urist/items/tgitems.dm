@@ -99,7 +99,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	max_storage_space = 21 //check values!
 	max_w_class = 3
 	w_class = 4 //Bigger than a book because physics
-	can_hold = list(/obj/item/book, /obj/item/spellbook) //No bibles, consistent with bookcase
+	contents_allowed = list(/obj/item/book, /obj/item/spellbook) //No bibles, consistent with bookcase
 
 //moo000ooo000ooo
 
@@ -326,7 +326,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	storage_slots = 5
 	max_storage_space = 15 //check values!
 	level = 1
-	cant_hold = list(/obj/item/storage/backpack/satchel/flat) //muh recursive backpacks
+	contents_banned = list(/obj/item/storage/backpack/satchel/flat) //muh recursive backpacks
 
 /obj/item/storage/backpack/satchel/flat/hide(intact)
 	if(intact)
@@ -372,7 +372,7 @@ Please only put items here that don't have a huge definition - Glloyd											
 	icon_state = "cig_paper_pack"
 	storage_slots = 10
 	key_type = /obj/item/paper/cig
-	can_hold = list(/obj/item/paper/cig)
+	contents_allowed= list(/obj/item/paper/cig)
 	startswith = list(/obj/item/paper/cig/fancy/nt = 10)
 
 

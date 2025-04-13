@@ -95,7 +95,7 @@
 	max_storage_space = 200
 	max_w_class = ITEM_SIZE_NORMAL
 	w_class = ITEM_SIZE_LARGE
-	can_hold = list(/obj/item/ammo_casing/musket, /obj/item/ammo_casing/musket/short, /obj/item/ammo_casing/musket/flintlock)
+	contents_allowed = list(/obj/item/ammo_casing/musket, /obj/item/ammo_casing/musket/short, /obj/item/ammo_casing/musket/flintlock)
 	allow_quick_gather = 1
 	allow_quick_empty = 1
 	use_to_pickup = 1

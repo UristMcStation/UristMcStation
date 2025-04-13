@@ -821,9 +821,9 @@
 	icon_state = "fork"
 
 /obj/random/utensil/spawn_choices()
-	return list(/obj/item/material/kitchen/utensil/fork,
-				/obj/item/material/kitchen/utensil/spoon,
-				/obj/item/material/kitchen/utensil/spork
+	return list(/obj/item/material/utensil/fork,
+				/obj/item/material/utensil/spoon,
+				/obj/item/material/utensil/spork
 				)
 
 /obj/random/officetoy
