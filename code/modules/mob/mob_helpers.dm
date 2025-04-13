@@ -2,7 +2,7 @@
 /proc/isxenomorph(A)
 	if(istype(A, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = A
-		return istype(H.species, /singleton/species/xeno)
+		return istype(H.species, /singleton/species/xenos)
 	return 0
 
 /proc/issmall(A)
