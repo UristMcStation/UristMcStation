@@ -482,5 +482,5 @@
 
 //fitness
 
-/obj/structure/fitness/weightlifter/holo/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/fitness/weightlifter/holo/use_tool(obj/item/W, mob/living/user, list/click_params)
 	return

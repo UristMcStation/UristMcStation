@@ -52,8 +52,8 @@
 		/obj/item/reagent_containers/food/snacks/no_raisin = 0,
 		/obj/item/reagent_containers/food/snacks/spacetwinkie = 0,
 		/obj/item/reagent_containers/food/snacks/cheesiehonkers = 0,
-		/obj/item/reagent_containers/food/snacks/tastybread = 0
-		/obj/item/reagent_containers/food/snacks/bird = 0
+		/obj/item/reagent_containers/food/snacks/tastybread = 0,
+		/obj/item/reagent_containers/food/snacks/bird = 0,
 	)
 	rare_products = list(
 		/obj/item/storage/box/syndie_kit/shuriken = 70

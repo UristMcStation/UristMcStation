@@ -295,7 +295,7 @@ the sprite and make my own projectile -Glloyd*/
 	..()
 	launcher = new(src)
 
-/obj/item/gun/projectile/automatic/m16/gl/attackby(obj/item/I, mob/user)
+/obj/item/gun/projectile/automatic/m16/gl/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if((istype(I, /obj/item/grenade)))
 		launcher.load(I, user)
 	else
@@ -560,7 +560,7 @@ the sprite and make my own projectile -Glloyd*/
 		if(8) to_chat(user, "It has a finished unsecured pipe bolt in place.")
 		if(9) to_chat(user, "It has a finished secured bolt in place.")
 
-/obj/item/imprifleframe/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/imprifleframe/use_tool(obj/item/W, mob/living/user, list/click_params)
 	switch(buildstate)
 		if(0)
 			if(istype(W,/obj/item/gunsmith/barrel/long))
@@ -668,7 +668,8 @@ the sprite and make my own projectile -Glloyd*/
 				qdel(src)
 			return
 		else
-/obj/item/imprifleframe/imprifleframesawn/attackby(obj/item/W as obj, mob/user as mob)
+
+/obj/item/imprifleframe/imprifleframesawn/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/weldingtool))
 		if(buildstate == 0)
 			var/obj/item/weldingtool/T = W

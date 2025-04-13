@@ -55,46 +55,57 @@
 	origin_tech = list(TECH_BIO = 1)
 	animal_heal = 3
 
-/obj/item/stack/medical/bruise_pack/makeshift_bandage/attack(mob/living/carbon/M as mob, mob/user as mob)
-	if(..())
-		return 1
-	if (istype(M, /mob/living/carbon/human))
-		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
-		if(affecting.is_bandaged())
-			to_chat(user, "<span class='warning'>The wounds on [M]'s [affecting.name] have already been bandaged.</span>")
-			return 1
-		else
-			user.visible_message("<span class='notice'>\The [user] begins hastily treating [M]'s [affecting.name].</span>", \
-								"<span class='notice'>You begin hastily treating [M]'s [affecting.name].</span>" )
-			var/used = 0
-			for (var/datum/wound/W in affecting.wounds)
-				if(W.bandaged)
-					continue
-				if(used == amount)
-					break
-				if(!do_after(user, M, W.damage/3))
-					to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
-					break
-				if (W.current_stage <= W.max_bleeding_stage)
-					user.visible_message("<span class='notice'>\The [user] bandages \a [W.desc] on [M]'s [affecting.name].</span>", \
-										"<span class='notice'>You bandage \a [W.desc] on [M]'s [affecting.name].</span>" )
-					//H.add_side_effect("Itch")
-				else if (W.damage_type == DAMAGE_BRUTE)
-					user.visible_message("<span class='notice'>\The [user] places a rugged bandage over \a [W.desc] on [M]'s [affecting.name].</span>", \
-											"<span class='notice'>You place a rugged bandage over \a [W.desc] on [M]'s [affecting.name].</span>" )
-				else
-					user.visible_message("<span class='notice'>\The [user] places a rugged bandage over \a [W.desc] on [M]'s [affecting.name].</span>", \
-											"<span class='notice'>You place a rugged bandage over \a [W.desc] on [M]'s [affecting.name].</span>" )
-				W.bandage()
-				used++
-			affecting.update_damages()
+/obj/item/stack/medical/bruise_pack/makeshift_bandage/use_before(atom/target, mob/user as mob, click_params)
+	var/mob/living/carbon/human/H = target
+
+	if (!istype(H))
+		return ..()
+
+	var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
+	if(affecting.is_bandaged())
+		to_chat(user, "<span class='warning'>The wounds on [H]'s [affecting.name] have already been bandaged.</span>")
+		return TRUE
+
+	else
+		user.visible_message("<span class='notice'>\The [user] begins hastily treating [H]'s [affecting.name].</span>", \
+							"<span class='notice'>You begin hastily treating [H]'s [affecting.name].</span>" )
+		var/used = 0
+
+		for(var/datum/wound/W in affecting.wounds)
+			if(W.bandaged)
+				continue
+
 			if(used == amount)
-				if(affecting.is_bandaged())
-					to_chat(user, "<span class='warning'>\The [src] is used up.</span>")
-				else
-					to_chat(user, "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>")
-			use(used)
+				break
+
+			if(!do_after(user, M, W.damage/3))
+				to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
+				break
+
+			if (W.current_stage <= W.max_bleeding_stage)
+				user.visible_message("<span class='notice'>\The [user] bandages \a [W.desc] on [H]'s [affecting.name].</span>", \
+									"<span class='notice'>You bandage \a [W.desc] on [H]'s [affecting.name].</span>" )
+				//H.add_side_effect("Itch")
+			else if (W.damage_type == DAMAGE_BRUTE)
+				user.visible_message("<span class='notice'>\The [user] places a rugged bandage over \a [W.desc] on [H]'s [affecting.name].</span>", \
+										"<span class='notice'>You place a rugged bandage over \a [W.desc] on [H]'s [affecting.name].</span>" )
+			else
+				user.visible_message("<span class='notice'>\The [user] places a rugged bandage over \a [W.desc] on [H]'s [affecting.name].</span>", \
+										"<span class='notice'>You place a rugged bandage over \a [W.desc] on [H]'s [affecting.name].</span>" )
+
+			W.bandage()
+			used++
+
+		affecting.update_damages()
+
+		if(used == amount)
+			if(affecting.is_bandaged())
+				to_chat(user, "<span class='warning'>\The [src] is used up.</span>")
+			else
+				to_chat(user, "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>")
+
+		use(used)
+		return TRUE
 
 /obj/item/loom
 	name = "table loom"
@@ -130,7 +141,7 @@
 /obj/item/seeds/cotton
 	seed_type = "cotton"
 
-/obj/item/loom/attackby(obj/item/W, mob/user)
+/obj/item/loom/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/reagent_containers/food/snacks/grown))
 		var/obj/item/reagent_containers/food/snacks/grown/plant = W
 		if(plant.seed?.chems)

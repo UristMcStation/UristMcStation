@@ -192,8 +192,11 @@
 	if (locked)
 		return FALSE
 	return ..()
+
 /obj/item/storage/secure/safe/Initialize()
-	. = ..()	for(var/obj/item/I in get_turf(src))
+	. = ..()
+
+	for(var/obj/item/I in get_turf(src))
 		handle_item_insertion(I,1)
 
 // -----------------------------
@@ -206,7 +209,7 @@
 	name = "personal arms safe"
 	max_storage_space = 24
 	req_access = list(access_bridge)
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/structures/safe.dmi'
 	icon_state = "safe"
 	icon_opened = "safe0"
 	icon_locking = "safeb"

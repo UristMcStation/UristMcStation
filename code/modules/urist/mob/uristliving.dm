@@ -1,6 +1,6 @@
 //vg color-matrix code
 GLOBAL_LIST_EMPTY(bad_changing_color_ckeys)
-GLOBAL_LIST_INIT(mutation_color_matrices, list("[M_NOIR]"=COLMX_EXPRESSIONIST))
+GLOBAL_LIST_AS(mutation_color_matrices, list("[M_NOIR]"=COLMX_EXPRESSIONIST))
 
 
 /mob/proc/get_screen_color()

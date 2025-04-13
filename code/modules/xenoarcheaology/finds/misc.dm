@@ -64,7 +64,7 @@
 /obj/item/research_crystal
 	name = "crystal shard"
 	desc = "A glowing shard from a crystal, it seems to hum while you hold it."
-	icon = 'icons/obj/shards.dmi'
+	icon = 'icons/obj/materials/shards.dmi'
 	icon_state = "shardlarge"
 	origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 3, TECH_ELECTROMAGNETIC = 7)
 

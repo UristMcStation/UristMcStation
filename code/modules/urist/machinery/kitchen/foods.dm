@@ -1,30 +1,30 @@
 //i know this isn't machinery. Shut up.
 
-/obj/item/reagent_containers/food/snacks/bun/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/snacks/bun/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/customizable/burger/S = new(get_turf(user))
-		S.attackby(W,user)
+		S.use_tool(W,user,click_params)
 		qdel(src)
 	..()
 
-/obj/item/reagent_containers/food/snacks/sliceable/flatdough/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/snacks/sliceable/flatdough/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/customizable/pizza/S = new(get_turf(user))
-		S.attackby(W,user)
+		S.use_tool(W,user,click_params)
 		qdel(src)
 	..()
 
-/obj/item/reagent_containers/food/snacks/boiledspagetti/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/snacks/boiledspagetti/use_tool(obj/item/W, mob/living/user, list/click_params)
 
 	if(istype(W,/obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/customizable/pasta/S = new(get_turf(user))
-		S.attackby(W,user)
+		S.use_tool(W,user,click_params)
 		qdel(src)
 
-/obj/item/trash/plate/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/trash/plate/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/customizable/fullycustom/S = new(get_turf(user))
-		S.attackby(W,user)
+		S.use_tool(W,user,click_params)
 		qdel(src)
 
 /obj/item/trash/bowl
@@ -33,11 +33,11 @@
 	icon = 'icons/urist/kitchen.dmi'
 	icon_state = "soup"
 
-/obj/item/trash/bowl/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/trash/bowl/use_tool(obj/item/W, mob/living/user, list/click_params)
 
 	if(istype(W,/obj/item/material/shard) || istype(W,/obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/customizable/soup/S = new(get_turf(user))
-		S.attackby(W,user)
+		S.use_tool(W,user,click_params)
 		qdel(src)
 	..()
 
@@ -298,7 +298,7 @@
 	baseicon = "burger"
 	basename = "burger"
 
-/obj/item/reagent_containers/food/snacks/customizable/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/snacks/customizable/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(length(src.contents) > ingredient_limit)
 		to_chat(user, "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>")
 		return
@@ -485,7 +485,7 @@
 	top = 0
 	boozetype = /datum/reagent/ethanol/ale
 
-/obj/item/reagent_containers/food/drinks/bottle/customizable/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/drinks/bottle/customizable/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(length(src.contents) > ingredient_limit)
 		to_chat(user, "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>")
 		return

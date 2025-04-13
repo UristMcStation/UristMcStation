@@ -57,7 +57,7 @@
 	icon_state = "straight_cut3"
 	hole_size = LARGE_HOLE
 
-/obj/structure/fence/attackby(obj/item/W, mob/user)
+/obj/structure/fence/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/wirecutters))
 		if(!cuttable)
 			to_chat(user, "<span class='notice'>This section of the fence can't be cut.</span>")

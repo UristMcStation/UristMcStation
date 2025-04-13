@@ -53,10 +53,10 @@
 	ammo_type = /obj/item/ammo_casing/musket
 	w_class = ITEM_SIZE_NORMAL
 	max_shells = 1
-	var/datum/effect/effect/system/smoke_spread/bad/smoke
+	var/datum/effect/smoke_spread/bad/smoke
 
 /obj/item/gun/projectile/manualcycle/musket/handle_post_fire(mob/user, atom/target)
-	var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
+	var/datum/effect/smoke_spread/smoke = new /datum/effect/smoke_spread()
 	smoke.set_up(1,0, src.loc, 0)
 	smoke.start()
 	..()

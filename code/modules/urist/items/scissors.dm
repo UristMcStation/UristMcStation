@@ -17,7 +17,7 @@
 /obj/item/Scissors/IsWirecutter()
 	return TRUE
 
-/obj/item/scissors/attackby(obj/item/I, mob/user as mob) //Seperation of the scissors
+/obj/item/scissors/use_tool(obj/item/I, mob/living/user, list/click_params) //Seperation of the scissors
 	if(istype(I, /obj/item/screwdriver))
 
 		var/obj/item/improvised/scissorknife/left_part = new childpart
@@ -69,7 +69,7 @@
 	attack_verb = list("prods", "pokes", "nudges", "annoys")
 	parentscissor = /obj/item/scissors/craft
 
-/obj/item/improvised/scissorsassembly/attackby(obj/item/I, mob/user as mob) //Putting it together
+/obj/item/improvised/scissorsassembly/use_tool(obj/item/I, mob/living/user, list/click_params) //Putting it together
 	if(istype(I, /obj/item/screwdriver))
 
 		var/obj/item/scissors/N = new parentscissor
@@ -83,19 +83,20 @@
 	..()
 
 //Makes scissors cut hair, special thanks to Miauw and Xerux -Nien
-/obj/item/scissors/barber/attack(mob/living/carbon/M as mob, mob/user as mob)
+/obj/item/scissors/barber/use_before(mob/living/carbon/M, mob/user, click_parameters)
 	if(user.a_intent != "help")
-		..()
-		return
+		return FALSE
+
 	if(!(M in view(1))) //Adjacency test
-		..()
-		return
+		return FALSE
+
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		//see code/modules/mob/new_player/preferences.dm at approx line 545 for comments!
 		//this is largely copypasted from there.
 		//handle facial hair (if necessary)
 		var/list/species_facial_hair = list()
+
 		if(H.gender == MALE)
 			if(H.species)
 				for(var/i in GLOB.facial_hair_styles_list)
@@ -104,7 +105,9 @@
 						species_facial_hair += i
 			else
 				species_facial_hair = GLOB.facial_hair_styles_list
+
 		var/f_new_style = input(user, "Select a facial hair style", "Grooming")  as null|anything in species_facial_hair
+
 		//handle normal hair
 		var/list/species_hair = list()
 		if(H.species)
@@ -114,19 +117,25 @@
 					species_hair += i
 		else
 			species_hair = GLOB.hair_styles_list
+
 		var/h_new_style = input(user, "Select a hair style", "Grooming")  as null|anything in species_hair
+
 		user.visible_message("[user] starts cutting [M]'s hair!", "You start cutting [M]'s hair!", "You hear the sound of scissors.") //arguments for this are: 1. what others see 2. what the user sees 3. what blind people hear. --Fixed grammar, (TGameCo)
+
 		if(do_after(user, 50)) //this is the part that adds a delay. delay is in deciseconds. --Made it 5 seconds, because hair isn't cut in one second in real life, and I want at least a little bit longer time, (TGameCo)
 			if(!(M in view(1))) //Adjacency test
 				user.visible_message("[user] stops cutting [M]'s hair.", "You stop cutting [M]'s hair.", "The sounds of scissors stop")
-				return
+				return TRUE
+
 			if(f_new_style)
 				H.facial_hair_style = f_new_style
+
 			if(h_new_style)
 				H.head_hair_style = h_new_style
 
 		H.update_hair()
 		user.visible_message("[user] finishes cutting [M]'s hair!")
+		return TRUE
 
 // --- Scissor Children ---
 

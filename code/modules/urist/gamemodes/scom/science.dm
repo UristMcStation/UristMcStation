@@ -65,14 +65,18 @@
 	icon = 'icons/urist/items/old_bay_custom_items.dmi'
 	icon_state = "royce_kit"
 
-/obj/item/scom/borgmodkit/attack(mob/living/silicon/robot/R)
+/obj/item/scom/borgmodkit/use_before(atom/target, mob/living/user, click_parameters)
+	var/mob/living/silicon/robot/R = target
+	if(!istype(R))
+		return FALSE
+
 //	R/var/module_sprites[0]
 	R.module = new /obj/item/robot_module/security/combat/(src)
 	R.modtype = "Combat"
 //	R.module_sprites["Combat Android"] = "droid-combat"
 	R.update_icon()
 	qdel(src)
-	return
+	return TRUE
 
 /obj/item/organ/internal/xenos
 	scomtechlvl = 2 //worth about as much as lactera rifles

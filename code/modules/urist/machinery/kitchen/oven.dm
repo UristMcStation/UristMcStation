@@ -17,7 +17,7 @@
 	..()
 	updatefood()
 
-/obj/machinery/cooking/attackby(obj/item/I, mob/user)
+/obj/machinery/cooking/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(on)
 		to_chat(user, "The machine is already running.")
 		return
@@ -43,7 +43,7 @@
 			on = FALSE
 			icon_state = "[orig]_off"
 			C.loc = get_turf(src)
-			C.attackby(F,user)
+			C.use_tool(F, user, click_params)
 			playsound(loc, 'sound/machines/ding.ogg', 50, 1)
 			updatefood()
 			return

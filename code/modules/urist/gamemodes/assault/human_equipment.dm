@@ -89,13 +89,13 @@
 /obj/structure/assaultshieldgen
 	name = "shield generator"
 	desc = "The shield generator for the station. Protect it with your life. Repair it with a welding torch."
-	icon = 'icons/obj/power.dmi'
-	icon_state = "bbox_on"
+	icon = 'icons/obj/machines/power/breakerbox.dmi'
+	icon_state = "bbox"
 	health_max = 300
 	anchored = TRUE
 	density = TRUE
 
-/obj/structure/assaultshieldgen/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/assaultshieldgen/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/weldingtool))
 		var/obj/item/weldingtool/WT = W
 		if (WT.remove_fuel(0,user))

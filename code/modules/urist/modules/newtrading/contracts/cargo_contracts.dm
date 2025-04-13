@@ -256,7 +256,7 @@
 
 /datum/contract/cargo/folders
 	name = "Folder Delivery Contract"
-	wanted_types = list(/obj/item/folder)
+	wanted_types = list(/obj/item/material/folder)
 	money = 200
 
 /datum/contract/cargo/folders/New()

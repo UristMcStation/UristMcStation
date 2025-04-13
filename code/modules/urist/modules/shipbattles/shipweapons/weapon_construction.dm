@@ -40,9 +40,9 @@
 	var/weapon_type = null
 	pixel_y = -18
 
-/obj/structure/shipweapons/incomplete_weapon/attackby(obj/item/W as obj, mob/living/user as mob)
-	switch(state)
 
+/obj/structure/shipweapons/incomplete_weapon/use_tool(obj/item/W as obj, mob/living/user as mob, click_paramss)
+	switch(state)
 		if(0)
 			var/turf/T = get_turf(src)
 			if(isWrench(W) && locate(/obj/structure/shipweapons/hardpoint) in T)
@@ -58,9 +58,9 @@
 					state = 1
 					desc = "It's a ship-to-ship weapon assembly. It is missing external sheeting."
 					update_icon()
+				return TRUE
 
 		if(1)
-
 			if(istype(W, /obj/item/stack/material) && W.get_material_name() == DEFAULT_WALL_MATERIAL)
 				var/obj/item/stack/M = W
 				if(M.use(2))
@@ -68,7 +68,7 @@
 					state = 2
 					update_icon()
 					desc = "It's a ship-to-ship weapon assembly. It has some loose external sheeting."
-					return
+				return TRUE
 
 			else if(isWrench(W))
 				var/turf/T = get_turf(src)
@@ -81,13 +81,10 @@
 				animate(src, pixel_x = initial(pixel_x), pixel_y = initial(pixel_y), 3, 1, LINEAR_EASING)
 				desc = initial(desc)
 				update_icon()
-
-				return
+				return TRUE
 
 		if(2)
-
 			if(isWelder(W))
-
 				var/obj/item/weldingtool/F = W
 				if(F.isOn())
 					if(F.remove_fuel(0,user))
@@ -97,7 +94,7 @@
 							state = 3
 							update_icon()
 							desc = "It's a ship-to-ship weapon assembly with secured external plating. It is missing wiring."
-					return
+				return TRUE
 
 			if(isCrowbar(W))
 				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
@@ -106,7 +103,7 @@
 				desc = "It's a ship-to-ship weapon assembly. It is missing external sheeting."
 				state = 1
 				update_icon()
-				return
+				return TRUE
 
 		if(3)
 			if(isCoil(W))
@@ -118,10 +115,9 @@
 					desc = "It's a ship-to-ship weapon assembly that is nearly complete. The wiring and external hatches need to be secured."
 				else
 					to_chat(user, "<span class='warning'>You need 2 coils of wire to wire the weapon assembly.</span>")
-				return
+				return TRUE
 
 			else if(isWelder(W))
-
 				var/obj/item/weldingtool/F = W
 				if(F.isOn())
 					if(F.remove_fuel(0,user))
@@ -130,7 +126,7 @@
 							desc = "It's a ship-to-ship weapon assembly. It has some loose external sheeting."
 							state = 2
 							update_icon()
-					return
+				return TRUE
 
 		if(4)
 			if(isScrewdriver(W))
@@ -141,16 +137,18 @@
 					S.shipid = shipid
 					S.ConnectWeapons()
 				qdel(src)
+				return TRUE
 
 			else if(isWirecutter(W))
-
 				new /obj/item/stack/cable_coil(get_turf(src), 2)
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You cut the wires from the weapon assembly.</span>")
 				desc = "It's a ship-to-ship weapon assembly with secured external plating. It is missing wiring."
 				state = 3
 				update_icon()
-				return
+				return TRUE
+
+	return ..()
 
 /obj/structure/shipweapons/incomplete_weapon/on_update_icon()
 	..()

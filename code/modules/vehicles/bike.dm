@@ -19,7 +19,7 @@
 	var/space_speed = 2
 	var/bike_icon = "bike"
 
-	var/datum/effect/effect/system/trail/trail
+	var/datum/effect/trail/trail
 	var/kickstand = 1
 	var/obj/item/engine/engine = null
 	var/engine_type
@@ -105,7 +105,7 @@
 /obj/vehicle/bike/insert_cell(obj/item/cell/C, var/mob/living/carbon/human/H)
 	return
 
-/obj/vehicle/bike/attackby(obj/item/W as obj, mob/user as mob)
+/obj/vehicle/bike/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(open)
 		if(istype(W, /obj/item/engine))
 			if(engine)
@@ -114,7 +114,7 @@
 			user.visible_message("<span class='warning'>\The [user] installs \the [W] into \the [src].</span>")
 			load_engine(W)
 			return
-		else if(engine && engine.attackby(W,user))
+		else if(engine && engine.use_tool(W, user, click_params))
 			return 1
 		else if(isCrowbar(W) && engine)
 			to_chat(user, "You pop out \the [engine] from \the [src].")

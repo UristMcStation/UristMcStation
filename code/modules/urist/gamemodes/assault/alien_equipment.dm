@@ -14,14 +14,14 @@
 /obj/machinery/computer/shuttle_control/assault/alien1
 	name = "alien shuttle console (Shuttle 1)"
 	shuttle_tag = "Assault 1"
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "cellconsole"
+	icon = 'icons/obj/machines/medical/cryogenic_legacy.dmi'
+	icon_state = "cellconsoleold"
 
 /obj/machinery/computer/shuttle_control/assault/alien2
 	name = "alien shuttle console (Shuttle 2)"
 	shuttle_tag = "Assault 2"
-	icon = 'icons/obj/Cryogenic2.dmi'
-	icon_state = "cellconsole"
+	icon = 'icons/obj/machines/medical/cryogenic_legacy.dmi'
+	icon_state = "cellconsoleold"
 
 /obj/item/gun/energy/lactera
 	item_icons = DEF_URIST_INHANDS
@@ -118,7 +118,7 @@
 /obj/item/gun/energy/lactera/verb_pickup()
 	var/mob/living/carbon/human/M = usr
 	if(!istype(M, /mob/living/carbon/human/lactera))
-//	if(M.species != singleton/species/xenos/lactera)
+//	if(M.species != /singleton/species/xenos/lactera)
 		to_chat(M, "<span class='warning'>The alien gun turns inert when you touch it.</span>")
 		new inertstate(src.loc)
 		qdel(src)
@@ -167,7 +167,7 @@
 		target.overlays -= image_overlay
 	qdel(src)
 
-/obj/item/plastique/alienexplosive/attackby(obj/item/I, var/mob/user)
+/obj/item/plastique/alienexplosive/use_tool(obj/item/I, var/mob/user, click_params)
 	return
 
 /obj/item/clothing/under/lactera

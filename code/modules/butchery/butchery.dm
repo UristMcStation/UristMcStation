@@ -218,7 +218,7 @@
 	return ..()
 
 
-/obj/structure/kitchenspike/improvised/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/kitchenspike/improvised/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(isWrench(W))
 		user.visible_message("/The [user] destroys the truss.", "You destroy the truss.")
 		qdel(src)

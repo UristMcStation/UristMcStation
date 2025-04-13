@@ -77,7 +77,7 @@
 		to_chat(user, "<span class='notice'>The glass is already open.</span>")
 
 
-/obj/structure/icarus/broken_cryo/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/icarus/broken_cryo/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if (busy)
 		to_chat(user, "<span class='notice'>Someone else is attempting to open this.</span>")
 		return
@@ -107,7 +107,7 @@
 /obj/item/disk/icarus
 	name = "black box backup disk"
 	desc = "Digital storage. Inscription says: \"Deliver to Sol Goverment Expeditionary Corps Command!\". Content is encrypted with quantum crypthography methods."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/datadisks.dmi'
 	icon_state = "nucleardisk"
 	item_state = "card-id"
 	w_class = ITEM_SIZE_TINY
@@ -217,9 +217,8 @@
 	icon_state = "solgovflag-right"
 
 /turf/simulated/floor/exoplanet/desert/skylight
-	light_max_bright = 0.3
-	light_inner_range = 0.5
-	light_outer_range = 1.0
+	light_power = 0.3
+	light_range = 1.0
 	light_color = "#ffffff"
 
 /turf/simulated/floor/exoplanet/desert/skylight/Initialize()
@@ -227,9 +226,8 @@
 	. = ..()
 
 /turf/simulated/floor/exoplanet/grass/skylight
-	light_max_bright = 0.3
-	light_inner_range = 0.5
-	light_outer_range = 1.0
+	light_power = 0.3
+	light_range = 1.0
 	light_color = "#ffffff"
 
 /turf/simulated/floor/exoplanet/grass/skylight/Initialize()
@@ -237,9 +235,8 @@
 	. = ..()
 
 /turf/simulated/open/skylight
-	light_max_bright = 0.3
-	light_inner_range = 0.5
-	light_outer_range = 1.0
+	light_power = 0.3
+	light_range = 1.0
 	light_color = "#ffffff"
 
 /turf/simulated/open/skylight/Initialize()

@@ -113,15 +113,21 @@
 
 	..()
 
-/obj/item/clothing/shoes/urist/anforjackboots/attackby(obj/item/I, var/mob/living/M)
+/obj/item/clothing/shoes/urist/anforjackboots/use_tool(obj/item/I, var/mob/living/M, click_params)
 	if(istype(I, /obj/item/material/knife/combat))
-		if(knife)	return
+		if(knife)
+			to_chat(M, SPAN_NOTICE("\The [src] already has a [knife] in it!"))
+			return TRUE
+
 		M.drop_item()
 		knife = I
 		I.loc = src
-		to_chat(M, "<span class='notice'>You slide the [I] into of the jackboot.</span>")
+		to_chat(M, SPAN_NOTICE("You slide the [I] into of the jackboot."))
 		src.icon_state = "jackboots-knife"
 		M.regenerate_icons()
+		return TRUE
+
+	return FALSE
 
 /obj/item/clothing/head/urist/anfor
 	name = "ANFOR NCO cap"
@@ -274,7 +280,7 @@
 	launcher = new(src)
 */
 /*
-/obj/item/gun/projectile/a18/attackby(obj/item/I, mob/user) //i really need to make a partent class for guns that can be modified, but right now it's only the one so fuck it. //GlloydTODO
+/obj/item/gun/projectile/a18/use_tool(obj/item/I, mob/living/user, list/click_params) //i really need to make a partent class for guns that can be modified, but right now it's only the one so fuck it. //GlloydTODO
 	..()
 
 	if(gl_attach)

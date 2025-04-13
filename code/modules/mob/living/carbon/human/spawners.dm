@@ -218,7 +218,7 @@
 	uniform = /obj/item/clothing/under/rank/scientist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen
 	shoes = /obj/item/clothing/shoes/white
-	back = /obj/item/storage/backpack/toxins
+	back = /obj/item/storage/backpack/corpsci
 	l_ear = /obj/item/device/radio/headset/headset_sci
 
 /singleton/hierarchy/outfit/nanotrasensci/loot

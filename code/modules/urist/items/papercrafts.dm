@@ -113,7 +113,7 @@
 	foldable = /obj/item/papercrafts/square //Turns into a square paper when unfolded
 
 // Cutting of paper for papercrafts. Square paper is traditionally used in oragami.
-/obj/item/paper/attackby(obj/item/I, mob/user as mob)
+/obj/item/paper/use_tool(obj/item/I, mob/living/user, list/click_params)
 	// Any type of scissor can be used on paper.
 	if(istype(I, /obj/item/scissors))
 		var/want = input("Choose what you want to make", "Your Choice", "Cancel") in list ("Cancel", "Paper Square", "Paper Hat")
