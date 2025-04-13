@@ -77,7 +77,7 @@
 	if(prob(flower_chance))
 		flower = image(icon = icon, icon_state = "flower_back")
 		var/image/I = image(icon = icon, icon_state = "flower_fore")
-		I.color = get_random_colour(1)
+		I.color = get_random_colour()
 		flower.AddOverlays(I)
 
 	update_icons()

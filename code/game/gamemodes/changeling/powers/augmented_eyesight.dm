@@ -17,7 +17,7 @@
 	var/datum/changeling/changeling = changeling_power(3,0,100,CONSCIOUS)
 	var/mob/living/carbon/human/H = src
 	var/obj/item/organ/external/parent = H.get_organ(BP_HEAD)
-	var/has_organ = FALSE;
+	var/has_organ = FALSE
 	for(var/obj/item/organ/internal/augment/ling_lenses/eyes in H.internal_organs)
 		has_organ++
 	if(!changeling)

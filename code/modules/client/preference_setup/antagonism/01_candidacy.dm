@@ -2,6 +2,10 @@
 	var/list/never_be_special_role
 	var/list/be_special_role
 
+/datum/preferences_slot
+	var/list/never_be_special_role
+	var/list/be_special_role
+
 /datum/category_item/player_setup_item/antagonism/candidacy
 	name = "Candidacy"
 	sort_order = 1
@@ -13,6 +17,10 @@
 /datum/category_item/player_setup_item/antagonism/candidacy/save_character(datum/pref_record_writer/W)
 	W.write("be_special", pref.be_special_role)
 	W.write("never_be_special", pref.never_be_special_role)
+
+/datum/category_item/player_setup_item/antagonism/candidacy/load_slot(datum/pref_record_reader/R, datum/preferences_slot/slot)
+	slot.be_special_role = R.read("be_special")
+	slot.var/list/never_be_special_role = R.read("never_be_special")
 
 /datum/category_item/player_setup_item/antagonism/candidacy/sanitize_character()
 	if(!istype(pref.be_special_role))
@@ -64,6 +72,7 @@
 			return TOPIC_HANDLED
 		pref.be_special_role |= href_list["add_special"]
 		pref.never_be_special_role -= href_list["add_special"]
+		refresh_slot_roles()
 		return TOPIC_REFRESH
 
 	if(href_list["del_special"])
@@ -71,11 +80,13 @@
 			return TOPIC_HANDLED
 		pref.be_special_role -= href_list["del_special"]
 		pref.never_be_special_role -= href_list["del_special"]
+		refresh_slot_roles()
 		return TOPIC_REFRESH
 
 	if(href_list["add_never"])
 		pref.be_special_role -= href_list["add_never"]
 		pref.never_be_special_role |= href_list["add_never"]
+		refresh_slot_roles()
 		return TOPIC_REFRESH
 
 	if(href_list["select_all"])
@@ -93,9 +104,17 @@
 				if(2)
 					pref.be_special_role |= id
 					pref.never_be_special_role -= id
+		refresh_slot_roles()
 		return TOPIC_REFRESH
 
 	return ..()
+
+/datum/category_item/player_setup_item/antagonism/candidacy/proc/refresh_slot_roles()
+	for(var/datum/preferences_slot/slot in pref.slot_priority_list)
+		if(slot.slot != pref.default_slot)
+			continue
+		slot.be_special_role = pref.be_special_role
+		slot.never_be_special_role = pref.never_be_special_role
 
 /datum/category_item/player_setup_item/antagonism/candidacy/proc/valid_special_roles(include_bans = TRUE)
 	var/list/private_valid_special_roles = list()

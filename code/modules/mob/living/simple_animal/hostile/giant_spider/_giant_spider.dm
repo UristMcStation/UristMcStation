@@ -77,7 +77,7 @@ GLOBAL_VAR_AS(SPIDER_COUNT, 0)
 	force = 15
 
 /mob/living/simple_animal/hostile/giant_spider/Initialize(mapload, atom/parent)
-	get_light_and_color(parent)
+	copy_light_and_color(parent)
 	spider_randomify()
 	update_icon()
 	GLOB.SPIDER_COUNT += 1

@@ -16,15 +16,6 @@
 /obj/item/material/armblade/can_embed()
 	return FALSE
 
-/obj/item/material/armblade/mounted
-	name = "hardsuit armblade"
-	desc = "An extra large, extra sharp armblade. Rip and tear."
-	default_material = MATERIAL_PLASTEEL
-
-/obj/item/material/armblade/mounted/dropped() /// This should not exist on its own
-	..()
-	QDEL_IN(src, 0)
-
 /obj/item/organ/internal/augment/active/item/armblade
 	name = "embedded blade"
 	desc = "A sturdy housing for a steel utility blade."

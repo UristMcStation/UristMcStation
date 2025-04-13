@@ -94,7 +94,7 @@
 
 /obj/item/haircomb/random/Initialize()
 	. = ..()
-	color = get_random_colour(lower = 150)
+	color = get_random_colour(150, 255)
 
 /obj/item/haircomb/attack_self(mob/living/carbon/human/user)
 	if(!user.incapacitated())

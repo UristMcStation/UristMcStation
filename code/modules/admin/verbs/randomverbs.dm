@@ -628,7 +628,7 @@ Ccomp's first proc.
 
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
-			command_announcement.Announce(input, customname, new_sound = GLOB.using_map.command_report_sound, msg_sanitized = 1);
+			command_announcement.Announce(input, customname, new_sound = GLOB.using_map.command_report_sound, msg_sanitized = 1)
 		if("No")
 			minor_announcement.Announce(message = "New [GLOB.using_map.company_name] Update available at all communication consoles.")
 
@@ -982,9 +982,9 @@ Ccomp's first proc.
 		range = rand(8, 13)
 		var/turf/T
 		if (connected == "Yes")
-			T = pick_area_turf_in_connected_z_levels(list(/proc/is_not_space_area), z_level = zlevel)
+			T = pick_area_turf_in_connected_z_levels(list(GLOBAL_PROC_REF(is_not_space_area)), z_level = zlevel)
 		else
-			T = pick_area_turf_in_single_z_level(list(/proc/is_not_space_area), z_level = zlevel)
+			T = pick_area_turf_in_single_z_level(list(GLOBAL_PROC_REF(is_not_space_area)), z_level = zlevel)
 		explosion(T, range, max_power, turf_breaker = break_turfs)
 		booms = booms - 1
 		sleep(delay SECONDS)

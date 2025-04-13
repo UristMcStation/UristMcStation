@@ -60,7 +60,7 @@
 /obj/item/light/alien/Initialize()
 	. = ..()
 	if(!random_light_color)
-		random_light_color = get_random_colour(FALSE, 100, 255)
+		random_light_color = get_random_colour(255)
 	b_colour = random_light_color
 	color = random_light_color
 
@@ -74,5 +74,5 @@
 	var/material/A = SSmaterials.get_material_by_name(MATERIAL_ALIENALLOY)
 	if(A)
 		door_color = A.icon_colour
-	stripe_color = get_random_colour(FALSE, 0, 255)
+	stripe_color = get_random_colour(0, 255)
 	update_icon()

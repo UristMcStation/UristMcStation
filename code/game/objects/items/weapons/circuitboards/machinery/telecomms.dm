@@ -64,7 +64,7 @@
 /obj/item/stock_parts/circuitboard/telecomms/allinone
 	name = "circuit board (telecommunication mainframe)"
 	build_path = /obj/machinery/telecomms/allinone
-	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3);
+	origin_tech = list(TECH_DATA = 3, TECH_ENGINEERING = 3)
 	req_components = list(
 							/obj/item/stock_parts/subspace/ansible = 1,
 							/obj/item/stock_parts/subspace/filter = 1,

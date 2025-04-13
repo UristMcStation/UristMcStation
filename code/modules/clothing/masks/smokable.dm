@@ -76,7 +76,7 @@
 		return
 	smoke(1)
 	if(location)
-		location.hotspot_expose(700, 5)
+		location.hotspot_expose(700)
 
 /obj/item/clothing/mask/smokable/on_update_icon()
 	if(lit && icon_on)

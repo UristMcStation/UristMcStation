@@ -317,9 +317,13 @@ var/global/list/organ_rel_size = list(
 		var/x
 		for(x=0; x<duration, x++)
 			if(aiEyeFlag)
-				M.client.eye = locate(dd_range(1,oldeye.loc.x+rand(-strength,strength),world.maxx),dd_range(1,oldeye.loc.y+rand(-strength,strength),world.maxy),oldeye.loc.z)
+				var/eye_x = clamp(oldeye.loc.x+rand(-strength,strength), 1, world.maxx)
+				var/eye_y = clamp(oldeye.loc.y+rand(-strength,strength), 1, world.maxy)
+				M.client.eye = locate(eye_x, eye_y, oldeye.loc.z)
 			else
-				M.client.eye = locate(dd_range(1,M.loc.x+rand(-strength,strength),world.maxx),dd_range(1,M.loc.y+rand(-strength,strength),world.maxy),M.loc.z)
+				var/eye_x = clamp(M.loc.x+rand(-strength,strength), 1, world.maxx)
+				var/eye_y = clamp(M.loc.y+rand(-strength,strength), 1, world.maxy)
+				M.client.eye = locate(eye_x, eye_y, M.loc.z)
 			sleep(1)
 			if(!M.client)
 				return

@@ -153,7 +153,7 @@
 
 /obj/aura/mechshield/added_to(mob/living/target)
 	. = ..()
-	target.vis_contents += src
+	target.add_vis_contents(src)
 	set_dir()
 	GLOB.dir_set_event.register(user, src, PROC_REF(update_dir))
 
@@ -169,7 +169,7 @@
 /obj/aura/mechshield/Destroy()
 	if(user)
 		GLOB.dir_set_event.unregister(user, src, PROC_REF(update_dir))
-		user.vis_contents -= src
+		user.remove_vis_contents(src)
 	shields = null
 	. = ..()
 
@@ -204,7 +204,7 @@
 		spark_system.set_up(5, 0, user)
 		spark_system.start()
 		playsound(loc, "sparks", 25, 1)
-	return EMPTY_BITFIELD
+	return FLAGS_OFF
 
 /obj/aura/mechshield/aura_check_thrown(atom/movable/thrown_atom, datum/thrownthing/thrown_datum)
 	. = ..()
@@ -383,7 +383,7 @@
 
 /obj/aura/mech_ballistic/added_to(mob/living/target)
 	. = ..()
-	target.vis_contents += src
+	target.add_vis_contents(src)
 	set_dir()
 	GLOB.dir_set_event.register(user, src, PROC_REF(update_dir))
 
@@ -393,7 +393,7 @@
 /obj/aura/mech_ballistic/Destroy()
 	if (user)
 		GLOB.dir_set_event.unregister(user, src, PROC_REF(update_dir))
-		user.vis_contents -= src
+		user.remove_vis_contents(src)
 	shield = null
 	. = ..()
 

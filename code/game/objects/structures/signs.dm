@@ -5,6 +5,7 @@
 	density = FALSE
 	layer = ABOVE_WINDOW_LAYER
 	w_class = ITEM_SIZE_NORMAL
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 
 /obj/structure/sign/double/use_tool(obj/item/tool, mob/user, list/click_params)
 	// Screwdriver - Block interaction

@@ -50,7 +50,7 @@
 	*/
 	var/flags_inv = 0
 	///See items_clothing.dm for appropriate bit flags
-	var/body_parts_covered = EMPTY_BITFIELD
+	var/body_parts_covered = FLAGS_OFF
 
 	var/item_flags = 0 //Miscellaneous flags pertaining to equippable objects.
 
@@ -251,6 +251,15 @@
 		if(!temp)
 			to_chat(user, SPAN_NOTICE("You try to use your hand, but realize it is no longer attached!"))
 			return TRUE
+		var/obj/item/clothing/gloves/gloves = user.get_equipped_item(slot_gloves)
+		if(istype(gloves) && gloves.blood_transfer_amount >= 1)
+			var/taken = rand(1, gloves.blood_transfer_amount)
+			gloves.blood_transfer_amount -= taken
+			add_blood_custom(gloves.blood_color, taken, gloves.blood_DNA)
+		else if(H.bloody_hands >= 1)
+			var/taken = rand(1, H.bloody_hands)
+			H.bloody_hands -= taken
+			add_blood_custom(H.hand_blood_color, taken, H.hands_blood_DNA)
 
 	var/old_loc = loc
 
@@ -668,7 +677,7 @@ var/global/list/slot_flags_enumeration = list(
 		CutOverlays(blood_overlay)
 	if(istype(src, /obj/item/clothing/gloves))
 		var/obj/item/clothing/gloves/G = src
-		G.transfer_blood = 0
+		G.blood_transfer_amount = 0
 	trace_DNA = null
 
 /obj/item/reveal_blood()
@@ -678,7 +687,7 @@ var/global/list/slot_flags_enumeration = list(
 		blood_overlay.color = COLOR_LUMINOL
 		update_icon()
 
-/obj/item/add_blood(mob/living/carbon/human/M as mob)
+/obj/item/add_blood_custom(source_blood_color = COLOR_BLOOD_HUMAN, amount = 3, list/source_blood_DNA = list())
 	if (!..())
 		return 0
 
@@ -690,16 +699,20 @@ var/global/list/slot_flags_enumeration = list(
 		generate_blood_overlay()
 
 	//apply the blood-splatter overlay if it isn't already in there
-	if(!length(blood_DNA))
+	if(blood_overlay.color != blood_color)
 		blood_overlay.color = blood_color
 		AddOverlays(blood_overlay)
 
+	blood_transfer_amount = max(amount, blood_transfer_amount)
+
 	//if this blood isn't already in the list, add it
-	if(istype(M))
-		if(blood_DNA[M.dna.unique_enzymes])
-			return 0 //already bloodied with this blood. Cannot add more.
-		blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
-	return 1 //we applied blood to the item
+	var/added_blood = 0
+	for(var/datum/dna/dna in source_blood_DNA)
+		if(blood_DNA[dna.unique_enzymes])
+			continue //already bloodied with this blood. Cannot add more.
+		blood_DNA[dna.unique_enzymes] = dna.b_type
+		added_blood = 1
+	return added_blood
 
 GLOBAL_LIST_EMPTY(blood_overlay_cache)
 #define BLOOD_OVERLAY_CACHE_INDEX "[icon]" + icon_state + blood_color

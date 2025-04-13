@@ -114,7 +114,7 @@
 	if (!src.operating) //in case of emag
 		src.operating = DOOR_OPERATING_YES
 
-	icon_state = "[src.base_state]open";
+	icon_state = "[src.base_state]open"
 	flick("[src.base_state]opening", src)
 	playsound(src.loc, 'sound/machines/windowdoor.ogg', 100, 1)
 	addtimer(new Callback(src, PROC_REF(open_final)), 1 SECOND, TIMER_UNIQUE | TIMER_OVERRIDE)

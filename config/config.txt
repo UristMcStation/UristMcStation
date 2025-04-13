@@ -628,3 +628,5 @@ ACT_INTERVAL 0.1
 ## Uncomment this to modify the number of actions permitted per interval before being kicked for spam.
 MAX_ACTS_PER_INTERVAL 200
 
+## Change this value to limit how many characters a player can add to their character ready priorities.
+MAXIMUM_QUEUED_CHARACTERS 3

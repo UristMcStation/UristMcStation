@@ -6,7 +6,7 @@
 	augment_slots = AUGMENT_CHEST
 	status = ORGAN_CONFIGURE
 	augment_flags = AUGMENT_BIOLOGICAL
-	var/ticks_remaining = 0;
+	var/ticks_remaining = 0
 	var/datum/mind/backup
 	var/ownerckey
 	var/default_language

@@ -5,7 +5,7 @@
 	icon_state = "rup"
 	var/spawn_nothing_percentage = 0 // this variable determines the likelyhood that this random object will not spawn anything
 
-	var/spawn_method = /obj/random/proc/spawn_item
+	var/spawn_method = PROC_REF(spawn_item)
 
 // creates a new object and deletes itself
 /obj/random/Initialize()
@@ -174,7 +174,7 @@
 	return list(/obj/random/medical/lite = 21,
 				/obj/item/bodybag = 2,
 				/obj/item/reagent_containers/glass/bottle/inaprovaline = 2,
-				/obj/item/reagent_containers/glass/bottle/antitoxin = 2,
+				/obj/item/reagent_containers/glass/bottle/dylovene = 2,
 				/obj/item/storage/pill_bottle = 2,
 				/obj/item/storage/pill_bottle/tramadol = 1,
 				/obj/item/storage/pill_bottle/citalopram = 2,

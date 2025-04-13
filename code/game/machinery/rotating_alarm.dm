@@ -86,7 +86,7 @@
 
 /obj/machinery/rotating_alarm/set_color(color)
 	if (on)
-		vis_contents -= spin_effect
+		remove_vis_contents(spin_effect)
 	if (isnull(spinning_lights_cache["[color]"]))
 		spinning_lights_cache["[color]"] = new /obj/spinning_light()
 	spin_effect = spinning_lights_cache["[color]"]
@@ -96,18 +96,18 @@
 	alarm_light_color = RGB
 	spin_effect.set_color(color)
 	if (on)
-		vis_contents += spin_effect
+		add_vis_contents(spin_effect)
 
 
 /obj/machinery/rotating_alarm/proc/set_on()
-	vis_contents += spin_effect
+	add_vis_contents(spin_effect)
 	set_light(2, 0.5, alarm_light_color)
 	on = TRUE
 	low_alarm = FALSE
 
 
 /obj/machinery/rotating_alarm/proc/set_off()
-	vis_contents -= spin_effect
+	remove_vis_contents(spin_effect)
 	set_light(0)
 	on = FALSE
 	low_alarm = FALSE

@@ -64,9 +64,11 @@
 		qdel(src)
 		return
 
-	filters = list(filter(type = "ripple", size = 4, "radius" = 1, "falloff" = 1)
-	, filter(type="outline", size = 2, color =  COLOR_RED)
-	, filter(type="bloom", size=3, offset = 0.5, alpha = 235))
+	filters = list(
+		filter(type = "ripple", size = 4, "radius" = 1, "falloff" = 1),
+		filter(type="outline", size = 2, color =  COLOR_RED),
+		filter(type="bloom", size=3, offset = 0.5, alpha = 235)
+	)
 
 	set_light(light_min_range, light_min_power)
 	last_range = light_min_range
@@ -444,7 +446,7 @@
 				continue
 
 			/// Sort based on reaction priority to avoid deut-deut eating all the deut before deut-trit can run etc.
-			sortTim(possible_reactions, /proc/cmp_fusion_reaction_des)
+			sortTim(possible_reactions, GLOBAL_PROC_REF(cmp_fusion_reaction_des))
 
 			//split up the reacting atoms between the possible reactions
 			while(length(possible_reactions))

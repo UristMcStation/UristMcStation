@@ -31,10 +31,16 @@ GLOBAL_LIST_EMPTY(known_overmap_sectors)
 	var/hidden = FALSE //hidden for the purposes of tooltips. currently only used for the pirate station to avoid cheese
 	var/list/assigned_contracts = list() //what contracts do we assign on spawning. can be any /datum/contract
 
+	// Gas mixture datum returned to exterior return_air. Set to assoc list of material to moles to initialize the gas datum.
+	//This will be returned in case external turfs are associated with this overmap object
+	var/datum/gas_mixture/exterior_atmosphere
+
 /obj/overmap/visitable/Initialize()
 	. = ..()
 	if(. == INITIALIZE_HINT_QDEL)
 		return
+
+	setup_exterior_atmosphere() //Planets do their own thing, but set exterior atmos to a valid value here first. (empty is valid)
 
 	find_z_levels()     // This populates map_z and assigns z levels to the ship.
 	register_z_levels() // This makes external calls to update global z level information.
@@ -87,7 +93,9 @@ GLOBAL_LIST_EMPTY(known_overmap_sectors)
 /obj/overmap/visitable/proc/populate_sector_objects()
 
 /obj/overmap/visitable/proc/get_areas()
-	return get_filtered_areas(list(/proc/area_belongs_to_zlevels = map_z))
+	return get_filtered_areas(list(
+		GLOBAL_PROC_REF(area_belongs_to_zlevels) = map_z
+	))
 
 /obj/overmap/visitable/MouseEntered(location, control, params)
 	if(!hidden)
@@ -113,6 +121,14 @@ GLOBAL_LIST_EMPTY(known_overmap_sectors)
 /obj/overmap/visitable/proc/check_ownership(obj/object)
 	if((object.z in map_z) && !(get_area(object) in SSshuttle.shuttle_areas))
 		return 1
+
+/**
+ * Flags the effect as `known` and runs relevant update procs. Intended for admin event usage.
+ */
+/obj/overmap/visitable/proc/make_known(notify = FALSE)
+	if (!HAS_FLAGS(sector_flags, OVERMAP_SECTOR_KNOWN))
+		sector_flags = OVERMAP_SECTOR_KNOWN
+		update_known_connections(notify)
 
 //If shuttle_name is false, will add to generic waypoints; otherwise will add to restricted. Does not do checks.
 /obj/overmap/visitable/proc/add_landmark(obj/shuttle_landmark/landmark, shuttle_name)
@@ -207,7 +223,7 @@ GLOBAL_LIST_EMPTY(known_overmap_sectors)
 	var/area/overmap/A = new
 	for (var/square in block(locate(1,1,GLOB.using_map.overmap_z), locate(GLOB.using_map.overmap_size,GLOB.using_map.overmap_size,GLOB.using_map.overmap_z)))
 		var/turf/T = square
-		if(T.x == GLOB.using_map.overmap_size || T.y == GLOB.using_map.overmap_size)
+		if(T.x == 1 || T.y == 1 || T.x == GLOB.using_map.overmap_size || T.y == GLOB.using_map.overmap_size)
 			T = T.ChangeTurf(/turf/unsimulated/map/edge)
 		else
 			T = T.ChangeTurf(/turf/unsimulated/map)
@@ -217,3 +233,27 @@ GLOBAL_LIST_EMPTY(known_overmap_sectors)
 
 	testing("Overmap build complete.")
 	return 1
+
+/obj/overmap/visitable/proc/setup_exterior_atmosphere()
+	//Skip setup if we've been set to a ref already
+	if(istype(exterior_atmosphere))
+		exterior_atmosphere.update_values() //Might as well update
+		exterior_atmosphere.check_tile_graphic()
+		return
+	var/list/exterior_atmos_composition = exterior_atmosphere
+	exterior_atmosphere = new
+	if(islist(exterior_atmos_composition))
+		for(var/gas in exterior_atmos_composition)
+			exterior_atmosphere.adjust_gas(gas, exterior_atmos_composition[gas], FALSE)
+		//revisit
+		//exterior_atmosphere.temperature = exterior_atmos_temp
+		exterior_atmosphere.update_values()
+		exterior_atmosphere.check_tile_graphic()
+
+/obj/overmap/visitable/proc/get_exterior_atmosphere()
+	if(exterior_atmosphere && !istype(exterior_atmosphere))
+		CRASH("Attempting to retrieve exterior atmosphere before it is set up!")
+	//copy gas over and return, in practice external atmos is an infinite source
+	var/datum/gas_mixture/gas = new
+	gas.copy_from(exterior_atmosphere)
+	return gas

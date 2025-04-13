@@ -8,10 +8,10 @@
 	/// Boolean. Whether or not the atom is affected by being submerged in water. If set to `FALSE`, `water_act()` is called when in contact with fluids.
 	var/waterproof = TRUE
 	/// Bitflag (Any of `MOVABLE_FLAG_*`). Bitflags for movable atoms. See `code\__defines\flags.dm`.
-	var/movable_flags = EMPTY_BITFIELD
+	var/movable_flags = FLAGS_OFF
 
 	/// Bitflag (Directionals). Direction of the last movement. Generally passed to `step()` as the `dir` parameter. Set during `Move()`.
-	var/last_move = EMPTY_BITFIELD
+	var/last_move = FLAGS_OFF
 	/// Boolean. Whether or not the atom is considered anchored.
 	var/anchored = FALSE
 	/// Integer. The atom's current movement speed, calculated as the difference between `world.time` and `l_move_time`. Set during `Move()`.
@@ -45,7 +45,7 @@
 	var/mutable_appearance/em_block
 
 	/// Bitflag (Directional). Direction the atom is currently travelling for space drift. Set by `space_drift()` and `Bump()`. Used by `momentum_do()` and the `spacedrift` subsystem.
-	var/inertia_dir = EMPTY_BITFIELD
+	var/inertia_dir = FLAGS_OFF
 	/// Instance. The atoms `loc` value during the last space movement. Set by `space_drift()` and the `spacedrift` subsystem.
 	var/atom/inertia_last_loc
 	/// Boolean. Whether or not the atom is currently being moved by space drift inertia. Set by the `spacedrift` subsystem and checked during `Move()`.
@@ -437,7 +437,7 @@
 //Overlays
 /atom/movable/fake_overlay
 	var/atom/master = null
-	var/follow_proc = /atom/movable/proc/move_to_loc_or_null
+	var/follow_proc = TYPE_PROC_REF(/atom/movable, move_to_loc_or_null)
 	anchored = TRUE
 	simulated = FALSE
 
@@ -562,3 +562,25 @@
  */
 /atom/movable/proc/CheckDexterity(mob/living/user)
 	return TRUE
+
+
+/**
+ * Special handler for post-movement logic. Called by `turf/Entered()` if this atom has the `MOVABLE_FLAG_POSTMOVEMENT` flag set.
+ *
+ * **Parametetrs**:
+ * - `old_turf` - The turf that was moved from.
+ * - `new_turf` - The turf that was moved to.
+ *
+ * Has no return value.
+ */
+/atom/movable/proc/post_movement(turf/old_turf, turf/new_turf)
+	return
+	
+/atom/movable/get_affecting_weather()
+	var/turf/my_turf = get_turf(src)
+	if(!istype(my_turf))
+		return
+
+	. = my_turf.weather
+	if(!.) // If we're under or inside shelter, use the z-level rain (for ambience)
+		. = LAZYACCESS(SSweather.weather_by_z, my_turf.z)

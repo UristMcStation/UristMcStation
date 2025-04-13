@@ -9,6 +9,7 @@
 	anchored = TRUE
 	idle_power_usage = 20
 	power_channel = LIGHT
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 	var/on = 0
 	var/area/connected_area = null
 	var/other_area = null

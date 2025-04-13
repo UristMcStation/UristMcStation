@@ -41,7 +41,7 @@
 			if(D.read_only)
 				return "[name]: Error; could not modify attribute for file '[source["name"]]'."
 			F.hidden = F.hidden ? FALSE : TRUE
-			return "[name]: File '[source["name"]]' set to be [(F.hidden ? "in" : "")]visible.";
+			return "[name]: File '[source["name"]]' set to be [(F.hidden ? "in" : "")]visible."
 		else if(arguments[1] == "-r")
 			if(!terminal.computer.delete_file(source["name"], source["drive"]))
 				return "[name]: Error; could not delete file '[source["name"]]'."

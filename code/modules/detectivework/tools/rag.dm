@@ -1,17 +1,10 @@
 /mob
 	var/bloody_hands = null
-	var/mob/living/carbon/human/bloody_hands_mob
 	var/track_blood = 0
+	var/list/hands_blood_DNA
 	var/list/feet_blood_DNA
 	var/track_blood_type
 	var/feet_blood_color
-
-/obj/item/clothing/gloves
-	var/transfer_blood = 0
-	var/mob/living/carbon/human/bloody_hands_mob
-
-/obj/item/clothing/shoes
-	var/track_blood = 0
 
 /obj/item/reagent_containers/glass/rag
 	name = "rag"
@@ -267,7 +260,7 @@
 		M.IgniteMob()
 	var/turf/location = get_turf(src)
 	if(location)
-		location.hotspot_expose(700, 5)
+		location.hotspot_expose(700)
 
 	if(burn_time <= 0)
 		STOP_PROCESSING(SSobj, src)

@@ -238,6 +238,16 @@
 		return TRUE
 	return ..()
 
+/obj/item/clothing/transfer_blood(mob/living/carbon/human/target, target_zone)
+	. = ..()
+	if (.)
+		update_clothing_icon()
+
+/obj/item/clothing/add_blood_custom(source_blood_color = COLOR_BLOOD_HUMAN, amount = 3, list/source_blood_DNA = list())
+	. = ..()
+	if (amount)
+		update_clothing_icon()
+
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects
 /obj/item/clothing/ears
@@ -457,10 +467,10 @@ BLIND     // can't see anything
 		species_restricted -= SPECIES_UNATHI
 	return
 
-/obj/item/clothing/gloves/mob_can_equip(mob/user)
+/obj/item/clothing/gloves/mob_can_equip(mob/user, slot)
 	var/mob/living/carbon/human/H = user
 
-	if(istype(H.gloves, /obj/item/clothing/ring))
+	if(istype(H.gloves, /obj/item/clothing/ring) && slot == slot_gloves)
 		ring = H.gloves
 		if(!ring.undergloves)
 			to_chat(user, "You are unable to wear \the [src] as \the [H.gloves] are in the way.")
@@ -520,6 +530,7 @@ BLIND     // can't see anything
 	var/head_light_range = 4
 	var/brightness_on
 	var/on = 0
+	var/protects_against_weather = FALSE
 
 
 /obj/item/clothing/head/equipped(mob/user, slot)
@@ -883,7 +894,7 @@ BLIND     // can't see anything
 	)
 	slot_flags = SLOT_OCLOTHING
 	item_flags = ITEM_FLAG_WASHER_ALLOWED
-	blood_overlay_type = "suit"
+	blood_overlay_type = "suitblood"
 	siemens_coefficient = 0.9
 	w_class = ITEM_SIZE_NORMAL
 
@@ -894,6 +905,7 @@ BLIND     // can't see anything
 		SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi'
 
 	)
+	var/protects_against_weather = FALSE
 
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))

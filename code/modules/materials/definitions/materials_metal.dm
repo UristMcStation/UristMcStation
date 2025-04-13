@@ -7,7 +7,7 @@
 	radioactivity = 12
 	sheet_icon_base = "puck"
 	wall_icon_base = "stone"
-	wall_flags = EMPTY_BITFIELD
+	wall_flags = FLAGS_OFF
 	wall_blend_icons = list(
 		"solid" = TRUE,
 		"wood" = TRUE,

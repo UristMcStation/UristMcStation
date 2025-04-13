@@ -7,6 +7,7 @@
 	health_max = 30
 	health_min_damage = 15
 	damage_hitsound = 'sound/effects/Glasshit.ogg'
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 
 	var/open
 	var/unlocked

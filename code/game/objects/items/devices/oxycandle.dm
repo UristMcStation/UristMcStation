@@ -51,7 +51,7 @@
 		desc += "This tube has exhausted its chemicals."
 		return
 	if(pos)
-		pos.hotspot_expose(1500, 5)
+		pos.hotspot_expose(1500)
 	var/datum/gas_mixture/environment = loc.return_air()
 	var/pressure_delta = target_pressure - environment.return_pressure()
 	var/output_volume = environment.volume * environment.group_multiplier

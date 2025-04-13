@@ -41,8 +41,9 @@
 		to_chat(usr, SPAN_DANGER("\The [src] cannot be placed in this area."))
 		return
 
-	if(gotwallitem(loc, ndir))
-		to_chat(usr, SPAN_DANGER("There's already an item on this wall!"))
+	var/wall_item = get_wall_item(loc, ndir)
+	if (wall_item)
+		to_chat(usr, SPAN_DANGER("There's already \a [wall_item] on this wall!"))
 		return
 
 	new build_machine_type(loc, ndir, src)

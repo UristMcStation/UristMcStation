@@ -100,7 +100,7 @@ var/global/list/delta_index = list(
 
 	var/x = 0
 	if (value < 0)
-		x = 127 + value / 100 * 127;
+		x = 127 + value / 100 * 127
 	else
 		x = value % 1
 		if(x == 0)

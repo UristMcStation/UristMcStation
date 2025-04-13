@@ -3,7 +3,7 @@
 #define MAX_FOOD_COMBINE_COUNT 4
 
 
-#define COOKER_STRIP_RAW FLAG(0)
+#define COOKER_STRIP_RAW FLAG_01
 
 
 /obj/item/reagent_containers/food/snacks/var/list/cooked_with
@@ -21,7 +21,7 @@
 	construct_state = /singleton/machine_construction/default/panel_closed
 	uncreated_component_parts = null
 	stat_immune = 0
-	init_flags = EMPTY_BITFIELD
+	init_flags = FLAGS_OFF
 
 	var/capacity = 1 //how many things the cooker can hold at once
 	var/cook_time = 20 SECONDS //how many seconds the cooker takes to cook its contents
@@ -247,7 +247,7 @@
 	if ("color" in cook_modes[cook_mode])
 		tint = cook_modes[cook_mode]["color"]
 	if (tint && !istext(tint))
-		tint = get_random_colour(1)
+		tint = get_random_colour()
 	result.color = tint
 	if (tint != null)
 		result.filling_color = BlendRGB(source.color || "#ffffff", tint, 0.5)

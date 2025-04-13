@@ -47,7 +47,7 @@ var/global/list/floating_chat_colors = list()
 		message = "[copytext_char(message, 1, limit)]..."
 
 	if(!global.floating_chat_colors[name])
-		global.floating_chat_colors[name] = get_random_colour(0, 160, 230)
+		global.floating_chat_colors[name] = get_random_colour(160, 230)
 	style += "color: [global.floating_chat_colors[name]];"
 
 	// create 2 messages, one that appears if you know the language, and one that appears when you don't know the language
@@ -82,8 +82,8 @@ var/global/list/floating_chat_colors = list()
 
 	LAZYADD(holder.stored_chat_text, I)
 
-	addtimer(new Callback(GLOBAL_PROC, /proc/remove_floating_text, holder, I), duration)
-	addtimer(new Callback(GLOBAL_PROC, /proc/remove_images_from_clients, I, show_to), duration + CHAT_MESSAGE_EOL_FADE)
+	addtimer(new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(remove_floating_text), holder, I), duration)
+	addtimer(new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(remove_images_from_clients), I, show_to), duration + CHAT_MESSAGE_EOL_FADE)
 
 	return I
 

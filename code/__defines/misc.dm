@@ -1,13 +1,14 @@
 #define DEBUG
 // Turf-only flags.
-#define TURF_FLAG_NOJAUNT FLAG(0) // This is used in literally one place, turf.dm, to block ethereal jaunt.
-#define TURF_FLAG_NORUINS FLAG(1)
+#define TURF_FLAG_NOJAUNT FLAG_01 // This is used in literally one place, turf.dm, to block ethereal jaunt.
+#define TURF_FLAG_NORUINS FLAG_02
 
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 #define RUIN_MAP_EDGE_PAD 15
 #define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets
 
 // Invisibility constants.
+#define INVISIBILITY_NONE        0
 #define INVISIBILITY_LIGHTING    20
 #define INVISIBILITY_LEVEL_ONE   35
 #define INVISIBILITY_LEVEL_TWO   45
@@ -79,22 +80,22 @@
 #define DEFAULT_JOB_TYPE /datum/job/assistant
 
 //Area flags, possibly more to come
-#define AREA_FLAG_RAD_SHIELDED         FLAG(0)  // shielded from radiation, clearly
-#define AREA_FLAG_EXTERNAL             FLAG(1)  // External as in exposed to space, not outside in a nice, green, forest
-#define AREA_FLAG_ION_SHIELDED         FLAG(2)  // shielded from ionospheric anomalies as an FBP / IPC
-#define AREA_FLAG_IS_NOT_PERSISTENT    FLAG(3)  // SSpersistence will not track values from this area.
-#define AREA_FLAG_NO_MODIFY            FLAG(4)  // turf in this area cannot be dismantled.
-#define AREA_FLAG_HIDE_FROM_HOLOMAP    FLAG(5) // if we shouldn't be drawn on station holomaps
+#define AREA_FLAG_RAD_SHIELDED         FLAG_01  // shielded from radiation, clearly
+#define AREA_FLAG_EXTERNAL             FLAG_02  // External as in exposed to space, not outside in a nice, green, forest
+#define AREA_FLAG_ION_SHIELDED         FLAG_03  // shielded from ionospheric anomalies as an FBP / IPC
+#define AREA_FLAG_IS_NOT_PERSISTENT    FLAG_04  // SSpersistence will not track values from this area.
+#define AREA_FLAG_NO_MODIFY            FLAG_05  // turf in this area cannot be dismantled.
+#define AREA_FLAG_HIDE_FROM_HOLOMAP    FLAG_06 // if we shouldn't be drawn on station holomaps
 
 //Map template flags
-#define TEMPLATE_FLAG_ALLOW_DUPLICATES    FLAG(0)  // Lets multiple copies of the template to be spawned
-#define TEMPLATE_FLAG_SPAWN_GUARANTEED    FLAG(1)  // Makes it ignore away site budget and just spawn (only for away sites)
-#define TEMPLATE_FLAG_CLEAR_CONTENTS      FLAG(2)  // if it should destroy objects it spawns on top of
-#define TEMPLATE_FLAG_NO_RUINS            FLAG(3)  // if it should forbid ruins from spawning on top of it
-#define TEMPLATE_FLAG_NO_RADS             FLAG(4)  // Removes all radiation from the template after spawning.
+#define TEMPLATE_FLAG_ALLOW_DUPLICATES    FLAG_01  // Lets multiple copies of the template to be spawned
+#define TEMPLATE_FLAG_SPAWN_GUARANTEED    FLAG_02  // Makes it ignore away site budget and just spawn (only for away sites)
+#define TEMPLATE_FLAG_CLEAR_CONTENTS      FLAG_03  // if it should destroy objects it spawns on top of
+#define TEMPLATE_FLAG_NO_RUINS            FLAG_04  // if it should forbid ruins from spawning on top of it
+#define TEMPLATE_FLAG_NO_RADS             FLAG_05  // Removes all radiation from the template after spawning.
 
 //Ruin map template flags
-#define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED FLAG(5)  // Ruin is not available during spawning unless another ruin permits it.
+#define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED FLAG_06  // Ruin is not available during spawning unless another ruin permits it.
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -131,12 +132,12 @@
 #define NTNETSPEED_DOS_AMPLIFICATION 5	// Multiplier for Denial of Service program. Resulting load on NTNet relay is this multiplied by NTNETSPEED of the device
 
 // Program bitflags
-#define PROGRAM_CONSOLE       FLAG(0)
-#define PROGRAM_LAPTOP        FLAG(1)
-#define PROGRAM_TABLET        FLAG(2)
-#define PROGRAM_TELESCREEN    FLAG(3)
-#define PROGRAM_PDA           FLAG(4)
-#define PROGRAM_NO_KILL       FLAG(5) //Not included in PROGRAM_ALL
+#define PROGRAM_CONSOLE       FLAG_01
+#define PROGRAM_LAPTOP        FLAG_02
+#define PROGRAM_TABLET        FLAG_03
+#define PROGRAM_TELESCREEN    FLAG_04
+#define PROGRAM_PDA           FLAG_05
+#define PROGRAM_NO_KILL       FLAG_06 //Not included in PROGRAM_ALL
 #define PROGRAM_ALL ( PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_TELESCREEN | PROGRAM_PDA )
 
 #define PROGRAM_STATE_KILLED 0
@@ -286,11 +287,11 @@
 //Misc text define. Does 4 spaces. Used as a makeshift tabulator.
 #define FOURSPACES "&nbsp;&nbsp;&nbsp;&nbsp;"
 
-#define INCREMENT_WORLD_Z_SIZE world.maxz++; if (length(SSzcopy.zlev_maximums)) { SSzcopy.calculate_zstack_limits() }
+#define INCREMENT_WORLD_Z_SIZE world.maxz++; if (length(SSzcopy.zlev_maximums)) { SSzcopy.calculate_zstack_limits() }; if(SSweather?.weather_by_z) { LIST_RESIZE(SSweather.weather_by_z, world.maxz)}
 
 //-- Masks for /atom/var/init_flags --
 //- machinery
-#define INIT_MACHINERY_START_PROCESSING FLAG(0)
+#define INIT_MACHINERY_START_PROCESSING FLAG_01
 //--
 
 
@@ -330,20 +331,35 @@
 
 // Flags for `use_sanity_check()`
 /// Do not display user feedback messages.
-#define SANITY_CHECK_SILENT FLAG(0)
+#define SANITY_CHECK_SILENT FLAG_01
 /// Verify the tool can be unequipped from user. Ignored if the tool is not an item.
-#define SANITY_CHECK_TOOL_UNEQUIP FLAG(1)
+#define SANITY_CHECK_TOOL_UNEQUIP FLAG_02
 /// Verify the target can be unequipped from user. Includes `target.loc == src` check to allow items the user isn't holding.
-#define SANITY_CHECK_TARGET_UNEQUIP FLAG(2)
+#define SANITY_CHECK_TARGET_UNEQUIP FLAG_03
 /// Verify the target and tool are adjacent to eachother. Ignored if there is no tool or if tool is held by user.
-#define SANITY_CHECK_BOTH_ADJACENT FLAG(3)
+#define SANITY_CHECK_BOTH_ADJACENT FLAG_04
 /// Verify the tool is in the user's active hand. Ignored if the tool is not an item.
-#define SANITY_CHECK_TOOL_IN_HAND FLAG(4)
+#define SANITY_CHECK_TOOL_IN_HAND FLAG_05
 /// Check `CanInteractWith(target, user)`. Only use this for Topic() revalidation. Functionally exclusive with `SANITY_CHECK_TOPIC_PHYSICALLY_INTERACT`.
-#define SANITY_CHECK_TOPIC_INTERACT FLAG(5)
+#define SANITY_CHECK_TOPIC_INTERACT FLAG_06
 /// Check `CanPhysicallyInteractWith(target, user)`. Only use this for Topic() revalidation. Functionally exclusive with `SANITY_CHECK_TOPIC_INTERACT`.
-#define SANITY_CHECK_TOPIC_PHYSICALLY_INTERACT FLAG(6)
+#define SANITY_CHECK_TOPIC_PHYSICALLY_INTERACT FLAG_07
 
 #define SANITY_CHECK_DEFAULT (SANITY_CHECK_TOOL_IN_HAND | SANITY_CHECK_BOTH_ADJACENT)
 
 #define Z_ALL_TURFS(Z) block(locate(1, 1, Z), locate(world.maxx, world.maxy, Z))
+
+//Turf/area values for 'this space is outside' checks
+#define OUTSIDE_AREA null
+#define OUTSIDE_NO   FALSE
+#define OUTSIDE_YES  TRUE
+#define OUTSIDE_UNCERTAIN null
+
+// Weather exposure values for being rained on or hailed on.
+#define WEATHER_IGNORE   -1
+#define WEATHER_EXPOSED   0
+#define WEATHER_ROOFED    1
+#define WEATHER_PROTECTED 2
+
+// arbitrary low pressure bound for wind weather effects
+#define MIN_WIND_PRESSURE 10

@@ -61,7 +61,7 @@
 		if (M.IsHolding(src))
 			location = M.loc
 	if(isturf(location)) //start a fire if possible
-		location.hotspot_expose(700, 2)
+		location.hotspot_expose(700)
 	return
 
 
@@ -216,7 +216,7 @@
 
 		//Consume part of our fuel to create a fire spot
 		T.IgniteTurf(power / length(turflist), fire_colour)
-		T.hotspot_expose((power*3) + 380,500)
+		T.hotspot_expose(power * 3 + 380)
 		my_fraction.remove_any(FLAMETHROWER_RELEASE_AMOUNT)
 		sleep(1)
 	previousturf = null

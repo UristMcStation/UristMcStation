@@ -79,7 +79,7 @@ var/global/datum/controller/master/Master = new
 			qdel(Master)
 		else
 			var/list/subsytem_types = subtypesof(/datum/controller/subsystem)
-			sortTim(subsytem_types, /proc/cmp_subsystem_init)
+			sortTim(subsytem_types, GLOBAL_PROC_REF(cmp_subsystem_init))
 			for(var/I in subsytem_types)
 				_subsystems += new I
 		Master = src
@@ -93,7 +93,7 @@ var/global/datum/controller/master/Master = new
 
 /datum/controller/master/Shutdown()
 	processing = FALSE
-	sortTim(subsystems, /proc/cmp_subsystem_init)
+	sortTim(subsystems, GLOBAL_PROC_REF(cmp_subsystem_init))
 	reverseRange(subsystems)
 	for(var/datum/controller/subsystem/ss in subsystems)
 		if (ss.flags & SS_NEEDS_SHUTDOWN)
@@ -183,7 +183,7 @@ var/global/datum/controller/master/Master = new
 	initializing = TRUE
 
 	// Sort subsystems by init_order, so they initialize in the correct order.
-	sortTim(subsystems, /proc/cmp_subsystem_init)
+	sortTim(subsystems, GLOBAL_PROC_REF(cmp_subsystem_init))
 
 	current_ticklimit = tick_limit_init
 	for (var/datum/controller/subsystem/SS in subsystems)
@@ -204,7 +204,7 @@ var/global/datum/controller/master/Master = new
 		SetRunLevel(RUNLEVEL_LOBBY)
 
 	// Sort subsystems by display setting for easy access.
-	sortTim(subsystems, /proc/cmp_subsystem_display)
+	sortTim(subsystems, GLOBAL_PROC_REF(cmp_subsystem_display))
 	// Set world options.
 #if defined(UNIT_TEST) || defined(DEBUG_GENERATE_WORTHS)
 	world.sleep_offline = FALSE
@@ -267,8 +267,8 @@ var/global/datum/controller/master/Master = new
 
 		var/ss_runlevels = SS.runlevels
 		var/added_to_any = FALSE
-		for(var/I in 1 to length(GLOB.bitflags))
-			if(ss_runlevels & GLOB.bitflags[I])
+		for(var/I in 1 to length(GLOB.index_to_flag))
+			if(ss_runlevels & GLOB.index_to_flag[I])
 				while(length(runlevel_sorted_subsystems) < I)
 					runlevel_sorted_subsystems += list(list())
 				runlevel_sorted_subsystems[I] += SS
@@ -280,9 +280,9 @@ var/global/datum/controller/master/Master = new
 	queue_tail = null
 	//these sort by lower priorities first to reduce the number of loops needed to add subsequent SS's to the queue
 	//(higher subsystems will be sooner in the queue, adding them later in the loop means we don't have to loop thru them next queue add)
-	sortTim(tickersubsystems, /proc/cmp_subsystem_priority)
+	sortTim(tickersubsystems, GLOBAL_PROC_REF(cmp_subsystem_priority))
 	for(var/level in runlevel_sorted_subsystems)
-		sortTim(level, /proc/cmp_subsystem_priority)
+		sortTim(level, GLOBAL_PROC_REF(cmp_subsystem_priority))
 		level += tickersubsystems
 
 	var/cached_runlevel = current_runlevel
@@ -597,11 +597,12 @@ var/global/datum/controller/master/Master = new
 		MAP: [round(world.map_cpu, 0.1)]%  \
 		Atoms: [length(world.contents)]\n\
 		Server: [world.byond_version].[world.byond_build]  \
+		Compiler: [DM_VERSION].[DM_BUILD]  \
 		World Size: <[world.maxx],[world.maxy],[world.maxz]>\n\
 		Hub: [config.hub_visible ? "Y" : "N"]  \
 		Reachable: [world.reachable ? "Y" : "N"]  \
 		Address: [world.internet_address]:[world.port]\
-	"}) //515: add 'Compiler: [BYOND_VERSION].[BYOND_BUILD]' after Server
+	"})
 
 
 /datum/controller/master/StartLoadingMap()

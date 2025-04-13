@@ -440,26 +440,39 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 
 /singleton/species/proc/hug(mob/living/carbon/human/H, mob/living/target)
 
-	var/t_him = "them"
-	switch(target.gender)
-		if(MALE)
-			t_him = "him"
-		if(FEMALE)
-			t_him = "her"
+	var/datum/pronouns/P = target.choose_from_pronouns()
 
+	// If aiming for the head, try a headpat
+	var/target_zone = check_zone(H.zone_sel.selecting)
+	var/mob/living/carbon/human/h_target
+	if (ishuman(target))
+		h_target = target
+		H.transfer_bloody_hands(h_target, target_zone)
 
-	if(H.zone_sel.selecting == BP_HEAD)
-		H.visible_message(SPAN_NOTICE("[H] pats [target] on the head."), \
-					SPAN_NOTICE("You pat [target] on the head."))
+	if (target_zone == BP_HEAD)
+		if(h_target)
+			if(h_target.get_organ(target_zone))
+				H.visible_message(SPAN_NOTICE("[H] pats [h_target]'s head to make [P.him] feel better!"), SPAN_NOTICE("You pat [h_target]'s head to make [P.him] feel better!"))
+				return
+		else
+			H.visible_message(SPAN_NOTICE("[H] pats [target] on the head."), SPAN_NOTICE("You pat [target] on the head to make [P.him] feel better!"))
+			return
 
-	else if(H.zone_sel.selecting == BP_R_HAND || H.zone_sel.selecting == BP_L_HAND)
-		H.visible_message(SPAN_NOTICE("[H] shakes [target]'s hand."), \
-					SPAN_NOTICE("You shake [target]'s hand."))
+	else if(target_zone == BP_R_HAND || target_zone == BP_L_HAND)
+		if(h_target)
+			if(h_target.get_organ(target_zone))
+				H.visible_message(SPAN_NOTICE("[H] shakes [h_target]'s hand."), \
+				SPAN_NOTICE("You shake [h_target]'s hand."))
+				return
+		else
+			H.visible_message(SPAN_NOTICE("[H] shakes [target]'s hand."), \
+			SPAN_NOTICE("You shake [target]'s hand."))
+			return
 
 	else
-		H.visible_message(SPAN_NOTICE("[H] hugs [target] to make [t_him] feel better!"), \
-					SPAN_NOTICE("You hug [target] to make [t_him] feel better!"))
-
+		if(h_target)
+			H.transfer_bloody_body(h_target, BP_CHEST)
+		H.visible_message(SPAN_NOTICE("[H] hugs [target] to make [P.him] feel better!"), SPAN_NOTICE("You hug [target] to make [P.him] feel better!"))
 
 	if(H != target)
 		H.update_personal_goal(/datum/goal/achievement/givehug, TRUE)

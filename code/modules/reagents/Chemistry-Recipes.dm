@@ -1237,7 +1237,7 @@
 
 	var/turf/location = get_turf(holder.my_atom)
 	location.assume_gas(GAS_PHORON, 250, 1400)
-	location.hotspot_expose(700, 400)
+	location.hotspot_expose(700)
 
 //Yellow
 /singleton/reaction/slime/overload

@@ -160,7 +160,7 @@
 		var/mob/M = loc
 		to_chat(M, SPAN_DANGER("\The [src] explodes!"))
 	if(T)
-		T.hotspot_expose(700,125)
+		T.hotspot_expose(700)
 		explosion(T, 1, EX_ACT_LIGHT)
 	qdel(src)
 	return

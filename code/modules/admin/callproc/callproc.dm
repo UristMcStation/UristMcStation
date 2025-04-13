@@ -12,6 +12,8 @@
 	var/targetselected = 0
 
 	switch(alert("Proc owned by something?",, "Yes", "No", "Cancel"))
+		if("Cancel")
+			return
 		if("Yes")
 			targetselected=1
 			switch(input("Proc owned by...", "Owner", null) as null|anything in list("Obj", "Mob", "Area or Turf", "Client"))
@@ -28,11 +30,6 @@
 			if(!target)
 				to_chat(usr, "Proc call cancelled.")
 				return
-		if("Cancel")
-			return
-		if("No")
-			; // do nothing
-
 	callproc_targetpicked(targetselected, target)
 
 // right click verb
@@ -172,8 +169,6 @@
 				current = get_area(M)
 				if(!current)
 					switch(alert("\The [M] appears to not have an area; do you want to pass null instead?",, "Yes", "Cancel"))
-						if("Yes")
-							; // do nothing
 						if("Cancel")
 							return CANCEL
 
@@ -181,8 +176,6 @@
 				current = C.holder.marked_datum()
 				if(!current)
 					switch(alert("You do not currently have a marked datum; do you want to pass null instead?",, "Yes", "Cancel"))
-						if("Yes")
-							; // do nothing
 						if("Cancel")
 							return CANCEL
 

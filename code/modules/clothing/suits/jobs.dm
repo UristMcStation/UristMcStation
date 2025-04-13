@@ -94,7 +94,7 @@
 	desc = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. The coat is externally impact resistant - perfect for your next act of autodefenestration!"
 	icon_state = "detective"
 	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA)
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(
 		/obj/item/tank/oxygen_emergency,
@@ -168,7 +168,7 @@
 	name = "hazard vest"
 	desc = "A high-visibility vest used in work zones."
 	icon_state = "hazard"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	species_restricted = null
 	allowed = list (
 		/obj/item/device/scanner/gas,
@@ -231,7 +231,7 @@
 	name = "high visibility jacket"
 	desc = "A loose-fitting, high visibility jacket to help crew be recognizable in high traffic areas with large industrial equipment."
 	icon_state = "highvis"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|ARMS
 	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA)
 
@@ -240,7 +240,7 @@
 	name = "suit jacket"
 	desc = "A snappy dress jacket."
 	icon_state = "suitjacket"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|ARMS
 	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA)
 
@@ -248,7 +248,7 @@
 	name = "double-breasted suit jacket"
 	desc = "A snappy, double-breasted dress jacket."
 	icon_state = "suitjacket_double"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|ARMS
 	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA)
 
@@ -269,7 +269,7 @@
 	name = "first responder jacket"
 	desc = "A high-visibility jacket worn by medical first responders."
 	icon_state = "fr_jacket"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	allowed = list(
 		/obj/item/stack/medical,
 		/obj/item/reagent_containers/dropper,
@@ -300,7 +300,7 @@
 	name = "chest-rig"
 	desc = "A grey chest-rig with black pouches. For when you wish you had more hands."
 	icon_state = "chest-rig"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	allowed = list(
 		/obj/item/device/flashlight,
 		/obj/item/tank/oxygen_emergency,
@@ -322,7 +322,7 @@
 	name = "hazard chest-rig"
 	desc = "A grey chest-rig with black pouches and orange markings worn by engineers. It has an 'Engineer' tag on its chest."
 	icon_state = "engi-chest-rig"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	allowed = list (
 		/obj/item/device/flashlight,
 		/obj/item/tank/oxygen_emergency,
@@ -347,7 +347,7 @@
 	name = "\improper MT chest-rig"
 	desc = "A white chest-rig with black pouches worn by medical first responders. It has a 'Medic' tag on its chest."
 	icon_state = "med-chest-rig"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	allowed = list(
 		/obj/item/device/flashlight,
 		/obj/item/tank/oxygen_emergency,
@@ -370,7 +370,7 @@
 	name = "surgical apron"
 	desc = "A sterile blue apron for performing surgery."
 	icon_state = "surgical"
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	allowed = list(
 		/obj/item/stack/medical,

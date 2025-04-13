@@ -285,3 +285,9 @@
 	var/index = laws.Find(law)
 	if(index)
 		state[index] = do_state
+
+
+/// Returns text to use as the law number for hacked or ion AI laws
+/proc/ionnum()
+	var/list/opts = list("!", "@", "#", "$", "%", "^", "&", "*")
+	return "[rand(0,9)][pick(opts)][pick(opts)][pick(opts)]"

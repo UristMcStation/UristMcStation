@@ -13,13 +13,13 @@
 	health_min_damage = 10
 
 	/// Indicates whether the drive should show effects.
-	var/const/STATE_BROKEN = FLAG(0)
+	var/const/STATE_BROKEN = FLAG_01
 
 	/// Indicates whether the drive should use the unstable core effect.
-	var/const/STATE_UNSTABLE = FLAG(1)
+	var/const/STATE_UNSTABLE = FLAG_02
 
 	/// A field of STATE_* flags related to the drive.
-	var/state = EMPTY_BITFIELD
+	var/state = FLAGS_OFF
 
 	/// The token for the drive's idle loop
 	var/drive_sound
@@ -224,8 +224,11 @@
 			if (istype(being, /mob/living/exosuit))
 				return
 			var/turf/T = pick_area_turf_in_connected_z_levels(
-				list(/proc/is_not_space_area),
-				list(/proc/not_turf_contains_dense_objects, /proc/IsTurfAtmosSafe),
+				list(GLOBAL_PROC_REF(is_not_space_area)),
+				list(
+					GLOBAL_PROC_REF(not_turf_contains_dense_objects),
+					GLOBAL_PROC_REF(IsTurfAtmosSafe)
+				),
 				zlevels[1])
 			if (!T)
 				return

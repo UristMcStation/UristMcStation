@@ -313,7 +313,7 @@
 		current_emotion = emotion
 
 /obj/item/device/paicard/proc/alertUpdate()
-	var/turf/T = get_turf_or_move(src.loc)
+	var/turf/T = get_turf(loc)
 	for (var/mob/M in viewers(T))
 		M.show_message(SPAN_NOTICE("\The [src] flashes a message across its screen, \"Additional personalities available for download.\""), 3, SPAN_NOTICE("\The [src] bleeps electronically."), 2)
 

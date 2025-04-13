@@ -12381,7 +12381,6 @@
 /obj/item/stamp/path,
 /obj/random_multi/single_item/memo_research,
 /obj/random_multi/single_item/memo_exploration,
-/obj/item/material/folder/envelope/preset/exploorder,
 /turf/simulated/floor/tiled,
 /area/command/pathfinder)
 "QI" = (

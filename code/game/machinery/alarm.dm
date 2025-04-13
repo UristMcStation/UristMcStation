@@ -62,6 +62,7 @@
 	req_access = list(list(access_atmospherics, access_engine_equip))
 	clicksound = "button"
 	clickvol = 30
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 
 	layer = ABOVE_WINDOW_LAYER
 
@@ -935,6 +936,7 @@ FIRE ALARM
 	idle_power_usage = 2
 	active_power_usage = 6
 	power_channel = ENVIRON
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 	var/last_process = 0
 	var/wiresexposed = FALSE
 	var/buildstage = 2 // 2 = complete, 1 = no wires,  0 = circuit gone

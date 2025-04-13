@@ -176,7 +176,7 @@
 	query.Execute()
 	while(query.NextRow())
 		ban_id = query.item[1]
-		ban_number++;
+		ban_number++
 
 	if(ban_number == 0)
 		to_chat(usr, SPAN_WARNING("Database update failed due to no bans fitting the search criteria. If this is not a legacy ban you should contact the database admin."))
@@ -271,7 +271,7 @@
 	query.Execute()
 	while(query.NextRow())
 		pckey = query.item[1]
-		ban_number++;
+		ban_number++
 
 	if(ban_number == 0)
 		to_chat(usr, SPAN_WARNING("Database update failed due to a ban id not being present in the database."))

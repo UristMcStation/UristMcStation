@@ -8,8 +8,8 @@
 			A.real_name = "alien creature"
 			A.verbs |= /mob/living/simple_animal/proc/name_species
 
-		A.minbodytemp = atmosphere.temperature - 20
-		A.maxbodytemp = atmosphere.temperature + 30
+		A.minbodytemp = exterior_atmosphere.temperature - 20
+		A.maxbodytemp = exterior_atmosphere.temperature + 30
 		A.bodytemperature = (A.maxbodytemp+A.minbodytemp)/2
 		if (A.min_gas)
 			A.min_gas = breathgas.Copy()
@@ -29,7 +29,9 @@
 /obj/overmap/visitable/sector/exoplanet/proc/handle_repopulation()
 	for (var/i = 1 to round(max_animal_count - length(animals)))
 		if (prob(10))
-			var/turf/simulated/T = pick_area_turf(planetary_area, list(/proc/not_turf_contains_dense_objects))
+			var/turf/simulated/T = pick_area_turf(planetary_area, list(
+				GLOBAL_PROC_REF(not_turf_contains_dense_objects)
+			))
 			var/mob_type = pick(repopulate_types)
 			var/mob/S = new mob_type(T)
 			track_animal(S)

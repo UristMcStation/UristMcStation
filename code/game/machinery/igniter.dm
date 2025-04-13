@@ -39,7 +39,7 @@
 	if(is_powered())
 		var/turf/location = src.loc
 		if (isturf(location))
-			location.hotspot_expose(1000,500,1)
+			location.hotspot_expose(1000)
 	return 1
 
 /obj/machinery/igniter/proc/ignite()
@@ -140,7 +140,7 @@
 	use_power_oneoff(2000)
 	var/turf/location = src.loc
 	if (isturf(location))
-		location.hotspot_expose(1000,500,1)
+		location.hotspot_expose(1000)
 	return 1
 
 /obj/machinery/sparker/emp_act(severity)

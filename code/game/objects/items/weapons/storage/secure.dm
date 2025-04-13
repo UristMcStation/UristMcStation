@@ -172,6 +172,7 @@
 	icon_locking = "safeb"
 	icon_sparking = "safespark"
 	force = 8.0
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 	w_class = ITEM_SIZE_NO_CONTAINER
 	max_w_class = ITEM_SIZE_HUGE
 	max_storage_space = 56

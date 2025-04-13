@@ -134,7 +134,7 @@
 			location = M.loc
 
 	if (isturf(location))
-		location.hotspot_expose(700, 1)
+		location.hotspot_expose(700)
 
 /obj/item/clothing/head/cakehat/attack_self(mob/user as mob)
 	src.onfire = !( src.onfire )

@@ -68,7 +68,7 @@
 			count++
 		var/answer = input(M, "\The [P] is requesting a DNA sample from you. Will you allow it to confirm your identity?", "[P] Check DNA", "No") in list("Yes", "No")
 		if (answer == "Yes")
-			var/turf/T = get_turf_or_move(P.loc)
+			var/turf/T = get_turf(P.loc)
 			var/datum/pronouns/pronouns = M.choose_from_pronouns()
 			for (var/mob/v in viewers(T))
 				v.show_message(SPAN_NOTICE("\The [M] presses [pronouns.his] thumb against \the [P]."), 3, SPAN_NOTICE("\The [P] makes a sharp clicking sound as it extracts DNA material from \the [M]."), 2)
@@ -149,7 +149,7 @@
 		P.hackdoor = null
 		return TRUE
 	else if (href_list["cable"])
-		var/turf/T = get_turf_or_move(P.loc)
+		var/turf/T = get_turf(P.loc)
 		P.hack_aborted = 0
 		P.cable = new (T)
 		P.visible_message(
@@ -161,7 +161,7 @@
 
 
 /mob/living/silicon/pai/proc/hackloop()
-	var/turf/T = get_turf_or_move(loc)
+	var/turf/T = get_turf(loc)
 	for (var/mob/living/silicon/ai/AI in GLOB.player_list)
 		if(T.loc)
 			to_chat(AI, SPAN_COLOR("red", "<b>Network Alert: Brute-force encryption crack in progress in [T.loc].</b>"))
@@ -199,7 +199,7 @@
 
 /datum/pai_software/atmosphere_sensor/on_ui_interact(mob/living/silicon/pai/user, datum/nanoui/ui, force_open = TRUE)
 	var/data[0]
-	var/turf/T = get_turf_or_move(user.loc)
+	var/turf/T = get_turf(user.loc)
 	if (!T)
 		data["reading"] = 0
 		data["pressure"] = 0

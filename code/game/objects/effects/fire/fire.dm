@@ -138,7 +138,7 @@
 			qdel(src)
 			return
 	var/effective_temperature = TURF_FIRE_TEMP_BASE + (TURF_FIRE_TEMP_INCREMENT_PER_POWER*fire_power)
-	T.hotspot_expose( effective_temperature, TURF_FIRE_VOLUME)
+	T.hotspot_expose( effective_temperature)
 	//Nearby turfs may also trigger a fire (will only start fires if there's fuel, currently)
 	//Guaranteed fire spread in the last tick
 	if(prob(50 + fire_power) || fire_power == 1)
@@ -149,7 +149,7 @@
 				if(T.open_directions & direction) //Grab all valid bordering tiles
 					if(other_tile.hotspot || other_tile.turf_fire)
 						continue
-					other_tile.hotspot_expose( effective_temperature, TURF_FIRE_VOLUME)
+					other_tile.hotspot_expose( effective_temperature)
 
 	for(var/atom/movable/burning_atom as anything in T)
 		burning_atom.fire_act(exposed_temperature = effective_temperature, exposed_volume = TURF_FIRE_VOLUME)

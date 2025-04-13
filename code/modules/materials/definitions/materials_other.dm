@@ -12,7 +12,7 @@
 	name = MATERIAL_CULT
 	display_name = "disturbing stone"
 	wall_icon_base = "cult"
-	wall_flags = EMPTY_BITFIELD
+	wall_flags = FLAGS_OFF
 	wall_blend_icons = list(
 		"solid" = TRUE,
 		"wood" = TRUE,

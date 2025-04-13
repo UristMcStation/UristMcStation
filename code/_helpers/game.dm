@@ -447,8 +447,8 @@
 
 	var/distance = time * power_x
 
-	var/dest_x = src_x + distance*sin(rotation);
-	var/dest_y = src_y + distance*cos(rotation);
+	var/dest_x = src_x + distance*sin(rotation)
+	var/dest_y = src_y + distance*cos(rotation)
 
 	return new /datum/projectile_data(src_x, src_y, time, distance, power_x, power_y, dest_x, dest_y)
 
@@ -519,8 +519,8 @@
 * around us, then checks the difference.
 */
 /proc/getOPressureDifferential(turf/loc)
-	var/minp=16777216;
-	var/maxp=0;
+	var/minp=16777216
+	var/maxp=0
 	for(var/dir in GLOB.cardinal)
 		var/turf/simulated/T=get_turf(get_step(loc,dir))
 		var/cp=0

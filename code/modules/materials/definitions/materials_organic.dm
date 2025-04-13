@@ -332,14 +332,14 @@
 	display_name = "organic material"
 	sheet_icon_base = "skin"
 	wall_icon_base = "cult"
-	wall_flags = EMPTY_BITFIELD
+	wall_flags = FLAGS_OFF
 	wall_blend_icons = list(
 		"solid" = TRUE,
 		"wood" = TRUE,
 		"metal" = TRUE,
 		"stone" = TRUE
 	)
-	wall_flags = EMPTY_BITFIELD
+	wall_flags = FLAGS_OFF
 	door_icon_base = "cult"
 	table_icon_base = "cult"
 	wall_icon_reinf = "reinf_cult"

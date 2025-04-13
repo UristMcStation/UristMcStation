@@ -96,7 +96,7 @@
 		if(S.get_trait(TRAIT_BIOLUM))
 			T.visible_message(SPAN_NOTICE("\The [S.display_name] begins to glow!"))
 			if(prob(50))
-				S.set_trait(TRAIT_BIOLUM_COLOUR,get_random_colour(0,75,190))
+				S.set_trait(TRAIT_BIOLUM_COLOUR,get_random_colour(75, 190))
 				T.visible_message("[SPAN_NOTICE("\The [S.display_name]'s glow ")][SPAN_COLOR(S.get_trait(TRAIT_BIOLUM_COLOUR), "changes colour")]!")
 			else
 				T.visible_message(SPAN_NOTICE("\The [S.display_name]'s glow dims..."))

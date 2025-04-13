@@ -9,7 +9,8 @@
 	var/static/chameleon_verbs = list(
 		/obj/item/proc/ChameleonFlexibleAppearance,
 		/obj/item/proc/ChameleonOutfitAppearanceSingle,
-		/obj/item/proc/ChameleonOutfitAppearanceAll)
+		/obj/item/proc/ChameleonOutfitAppearanceAll
+	)
 
 /**
  * **Parameters**:
@@ -211,10 +212,10 @@
 	for (var/datum/extension/chameleon/chameleon_extension as anything in chameleon_extensions)
 		var/outfit_type = chameleon_extension.GetItemDisguiseType(outfit)
 		if (outfit_type)
-			to_chat(user, SPAN_NOTICE("The outfit '[outfit]' appearance was applied to \the [chameleon_extension.holder]."));
+			to_chat(user, SPAN_NOTICE("The outfit '[outfit]' appearance was applied to \the [chameleon_extension.holder]."))
 			chameleon_extension.Disguise(outfit_type)
 		else
-			to_chat(user, SPAN_WARNING("The outfit '[outfit]' had no suitable appearance for \the [chameleon_extension.holder]."));
+			to_chat(user, SPAN_WARNING("The outfit '[outfit]' had no suitable appearance for \the [chameleon_extension.holder]."))
 
 /********************
 * Subtype overrides *

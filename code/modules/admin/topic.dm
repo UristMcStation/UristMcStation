@@ -1706,7 +1706,7 @@
 			alert("Removed:\n" + jointext(removed_paths, "\n"))
 
 		var/list/offset = splittext(href_list["offset"],",")
-		var/number = dd_range(1, 100, text2num(href_list["object_count"]))
+		var/number = clamp(text2num(href_list["object_count"]), 1, 100)
 		var/X = length(offset) > 0 ? text2num(offset[1]) : 0
 		var/Y = length(offset) > 1 ? text2num(offset[2]) : 0
 		var/Z = length(offset) > 2 ? text2num(offset[3]) : 0

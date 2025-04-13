@@ -15,7 +15,7 @@ var/global/datum/sortInstance/sortInstance = new()
 	var/list/L
 
 	//The comparator proc-reference
-	var/cmp = /proc/cmp_numeric_asc
+	var/cmp = GLOBAL_PROC_REF(cmp_numeric_asc)
 
 	//whether we are sorting list keys (0: L[i]) or associated values (1: L[L[i]])
 	var/associative = 0
@@ -76,7 +76,7 @@ var/global/datum/sortInstance/sortInstance = new()
 
 		//Merge all remaining runs to complete sort
 	//ASSERT(start == end)
-	mergeForceCollapse();
+	mergeForceCollapse()
 	//ASSERT(length(runBases) == 1)
 
 		//reset minGallop, for successive calls
@@ -459,7 +459,7 @@ reverse a descending sequence without violating stability.
 
 			if(minGallop < 0)
 				minGallop = 0
-			minGallop += 2;  // Penalize for leaving gallop mode
+			minGallop += 2 // Penalize for leaving gallop mode
 
 
 	if(len1 == 1)

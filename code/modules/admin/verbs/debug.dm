@@ -131,7 +131,7 @@
 			id.icon_state = "gold"
 			id.access = get_all_accesses()
 		else
-			id = new/obj/item/card/id(M);
+			id = new/obj/item/card/id(M)
 			id.icon_state = "gold"
 			id.access = get_all_accesses()
 			id.registered_name = H.real_name
@@ -400,7 +400,7 @@
 
 	if(!H)	return
 
-	var/dat = display_medical_data(H.get_raw_medical_data(), SKILL_MAX)
+	var/dat = display_medical_data(H.get_raw_medical_data(mutations = TRUE), SKILL_MAX)
 
 	dat += text("<BR><A href='byond://?src=\ref[];mach_close=scanconsole'>Close</A>", usr)
 	show_browser(usr, dat, "window=scanconsole;size=430x600")

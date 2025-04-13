@@ -74,7 +74,7 @@
 	spend_charge(amount * fuel_cost_multiplier)
 	var/turf/T = get_turf(src)
 	if(T)
-		T.hotspot_expose(700, 5)
+		T.hotspot_expose(700)
 
 /obj/item/weldingtool/electric/on_update_icon()
 	underlays.Cut()
