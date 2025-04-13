@@ -407,7 +407,7 @@
 		return 0
 	if(user)
 		visible_message(SPAN_NOTICE("\The [user] begins installing \the [thing] into \the [src]."))
-		if(!user.canUnEquip(thing) || !do_after(user, 3 SECONDS * user.skill_delay_mult(SKILL_DEVICES), src, DO_PUBLIC_UNIQUE) || user.get_active_hand() != thing)
+		if(!user.canUnEquip(thing) || !do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE) || user.get_active_hand() != thing)
 			return
 		if(!user.unEquip(thing))
 			return
@@ -419,7 +419,7 @@
 /obj/structure/heavy_vehicle_frame/proc/uninstall_component(obj/item/component, mob/user)
 	if(!istype(component) || (component.loc != src) || !istype(user))
 		return FALSE
-	if(!do_after(user, 4 SECONDS * user.skill_delay_mult(SKILL_DEVICES), src, DO_PUBLIC_UNIQUE) || component.loc != src)
+	if(!do_after(user, 4 SECONDS, src, DO_PUBLIC_UNIQUE) || component.loc != src)
 		return FALSE
 	user.visible_message(SPAN_NOTICE("\The [user] crowbars \the [component] off \the [src]."))
 	component.forceMove(get_turf(src))
