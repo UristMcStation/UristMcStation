@@ -73,12 +73,12 @@
 	// for base_floor_area, look in nerva_define.dm
 
 	species_to_job_blacklist = list(
-		/datum/species/unathi  = list(/datum/job/captain),
-		/datum/species/skrell  = list(/datum/job/captain),
-		/datum/species/machine = list(/datum/job/captain),
-		/datum/species/diona   = list(/datum/job/captain),
-		/datum/species/teshari = list(/datum/job/captain),
-		/datum/species/unathi/yeosa = list(/datum/job/captain)
+		/singleton/species/unathi  = list(/datum/job/captain),
+		/singleton/species/skrell  = list(/datum/job/captain),
+		/singleton/species/machine = list(/datum/job/captain),
+		/singleton/species/diona   = list(/datum/job/captain),
+		/singleton/species/teshari = list(/datum/job/captain),
+		/singleton/species/unathi/yeosa = list(/datum/job/captain)
 	)
 
 /datum/map/nerva/bolt_saferooms()
