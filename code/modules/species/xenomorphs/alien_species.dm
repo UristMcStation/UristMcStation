@@ -146,7 +146,7 @@
 	var/datum/gas_mixture/environment = T.return_air()
 	if(!environment) return
 
-	var/obj/xeno/vine/plant = locate() in T
+	var/obj/vine/plant = locate() in T
 	if((environment.gas["phoron"] > 0 || (plant && plant.seed && plant.seed.name == "xenomorph")))
 		if(!regenerate(H))
 			var/obj/item/organ/internal/xeno/plasmavessel/P = H.internal_organs_by_name["plasma vessel"]

@@ -194,8 +194,11 @@ GLOBAL_LIST_EMPTY(surgery_tool_exception_cache)
 			S = show_radial_menu(user, M, possible_surgeries, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))
 		if (!user.use_sanity_check(M))
 			S = null
+		/*
+		// Bayskills
 		if (S && !user.skill_check_multiple(S.get_skill_reqs(user, M, src, zone)))
 			S = pick(possible_surgeries)
+		*/
 		else
 			S = show_radial_menu(user, M, possible_surgeries, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))
 

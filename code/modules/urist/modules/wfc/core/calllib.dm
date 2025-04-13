@@ -18,7 +18,7 @@
 #define DEEPMAINT_RELATIVE_POS(POS, SIZE, SPACING) (POS % (SIZE + SPACING))
 
 /proc/generate_wfc_map(var/rules_json = "deepmaint.json")
-	call("ss13_wfc.dll", "from_ruleset")(rules_json)
+	call_ext("ss13_wfc.dll", "from_ruleset")(rules_json)
 
 	if(!fexists("genmap.json"))
 		log_debug("Deepmaint - failed to generate in the DLL.")

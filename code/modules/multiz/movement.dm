@@ -264,13 +264,9 @@
 /mob/living/carbon/human/handle_fall_effect(turf/landing)
 	if(species && species.handle_fall_special(src, landing))
 		return
+
 	if(src.mind && src.mind.changeling && src.mind.changeling.tendons_reinforced)
 		return
-	var/obj/item/rig/rig = get_rig()
-	if (istype(rig))
-		for (var/obj/item/rig_module/actuators/A in rig.installed_modules)
-			if (A.active && rig.check_power_cost(src, 50 KILOWATTS, A, 0))
-				return
 
 	var/obj/item/rig/rig = get_rig()
 	if (istype(rig))

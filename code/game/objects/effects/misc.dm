@@ -105,17 +105,11 @@
 /obj/paint_stripe/mauve
 	color = COLOR_PALE_PURPLE_GRAY
 
-/obj/paint_stripe/beige
-	color = COLOR_BEIGE
-
 /obj/paint_stripe/white
 	color = COLOR_SILVER
 
 /obj/paint_stripe/gunmetal
 	color = COLOR_GUNMETAL
-
-/obj/paint_stripe/sun
-	color = COLOR_SUN
 
 /obj/gas_setup	//cryogenic
 	icon = 'icons/mob/screen1.dmi'
@@ -141,7 +135,7 @@
 	mouse_opacity = MOUSE_OPACITY_UNCLICKABLE
 
 /// Example of a warp filter
-/obj/warp
+/obj/effect/warp
 	plane = WARP_EFFECT_PLANE
 	appearance_flags = PIXEL_SCALE | NO_CLIENT_COLOR
 	icon = 'icons/effects/352x352.dmi'
@@ -150,32 +144,32 @@
 	pixel_y = -176
 	z_flags = ZMM_IGNORE
 
-/obj/cold_mist
+/obj/effect/cold_mist
 	icon = 'icons/effects/tile_effects.dmi'
 	icon_state = "frontfog"
 	layer = FIRE_LAYER
 	alpha = 170
 
-/obj/cold_mist/Initialize()
+/obj/effect/cold_mist/Initialize()
 	. = ..()
 	AddOverlays(image(icon = 'icons/effects/tile_effects.dmi', icon_state = "backfog", layer = BELOW_OBJ_LAYER))
 
 //Handling it as an overlay is not layering properly with render targets
-/obj/cold_mist_gas_back
+/obj/effect/cold_mist_gas_back
 	icon = 'icons/effects/tile_effects.dmi'
 	icon_state = "backfog"
 	layer = BELOW_OBJ_LAYER
 	render_target = COLD_EFFECT_BACK_TARGET
 
-/obj/cold_mist_gas
+/obj/effect/cold_mist_gas
 	icon = 'icons/effects/tile_effects.dmi'
 	icon_state = "frontfog"
 	render_target = COLD_EFFECT_TARGET
 	layer = FIRE_LAYER
 	appearance_flags = DEFAULT_APPEARANCE_FLAGS | KEEP_TOGETHER
-	var/obj/cold_mist_gas_back/b = null
+	var/obj/effect/cold_mist_gas_back/b = null
 
-/obj/cold_mist_gas/Initialize()
+/obj/effect/cold_mist_gas/Initialize()
 	. = ..()
 	b = new()
 	add_vis_contents(b)

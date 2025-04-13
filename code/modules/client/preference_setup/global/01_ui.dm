@@ -4,9 +4,6 @@
 	var/UI_style = "Midnight"
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
-	//Style for popup tooltips
-	var/tooltip_style = "Midnight"
-
 	var/tooltip_style = "Midnight" //Style for popup tooltips
 
 

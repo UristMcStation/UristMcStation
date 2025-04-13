@@ -131,7 +131,9 @@
 		else
 			zone_sel.set_selected_zone(BP_CHEST)
 	// You may attack the target with your exosuit FIST if you're malfunctioning.
-	var/atom/movable/AM = A
+	//var/atom/movable/AM = A
+	//var/fail_prob = (user != src && istype(AM) && AM.loc != src) ? (user.skill_check(SKILL_MECH, HAS_PERK) ? 0: 15 ) : 0 // Bayskills
+	var/fail_prob = 0
 	var/failed = FALSE
 	if(emp_damage > EMP_ATTACK_DISRUPT && prob(emp_damage*2))
 		to_chat(user, SPAN_DANGER("The wiring sparks as you attempt to control the exosuit!"))
@@ -374,7 +376,12 @@
 			SPAN_WARNING("\The [user] starts forcing \the [src]'s emergency [body.hatch_descriptor] release using \a [tool]."),
 			SPAN_WARNING("You start forcing \the [src]'s emergency [body.hatch_descriptor] release using \the [tool].")
 		)
-		if(!do_after(user, delay, src, DO_PUBLIC_UNIQUE))
+		/*
+		// Bayskills
+		if (!user.do_skilled((tool.toolspeed * 5) SECONDS, list(SKILL_DEVICES, SKILL_EVA), src) || !user.use_sanity_check(src, tool))
+			return TRUE
+		*/
+		if(!do_after(user, (tool.toolspeed * 5) SECONDS, src, DO_PUBLIC_UNIQUE))
 			return
 		if (!body)
 			USE_FEEDBACK_FAILURE("\The [src] has no cockpit to force.")

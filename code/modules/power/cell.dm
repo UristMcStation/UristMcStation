@@ -109,7 +109,7 @@
 		if (istype(assembly.a_left, /obj/item/device/assembly/signaler) && istype(assembly.a_right, /obj/item/device/assembly/signaler))
 			user.drop_item()
 			user.drop_from_inventory(src)
-			new /obj/item/device/radio_jammer/improvised(assembly, src, user)
+			new /obj/item/device/radio_jammer_urist/improvised(assembly, src, user)
 
 		else
 			to_chat(user, SPAN_NOTICE("You'd need both devices to be signallers for this to work."))

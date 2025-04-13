@@ -125,7 +125,7 @@
 	RETURN_TYPE(/list)
 	//In case of problems, abort.
 	var/dat = list()
-	skill_level = SKILL_PROF //This isn't an ideal fix, however it will at least last throughout merges.
+	skill_level = SKILL_MASTER //This isn't an ideal fix, however it will at least last throughout merges.
 
 	if(!scan["name"])
 		return "<center>[SPAN_BAD("<strong>SCAN READOUT ERROR.</strong>")]</center>"
@@ -152,7 +152,7 @@
 
 	var/list/subdat = list()
 	var/dat = list()
-	skill_level = SKILL_PROF //This isn't an ideal fix, however it will at least last throughout merges.
+	skill_level = SKILL_MASTER //This isn't an ideal fix, however it will at least last throughout merges.
 
 	dat += "<tr><td><strong>Apparent Age:</strong></td><td>[scan["age"]]</td></tr>"
 
@@ -305,7 +305,7 @@
 
 	var/list/subdat = list()
 	var/dat = list()
-	skill_level = SKILL_PROF //This isn't an ideal fix, however it will at least last throughout merges.
+	skill_level = SKILL_MASTER //This isn't an ideal fix, however it will at least last throughout merges.
 
 	//External Organs
 	/*
@@ -399,7 +399,7 @@
 		return "<center>[SPAN_BAD("<strong>SCAN READOUT ERROR.</strong>")]</center>"
 
 	var/dat = list()
-	skill_level = SKILL_PROF //This isn't an ideal fix, however it will at least last throughout merges.
+	skill_level = SKILL_MASTER //This isn't an ideal fix, however it will at least last throughout merges.
 
 	if(TT)
 		dat += "<tt>"

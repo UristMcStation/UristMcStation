@@ -69,7 +69,6 @@
 	if (grille?.density)
 		USE_FEEDBACK_FAILURE("\The [grille] blocks access to \the [src].")
 		return FALSE
-		place_window(user, loc, SOUTHWEST, ST)
 
 
 /obj/structure/wall_frame/use_tool(obj/item/tool, mob/user, list/click_params)

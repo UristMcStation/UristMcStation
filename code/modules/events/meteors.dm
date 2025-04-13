@@ -112,7 +112,7 @@ var/global/list/meteors_major = list(
 	. = ..()
 
 /datum/event/meteor_wave/overmap/tick()
-	if(victim && !victim.is_still()) //Meteors mostly fly in your face
+	if(victim && victim.is_moving()) //Meteors mostly fly in your face
 		start_side = prob(90) ? victim.fore_dir : pick(GLOB.cardinal)
 	else //Unless you're standing
 		start_side = pick(GLOB.cardinal)
@@ -121,7 +121,7 @@ var/global/list/meteors_major = list(
 	. = ..()
 	if (!victim)
 		return
-	if(victim.is_still()) //Standing still means less shit flies your way
+	if(!victim.is_moving()) //Standing still means less shit flies your way
 		. = round(. * 0.25)
 	if(victim.get_speed() < victim.min_speed * 5) //Slow and steady
 		. = round(. * 0.6)

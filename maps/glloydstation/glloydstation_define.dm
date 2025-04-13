@@ -61,13 +61,21 @@
 /obj/overmap/visitable/urist
 	name = "NSS Urist"
 	desc = "Starbase records report: NT owned, unknown crew status."
-	base = TRUE
 	start_x = 11
 	start_y = 12
+
+	sector_flags = OVERMAP_SECTOR_KNOWN|OVERMAP_SECTOR_IN_SPACE|OVERMAP_SECTOR_BASE
+	known_ships = list(
+		/obj/overmap/visitable/uristplanet
+	)
 
 /obj/overmap/visitable/uristplanet
 	name = "Nyx Phi III"
 	desc = "Geneseeded world detected, possible intelligent life detected."
-	base = TRUE
 	start_x = 12
 	start_y = 13
+
+	sector_flags = OVERMAP_SECTOR_KNOWN|OVERMAP_SECTOR_BASE
+	known_ships = list(
+		/obj/overmap/visitable/urist
+	)

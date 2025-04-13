@@ -98,4 +98,3 @@
 	contents_allowed = list(/obj/item/ammo_casing/musket, /obj/item/ammo_casing/musket/short, /obj/item/ammo_casing/musket/flintlock)
 	allow_quick_gather = 1
 	allow_quick_empty = 1
-	use_to_pickup = 1

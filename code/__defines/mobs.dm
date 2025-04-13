@@ -14,7 +14,7 @@
 #define FAKEDEATH   FLAG_08  // Replaces stuff like changeling.changeling_fakedeath.
 #define NO_ANTAG    FLAG_09  // Players are restricted from gaining antag roles when occupying this mob
 #define NOTARGET    FLAG_10  // Player is invisible to all simple mobs
-#define XENO_HOST   FLAG 11  // Tracks whether we're gonna be a baby alien's mummy.
+#define XENO_HOST   FLAG_11  // Tracks whether we're gonna be a baby alien's mummy.
 
 // Grab Types
 #define GRAB_NORMAL			"normal"

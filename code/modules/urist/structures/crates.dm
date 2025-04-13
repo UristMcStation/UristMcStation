@@ -67,7 +67,7 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 		if(trap)
 			if(istype(trap, /obj/structure/mine))
 				var/obj/structure/mine/M = trap
-				M.explode2()
+				M.activate()
 			else if(istype(trap, /obj/item/grenade))
 				var/obj/item/grenade/G = trap
 				G.detonate()

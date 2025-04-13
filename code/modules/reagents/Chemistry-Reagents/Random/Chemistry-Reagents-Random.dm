@@ -128,7 +128,7 @@ GLOBAL_LIST_AS(random_chem_interaction_blacklist, list(
 			dat += "The readings confirm that the chemical is not safe for human use."
 		dat += "A close analysis of the scan suggests that the chemical has some of the following effects: [english_list(effect_descs)]."
 		dat += "Here are the chemicals you suspect this one will interact with, probably when heated or cooled:"
-		dat += JOINTEXT(interactions)
+		dat += jointext(interactions, ", ")
 	return jointext(dat, "<br>")
 
 /datum/reagent/random/Value()

@@ -1568,6 +1568,14 @@
 	if(!current_limb || !S || !U)
 		return
 
+	/*
+	// Bayskills
+	var/fail_prob = U.skill_fail_chance(SKILL_MEDICAL, 60, SKILL_TRAINED, 3)
+	if(self)
+		fail_prob += U.skill_fail_chance(SKILL_MEDICAL, 20, SKILL_EXPERIENCED, 1)
+	*/
+	var/fail_prob = 0
+
 	var/datum/pronouns/P = choose_from_pronouns()
 	if(prob(fail_prob))
 		visible_message( \

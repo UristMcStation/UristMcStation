@@ -15,7 +15,7 @@ GLOBAL_LIST_AS(terminal_commands, init_subtypes(/datum/terminal_command))
 	/// The skill which is checked
 	var/core_skill = SKILL_COMPUTER
 	/// How much skill the user needs to use this. This is not for critical failure effects at unskilled; those are handled globally.
-	var/skill_needed = SKILL_NONE
+	var/skill_needed = SKILL_UNSKILLED
 	/// Access needed, if any
 	var/req_access = list()
 

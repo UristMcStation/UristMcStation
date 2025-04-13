@@ -649,8 +649,8 @@
 /obj/item/light/tube/d_green
 	color = "#3b703b"
 	b_colour = "#3b703b"
-	var/b_power = 0.6
-	var/b_range = 6
+	b_power = 0.6
+	b_range = 6
 
 // the light item
 // can be tube or bulb subtypes

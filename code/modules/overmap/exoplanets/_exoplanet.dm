@@ -333,12 +333,12 @@ GLOBAL_VAR(planet_repopulation_disabled)
 	var/list/extra_data = list()
 	if (exterior_atmosphere)
 		var/list/gases = list()
-		for (var/g in atmosphere.gas)
-			if (atmosphere.gas[g] > atmosphere.total_moles * 0.05)
+		for (var/g in exterior_atmosphere.gas)
+			if (exterior_atmosphere.gas[g] > exterior_atmosphere.total_moles * 0.05)
 				gases += gas_data.name[g]
 		extra_data += "Atmosphere composition: [english_list(gases)]"
 		var/inaccuracy = rand(8,12)/10
-		extra_data += "Atmosphere pressure [atmosphere.return_pressure()*inaccuracy] kPa, temperature [atmosphere.temperature*inaccuracy] K"
+		extra_data += "Atmosphere pressure [exterior_atmosphere.return_pressure()*inaccuracy] kPa, temperature [exterior_atmosphere.temperature*inaccuracy] K"
 		extra_data += ""
 
 	if (length(seeds))

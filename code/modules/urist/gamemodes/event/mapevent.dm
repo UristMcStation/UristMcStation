@@ -3,19 +3,22 @@
 	set name = "Load Event Map"
 	set category = "Fun"
 	set desc = "Loads the map for the event."
+
 	if(!check_rights(R_SERVER))
 		to_chat(src, "<span class='danger'> You do not have the required admin rights.</span>")
 		return
 
 	var/list/potentialEventMap = list()
 	report_progress("Searching for Event Map...")
+
 	var/list/Lines = file2list("maps/EventMaps/fileList.txt")
 	if(!length(Lines))	return
+
 	for (var/t in Lines)
 		if (!t)
 			continue
 
-		t = trim(t)
+		t = trimtext(t)
 		if (length(t) == 0)
 			continue
 		else if (copytext(t, 1, 2) == "#")

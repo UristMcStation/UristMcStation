@@ -14,9 +14,13 @@
 	evac_x = 143
 	evac_y = 97
 	evac_z = 3
-	base = TRUE
 	target_zs = list(1,2,3)
 	target_dirs = list(NORTH, SOUTH, EAST)
+	sector_flags = OVERMAP_SECTOR_KNOWN|OVERMAP_SECTOR_IN_SPACE|OVERMAP_SECTOR_BASE
+	known_ships = list(
+		/obj/overmap/visitable/ship/landable/trajan,
+		/obj/overmap/visitable/ship/landable/hadrian
+	)
 
 	initial_generic_waypoints = list(
 		"nerva_north_dock",
@@ -60,6 +64,10 @@
 	fore_dir = NORTH
 	vessel_mass = 1000
 	vessel_size = SHIP_SIZE_SMALL
+	known_ships = list(
+		/obj/overmap/visitable/ship/combat/nerva,
+		/obj/overmap/visitable/ship/landable/hadrian
+	)
 
 /obj/overmap/visitable/ship/landable/hadrian
 	name = "Hadrian"
@@ -67,6 +75,10 @@
 	fore_dir = EAST
 	vessel_mass = 750
 	vessel_size = SHIP_SIZE_TINY
+	known_ships = list(
+		/obj/overmap/visitable/ship/combat/nerva,
+		/obj/overmap/visitable/ship/landable/trajan
+	)
 
 /obj/overmap/visitable/ship/combat/nerva/pve_mapfire(projectile_type)
 	if(ispath(projectile_type))

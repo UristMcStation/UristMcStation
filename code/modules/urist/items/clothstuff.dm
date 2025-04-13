@@ -12,20 +12,20 @@
 
 	var/obj/item/I = usr.get_active_hand()
 	if(!I)
-		to_chat(usr, "<span class='notice'>You aren't holding anything to cut with.</span>")
+		to_chat(usr, SPAN_NOTICE("You aren't holding anything to cut with."))
 		return
 
 	if(is_sharp(I))
-		usr.visible_message("<span class='notice'>\The [usr] begins cutting up \the [src] with \a [I].</span>", "<span class='notice'>You begin cutting up \the [src] with \the [I].</span>")
+		usr.visible_message(SPAN_NOTICE("\The [usr] begins cutting up \the [src] with \a [I]."), SPAN_NOTICE("You begin cutting up \the [src] with \the [I]."))
 		if(do_after(usr, 50, src))
-			to_chat(usr, "<span class='notice'>You cut \the [src] into pieces!</span>")
+			to_chat(usr, SPAN_NOTICE("You cut \the [src] into pieces!"))
 			for(var/i in 2 to rand(3,5))
 				new /obj/item/stack/material/cloth(get_turf(src))
 			for(var/obj/O in src.contents)
 				O.dropInto(loc)
 			qdel(src)
 	else
-		to_chat(usr, "<span class='notice'>You need something sharper to cut with!</span>")
+		to_chat(usr, SPAN_NOTICE("You need something sharper to cut with!"))
 	return
 
 /obj/item/clothing/mask/surgical/makeshift_mask
@@ -63,12 +63,12 @@
 
 	var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
 	if(affecting.is_bandaged())
-		to_chat(user, "<span class='warning'>The wounds on [H]'s [affecting.name] have already been bandaged.</span>")
+		to_chat(user, SPAN_WARNING("The wounds on [H]'s [affecting.name] have already been bandaged."))
 		return TRUE
 
 	else
-		user.visible_message("<span class='notice'>\The [user] begins hastily treating [H]'s [affecting.name].</span>", \
-							"<span class='notice'>You begin hastily treating [H]'s [affecting.name].</span>" )
+		user.visible_message(SPAN_NOTICE("\The [user] begins hastily treating [H]'s [affecting.name]."), \
+							SPAN_NOTICE("You begin hastily treating [H]'s [affecting.name].") )
 		var/used = 0
 
 		for(var/datum/wound/W in affecting.wounds)
@@ -78,20 +78,20 @@
 			if(used == amount)
 				break
 
-			if(!do_after(user, M, W.damage/3))
-				to_chat(user, "<span class='notice'>You must stand still to bandage wounds.</span>")
+			if(!do_after(user, H, W.damage/3))
+				to_chat(user, SPAN_NOTICE("You must stand still to bandage wounds."))
 				break
 
 			if (W.current_stage <= W.max_bleeding_stage)
-				user.visible_message("<span class='notice'>\The [user] bandages \a [W.desc] on [H]'s [affecting.name].</span>", \
-									"<span class='notice'>You bandage \a [W.desc] on [H]'s [affecting.name].</span>" )
+				user.visible_message(SPAN_NOTICE("\The [user] bandages \a [W.desc] on [H]'s [affecting.name]."), \
+									SPAN_NOTICE("You bandage \a [W.desc] on [H]'s [affecting.name].") )
 				//H.add_side_effect("Itch")
 			else if (W.damage_type == DAMAGE_BRUTE)
-				user.visible_message("<span class='notice'>\The [user] places a rugged bandage over \a [W.desc] on [H]'s [affecting.name].</span>", \
-										"<span class='notice'>You place a rugged bandage over \a [W.desc] on [H]'s [affecting.name].</span>" )
+				user.visible_message(SPAN_NOTICE("\The [user] places a rugged bandage over \a [W.desc] on [H]'s [affecting.name]."), \
+										SPAN_NOTICE("You place a rugged bandage over \a [W.desc] on [H]'s [affecting.name].") )
 			else
-				user.visible_message("<span class='notice'>\The [user] places a rugged bandage over \a [W.desc] on [H]'s [affecting.name].</span>", \
-										"<span class='notice'>You place a rugged bandage over \a [W.desc] on [H]'s [affecting.name].</span>" )
+				user.visible_message(SPAN_NOTICE("\The [user] places a rugged bandage over \a [W.desc] on [H]'s [affecting.name]."), \
+										SPAN_NOTICE("You place a rugged bandage over \a [W.desc] on [H]'s [affecting.name].") )
 
 			W.bandage()
 			used++
@@ -100,9 +100,9 @@
 
 		if(used == amount)
 			if(affecting.is_bandaged())
-				to_chat(user, "<span class='warning'>\The [src] is used up.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] is used up."))
 			else
-				to_chat(user, "<span class='warning'>\The [src] is used up, but there are more wounds to treat on \the [affecting.name].</span>")
+				to_chat(user, SPAN_WARNING("\The [src] is used up, but there are more wounds to treat on \the [affecting.name]."))
 
 		use(used)
 		return TRUE

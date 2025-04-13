@@ -161,8 +161,27 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "bow"
 	item_icons = DEF_URIST_INHANDS
-	powered = FALSE
 	draw_time = 1 SECOND
+
+/obj/item/gun/launcher/crossbow/bow/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Full override of crossbow to disallow creating heated arrows or RXDs.
+	// Arrow - Load ammo
+	if (istype(tool, /obj/item/arrow))
+		if (bolt)
+			USE_FEEDBACK_FAILURE("\The [src] already has \a [bolt] loaded.")
+			return TRUE
+		if (!user.unEquip(tool, src))
+			FEEDBACK_UNEQUIP_FAILURE(user, tool)
+			return TRUE
+		bolt = tool
+		update_icon()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] slides \a [bolt] into \a [src]."),
+			SPAN_NOTICE("You slide \the [bolt] into \the [src].")
+		)
+		return TRUE
+
+	return FALSE
 
 //RS Weapons
 

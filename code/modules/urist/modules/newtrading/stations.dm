@@ -64,7 +64,7 @@
 /obj/overmap/visitable/sector/station/Crossed(atom/movable/M as mob|obj)
 	if(station_holder)
 		if(istype(M, /obj/overmap/visitable/ship/combat))
-			if(faction.hostile && known) //if we've discovered the station //come back to this
+			if(faction.hostile && HAS_FLAGS(sector_flags, OVERMAP_SECTOR_KNOWN)) //if we've discovered the station //come back to this
 				var/mob/living/simple_animal/hostile/overmapship/S =  new station_holder(get_turf(src))
 				S.hiddenfaction = src.faction
 				S.home_station = src

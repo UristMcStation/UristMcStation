@@ -600,7 +600,6 @@
 		to_chat(user, "The fire selector is set to [current_mode.name].")
 
 /obj/item/gun/proc/switch_firemodes()
-
 	var/next_mode = get_next_firemode()
 	if(!next_mode || next_mode == sel_mode)
 		return null
@@ -626,24 +625,41 @@
 	if(new_mode)
 		to_chat(user, SPAN_NOTICE("\The [src] is now set to [new_mode.name]."))
 
-//I'm tired of trying to force guns to fire
-
-/obj/item/gun/proc/simple_fire(atom/target, var/mob/user)
-	if(target == user)
+/obj/item/gun/proc/toggle_safety(mob/user)
+	if (user?.is_physically_disabled())
 		to_chat(user, SPAN_WARNING("You can't do this right now!"))
 		return
 
-	var/obj/item/projectile/P = consume_next_projectile(user)
-	if(!P)
-		handle_click_empty(user)
+	safety_state = !safety_state
+	update_icon()
+	if(user)
+		user.visible_message(SPAN_WARNING("[user] switches the safety of \the [src] [safety_state ? "on" : "off"]."), SPAN_NOTICE("You switch the safety of \the [src] [safety_state ? "on" : "off"]."), range = 3)
+		last_safety_check = world.time
+		playsound(src, 'sound/weapons/flipblade.ogg', 15, 1)
+
+/obj/item/gun/verb/toggle_safety_verb()
+	set name = "Toggle Gun Safety"
+	set category = "Object"
+	set src in usr
+	if (usr.incapacitated())
+		to_chat(usr, SPAN_WARNING("You're in no condition to do that."))
 		return
-	P.launch(target)
-	play_fire_sound(user, P)
-	user.visible_message(
-		"<span class='danger'>\The [user] fires \the [src]!</span>",
-		"<span class='warning'>You fire \the [src]!</span>",
-		"You hear a [fire_sound_text]!"
-		)
+	var/obj/item/gun/gun = usr.get_active_hand()
+	if (!istype(gun))
+		gun = usr.get_inactive_hand()
+		if (!istype(gun))
+			to_chat(usr, SPAN_WARNING("You need a gun in your hands to do that."))
+			return
+	gun.toggle_safety(usr)
+
+/obj/item/gun/CtrlClick(mob/user)
+	if(loc == user)
+		toggle_safety(user)
+		return TRUE
+	return ..()
+
+/obj/item/gun/proc/safety()
+	return has_safety && safety_state
 
 /obj/item/gun/equipped()
 	..()
@@ -663,5 +679,38 @@
 		afterattack(shoot_to,target)
 		return 1
 
+///obj/item/gun/proc/check_accidents(mob/living/user, message = "[user] fumbles with \the [src] and it goes off!",skill_path = gun_skill, fail_chance = 20, no_more_fail = safety_skill, factor = 2) // Bayskills
+/obj/item/gun/proc/check_accidents(mob/living/user, message = "[user] fumbles with \the [src] and it goes off!",skill_path = null, fail_chance = 20, no_more_fail = null, factor = 2)
+	if(istype(user))
+		//if(!safety() && user.skill_fail_prob(skill_path, fail_chance, no_more_fail, factor) && special_check(user)) // Bay version with skills
+		if(!safety() && special_check(user))
+			user.visible_message(SPAN_WARNING(message))
+			var/list/targets = list(user)
+			targets += trange(2, get_turf(src))
+			var/picked = pick(targets)
+			afterattack(picked, user)
+			return 1
+
+// Urist additions
 /obj/item/gun/proc/can_autofire()
 	return (can_autofire && world.time >= next_fire_time)
+
+
+//I'm tired of trying to force guns to fire
+
+/obj/item/gun/proc/simple_fire(atom/target, var/mob/user)
+	if(target == user)
+		to_chat(user, SPAN_WARNING("You can't do this right now!"))
+		return
+
+	var/obj/item/projectile/P = consume_next_projectile(user)
+	if(!P)
+		handle_click_empty(user)
+		return
+	P.launch(target)
+	play_fire_sound(user, P)
+	user.visible_message(
+		"<span class='danger'>\The [user] fires \the [src]!</span>",
+		"<span class='warning'>You fire \the [src]!</span>",
+		"You hear a [fire_sound_text]!"
+		)

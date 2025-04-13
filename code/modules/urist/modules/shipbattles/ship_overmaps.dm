@@ -165,7 +165,7 @@
 		else
 			return
 
-/obj/overmap/visitable/ship/combat/proc/intercept(obj/effect/overmap/visitable/ship/combat/S)
+/obj/overmap/visitable/ship/combat/proc/intercept(obj/overmap/visitable/ship/combat/S)
 	if(!S || !S.canfight || !canfight || S.pvp_cooldown || pvp_cooldown)	return	//If either ship can't fight, we don't
 
 	halt()	//Stop both ships
