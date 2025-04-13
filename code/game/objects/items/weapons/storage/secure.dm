@@ -220,7 +220,7 @@
 	max_w_class = ITEM_SIZE_HUGE
 	anchored = TRUE
 	density = FALSE
-	cant_hold = list(/obj/item/storage/secure/briefcase)
+	contents_banned = list(/obj/item/storage/secure/briefcase)
 	startswith = list(
 	/obj/item/gun/energy/taser = 1,
 	/obj/item/gun/projectile/revolver/hi2521r = 1,

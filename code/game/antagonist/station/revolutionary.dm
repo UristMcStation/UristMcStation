@@ -31,7 +31,7 @@ GLOBAL_TYPED_NEW(revs, /datum/antagonist/revolutionary)
 
 	blacklisted_jobs = list(/datum/job/ai, /datum/job/cyborg, /datum/job/submap)
 	restricted_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/hos, /datum/job/chief_engineer, /datum/job/rd, /datum/job/cmo, /datum/job/lawyer)
-	protected_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/detective, /datum/job/blueshield)
+	restricted_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/detective, /datum/job/blueshield)
 
 
 /datum/antagonist/revolutionary/create_global_objectives()

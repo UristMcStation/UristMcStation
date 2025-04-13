@@ -6,7 +6,7 @@
 	summon_type = list(
 		/obj/item/reagent_containers/food/snacks/sliceable/cheesewheel/fresh,
 		/obj/item/reagent_containers/food/snacks/cheesewedge/fresh,
-		/obj/item/reagent_containers/food/drinks/jar,
+		/obj/item/glass_jar,
 		/obj/item/gun/launcher/foam/revolver,
 		/obj/item/reagent_containers/food/condiment/small/saltshaker,
 		/obj/random/action_figure,

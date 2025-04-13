@@ -179,10 +179,10 @@
 	return PROCESS_KILL
 
 /turf/unsimulated/wall/supermatter/no_spread/attack_ghost(mob/user as mob)
-	user.examinate(src)
+	examinate(user, src)
 
 /turf/unsimulated/wall/supermatter/no_spread/attack_ai(mob/user as mob)
-	return user.examinate(src)
+	return examinate(user, src)
 
 /turf/unsimulated/wall/supermatter/no_spread/attack_hand(mob/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] reaches out and touches \the [src]... And then blinks out of existance.</span>",\
