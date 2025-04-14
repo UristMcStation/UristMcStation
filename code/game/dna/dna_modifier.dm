@@ -159,7 +159,7 @@
 	MouseDrop_T(grab.affecting, grab.assailant)
 	return TRUE
 
-/obj/machinery/dna_scannernew/proc/put_in(mob/M)
+/obj/machinery/dna_scannernew/proc/put_in(mob/target, mob/user)
 	if (!target)
 		return FALSE
 	if (occupant)
