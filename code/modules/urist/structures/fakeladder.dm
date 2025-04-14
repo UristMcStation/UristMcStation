@@ -68,5 +68,6 @@
 	add_fingerprint(user)
 
 /obj/structure/fakeladder/use_tool(obj/item/W, mob/user as mob)
+	SHOULD_CALL_PARENT(FALSE)
 	attack_hand(user)
 	return TRUE

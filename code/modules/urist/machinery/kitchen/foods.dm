@@ -20,12 +20,18 @@
 		var/obj/item/reagent_containers/food/snacks/customizable/pasta/S = new(get_turf(user))
 		S.use_tool(W,user,click_params)
 		qdel(src)
+		return TRUE
+
+	return ..()
 
 /obj/item/trash/plate/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/customizable/fullycustom/S = new(get_turf(user))
 		S.use_tool(W,user,click_params)
 		qdel(src)
+		return TRUE
+
+	return ..()
 
 /obj/item/trash/bowl
 	name = "bowl"

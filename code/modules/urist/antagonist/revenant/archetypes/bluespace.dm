@@ -21,7 +21,7 @@
 	name = "DISTORTION: Spatial Instability"
 
 
-/datum/power/revenant/distortion/spatial_instability/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/spatial_instability/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(!istype(A))
 		return
 
@@ -84,7 +84,7 @@
 	name = "DISTORTION: Afterimage"
 
 
-/datum/power/revenant/distortion/afterimage/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/afterimage/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -190,7 +190,7 @@ Proc needs to be fixed, it fails to locate a dest
 	return 1
 
 
-/datum/bluespace_revenant/proc/ProcessDigitalCamo(var/ticks = 1)
+/datum/bluespace_revenant/proc/ProcessDigitalCamo(ticks = 1)
 	// If we have digicamo on, increase distortion
 
 	if(isnull(src.trackers))
@@ -221,7 +221,7 @@ Proc needs to be fixed, it fails to locate a dest
 	distortion_threshold = 18000 // 15 mins
 
 
-/datum/power/revenant/bs_power/digicamo/Activate(var/datum/mind/M)
+/datum/power/revenant/bs_power/digicamo/Activate(datum/mind/M)
 	. = ..(M)
 
 	if(!.)
@@ -250,7 +250,7 @@ Proc needs to be fixed, it fails to locate a dest
 	name = "DISTORTION: Machine Discord"
 
 
-/datum/power/revenant/distortion/techdiscord/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/techdiscord/Apply(atom/A, datum/bluespace_revenant/revenant)
 	// 0
 	if(isnull(A) || !istype(A))
 		return
@@ -281,7 +281,7 @@ Proc needs to be fixed, it fails to locate a dest
 	distortion_threshold = 24000
 
 
-/datum/power/revenant/distortion/techbane/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/techbane/Apply(atom/A, datum/bluespace_revenant/revenant)
 	//
 	if(isnull(A) || !istype(A))
 		return
@@ -322,7 +322,7 @@ Proc needs to be fixed, it fails to locate a dest
 	name = "DISTORTION: Flicker Fluorescents"
 
 
-/datum/power/revenant/distortion/lightflicker/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/lightflicker/Apply(atom/A, datum/bluespace_revenant/revenant)
 	// Flicker lights
 	if(isnull(A) || !istype(A))
 		return
@@ -355,7 +355,7 @@ Proc needs to be fixed, it fails to locate a dest
 	name = "DISTORTION - Spatiotemporal Interference"
 
 
-/datum/power/revenant/distortion/noisefx/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/noisefx/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 

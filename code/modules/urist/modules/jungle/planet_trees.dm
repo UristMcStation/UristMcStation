@@ -92,9 +92,10 @@
 			W.pixel_y = src.pixel_y
 			W.amount = rand(3,6) //going to mess with this value for a while, we'll see
 
-			qdel(src)
+			qdel_self()
+			return TRUE
 
-	return
+	return ..()
 
 //dead arid tree
 

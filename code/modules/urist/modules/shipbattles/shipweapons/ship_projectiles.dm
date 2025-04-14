@@ -8,7 +8,7 @@
 	ship = 1
 	life_span = 300
 
-/obj/item/projectile/ion/ship/on_hit(atom/target, var/blocked = 0)
+/obj/item/projectile/ion/ship/on_hit(atom/target, blocked = 0)
 	var/flicker_range = light_effect_range * 2 //16 for the base ion pulse
 	for(var/obj/machinery/light/L in range(flicker_range, target))
 		L.flicker(rand(5,15))
@@ -193,7 +193,7 @@
 	var/ex_range = 2
 	var/shake_range = 10
 
-/obj/item/projectile/beam/ship/on_hit(atom/target, var/blocked = 0)
+/obj/item/projectile/beam/ship/on_hit(atom/target, blocked = 0)
 	for(var/mob/M in range(shake_range, target))
 		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
 			shake_camera(M, 3, 1)

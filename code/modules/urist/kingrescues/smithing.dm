@@ -191,7 +191,11 @@
 
 			else
 				to_chat(usr, "<font color='red'>You must stand still while hammering the [name]!</font>")
-	busy = 0
+
+		busy = 0
+		return TRUE
+
+	return ..()
 
 /obj/item/ore/hot/iron
 	name = "hot iron"
@@ -225,6 +229,7 @@
 /obj/structure/anvil/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/ore/hot) || istype(W,/obj/item/stack/material))
 		user.drop_from_inventory(W, src.loc)
+		return TRUE
 
 	if(istype(W,/obj/item/weldingtool))
 		var/obj/item/weldingtool/WT = W
@@ -241,6 +246,9 @@
 				to_chat(user, "You disassemble the anvil.")
 		else
 			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
+		return TRUE
+
+	return ..()
 
 //gunsmithing
 

@@ -24,7 +24,7 @@
 		to_chat(user, "Error, no route to host.")
 
 
-/obj/machinery/button/remote/emag_act(remaining_charges, var/mob/user)
+/obj/machinery/button/remote/emag_act(remaining_charges, mob/user)
 	if(length(req_access))
 		req_access.Cut()
 		playsound(src.loc, "sparks", 100, 1)

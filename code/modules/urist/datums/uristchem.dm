@@ -18,7 +18,7 @@
 	glass_desc = "A glass of pilk, an unholy combination of milk and cola. There's a special place in hell for people who mix this drink."
 	glass_special = list(DRINK_FIZZ)
 
-/datum/reagent/drink/pilk/affect_ingest(mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/drink/pilk/affect_ingest(mob/living/carbon/M, alien, removed)
 	..()
 	M.adjustBrainLoss(0.1)
 
@@ -40,7 +40,7 @@
 	glass_desc = "A glass of napalk, a combination of napalm and pilk. What compells you to drink this?"
 	glass_special = list(DRINK_VAPOR)
 
-/datum/reagent/drink/napalk/affect_ingest(mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/drink/napalk/affect_ingest(mob/living/carbon/M, alien, removed)
 	..()
 	M.adjustToxLoss(0.5)
 	M.adjustBrainLoss(0.2)
@@ -61,7 +61,7 @@
 	value = 0.6
 	should_admin_log = TRUE // So we can see who's spraying the hallways.
 
-/datum/reagent/lube/touch_turf(var/turf/simulated/T)
+/datum/reagent/lube/touch_turf(turf/simulated/T)
 	if(!istype(T))
 		return
 	if(volume >= 1)

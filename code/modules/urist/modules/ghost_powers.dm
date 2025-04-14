@@ -39,7 +39,7 @@ GLOBAL_VAR_AS(globally_spooky, 0)
 		user.ghost_dream_invasion(src, TRUE)
 
 
-/mob/observer/ghost/proc/ghost_dream_invasion(var/mob/living/carbon/human/target = null, var/target_optional = TRUE)
+/mob/observer/ghost/proc/ghost_dream_invasion(mob/living/carbon/human/target = null, target_optional = TRUE)
 	// Write messages into people's dreams. Spooooookyyyyy.
 	// To make it more Fun, you have to use normal dream strings, BUT:
 	// a) There's a small chance you get to write anything you want instead

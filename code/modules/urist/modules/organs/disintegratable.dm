@@ -20,7 +20,7 @@
  *	Edited	in 2019-06-13 by Irra 	- Added 'drop_organ'
  */
 
-/obj/item/organ/proc/drop_organ(mob/living/carbon/human/past_owner = null, var/obj/item/organ/external/parent = null)
+/obj/item/organ/proc/drop_organ(mob/living/carbon/human/past_owner = null, obj/item/organ/external/parent = null)
 	if (past_owner)
 		owner = past_owner
 

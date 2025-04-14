@@ -63,12 +63,13 @@
 	return
 
 /obj/structure/bed/nest/use_tool(obj/item/W, mob/living/user, list/click_params)
-	var/aforce = W.force
-	health = max(0, health - aforce)
-	playsound(loc, 'sound/effects/attackblob.ogg', 100, 1)
-	for(var/mob/M in viewers(src, 7))
-		M.show_message("<span class='warning'>[user] hits [src] with [W]!</span>", 1)
-	healthcheck()
+	if(W.force)
+		health = max(0, health - W.force)
+		playsound(loc, 'sound/effects/attackblob.ogg', 100, 1)
+		for(var/mob/M in viewers(src, 7))
+			M.show_message("<span class='warning'>[user] hits [src] with [W]!</span>", 1)
+		healthcheck()
+	return ..()
 
 /obj/structure/bed/nest/proc/healthcheck()
 	if(health <=0)

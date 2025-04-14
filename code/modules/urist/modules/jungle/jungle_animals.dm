@@ -324,7 +324,7 @@
 	if(.)
 		holder.custom_emote(1,"hisses wickedly")
 
-/mob/living/simple_animal/hostile/snake/UnarmedAttack(atom/A, var/proximity)
+/mob/living/simple_animal/hostile/snake/UnarmedAttack(atom/A, proximity)
 	. =..()
 	if(istype(A, /mob/living/carbon))
 		var/mob/living/carbon/L = A

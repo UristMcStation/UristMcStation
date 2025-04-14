@@ -59,15 +59,8 @@
 				)
 			var/obj/item/stack/material/plastic/stack = new(loc, 30)
 			transfer_fingerprints_to(stack)
-			qdel(src)
-		return
-
-		user.visible_message(
-			SPAN_NOTICE("\The [user] deconstructs \the [src] with \a [tool]."),
-			SPAN_NOTICE("You deconstruct \the [src] with \the [tool].")
-		)
-		qdel_self()
-		return TRUE
+			qdel_self()
+			return TRUE
 
 	// Screwdriver - Toggle airflow
 	if (isScrewdriver(tool))

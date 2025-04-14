@@ -288,6 +288,8 @@
 		qdel(src)
 		return TRUE
 
+	return ..()
+
 /obj/item/improvised/mbrick/sharp
 	name = "sharp Millwall brick"
 	desc = "two newspapers folded and rolled together around a sharp object to create an improvised weapon."

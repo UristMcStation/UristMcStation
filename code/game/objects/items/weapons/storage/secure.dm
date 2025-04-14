@@ -327,7 +327,7 @@
 /obj/item/storage/secure/alert_safe/attack_self(mob/user as mob)
 	ui_interact(user)
 
-/obj/item/storage/secure/alert_safe/emag_act(remaining_charges, var/mob/user, var/feedback)
+/obj/item/storage/secure/alert_safe/emag_act(remaining_charges, mob/user, feedback)
 	if(..())
 		STOP_PROCESSING(SSobj, src)
 		GLOB.alert_locked -= src	//Remove it from the GLOB list so further alert changes have no effect
@@ -339,7 +339,7 @@
 		return 0
 	. = ..()
 
-/obj/item/storage/secure/alert_safe/handle_item_insertion(obj/item/W, var/prevent_warning = 0, var/NoUpdate = 0)
+/obj/item/storage/secure/alert_safe/handle_item_insertion(obj/item/W, prevent_warning = 0, NoUpdate = 0)
 	. = ..()
 	if(.)
 		if(W.type in registered_gear)
@@ -351,7 +351,7 @@
 		if(W.type in registered_gear)
 			registered_gear[W.type]["current"]--
 
-/obj/item/storage/secure/alert_safe/ui_interact(mob/user, ui_key="main", datum/nanoui/ui = null, var/force_open = 1)
+/obj/item/storage/secure/alert_safe/ui_interact(mob/user, ui_key="main", datum/nanoui/ui = null, force_open = 1)
 	user.set_machine(src)
 
 	var/data[0]
@@ -380,7 +380,7 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/item/storage/secure/alert_safe/OnTopic(mob/user, var/list/href_list, state)
+/obj/item/storage/secure/alert_safe/OnTopic(mob/user, list/href_list, state)
 	if(..())
 		return 1
 	if(!allowed(user))

@@ -176,7 +176,7 @@
 		return 1
 	return 0
 
-/turf/simulated/wall/cult/New(newloc, var/reinforce = 0)
+/turf/simulated/wall/cult/New(newloc, reinforce = 0)
 	..(newloc, MATERIAL_CULT, reinforce ? MATERIAL_REINFORCED_CULT : null)
 
 /turf/simulated/wall/cult/reinf/New(newloc)

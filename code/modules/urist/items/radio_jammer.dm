@@ -145,6 +145,8 @@ var/global/list/active_radio_jammers = list()
 		qdel(src)
 		return TRUE
 
+	return ..()
+
 /obj/item/device/radio_jammer_urist/improvised/toggle(mob/user)
 	if(!active)
 		if(!cell)

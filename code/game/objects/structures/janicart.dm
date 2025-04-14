@@ -134,7 +134,7 @@
 	if(istype(tool, /obj/item/clothing/mask/plunger) && !myplunger)
 		if(!user.unEquip(tool, src))
 			FEEDBACK_UNEQUIP_FAILURE(tool, src)
-			return
+			return TRUE
 		myplunger = tool
 		update_icon()
 		updateUsrDialog()
@@ -143,7 +143,7 @@
 	else if(istype(tool, /obj/item/gun) && !mygun)
 		if(!user.unEquip(tool, src))
 			FEEDBACK_UNEQUIP_FAILURE(tool, src)
-			return
+			return TRUE
 		mygun = tool
 		update_icon()
 		updateUsrDialog()
@@ -152,7 +152,7 @@
 	else if(istype(tool, /obj/item/device/lightreplacer) && !myreplacer)
 		if(!user.unEquip(tool, src))
 			FEEDBACK_UNEQUIP_FAILURE(tool, src)
-			return
+			return TRUE
 
 		myreplacer = tool
 		update_icon()

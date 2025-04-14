@@ -11,7 +11,7 @@
 	time_to_live = 1500
 
 
-/obj/effect/smoke/chill_mist/affect(var/mob/living/carbon/M)
+/obj/effect/smoke/chill_mist/affect(mob/living/carbon/M)
 	// This DELIBERATELY ignores normal smoke protection checks and has no clothes checks;
 	// it's supposed to be an unnaturally cold fog
 
@@ -51,7 +51,7 @@
 	name = "DISTORTION: Chill Fog"
 
 
-/datum/power/revenant/distortion/fog_cold/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/fog_cold/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -90,7 +90,7 @@
 	name = "DISTORTION: Fogweaver"
 
 
-/datum/power/revenant/distortion/fog_plain/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/fog_plain/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 

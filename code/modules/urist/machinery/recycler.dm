@@ -33,7 +33,7 @@ var/global/const/SAFETY_COOLDOWN = 100
 	update_icon()
 
 
-/obj/machinery/recycler/use_tool(obj/item/I, var/mob/user, click_params)
+/obj/machinery/recycler/use_tool(obj/item/I, mob/user, click_params)
 	add_fingerprint(user)
 
 	if(istype(I, /obj/item/card/emag) && !emagged)
@@ -94,7 +94,7 @@ var/global/const/SAFETY_COOLDOWN = 100
 			playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 			AM.loc = src.loc
 
-/obj/machinery/recycler/proc/recycle(obj/item/I, var/sound = 1)
+/obj/machinery/recycler/proc/recycle(obj/item/I, sound = 1)
 	I.loc = src.loc
 	if(!istype(I, /obj/item/disk/nuclear))
 		qdel(I)

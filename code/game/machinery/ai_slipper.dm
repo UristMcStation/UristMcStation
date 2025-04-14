@@ -24,7 +24,7 @@
 	else
 		overlays = null
 
-/obj/machinery/ai_slipper/proc/setState(enabled, var/uses)
+/obj/machinery/ai_slipper/proc/setState(enabled, uses)
 	src.disabled = disabled
 	src.uses = uses
 	src.power_change()

@@ -154,6 +154,7 @@
 	return
 
 /obj/vehicle/emp_act(severity)
+	SHOULD_CALL_PARENT(FALSE) //idk if this one should ignore it, don't really care rn.
 	var/was_on = on
 	stat |= MACHINE_STAT_EMPED
 	var/obj/overlay/pulse2 = new /obj/overlay(loc)
@@ -171,6 +172,7 @@
 		stat &= ~MACHINE_STAT_EMPED
 		if(was_on)
 			turn_on()
+
 
 /obj/vehicle/attack_ai(mob/user as mob)
 	return
@@ -251,7 +253,7 @@
 		turn_on()
 		return
 
-/obj/vehicle/proc/insert_cell(obj/item/cell/C, var/mob/living/carbon/human/H)
+/obj/vehicle/proc/insert_cell(obj/item/cell/C, mob/living/carbon/human/H)
 	if(cell)
 		return
 	if(!istype(C))
@@ -317,7 +319,7 @@
 	return 1
 
 
-/obj/vehicle/proc/unload(mob/user, var/direction)
+/obj/vehicle/proc/unload(mob/user, direction)
 	if(!load)
 		return
 
@@ -374,7 +376,7 @@
 /obj/vehicle/proc/update_stats()
 	return
 
-/obj/vehicle/attack_generic(mob/user, var/damage, var/attack_message)
+/obj/vehicle/attack_generic(mob/user, damage, attack_message)
 	if(!damage)
 		return
 	visible_message("<span class='danger'>\The [user] [attack_message] the \the [src]!</span>")

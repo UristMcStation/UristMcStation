@@ -20,7 +20,7 @@
 	return
 
 
-/datum/admins/proc/throw_into_deepmaint(var/mob/M)
+/datum/admins/proc/throw_into_deepmaint(mob/M)
 	set category = "Fun"
 	set desc = "Throws the target into Deepmaint."
 	set name = "Send to DeepmaintRooms"

@@ -40,7 +40,7 @@
 	var/wfc_has_variantlink = FALSE
 
 
-/turf/deepmaint/plating/New(var/atom/loc)
+/turf/deepmaint/plating/New(atom/loc)
 	..(loc)
 
 	if(isnull(associated_wfc_overwritables))
@@ -135,7 +135,7 @@
 	var/improbability = 10
 
 
-/turf/deepmaint/wall/probably/New(var/atom/loc, var/improbability_override = null)
+/turf/deepmaint/wall/probably/New(atom/loc, improbability_override = null)
 	var/wall_improba = (isnull(improbability_override) ? src.improbability : improbability_override)
 
 	if(prob(wall_improba))

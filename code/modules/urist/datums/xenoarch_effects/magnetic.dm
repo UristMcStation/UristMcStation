@@ -17,7 +17,7 @@
 	effectrange = max(effectrange, 3) // useless otherwise
 
 
-/datum/artifact_effect/magnetic/DoEffectGeneric(atom/location, var/mob/ignore_mob = null)
+/datum/artifact_effect/magnetic/DoEffectGeneric(atom/location, mob/ignore_mob = null)
 	var/true_holder = location || src.holder
 
 	if(isnull(true_holder))

@@ -222,6 +222,9 @@
 	if(isWrench(W))
 		user.visible_message("/The [user] destroys the truss.", "You destroy the truss.")
 		qdel(src)
+		return TRUE
+
+	return ..()
 
 #undef CARCASS_EMPTY
 #undef CARCASS_FRESH

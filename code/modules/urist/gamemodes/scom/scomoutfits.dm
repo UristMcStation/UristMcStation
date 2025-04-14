@@ -46,7 +46,7 @@
 	var/team3uniform = /obj/item/clothing/under/urist/scom/s3
 	var/team4uniform = /obj/item/clothing/under/urist/scom/s4
 
-/singleton/hierarchy/outfit/scom/squaddie/equip(mob/living/carbon/human/H, rank, var/assignment, var/teamnum, equip_adjustments)
+/singleton/hierarchy/outfit/scom/squaddie/equip(mob/living/carbon/human/H, rank, assignment, teamnum, equip_adjustments)
 	if(teamnum)
 		if(teamnum == 1)
 			uniform = team1uniform

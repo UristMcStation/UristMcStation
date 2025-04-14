@@ -167,8 +167,13 @@
 		target.overlays -= image_overlay
 	qdel(src)
 
-/obj/item/plastique/alienexplosive/use_tool(obj/item/I, var/mob/user, click_params)
-	return
+/obj/item/plastique/alienexplosive/use_tool(obj/item/I, mob/user, click_params)
+	if(isScrewdriver(I))
+		return TRUE
+	if (isWirecutter(I) || isMultitool(I) || istype(I, /obj/item/device/assembly/signaler ))
+		return TRUE
+	else
+		return ..()
 
 /obj/item/clothing/under/lactera
 	name = "lactera hide"

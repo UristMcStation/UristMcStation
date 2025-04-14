@@ -83,7 +83,7 @@
 	else
 		return 2	//ID but no access
 
-/obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 
 	var/data[0]
 	data["state"] = display_state
@@ -218,7 +218,7 @@
 		ui.open()
 		ui.set_auto_update(0)
 
-/obj/machinery/computer/accounts/OnTopic(mob/user, var/list/href_list, state)
+/obj/machinery/computer/accounts/OnTopic(mob/user, list/href_list, state)
 	if(..())
 		return ..()
 
@@ -554,7 +554,7 @@
 
 	return TOPIC_NOACTION
 
-/obj/machinery/computer/accounts/proc/email_client(address, var/txt, var/sending = EMAIL_FINANCE)
+/obj/machinery/computer/accounts/proc/email_client(address, txt, sending = EMAIL_FINANCE)
 	if(!address || !txt)
 		return
 	var/datum/computer_file/data/email_account/server = ntnet_global.find_email_by_name(sending)
@@ -569,7 +569,7 @@
 	message.source = server.login
 	server.send_mail(address, message)
 
-/obj/machinery/computer/accounts/proc/addLog(action, var/details, var/obj/item/card/id/auth_card)
+/obj/machinery/computer/accounts/proc/addLog(action, details, obj/item/card/id/auth_card)
 	if(!details || !action || !auth_card)
 		return
 	var/log = "\[[stationdate2text()] [stationtime2text()]] - [auth_card.registered_name] ([auth_card.assignment]) - \[[action]]: [details]"

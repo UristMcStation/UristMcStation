@@ -177,7 +177,7 @@
 	distortion_threshold = 54000 // 45 mins
 
 
-/datum/power/revenant/distortion/bats/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/bats/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -401,7 +401,7 @@
 	attack_name = "vampire bite"
 
 
-/datum/unarmed_attack/bsrevenant_vampbite/is_usable(var/mob/living/carbon/human/user, var/mob/target, var/zone)
+/datum/unarmed_attack/bsrevenant_vampbite/is_usable(mob/living/carbon/human/user, mob/target, zone)
 	// Check if they have a functioning head
 	if(!istype(user))
 		return 0

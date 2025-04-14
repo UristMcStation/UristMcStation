@@ -250,7 +250,7 @@
 		if(targetcomponent.health <= 0)
 			targetcomponent.BlowUp()
 
-/obj/machinery/shipweapons/proc/TargetedHit(targetship, var/hull_damage, var/oc = FALSE)
+/obj/machinery/shipweapons/proc/TargetedHit(targetship, hull_damage, oc = FALSE)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
 	if(!targeted_component.broken)
 		targeted_component.health -= (hull_damage * component_modifier_high) //we do more damage for aimed shots
@@ -371,6 +371,7 @@
 	return
 
 /obj/machinery/shipweapons/emp_act()
+	SHOULD_CALL_PARENT(FALSE)
 	return
 
 #undef RECHARGING

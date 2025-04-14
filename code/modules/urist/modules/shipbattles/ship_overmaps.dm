@@ -260,7 +260,7 @@
 
 	T.leave_pvp_combat(!fled)	//Calls the other ship to leave. Won't loop back as target was cleared.
 
-/obj/overmap/visitable/ship/combat/proc/autoannounce(message, var/channel)	//Moved all combat announcements to call this proc instead. In future, other player ships might have their own frequencies
+/obj/overmap/visitable/ship/combat/proc/autoannounce(message, channel)	//Moved all combat announcements to call this proc instead. In future, other player ships might have their own frequencies
 	if(!message || !channel)
 		return
 	if(announcement_channel[channel])	//Stops any player ships without their own freq using the Nerva's, which would be wierd.
@@ -270,5 +270,5 @@
 	if(!target_zs)
 		target_zs = map_z
 
-/obj/overmap/visitable/ship/combat/proc/pve_mapfire(var/projectile_type)
+/obj/overmap/visitable/ship/combat/proc/pve_mapfire(projectile_type)
 	return

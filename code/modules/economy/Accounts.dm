@@ -43,7 +43,7 @@
 	var/datum/transaction/T = new(src, to_account, amount, purpose)
 	return T.perform()
 
-/datum/money_account/proc/is_credit(var/datum/transaction/T)
+/datum/money_account/proc/is_credit(datum/transaction/T)
 	if(!istype(T))
 		return
 
@@ -53,13 +53,13 @@
 	else
 		return (T.target == src && T.amount >= 0) || (T.source == src && T.amount <= 0)
 
-/datum/money_account/proc/get_transaction_amount(var/datum/transaction/T)
+/datum/money_account/proc/get_transaction_amount(datum/transaction/T)
 	if(!istype(T))
 		return
 
 	return is_credit(T) ? abs(T.amount) : abs(T.amount)*-1
 
-/datum/money_account/proc/get_transaction_ledger(var/datum/transaction/T)
+/datum/money_account/proc/get_transaction_ledger(datum/transaction/T)
 	if(!istype(T))
 		return
 

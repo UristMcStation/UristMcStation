@@ -927,7 +927,6 @@ var/global/list/obj/machinery/newscaster/allCasters = list() //Global list that 
 			scribble = s
 			attack_self(user)
 		return TRUE
-	return ..()
 	if(istype(W, /obj/item/newspaper))
 		var/obj/item/improvised/mbrick/S = new /obj/item/improvised/mbrick
 		user.remove_from_mob(W)
@@ -937,8 +936,8 @@ var/global/list/obj/machinery/newscaster/allCasters = list() //Global list that 
 		to_chat(user, "<span class='notice'>You roll and fold the two newspapers together to create an impromptu weapon.</span>")
 		del(W)
 		del(src)
-		return
-
+		return TRUE
+	return ..()
 
 ////////////////////////////////////helper procs
 

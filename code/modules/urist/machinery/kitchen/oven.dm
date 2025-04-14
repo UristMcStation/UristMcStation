@@ -18,21 +18,22 @@
 	updatefood()
 
 /obj/machinery/cooking/use_tool(obj/item/I, mob/living/user, list/click_params)
+	SHOULD_CALL_PARENT(FALSE)
 	if(on)
 		to_chat(user, "The machine is already running.")
-		return
+		return TRUE
 	if(!istype(I,/obj/item/reagent_containers/food/snacks))
 		to_chat(user, "That isn't food.")
-		return
+		return TRUE
 	if(!istype(I,/obj/item/reagent_containers/food/snacks/grown) && grown_only)
 		to_chat(user, "You can only still grown items.")
-		return
+		return TRUE
 	else
 		var/obj/item/reagent_containers/food/snacks/F = I
 		var/obj/item/reagent_containers/food/snacks/customizable/C
 		C = input("Select food to make.", "Cooking", C) in food_choices
 		if(!C)
-			return
+			return TRUE
 		else
 			to_chat(user, "You put [F] into [src] for [production_meth].")
 			user.drop_item()
@@ -46,7 +47,7 @@
 			C.use_tool(F, user, click_params)
 			playsound(loc, 'sound/machines/ding.ogg', 50, 1)
 			updatefood()
-			return
+			return TRUE
 
 /obj/machinery/cooking/proc/updatefood()
 	return

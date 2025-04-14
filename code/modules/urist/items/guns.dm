@@ -581,7 +581,7 @@ the sprite and make my own projectile -Glloyd*/
 				to_chat(user, "<span class='notice'>You place the piping on the stock.</span>")
 				buildstate++
 				update_icon()
-			return
+			return TRUE
 		if(1)
 			if(istype(W,/obj/item/stack/cable_coil))
 				var/obj/item/stack/cable_coil/C = W
@@ -591,13 +591,13 @@ the sprite and make my own projectile -Glloyd*/
 					update_icon()
 				else
 					to_chat(user, "<span class='notice'>You need at least ten segments of cable coil to complete this task.</span>")
-			return
+			return TRUE
 		if(2)
 			if(istype(W,/obj/item/screwdriver))
 				to_chat(user, "<span class='notice'>You further secure the barrel to the wooden furniture.</span>")
 				buildstate++
 				playsound(src.loc, 'sound/items/Screwdriver2.ogg', 100, 1)
-			return
+			return TRUE
 		if(3)
 			if(istype(W,/obj/item/stack/material) && W.get_material_name() == "plasteel")
 				var/obj/item/stack/material/P = W
@@ -607,13 +607,13 @@ the sprite and make my own projectile -Glloyd*/
 					playsound(src.loc, 'sound/items/Deconstruct.ogg', 100, 1)
 				else
 					to_chat(user, "<span class='notice'>You need at least five plasteel sheets to complete this task.</span>")
-			return
+			return TRUE
 		if(4)
 			if(istype(W,/obj/item/wrench))
 				to_chat(user, "<span class='notice'>You secure the reinforced barrel.</span>")
 				buildstate++
 				playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
-			return
+			return TRUE
 		if(5)
 			if(istype(W,/obj/item/stack/material) && W.get_material_name() == DEFAULT_WALL_MATERIAL)
 				var/obj/item/stack/material/P = W
@@ -624,13 +624,13 @@ the sprite and make my own projectile -Glloyd*/
 					playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
 			else
 				to_chat(user, "<span class='notice'>You need at least ten steel sheets to complete this task.</span>")
-			return
+			return TRUE
 		if(6)
 			if(istype(W,/obj/item/screwdriver))
 				to_chat(user, "<span class='notice'>You secure the metal reciever.</span>")
 				buildstate++
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
-			return
+			return TRUE
 		if(7)
 			if(istype(W,/obj/item/pipe))
 				user.drop_from_inventory(W)
@@ -639,7 +639,7 @@ the sprite and make my own projectile -Glloyd*/
 				buildstate++
 				playsound(src.loc, 'sound/items/syringeproj.ogg', 100, 1)
 				update_icon()
-			return
+			return TRUE
 		if(8)
 			if(istype(W,/obj/item/stack/material/rods))
 				var/obj/item/stack/material/rods/R = W
@@ -649,7 +649,7 @@ the sprite and make my own projectile -Glloyd*/
 					playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 				else
 					to_chat(user, "<span class='notice'>You need at least 3 rods to complete this task.</span>")
-			return
+			return TRUE
 		if(9)
 			if(istype(W,/obj/item/weldingtool))
 				var/obj/item/weldingtool/T = W
@@ -660,14 +660,14 @@ the sprite and make my own projectile -Glloyd*/
 				var/obj/item/gun/projectile/manualcycle/imprifle/emptymag = new /obj/item/gun/projectile/manualcycle/imprifle(get_turf(src))
 				emptymag.loaded = list()
 				qdel(src)
-				return
+				return TRUE
 			if(istype(W,/obj/item/circular_saw))
 				to_chat(user, "<span class='notice'>You saw the barrel on the unfinished improvised rifle down.</span>")
 				new /obj/item/imprifleframe/imprifleframesawn(get_turf(src))
 				playsound(src.loc, 'sound/weapons/circsawhit.ogg', 100, 1)
 				qdel(src)
-			return
-		else
+			return TRUE
+	return ..()
 
 /obj/item/imprifleframe/imprifleframesawn/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/weldingtool))
@@ -680,8 +680,8 @@ the sprite and make my own projectile -Glloyd*/
 			var/obj/item/gun/projectile/manualcycle/imprifle/impriflesawn/emptymag = new /obj/item/gun/projectile/manualcycle/imprifle/impriflesawn(get_turf(src))
 			emptymag.loaded = list()
 			qdel(src)
-		return
-	..()
+		return TRUE
+	return ..()
 /*
 /obj/item/gun/projectile/revolver/shotrevolver
 	name = "shot revolver"

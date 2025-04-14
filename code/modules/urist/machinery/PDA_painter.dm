@@ -43,7 +43,7 @@
 	if(istype(O, /obj/item/modular_computer/pda))
 		if(storedpda)
 			to_chat(user, "There is already a PDA inside.")
-			return
+			return TRUE
 		else
 			var/obj/item/modular_computer/pda/P = usr.get_active_hand()
 			if(istype(P))
@@ -52,6 +52,9 @@
 				P.loc = src
 				P.add_fingerprint(usr)
 				update_icon()
+				return TRUE
+
+	return ..()
 
 
 /obj/machinery/pdapainter/attack_hand(mob/user as mob)

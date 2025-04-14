@@ -6,6 +6,6 @@
 	anchored = TRUE
 
 
-/obj/deepmaint_light/New(var/atom/loc)
+/obj/deepmaint_light/New(atom/loc)
 	. = ..(loc)
 	set_light(0.2, 1, 3, l_color = LIGHT_COLOUR_E_RED)

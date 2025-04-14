@@ -42,7 +42,7 @@ GLOBAL_TYPED_NEW(malf, /datum/antagonist/rogue_ai)
 	return 0
 
 // Malf setup things have to be here, since game tends to break when it's moved somewhere else. Don't blame me, i didn't design this system.
-/datum/antagonist/rogue_ai/greet(datum/mind/player, var/skip_initial)
+/datum/antagonist/rogue_ai/greet(datum/mind/player, skip_initial)
 
 	// Initializes the AI's malfunction stuff.
 	spawn(0)

@@ -68,7 +68,7 @@
 	kickstand = !kickstand
 	anchored = (kickstand || on)
 
-/obj/vehicle/bike/proc/load_engine(obj/item/engine/E, var/mob/user)
+/obj/vehicle/bike/proc/load_engine(obj/item/engine/E, mob/user)
 	if(engine)
 		return
 	if(user && !user.unEquip(E))
@@ -102,7 +102,7 @@
 		engine.emp_act(severity)
 	..()
 
-/obj/vehicle/bike/insert_cell(obj/item/cell/C, var/mob/living/carbon/human/H)
+/obj/vehicle/bike/insert_cell(obj/item/cell/C, mob/living/carbon/human/H)
 	return
 
 /obj/vehicle/bike/use_tool(obj/item/W, mob/living/user, list/click_params)

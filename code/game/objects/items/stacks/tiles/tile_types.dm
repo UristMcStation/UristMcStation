@@ -24,7 +24,7 @@
 	item_flags = 0
 	obj_flags = 0
 
-/obj/item/stack/tile/use_tool(obj/item/I as obj, var/mob/user as mob, click_params)
+/obj/item/stack/tile/use_tool(obj/item/I as obj, mob/user as mob, click_params)
 	if(is_sharp(I) && throwforce < 20)
 		to_chat(user, SPAN_NOTICE("You begin to sharpen \the [src] with \the [I]."))
 		if(do_after(user, 30, src))

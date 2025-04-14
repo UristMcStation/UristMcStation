@@ -24,13 +24,13 @@ Obviously, requires DNA2.
 	..()
 	block = GLOB.HULKBLOCK
 
-/datum/dna/gene/basic/grant_spell/hulk/can_activate(mob/M,var/flags)
+/datum/dna/gene/basic/grant_spell/hulk/can_activate(mob/M,flags)
 	// Can't be big AND small.
 	if(mSmallsize in M.mutations)
 		return 0
 	return ..(M,flags)
 
-/datum/dna/gene/basic/grant_spell/hulk/OnDrawUnderlays(mob/M,var/g,var/fat)
+/datum/dna/gene/basic/grant_spell/hulk/OnDrawUnderlays(mob/M,g,fat)
 	if(MUTATION_HULK in M.mutations)
 		if(fat)
 			return "hulk_[fat]_s"
@@ -97,6 +97,6 @@ Obviously, requires DNA2.
 	..()
 	M.update_color()
 
-/datum/dna/gene/basic/noir/deactivate(mob/M,var/connected,var/flags)
+/datum/dna/gene/basic/noir/deactivate(mob/M,connected,flags)
 	..()
 	M.update_color()

@@ -32,72 +32,91 @@
 			put_in_cart(I, user)
 			myglass=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/stack/material/steel))
 		if(!mymetal)
 			put_in_cart(I, user)
 			mymetal=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/stack/material/plasteel))
 		if(!myplasteel)
 			put_in_cart(I, user)
 			myplasteel=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/device/flashlight))
 		if(!myflashlight)
 			put_in_cart(I, user)
 			myflashlight=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/storage/toolbox/mechanical))
 		if(!mybluetoolbox)
 			put_in_cart(I, user)
 			mybluetoolbox=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/storage/toolbox/electrical))
 		if(!myyellowtoolbox)
 			put_in_cart(I, user)
 			myyellowtoolbox=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/storage/toolbox/emergency))
 		if(!myredtoolbox)
 			put_in_cart(I, user)
 			myredtoolbox=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/taperoll/engineering))
 		if(!myengitape)
 			put_in_cart(I, user)
 			myengitape=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/storage/briefcase/inflatable))
 		if(!myinflate)
 			put_in_cart(I, user)
 			myinflate=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
+	return ..()
 
 /obj/structure/engineeringcart/attack_hand(mob/user)
 	user.set_machine(src)

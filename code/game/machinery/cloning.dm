@@ -245,7 +245,7 @@
 	else
 		..()
 
-/obj/machinery/clonepod/emag_act(remaining_charges, var/mob/user)
+/obj/machinery/clonepod/emag_act(remaining_charges, mob/user)
 	if(isnull(occupant))
 		return NO_EMAG_ACT
 	to_chat(user, "You force an emergency ejection.")

@@ -11,7 +11,7 @@
 
 // This is a generic proc that should be called by other revenant weapon procs to equip them.
 // Blatantly ripped off from Ling :^)
-/mob/proc/bsrevenant_generic_weapon(var/weapon_type, var/make_sound = 1, var/cost = BSR_DISTORTION_GROWTH_OVER_MINUTES(5, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK), var/paincost = 50)
+/mob/proc/bsrevenant_generic_weapon(weapon_type, make_sound = 1, cost = BSR_DISTORTION_GROWTH_OVER_MINUTES(5, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK), paincost = 50)
 	var/datum/bluespace_revenant/revenant = src?.mind?.bluespace_revenant
 	if(!revenant)
 		return
@@ -80,7 +80,7 @@
 	name = "DISTORTION - Wallrot"
 
 
-/datum/power/revenant/distortion/wallrot/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/wallrot/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -294,7 +294,7 @@
 	name = "DISTORTION - Gross"
 
 
-/datum/power/revenant/distortion/gross/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/gross/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -334,7 +334,7 @@
 	distortion_threshold = 24000 // 20 mins
 
 
-/datum/power/revenant/distortion/bloodymess/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/bloodymess/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 

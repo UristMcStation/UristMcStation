@@ -31,7 +31,7 @@
 
 /datum/dna/gene/basic/stealth
 
-/datum/dna/gene/basic/stealth/can_activate(mob/M, var/flags)
+/datum/dna/gene/basic/stealth/can_activate(mob/M, flags)
 	// Can only activate one of these at a time.
 	if(is_type_in_list(/datum/dna/gene/basic/stealth,M.active_genes))
 		testing("Cannot activate [type]: /datum/dna/gene/basic/stealth in M.active_genes.")
@@ -84,13 +84,13 @@
 /datum/dna/gene/basic/grant_spell
 	var/spell/spelltype //TODO: might need to convert it to a list later
 
-/datum/dna/gene/basic/grant_spell/activate(mob/M, var/connected, var/flags)
+/datum/dna/gene/basic/grant_spell/activate(mob/M, connected, flags)
 	..()
 	M.add_spell(src.spelltype, "genetic_spell_ready")
 	return 1
 
 
-/datum/dna/gene/basic/grant_spell/deactivate(mob/M, var/connected, var/flags)
+/datum/dna/gene/basic/grant_spell/deactivate(mob/M, connected, flags)
 	..()
 	M.remove_spell(src.spelltype)
 	return 1
@@ -98,12 +98,12 @@
 /datum/dna/gene/basic/grant_verb
 	var/verbtype
 
-/datum/dna/gene/basic/grant_verb/activate(mob/M, var/connected, var/flags)
+/datum/dna/gene/basic/grant_verb/activate(mob/M, connected, flags)
 	..()
 	M.verbs += verbtype
 	return 1
 
-/datum/dna/gene/basic/grant_verb/deactivate(mob/M, var/connected, var/flags)
+/datum/dna/gene/basic/grant_verb/deactivate(mob/M, connected, flags)
 	..()
 	M.verbs -= verbtype
 
@@ -171,7 +171,7 @@
 	desc = ""
 	//layer = 15
 
-/obj/urist_intangible/effects/self_deleting/New(atom/location, var/icon/I, var/duration = 20, var/oname = "something")
+/obj/urist_intangible/effects/self_deleting/New(atom/location, icon/I, duration = 20, oname = "something")
 	..()
 	src.name = oname
 	loc=location

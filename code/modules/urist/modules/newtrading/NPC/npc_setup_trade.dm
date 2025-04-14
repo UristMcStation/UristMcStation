@@ -37,7 +37,7 @@
 		if(!success)
 			break
 
-/mob/living/simple_animal/passive/npc/proc/spawn_trade_item(datum/trade_item/I, var/hidden = 0)
+/mob/living/simple_animal/passive/npc/proc/spawn_trade_item(datum/trade_item/I, hidden = 0)
 	if(!I)
 		return
 

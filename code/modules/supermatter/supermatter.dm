@@ -259,7 +259,7 @@
 
 /obj/machinery/power/supermatter/examine(mob/user)
 	. = ..()
-	if("Engineer" in user.mind.assigned_role || "Chief Engineer" in user.mind.assigned_role)
+	if(("Engineer" in user.mind.assigned_role ) || ("Chief Engineer" in user.mind.assigned_role))
 		var/integrity_message
 		switch(get_integrity())
 			if(0 to 30)

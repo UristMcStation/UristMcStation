@@ -39,7 +39,7 @@
 	distortion_threshold = 12000 // 10 mins
 
 
-/datum/power/revenant/bs_power/chaotic_reroll/Activate(var/datum/mind/M)
+/datum/power/revenant/bs_power/chaotic_reroll/Activate(datum/mind/M)
 	. = ..(M)
 
 	if(!.)

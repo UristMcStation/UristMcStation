@@ -111,6 +111,12 @@
 /obj/paint_stripe/gunmetal
 	color = COLOR_GUNMETAL
 
+/obj/paint_stripe/beige
+	color = COLOR_BEIGE
+
+/obj/paint_stripe/sun
+	color = COLOR_SUN
+
 /obj/gas_setup	//cryogenic
 	icon = 'icons/mob/screen1.dmi'
 	icon_state = "x3"

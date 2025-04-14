@@ -276,7 +276,7 @@
 	var/obj/item/organ/external/applied
 	var/mob/living/carbon/human/H
 
-/obj/item/pressure/New(newloc, var/mob/user, var/obj/item/organ/external/O)
+/obj/item/pressure/New(newloc, mob/user, obj/item/organ/external/O)
 	..(newloc)
 	if(!O || !user || !O.owner)
 		qdel(src)

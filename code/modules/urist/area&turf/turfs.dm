@@ -144,18 +144,22 @@ transit/east is the same thing now AFAIK
 
 /turf/simulated/floor/plating/airless/catwalk/use_tool(obj/item/C, mob/living/user, list/click_params)
 	if(!C || !user)
-		return 0
+		return TRUE
+
 	if(isScrewdriver(C))
 		ReplaceWithLattice()
 		playsound(src, 'sound/items/Screwdriver.ogg', 80, 1)
-		return
+		return TRUE
 
 	if(isCoil(C))
 		var/obj/item/stack/cable_coil/coil = C
 		coil.PlaceCableOnTurf(src, user)
+		return TRUE
+
+	return ..()
 
 /turf/simulated/floor/plating/airless/catwalk/is_catwalk()
-	return 1
+	return TRUE
 
 //moon turfs for nien
 
@@ -283,11 +287,11 @@ transit/east is the same thing now AFAIK
 	icon = 'icons/urist/turf/floorsplus.dmi'
 	icon_state = "innermiddle"
 
-/turf/simulated/floor/fixed/destroyedroad/use_tool(obj/item/C, var/mob/user, click_params)
+/turf/simulated/floor/fixed/destroyedroad/use_tool(obj/item/C, mob/user, click_params)
+	SHOULD_CALL_PARENT(FALSE)
 	if(isCrowbar(C))
 		to_chat(user, "<span class='notice'>There aren't any openings big enough to pry it away...</span>")
 		return TRUE
-	return FALSE
 
 /turf/simulated/floor/fixed/destroyedroad/ex_act(severity)
 	return

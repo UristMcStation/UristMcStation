@@ -76,11 +76,11 @@
 /obj/machinery/scom/scomscience/use_tool(obj/item/O, mob/living/user, list/click_params)
 	if (busy)
 		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
-		return
+		return TRUE
 
 	if(!science_capable)
 		to_chat(user, "<span class='notice'>\The [src] is not designed for deconstruction!.</span>")
-		return
+		return TRUE
 
 	if(O.scomtechlvl > scomtechlvl)
 		scomtechlvl = O.scomtechlvl
@@ -106,6 +106,8 @@
 	qdel(O)
 
 	updateUsrDialog()
+
+	return ..()
 
 /obj/machinery/scom/scomscience/attack_hand(mob/user as mob)
 	user.set_machine(src)

@@ -116,7 +116,7 @@
 
 		return TRUE
 
-	return FALSE
+	return ..()
 
 /obj/item/cell/proc/get_electrocute_damage()
 	switch (charge)

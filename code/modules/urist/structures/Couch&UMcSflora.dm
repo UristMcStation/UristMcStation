@@ -10,7 +10,7 @@
 /obj/structure/bed/chair/couch/on_update_icon()
 	return
 
-/obj/structure/bed/chair/couch/New(newloc,var/newmaterial)
+/obj/structure/bed/chair/couch/New(newloc,newmaterial)
 //	..(newloc,"steel","black")
 
 	if(couchpart == 1)
@@ -146,9 +146,10 @@
 	layer = 9
 
 /obj/structure/flora/pottedplant/Nienplants/Glloydtree/use_tool(obj/item/I, mob/living/user, list/click_params)
+	SHOULD_CALL_PARENT(FALSE)
 	if(istype(I, /obj/item/carpentry/axe))
 		to_chat(user, "<span class='notice'>Your axe bounces off the tree! Holy shit, is it metal? Cheapass Nanotrasen corporate bastards.</span>")
-		return
+		return TRUE
 
 //Putting this here because of stupid flora code -Glloyd //back when i signed things. why did i do this? why am i writing comments now? probably cause i'm a little drunk. but this file hasn't been touched in ages, so fuck it.
 /obj/structure/flora/pottedplant/Nienplants/plant

@@ -12,7 +12,7 @@
 /obj/rune/revenant
 
 
-/obj/rune/revenant/attack_hand(var/mob/living/user)
+/obj/rune/revenant/attack_hand(mob/living/user)
 	if(istype(user.wear_mask, /obj/item/clothing/mask/muzzle) || user.silent)
 		to_chat(user, "You are unable to speak the words of the rune.")
 		return
@@ -58,7 +58,7 @@
 	return TRUE
 
 
-/obj/rune/revenant/ward/cast(var/mob/living/user)
+/obj/rune/revenant/ward/cast(mob/living/user)
 	if(!istype(user))
 		return
 
@@ -76,7 +76,7 @@
 	return
 
 
-/obj/rune/revenant/ward/proc/register_ward(var/datum/bluespace_revenant/revenant)
+/obj/rune/revenant/ward/proc/register_ward(datum/bluespace_revenant/revenant)
 	// Add a weakref to a rune to a tracker so that we can track their count and grant Suppression for each over time.
 
 	if(!istype(revenant))
@@ -158,7 +158,7 @@
 	activate_message = "<span class='notice'>You remember an intricate pattern that will slow your Distortion growth for a while when drawn on the floor in blood. This scales for each active rune.</span>"
 
 
-/datum/bluespace_revenant/proc/ProcessRuneWards(var/ticks = 1)
+/datum/bluespace_revenant/proc/ProcessRuneWards(ticks = 1)
 	if(isnull(src.trackers))
 		src.trackers = list()
 
@@ -209,7 +209,7 @@
 	return effective_suppression_total
 
 
-/datum/power/revenant/bs_hunger/rune_wards/Activate(var/datum/mind/M)
+/datum/power/revenant/bs_hunger/rune_wards/Activate(datum/mind/M)
 	. = ..(M)
 
 	if(!.)
@@ -236,7 +236,7 @@
 	name = "DISTORTION: Cultify"
 
 
-/datum/power/revenant/distortion/cultify/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/cultify/Apply(atom/A, datum/bluespace_revenant/revenant)
 	var/mob/M = A
 	var/turf/T = A
 
@@ -250,7 +250,7 @@
 
 
 
-/proc/bsrevenant_veiltear_helper(var/atom/A, var/datum/bluespace_revenant/revenant, var/list/mobselection_override = null, var/faction_override = null)
+/proc/bsrevenant_veiltear_helper(atom/A, datum/bluespace_revenant/revenant, list/mobselection_override = null, faction_override = null)
 	if(!istype(A))
 		return
 
@@ -314,7 +314,7 @@
 	distortion_threshold = 36000 // 30 mins
 
 
-/datum/power/revenant/distortion/veil_tear/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/veil_tear/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -389,7 +389,7 @@
 	name = "DISTORTION - Sigils"
 
 
-/datum/power/revenant/distortion/sigilspam/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/sigilspam/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -422,7 +422,7 @@
 	distortion_threshold = 24000 // 20 mins
 
 
-/datum/power/revenant/distortion/haunters/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/haunters/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 

@@ -120,7 +120,7 @@
 
 	return 0
 
-/singleton/species/xenos/hug(mob/living/carbon/human/H,var/mob/living/target)
+/singleton/species/xenos/hug(mob/living/carbon/human/H, mob/living/target)
 	H.visible_message("<span class='notice'>[H] caresses [target] with countless prickling, needle-like legs.</span>", \
 					"<span class='notice'>You caress [target] with countless prickling, needle-like legs.</span>")
 

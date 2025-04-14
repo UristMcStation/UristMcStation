@@ -48,11 +48,12 @@
 		if(indestructable)
 			//this bush marks the edge of the map, you can't destroy it
 			to_chat(user, "<span class='warning'> You flail away at the undergrowth, but it's too thick here.</span>")
-			return
+			return TRUE
 
 		if(stump)
 			to_chat(user, "<span class='notice'> You clear away the stump.</span>")
 			qdel(src)
+			return TRUE
 
 		else if(!stump)
 			user.visible_message("<span class='danger'>[user] begins clearing away [src].</span>","<span class='danger'>You begin clearing away [src].</span>")
@@ -60,7 +61,7 @@
 				to_chat(user, "<span class='notice'> You clear away [src].</span>")
 //					var/obj/item/stack/material/wood/W = new(src.loc) //was fun for testing, but no longer.
 //					W.amount = rand(3,15)
-				if(prob(50))
+				if(prob(25))
 //						icon_state = "stump[rand(1,2)]" //time to resprite stumps.
 					name = "cleared foliage"
 					desc = "There used to be dense undergrowth here."
@@ -70,9 +71,12 @@
 					pixel_x = rand(-6,6)
 					pixel_y = rand(-6,6)
 					icon_state = "[icon_state]-stump"
-
+					return TRUE
 				else
-					qdel(src)
+					qdel_self()
+					return TRUE
+
+	return ..()
 
 /obj/structure/bush/do_climb(mob/living/user)
 	if (!can_climb(user))
@@ -183,7 +187,11 @@ var/global/jungle_plants_init = 0
 				to_chat(user, "<span class='notice'> You clear away [src].</span>")
 				new/obj/item/reagent_containers/food/snacks/grown/jungle_fruit(src.loc)
 				new/obj/item/reagent_containers/food/snacks/grown/jungle_fruit(src.loc)
-				qdel(src)
+				qdel_self()
+		return TRUE
+
+	return ..()
+
 //reeds
 
 /obj/structure/flora/reeds
@@ -210,7 +218,11 @@ var/global/jungle_plants_init = 0
 		spawn(rand(5,10))
 			if(get_dist(user,src) < 2)
 				to_chat(user, "<span class='notice'> You clear away [src].</span>")
-				qdel(src)
+				qdel_self()
+		return TRUE
+
+	else
+		return ..()
 
 //arid
 

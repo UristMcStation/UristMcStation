@@ -1012,7 +1012,7 @@
 	overdose = 10
 	metabolism = 0.1
 
-/datum/reagent/latrazine/affect_blood(mob/living/carbon/human/M, var/alien, var/removed)
+/datum/reagent/latrazine/affect_blood(mob/living/carbon/human/M, alien, removed)
 	var/obj/item/organ/external/E = pick(M.bad_external_organs)
 	if(E.status & ORGAN_BROKEN && prob(40))
 		E.status &= ~ORGAN_BROKEN

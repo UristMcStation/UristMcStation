@@ -256,7 +256,7 @@
 	for(var/areatype in areas_without_camera)
 		log_debug("* [areatype]")
 
-/client/proc/cmd_admin_dress(var/mob/living/carbon/human/H in GLOB.human_mobs)
+/client/proc/cmd_admin_dress(mob/living/carbon/human/H in GLOB.human_mobs)
 	set category = "Fun"
 	set name = "Select equipment"
 

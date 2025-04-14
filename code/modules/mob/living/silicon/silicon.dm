@@ -281,7 +281,7 @@
 	apply_damage(brute, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_EXPLODE)
 	apply_damage(burn, DAMAGE_BURN, damage_flags = DAMAGE_FLAG_EXPLODE)
 
-/mob/living/silicon/proc/receive_alarm(var/datum/alarm_handler/alarm_handler, var/datum/alarm/alarm, was_raised)
+/mob/living/silicon/proc/receive_alarm(datum/alarm_handler/alarm_handler, datum/alarm/alarm, was_raised)
 	if(!(alarm.alarm_z() in GetConnectedZlevels(get_z(src))))
 		return // Didn't actually hear it as far as we're concerned.
 	if(!next_alarm_notice)

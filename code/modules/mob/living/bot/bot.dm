@@ -588,7 +588,7 @@
 	return L
 
 //Checks for directional blockages at the base of the stairs leading up, open space above, and that nothing is blocking the exit point. Returns 1 on fail
-/proc/LinkBlockedAbove(turf/lower, var/turf/simulated/open/upper, var/dir)
+/proc/LinkBlockedAbove(turf/lower, turf/simulated/open/upper, dir)
 	if(!istype(upper))
 		return 1
 

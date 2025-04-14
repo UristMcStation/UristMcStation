@@ -83,7 +83,7 @@
 // Unused by the base class, but factored out for common behavior in independent subclasses
 */
 
-/obj/urist_intangible/haunter/proc/ChaseMobTarget(mob/M, var/prob_random = 10, var/min_dist = 1)
+/obj/urist_intangible/haunter/proc/ChaseMobTarget(mob/M, prob_random = 10, min_dist = 1)
 	// factored out to reuse across different chasey types
 	var/turf/next_pos = null
 	var/clamped_odds = clamp(prob_random, 0, 100)

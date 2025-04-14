@@ -228,7 +228,7 @@
 	..()
 	updatehealth()
 
-/mob/living/simple_animal/say(message, var/language)
+/mob/living/simple_animal/say(message, language)
 	var/verb = "says"
 	if(length(speak_emote))
 		verb = pick(speak_emote)

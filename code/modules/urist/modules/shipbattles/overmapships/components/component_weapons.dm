@@ -16,7 +16,7 @@
 	if(ready && !broken)
 		Fire()
 
-/datum/shipcomponents/weapons/proc/Fire(var/turf/start_turf, var/turf/target_turf, var/target_edge, var/target_z) //now infinitely less hacky and broken
+/datum/shipcomponents/weapons/proc/Fire(turf/start_turf, turf/target_turf, target_edge, target_z) //now infinitely less hacky and broken
 	if(broken || !projectile_type) //check one more time, just in case. doing it this way can stop salvo fire mid salvo
 		return
 
@@ -54,7 +54,7 @@
 					Fire(start_turf, null, target_edge, target_z) //doing this so we fire from the same spot at different targets.
 																//this gets us sustained fire on parts of the ship instead of a straight line of rockets, or the random scatter we had in the distant past.
 
-/datum/shipcomponents/weapons/proc/locate_target(var/target_z)
+/datum/shipcomponents/weapons/proc/locate_target(target_z)
 	var/target_x = rand(mastership.target_ship.target_x_bounds[1],mastership.target_ship.target_x_bounds[2])
 	var/target_y = rand(mastership.target_ship.target_y_bounds[1],mastership.target_ship.target_y_bounds[2])
 

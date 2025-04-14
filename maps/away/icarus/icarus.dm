@@ -79,7 +79,7 @@
 /obj/structure/icarus/broken_cryo/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if (busy)
 		to_chat(user, "<span class='notice'>Someone else is attempting to open this.</span>")
-		return
+		return TRUE
 	if (closed)
 		if (isCrowbar(W))
 			busy = 1
@@ -87,7 +87,7 @@
 			if (!do_after(user, 50, src))
 				visible_message("[user] stops trying to pry the glass off of \the [src].")
 				busy = 0
-				return
+				return TRUE
 			closed = 0
 			busy = 0
 			icon_state = "broken_cryo_open"
@@ -95,6 +95,7 @@
 			dead.dir = src.dir//skeleton is oriented as cryo
 	else
 		to_chat(user, "<span class='notice'>The glass cover is already open.</span>")
+		return ..()
 
 /obj/item/icarus/dead_personnel
 	name = "partial skeleton remains"

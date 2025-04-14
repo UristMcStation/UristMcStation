@@ -96,7 +96,7 @@
 		return
 	else ui_interact(user)
 
-/obj/machinery/computer/combatcomputer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/combatcomputer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 	var/data[0]
 	var/list/weapons[0]
 	var/list/targetcomponents[0]

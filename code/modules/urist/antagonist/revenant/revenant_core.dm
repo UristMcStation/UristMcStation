@@ -32,7 +32,7 @@ GLOBAL_TYPED_NEW(bluespace_revenants, /datum/antagonist/bluespace_revenant)
 GLOBAL_LIST(revenant_powerinstances)
 
 
-/proc/isbsrevenant(var/mob/player, var/include_nonantags = TRUE)
+/proc/isbsrevenant(mob/player, include_nonantags = TRUE)
 	if(!GLOB.bluespace_revenants || !player.mind)
 		return FALSE
 

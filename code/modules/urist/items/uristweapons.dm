@@ -29,7 +29,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/item/melee/energy/sword/use_tool(obj/item/tool, mob/living/user, list/click_params)
 	if(!istype(tool, /obj/item/melee/energy/sword))
-		return FALSE
+		return ..()
 
 	if(tool == src)
 		to_chat(user, SPAN_NOTICE("You try to attach the end of the energy sword to... itself. You're not very smart, are you?"))
@@ -80,7 +80,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	user.remove_from_mob(src)
 	qdel(tool)
 	qdel(src)
-	return TRUE
 
 //misc melee weapons
 
@@ -180,8 +179,10 @@ Please keep it tidy, by which I mean put comments describing the item before the
 			SPAN_NOTICE("You slide \the [bolt] into \the [src].")
 		)
 		return TRUE
+	if (istype(tool, /obj/item/stack/material/rods) || istype(tool, /obj/item/rcd) || istype(tool, /obj/item/cell))
+		return TRUE
 
-	return FALSE
+	return ..()
 
 //RS Weapons
 

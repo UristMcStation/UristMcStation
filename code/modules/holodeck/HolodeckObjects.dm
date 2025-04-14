@@ -482,5 +482,5 @@
 
 //fitness
 
-/obj/structure/fitness/weightlifter/holo/use_tool(obj/item/W, mob/living/user, list/click_params)
-	return
+/obj/structure/fitness/weightlifter/holo
+	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_TOOLS

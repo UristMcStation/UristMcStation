@@ -13,7 +13,7 @@
 	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/papercrafts.dmi'
 
-/obj/item/papercrafts/proc/fold(obj/item/papercrafts/N, var/foldText, mob/user as mob) //So i don't have to write this over and over again
+/obj/item/papercrafts/proc/fold(obj/item/papercrafts/N, foldText, mob/user as mob) //So i don't have to write this over and over again
 	user.remove_from_mob(src)
 	user.put_in_hands(N)
 	to_chat(user, foldText)

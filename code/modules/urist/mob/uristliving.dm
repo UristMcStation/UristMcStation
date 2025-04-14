@@ -68,7 +68,7 @@ GLOBAL_LIST_AS(mutation_color_matrices, list("[M_NOIR]"=COLMX_EXPRESSIONIST))
 			GLOB.bad_changing_color_ckeys["[src.ckey]"] = 1
 
 
-/mob/proc/update_color(time = 50,var/forceupdate = 0)
+/mob/proc/update_color(time = 50,forceupdate = 0)
 	if(!client || (client.updating_color && !forceupdate))
 		return
 

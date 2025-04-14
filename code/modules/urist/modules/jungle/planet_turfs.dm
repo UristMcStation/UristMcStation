@@ -161,6 +161,7 @@
 		src.overlays = null
 		src.ChangeTurf(/turf/simulated/floor/plating)
 		R.use(1)
+
 	..()
 
 /turf/simulated/floor/planet/jungle
@@ -276,7 +277,7 @@
 		/mob/living/simple_animal/huntable/monkey
 		)
 
-/turf/simulated/floor/planet/jungle/proc/Spread(probability, var/prob_loss = 50)
+/turf/simulated/floor/planet/jungle/proc/Spread(probability, prob_loss = 50)
 	if(probability <= 0)
 		return
 
@@ -367,7 +368,7 @@
 		to_chat(user, "You begin to mine into the [src]..")
 		if(do_after(user, 12 SECONDS))
 			new /obj/structure/boulder(user.loc)
-			to_chat(user, "Rocks fall, and you realize what a horrible idea this was as.")
+			to_chat(user, "Rocks fall, and you realize what a horrible idea this was.")
 			if(ishuman(user))
 				var/mob/living/carbon/human/H = user
 				H.adjustBruteLoss(40, 0)
@@ -375,7 +376,9 @@
 				user.AdjustStunned(10)
 		else
 			to_chat(user, "You have second thoughts about mining into a [src].")
-	return
+		return TRUE
+
+	return ..()
 
 /turf/simulated/floor/planet/jungle/rock/Initialize()
 	var/turf/T
@@ -424,10 +427,11 @@
 	fishleft = rand(1,6)
 
 /turf/simulated/floor/planet/jungle/water/use_tool(obj/item/I, mob/living/user, list/click_params)
+	SHOULD_CALL_PARENT(FALSE)
 	if(istype(I, /obj/item/fishingrod))
 		if(bridge)
 			to_chat(user, "<span class='notice'>There's a bridge here, try fishing somewhere else.</span>")
-			return
+			return TRUE
 
 		else if(fishleft && !fishing && !bridge)
 			if(prob(1))
@@ -451,7 +455,7 @@
 						to_chat(user, "<span class='notice'>Looks like it got away...</span>")
 						fishing = 0
 						src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
-
+			return TRUE
 		else if(fishleft && fishing == 2 && !bridge)
 			var/obj/item/F
 
@@ -477,10 +481,11 @@
 			fishleft -= 1
 			fishing = 0
 			to_chat(user, "<span class='notice'>You yank on your line, pulling up [F]!</span>")
+			return TRUE
 
 		else if(!fishleft && !bridge)
 			to_chat(user, "<span class='notice'>You've fished too much in this area, try fishing somewhere else.</span>")
-			return
+			return TRUE
 
 	else if(istype(I, /obj/item/stack/material/wood))
 		if(!bridge)
@@ -496,6 +501,8 @@
 			else
 				to_chat(user, "<span class='notice'>You do not have enough wood to build a bridge.</span>")
 
+			return TRUE
+
 	else if(istype(I, /obj/item/stack/material/r_wood))
 		if(!bridge)
 			var/obj/item/stack/material/r_wood/R = I
@@ -509,6 +516,8 @@
 				bridge = 2
 			else
 				to_chat(user, "<span class='notice'>You do not have enough wood to build a bridge.</span>")
+
+			return TRUE
 
 	else if(istype(I, /obj/item/paddle))
 		if(!bridge)
@@ -542,9 +551,9 @@
 
 					else if(!R.built)
 						to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")
+		return TRUE
 
-
-	else if(istype(I, /obj/item/crowbar))
+	else if (isCrowbar(I))
 		if(bridge)
 			to_chat(user, "<span class='notice'>You begin to disassemble the bridge.</span>")
 			if (do_after(user, rand(15,30), src))
@@ -563,6 +572,7 @@
 					S.amount = 3
 
 				bridge = 0
+		return TRUE
 
 /*	else if(istype(I, /obj/item/stack/hide/animalhide))
 		to_chat(user, "<span class='notice'>You immerse the hide in the water.</span>")
@@ -579,7 +589,7 @@
 	if (istype(RG) && RG.is_open_container())
 		RG.reagents.add_reagent(/datum/reagent/water, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
 		user.visible_message("<span class='notice'>[user] fills \the [RG] from the water.</span>","<span class='notice'> You fill \the [RG] from the water.</span>")
-		return 1
+		return TRUE
 
 /turf/simulated/floor/planet/jungle/water/Entered(atom/movable/O)
 	..()

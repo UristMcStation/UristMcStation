@@ -80,7 +80,7 @@
 
 	..()
 
-/obj/item/clothing/head/helmet/urist/anfor/attackby(obj/item/I, var/mob/living/M)
+/obj/item/clothing/head/helmet/urist/anfor/attackby(obj/item/I, mob/living/M)
 	if(istype(I, /obj/item/storage/fancy/smokable))
 		if(cigs)	return
 		M.drop_item()
@@ -113,7 +113,7 @@
 
 	..()
 
-/obj/item/clothing/shoes/urist/anforjackboots/use_tool(obj/item/I, var/mob/living/M, click_params)
+/obj/item/clothing/shoes/urist/anforjackboots/use_tool(obj/item/I, mob/living/M, click_params)
 	if(istype(I, /obj/item/material/knife/combat))
 		if(knife)
 			to_chat(M, SPAN_NOTICE("\The [src] already has a [knife] in it!"))
@@ -127,7 +127,8 @@
 		M.regenerate_icons()
 		return TRUE
 
-	return FALSE
+	else
+		return ..()
 
 /obj/item/clothing/head/urist/anfor
 	name = "ANFOR NCO cap"

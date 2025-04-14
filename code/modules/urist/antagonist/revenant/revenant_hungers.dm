@@ -27,6 +27,6 @@ var/global/list/revenant_hungers = (typesof(/datum/power/revenant/bs_hunger) - /
 	return tagged_list
 
 
-/datum/bluespace_revenant/proc/select_hungers(var/list/flavors_override = null)
+/datum/bluespace_revenant/proc/select_hungers(list/flavors_override = null)
 	var/helper_result = src.select_bsrevenant_attributes(flavors_override, /datum/bluespace_revenant/proc/get_hungers_by_tag, 1, "Hunger")
 	return helper_result

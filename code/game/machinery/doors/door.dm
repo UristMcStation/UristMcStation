@@ -139,7 +139,7 @@
 				ADJUSTIT(NORTH)
 #undef ADJUSTIT
 
-/obj/machinery/door/proc/set_dummy_opacity(atom/A, var/old_opacity, var/new_opacity)
+/obj/machinery/door/proc/set_dummy_opacity(atom/A, old_opacity, new_opacity)
 	if(!isnull(dummy))
 		dummy.set_opacity(new_opacity)
 

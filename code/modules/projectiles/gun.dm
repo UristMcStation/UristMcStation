@@ -698,7 +698,7 @@
 
 //I'm tired of trying to force guns to fire
 
-/obj/item/gun/proc/simple_fire(atom/target, var/mob/user)
+/obj/item/gun/proc/simple_fire(atom/target, mob/user)
 	if(target == user)
 		to_chat(user, SPAN_WARNING("You can't do this right now!"))
 		return
