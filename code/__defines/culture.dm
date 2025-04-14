@@ -66,6 +66,7 @@
 #define CULTURE_HUMAN_KUIPERO  			"Kuiper, Outsider"
 #define CULTURE_HUMAN_MAGNITKA 			"Magnitkan"
 #define CULTURE_HUMAN_EARTH    			"Earther"
+#define CULTURE_HUMAN_CETIU    			"Cetite" // i simply do not care about bay lore
 #define CULTURE_HUMAN_CETIN    			"Cetite, Northern"
 #define CULTURE_HUMAN_CETIS    			"Cetite, Southern"
 #define CULTURE_HUMAN_CETII    			"Cetite, Interstate"
