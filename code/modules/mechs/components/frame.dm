@@ -93,8 +93,8 @@
 			SPAN_NOTICE("\The [user] starts wiring \the [src] with \a [tool]."),
 			SPAN_NOTICE("You start wiring \the [src] with \the [tool].")
 		)
-		if(!do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE))
-			return
+		if (!do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+			return TRUE
 		if (is_wired)
 			USE_FEEDBACK_FAILURE("\The [src] is already wired.")
 			return TRUE
@@ -118,8 +118,8 @@
 				SPAN_NOTICE("\The [user] starts removing \the [src]'s reinforcements with \a [tool]."),
 				SPAN_NOTICE("You start removing \the [src]'s reinforcements with \the [tool].")
 			)
-			if(!do_after(user, 0.5 SECONDS) || !material)
-				return
+			if (!do_after(user, 0.5, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+				return TRUE
 			material.place_sheet(loc, 10)
 			material = null
 			is_reinforced = FALSE
@@ -160,8 +160,8 @@
 			SPAN_NOTICE("\The [user] starts reinforcing \the [src] with \a [tool]."),
 			SPAN_NOTICE("You start reinforcing \the [src] with \the [tool].")
 		)
-		if(!do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE) || is_reinforced)
-			return
+		if (!do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+			return TRUE
 		if (is_reinforced)
 			USE_FEEDBACK_FAILURE("\The [src] already has internal reinforcements.")
 			return TRUE
@@ -205,8 +205,8 @@
 			SPAN_NOTICE("\The [user] starts finishing \the [src] with \a [tool]."),
 			SPAN_NOTICE("You start finishing \the [src] with \the [tool].")
 		)
-		if(!do_after(user, 5 SECONDS, src))
-			return
+		if (!do_after(user, (tool.toolspeed * 5) SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+			return TRUE
 		// Check for basic components.
 		if (!(arms && legs && head && body))
 			USE_FEEDBACK_FAILURE("\The [src] is still missing parts and cannot be completed.")
@@ -259,8 +259,8 @@
 			SPAN_NOTICE("You start [current_state == FRAME_REINFORCED_WELDED ? "un" : null]welding \the [src]'s internal reinforcements with \the [tool]."),
 			SPAN_ITALIC("You hear welding.")
 		)
-		if(!do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE) || last_reinforced_state != is_reinforced)
-			return
+		if (!do_after(user, (tool.toolspeed * 2) SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+			return TRUE
 		if (!is_reinforced)
 			USE_FEEDBACK_FAILURE("\The [src] has no reinforcements to weld.")
 			return TRUE
@@ -302,9 +302,8 @@
 			SPAN_NOTICE("\The [user] starts [input == "Adjust Wiring" ? "adjusting" : "removing"] the wiring in \the [src] with \a [tool]."),
 			SPAN_NOTICE("You start [input == "Adjust Wiring" ? "adjusting" : "removing"] the wiring in \the [src] with \the [tool].")
 		)
-		if(!do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE) || last_wiring_state != is_wired)
-			return
-			
+		if (!do_after(user, (tool.toolspeed * 3) SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+			return TRUE
 		if (is_wired != current_state)
 			USE_FEEDBACK_FAILURE("\The [src]'s state has changed.")
 			return TRUE
@@ -343,8 +342,8 @@
 			SPAN_NOTICE("\The [user] starts [input == "Secure Reinforcements" ? "securing" : "removing"] \the [src]'s internal reinforcements with \a [tool]."),
 			SPAN_NOTICE("You start [input == "Secure Reinforcements" ? "securing" : "removing"] \the [src]'s internal reinforcements with \the [tool].")
 		)
-		if(!do_after(user, 4 SECONDS, src) || last_reinforced_state != is_reinforced)
-			return
+		if (!do_after(user, (tool.toolspeed * 4) SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+			return TRUE
 		if (current_state != is_reinforced)
 			USE_FEEDBACK_FAILURE("\The [src]'s state has changed.")
 			return TRUE

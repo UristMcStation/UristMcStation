@@ -41,8 +41,8 @@
 
 //Handles initializing weather processing for a new object
 /obj/urist_intangible/weather/proc/weather_report()
-	if(SSweather)
-		SSweather.weather_cache += src
+	if(SSurist_weather)
+		SSurist_weather.weather_cache += src
 	else
 		pending_weathers += src //no controller? add it on the bucket list.
 
@@ -54,8 +54,8 @@
 
 //Something entered the weather zone so the weather has to do work
 /obj/urist_intangible/weather/proc/weather_activate()
-	if(!(weather_safe) || !(SSweather)) //does not process effects, so don't bother
-		SSweather.active_cache += src
+	if(!(weather_safe) || !(SSurist_weather)) //does not process effects, so don't bother
+		SSurist_weather.active_cache += src
 
 //If there's still processable objects, return 1
 /obj/urist_intangible/weather/proc/WActive()

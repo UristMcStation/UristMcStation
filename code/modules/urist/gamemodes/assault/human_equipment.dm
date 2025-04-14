@@ -39,7 +39,25 @@
 	icon_state = "flashbang"
 	startswith = list(/obj/item/mine/frag = 3)
 
-/obj/structure/mine/proc/explode2(obj)
+/obj/structure/mine/frag
+	name = "Frag Mine"
+
+
+/obj/structure/mine/frag/activate()
+	// full override because bay mines are too HE for us.
+	set waitfor = 0
+
+	var/turf/O = get_turf(src)
+	if(!O) return
+
+	activated = TRUE
+	visible_message(
+		SPAN_DANGER("\The [src] explodes!"),
+		SPAN_DANGER("You hear an explosion!")
+	)
+
+	explosion(O, 2, EX_ACT_LIGHT)
+
 	//vars stolen for fragification
 	var/fragment_type = /obj/item/projectile/bullet/pellet/fragment
 	var/num_fragments = 62  //total number of fragments produced by the grenade
@@ -47,11 +65,6 @@
 	var/spread_range = 7 //leave as is, for some reason setting this higher makes the spread pattern have gaps close to the epicenter
 
 	//blatant copypaste from frags, but those are a whole different type so vOv
-	set waitfor = 0
-
-	var/turf/O = get_turf(src)
-	if(!O) return
-
 	var/list/target_turfs = getcircle(O, spread_range)
 	var/fragments_per_projectile = round(num_fragments/length(target_turfs))
 
@@ -73,11 +86,8 @@
 			else
 				P.attack_mob(M, 0, 60) //otherwise, allow a decent amount of fragments to pass
 
-	qdel(src)
-
-/obj/structure/mine/frag
-	name = "Frag Mine"
-	triggerproc = "explode2"
+	qdel_self()
+	return
 
 /obj/structure/mine/frag/attack_hand(mob/user as mob)
 	user.visible_message("<span class='warning'>[user] starts to disarm the mine!</span>","<span class='warning'>You start to disarm the mine. Just stay very still.</span>")

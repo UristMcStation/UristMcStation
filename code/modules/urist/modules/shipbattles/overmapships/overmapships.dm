@@ -57,8 +57,8 @@
 	faction = "neutral" //come back to this
 
 
-/mob/living/simple_animal/hostile/overmapship/Allow_Spacemove(check_drift = 0)
-	return 1	//No drifting in space for space carp!	//original comments do not steal
+/mob/living/simple_animal/hostile/overmapship/Process_Spacemove(allow_movement = FALSE)
+	return TRUE	//No drifting in space for space carp!	//original comments do not steal
 
 /mob/living/simple_animal/hostile/overmapship/Crossed(O as obj)
 	..()
@@ -110,7 +110,7 @@
 			S.mapfile = src.boardingmap
 			S.home_ship = src //checking whether the map has been loaded is now handled by the template loader, so it properly checks for completion
 			S.Load()
-			if(home_station && !home_station.known)
+			if(home_station && !(HAS_FLAGS(home_station.sector_flags, OVERMAP_SECTOR_KNOWN)))
 				for(var/obj/urist_intangible/triggers/station_disk/D in GLOB.trigger_landmarks)
 					if(D.faction_id == hiddenfaction.factionid)
 						D.spawn_disk(home_station)

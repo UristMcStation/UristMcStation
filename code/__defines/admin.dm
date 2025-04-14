@@ -32,7 +32,7 @@
 #define R_SPAWN          FLAG_13
 #define R_MOD            FLAG_14
 #define R_HOST           FLAG_15
-#define R_MENTOR         FLAG 16
+#define R_MENTOR         FLAG_16
 #define R_INVESTIGATE    (R_ADMIN | R_MOD)
 #define R_MAXPERMISSION  R_HOST
 

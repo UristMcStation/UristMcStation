@@ -64,7 +64,6 @@
 	name = "temperate planetoid"
 	desc = "Scanner report shows a derelict comm bouy in orbit; recovered data shows little info beyond a breathable atmosphere. Sensors pick up a degraded signal from an area in the northern hemisphere."
 	icon_state = "globe"
-	in_space = FALSE
 	color = "#035e15"
 	initial_generic_waypoints = list(
 		"nav_caraway_forest_1",

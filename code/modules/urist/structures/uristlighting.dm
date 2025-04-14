@@ -16,7 +16,7 @@
 /obj/item/light/bulb/red/maintenance
 	name = "light bulb (maintenance)"
 	desc = "A replacement light bulb. This one has a red filter and is designed for usage in Maintenance."
-	b_outer_range = 6
+	b_range = 6
 	b_colour = "#b12525"
 
 //cold, blue tint; feedback was good on putting it in Medbay

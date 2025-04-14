@@ -13,6 +13,7 @@
 #define MUTATION_HEAL            8 // Healing people with hands.
 #define MUTATION_SPACERES        9 // Can't be harmed via pressure damage.
 #define MUTATION_SKELETON        10
+#define MUTATION_HULK            11
 
 // Other Mutations:
 #define mNobreath      100 // No need to breathe.
@@ -47,6 +48,7 @@ GLOBAL_VAR_AS(FIREBLOCK,0)
 GLOBAL_VAR_AS(XRAYBLOCK,0)
 GLOBAL_VAR_AS(CLUMSYBLOCK,0)
 GLOBAL_VAR_AS(FERALBLOCK, 0)
+GLOBAL_VAR_AS(HULKBLOCK, 0)
 GLOBAL_VAR_AS(FAKEBLOCK,0)
 GLOBAL_VAR_AS(COUGHBLOCK,0)
 GLOBAL_VAR_AS(GLASSESBLOCK,0)

@@ -184,7 +184,7 @@
 		if (!(appearance_flags & APPEARANCE_SKIP_ALLOW_LIST_CHECK))
 			if (!is_alien_whitelisted(src, species))
 				continue
-		if(!(current_species_name in antag?.valid_species))
+		if(!(name in antag?.valid_species))
 			continue
 		result += name
 	return result

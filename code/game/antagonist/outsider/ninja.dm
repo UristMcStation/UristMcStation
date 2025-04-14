@@ -93,7 +93,7 @@ GLOBAL_TYPED_NEW(ninjas, /datum/antagonist/ninja)
 	uplink_source.setup_uplink_source(player, 0)
 	var/obj/item/selection/ninja/selection = new
 	player.put_in_hands(selection)
-	var/obj/item/ninja_kit/kit = new
+	var/obj/item/selection/ninja/kit = new
 	player.put_in_hands(kit)
 
 

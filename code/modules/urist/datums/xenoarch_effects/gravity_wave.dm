@@ -19,6 +19,9 @@
 
 
 /datum/artifact_effect/gravity_wave/DoEffectTouch(mob/living/user)
+	if(!istype(user))
+		return
+
 	gravwave(user, effectrange, pull_power)
 
 /datum/artifact_effect/gravity_wave/DoEffectAura()
@@ -35,5 +38,5 @@
 
 
 /datum/artifact_effect/gravity_wave/proc/gravwave(atom/target, pull_range = 7, pull_power = STAGE_TWO)
-	for (var/atom/A as anything in oview(pull_range, target))
+	for (var/atom/A in oview(pull_range, target))
 		A.singularity_pull(target, pull_power)

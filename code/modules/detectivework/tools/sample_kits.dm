@@ -164,7 +164,7 @@
 		take_sample(user,A)
 		. = 1
 	else
-		to_chat(user, SPAN_WARNING("You are unable to locate any [evidence_type]s on \the [target]."))
+		to_chat(user, SPAN_WARNING("You are unable to locate any [evidence_type]s on \the [A]."))
 	return TRUE
 
 /obj/item/forensics/sample_kit/MouseDrop(atom/over)

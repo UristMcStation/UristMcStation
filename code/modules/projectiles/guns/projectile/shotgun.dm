@@ -36,7 +36,10 @@
 	if(length(loaded))
 		icon_state = "[initial(icon_state)]"
 	else
-		icon_state = "[initial(icon_state)]-empty"/obj/item/gun/projectile/shotgun/pump
+		icon_state = "[initial(icon_state)]-empty"
+
+
+/obj/item/gun/projectile/shotgun/pump
 	name = "shotgun"
 	desc = "A mass-produced shotgun by Mars Security Industries. The rugged MSI-870 'Crawford' is a common sight across much of settled space. Useful for sweeping alleys or ship corridors."
 	icon = 'icons/obj/guns/shotguns.dmi'

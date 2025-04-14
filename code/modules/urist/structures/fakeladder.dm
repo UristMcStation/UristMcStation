@@ -67,6 +67,6 @@
 
 	add_fingerprint(user)
 
-/obj/structure/fakeladder/use_item(obj/item/W, mob/user as mob)
+/obj/structure/fakeladder/use_tool(obj/item/W, mob/user as mob)
 	attack_hand(user)
 	return TRUE

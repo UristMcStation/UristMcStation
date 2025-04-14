@@ -29,7 +29,7 @@
 	var/list/engines = list()
 	var/engines_state = 0 //global on/off toggle for all engines
 	var/thrust_limit = 1  //global thrust limit for all engines, 0..1
-	var/skill_needed = SKILL_NONE  //piloting skill needed to steer it without going in random dir
+	var/skill_needed = SKILL_MIN  //piloting skill needed to steer it without going in random dir
 
 /obj/overmap/visitable/ship/Initialize()
 	. = ..()
@@ -60,9 +60,12 @@
  */
 /obj/overmap/visitable/ship/proc/update_operator_skill(mob/user)
 	return
-/*	if (isobserver(user))
+	/*
+	// Disabling Bayskills for Urist
+	if (isobserver(user))
 		return
-	operator_skill = user?.get_skill_value(SKILL_PILOT)/*
+	operator_skill = user?.get_skill_value(SKILL_PILOT)
+	*/
 
 /obj/overmap/visitable/ship/get_scan_data(mob/user)
 	. = ..()

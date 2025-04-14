@@ -797,9 +797,7 @@
 	desc = "Patchy bits of moss, grass, dirt, and leaves"
 	icon = 'icons/urist/turf/floors_borders.dmi'
 	light_power = 0.5
-	light_inner_range = 0.1
 	light_range = 1.5
-	light_falloff_curve = 0.5
 	light_color = "#ffffff"
 
 /obj/floor_decal/planet/border/grasstodirt
@@ -846,7 +844,6 @@
 
 /turf/simulated/open/skylight/planet
 	light_power = 0.3
-	light_inner_range = 0.5
 	light_range = 1.0
 	light_color = "#ffffff"
 

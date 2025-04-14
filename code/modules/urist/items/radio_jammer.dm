@@ -14,7 +14,7 @@ var/global/list/active_radio_jammers = list()
 /proc/within_jamming_range(atom/test, need_all_blocked = TRUE)
 	if(length(active_radio_jammers))
 		var/turf/our_turf = get_turf(test)
-		for(var/obj/item/device/radio_jammer/J in active_radio_jammers)
+		for(var/obj/item/device/radio_jammer_urist/J in active_radio_jammers)
 			var/turf/jammer_turf = get_turf(J)
 			if(our_turf.z != jammer_turf.z)
 				continue
@@ -24,7 +24,7 @@ var/global/list/active_radio_jammers = list()
 				return TRUE
 	return FALSE
 
-/obj/item/device/radio_jammer
+/obj/item/device/radio_jammer_urist
 	name = "radio jammer"
 	desc = "A small, inconspicious looking item with an 'ON/OFF' toggle. Right-click to toggle whether it blocks all wireless signals, or just stationbound wireless interfacing."
 	icon = 'icons/urist/obj/device.dmi'
@@ -35,27 +35,27 @@ var/global/list/active_radio_jammers = list()
 	var/icon_state_active = "shield1"
 	var/icon_state_inactive = "shield0"
 
-/obj/item/device/radio_jammer/active
+/obj/item/device/radio_jammer_urist/active
 	active = JAMMER_ALL
 
-/obj/item/device/radio_jammer/Initialize()
+/obj/item/device/radio_jammer_urist/Initialize()
 	. = ..()
 	update_icon()
 
-/obj/item/device/radio_jammer/Destroy()
+/obj/item/device/radio_jammer_urist/Destroy()
 	active_radio_jammers -= src
 	return ..()
 
-/obj/item/device/radio_jammer/verb/toggle_jammer()
+/obj/item/device/radio_jammer_urist/verb/toggle_jammer()
 	set name = "Change Jammer Blocking"
 	set category = "Object"
 	set src in usr
 	set_jammer(usr)
 
-/obj/item/device/radio_jammer/attack_self(mob/user)
+/obj/item/device/radio_jammer_urist/attack_self(mob/user)
 	toggle(user)
 
-/obj/item/device/radio_jammer/proc/set_jammer(mob/user)
+/obj/item/device/radio_jammer_urist/proc/set_jammer(mob/user)
 	var/response = alert(user, "What would you like to block?", "Jammer Settings", "Nothing", "Synthetics", "All")
 	if(response == "Nothing")
 		active = JAMMER_OFF
@@ -65,12 +65,12 @@ var/global/list/active_radio_jammers = list()
 		active = JAMMER_ALL
 	update_icon()
 
-/obj/item/device/radio_jammer/emp_act(severity)
+/obj/item/device/radio_jammer_urist/emp_act(severity)
 	. = ..()
 
 	toggle()
 
-/obj/item/device/radio_jammer/proc/toggle(mob/user)
+/obj/item/device/radio_jammer_urist/proc/toggle(mob/user)
 	if(active)
 		if(user)
 			to_chat(user, SPAN_NOTICE("You deactivate \the [src]."))
@@ -81,7 +81,7 @@ var/global/list/active_radio_jammers = list()
 		active = JAMMER_ALL
 	update_icon()
 
-/obj/item/device/radio_jammer/on_update_icon()
+/obj/item/device/radio_jammer_urist/on_update_icon()
 	if(active > 0)
 		active_radio_jammers += src
 		icon_state = icon_state_active
@@ -90,7 +90,7 @@ var/global/list/active_radio_jammers = list()
 		icon_state = icon_state_inactive
 
 
-/obj/item/device/radio_jammer/improvised
+/obj/item/device/radio_jammer_urist/improvised
 	name = "improvised radio jammer"
 	desc = "An awkward bundle of wires, batteries, and radio transmitters, with an 'ON/OFF' toggle. Right-click to toggle whether it blocks all wireless signals, or just stationbound wireless interfacing."
 	var/obj/item/cell/cell
@@ -104,7 +104,7 @@ var/global/list/active_radio_jammers = list()
 	icon_state_active = "improvised_jammer_active"
 
 
-/obj/item/device/radio_jammer/improvised/New(obj/item/device/assembly_holder/incoming_holder, obj/item/cell/incoming_cell, mob/user)
+/obj/item/device/radio_jammer_urist/improvised/New(obj/item/device/assembly_holder/incoming_holder, obj/item/cell/incoming_cell, mob/user)
 	..()
 	cell = incoming_cell
 	assembly_holder = incoming_holder
@@ -117,16 +117,16 @@ var/global/list/active_radio_jammers = list()
 
 	user.put_in_active_hand(src)
 
-/obj/item/device/radio_jammer/improvised/Destroy()
+/obj/item/device/radio_jammer_urist/improvised/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/device/radio_jammer/improvised/examine(mob/user)
+/obj/item/device/radio_jammer_urist/improvised/examine(mob/user)
 	. = ..()
 	if(cell)
 		to_chat(user, SPAN_NOTICE("Its display shows: [cell.percent()]%."))
 
-/obj/item/device/radio_jammer/improvised/Process()
+/obj/item/device/radio_jammer_urist/improvised/Process()
 	var/current = world.time // current tick
 	var/delta = (current - last_updated) / 10.0 // delta in seconds
 	last_updated = current
@@ -136,7 +136,7 @@ var/global/list/active_radio_jammers = list()
 		update_icon()
 
 
-/obj/item/device/radio_jammer/improvised/use_tool(obj/item/I, mob/user, click_params)
+/obj/item/device/radio_jammer_urist/improvised/use_tool(obj/item/I, mob/user, click_params)
 	if (I.IsScrewdriver())
 		to_chat(user, "<span class='notice'>You disassemble the improvised signal jammer.</span>")
 		user.put_in_hands(assembly_holder)
@@ -145,7 +145,7 @@ var/global/list/active_radio_jammers = list()
 		qdel(src)
 		return TRUE
 
-/obj/item/device/radio_jammer/improvised/toggle(mob/user)
+/obj/item/device/radio_jammer_urist/improvised/toggle(mob/user)
 	if(!active)
 		if(!cell)
 			if(user)
@@ -157,7 +157,7 @@ var/global/list/active_radio_jammers = list()
 			return
 	return ..()
 
-/obj/item/device/radio_jammer/improvised/on_update_icon()
+/obj/item/device/radio_jammer_urist/improvised/on_update_icon()
 	if(active > 0)
 		active_radio_jammers += src
 		icon_state = icon_state_active

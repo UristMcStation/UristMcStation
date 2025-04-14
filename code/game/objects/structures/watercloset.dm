@@ -544,12 +544,14 @@
 		SPAN_NOTICE("You start washing \the [tool] in \the [src]."),
 		SPAN_ITALIC("You hear running water.")
 	)
+
 	if (!do_after(user, 4 SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
 		return TRUE
+
 	tool.clean_blood()
 
-	if(istype(O, /obj/item/organ/external/head))
-		var/obj/item/organ/external/head/head = O
+	if(istype(tool, /obj/item/organ/external/head))
+		var/obj/item/organ/external/head/head = tool
 		head.forehead_graffiti = null
 		head.graffiti_style = null
 

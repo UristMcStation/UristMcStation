@@ -141,7 +141,7 @@
 
 		if(EAST)
 
-			int_panel_x = ux + Floor(lift_size_x/2)
+			int_panel_x = ux + floor(lift_size_x/2)
 			int_panel_y = ey
 			ext_panel_x = ex+2
 			ext_panel_y = ey + 1

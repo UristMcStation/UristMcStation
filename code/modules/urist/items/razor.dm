@@ -73,7 +73,7 @@
 
 /obj/item/razor/use_before(atom/target, mob/living/user, click_parameters)
 	if(ishuman(target))
-		var/mob/living/carbon/human/H = M
+		var/mob/living/carbon/human/H = target
 
 		if(user.zone_sel.selecting == "mouth")
 			if(!get_location_accessible(H, "mouth"))

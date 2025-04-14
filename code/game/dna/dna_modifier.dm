@@ -126,11 +126,14 @@
 		beaker = I
 		user.drop_item()
 		I.loc = src
-		user.visible_message("\The [user] adds \a [item] to \the [src]!", "You add \a [item] to \the [src]!")
+		user.visible_message("\The [user] adds \a [I] to \the [src]!", "You add \a [I] to \the [src]!")
 		return
+
 	else if (!istype(I, /obj/item/grab))
 		return
+
 	var/obj/item/grab/G = I
+
 	if (!ismob(G.affecting))
 		return
 	if (src.occupant)
@@ -139,6 +142,7 @@
 	if (G.affecting.abiotic())
 		to_chat(user, "<span class='warning'>The subject cannot have abiotic items on.</span>")
 		return
+
 	put_in(G.affecting)
 	src.add_fingerprint(user)
 	qdel(G)

@@ -9,12 +9,11 @@ Basically: I can use it to target things where I click. I can then pass these ta
 	item_flags = 0
 	obj_flags = 0
 	simulated = FALSE
-	item_flags = ITEM_FLAG_TRY_ATTACK
 	icon_state = "spell"
 	var/next_spell_time = 0
 	var/spell/hand/hand_spell
 
-/obj/item/magic_hand/New(loc, spell/hand/S)
+/obj/item/magic_hand/Initialize(mapload, spell/hand/S)
 	. = ..()
 	hand_spell = S
 	name = "[name] ([S.name])"

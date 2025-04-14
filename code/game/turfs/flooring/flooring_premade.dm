@@ -150,6 +150,9 @@
 	icon_state = "reinforced"
 	initial_flooring = /singleton/flooring/reinforced
 
+/turf/simulated/floor/reinforced/airless
+	initial_gas = list()
+
 /turf/simulated/floor/reinforced/airmix
 	initial_gas = list(GAS_OXYGEN = MOLES_O2ATMOS, GAS_NITROGEN = MOLES_N2ATMOS)
 

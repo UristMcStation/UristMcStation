@@ -20,7 +20,7 @@
 
 /datum/category_item/player_setup_item/antagonism/candidacy/load_slot(datum/pref_record_reader/R, datum/preferences_slot/slot)
 	slot.be_special_role = R.read("be_special")
-	slot.var/list/never_be_special_role = R.read("never_be_special")
+	slot.never_be_special_role = R.read("never_be_special")
 
 /datum/category_item/player_setup_item/antagonism/candidacy/sanitize_character()
 	if(!istype(pref.be_special_role))

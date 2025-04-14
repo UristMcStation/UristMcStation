@@ -172,9 +172,8 @@ By design, d1 is the smallest direction and d2 is the highest
 			SPAN_NOTICE("\The [user] starts [delay_message] \the [src] with \a [tool]."),
 			SPAN_NOTICE("You start [delay_message] \the [src] with \the [tool].")
 		)
-		if(do_after(user, delay_holder, src, do_flags = DO_REPAIR_CONSTRUCT))
-			return
-
+		if (!do_after(user, delay_time, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+			return TRUE
 		user.visible_message(
 			SPAN_NOTICE("\The [user] cuts through \the [src] with \a [tool]."),
 			SPAN_NOTICE("You cut through \the [src] with \a [tool].")

@@ -237,12 +237,12 @@
 
 	return ..()
 
-/obj/item/gun/projectile/automatic/bullpup_rifle/toggle_safety(mob/user)
+/obj/item/gun/projectile/automatic/z8/toggle_safety(mob/user)
 	..()
 	if(launcher)
 		launcher.safety_state = safety_state //Set the launcher's safety to be equivalent to the bullpup's.
 
-/obj/item/gun/projectile/automatic/bullpup_rifle/attack_hand(mob/user)
+/obj/item/gun/projectile/automatic/z8/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src && launcher && use_launcher)
 		launcher.unload(user)
 	else

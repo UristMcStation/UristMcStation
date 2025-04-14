@@ -59,7 +59,7 @@
 	//Although not necessary; it's nice to be able to set the email and account info to the ID, so that they can ID login to email and swipe to pay at vendors
 	//We don't want to expose these details to anyone but the crewmember, so we'll copy them over here once account creation is complete
 	if(copy_mode && temp_account_items["new_email"])
-		var/obj/item/card/id/target_id = O
+		var/obj/item/card/id/target_id = I
 		var/list/email_login = temp_account_items["new_email"]
 		if(target_id.associated_account_number || target_id.associated_email_login["login"])	//So we cannot copy bank details to our own ID card.
 			to_chat(user, "<span class='warning'>\The [src] flashes a warning: Unassociated ID card required</span>")
@@ -510,7 +510,7 @@
 				M.initial_account = acc
 
 				//More paperwork! This time for pins and account info. Only the crewmember should know this, so we'll put it in an envelope with a seal
-				var//obj/item/material/folder/envelope/P = new /obj/item/material/folder/envelope(src.loc)
+				var/obj/item/material/folder/envelope/P = new /obj/item/material/folder/envelope(src.loc)
 				P.name = "envelope - Account Details: [acc.owner_name] (CONFIDENTIAL)"
 				P.desc += "\nA large red label on the front reads \"CONFIDENTIAL - For account holder eyes only\""
 				var/obj/item/paper/R = new /obj/item/paper(P)

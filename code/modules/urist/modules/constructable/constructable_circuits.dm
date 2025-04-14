@@ -8,7 +8,7 @@
 							/obj/item/stock_parts/matter_bin = 2,
 							/obj/item/stock_parts/console_screen = 1,
 							/obj/item/stack/cable_coil = 5,
-							/obj/item/stack/material/glass/phoronrglass = 2
+							/obj/item/stack/material/glass/boron_reinforced = 2
 							)
 
 /obj/item/stock_parts/circuitboard/constructable/emitter

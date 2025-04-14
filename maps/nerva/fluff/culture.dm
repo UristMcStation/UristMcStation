@@ -75,7 +75,7 @@
 	economic_power = 1.1*/
 
 /singleton/cultural_info/culture/human/ceti
-	name = CULTURE_HUMAN_CETI
+	name = CULTURE_HUMAN_CETII
 	description = "You are from Ceti Epsilon, the technical hub of the Terran Confederacy. As a Cetite you are no stranger to the cutting edge of technology present in Terran space. \
 	Putting education and the latest tech at the forefront of their priorities the people of Ceti are some of the brightest or tech savvy around. \
 	This has afforded those from the system or planet a reputation as being a cut above the rest in technical matters, with those who attended the Ceti Institute of Technology \

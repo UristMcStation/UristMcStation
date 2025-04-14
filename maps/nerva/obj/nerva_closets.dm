@@ -178,7 +178,7 @@
 		/obj/item/storage/belt/security,
 		/obj/item/device/flash,
 		/obj/item/melee/baton/loaded,
-		/obj/item/gunbox,
+		/obj/item/selection/siderm, // bay typo
 		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/melee/telebaton,
 		/obj/item/reagent_containers/spray/pepper,

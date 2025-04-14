@@ -334,7 +334,6 @@ var/global/list/admin_verbs_mentor = list(
 	/client/proc/debug_variables,
 	/datum/admins/proc/show_player_info,
 	/datum/admins/proc/show_player_panel,
-	/client/proc/player_panel,
 	/client/proc/check_antagonists,
 	/client/proc/jumptomob,
 	/client/proc/jumptokey

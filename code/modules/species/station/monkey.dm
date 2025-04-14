@@ -155,14 +155,15 @@
 /datum/ai_holder/human/monkey/handle_special_strategical()
 	var/obj/held = holder.get_active_hand()
 	if(held && prob(5))
+		if(istype(held, /obj/item/grenade) && prob(70))
+			var/obj/item/grenade/C = held
+			C.attack_self(holder) // prime the grenade
+
 		var/turf/T = get_random_turf_in_range(holder, 7, 2)
 		if(T)
 			if(istype(held, /obj/item/gun) && prob(80))
 				var/obj/item/gun/G = held
 				G.Fire(T, holder)
-			if(istype(held, /obj/item/grenade) && prob(70))
-				var/obj/item/grenade/C = held
-				C.activate(H)
 			else
 				holder.throw_item(T)
 		else
