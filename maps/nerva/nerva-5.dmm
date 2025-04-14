@@ -478,7 +478,7 @@
 	},
 /area/rescue_base/base)
 "be" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /obj/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -486,7 +486,7 @@
 /area/rescue_base/base)
 "bf" = (
 /obj/floor_decal/corner/blue/diagonal,
-/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/closet/fridge/meat,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -855,7 +855,7 @@
 "bN" = (
 /obj/floor_decal/corner/blue/diagonal,
 /obj/item/storage/box/donkpocket_premium,
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/kitchen,
 /obj/item/reagent_containers/food/condiment/enzyme,
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -1259,8 +1259,8 @@
 /obj/item/clothing/mask/gas,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/glasses/hud/health,
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/gloves,
+/obj/item/storage/box/latexgloves,
+/obj/item/storage/box/latexgloves,
 /obj/item/storage/box/masks,
 /turf/unsimulated/floor{
 	dir = 1;
@@ -2745,16 +2745,16 @@
 /obj/item/stack/material/plastic{
 	amount = 50
 	},
-/obj/item/stack/material/glass/phoronrglass{
+/obj/item/stack/material/glass/boron_reinforced{
 	amount = 20
 	},
-/obj/item/stack/material/glass/phoronrglass{
+/obj/item/stack/material/glass/boron_reinforced{
 	amount = 20
 	},
-/obj/item/stack/material/glass/phoronrglass{
+/obj/item/stack/material/glass/boron_reinforced{
 	amount = 20
 	},
-/obj/item/stack/material/glass/phoronrglass{
+/obj/item/stack/material/glass/boron_reinforced{
 	amount = 20
 	},
 /turf/unsimulated/floor{
@@ -3635,7 +3635,7 @@
 /obj/structure/closet/medical_wall{
 	pixel_y = 32
 	},
-/obj/item/reagent_containers/glass/bottle/antitoxin{
+/obj/item/reagent_containers/glass/bottle/dylovene{
 	pixel_x = -4;
 	pixel_y = 8
 	},
@@ -3772,8 +3772,8 @@
 /obj/structure/closet/medical_wall{
 	pixel_x = -32
 	},
-/obj/item/reagent_containers/glass/bottle/stoxin,
-/obj/item/reagent_containers/glass/bottle/stoxin,
+/obj/item/reagent_containers/glass/bottle/soporific,
+/obj/item/reagent_containers/glass/bottle/soporific,
 /obj/item/reagent_containers/syringe,
 /obj/item/tank/anesthetic,
 /obj/item/clothing/mask/breath/medical,
@@ -3971,7 +3971,7 @@
 	},
 /area/map_template/syndicate_mothership/raider_base)
 "hV" = (
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/kitchen,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -3998,7 +3998,7 @@
 	},
 /area/map_template/syndicate_mothership/raider_base)
 "hZ" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -5532,7 +5532,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
+	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/fancy/matches/matchbox=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -6300,13 +6300,13 @@
 /turf/space,
 /area/space)
 "nT" = (
-/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/closet/fridge/meat,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
 /area/tdome)
 "nU" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -8347,7 +8347,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
+	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/fancy/matches/matchbox=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /turf/unsimulated/floor{
 	icon_state = "plating";
@@ -8770,8 +8770,8 @@
 /obj/structure/table/standard,
 /obj/item/cautery,
 /obj/item/retractor,
-/obj/item/reagent_containers/glass/bottle/stoxin,
-/obj/item/reagent_containers/glass/bottle/stoxin,
+/obj/item/reagent_containers/glass/bottle/soporific,
+/obj/item/reagent_containers/glass/bottle/soporific,
 /obj/item/reagent_containers/syringe,
 /obj/item/gun/launcher/syringe/rapid,
 /obj/item/storage/box/syringegun,
@@ -10202,7 +10202,7 @@
 	},
 /area/map_template/syndicate_mothership)
 "yJ" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -10529,7 +10529,7 @@
 /area/map_template/syndicate_mothership)
 "zw" = (
 /obj/structure/table/standard,
-/obj/item/folder{
+/obj/item/material/folder{
 	pixel_y = 2
 	},
 /turf/unsimulated/floor{
@@ -10899,7 +10899,7 @@
 	},
 /area/map_template/syndicate_mothership)
 "Ao" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/kitchen{
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/unsimulated/floor{
@@ -10968,7 +10968,7 @@
 "Ay" = (
 /obj/structure/table/woodentable,
 /obj/random/single{
-	icon = 'icons/obj/items.dmi';
+	icon = 'icons/obj/tools/lighters.dmi';
 	icon_state = "lighter-g";
 	name = "randomly spawned lighter";
 	spawn_nothing_percentage = 50;
@@ -11877,7 +11877,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
+	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/fancy/matches/matchbox=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -13173,7 +13173,7 @@
 	pixel_y = 9
 	},
 /obj/item/pen,
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "Fu" = (
@@ -13612,7 +13612,7 @@
 	req_access = list("ACCESS_MERCHANT");
 	autoset_access = 0
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 8;
 	icon_state = "rwindow"
 	},
@@ -14131,7 +14131,7 @@
 	pixel_y = 9
 	},
 /obj/item/pen,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 1;
 	icon_state = "rwindow"
 	},
@@ -14139,11 +14139,11 @@
 /area/shuttle/merchant/home)
 "HJ" = (
 /obj/structure/table/reinforced,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 4;
 	icon_state = "rwindow"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 1;
 	icon_state = "rwindow"
 	},
@@ -14305,8 +14305,8 @@
 /obj/machinery/vending/cigarette{
 	contraband = newlist();
 	premium = newlist();
-	prices = list(/obj/item/storage/fancy/smokable=15,/obj/item/storage/box/matches=1,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=20);
-	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/box/matches=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
+	prices = list(/obj/item/storage/fancy/smokable=15,/obj/item/storage/fancy/matches/matchbox=1,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=20);
+	products = list(/obj/item/storage/fancy/smokable=10,/obj/item/storage/fancy/matches/matchbox=10,/obj/item/flame/lighter/zippo=4,/obj/item/clothing/mask/smokable/cigarette/cigar/havana=2)
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -14700,7 +14700,7 @@
 /obj/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant/home)
 "Jc" = (
@@ -15326,7 +15326,7 @@
 /obj/item/reagent_containers/syringe/antiviral,
 /obj/item/reagent_containers/syringe/antiviral,
 /obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/glass/bottle/antitoxin{
+/obj/item/reagent_containers/glass/bottle/dylovene{
 	pixel_x = -4;
 	pixel_y = 8
 	},
@@ -16434,8 +16434,8 @@
 	dir = 1;
 	pixel_y = 16
 	},
-/obj/item/reagent_containers/glass/bottle/stoxin,
-/obj/item/reagent_containers/glass/bottle/stoxin,
+/obj/item/reagent_containers/glass/bottle/soporific,
+/obj/item/reagent_containers/glass/bottle/soporific,
 /obj/item/reagent_containers/syringe,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -16655,7 +16655,7 @@
 /obj/item/surgicaldrill,
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical,
-/obj/item/reagent_containers/glass/bottle/stoxin,
+/obj/item/reagent_containers/glass/bottle/soporific,
 /obj/paint/merc,
 /turf/simulated/wall/titanium,
 /area/syndicate_station/start)

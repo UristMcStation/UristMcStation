@@ -194,6 +194,7 @@
 	Consume(user)
 
 /turf/unsimulated/wall/supermatter/no_spread/use_tool(obj/item/W, mob/living/user, list/click_params)
+	SHOULD_CALL_PARENT(FALSE)
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
 		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
 		"<span class=\"warning\">Everything suddenly goes silent.</span>")
@@ -216,7 +217,7 @@
 
 	Consume(AM)
 
-/turf/unsimulated/wall/supermatter/no_spread/proc/Consume(var/atom/A)
+/turf/unsimulated/wall/supermatter/no_spread/proc/Consume(atom/A)
 	if(isobserver(A))
 		return
 	if(!A.simulated)

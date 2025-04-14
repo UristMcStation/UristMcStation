@@ -962,7 +962,7 @@
 /turf/space,
 /area/space)
 "cG" = (
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "cH" = (

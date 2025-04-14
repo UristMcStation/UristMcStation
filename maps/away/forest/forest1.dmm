@@ -4246,7 +4246,7 @@
 /turf/simulated/floor,
 /area/planet/forest/cave/kitchen)
 "jV" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /obj/item/clothing/head/fedora,
 /obj/item/remains/human,
 /turf/simulated/floor/tiled/freezer,
@@ -4449,7 +4449,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "kw" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /obj/item/shellfish/clam,
 /obj/item/shellfish/clam,
 /obj/item/shellfish/clam,
@@ -4468,7 +4468,6 @@
 /area/planet/forest/cave/kitchen)
 "kz" = (
 /obj/structure/table/standard,
-/obj/machinery/reagent_temperature/cooler,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/kitchen)
 "kA" = (
@@ -4568,7 +4567,7 @@
 /area/planet/forest/cave/kitchen)
 "kP" = (
 /obj/machinery/light/small,
-/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/closet/fridge/meat,
 /obj/item/shellfish/crab,
 /obj/item/shellfish/crab,
 /obj/item/shellfish/crab,

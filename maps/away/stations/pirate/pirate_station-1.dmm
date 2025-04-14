@@ -313,7 +313,7 @@
 /area/spacestations/pirate/station)
 "bq" = (
 /obj/structure/table/marble,
-/obj/item/material/kitchen/rollingpin,
+/obj/item/material/rollingpin,
 /turf/simulated/floor/tiled,
 /area/spacestations/pirate/station)
 "br" = (
@@ -994,7 +994,7 @@
 "dj" = (
 /obj/floor_decal/industrial/outline/grey,
 /obj/structure/largecrate,
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /obj/random/material,
 /obj/random/material,
 /obj/random/toolbox,
@@ -1255,7 +1255,7 @@
 	pixel_y = 9
 	},
 /obj/item/pen,
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /turf/simulated/floor/tiled/dark,
 /area/spacestations/pirate/station)
 "dV" = (
@@ -1435,7 +1435,7 @@
 /area/spacestations/pirate/station)
 "eu" = (
 /obj/structure/table/steel,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /turf/simulated/floor/tiled,
 /area/spacestations/pirate/station)
 "ev" = (

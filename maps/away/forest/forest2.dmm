@@ -656,7 +656,7 @@
 	},
 /area/planet/forest/cabin1)
 "cX" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /obj/floor_decal/corner/black/diagonal,
 /obj/item/reagent_containers/food/condiment/salt,
 /obj/item/storage/box/condimentbottles,
@@ -665,7 +665,7 @@
 "cY" = (
 /obj/structure/table/woodentable/mahogany,
 /obj/floor_decal/corner/black/diagonal,
-/obj/item/material/kitchen/rollingpin,
+/obj/item/material/rollingpin,
 /obj/item/reagent_containers/glass/rag,
 /obj/item/reagent_containers/food/condiment/enzyme,
 /turf/simulated/floor/tiled/white,

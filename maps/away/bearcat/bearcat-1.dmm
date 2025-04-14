@@ -2854,7 +2854,7 @@
 	},
 /obj/structure/closet/crate,
 /obj/item/device/radio,
-/obj/item/device/spaceflare,
+/obj/item/shuttle_beacon,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
 	},

@@ -1946,7 +1946,7 @@
 /obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/item/storage/box/gloves,
+/obj/item/storage/box/latexgloves,
 /obj/item/storage/box/masks,
 /obj/structure/table/rack{
 	dir = 8
@@ -1964,7 +1964,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/paper_bin,
-/obj/item/folder/white{
+/obj/item/material/folder/white{
 	pixel_y = 0
 	},
 /obj/item/pen,
@@ -6402,7 +6402,7 @@
 /area/medical/examroom)
 "alJ" = (
 /obj/structure/table/standard,
-/obj/item/stack/package_wrap/twenty_five,
+/obj/item/stack/package_wrap/cargo_wrap,
 /obj/item/hand_labeler,
 /obj/machinery/power/apc{
 	dir = 8;
@@ -6563,7 +6563,7 @@
 /area/medical/chemistry)
 "alT" = (
 /obj/structure/table/standard,
-/obj/item/stack/package_wrap/twenty_five,
+/obj/item/stack/package_wrap/cargo_wrap,
 /obj/item/hand_labeler,
 /obj/floor_decal/corner/beige/three_quarters{
 	dir = 1
@@ -7176,12 +7176,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/reagent_temperature{
-	pixel_x = 4
-	},
-/obj/machinery/reagent_temperature/cooler{
-	pixel_x = -12
-	},
+/obj/machinery/reagent_temperature,
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
 "ana" = (
@@ -8274,7 +8269,7 @@
 /obj/item/stack/material/glass/fifty,
 /obj/item/stack/material/glass/fifty,
 /obj/item/stack/material/glass/fifty,
-/obj/item/stack/material/glass/phoronrglass{
+/obj/item/stack/material/glass/boron_reinforced{
 	amount = 50
 	},
 /obj/machinery/light{
@@ -8454,7 +8449,7 @@
 	icon_state = "right";
 	name = "Medical Reception"
 	},
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
@@ -8571,7 +8566,7 @@
 	name = "plastic table frame"
 	},
 /obj/item/paper_bin,
-/obj/item/folder/white{
+/obj/item/material/folder/white{
 	pixel_y = 0
 	},
 /obj/item/pen,
@@ -8935,14 +8930,14 @@
 /area/security/office)
 "aqa" = (
 /obj/structure/table/standard,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/floor_decal/corner/red/mono,
 /obj/item/device/radio/intercom{
 	dir = 1;
 	name = "Station Intercom (General)";
 	pixel_y = -28
 	},
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /turf/simulated/floor/tiled/techmaint,
 /area/security/office)
 "aqb" = (
@@ -12890,7 +12885,7 @@
 /area/civilian/holodeck)
 "avW" = (
 /obj/floor_decal/corner/green/diagonal,
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/kitchen,
 /obj/machinery/button/blast_door{
 	id_tag = "kitchen";
 	name = "Kitchen Shutters Control";
@@ -13242,7 +13237,7 @@
 "awJ" = (
 /obj/structure/table/reinforced,
 /obj/item/paper_bin,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/pen,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
@@ -14133,7 +14128,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/fore/third_deck)
 "ayH" = (
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/structure/table/woodentable/walnut,
 /obj/item/storage/box/donut,
 /turf/simulated/floor/carpet/green,
@@ -16209,7 +16204,7 @@
 	dir = 1;
 	icon_state = "corner_white"
 	},
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /obj/item/reagent_containers/food/condiment/enzyme,
 /obj/item/reagent_containers/food/snacks/dough,
 /obj/item/reagent_containers/food/snacks/dough,
@@ -16236,7 +16231,7 @@
 	c_tag = "Kitchen";
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/closet/fridge/meat,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
 "aCy" = (
@@ -19573,7 +19568,7 @@
 	},
 /obj/structure/table/woodentable/walnut,
 /obj/item/paper_bin,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/item/pen,
 /obj/item/stamp/denied,
 /obj/item/stamp/so,
@@ -20110,7 +20105,7 @@
 /area/security/cosoffice)
 "aJg" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/item/pen,
 /obj/item/book/manual/security_space_law/nervaspacelaw,
 /obj/item/stamp/hos,
@@ -21738,11 +21733,11 @@
 	icon_state = "corner_white"
 	},
 /obj/structure/table/reinforced,
-/obj/item/stack/package_wrap/twenty_five,
-/obj/item/stack/package_wrap/twenty_five,
-/obj/item/stack/package_wrap/twenty_five,
-/obj/item/stack/package_wrap/twenty_five,
-/obj/item/stack/package_wrap/twenty_five,
+/obj/item/stack/package_wrap/cargo_wrap,
+/obj/item/stack/package_wrap/cargo_wrap,
+/obj/item/stack/package_wrap/cargo_wrap,
+/obj/item/stack/package_wrap/cargo_wrap,
+/obj/item/stack/package_wrap/cargo_wrap,
 /obj/machinery/button/blast_door{
 	id_tag = "deliveryentry";
 	name = "Delivery Office Entry Shutters";
@@ -23669,8 +23664,8 @@
 /area/rnd/dorms)
 "aOW" = (
 /obj/structure/table/rack,
-/obj/item/material/clipboard,
-/obj/item/folder/yellow,
+/obj/item/material/folder/clipboard,
+/obj/item/material/folder/yellow,
 /obj/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/cents)
@@ -24381,7 +24376,7 @@
 	dir = 8
 	},
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder,
+/obj/item/material/folder,
 /obj/item/reagent_containers/spray/cleaner,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/abandonedoffice)
@@ -25197,7 +25192,7 @@
 /area/medical/cmo)
 "aRH" = (
 /obj/item/paper_bin,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/item/pen,
 /obj/structure/table/glass,
 /obj/floor_decal/corner/black/border{
@@ -25739,8 +25734,8 @@
 /area/command/storage)
 "aSC" = (
 /obj/structure/table/rack,
-/obj/item/folder/blue,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
+/obj/item/material/folder/blue,
 /obj/item/storage/box/PDAs,
 /obj/item/storage/box/ids,
 /turf/simulated/floor/tiled/techmaint,
@@ -27003,7 +26998,7 @@
 /area/logistics/qm)
 "aUY" = (
 /obj/structure/table/standard,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/pen{
 	pixel_x = 4;
 	pixel_y = 4
@@ -27163,7 +27158,7 @@
 /obj/item/screwdriver{
 	pixel_y = 10
 	},
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/floor_decal/corner/beige/three_quarters,
 /obj/item/paper_bin{
 	pixel_x = -3;
@@ -27294,7 +27289,7 @@
 "aVF" = (
 /obj/structure/table/rack,
 /obj/item/hand_labeler,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/cents)
 "aVG" = (
@@ -29368,7 +29363,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /obj/item/clothing/accessory/armband/bluegoldcom,
 /obj/item/clothing/accessory/armband/cargo,
 /obj/item/storage/box/survivalkit,
@@ -29463,7 +29458,6 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/reagent_temperature/cooler,
 /turf/simulated/floor/tiled/white,
 /area/civilian/kitchen)
 "lfC" = (
@@ -29503,7 +29497,7 @@
 	},
 /obj/item/clothing/accessory/armband/bluegoldcom,
 /obj/item/clothing/accessory/armband/medblue,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /turf/simulated/floor/tiled/white,
 /area/medical/cmo)
 "ltj" = (
@@ -29682,7 +29676,7 @@
 	dir = 8;
 	icon_state = "corner_white"
 	},
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/item/pen,
 /obj/machinery/button/blast_door{
 	id_tag = "Brig Lockdown";
@@ -31200,7 +31194,7 @@
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = 5
 	},
-/obj/item/material/kitchen/rollingpin,
+/obj/item/material/rollingpin,
 /obj/floor_decal/corner/green/diagonal,
 /obj/machinery/newscaster{
 	pixel_y = -28
@@ -31564,7 +31558,7 @@
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/machinery/door/firedoor,
 /obj/floor_decal/corner/beige/full,
 /obj/machinery/door/window/northright,

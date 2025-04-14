@@ -256,7 +256,7 @@
 /obj/random/tool,
 /obj/item/storage/belt/utility/full,
 /obj/item/device/radio,
-/obj/item/device/spaceflare,
+/obj/item/shuttle_beacon,
 /turf/simulated/floor/tiled/airless,
 /area/djstation)
 "gb" = (

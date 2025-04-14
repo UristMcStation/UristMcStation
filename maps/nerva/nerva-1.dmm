@@ -1657,7 +1657,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/item/device/spaceflare,
+/obj/item/shuttle_beacon,
 /obj/item/device/radio,
 /obj/item/storage/belt/utility/full,
 /obj/item/material/hatchet,
@@ -3850,7 +3850,7 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /obj/item/device/radio,
-/obj/item/device/spaceflare,
+/obj/item/shuttle_beacon,
 /obj/random/toolbox,
 /obj/item/storage/box/survivalkit,
 /turf/simulated/floor/tiled,
@@ -4055,7 +4055,7 @@
 /obj/structure/table/rack,
 /obj/floor_decal/industrial/outline/yellow,
 /obj/item/storage/box/glowsticks,
-/obj/item/device/spaceflare,
+/obj/item/shuttle_beacon,
 /obj/item/device/radio,
 /obj/item/material/hatchet,
 /obj/machinery/light{
@@ -5016,7 +5016,7 @@
 "jo" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/item/pen/multi,
 /turf/simulated/floor/wood/walnut,
 /area/security/forensics)
@@ -9508,7 +9508,7 @@
 	icon_state = "4-8";
 	pixel_x = 0
 	},
-/turf/simulated/floor/blackgrid,
+/turf/simulated/floor/redgrid,
 /area/security/nuke_storage)
 "qK" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -9793,7 +9793,7 @@
 /obj/floor_decal/corner/red/three_quarters{
 	dir = 4
 	},
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8;
 	id_tag = null
@@ -10274,7 +10274,7 @@
 /area/security/nuke_storage)
 "rM" = (
 /obj/machinery/nuclearbomb/station,
-/turf/simulated/floor/blackgrid,
+/turf/simulated/floor/redgrid,
 /area/security/nuke_storage)
 "rN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10627,7 +10627,7 @@
 	pixel_x = -32
 	},
 /obj/structure/table/steel,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/floor_decal/techfloor{
 	dir = 9;
 	icon_state = "techfloor_edges"
@@ -12397,7 +12397,7 @@
 "vH" = (
 /obj/structure/table/standard,
 /obj/item/stamp/seniornt,
-/obj/item/folder/nt,
+/obj/item/material/folder/nt,
 /obj/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
@@ -12498,7 +12498,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/box/syringes,
 /obj/item/storage/box/beakers,
-/obj/item/storage/box/gloves,
+/obj/item/storage/box/latexgloves,
 /obj/item/storage/box/masks,
 /obj/machinery/power/apc{
 	dir = 8;
@@ -13337,7 +13337,7 @@
 	c_tag = "Nanotrasen Reception Lobby"
 	},
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = -28;
 	pixel_y = 0
 	},
@@ -14613,7 +14613,7 @@
 /area/rnd/xenobiology)
 "zp" = (
 /obj/structure/table/standard,
-/obj/item/folder/nt,
+/obj/item/material/folder/nt,
 /obj/item/device/scanner/health,
 /obj/item/trash/cigbutt/rand,
 /turf/simulated/floor/plating,
@@ -14624,7 +14624,7 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = 30
 	},
@@ -15485,7 +15485,7 @@
 /area/medical/extstorage)
 "AV" = (
 /obj/random/trash,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /obj/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
@@ -15702,7 +15702,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 28
 	},
 /turf/simulated/floor/tiled/white,
@@ -15812,7 +15812,7 @@
 /area/maintenance/fourth_deck/fs)
 "BE" = (
 /obj/item/pen,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "BF" = (
@@ -16461,7 +16461,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "CQ" = (
-/obj/item/reagent_containers/glass/bottle/antitoxin{
+/obj/item/reagent_containers/glass/bottle/dylovene{
 	pixel_x = -4;
 	pixel_y = -3
 	},
@@ -16473,7 +16473,7 @@
 	pixel_x = 3;
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/glass/bottle/stoxin,
+/obj/item/reagent_containers/glass/bottle/soporific,
 /obj/item/reagent_containers/glass/bottle/toxin{
 	pixel_x = 4;
 	pixel_y = 2
@@ -16941,7 +16941,7 @@
 	dir = 6
 	},
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 28;
 	pixel_y = 0
 	},
@@ -17378,7 +17378,7 @@
 /area/logistics/lowercargo)
 "EC" = (
 /obj/structure/table/standard,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -19164,7 +19164,7 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/item/storage/box/glowsticks,
-/obj/item/device/spaceflare,
+/obj/item/shuttle_beacon,
 /turf/simulated/floor/tiled/white,
 /area/hadrian/main)
 "HU" = (
@@ -19265,7 +19265,7 @@
 "Ib" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/floor_decal/industrial/outline/yellow,
-/obj/structure/stasis_cage,
+/obj/machinery/stasis_cage,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -19701,8 +19701,8 @@
 /obj/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/item/stack/package_wrap/twenty_five,
-/obj/item/stack/package_wrap/twenty_five,
+/obj/item/stack/package_wrap/cargo_wrap,
+/obj/item/stack/package_wrap/cargo_wrap,
 /obj/item/tape_roll,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/lowercargo)
@@ -20772,7 +20772,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/bdportengine)
 "MU" = (
-/obj/structure/stasis_cage,
+/obj/machinery/stasis_cage,
 /obj/floor_decal/techfloor{
 	dir = 8;
 	icon_state = "techfloor_edges"
@@ -21320,7 +21320,7 @@
 /area/hadrian/main)
 "Pp" = (
 /obj/machinery/self_destruct,
-/turf/simulated/floor/blackgrid,
+/turf/simulated/floor/redgrid,
 /area/security/nuke_storage)
 "Ps" = (
 /obj/structure/cable{
@@ -21609,7 +21609,7 @@
 /obj/random/toolbox,
 /obj/item/device/scanner/gas,
 /obj/item/cell/super,
-/obj/item/device/spaceflare,
+/obj/item/shuttle_beacon,
 /obj/structure/cable/cyan{
 	d1 = 1;
 	d2 = 8;
@@ -22219,7 +22219,7 @@
 /turf/simulated/wall/r_wall/prepainted,
 /area/medical/extstorage)
 "Sm" = (
-/turf/simulated/floor/blackgrid,
+/turf/simulated/floor/redgrid,
 /area/security/nuke_storage)
 "Sp" = (
 /obj/floor_decal/industrial/warning{
@@ -22908,9 +22908,9 @@
 	dir = 6
 	},
 /obj/structure/table/standard,
-/obj/item/stack/package_wrap/twenty_five,
-/obj/item/stack/package_wrap/twenty_five,
-/obj/item/stack/package_wrap/twenty_five,
+/obj/item/stack/package_wrap/cargo_wrap,
+/obj/item/stack/package_wrap/cargo_wrap,
+/obj/item/stack/package_wrap/cargo_wrap,
 /obj/item/device/destTagger{
 	pixel_x = 4;
 	pixel_y = 3
@@ -23583,7 +23583,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fp)
 "XC" = (
-/obj/structure/stasis_cage,
+/obj/machinery/stasis_cage,
 /obj/floor_decal/techfloor{
 	dir = 9;
 	icon_state = "techfloor_edges"

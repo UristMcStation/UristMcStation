@@ -3220,7 +3220,7 @@
 	pixel_x = -2;
 	pixel_y = 5
 	},
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /obj/item/pen,
 /turf/simulated/floor/wood/walnut,
 /area/outpost/research/hallway)
@@ -3228,7 +3228,7 @@
 /obj/structure/table/standard,
 /obj/item/device/camera,
 /obj/item/stamp,
-/obj/item/folder,
+/obj/item/material/folder,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -6211,7 +6211,7 @@
 /area/outpost/research/isolation_monitoring)
 "ms" = (
 /obj/structure/table/standard,
-/obj/item/folder,
+/obj/item/material/folder,
 /obj/item/device/camera,
 /obj/item/pen,
 /turf/simulated/floor/tiled/white,
@@ -6543,7 +6543,7 @@
 /area/outpost/research/emergency_storage)
 "nj" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/gloves{
+/obj/item/storage/box/latexgloves{
 	pixel_x = 4;
 	pixel_y = 5
 	},
@@ -7717,7 +7717,7 @@
 /turf/simulated/floor/tiled/white,
 /area/outpost/mining_main/dorms)
 "qg" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /turf/simulated/floor/tiled/white,
 /area/outpost/mining_main/dorms)
 "qh" = (
@@ -11582,7 +11582,7 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /turf/simulated/floor/tiled,
 /area/outpost/security/hallway)
 "yR" = (

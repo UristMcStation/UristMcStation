@@ -23,7 +23,7 @@
 "aw" = (/obj/wingrille_spawn/reinforced/full,/turf/simulated/floor/plating/airless,/area/lanius/start)
 "ax" = (/obj/machinery/computer/shuttle_control/explore/lanius,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/lanius/start)
 "ay" = (/obj/structure/bed/chair/urist/shuttle{icon_state = "shuttlechair"; dir = 8},/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/lanius/start)
-"az" = (/obj/structure/table/glass,/obj/random/smokes,/obj/item/device/spaceflare,/obj/item/device/spaceflare,/obj/item/device/spaceflare,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/lanius/start)
+"az" = (/obj/structure/table/glass,/obj/random/smokes,/obj/item/shuttle_beacon,/obj/item/shuttle_beacon,/obj/item/shuttle_beacon,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/lanius/start)
 "aA" = (/obj/shuttle_landmark/contact_light_lanius,/obj/structure/table/glass,/obj/random/loot,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/lanius/start)
 "aB" = (/obj/floor_decal/corner/clean/red{icon_state = "corner_white_clean"; dir = 6},/obj/floor_decal/industrial/warning{dir = 4},/turf/simulated/floor/tiled/white/airless,/area/lanius/start)
 "aC" = (/obj/machinery/power/shield_generator,/turf/simulated/floor/fixed/alium{blocks_air = 0; initial_gas = list("aliether" = 101.132)},/area/lanius/start)

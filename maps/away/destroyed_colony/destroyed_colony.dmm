@@ -3273,7 +3273,7 @@
 	},
 /area/planet/destroyed_colony)
 "ll" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/destroyed_colony)
 "lm" = (
@@ -3568,7 +3568,7 @@
 	},
 /area/planet/destroyed_colony)
 "mk" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /obj/machinery/light/small{
 	dir = 8
 	},

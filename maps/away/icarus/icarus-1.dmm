@@ -240,7 +240,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/icarus/vessel2)
 "bc" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /turf/simulated/floor/tiled/freezer,
 /area/icarus/vessel2)
 "bd" = (
@@ -354,7 +354,7 @@
 	dir = 1
 	},
 /obj/structure/table/steel,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "by" = (
@@ -473,7 +473,7 @@
 /area/icarus/vessel2)
 "bN" = (
 /obj/structure/table/steel,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "bO" = (
@@ -700,7 +700,7 @@
 /obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
-/obj/item/material/kitchen/rollingpin,
+/obj/item/material/rollingpin,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "ct" = (
@@ -2272,18 +2272,18 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "hn" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id_tag = "d1starboardnacelle"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 8;
 	icon_state = "phoronrwindow"
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 1;
 	icon_state = "phoronrwindow"
 	},
@@ -2371,10 +2371,10 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "hA" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 8;
 	icon_state = "phoronrwindow"
 	},
@@ -2418,11 +2418,11 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "hF" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced,
+/obj/structure/window/boron_reinforced{
 	dir = 8;
 	icon_state = "phoronrwindow"
 	},

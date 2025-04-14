@@ -810,7 +810,7 @@
 "bT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 28;
 	pixel_y = 0
 	},
@@ -2072,7 +2072,7 @@
 "er" = (
 /obj/floor_decal/corner/red/three_quarters,
 /obj/structure/table/reinforced,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/item/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
@@ -3292,7 +3292,7 @@
 /area/hallway/centralfirst)
 "gE" = (
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 28;
 	pixel_y = 0
 	},
@@ -4842,7 +4842,7 @@
 	dir = 8
 	},
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 28;
 	pixel_y = 0
 	},

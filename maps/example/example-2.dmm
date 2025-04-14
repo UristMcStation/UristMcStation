@@ -364,7 +364,7 @@
 "zp" = (
 /obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/standard,
-/obj/machinery/reagent_temperature/cooler,
+/obj/machinery/reagent_temperature,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "zN" = (

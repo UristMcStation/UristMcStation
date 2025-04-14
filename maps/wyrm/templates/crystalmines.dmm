@@ -159,7 +159,7 @@
 "dc" = (/obj/floor_decal/industrial/outline/yellow,/mob/living/silicon/robot/drone,/turf/simulated/floor/plating/airless,/area/away/abandoned)
 "dd" = (/obj/floor_decal/industrial/outline/yellow,/turf/simulated/floor/plating/airless,/area/away/abandoned)
 "de" = (/obj/machinery/computer,/turf/simulated/floor/plating/airless,/area/away/abandoned)
-"df" = (/obj/structure/table/glass,/obj/item/folder/nt,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
+"df" = (/obj/structure/table/glass,/obj/item/material/folder/nt,/turf/simulated/floor/tiled/airless,/area/away/abandoned)
 "dg" = (/obj/structure/bed/chair/comfy/black{icon_state = "comfychair_preview"; dir = 8},/turf/simulated/floor/tiled/airless,/area/away/abandoned)
 "dh" = (/obj/machinery/crystal_static/cyan,/turf/simulated/floor/asteroid,/area/mine/explored)
 "di" = (/obj/structure/closet/secure_closet/guncabinet,/obj/random/projectile,/obj/random/projectile,/obj/random/ammo,/obj/random/ammo,/turf/simulated/floor/tiled/airless,/area/away/abandoned)

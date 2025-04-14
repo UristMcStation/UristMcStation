@@ -179,7 +179,7 @@
 /area/planet/abandoned_colony)
 "aB" = (
 /obj/structure/table/steel,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/device/eftpos{
 	eftpos_name = "Cargo Bay EFTPOS scanner"
 	},
@@ -1614,7 +1614,7 @@
 /turf/simulated/floor/holofloor/wood,
 /area/planet/abandoned_colony)
 "eN" = (
-/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/closet/fridge/meat,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
 /turf/simulated/floor/tiled/steel_grid,
@@ -1707,7 +1707,7 @@
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "ff" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /obj/item/reagent_containers/food/snacks/rawcutlet,
 /obj/item/reagent_containers/food/snacks/rawcutlet,
 /obj/item/reagent_containers/food/snacks/rawcutlet,
@@ -2989,7 +2989,7 @@
 /area/planet/abandoned_colony)
 "iy" = (
 /obj/structure/table/reinforced,
-/obj/item/material/kitchen/rollingpin,
+/obj/item/material/rollingpin,
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/reagent_containers/food/condiment/sugar{
 	name = "Sugar"
@@ -4904,8 +4904,8 @@
 "om" = (
 /obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/rack,
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/gloves,
+/obj/item/storage/box/latexgloves,
+/obj/item/storage/box/latexgloves,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	dir = 2;
 	icon_state = "cafeteria"
@@ -4970,9 +4970,9 @@
 "ot" = (
 /obj/floor_decal/corner/red/diagonal,
 /obj/structure/table/rack,
-/obj/item/storage/box/matches,
-/obj/item/storage/box/matches,
-/obj/item/storage/box/matches,
+/obj/item/storage/fancy/matches/matchbox,
+/obj/item/storage/fancy/matches/matchbox,
+/obj/item/storage/fancy/matches/matchbox,
 /turf/simulated/floor/fixed/uristturf/geminus{
 	dir = 2;
 	icon_state = "cafeteria"
@@ -6443,7 +6443,7 @@
 /obj/structure/table/rack,
 /obj/item/device/radio,
 /obj/item/device/radio,
-/obj/item/device/spaceflare,
+/obj/item/shuttle_beacon,
 /obj/item/storage/box/glowsticks,
 /obj/item/material/hatchet,
 /obj/item/material/hatchet,
@@ -7990,7 +7990,7 @@
 	},
 /area/planet/abandoned_colony)
 "uO" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/storage/box/donkpocket_mixed,
@@ -8007,7 +8007,7 @@
 /obj/random/toolbox,
 /obj/item/device/scanner/gas,
 /obj/item/cell/super,
-/obj/item/device/spaceflare,
+/obj/item/shuttle_beacon,
 /obj/structure/window/basic{
 	dir = 8
 	},
@@ -8765,7 +8765,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/item/device/spaceflare,
+/obj/item/shuttle_beacon,
 /obj/item/device/radio,
 /obj/item/storage/belt/utility/full,
 /obj/item/material/hatchet,

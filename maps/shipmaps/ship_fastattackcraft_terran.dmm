@@ -310,7 +310,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/boarding_ship)
 "aY" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
@@ -525,7 +525,7 @@
 /area/boarding_ship)
 "bI" = (
 /obj/structure/table/standard,
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /obj/item/pen,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/boarding_ship)

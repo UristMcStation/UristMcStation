@@ -895,7 +895,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/fancy/matches/matchbox = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /obj/structure/window/reinforced{
 	dir = 1
@@ -1883,7 +1883,7 @@
 	pixel_y = 9
 	},
 /obj/item/pen,
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "afe" = (
@@ -3000,7 +3000,7 @@
 /obj/floor_decal/corner/brown{
 	dir = 5
 	},
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant/home)
 "ahR" = (
@@ -4931,7 +4931,7 @@
 /area/centcom/evac)
 "amo" = (
 /obj/structure/table/reinforced,
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /obj/item/stamp,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/shuttle.dmi';
@@ -5199,7 +5199,7 @@
 	},
 /area/map_template/syndicate_mothership)
 "amY" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -5228,7 +5228,7 @@
 	},
 /area/centcom/evac)
 "anc" = (
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /obj/item/pen,
 /obj/structure/table/reinforced,
 /turf/unsimulated/floor{
@@ -5308,7 +5308,7 @@
 /area/map_template/syndicate_mothership)
 "anm" = (
 /obj/structure/table/standard,
-/obj/item/folder{
+/obj/item/material/folder{
 	pixel_y = 2
 	},
 /turf/unsimulated/floor{
@@ -5381,7 +5381,7 @@
 	},
 /area/map_template/syndicate_mothership)
 "anv" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/kitchen{
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /turf/unsimulated/floor{
@@ -6291,8 +6291,8 @@
 /obj/machinery/vending/cigarette{
 	contraband = newlist();
 	premium = newlist();
-	prices = list(/obj/item/storage/fancy/smokable = 15, /obj/item/storage/box/matches = 1, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 20);
-	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	prices = list(/obj/item/storage/fancy/smokable = 15, /obj/item/storage/fancy/matches/matchbox = 1, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 20);
+	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/fancy/matches/matchbox = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
@@ -6579,7 +6579,7 @@
 /obj/item/reagent_containers/syringe/antiviral,
 /obj/item/reagent_containers/syringe/antiviral,
 /obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/glass/bottle/antitoxin{
+/obj/item/reagent_containers/glass/bottle/dylovene{
 	pixel_x = -4;
 	pixel_y = 8
 	},
@@ -6887,7 +6887,7 @@
 /obj/item/surgicaldrill,
 /obj/item/clothing/gloves/latex,
 /obj/item/clothing/mask/surgical,
-/obj/item/reagent_containers/glass/bottle/stoxin,
+/obj/item/reagent_containers/glass/bottle/soporific,
 /obj/paint/merc,
 /turf/simulated/wall/titanium,
 /area/syndicate_station/start)
@@ -7434,7 +7434,7 @@
 	},
 /area/shuttle/administration/centcom)
 "asx" = (
-/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/closet/fridge/meat,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -7598,7 +7598,7 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
-/obj/item/material/kitchen/rollingpin,
+/obj/item/material/rollingpin,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -9315,7 +9315,7 @@
 	},
 /area/centcom)
 "awu" = (
-/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/closet/fridge/meat,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -9438,7 +9438,7 @@
 "awD" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/fancy/smokable/cigar,
-/obj/item/storage/box/matches,
+/obj/item/storage/fancy/matches/matchbox,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -9585,13 +9585,13 @@
 /obj/item/reagent_containers/glass/bottle/inaprovaline{
 	pixel_x = -4
 	},
-/obj/item/reagent_containers/glass/bottle/antitoxin{
+/obj/item/reagent_containers/glass/bottle/dylovene{
 	pixel_x = 4
 	},
-/obj/item/reagent_containers/glass/bottle/antitoxin{
+/obj/item/reagent_containers/glass/bottle/dylovene{
 	pixel_x = 4
 	},
-/obj/item/reagent_containers/glass/bottle/antitoxin{
+/obj/item/reagent_containers/glass/bottle/dylovene{
 	pixel_x = 4
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline{
@@ -10952,8 +10952,8 @@
 /area/centcom/holding)
 "aAe" = (
 /obj/structure/table/standard,
-/obj/item/material/clipboard,
-/obj/item/folder/yellow,
+/obj/item/material/folder/clipboard,
+/obj/item/material/folder/yellow,
 /obj/item/pen,
 /turf/simulated/floor/shuttle/white,
 /area/shuttle/escape/centcom)
@@ -12523,7 +12523,7 @@
 /area/centcom/holding)
 "aEd" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
+/obj/item/storage/box/latexgloves{
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -12622,7 +12622,7 @@
 /area/tdome)
 "aEq" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
+/obj/item/storage/box/latexgloves{
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -12854,13 +12854,13 @@
 	},
 /area/tdome/tdomeobserve)
 "aEO" = (
-/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/closet/fridge/meat,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
 /area/tdome)
 "aEP" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -14186,7 +14186,7 @@
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
 	prices = list();
-	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/box/matches = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
+	products = list(/obj/item/storage/fancy/smokable = 10, /obj/item/storage/fancy/matches/matchbox = 10, /obj/item/flame/lighter/zippo = 4, /obj/item/clothing/mask/smokable/cigarette/cigar/havana = 2)
 	},
 /turf/unsimulated/floor{
 	icon_state = "plating";
@@ -15309,7 +15309,7 @@
 /area/centcom/transit)
 "aLi" = (
 /obj/structure/table/reinforced,
-/obj/item/folder,
+/obj/item/material/folder,
 /obj/machinery/door/window/southleft{
 	name = "Transit Checkpoint";
 	req_access = list("ACCESS_CENT_GENERAL")
@@ -15841,7 +15841,7 @@
 /area/shuttle/naval1/centcom)
 "aMK" = (
 /obj/structure/table/standard,
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /obj/item/pen,
 /turf/simulated/floor/shuttle/blue,
 /area/shuttle/naval1/centcom)
@@ -16022,7 +16022,7 @@
 /turf/simulated/floor/tiled,
 /area/centcom/transit)
 "aNk" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /turf/simulated/floor/shuttle/yellow,
 /area/shuttle/naval1/centcom)
 "aNl" = (
@@ -16481,7 +16481,7 @@
 	},
 /obj/floor_decal/corner/purple/diagonal,
 /obj/structure/table/steel_reinforced,
-/obj/item/storage/box/gloves{
+/obj/item/storage/box/latexgloves{
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -17547,7 +17547,7 @@
 /area/centcom/transit)
 "aQK" = (
 /obj/structure/table/reinforced,
-/obj/item/folder,
+/obj/item/material/folder,
 /obj/machinery/door/window/northleft{
 	name = "Transit Checkpoint";
 	req_access = list("ACCESS_CENT_GENERAL")
@@ -19381,7 +19381,7 @@
 	},
 /area/map_template/syndicate_mothership/raider_base)
 "aUK" = (
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/kitchen,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -19632,7 +19632,7 @@
 	},
 /area/map_template/syndicate_mothership/raider_base)
 "aVr" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -19813,7 +19813,7 @@
 /area/centcom/scom)
 "aVS" = (
 /obj/structure/table/reinforced,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /turf/unsimulated/floor{
 	icon_state = "white"
 	},
@@ -19875,7 +19875,7 @@
 	pixel_x = 0;
 	pixel_y = 0
 	},
-/obj/item/storage/box/gloves{
+/obj/item/storage/box/latexgloves{
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -20587,7 +20587,7 @@
 /area/centcom/scom)
 "aXr" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
+/obj/item/storage/box/latexgloves{
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -20655,7 +20655,7 @@
 /area/centcom/scom)
 "aXv" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves{
+/obj/item/storage/box/latexgloves{
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -20687,11 +20687,11 @@
 "aXx" = (
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/reagent_containers/glass/bottle/antitoxin{
+/obj/item/reagent_containers/glass/bottle/dylovene{
 	pixel_x = 4;
 	pixel_y = 4
 	},
-/obj/item/reagent_containers/glass/bottle/antitoxin{
+/obj/item/reagent_containers/glass/bottle/dylovene{
 	pixel_x = 4;
 	pixel_y = 4
 	},
@@ -21444,16 +21444,16 @@
 	},
 /area/centcom/antag)
 "aZd" = (
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced,
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
@@ -21472,16 +21472,16 @@
 	},
 /area/centcom/antag)
 "aZf" = (
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced,
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
@@ -22179,16 +22179,16 @@
 /area/centcom/antag)
 "baH" = (
 /obj/item/reagent_containers/food/drinks/golden_cup,
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced,
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
@@ -22565,7 +22565,7 @@
 /turf/simulated/wall/voxshuttle,
 /area/map_template/skipjack_station/start)
 "bbM" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -22798,7 +22798,7 @@
 /turf/simulated/floor/plating,
 /area/map_template/skipjack_station/start)
 "bcx" = (
-/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/closet/fridge/meat,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -23156,11 +23156,11 @@
 	},
 /area/centcom/antag)
 "bdp" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
@@ -23170,7 +23170,7 @@
 	},
 /area/centcom/antag)
 "bdq" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -23180,11 +23180,11 @@
 	},
 /area/centcom/antag)
 "bdr" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
@@ -23245,7 +23245,7 @@
 	},
 /area/centcom/antag)
 "bdw" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
@@ -23255,7 +23255,7 @@
 	},
 /area/centcom/antag)
 "bdx" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -23275,7 +23275,7 @@
 	},
 /area/centcom/antag)
 "bdy" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -23483,7 +23483,7 @@
 	},
 /area/centcom/antag)
 "bdS" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
@@ -23500,7 +23500,7 @@
 	},
 /area/centcom/antag)
 "bdU" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
@@ -23563,7 +23563,7 @@
 	pixel_x = 10;
 	pixel_y = 8
 	},
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/item/reagent_containers/food/drinks/teapot,
 /turf/unsimulated/floor{
 	dir = 2;
@@ -23735,7 +23735,7 @@
 /turf/simulated/floor/plating,
 /area/map_template/skipjack_station/start)
 "bes" = (
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/kitchen,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2
@@ -23777,7 +23777,7 @@
 /area/centcom/scom)
 "bew" = (
 /obj/structure/table/reinforced,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/item/pen,
 /obj/floor_decal/corner/blue{
 	dir = 10
@@ -23875,8 +23875,8 @@
 	},
 /area/centcom/antag)
 "beE" = (
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced,
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
@@ -23886,15 +23886,15 @@
 	},
 /area/centcom/antag)
 "beF" = (
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/boron_reinforced,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/shuttle.dmi';
 	icon_state = "floor4"
 	},
 /area/centcom/antag)
 "beG" = (
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced,
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
@@ -23908,7 +23908,7 @@
 	dir = 5
 	},
 /obj/item/reagent_containers/food/drinks/bottle/cognac,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/item/newspaper,
 /obj/item/reagent_containers/food/drinks/glass2/wine,
 /turf/unsimulated/floor{
@@ -23930,7 +23930,7 @@
 	},
 /area/centcom/antag)
 "beJ" = (
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/boron_reinforced,
 /obj/structure/table/woodentable/walnut,
 /obj/item/reagent_containers/food/drinks/cans/waterbottle,
 /obj/item/device/flashlight/lamp/green{
@@ -23938,7 +23938,7 @@
 	pixel_x = 10;
 	pixel_y = 8
 	},
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /obj/floor_decal/carpet,
 /obj/floor_decal/carpet{
 	dir = 8
@@ -24775,8 +24775,8 @@
 /obj/structure/table/standard,
 /obj/item/cautery,
 /obj/item/retractor,
-/obj/item/reagent_containers/glass/bottle/stoxin,
-/obj/item/reagent_containers/glass/bottle/stoxin,
+/obj/item/reagent_containers/glass/bottle/soporific,
+/obj/item/reagent_containers/glass/bottle/soporific,
 /obj/item/reagent_containers/syringe,
 /turf/simulated/floor/shuttle/white,
 /area/map_template/skipjack_station/start)

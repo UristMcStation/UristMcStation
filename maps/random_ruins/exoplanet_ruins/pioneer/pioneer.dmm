@@ -269,7 +269,7 @@
 /turf/simulated/wall/wood,
 /area/map_template/lonepioneer/cabin)
 "xp" = (
-/obj/item/material/kitchen/rollingpin,
+/obj/item/material/rollingpin,
 /obj/structure/table/woodentable_reinforced/walnut,
 /obj/item/storage/candle_box,
 /obj/item/storage/candle_box,
@@ -310,7 +310,7 @@
 /area/map_template/lonepioneer/shed)
 "ED" = (
 /obj/item/material/knife/kitchen/cleaver,
-/obj/item/material/kitchen/rollingpin,
+/obj/item/material/rollingpin,
 /obj/structure/table/woodentable_reinforced/walnut,
 /turf/simulated/floor/tiled/monotile,
 /area/map_template/lonepioneer/cabin)
@@ -343,7 +343,7 @@
 /obj/item/reagent_containers/glass/beaker{
 	pixel_x = 5
 	},
-/obj/item/material/kitchen/rollingpin,
+/obj/item/material/rollingpin,
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/item/reagent_containers/spray/cleaner,
 /obj/structure/table/woodentable_reinforced/walnut,
@@ -534,7 +534,7 @@
 /turf/template_noop,
 /area/template_noop)
 "ZY" = (
-/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/closet/fridge/meat,
 /obj/item/reagent_containers/food/snacks/sliceable/flatdough,
 /obj/item/reagent_containers/food/snacks/spagetti,
 /obj/item/reagent_containers/food/snacks/dough,

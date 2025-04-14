@@ -659,7 +659,7 @@
 "cq" = (
 /obj/structure/table/woodentable,
 /obj/item/paper/icarus/crew_roster,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "cr" = (

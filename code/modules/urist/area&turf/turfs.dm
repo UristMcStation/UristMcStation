@@ -315,3 +315,14 @@ transit/east is the same thing now AFAIK
 
 /turf/simulated/wall/r_wall/hull/dark
 	color = "#3b494d"
+
+//restoring airless turfs purged from bay
+
+/turf/simulated/floor/greengrid/airless
+	map_airless = TRUE
+
+/turf/simulated/floor/bluegrid/airless
+	map_airless = TRUE
+
+/turf/simulated/floor/tiled/airless
+	map_airless = TRUE

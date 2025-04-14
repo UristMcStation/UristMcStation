@@ -603,8 +603,8 @@
 /area/crystaldrugs/hallway2)
 "dK" = (
 /obj/structure/table/woodentable_reinforced/walnut,
-/obj/item/material/clipboard/steel,
-/obj/item/folder/yellow,
+/obj/item/material/folder/clipboard/steel,
+/obj/item/material/folder/yellow,
 /obj/item/paper_bin,
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/manager)
@@ -3066,7 +3066,7 @@
 "vd" = (
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/structure/table/steel_reinforced/dark,
-/obj/machinery/reagent_temperature/cooler,
+/obj/machinery/reagent_temperature,
 /obj/machinery/light/coldtint{
 	dir = 8
 	},
@@ -6984,7 +6984,7 @@
 	pixel_x = 21
 	},
 /obj/item/device/gps,
-/obj/item/device/spaceflare,
+/obj/item/shuttle_beacon,
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
 /turf/simulated/floor/tiled/dark,

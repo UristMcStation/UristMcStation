@@ -128,6 +128,6 @@
 /**
  * Animal sold hook.
  * Called in supplyshuttle.dm when a anomaly container is sold on the shuttle.
- * Parameters: var/obj/structure/stasis_cage/sold, var/area/shuttle
+ * Parameters: var/obj/machinery/stasis_cage/sold, var/area/shuttle
  */
 /hook/sell_animal

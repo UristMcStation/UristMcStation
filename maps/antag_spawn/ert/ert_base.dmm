@@ -82,7 +82,7 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/item/pen,
 /turf/unsimulated/floor{
 	icon_state = "dark"

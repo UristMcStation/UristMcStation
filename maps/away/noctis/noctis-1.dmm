@@ -2022,7 +2022,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/lounge)
 "dW" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /obj/item/reagent_containers/food/snacks/fish,
 /obj/item/reagent_containers/food/snacks/fish,
 /obj/item/reagent_containers/food/snacks/fish,

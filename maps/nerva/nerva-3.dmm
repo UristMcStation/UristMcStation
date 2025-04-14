@@ -3535,7 +3535,7 @@
 /obj/item/reagent_containers/food/drinks/flask{
 	pixel_x = 8
 	},
-/obj/item/storage/box/matches,
+/obj/item/storage/fancy/matches/matchbox,
 /obj/item/clothing/mask/smokable/cigarette/cigar,
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/machinery/light{
@@ -3998,7 +3998,7 @@
 /area/command/ce)
 "hy" = (
 /obj/structure/table/reinforced,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/paper/monitorkey,
 /obj/structure/cable{
 	d1 = 1;
@@ -6677,7 +6677,7 @@
 	dir = 6
 	},
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 28;
 	pixel_y = 0
 	},
@@ -7169,7 +7169,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 28;
 	pixel_y = 0
 	},
@@ -14683,7 +14683,7 @@
 /obj/item/storage/pill_bottle/methylphenidate,
 /obj/item/storage/pill_bottle/citalopram,
 /obj/item/reagent_containers/syringe,
-/obj/item/reagent_containers/glass/bottle/stoxin,
+/obj/item/reagent_containers/glass/bottle/soporific,
 /obj/item/reagent_containers/pill/paroxetine,
 /obj/item/clothing/mask/smokable/pipe,
 /obj/item/clothing/suit/psychologist,
@@ -14695,7 +14695,7 @@
 /obj/item/storage/fancy/crayons,
 /obj/machinery/light,
 /obj/item/clothing/under/rank/psych/turtleneck,
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /obj/item/storage/belt/general,
 /turf/simulated/floor/wood/walnut,
 /area/civilian/counselor)
@@ -15224,7 +15224,7 @@
 	health_max = 1e+006
 	},
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = -28
 	},
@@ -15764,7 +15764,7 @@
 /area/security/prison)
 "LQ" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/item/stamp/captain,
 /obj/machinery/button/blast_door{
 	id_tag = "capofficeview";
@@ -15891,7 +15891,7 @@
 /obj/item/device/camera,
 /obj/item/pen,
 /obj/item/paper_bin,
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /turf/simulated/floor/carpet/blue2,
 /area/civilian/journalist)
 "Mq" = (
@@ -16187,7 +16187,7 @@
 /area/engineering/substation/second_deck)
 "NQ" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/pen,
 /obj/item/pen,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -16855,7 +16855,7 @@
 /obj/item/device/camera_film,
 /obj/item/device/camera_film,
 /obj/item/storage/briefcase,
-/obj/item/folder,
+/obj/item/material/folder,
 /obj/item/device/taperecorder,
 /obj/item/device/tape,
 /obj/item/clothing/suit/storage/urist/coat/journocoat,
@@ -17203,7 +17203,7 @@
 /area/hallway/fore/second_deck)
 "Sl" = (
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 28;
 	pixel_y = 0
 	},
@@ -18525,7 +18525,7 @@
 	icon_state = "map_scrubber_on"
 	},
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 28;
 	pixel_y = 0
 	},

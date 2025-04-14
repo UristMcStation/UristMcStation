@@ -1,6 +1,6 @@
 "a" = (/turf/simulated/floor/planet/jungle/templatethick,/area/planet/jungle/away)
 "b" = (/turf/simulated/wall/wood,/area/planet/jungle/away)
-"c" = (/obj/structure/window/phoronreinforced{icon_state = "phoronrwindow"; dir = 1},/obj/structure/window/phoronreinforced{icon_state = "phoronrwindow"; dir = 8},/obj/structure/window/phoronreinforced{icon_state = "phoronrwindow"; dir = 4},/obj/structure/window/phoronreinforced,/obj/structure/grille/cult,/turf/simulated/floor/wood,/area/planet/jungle/away)
+"c" = (/obj/structure/window/boron_reinforced{icon_state = "phoronrwindow"; dir = 1},/obj/structure/window/boron_reinforced{icon_state = "phoronrwindow"; dir = 8},/obj/structure/window/boron_reinforced{icon_state = "phoronrwindow"; dir = 4},/obj/structure/window/boron_reinforced,/obj/structure/grille/cult,/turf/simulated/floor/wood,/area/planet/jungle/away)
 "d" = (/obj/structure/bookcase{name = "bookcase (Religious)"},/turf/simulated/floor/wood{icon_state = "wood_broken6"},/area/planet/jungle/away)
 "e" = (/obj/structure/curtain/black{pixel_y = 32},/turf/simulated/floor/wood,/area/planet/jungle/away)
 "f" = (/obj/structure/noticeboard{pixel_y = 32},/obj/structure/coatrack,/turf/simulated/floor/wood,/area/planet/jungle/away)

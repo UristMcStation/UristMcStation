@@ -1891,7 +1891,7 @@
 /area/spacestations/nanotrasenspace)
 "vs" = (
 /obj/structure/table/reinforced,
-/obj/item/folder,
+/obj/item/material/folder,
 /obj/machinery/door/window/southleft{
 	name = "Transit Checkpoint";
 	req_access = list("ACCESS_CENT_GENERAL")
@@ -2113,7 +2113,7 @@
 	name = "Transit Checkpoint";
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
-/obj/item/folder,
+/obj/item/material/folder,
 /turf/simulated/floor/tiled/dark{
 	color = "#cccccc"
 	},
@@ -2530,7 +2530,7 @@
 /area/spacestations/nanotrasenspace)
 "OE" = (
 /obj/structure/table/reinforced,
-/obj/item/folder,
+/obj/item/material/folder,
 /obj/machinery/door/window/northleft{
 	name = "Transit Checkpoint";
 	req_access = list("ACCESS_CENT_GENERAL")

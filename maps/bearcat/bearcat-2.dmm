@@ -1720,7 +1720,7 @@
 	},
 /obj/item/storage/box/donkpocket_mixed,
 /obj/floor_decal/corner/red/diagonal,
-/obj/item/material/kitchen/rollingpin,
+/obj/item/material/rollingpin,
 /obj/item/reagent_containers/food/condiment/small/saltshaker{
 	pixel_x = -3;
 	pixel_y = 0
@@ -4044,11 +4044,11 @@
 /turf/simulated/floor/plating,
 /area/ship/scrap/maintenance/engine/aft)
 "jJ" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -4056,7 +4056,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jK" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -4067,11 +4067,11 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jL" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -4086,7 +4086,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/scrap/maintenance/engine/aft)
 "jM" = (
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/boron_reinforced,
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8
 	},
@@ -4186,7 +4186,7 @@
 /turf/simulated/floor/plating,
 /area/ship/scrap/maintenance/engine/aft)
 "jW" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
@@ -4269,26 +4269,26 @@
 /turf/simulated/floor/plating,
 /area/ship/scrap/maintenance/engine/aft)
 "ki" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/boron_reinforced,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 5
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/scrap/maintenance/engine/aft)
 "kj" = (
-/obj/structure/window/phoronreinforced,
+/obj/structure/window/boron_reinforced,
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 9
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/scrap/maintenance/engine/aft)
 "kk" = (
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced,
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 4
 	},
@@ -4306,7 +4306,7 @@
 /turf/simulated/floor/reinforced,
 /area/ship/scrap/maintenance/engine/aft)
 "kl" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
@@ -5727,7 +5727,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/ship/scrap/maintenance/power)
 "Jc" = (
-/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/closet/fridge/meat,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
@@ -6326,7 +6326,7 @@
 /obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /obj/item/device/radio,
-/obj/item/device/spaceflare,
+/obj/item/shuttle_beacon,
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24;

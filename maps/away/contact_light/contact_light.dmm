@@ -22,7 +22,7 @@
 "av" = (/obj/wingrille_spawn/reinforced/full,/turf/simulated/floor/plating/airless,/area/lanius/start)
 "aw" = (/obj/machinery/computer/shuttle_control/explore/lanius{dir = 4},/turf/simulated/floor/tiled/dark/airless{color = "#bebed2"},/area/lanius/start)
 "ax" = (/obj/structure/bed/chair/urist/shuttle{dir = 8; icon_state = "shuttlechair"},/turf/simulated/floor/tiled/dark/airless{color = "#bebed2"},/area/lanius/start)
-"ay" = (/obj/structure/table/glass,/obj/random/smokes,/obj/item/device/spaceflare,/obj/item/device/spaceflare,/obj/item/device/spaceflare,/turf/simulated/floor/tiled/dark/airless{color = "#bebed2"},/area/lanius/start)
+"ay" = (/obj/structure/table/glass,/obj/random/smokes,/obj/item/shuttle_beacon,/obj/item/shuttle_beacon,/obj/item/shuttle_beacon,/turf/simulated/floor/tiled/dark/airless{color = "#bebed2"},/area/lanius/start)
 "az" = (/obj/shuttle_landmark/contact_light_lanius,/obj/structure/table/glass,/obj/random/loot,/turf/simulated/floor/tiled/dark/airless{color = "#bebed2"},/area/lanius/start)
 "aA" = (/obj/floor_decal/corner/red{dir = 6; icon_state = "corner_white"},/obj/floor_decal/industrial/warning{dir = 4},/turf/simulated/floor/tiled/dark/airless{color = "#bebed2"},/area/lanius/start)
 "aB" = (/obj/machinery/power/shield_generator,/turf/simulated/floor/tiled/dark/airless{color = "#bebed2"},/area/lanius/start)

@@ -2918,7 +2918,7 @@
 /area/gateway)
 "ags" = (
 /obj/machinery/self_destruct,
-/turf/simulated/floor/blackgrid,
+/turf/simulated/floor/redgrid,
 /area/security/nuke_storage)
 "agt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3258,11 +3258,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/gateway)
 "agY" = (
-/turf/simulated/floor/blackgrid,
+/turf/simulated/floor/redgrid,
 /area/security/nuke_storage)
 "agZ" = (
 /obj/machinery/nuclearbomb/station,
-/turf/simulated/floor/blackgrid,
+/turf/simulated/floor/redgrid,
 /area/security/nuke_storage)
 "aha" = (
 /obj/structure/cable{
@@ -3270,7 +3270,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/blackgrid,
+/turf/simulated/floor/redgrid,
 /area/security/nuke_storage)
 "ahb" = (
 /obj/machinery/door/firedoor,
@@ -3491,7 +3491,7 @@
 /area/gateway)
 "ahB" = (
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = -32
 	},
@@ -6903,7 +6903,7 @@
 /area/hallway/secondary/exit)
 "aoY" = (
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = -32
 	},
@@ -8072,7 +8072,7 @@
 /area/security/checkpoint2)
 "arI" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/storage/box/matches,
+/obj/item/storage/fancy/matches/matchbox,
 /obj/item/reagent_containers/food/drinks/flask{
 	pixel_x = 8
 	},
@@ -12218,7 +12218,7 @@
 	dir = 1
 	},
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = -32
 	},
@@ -13215,7 +13215,7 @@
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/item/hand_labeler,
-/obj/item/stack/package_wrap/twenty_five,
+/obj/item/stack/package_wrap/cargo_wrap,
 /obj/machinery/light{
 	icon_state = "tube1";
 	dir = 8
@@ -16980,7 +16980,7 @@
 /area/hallway/primary/fore)
 "aKb" = (
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = -32
 	},
@@ -17242,7 +17242,7 @@
 	dir = 4
 	},
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = -32
 	},
@@ -17316,7 +17316,7 @@
 /area/hallway/primary/fore)
 "aKH" = (
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = -32
 	},
@@ -18882,7 +18882,7 @@
 /obj/item/storage/pill_bottle/methylphenidate,
 /obj/item/storage/pill_bottle/citalopram,
 /obj/item/reagent_containers/syringe,
-/obj/item/reagent_containers/glass/bottle/stoxin,
+/obj/item/reagent_containers/glass/bottle/soporific,
 /obj/item/reagent_containers/pill/paroxetine,
 /obj/item/clothing/mask/smokable/pipe,
 /obj/item/clothing/suit/psychologist,
@@ -20891,7 +20891,7 @@
 	pixel_y = 25
 	},
 /obj/item/hand_labeler,
-/obj/item/stack/package_wrap/twenty_five,
+/obj/item/stack/package_wrap/cargo_wrap,
 /obj/structure/table/reinforced,
 /obj/floor_decal/corner/beige{
 	dir = 5
@@ -20955,11 +20955,11 @@
 "aSo" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/reagent_containers/glass/bottle/antitoxin,
-/obj/item/reagent_containers/glass/bottle/stoxin,
+/obj/item/reagent_containers/glass/bottle/dylovene,
+/obj/item/reagent_containers/glass/bottle/soporific,
 /obj/item/reagent_containers/syringe/inaprovaline,
 /obj/item/reagent_containers/syringe/antitoxin,
-/obj/item/reagent_containers/glass/bottle/antitoxin,
+/obj/item/reagent_containers/glass/bottle/dylovene,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/structure/extinguisher_cabinet{
 	dir = 2;
@@ -21045,7 +21045,7 @@
 "aSv" = (
 /obj/structure/closet/secure_closet/personal,
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = 32
 	},
@@ -22874,7 +22874,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = -32
 	},
@@ -23245,12 +23245,7 @@
 	pixel_x = 32
 	},
 /obj/structure/table/reinforced,
-/obj/machinery/reagent_temperature{
-	pixel_x = 8
-	},
-/obj/machinery/reagent_temperature/cooler{
-	pixel_x = -8
-	},
+/obj/machinery/reagent_temperature,
 /turf/simulated/floor/tiled/white,
 /area/medical/chemistry)
 "aWW" = (
@@ -25141,8 +25136,8 @@
 /area/rnd/mixing)
 "baO" = (
 /obj/structure/closet/secure_closet/chemical,
-/obj/item/reagent_containers/glass/bottle/antitoxin,
-/obj/item/reagent_containers/glass/bottle/antitoxin,
+/obj/item/reagent_containers/glass/bottle/dylovene,
+/obj/item/reagent_containers/glass/bottle/dylovene,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/storage/pill_bottle/inaprovaline,
@@ -26882,7 +26877,7 @@
 /area/hallway/primary/port)
 "bdY" = (
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = -32
 	},
@@ -28701,7 +28696,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = -32
 	},
@@ -31284,7 +31279,7 @@
 /area/medical/reception)
 "bmw" = (
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = -32
 	},
@@ -40359,7 +40354,7 @@
 /area/crew_quarters/cafeteria)
 "bDN" = (
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = -32
 	},
@@ -41770,14 +41765,14 @@
 /area/quartermaster/office)
 "bGQ" = (
 /obj/structure/table/standard,
-/obj/item/stack/package_wrap/twenty_five,
-/obj/item/stack/package_wrap/twenty_five,
-/obj/item/stack/package_wrap/twenty_five,
-/obj/item/stack/package_wrap/twenty_five,
-/obj/item/stack/package_wrap/twenty_five,
-/obj/item/stack/package_wrap/twenty_five,
-/obj/item/stack/package_wrap/twenty_five,
-/obj/item/stack/package_wrap/twenty_five,
+/obj/item/stack/package_wrap/cargo_wrap,
+/obj/item/stack/package_wrap/cargo_wrap,
+/obj/item/stack/package_wrap/cargo_wrap,
+/obj/item/stack/package_wrap/cargo_wrap,
+/obj/item/stack/package_wrap/cargo_wrap,
+/obj/item/stack/package_wrap/cargo_wrap,
+/obj/item/stack/package_wrap/cargo_wrap,
+/obj/item/stack/package_wrap/cargo_wrap,
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bGR" = (
@@ -45366,7 +45361,7 @@
 "bNL" = (
 /obj/structure/table/standard,
 /obj/item/hand_labeler,
-/obj/item/stack/package_wrap/twenty_five,
+/obj/item/stack/package_wrap/cargo_wrap,
 /obj/item/pen,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -47013,7 +47008,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/bar)
 "bRp" = (
-/obj/item/stack/package_wrap/twenty_five,
+/obj/item/stack/package_wrap/cargo_wrap,
 /obj/structure/table/woodentable/walnut,
 /obj/item/reagent_containers/glass/rag,
 /obj/landmark/intelspawn,
@@ -49269,7 +49264,7 @@
 	pixel_x = -3;
 	pixel_y = 7
 	},
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /obj/item/pen/red,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
@@ -51506,7 +51501,7 @@
 	dir = 4
 	},
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = -32
 	},
@@ -55194,7 +55189,7 @@
 	icon_state = "4-8";
 	pixel_y = 0
 	},
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/kitchen,
 /obj/floor_decal/corner/green/diagonal,
 /obj/floor_decal/spline/fancy{
 	icon_state = "spline_fancy";
@@ -55764,7 +55759,7 @@
 /area/engineering/engine_room)
 "ciw" = (
 /obj/structure/bed/nice,
-/obj/item/material/clipboard{
+/obj/item/material/folder/clipboard{
 	desc = "It's the QM's clipboard. It appears to have the word 'Scruffy' written on it. That's cute, I guess.";
 	name = "Scruffy"
 	},
@@ -56073,7 +56068,7 @@
 "cje" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/condiment/enzyme,
-/obj/item/stack/package_wrap/twenty_five,
+/obj/item/stack/package_wrap/cargo_wrap,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -57162,7 +57157,7 @@
 /area/quartermaster/qm)
 "cly" = (
 /obj/structure/table/standard,
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /obj/item/stamp{
 	pixel_x = 0;
 	pixel_y = 0
@@ -57476,7 +57471,7 @@
 /area/crew_quarters/kitchen)
 "cmf" = (
 /obj/structure/table/standard,
-/obj/item/material/kitchen/rollingpin,
+/obj/item/material/rollingpin,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -58987,16 +58982,11 @@
 /obj/structure/table/standard,
 /obj/floor_decal/corner/green/diagonal,
 /obj/floor_decal/spline/fancy,
-/obj/machinery/reagent_temperature/cooler{
-	pixel_x = -8
-	},
-/obj/machinery/reagent_temperature{
-	pixel_x = 8
-	},
+/obj/machinery/reagent_temperature,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/kitchen)
 "cpe" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /obj/machinery/alarm{
 	dir = 1;
 	icon_state = "alarm0";
@@ -59014,7 +59004,7 @@
 	pixel_y = -24;
 	req_access = list("ACCESS_KITCHEN")
 	},
-/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/closet/fridge/meat,
 /obj/floor_decal/corner/green/diagonal,
 /obj/floor_decal/spline/fancy,
 /turf/simulated/floor/tiled/white,
@@ -59496,7 +59486,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /obj/item/folder/white,
 /obj/item/clothing/glasses/science,
 /turf/simulated/floor/tiled/white,
@@ -61453,11 +61443,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "ctO" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 1
 	},
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	icon_state = "phoronrwindow";
 	dir = 8
 	},
@@ -61655,7 +61645,7 @@
 /area/hallway/primary/aft)
 "cun" = (
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = -32
 	},
@@ -63705,7 +63695,7 @@
 /obj/structure/table/rack{
 	dir = 1
 	},
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /obj/item/pen,
 /obj/landmark/intelspawn,
 /turf/simulated/floor/plating,
@@ -66786,7 +66776,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "cFm" = (
-/obj/item/reagent_containers/glass/bottle/antitoxin{
+/obj/item/reagent_containers/glass/bottle/dylovene{
 	pixel_x = -4;
 	pixel_y = -3
 	},
@@ -66798,7 +66788,7 @@
 	pixel_x = 3;
 	pixel_y = -2
 	},
-/obj/item/reagent_containers/glass/bottle/stoxin,
+/obj/item/reagent_containers/glass/bottle/soporific,
 /obj/item/reagent_containers/glass/bottle/toxin{
 	pixel_x = 4;
 	pixel_y = 2
@@ -67208,7 +67198,7 @@
 "cGp" = (
 /obj/structure/closet,
 /obj/item/folder/yellow,
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "cGq" = (
@@ -72844,7 +72834,7 @@
 /area/command/ce)
 "cRs" = (
 /obj/structure/table/reinforced,
-/obj/item/material/clipboard,
+/obj/item/material/folder/clipboard,
 /obj/item/flame/lighter/zippo,
 /obj/item/clothing/glasses/meson{
 	pixel_y = 4
@@ -81353,7 +81343,7 @@
 /area/maintenance/aft)
 "diM" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/matches,
+/obj/item/storage/fancy/matches/matchbox,
 /obj/random/smokes,
 /obj/machinery/light/small{
 	dir = 8
@@ -83125,7 +83115,7 @@
 /area/library)
 "eBS" = (
 /obj/machinery/newscaster{
-	hitstaken = 1;
+	health_current = 60;
 	pixel_x = 0;
 	pixel_y = -32
 	},
@@ -84798,7 +84788,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/turf/simulated/floor/blackgrid,
+/turf/simulated/floor/redgrid,
 /area/security/nuke_storage)
 "twR" = (
 /obj/item/device/radio/intercom{
@@ -84840,7 +84830,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
-/turf/simulated/floor/blackgrid,
+/turf/simulated/floor/redgrid,
 /area/security/nuke_storage)
 "ufB" = (
 /obj/item/stool/padded,
