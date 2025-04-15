@@ -1,0 +1,5 @@
+author: emmanuelbassil
+changes:
+  - {tweak: You now get more specific feedback as to why you couldn't spawn with some
+      loadout items.}
+delete-after: true
