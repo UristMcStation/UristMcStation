@@ -5764,22 +5764,6 @@
 	name = "ushanka"
 	},
 /obj/item/clothing/head/helmet/urist/wwii/soviethelm,
-/obj/item/clothing/head/ushanka/solgov{
-	desc = "A synthfur-lined hat for operating in cold environments.";
-	name = "ushanka"
-	},
-/obj/item/clothing/head/ushanka/solgov/army{
-	desc = "A synthfur-lined hat for operating in cold environments.";
-	name = "ushanka"
-	},
-/obj/item/clothing/head/ushanka/solgov/army/green{
-	desc = "A green synthfur-lined hat for operating in cold environments.";
-	name = "ushanka"
-	},
-/obj/item/clothing/head/ushanka/solgov/fleet{
-	desc = "A synthfur-lined hat for operating in cold environments.";
-	name = "ushanka"
-	},
 /obj/item/clothing/head/urist/wwii/sovietofficer,
 /obj/item/clothing/head/urist/wwii/sovietofficer,
 /obj/item/clothing/head/urist/pelt/bear/brown,
@@ -8363,7 +8347,7 @@
 /area/russianderelict/singularity_engine)
 "PU" = (
 /obj/structure/table/standard,
-/obj/item/stack/cable_coil/random,
+/obj/random/single/color/cable_coil,
 /obj/item/device/t_scanner,
 /obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
