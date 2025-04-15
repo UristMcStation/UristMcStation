@@ -3791,7 +3791,6 @@
 #include "maps\deepmaint_wfc\wfc_deepmaint.dm"
 #include "maps\glloydstation\glloydstation_define.dm"
 #include "maps\RandomZLevels\maze1.dm"
-#include "maps\torch\torch_define.dm"
 #include "maps\wyrm\items\smcult.dm"
 #include "maps\wyrm\items\clothing\corporate.dm"
 #include "maps\wyrm\obj\alien.dm"
