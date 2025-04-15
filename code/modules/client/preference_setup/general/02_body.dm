@@ -730,6 +730,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				LAZYSET(sanitized_metaoptions, named_option, option)
 
 			var/additional_input = input(user, "[selected.addprompt]", "Select Option") as null | anything in sanitized_metaoptions
+			if (!additional_input)
+				return
 			additional_data = sanitized_metaoptions[additional_input]
 
 		if (additional_data)

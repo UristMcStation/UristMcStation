@@ -400,6 +400,7 @@ SUBSYSTEM_DEF(jobs)
 			var/datum/gear/G = gear_datums[thing]
 			if(G)
 				var/permitted = 0
+				var/feedback_message = "branch"
 				if(G.allowed_branches)
 					if(H.char_branch && (H.char_branch.type in G.allowed_branches))
 						permitted = 1
@@ -412,6 +413,7 @@ SUBSYSTEM_DEF(jobs)
 							permitted = 1
 						else
 							permitted = 0
+							feedback_message = "job"
 					else
 						permitted = 1
 
@@ -419,12 +421,21 @@ SUBSYSTEM_DEF(jobs)
 					for(var/required in G.allowed_skills)
 						if(!H.skill_check(required,G.allowed_skills[required]))
 							permitted = 0
+							feedback_message = "skills"
+
+				if (permitted && G.allowed_traits)
+					permitted = FALSE
+					feedback_message = "traits"
+					for (var/required_trait in G.allowed_traits)
+						if (H.HasTrait(required_trait))
+							permitted = TRUE
 
 				if(G.whitelisted && (!(H.species.name in G.whitelisted)))
+					feedback_message = "whitelist status"
 					permitted = 0
 
 				if(!permitted)
-					to_chat(H, SPAN_WARNING("Your current species, job, branch, skills or whitelist status does not permit you to spawn with [thing]!"))
+					to_chat(H, SPAN_WARNING("Your current [feedback_message] does not permit you to spawn with \the [thing]!"))
 					continue
 
 				if(!G.slot || G.slot == slot_tie || (G.slot in loadout_taken_slots) || !G.spawn_on_mob(H, H.client.prefs.Gear()[G.display_name]))
