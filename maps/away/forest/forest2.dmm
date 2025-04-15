@@ -18,15 +18,15 @@
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/stock_parts/keyboard,
-/obj/item/stack/cable_coil/random,
-/obj/item/stack/cable_coil/random,
-/obj/item/stack/cable_coil/random,
-/obj/item/stack/cable_coil/random,
+/obj/random/single/color/cable_coil,
+/obj/random/single/color/cable_coil,
+/obj/random/single/color/cable_coil,
+/obj/random/single/color/cable_coil,
 /obj/item/stock_parts/keyboard,
 /obj/item/stock_parts/keyboard,
 /obj/item/stock_parts/keyboard,
 /obj/item/stock_parts/console_screen,
-/obj/item/stack/cable_coil/random,
+/obj/random/single/color/cable_coil,
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest/cabin1)
 "af" = (
@@ -1002,8 +1002,8 @@
 /area/planet/forest)
 "vE" = (
 /obj/structure/closet/crate,
-/obj/item/clothing/head/hardhat/EMS,
-/obj/item/clothing/head/hardhat/dblue,
+/obj/item/clothing/head/hardhat/light/medic,
+/obj/item/clothing/head/hardhat/blue,
 /obj/item/clothing/head/hardhat,
 /obj/item/clothing/head/hardhat,
 /obj/item/clothing/head/hardhat/orange,

@@ -504,7 +504,7 @@
 "bR" = (
 /obj/structure/table/marble,
 /obj/item/trash/plate,
-/obj/item/material/kitchen/utensil/fork,
+/obj/item/material/utensil/fork,
 /turf/simulated/floor,
 /area/spacestations/pirate/station)
 "bS" = (

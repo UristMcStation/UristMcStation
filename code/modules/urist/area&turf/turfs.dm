@@ -326,3 +326,9 @@ transit/east is the same thing now AFAIK
 
 /turf/simulated/floor/tiled/airless
 	map_airless = TRUE
+
+/turf/simulated/floor/tiled/dark/airless
+	map_airless = TRUE
+
+/turf/simulated/floor/tiled/white/airless
+	map_airless = TRUE

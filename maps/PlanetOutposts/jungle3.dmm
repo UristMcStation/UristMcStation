@@ -60,7 +60,7 @@
 "bh" = (/obj/structure/transit_tube{icon_state = "S-NE"},/turf/simulated/jungle/water/deep,/area/jungle)
 "bi" = (/obj/structure/reagent_dispensers/fueltank,/turf/simulated/floor/plating,/area/outpost/research/chemistry)
 "bj" = (/obj/structure/closet/hydrant{pixel_x = 0; pixel_y = 32},/turf/simulated/floor/plating,/area/outpost/research/chemistry)
-"bk" = (/obj/structure/table/standard,/obj/item/device/scanner/plant,/obj/item/cell/standard,/obj/item/stack/cable_coil/random,/obj/item/stack/cable_coil/random,/obj/machinery/light/small{dir = 1},/turf/simulated/floor/plating,/area/outpost/research/chemistry)
+"bk" = (/obj/structure/table/standard,/obj/item/device/scanner/plant,/obj/item/cell/standard,/obj/random/single/color/cable_coil,/obj/random/single/color/cable_coil,/obj/machinery/light/small{dir = 1},/turf/simulated/floor/plating,/area/outpost/research/chemistry)
 "bl" = (/obj/machinery/vending/hydroseeds,/turf/simulated/floor{dir = 8; icon_state = "whitegreen"},/area/outpost/research/chemistry)
 "bm" = (/obj/machinery/atmospherics/portables_connector{dir = 1},/obj/machinery/portable_atmospherics/hydroponics{closed_system = 1; name = "isolation tray"},/turf/simulated/floor{icon_state = "white"},/area/outpost/research/chemistry)
 "bn" = (/obj/machinery/seed_extractor,/obj/machinery/light{brightness_range = 9; dir = 4},/turf/simulated/floor{dir = 4; icon_state = "whitegreen"},/area/outpost/research/chemistry)

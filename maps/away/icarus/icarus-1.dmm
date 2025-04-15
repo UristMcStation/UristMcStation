@@ -815,7 +815,7 @@
 	dir = 4
 	},
 /obj/item/trash/plate,
-/obj/item/material/kitchen/utensil/fork,
+/obj/item/material/utensil/fork,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "cL" = (
