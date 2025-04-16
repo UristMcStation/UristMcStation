@@ -1,8 +1,8 @@
 /datum/map/example
 	// Unit test exemptions
 	apc_test_exempt_areas = list(
-		/area/space = EXEMPT_ALL,
-		/area/shuttle/escape = EXEMPT_ALL,
+		/area/space = NO_SCRUBBER|NO_VENT|NO_APC,
+		/area/shuttle/escape = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/constructionsite = NO_AIR_ALARM|NO_FIRE_ALARM,
 		/area/medical/surgery = NO_AIR_ALARM|NO_FIRE_ALARM,
 		/area/maintenance/fsmaint2 = NO_AIR_ALARM|NO_FIRE_ALARM
@@ -44,8 +44,7 @@
 		/area/scom,
 		/area/planet,
 		/area/jungleoutpost,
-		/area/map_template,
-		/area/icarus
+		/area/map_template
 	)
 	area_usage_test_exempted_areas = list(
 		/area/beach,

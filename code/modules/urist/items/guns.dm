@@ -274,7 +274,6 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = (ammo_magazine)? "M16-GL" : "M16-GL-empty"
 	else
 		icon_state = (ammo_magazine)? "M16" : "M16-empty"
-	update_held_icon()
 
 /obj/item/gun/projectile/automatic/m16/gl
 	name = "\improper M16-GL Assault Rifle"

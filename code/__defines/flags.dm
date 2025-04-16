@@ -5,7 +5,7 @@ GLOBAL_LIST_INIT_STEP(index_to_flag, 0)
 
 #if DM_VERSION >= 516
 GLOBAL_ALIST_INIT_STEP(flag_to_index, 0)
-	flag_to_index = new (MAX_FLAG_INDEX)
+	flag_to_index = new ()
 	for (var/i in 1 to MAX_FLAG_INDEX)
 		flag_to_index[RFLAG(i)] = i
 #endif
