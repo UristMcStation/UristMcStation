@@ -22,7 +22,7 @@
 "ag" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1439;
-	icon_state = "door_closed"
+	icon_state = "closed"
 	},
 /turf/simulated/floor,
 /area/smugglers/base)
@@ -76,7 +76,7 @@
 "aq" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1439;
-	icon_state = "door_closed";
+	icon_state = "closed";
 	name = "Internal Airlock"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,

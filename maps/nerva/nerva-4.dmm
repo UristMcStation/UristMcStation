@@ -1456,7 +1456,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/item/material/shard,
+/obj/item/material/shard{
+	icon_state = "small"
+	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "di" = (
@@ -5179,8 +5181,7 @@
 "ka" = (
 /obj/floor_decal/industrial/outline/grey,
 /obj/machinery/computer/modular/preset/civilian{
-	dir = 1;
-	icon_state = "console"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/aicore)
@@ -5194,8 +5195,7 @@
 "kc" = (
 /obj/floor_decal/industrial/outline/grey,
 /obj/machinery/computer/modular/preset/aislot/research{
-	dir = 1;
-	icon_state = "console"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/command/aicore)
@@ -5514,7 +5514,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
 "kG" = (
-/obj/item/material/shard,
+/obj/item/material/shard{
+	icon_state = "small"
+	},
 /obj/item/hammer/smithing,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
@@ -5917,7 +5919,9 @@
 /area/maintenance/first_deck/central)
 "ll" = (
 /obj/decal/cleanable/blood,
-/obj/item/material/shard,
+/obj/item/material/shard{
+	icon_state = "small"
+	},
 /mob/living/simple_animal/hostile/rogue_drone,
 /turf/simulated/floor/plating,
 /area/maintenance/first_deck/central)
