@@ -12324,7 +12324,7 @@
 "xF" = (
 /obj/machinery/sleeper{
 	dir = 4;
-	icon_state = "sleeper_0"
+	icon_state = "sleeper"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape_pod1/station)
