@@ -410,15 +410,18 @@
 /obj/structure/table/steel_reinforced,
 /obj/item/reagent_containers/syringe/drugs{
 	pixel_x = 3;
-	pixel_y = -1
+	pixel_y = -1;
+	icon_state = "rg0"
 	},
 /obj/item/reagent_containers/syringe/drugs{
 	pixel_x = 3;
-	pixel_y = 4
+	pixel_y = 4;
+	icon_state = "rg0"
 	},
 /obj/item/reagent_containers/syringe/drugs{
 	pixel_x = 3;
-	pixel_y = 9
+	pixel_y = 9;
+	icon_state = "rg0"
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -3027,7 +3030,6 @@
 "fy" = (
 /obj/structure/table/steel_reinforced,
 /obj/machinery/button/blast_door{
-	icon_state = "doorctrl0";
 	id_tag = "rescuebridge";
 	name = "Window Shutters Control";
 	pixel_y = -4;
@@ -3131,7 +3133,6 @@
 /area/rescue_base/start)
 "fL" = (
 /obj/machinery/button/blast_door{
-	icon_state = "doorctrl0";
 	id_tag = "rescuedock";
 	name = "Window Shutters Control";
 	pixel_x = 24;
@@ -3146,8 +3147,8 @@
 /area/rescue_base/start)
 "fM" = (
 /obj/machinery/computer/modular/preset/medical{
-	dir = 4;
-	icon_state = "console"
+	autorun_program = /datum/computer_file/program/suit_sensors;
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
@@ -3156,8 +3157,8 @@
 /area/rescue_base/start)
 "fO" = (
 /obj/machinery/computer/modular/preset/engineering{
-	dir = 8;
-	icon_state = "console"
+	autorun_program = /datum/computer_file/program/alarm_monitor;
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
@@ -3185,8 +3186,8 @@
 /area/rescue_base/start)
 "fR" = (
 /obj/machinery/computer/modular/preset/security{
-	dir = 8;
-	icon_state = "console"
+	autorun_program = /datum/computer_file/program/forceauthorization;
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
@@ -3441,7 +3442,6 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/machinery/button/blast_door{
-	icon_state = "doorctrl0";
 	id_tag = "rescueeva";
 	name = "Window Shutters Control";
 	pixel_x = 24;
@@ -3643,9 +3643,15 @@
 	pixel_x = 4;
 	pixel_y = 7
 	},
-/obj/item/reagent_containers/syringe,
-/obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/syringe/antiviral,
+/obj/item/reagent_containers/syringe{
+	icon_state = "rg0"
+	},
+/obj/item/reagent_containers/syringe/antiviral{
+	icon_state = "rg0"
+	},
+/obj/item/reagent_containers/syringe/antiviral{
+	icon_state = "rg0"
+	},
 /obj/item/reagent_containers/ivbag/blood/human/oneg,
 /obj/item/reagent_containers/ivbag/blood/human/oneg,
 /turf/simulated/floor/tiled/white,
@@ -3785,7 +3791,6 @@
 	},
 /obj/structure/iv_stand,
 /obj/machinery/button/blast_door{
-	icon_state = "doorctrl0";
 	id_tag = "rescueinfirm";
 	name = "Window Shutters Control";
 	pixel_x = 24;
@@ -6845,7 +6850,6 @@
 "pi" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
-	icon_state = "door_closed";
 	id_tag = "vox_northwest_lock";
 	locked = 0;
 	req_access = list("ACCESS_SYNDICATE");
@@ -7343,7 +7347,6 @@
 "qw" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
-	icon_state = "door_closed";
 	id_tag = "vox_southwest_lock";
 	locked = 0;
 	req_access = list("ACCESS_SYNDICATE");
@@ -9935,8 +9938,8 @@
 "yc" = (
 /obj/floor_decal/industrial/outline/grey,
 /obj/machinery/computer/modular/preset/security{
-	dir = 1;
-	icon_state = "console"
+	autorun_program = /datum/computer_file/program/forceauthorization;
+	dir = 1
 	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
@@ -12516,19 +12519,16 @@
 /obj/item/card/id{
 	access = list(201);
 	desc = "A visitor's access card, this one is for the Merchant's Station.";
-	icon_state = "guest";
 	name = "Visitor's Card - Merchant's Station"
 	},
 /obj/item/card/id{
 	access = list(201);
 	desc = "A visitor's access card, this one is for the Merchant's Station.";
-	icon_state = "guest";
 	name = "Visitor's Card - Merchant's Station"
 	},
 /obj/item/card/id{
 	access = list(201);
 	desc = "A visitor's access card, this one is for the Merchant's Station.";
-	icon_state = "guest";
 	name = "Visitor's Card - Merchant's Station"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -12928,12 +12928,11 @@
 	},
 /area/map_template/wizard_station)
 "EV" = (
-/obj/machinery/computer/modular/preset/civilian{
-	dir = 1;
-	icon_state = "console"
-	},
 /obj/floor_decal/corner/black/border{
 	dir = 9
+	},
+/obj/machinery/computer/modular/preset/civilian{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ninja_dojo/dojo)
@@ -13027,15 +13026,18 @@
 	},
 /obj/item/reagent_containers/syringe/drugs{
 	pixel_x = 3;
-	pixel_y = -1
+	pixel_y = -1;
+	icon_state = "rg0"
 	},
 /obj/item/reagent_containers/syringe/drugs{
 	pixel_x = 3;
-	pixel_y = 4
+	pixel_y = 4;
+	icon_state = "rg0"
 	},
 /obj/item/reagent_containers/syringe/drugs{
 	pixel_x = 3;
-	pixel_y = 9
+	pixel_y = 9;
+	icon_state = "rg0"
 	},
 /turf/unsimulated/floor{
 	icon_state = "lino"
@@ -13202,7 +13204,6 @@
 "Fw" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1331;
-	icon_state = "door_closed";
 	id_tag = "synd_outer";
 	locked = 0;
 	name = "Ship External Access";
@@ -14624,15 +14625,18 @@
 	},
 /obj/item/reagent_containers/syringe/drugs{
 	pixel_x = 3;
-	pixel_y = -1
+	pixel_y = -1;
+	icon_state = "rg0"
 	},
 /obj/item/reagent_containers/syringe/drugs{
 	pixel_x = 3;
-	pixel_y = 4
+	pixel_y = 4;
+	icon_state = "rg0"
 	},
 /obj/item/reagent_containers/syringe/drugs{
 	pixel_x = 3;
-	pixel_y = 9
+	pixel_y = 9;
+	icon_state = "rg0"
 	},
 /obj/machinery/light{
 	dir = 8;
@@ -15323,9 +15327,15 @@
 	req_access = list("ACCESS_SYNDICATE")
 	},
 /obj/item/bodybag,
-/obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/syringe/antiviral,
-/obj/item/reagent_containers/syringe/antiviral,
+/obj/item/reagent_containers/syringe/antiviral{
+	icon_state = "rg0"
+	},
+/obj/item/reagent_containers/syringe/antiviral{
+	icon_state = "rg0"
+	},
+/obj/item/reagent_containers/syringe/antiviral{
+	icon_state = "rg0"
+	},
 /obj/item/reagent_containers/glass/bottle/dylovene{
 	pixel_x = -4;
 	pixel_y = 8

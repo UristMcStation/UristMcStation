@@ -162,7 +162,7 @@
 /area/planet/forest/cabin1)
 "aQ" = (
 /obj/structure/fence/door{
-	icon_state = "door_closed";
+	icon_state = "closed";
 	dir = 8
 	},
 /turf/simulated/floor/planet/temperate,

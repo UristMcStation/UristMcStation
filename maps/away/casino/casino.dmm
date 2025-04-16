@@ -184,7 +184,7 @@
 "aD" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_closed";
+	icon_state = "closed";
 	id_tag = "casino_dock_outer";
 	name = "Docking Port Airlock"
 	},
@@ -278,7 +278,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_closed";
+	icon_state = "closed";
 	id_tag = "casino_dock_inner";
 	name = "Docking Port Airlock"
 	},
