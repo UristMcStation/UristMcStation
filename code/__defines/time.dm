@@ -29,11 +29,3 @@
 #define duration2stationtime(time) time2text(station_time_in_ticks + time, "hh:mm")
 
 #define round_duration_in_ticks (GLOB.round_start_time ? uptime() - GLOB.round_start_time : 0)
-
-#define TimeOfGame (get_game_time())
-#define TimeOfTick (world.tick_usage*0.01*world.tick_lag)
-
-#define TICKS *world.tick_lag
-
-#define DS2TICKS(DS) ((DS)/world.tick_lag)
-#define TICKS2DS(T) ((T) TICKS)
