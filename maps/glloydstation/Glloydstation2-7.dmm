@@ -496,8 +496,8 @@
 "bK" = (
 /obj/structure/table/standard,
 /obj/item/cell/standard,
-/obj/item/stack/cable_coil/random,
-/obj/item/stack/cable_coil/random,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
 /obj/machinery/light/small{
 	dir = 1
 	},

@@ -478,7 +478,7 @@
 "abA" = (
 /obj/structure/table/woodentable/walnut,
 /obj/random/single{
-	icon = 'icons/obj/items.dmi';
+	icon = 'icons/obj/tools/lighters.dmi';
 	icon_state = "lighter-g";
 	name = "randomly spawned lighter";
 	spawn_nothing_percentage = 50;
@@ -7197,7 +7197,7 @@
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/administration/centcom)
 "arM" = (
-/obj/machinery/robotic_fabricator,
+/obj/machinery/robotics_fabricator,
 /turf/simulated/floor/shuttle/red,
 /area/shuttle/administration/centcom)
 "arN" = (
@@ -14448,7 +14448,6 @@
 /area/shuttle/naval1/centcom)
 "aIN" = (
 /obj/machinery/door/airlock/external{
-	hackProof = 1;
 	heat_proof = 1;
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
@@ -14612,7 +14611,6 @@
 /area/shuttle/assault/a2/base)
 "aJq" = (
 /obj/machinery/door/airlock/hatch{
-	hackProof = 1;
 	heat_proof = 1;
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
@@ -14620,7 +14618,6 @@
 /area/shuttle/naval1/centcom)
 "aJr" = (
 /obj/machinery/door/airlock/hatch{
-	hackProof = 1;
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
 /turf/simulated/floor/shuttle/white,
@@ -14894,7 +14891,6 @@
 /area/shuttle/naval1/centcom)
 "aKc" = (
 /obj/machinery/door/airlock/external{
-	hackProof = 1;
 	heat_proof = 1;
 	req_access = list("ACCESS_CENT_GENERAL")
 	},
@@ -16546,7 +16542,7 @@
 	},
 /area/centcom/scom)
 "aOz" = (
-/obj/machinery/robotic_fabricator,
+/obj/machinery/robotics_fabricator,
 /turf/unsimulated/floor{
 	icon_state = "vault";
 	dir = 8
@@ -23047,9 +23043,9 @@
 /area/map_template/skipjack_station/start)
 "bcZ" = (
 /obj/structure/table/standard,
-/obj/item/material/kitchen/utensil/spoon/plastic,
+/obj/item/material/utensil/spoon/plastic,
 /obj/item/material/knife/kitchen,
-/obj/item/material/kitchen/utensil/fork/plastic,
+/obj/item/material/utensil/fork/plastic,
 /turf/unsimulated/floor{
 	icon_state = "freezerfloor";
 	dir = 2

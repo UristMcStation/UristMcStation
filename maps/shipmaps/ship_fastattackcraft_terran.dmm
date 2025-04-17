@@ -84,7 +84,6 @@
 /area/boarding_ship)
 "aq" = (
 /obj/machinery/door/airlock/hatch{
-	hackProof = 1;
 	heat_proof = 1;
 	req_access = list("ACCESS_CENT_GENERAL");
 	autoset_access = 0
@@ -96,7 +95,6 @@
 /area/boarding_ship)
 "as" = (
 /obj/machinery/door/airlock/hatch{
-	hackProof = 1;
 	req_access = list("ACCESS_CENT_GENERAL");
 	autoset_access = 0
 	},
@@ -160,7 +158,6 @@
 /area/boarding_ship)
 "aC" = (
 /obj/machinery/door/airlock/hatch{
-	hackProof = 1;
 	heat_proof = 1;
 	req_access = list("ACCESS_CENT_GENERAL");
 	autoset_access = 0

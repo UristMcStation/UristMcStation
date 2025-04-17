@@ -371,7 +371,7 @@
 "hn" = (/obj/machinery/door/airlock/highsecurity{name = "Squad 1 Armory"; req_access = list("ACCESS_CENT_GENERAL"); autoset_access = 0},/turf/unsimulated/floor{icon_state = "dark"},/area/template_noop)
 "ho" = (/obj/machinery/door/airlock/highsecurity{name = "Squad 2 Armory"; req_access = list("ACCESS_CENT_THUNDERDOME"); autoset_access = 0},/turf/unsimulated/floor{icon_state = "dark"},/area/template_noop)
 "hp" = (/obj/structure/closet/crate,/turf/unsimulated/floor/uristturf/shuttle{icon_state = "mainfloor"},/area/template_noop)
-"hq" = (/obj/structure/table/standard,/obj/item/material/kitchen/utensil/spoon/plastic,/obj/item/material/kitchen/utensil/fork/plastic,/turf/unsimulated/floor{icon_state = "freezerfloor"; dir = 2},/area/template_noop)
+"hq" = (/obj/structure/table/standard,/obj/item/material/utensil/spoon/plastic,/obj/item/material/utensil/fork/plastic,/turf/unsimulated/floor{icon_state = "freezerfloor"; dir = 2},/area/template_noop)
 "hr" = (/obj/floor_decal/corner/blue{dir = 10},/turf/unsimulated/floor{icon_state = "white"},/area/template_noop)
 "hs" = (/obj/machinery/door/airlock/multi_tile/marine{name = "Shuttle 2"},/turf/unsimulated/floor/uristturf/shuttle{icon_state = "exit"; dir = 1},/area/template_noop)
 "ht" = (/turf/unsimulated/floor/plating,/turf/unsimulated/wall/urist/shuttle{icon_state = "5bottomscom2"},/area/template_noop)

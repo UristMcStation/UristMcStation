@@ -4032,7 +4032,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/nuke_storage)
 "aiA" = (
-/obj/structure/closet/secure_closet/freezer/money,
+/obj/structure/closet/secure_closet/money,
 /obj/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
@@ -5469,7 +5469,7 @@
 /area/bridge/blueshield)
 "alQ" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/item/pen/blue,
 /obj/item/paper{
 	info = "<b>Blueshield Mission Briefing</b><br>You are charged with the defense of any persons of importance within the station. This includes but is not limited to The Captain, The Heads of Staff or any centcomm representatives that visit. You answer to whichever head you are guarding, but you ultimately report to the Captain. The Head of Security will also assist you in achieving your mission.<br>Where required to achieve your primary responsibility you should liase with security and share resources, however the day to day security operations of the station are outside of your jurisdiction.<br>Monitor the health and safety of your principals, identify any potential risks and threats then alert the proper departments to resolve the situation. You are authorized to act as bodyguard to any of the station heads that you determine are most in need of protection, however additional access to their departments shall be granted solely at their discretion.<br>Observe the station alert system and carry your armaments only as required by the situation or when authorized by the Head of Security or Captain in exceptional cases.<br>Remember, as an agent of Nanotransen it is your responsibility to conduct yourself appropriately, and you will be held to the highest standard. You will be held accountable for your actions. Security is authorized to search, interrogate or detain you as required by their own procedures. Internal affairs will also monitor and observe your conduct and their mandate applies equally to security and blueshield operations.<br><i>Dagon Blade, Blueshield Commander</i><br>";
@@ -8294,7 +8294,7 @@
 /turf/simulated/floor/carpet/green,
 /area/bridge/meeting_room)
 "ase" = (
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/carpet/green,
 /area/bridge/meeting_room)
@@ -11421,7 +11421,7 @@
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_hall)
 "ayy" = (
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_hall)
@@ -12524,7 +12524,7 @@
 /area/crew_quarters/captain)
 "aAX" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/item/stamp/captain,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -14016,7 +14016,7 @@
 /area/crew_quarters/courtroom)
 "aEl" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -14119,7 +14119,7 @@
 /area/storage/tools)
 "aEw" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder,
+/obj/item/material/folder,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood/walnut,
 /area/security/vacantoffice)
@@ -14347,7 +14347,7 @@
 /turf/simulated/wall/r_wall/prepainted,
 /area/command/hop)
 "aEX" = (
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/item/stamp/hop,
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/carpet/blue,
@@ -16848,7 +16848,7 @@
 /area/crew_quarters/courtroom)
 "aJL" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/courtroom)
 "aJM" = (
@@ -17754,7 +17754,7 @@
 	name = "Chemistry";
 	req_access = list("ACCESS_CHEMISTRY")
 	},
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /obj/structure/table/reinforced,
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -20447,15 +20447,15 @@
 /area/lawoffice)
 "aRp" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder/blue{
+/obj/item/material/folder/blue{
 	pixel_x = -6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/folder/red{
+/obj/item/material/folder/red{
 	pixel_x = -3
 	},
-/obj/item/folder/yellow,
-/obj/item/folder/white{
+/obj/item/material/folder/yellow,
+/obj/item/material/folder/white{
 	pixel_x = 3
 	},
 /turf/simulated/floor/wood/walnut,
@@ -21093,8 +21093,8 @@
 /area/medical/psychoffice)
 "aSA" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder/white,
-/obj/item/folder/yellow,
+/obj/item/material/folder/white,
+/obj/item/material/folder/yellow,
 /turf/simulated/floor/carpet,
 /area/medical/psychoffice)
 "aSB" = (
@@ -22700,7 +22700,7 @@
 	icon_state = "4-8"
 	},
 /obj/floor_decal/corner/blue,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /turf/simulated/floor/tiled,
 /area/security/main)
 "aVP" = (
@@ -23555,7 +23555,7 @@
 	dir = 3;
 	icon_state = "intercom"
 	},
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /turf/simulated/floor/tiled/dark,
 /area/security/brig)
 "aXD" = (
@@ -23772,7 +23772,7 @@
 /obj/floor_decal/corner/red{
 	dir = 4
 	},
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /turf/simulated/floor/tiled,
 /area/security/main)
 "aXX" = (
@@ -24706,7 +24706,7 @@
 	sort_type = "Head of Security"
 	},
 /obj/floor_decal/corner/red/full,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /turf/simulated/floor/tiled,
 /area/security/main)
 "aZK" = (
@@ -24746,7 +24746,7 @@
 /area/security/warden)
 "aZP" = (
 /obj/structure/table/standard,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/item/book/manual/security_space_law/tg{
 	pixel_x = -3;
 	pixel_y = 5
@@ -25701,7 +25701,7 @@
 "bbQ" = (
 /obj/structure/table/standard,
 /obj/floor_decal/corner/blue,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /turf/simulated/floor/tiled,
 /area/security/main)
 "bbR" = (
@@ -25778,8 +25778,8 @@
 	name = "Robotics Desk";
 	req_access = list("ACCESS_ROBOTICS")
 	},
-/obj/item/folder/white,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
+/obj/item/material/folder/white,
 /obj/machinery/door/blast/shutters{
 	density = 0;
 	dir = 4;
@@ -26734,8 +26734,8 @@
 	pixel_x = 0;
 	pixel_y = -32
 	},
-/obj/item/folder/red,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
+/obj/item/material/folder/red,
 /obj/item/device/megaphone,
 /turf/simulated/floor/tiled/dark,
 /area/command/hos)
@@ -27198,7 +27198,7 @@
 /obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "beJ" = (
@@ -27478,7 +27478,7 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen/red,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /obj/machinery/requests_console{
 	department = "Virology";
 	departmentType = 4;
@@ -28217,7 +28217,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bgG" = (
-/obj/item/storage/box/gloves,
+/obj/item/storage/box/latexgloves,
 /obj/structure/table/glass,
 /obj/item/storage/box/masks,
 /turf/simulated/floor/tiled/white,
@@ -29355,8 +29355,8 @@
 /area/medical/patient_a)
 "biS" = (
 /obj/structure/closet/wardrobe/virology_white,
-/obj/item/storage/backpack/satchel/vir,
-/obj/item/storage/backpack/satchel/vir,
+/obj/item/storage/backpack/satchel/med,
+/obj/item/storage/backpack/satchel/med,
 /obj/item/storage/backpack/duffel/duffel_vir,
 /obj/item/storage/backpack/duffel/duffel_vir,
 /obj/floor_decal/corner/lime{
@@ -29907,7 +29907,7 @@
 /area/library)
 "bkb" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /turf/simulated/floor/wood/walnut,
 /area/library)
 "bkc" = (
@@ -30569,7 +30569,7 @@
 	id_tag = null
 	},
 /obj/structure/table/glass,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /turf/simulated/floor/tiled/white,
 /area/command/cmo)
 "bkU" = (
@@ -35336,7 +35336,7 @@
 /area/security/brig)
 "bup" = (
 /obj/structure/table/standard,
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/item/device/taperecorder{
 	pixel_y = 0
 	},
@@ -36643,7 +36643,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/masks,
-/obj/item/storage/box/gloves,
+/obj/item/storage/box/latexgloves,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgeryprep)
 "bxc" = (
@@ -38828,7 +38828,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/item/folder/red,
+/obj/item/material/folder/red,
 /obj/item/hand_labeler,
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -40858,7 +40858,7 @@
 /area/security/prison)
 "bER" = (
 /obj/structure/table/standard,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/machinery/flasher{
 	id_tag = "PCell 3";
 	pixel_x = -26;
@@ -41759,8 +41759,8 @@
 /area/quartermaster/office)
 "bGP" = (
 /obj/structure/table/standard,
-/obj/item/wrapping_paper,
-/obj/item/wrapping_paper,
+/obj/item/stack/package_wrap/gift_wrap,
+/obj/item/stack/package_wrap/gift_wrap,
 /obj/machinery/requests_console{
 	department = "Cargo Bay";
 	departmentType = 2;
@@ -44039,7 +44039,7 @@
 	dir = 10
 	},
 /obj/structure/table/standard,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /turf/simulated/floor/tiled/dark,
 /area/medical/morgue)
 "bLk" = (
@@ -44505,7 +44505,7 @@
 /area/quartermaster/storage)
 "bMh" = (
 /obj/structure/table/standard,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -44617,8 +44617,8 @@
 	pixel_y = 30
 	},
 /obj/structure/table/standard,
-/obj/item/folder/yellow,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/pen{
 	pixel_x = 4;
 	pixel_y = 4
@@ -45326,7 +45326,7 @@
 /area/rnd/lab)
 "bNI" = (
 /obj/structure/table/standard,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /obj/item/disk/design_disk,
 /obj/item/disk/design_disk,
 /obj/item/disk/tech_disk,
@@ -47574,7 +47574,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "bSs" = (
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/pen{
 	pixel_x = 4;
 	pixel_y = 4
@@ -49119,14 +49119,14 @@
 	icon_state = "alarm0";
 	pixel_y = -22
 	},
-/obj/item/storage/backpack/satchel/tox,
+/obj/item/storage/backpack/satchel/sci,
 /obj/item/storage/backpack/duffel/duffel_tox,
 /obj/item/clothing/suit/storage/hooded/wintercoat/science,
 /turf/simulated/floor/tiled/white,
 /area/rnd/mixing)
 "bVt" = (
 /obj/structure/closet/secure_closet/scientist,
-/obj/item/storage/backpack/satchel/tox,
+/obj/item/storage/backpack/satchel/sci,
 /obj/item/storage/backpack/duffel/duffel_tox,
 /obj/item/clothing/suit/storage/hooded/wintercoat/science,
 /obj/machinery/firealarm{
@@ -50262,7 +50262,7 @@
 /area/crew_quarters/cafeteria)
 "bXL" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/material/kitchen/utensil/fork,
+/obj/item/material/utensil/fork,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -50935,7 +50935,7 @@
 /area/crew_quarters/cafeteria)
 "bZl" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/material/kitchen/utensil/fork,
+/obj/item/material/utensil/fork,
 /obj/floor_decal/corner/red/diagonal,
 /obj/floor_decal/corner/beige/diagonal{
 	icon_state = "corner_white_diagonal";
@@ -52077,7 +52077,7 @@
 /area/assembly/robotics)
 "cbB" = (
 /obj/structure/table/standard,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /obj/item/stamp/rd,
 /obj/floor_decal/corner/grey/diagonal,
 /obj/item/device/radio/intercom{
@@ -52259,7 +52259,7 @@
 	dir = 8;
 	pixel_x = -24
 	},
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/device/eftpos{
 	eftpos_name = "Cargo Bay EFTPOS scanner"
 	},
@@ -56959,14 +56959,14 @@
 /area/rnd/xenobiology)
 "cla" = (
 /obj/structure/closet/secure_closet/scientist,
-/obj/item/storage/backpack/satchel/tox,
+/obj/item/storage/backpack/satchel/sci,
 /obj/item/storage/backpack/duffel/duffel_tox,
 /obj/item/clothing/suit/storage/hooded/wintercoat/science,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "clb" = (
 /obj/structure/closet/secure_closet/scientist,
-/obj/item/storage/backpack/satchel/tox,
+/obj/item/storage/backpack/satchel/sci,
 /obj/item/storage/backpack/duffel/duffel_tox,
 /obj/machinery/camera/network/research{
 	c_tag = "Xenobiology North"
@@ -57143,7 +57143,7 @@
 /area/quartermaster/qm)
 "clx" = (
 /obj/structure/table/standard,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/device/eftpos{
 	eftpos_name = "Quartermaster EFTPOS scanner"
 	},
@@ -58739,7 +58739,7 @@
 /area/space)
 "coB" = (
 /obj/structure/table/standard,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/pen,
 /obj/machinery/requests_console{
 	department = "Mining";
@@ -59306,7 +59306,7 @@
 /area/rnd/xenobiology)
 "cpH" = (
 /obj/structure/table/standard,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /obj/item/pen,
 /obj/machinery/requests_console{
 	department = "Xenobiology";
@@ -59489,7 +59489,7 @@
 	dir = 4
 	},
 /obj/item/material/folder/clipboard,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /obj/item/clothing/glasses/science,
 /turf/simulated/floor/tiled/white,
 /area/toxins/telesci)
@@ -63689,7 +63689,7 @@
 /obj/structure/table/rack{
 	dir = 1
 	},
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/shovel{
 	pixel_x = -5
 	},
@@ -67018,7 +67018,7 @@
 /area/hallway/primary/starboard)
 "cFP" = (
 /obj/structure/table/standard,
-/obj/item/folder/blue,
+/obj/item/material/folder/blue,
 /obj/item/pen/blue,
 /obj/machinery/light_switch{
 	dir = 8;
@@ -67201,7 +67201,7 @@
 /area/maintenance/cargo)
 "cGp" = (
 /obj/structure/closet,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/material/folder/clipboard,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
@@ -68511,7 +68511,7 @@
 /area/maintenance/cargo)
 "cJm" = (
 /obj/structure/table/standard,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /turf/simulated/floor/plating,
 /area/maintenance/cargo)
 "cJn" = (
@@ -70443,8 +70443,8 @@
 /area/rnd/xenobiology)
 "cMU" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/folder,
-/obj/item/folder,
+/obj/item/material/folder,
+/obj/item/material/folder,
 /obj/item/pen,
 /obj/item/deck/cards,
 /turf/simulated/floor/wood/walnut,
@@ -72668,7 +72668,7 @@
 /area/engineering)
 "cRi" = (
 /obj/structure/table/standard,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/clothing/ears/earmuffs{
 	pixel_x = -3;
 	pixel_y = -2
@@ -72832,7 +72832,7 @@
 /area/command/ce)
 "cRr" = (
 /obj/structure/table/reinforced,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/item/paper/monitorkey,
 /turf/simulated/floor/tiled,
 /area/command/ce)
@@ -73879,7 +73879,7 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /obj/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
