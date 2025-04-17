@@ -2125,14 +2125,14 @@
 /area/planet/destroyed_colony)
 "hp" = (
 /obj/machinery/bodyscanner{
-	icon_state = "body_scanner_0";
+	icon_state = "body_scanner";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "hq" = (
 /obj/machinery/body_scanconsole{
-	icon_state = "body_scannerconsole";
+	icon_state = "body_scanner_console";
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -3974,6 +3974,9 @@
 	icon_state = "body_scanner_1";
 	name = "inert cryogenic freezer"
 	},
+/obj/machinery/sleeper{
+	dir = 8
+	},
 /turf/simulated/floor/lino,
 /area/planet/destroyed_colony)
 "nH" = (
@@ -3993,6 +3996,9 @@
 	dir = 4;
 	icon_state = "body_scanner_1";
 	name = "inert cryogenic freezer"
+	},
+/obj/machinery/sleeper{
+	dir = 4
 	},
 /turf/simulated/floor/lino,
 /area/planet/destroyed_colony)

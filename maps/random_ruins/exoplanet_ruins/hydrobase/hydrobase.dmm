@@ -1866,7 +1866,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solars_inner";
 	locked = 1;
 	name = "EVA Internal Access"
@@ -1931,7 +1931,7 @@
 "eH" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solars_outer";
 	locked = 1;
 	name = "EVA External Access"
@@ -2711,7 +2711,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "hydrodock_inner";
 	locked = 1;
 	name = "Shipping Internal Access"
@@ -2926,7 +2926,7 @@
 "gK" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "hydrodock_outer";
 	locked = 1;
 	name = "Shipping Access"

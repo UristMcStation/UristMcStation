@@ -1500,7 +1500,7 @@
 "eR" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "constructionsite_inner";
 	locked = 1
 	},
@@ -1577,7 +1577,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "constructionsite_inner";
 	locked = 1
 	},

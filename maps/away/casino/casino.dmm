@@ -2320,7 +2320,7 @@
 "gy" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solar_casino_outer";
 	locked = 1;
 	name = "External Access"
@@ -2422,7 +2422,7 @@
 "gL" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1439;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solar_casino_inner";
 	locked = 1;
 	name = "External Access"

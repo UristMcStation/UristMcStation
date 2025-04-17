@@ -2773,7 +2773,7 @@
 "hs" = (
 /obj/machinery/atmospherics/unary/freezer{
 	dir = 8;
-	icon_state = "freezer_1";
+	icon_state = "freezer";
 	use_power = 1
 	},
 /turf/simulated/floor/plating,
@@ -2815,7 +2815,7 @@
 /area/jungleoutpost/medbay)
 "hw" = (
 /obj/machinery/bodyscanner{
-	icon_state = "body_scanner_0";
+	icon_state = "body_scanner";
 	dir = 1
 	},
 /obj/floor_decal/corner/red/full,
@@ -3038,7 +3038,7 @@
 /area/planet/jungle/away)
 "hT" = (
 /obj/machinery/body_scanconsole{
-	icon_state = "body_scannerconsole";
+	icon_state = "body_scanner_console";
 	dir = 1
 	},
 /obj/floor_decal/corner/red/full,
