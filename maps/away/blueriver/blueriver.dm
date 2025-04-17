@@ -135,7 +135,7 @@
 /turf/simulated/floor/away/blueriver/alienfloor
 	name = "glowing floor"
 	desc = "The floor glows without any apparent reason."
-	icon = 'riverturfs.dmi'
+	icon = 'maps/away/blueriver/riverturfs.dmi'
 	icon_state = "floor"
 	temperature = 233
 
@@ -147,7 +147,7 @@
 /turf/unsimulated/wall/away/blueriver/livingwall
 	name = "alien wall"
 	desc = "You feel a sense of dread from just looking at this wall. Its surface seems to be constantly moving, as if it were breathing."
-	icon = 'riverturfs.dmi'
+	icon = 'maps/away/blueriver/riverturfs.dmi'
 	icon_state = "evilwall_1"
 	opacity = 1
 	density = TRUE
@@ -162,8 +162,8 @@
 /turf/unsimulated/wall/supermatter/no_spread
 	name = "weird liquid"
 	desc = "The viscous liquid glows and moves as if it were alive."
-	icon='blueriver.dmi'
-	icon_state = "bluespacecrystal1"
+	icon = 'icons/turf/space.dmi'
+	icon_state = "bluespace"
 	layer = SUPERMATTER_WALL_LAYER
 	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	opacity = 0
@@ -227,7 +227,7 @@
 
 /obj/structure/deity
 	icon = 'icons/obj/cult.dmi'
-	icon_state = "tomealtar"
+	icon_state = "churchaltar"
 	health_max = 10
 	density = TRUE
 	anchored = TRUE
