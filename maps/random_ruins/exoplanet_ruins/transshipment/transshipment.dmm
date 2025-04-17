@@ -73,7 +73,7 @@
 "mg" = (/obj/structure/bed/chair/shuttle/blue{dir = 1; icon_state = "shuttle_chair_preview"},/obj/floor_decal/industrial/outline,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/steel_grid,/area/map_template/transshipment/old_snz)
 "mi" = (/obj/structure/cable/green{d1 = 1; d2 = 2; icon_state = "1-2"},/obj/structure/cable/yellow{d1 = 4; d2 = 8; icon_state = "4-8"},/obj/decal/cleanable/blood/oil,/obj/random/voidhelmet,/turf/simulated/floor/tiled/techfloor/grid,/area/map_template/transshipment/old_snz)
 "mx" = (/obj/machinery/atmospherics/pipe/manifold/hidden/supply{dir = 4},/turf/simulated/floor/tiled/techmaint,/area/map_template/transshipment/warehouse)
-"my" = (/obj/machinery/bodyscanner{dir = 4; icon_state = "body_scanner_0"},/obj/machinery/light,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/map_template/transshipment/old_snz)
+"my" = (/obj/machinery/bodyscanner{dir = 4},/obj/machinery/light,/obj/decal/cleanable/dirt,/turf/simulated/floor/tiled/white,/area/map_template/transshipment/old_snz)
 "mz" = (/obj/machinery/atmospherics/pipe/manifold/visible/cyan,/obj/machinery/portable_atmospherics/canister/oxygen,/turf/simulated/floor/tiled/techfloor/grid,/area/map_template/transshipment/old_snz)
 "mC" = (/obj/decal/cleanable/dirt,/obj/structure/cable{d1 = 4; d2 = 8; icon_state = "4-8"},/turf/simulated/floor/exoplanet/concrete,/area/map_template/transshipment/airstrip)
 "mI" = (/obj/decal/cleanable/dirt,/obj/structure/cable{d1 = 1; d2 = 2; icon_state = "1-2"},/turf/simulated/floor/exoplanet/concrete,/area/map_template/transshipment/airstrip)

@@ -129,7 +129,8 @@
 	},
 /obj/item/card/id/merchant{
 	desc = "this card can be used to access the Colony's telepad to exchange goods.";
-	name = "trade array access card"
+	name = "trade array access card";
+	icon_state = "base"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/map_template/colony/command)
