@@ -38,7 +38,7 @@
 /singleton/species/machine
 	available_cultural_info = list(
 		TAG_CULTURE = list(
-			CULTURE_POSITRONICS_GEN1
+			CULTURE_POSITRONICS
 		),
 		TAG_HOMEWORLD = list(
 			HOME_SYSTEM_MARS,
@@ -73,7 +73,7 @@
 	)
 
 	default_cultural_info = list(
-		TAG_CULTURE = CULTURE_POSITRONICS_GEN1,
+		TAG_CULTURE = CULTURE_POSITRONICS,
 		TAG_HOMEWORLD = HOME_SYSTEM_MARS,
 		TAG_FACTION = FACTION_OTHER
 	)

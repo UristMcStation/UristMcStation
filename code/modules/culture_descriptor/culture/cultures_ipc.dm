@@ -1,11 +1,10 @@
+
 /singleton/cultural_info/culture/ipc
-	name = CULTURE_POSITRONICS_GEN1
-	description = "Compared to modern positronics, First Generation IPCs are simplistic, inflexible, and failure-prone. \
-	They are no longer in production, and all existing first generation positronics are quite old. They have little sense of self, \
-	are entirely task-oriented, and are closer to a knowledge system with a rudimentary and robotic-seeming personality than to a \
-	human level intelligence. They have only a very limited capacity to learn, and rely on programmed information to guide their \
-	actions and reactions. First generation positronics are a rare sight in the current year; most have ceased functioning due to \
-	failures in the original hardware designs."
+	name = CULTURE_POSITRONICS
+	description = "Positronic intelligence is an emerging technology in the workforce, and you are one of the prototypes. \
+	IPCs (Integrated Positronic Chassis) are a loose category of self-willed robots with a humanoid form. They are \
+	reliable and dedicated workers, albeit more than slightly inhuman in outlook and perspective. <br><br> Typical positronic brains \
+	are roughly as intelligent as a human on the smarter side of average, and are fast learners."
 	language = LANGUAGE_EAL
 	secondary_langs = list(
 		LANGUAGE_GALCOM,
@@ -17,10 +16,19 @@
 		LANGUAGE_SPACER,
 		LANGUAGE_SIGN
 	)
-	economic_power = 0.1
 
 /singleton/cultural_info/culture/ipc/sanitize_name(new_name)
 	return sanitizeName(new_name, allow_numbers = 1)
+
+/singleton/cultural_info/culture/ipc/gen1
+	name = CULTURE_POSITRONICS_GEN1
+	description = "Compared to modern positronics, First Generation IPCs are simplistic, inflexible, and failure-prone. \
+	They are no longer in production, and all existing first generation positronics are quite old. They have little sense of self, \
+	are entirely task-oriented, and are closer to a knowledge system with a rudimentary and robotic-seeming personality than to a \
+	human level intelligence. They have only a very limited capacity to learn, and rely on programmed information to guide their \
+	actions and reactions. First generation positronics are a rare sight in the current year; most have ceased functioning due to \
+	failures in the original hardware designs."
+	economic_power = 0.1
 
 /singleton/cultural_info/culture/ipc/gen2
 	name = CULTURE_POSITRONICS_GEN2
