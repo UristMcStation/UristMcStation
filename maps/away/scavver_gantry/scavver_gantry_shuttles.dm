@@ -8,7 +8,7 @@
 	burn_delay = 2 SECONDS
 	vessel_mass = 6000
 	fore_dir = SOUTH
-	skill_needed = SKILL_BASIC
+//	skill_needed = SKILL_BASIC
 	vessel_size = SHIP_SIZE_SMALL
 
 /obj/overmap/visitable/ship/landable/scavver_gantry/two
@@ -16,7 +16,7 @@
 	shuttle = "ITV Vulcan"
 	desc = "Sensor array detects a tiny vessel, claiming to be 'ITV Vulcan', a utility pod of unknown make."
 	fore_dir = NORTH
-	skill_needed = SKILL_BASIC
+//	skill_needed = SKILL_BASIC
 	vessel_size = SHIP_SIZE_TINY
 	max_speed = 1/(4 SECONDS)
 	burn_delay = 2.5 SECONDS
@@ -27,7 +27,7 @@
 	shuttle = "ITV Spiritus"
 	desc = "Sensor array detects a tiny, unmarked vessel."
 	fore_dir = NORTH
-	skill_needed = SKILL_BASIC
+//	skill_needed = SKILL_BASIC
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/scavver_gantry

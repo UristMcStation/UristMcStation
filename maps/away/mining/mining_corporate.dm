@@ -126,7 +126,7 @@
 	fuel_consumption = 2
 	warmup_time = 5
 	defer_initialisation = TRUE
-	skill_needed = SKILL_BASIC
+//	skill_needed = SKILL_BASIC
 
 	ceiling_type = /turf/simulated/floor/shuttle_ceiling
 
@@ -142,7 +142,7 @@
 	vessel_mass = 250
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
-	skill_needed = SKILL_BASIC
+//	skill_needed = SKILL_BASIC
 
 // AREAS
 
