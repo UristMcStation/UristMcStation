@@ -37,6 +37,7 @@ var/global/const/HOLOPAD_MODE = RANGE_BASED
 	icon_state = "holopad-B0"
 	icon = 'icons/obj/machines/holopads.dmi'
 	layer = ABOVE_TILE_LAYER
+	construct_state = /singleton/machine_construction/default/panel_closed
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5
