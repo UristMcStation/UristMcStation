@@ -56,7 +56,7 @@
 					to_chat(user, "You wrench the weapon into place on the hardpoint.")
 					anchored = TRUE
 					state = 1
-					desc = "It's a ship-to-ship weapon assembly. It is missing external sheeting."
+					desc = "It's a ship-to-ship weapon assembly. It is missing some metal sheeting."
 					update_icon()
 				return TRUE
 
@@ -67,7 +67,7 @@
 					to_chat(user, "<span class='notice'>You add some metal sheeting to the exterior frame.</span>")
 					state = 2
 					update_icon()
-					desc = "It's a ship-to-ship weapon assembly. It has some loose external sheeting."
+					desc = "It's a ship-to-ship weapon assembly. It has some loose unwelded metal sheeting."
 				return TRUE
 
 			else if(isWrench(W))
@@ -90,17 +90,17 @@
 					if(F.remove_fuel(0,user))
 						playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 						if(do_after(user, 20, src))
-							to_chat(user, "You weld the external sheeting securely into place.")
+							to_chat(user, "You weld the metal sheeting securely into place.")
 							state = 3
 							update_icon()
-							desc = "It's a ship-to-ship weapon assembly with secured external plating. It is missing wiring."
+							desc = "It's a ship-to-ship weapon assembly with secured metal sheeting. It is missing wiring."
 				return TRUE
 
 			if(isCrowbar(W))
 				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
 				to_chat(user, "You pry off the external sheeting.")
 				new /obj/item/stack/material/steel(get_turf(src), 2)
-				desc = "It's a ship-to-ship weapon assembly. It is missing external sheeting."
+				desc = "It's a ship-to-ship weapon assembly. It is missing metal sheeting."
 				state = 1
 				update_icon()
 				return TRUE
@@ -123,7 +123,7 @@
 					if(F.remove_fuel(0,user))
 						playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 						if(do_after(user, 20, src))
-							desc = "It's a ship-to-ship weapon assembly. It has some loose external sheeting."
+							desc = "It's a ship-to-ship weapon assembly. It has some loose metal sheeting."
 							state = 2
 							update_icon()
 				return TRUE
@@ -131,7 +131,7 @@
 		if(4)
 			if(isScrewdriver(W))
 				playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-				to_chat(user, "<span class='warning'>You secure the wires and screw down the external hatches: the weapon is ready to fire.</span>")
+				to_chat(user, "<span class='warning'>You secure the wires and screw down the metal hatches: the weapon is ready to fire.</span>")
 				var/obj/machinery/shipweapons/S = new weapon_type(get_turf(src))
 				if(shipid)
 					S.shipid = shipid
@@ -143,7 +143,7 @@
 				new /obj/item/stack/cable_coil(get_turf(src), 2)
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You cut the wires from the weapon assembly.</span>")
-				desc = "It's a ship-to-ship weapon assembly with secured external plating. It is missing wiring."
+				desc = "It's a ship-to-ship weapon assembly with secured metal plating. It is missing wiring."
 				state = 3
 				update_icon()
 				return TRUE
