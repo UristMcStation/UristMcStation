@@ -130,7 +130,6 @@
 			else
 				icon_state = "[initial(icon_state)][0]"
 			update_icon()
-			update_held_icon()
 		else
 			to_chat(user, "<span class='warning'>[src] is empty.</span>")
 	else

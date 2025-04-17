@@ -9,7 +9,7 @@
 /turf/simulated/floor/fixed/alium,
 /area/template_noop)
 "e" = (
-/obj/structure/fountain/strange,
+/obj/structure/fountain/strange/urist,
 /turf/template_noop,
 /area/template_noop)
 
@@ -44,8 +44,8 @@ a
 b
 c
 a
-e
 a
+e
 c
 b
 "}

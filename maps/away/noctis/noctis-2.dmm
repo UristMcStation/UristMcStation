@@ -1585,8 +1585,7 @@
 /area/noctis/exteriorl)
 "dE" = (
 /obj/machinery/atmospherics/unary/heater{
-	dir = 8;
-	icon_state = "heater_0"
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/noctis/atmosc)
@@ -4066,9 +4065,8 @@
 /area/noctis/prismngt)
 "is" = (
 /obj/machinery/computer/modular/preset/merchant{
-	dir = 1;
 	emagged = 1;
-	icon_state = "console"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/prismngt)

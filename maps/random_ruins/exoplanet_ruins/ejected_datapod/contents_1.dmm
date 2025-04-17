@@ -19,8 +19,7 @@
 /area/template_noop)
 "e" = (
 /obj/machinery/computer/modular/preset/library{
-	dir = 8;
-	icon_state = "console"
+	dir = 8
 	},
 /turf/template_noop,
 /area/template_noop)

@@ -3861,7 +3861,7 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/condiment/small/saltshaker,
 /obj/item/reagent_containers/food/condiment/small/peppermill,
-/obj/item/material/kitchen/utensil/fork,
+/obj/item/material/utensil/fork,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
@@ -4473,7 +4473,7 @@
 "id" = (
 /obj/machinery/cryopod{
 	dir = 2;
-	icon_state = "body_scanner_0"
+	icon_state = "cryopod"
 	},
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
@@ -4949,8 +4949,7 @@
 /area/noctis/medbay)
 "iT" = (
 /obj/machinery/sleeper{
-	dir = 8;
-	icon_state = "sleeper_0"
+	dir = 8
 	},
 /obj/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled/white,
@@ -5353,7 +5352,7 @@
 "jM" = (
 /obj/machinery/cryopod{
 	dir = 1;
-	icon_state = "body_scanner_0"
+	icon_state = "cryopod"
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/noctis/cryo)

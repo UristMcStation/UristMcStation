@@ -58,8 +58,8 @@
 /area/template_noop)
 "eV" = (
 /obj/structure/table/woodentable_reinforced/walnut,
-/obj/item/material/knife/table,
-/obj/item/material/kitchen/utensil/fork/plastic,
+/obj/item/material/knife,
+/obj/item/material/utensil/fork/plastic,
 /turf/simulated/floor/tiled/monotile,
 /area/map_template/lonepioneer/cabin)
 "ge" = (

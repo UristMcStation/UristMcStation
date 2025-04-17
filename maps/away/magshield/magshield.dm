@@ -45,7 +45,7 @@
 /obj/structure/magshield/maggen
 	name = "magnetic field generator"
 	desc = "A large three-handed generator with rotating top. It is used to create high-power magnetic fields in hard vacuum."
-	icon = 'magshield_sprites.dmi'
+	icon = 'maps/away/magshield/magshield_sprites.dmi'
 	icon_state = "maggen"
 	anchored = TRUE
 	density = TRUE
@@ -119,14 +119,14 @@
 /obj/structure/magshield/rad_sensor
 	name = "radiation sensor"
 	desc = "Very sensitive vacuum radiation sensor. On top of the metal stand two modified Wilson Cloud Chambers filled with deuterium and tritium water."
-	icon = 'magshield_sprites.dmi'
+	icon = 'maps/away/magshield/magshield_sprites.dmi'
 	icon_state = "rad_sensor"
 	anchored = TRUE
 
 /obj/structure/magshield/nav_light
 	name = "navigation light"
 	desc = "Large and bright light regularly emitting green flashes."
-	icon = 'magshield_sprites.dmi'
+	icon = 'maps/away/magshield/magshield_sprites.dmi'
 	icon_state = "nav_light_green"
 	anchored = TRUE
 	density = TRUE
@@ -146,7 +146,7 @@
 
 /obj/item/book/manual/magshield_manual
 	name = "SOP for Planetary Shield Orbital Station"
-	icon = 'magshield_sprites.dmi'
+	icon = 'maps/away/magshield/magshield_sprites.dmi'
 	icon_state = "mg_guide"
 	author = "Terraforms Industrial"
 	title = "Standard operating procedures for Planetary Shield Orbital Station"

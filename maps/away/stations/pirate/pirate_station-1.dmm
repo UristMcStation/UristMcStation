@@ -367,7 +367,7 @@
 "by" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "pirate_station_1_outer";
 	locked = 1;
 	name = "Engineering External Access";
@@ -382,7 +382,7 @@
 "bA" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "pirate_station_1_inner";
 	locked = 1;
 	name = "Engineering External Access";
@@ -504,7 +504,7 @@
 "bR" = (
 /obj/structure/table/marble,
 /obj/item/trash/plate,
-/obj/item/material/kitchen/utensil/fork,
+/obj/item/material/utensil/fork,
 /turf/simulated/floor,
 /area/spacestations/pirate/station)
 "bS" = (
@@ -623,7 +623,7 @@
 "cj" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "pirate_station_2_inner3";
 	locked = 1;
 	name = "External Access";
@@ -668,7 +668,7 @@
 "cm" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "pirate_station_2_outer3";
 	locked = 1;
 	name = "External Access";
@@ -725,7 +725,7 @@
 "cw" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "pirate_station_1_outer";
 	locked = 1;
 	name = "Engineering External Access";
@@ -766,7 +766,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "pirate_station_2_inner3";
 	locked = 1;
 	name = "External Access";
@@ -897,7 +897,7 @@
 "cS" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "pirate_station_1_inner";
 	locked = 1;
 	name = "Engineering External Access";

@@ -232,7 +232,7 @@
 	},
 /obj/structure/window/boron_reinforced{
 	dir = 8;
-	icon_state = "phoronrwindow"
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/tiled/white,
 /area/map_template/hydrobase/station/growF)
@@ -349,7 +349,7 @@
 	},
 /obj/structure/window/boron_reinforced{
 	dir = 8;
-	icon_state = "phoronrwindow"
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/tiled/white,
 /area/map_template/hydrobase/station/growF)
@@ -409,7 +409,7 @@
 	},
 /obj/structure/window/boron_reinforced{
 	dir = 8;
-	icon_state = "phoronrwindow"
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/tiled/white,
 /area/map_template/hydrobase/station/growF)
@@ -1001,7 +1001,7 @@
 	},
 /obj/structure/window/boron_reinforced{
 	dir = 1;
-	icon_state = "phoronrwindow"
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/growF)
@@ -1011,7 +1011,7 @@
 	},
 /obj/structure/window/boron_reinforced{
 	dir = 1;
-	icon_state = "phoronrwindow"
+	icon_state = "rwindow"
 	},
 /obj/structure/catwalk,
 /turf/simulated/floor/fixed/alium,
@@ -1022,7 +1022,7 @@
 	},
 /obj/structure/window/boron_reinforced{
 	dir = 1;
-	icon_state = "phoronrwindow"
+	icon_state = "rwindow"
 	},
 /obj/structure/catwalk,
 /obj/random/toolbox,
@@ -1036,7 +1036,7 @@
 	},
 /obj/structure/window/boron_reinforced{
 	dir = 1;
-	icon_state = "phoronrwindow"
+	icon_state = "rwindow"
 	},
 /obj/structure/window/boron_reinforced{
 	dir = 4
@@ -1558,7 +1558,7 @@
 	},
 /obj/structure/window/boron_reinforced{
 	dir = 8;
-	icon_state = "phoronrwindow"
+	icon_state = "rwindow"
 	},
 /obj/structure/cable,
 /obj/structure/catwalk,
@@ -1725,7 +1725,7 @@
 /obj/structure/closet/toolcloset,
 /obj/structure/window/boron_reinforced{
 	dir = 8;
-	icon_state = "phoronrwindow"
+	icon_state = "rwindow"
 	},
 /obj/structure/window/boron_reinforced,
 /obj/structure/catwalk,
@@ -1866,7 +1866,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solars_inner";
 	locked = 1;
 	name = "EVA Internal Access"
@@ -1931,7 +1931,7 @@
 "eH" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solars_outer";
 	locked = 1;
 	name = "EVA External Access"
@@ -2089,7 +2089,7 @@
 /obj/structure/closet/l3closet/general/multi,
 /obj/structure/window/boron_reinforced{
 	dir = 8;
-	icon_state = "phoronrwindow"
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/tiled,
 /area/map_template/hydrobase/station/processing)
@@ -2128,7 +2128,7 @@
 /obj/structure/catwalk,
 /obj/structure/window/boron_reinforced{
 	dir = 8;
-	icon_state = "phoronrwindow"
+	icon_state = "rwindow"
 	},
 /obj/item/material/shard/phoron,
 /turf/simulated/floor/fixed/alium,
@@ -2152,7 +2152,7 @@
 /obj/structure/catwalk,
 /obj/structure/window/boron_reinforced{
 	dir = 1;
-	icon_state = "phoronrwindow"
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/fixed/alium,
 /area/map_template/hydrobase/station/processing)
@@ -2285,7 +2285,7 @@
 /obj/machinery/light,
 /obj/structure/window/boron_reinforced{
 	dir = 8;
-	icon_state = "phoronrwindow"
+	icon_state = "rwindow"
 	},
 /obj/structure/table/rack,
 /obj/item/ammo_casing/shotgun/emp,
@@ -2711,7 +2711,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "hydrodock_inner";
 	locked = 1;
 	name = "Shipping Internal Access"
@@ -2926,7 +2926,7 @@
 "gK" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "hydrodock_outer";
 	locked = 1;
 	name = "Shipping Access"

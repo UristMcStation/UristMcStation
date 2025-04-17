@@ -715,11 +715,9 @@
 /area/boarding_ship)
 "co" = (
 /obj/structure/table/standard,
-/obj/item/stack/rods{
-	amount = 50
-	},
 /obj/item/storage/toolbox/mechanical,
 /obj/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/rods/fifty,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "cp" = (
@@ -731,14 +729,12 @@
 /obj/item/stack/material/steel{
 	amount = 50
 	},
-/obj/item/stack/rods{
-	amount = 50
-	},
 /obj/item/stack/material/glass{
 	amount = 50
 	},
 /obj/item/clothing/gloves/insulated,
 /obj/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/rods/fifty,
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)
 "cq" = (

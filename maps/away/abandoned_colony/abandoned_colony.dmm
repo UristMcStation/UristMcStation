@@ -1897,7 +1897,7 @@
 "fJ" = (
 /obj/structure/table/standard,
 /obj/item/device/assembly/mousetrap,
-/obj/item/material/kitchen/utensil/fork,
+/obj/item/material/utensil/fork,
 /obj/item/material/knife/kitchen,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)

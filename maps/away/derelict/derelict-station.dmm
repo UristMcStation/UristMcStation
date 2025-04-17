@@ -1500,7 +1500,7 @@
 "eR" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "constructionsite_inner";
 	locked = 1
 	},
@@ -1577,7 +1577,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "constructionsite_inner";
 	locked = 1
 	},
@@ -1907,7 +1907,7 @@
 /area/constructionsite/maintenance)
 "gf" = (
 /obj/machinery/door/airlock/highsecurity{
-	icon_state = "door_closed";
+	icon_state = "closed";
 	name = "AI Upload Access"
 	},
 /turf/simulated/floor/bluegrid,
@@ -1939,7 +1939,7 @@
 /area/constructionsite/ai)
 "gn" = (
 /obj/machinery/door/airlock/highsecurity{
-	icon_state = "door_closed";
+	icon_state = "closed";
 	name = "AI Upload"
 	},
 /turf/simulated/floor/bluegrid,
@@ -2124,7 +2124,7 @@
 /area/constructionsite/hallway/aft)
 "gZ" = (
 /obj/machinery/door/airlock/highsecurity{
-	icon_state = "door_closed";
+	icon_state = "closed";
 	name = "AI Upload Access"
 	},
 /turf/simulated/floor/bluegrid,

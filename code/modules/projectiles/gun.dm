@@ -139,11 +139,6 @@
 		var/datum/firemode/new_mode = firemodes[sel_mode]
 		new_mode.apply_to(src)
 
-/obj/item/gun/update_twohanding()
-	if(one_hand_penalty)
-		update_icon() // In case item_state is set somewhere else.
-	..()
-
 /obj/item/gun/on_update_icon()
 	var/mob/living/M = loc
 	ClearOverlays()

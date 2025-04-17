@@ -28,7 +28,7 @@
 "ai" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "pirate_station_3_outer3";
 	locked = 1;
 	name = "Engineering External Access";
@@ -110,7 +110,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible,
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "pirate_station_3_inner3";
 	locked = 1;
 	name = "Engineering External Access";
@@ -122,7 +122,7 @@
 "as" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "pirate_station_3_inner3";
 	locked = 1;
 	name = "Engineering External Access";
@@ -328,7 +328,7 @@
 /area/spacestations/pirate/station/upper)
 "aW" = (
 /obj/machinery/cryopod{
-	icon_state = "body_scanner_0";
+	icon_state = "cryopod";
 	dir = 2
 	},
 /turf/simulated/floor/tiled/white,
@@ -338,7 +338,7 @@
 /area/spacestations/pirate/station/upper)
 "aY" = (
 /obj/machinery/cryopod{
-	icon_state = "body_scanner_0";
+	icon_state = "cryopod";
 	dir = 2
 	},
 /obj/machinery/light{
@@ -455,7 +455,7 @@
 /area/spacestations/pirate/station/upper)
 "bn" = (
 /obj/machinery/cryopod{
-	icon_state = "body_scanner_0";
+	icon_state = "cryopod";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,

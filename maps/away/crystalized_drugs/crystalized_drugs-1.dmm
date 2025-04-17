@@ -2989,7 +2989,7 @@
 /area/crystaldrugs/bacchus)
 "ux" = (
 /obj/structure/table/steel_reinforced/dark,
-/obj/item/material/kitchen/utensil/spork/silver,
+/obj/item/material/utensil/spork/silver,
 /obj/machinery/light/coldtint{
 	dir = 8;
 	icon_state = "tube_map"

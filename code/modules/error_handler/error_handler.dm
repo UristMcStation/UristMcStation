@@ -21,7 +21,7 @@ GLOBAL_TYPED_AS(actual_error_file_line, /regex, regex("^%% (.*?),(.*?) %% "))
 	var/eline = E.line
 
 	var/regex/actual_error_file_line = GLOB.actual_error_file_line
-	if(actual_error_file_line.Find_char(E.name))
+	if(actual_error_file_line?.Find_char(E.name))
 		efile = actual_error_file_line.group[1]
 		eline = actual_error_file_line.group[2]
 		E.name = replacetext_char(E.name, actual_error_file_line, "")

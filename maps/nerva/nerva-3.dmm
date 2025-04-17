@@ -669,7 +669,6 @@
 /obj/structure/catwalk,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/hatch/maintenance{
-	icon_state = "door_closed";
 	id_tag = null;
 	locked = 0;
 	name = "Engine Access"
@@ -701,9 +700,11 @@
 /turf/simulated/floor/airless,
 /area/space)
 "bL" = (
-/obj/item/material/shard,
-/turf/simulated/floor/airless,
-/area/space)
+/obj/machinery/computer/modular/preset/medical{
+	dir = 1
+	},
+/turf/simulated/floor/carpet,
+/area/civilian/counselor)
 "bM" = (
 /obj/item/material/shard{
 	icon_state = "small"
@@ -1134,8 +1135,7 @@
 	dir = 1
 	},
 /obj/machinery/cryopod{
-	dir = 4;
-	icon_state = "body_scanner_0"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo2)
@@ -1178,7 +1178,9 @@
 /turf/simulated/floor/plating,
 /area/space)
 "cH" = (
-/obj/item/material/shard,
+/obj/item/material/shard{
+	icon_state = "small"
+	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "cI" = (
@@ -1488,8 +1490,7 @@
 /area/engineering/techstorage)
 "dh" = (
 /obj/machinery/cryopod{
-	dir = 4;
-	icon_state = "body_scanner_0"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/cryo2)
@@ -6104,11 +6105,10 @@
 /turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "lE" = (
-/obj/machinery/computer/modular/preset/nervacommand{
-	dir = 8;
-	icon_state = "console"
-	},
 /obj/item/card/id/captains_spare,
+/obj/machinery/computer/modular/preset/nervacommand{
+	dir = 8
+	},
 /turf/simulated/floor/wood/walnut,
 /area/command/captain)
 "lF" = (
@@ -6943,7 +6943,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/catwalk,
 /obj/machinery/door/airlock/hatch/maintenance{
-	icon_state = "door_closed";
 	id_tag = null;
 	locked = 0;
 	name = "Engine Access"
@@ -7089,6 +7088,7 @@
 	icon_state = "alarm0";
 	pixel_y = -22
 	},
+/obj/item/sticky_pad/random,
 /turf/simulated/floor/carpet/blue2,
 /area/civilian/dorms)
 "nR" = (
@@ -11100,6 +11100,7 @@
 	icon_state = "corner_white";
 	dir = 10
 	},
+/obj/item/sticky_pad/random,
 /turf/simulated/floor/tiled,
 /area/logistics/primtool)
 "uZ" = (
@@ -12093,7 +12094,9 @@
 "xh" = (
 /obj/machinery/light,
 /obj/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/vending/lavatory,
+/obj/machinery/vending/lavatory{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/civilian/personal)
 "xi" = (
@@ -12321,7 +12324,7 @@
 "xF" = (
 /obj/machinery/sleeper{
 	dir = 4;
-	icon_state = "sleeper_0"
+	icon_state = "sleeper"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/escape_pod1/station)
@@ -13717,7 +13720,9 @@
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
 "Bm" = (
-/obj/item/material/shard,
+/obj/item/material/shard{
+	icon_state = "small"
+	},
 /turf/simulated/floor/plating,
 /area/civilian/observatory)
 "Bt" = (
@@ -13738,6 +13743,7 @@
 	pixel_y = 2
 	},
 /obj/item/reagent_containers/food/drinks/bottle/holywater,
+/obj/item/spirit_board,
 /turf/simulated/floor/carpet,
 /area/chapel/office)
 "BC" = (
@@ -14682,7 +14688,9 @@
 /obj/structure/closet/secure_closet/psychologist,
 /obj/item/storage/pill_bottle/methylphenidate,
 /obj/item/storage/pill_bottle/citalopram,
-/obj/item/reagent_containers/syringe,
+/obj/item/reagent_containers/syringe{
+	icon_state = "rg0"
+	},
 /obj/item/reagent_containers/glass/bottle/soporific,
 /obj/item/reagent_containers/pill/paroxetine,
 /obj/item/clothing/mask/smokable/pipe,
@@ -38538,7 +38546,7 @@ aE
 aV
 BZ
 WL
-WL
+bL
 Df
 Wc
 BZ
@@ -41765,7 +41773,7 @@ AX
 bE
 ap
 bD
-bL
+bM
 cf
 cf
 Um

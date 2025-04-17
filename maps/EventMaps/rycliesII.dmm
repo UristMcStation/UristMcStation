@@ -750,7 +750,7 @@
 "ov" = (/turf/unsimulated/floor/planet{name = "plating"},/turf/simulated/shuttle/wall{icon_state = "swall_f9"; dir = 2},/area/scom/mission/nolighting)
 "ow" = (/turf/simulated/shuttle/wall{icon_state = "swall13"; dir = 2},/area/scom/mission/nolighting)
 "ox" = (/obj/machinery/conveyor{dir = 1; id = "QMLoad2"},/obj/machinery/door/blast/regular{id = "QMLoaddoor2"; name = "supply dock loading door"},/turf/simulated/shuttle/plating,/area/scom/mission/nolighting)
-"oy" = (/obj/machinery/door/airlock/external{frequency = 1380; icon_state = "door_locked"; id_tag = "supply_shuttle_hatch"; locked = 1; name = "Shuttle Hatch"; req_access = list(13)},/turf/simulated/shuttle/floor,/area/scom/mission/nolighting)
+"oy" = (/obj/machinery/door/airlock/external{frequency = 1380; icon_state = "closed"; id_tag = "supply_shuttle_hatch"; locked = 1; name = "Shuttle Hatch"; req_access = list(13)},/turf/simulated/shuttle/floor,/area/scom/mission/nolighting)
 "oz" = (/obj/machinery/conveyor{dir = 1; id = "QMLoad"},/obj/machinery/door/blast/regular{id = "QMLoaddoor"; name = "supply dock loading door"},/turf/simulated/shuttle/plating,/area/scom/mission/nolighting)
 "oA" = (/obj/structure/bed/chair/urist/bench/bench1/mid{icon_state = "benchmid"; dir = 8},/turf/unsimulated/floor/planet{icon_state = "floor"},/area/scom/mission/nolighting)
 "oB" = (/obj/structure/window/reinforced{dir = 1},/obj/structure/flora/pottedplant/Nienplants/plant{icon_state = "ywflowers_3"},/turf/unsimulated/floor/planet{icon_state = "grass1"; name = "grass"},/area/scom/mission/nolighting)

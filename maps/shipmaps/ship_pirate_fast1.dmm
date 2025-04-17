@@ -90,7 +90,7 @@
 "bL" = (/obj/structure/table/rack,/obj/random/material,/obj/random/powercell,/obj/random/powercell,/obj/random/material,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
 "bM" = (/obj/structure/table/rack,/obj/random/toolbox,/obj/random/material,/obj/random/tool,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
 "bN" = (/obj/structure/closet/crate/secure/weapon,/obj/item/gun/energy/laser,/obj/item/gun/energy/ionrifle,/obj/item/gun/energy/gun/small,/obj/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
-"bO" = (/obj/structure/table/standard,/obj/item/stack/rods{amount = 50},/obj/item/storage/toolbox/mechanical,/obj/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
+"bO" = (/obj/structure/table/standard,/obj/item/storage/toolbox/mechanical,/obj/floor_decal/industrial/outline/yellow,/obj/item/stack/material/rods/fifty,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)
 "bP" = (/obj/structure/cryofeed{dir = 4; icon_state = "cryo_rear"},/obj/floor_decal/borderfloorwhite/full,/turf/simulated/floor/tiled/white,/area/boarding_ship)
 "bQ" = (/obj/urist_intangible/triggers/ai_defender_landmark/pirate,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
 "bR" = (/turf/simulated/floor/tiled/steel_ridged,/area/boarding_ship)

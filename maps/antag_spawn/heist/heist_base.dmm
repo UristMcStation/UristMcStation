@@ -1063,7 +1063,7 @@
 "cx" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
-	icon_state = "door_closed";
+	icon_state = "closed";
 	id_tag = "vox_northwest_lock"
 	},
 /obj/machinery/shield_diffuser,
@@ -1255,7 +1255,7 @@
 "cS" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1331;
-	icon_state = "door_closed";
+	icon_state = "closed";
 	id_tag = "vox_southwest_lock"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible,

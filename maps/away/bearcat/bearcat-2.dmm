@@ -4547,9 +4547,8 @@
 	name = "CORE SCRAM";
 	pixel_y = -26
 	},
-/obj/machinery/computer/modular/preset/engineering{
-	dir = 1;
-	icon_state = "console"
+/obj/machinery/computer/ship/engines{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/scrap/maintenance/engineering)
@@ -5488,10 +5487,6 @@
 /obj/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/reinforced,
 /area/ship/scrap/maintenance/atmos)
-"Ak" = (
-/obj/paint/brown,
-/turf/simulated/wall/r_wall,
-/area/ship/scrap/maintenance/power)
 "Cs" = (
 /obj/floor_decal/industrial/warning,
 /obj/paint/red,
@@ -14035,12 +14030,12 @@ Va
 Va
 Va
 Va
-Ak
-Ak
-Ak
+xU
+xU
+xU
 Ht
-Ak
-Ak
+xU
+xU
 aa
 aa
 aa
