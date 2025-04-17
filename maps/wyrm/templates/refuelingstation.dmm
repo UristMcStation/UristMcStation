@@ -139,7 +139,7 @@
 "cI" = (/obj/structure/table/steel,/obj/random/smokes,/obj/item/flame/lighter/random,/obj/structure/cable{d1 = 1; d2 = 4; icon_state = "1-4"},/turf/simulated/floor/plating{color = "#bbbbbb"},/area/away/refueling)
 "cJ" = (/obj/machinery/atmospherics/portables_connector{color = "#bbbbbb"; dir = 4; icon_state = "map_connector"},/obj/floor_decal/industrial/outline/yellow{color = "#d2af6e"},/obj/structure/cable{d1 = 2; d2 = 8; icon_state = "2-8"},/turf/simulated/floor/plating{color = "#bbbbbb"},/area/away/refueling)
 "cK" = (/obj/decal/cleanable/ash,/obj/floor_decal/industrial/warning{color = "#d2af6e"; dir = 4; icon_state = "warning"},/obj/machinery/atmospherics/pipe/manifold/visible{color = "#bbbbbb"},/turf/simulated/floor/plating{color = "#bbbbbb"},/area/away/refueling)
-"cL" = (/obj/floor_decal/industrial/hatch/yellow{color = "#d2af6e"},/obj/machinery/atmospherics/unary/heater{color = "#bbbbbb"; dir = 8; icon_state = "heater_0"},/turf/simulated/floor/plating{color = "#bbbbbb"},/area/away/refueling)
+"cL" = (/obj/floor_decal/industrial/hatch/yellow{color = "#d2af6e"},/obj/machinery/atmospherics/unary/heater{color = "#bbbbbb"; dir = 8; icon_state = "heater"},/turf/simulated/floor/plating{color = "#bbbbbb"},/area/away/refueling)
 "cM" = (/obj/floor_decal/corner/shuttle/yellow/alt{icon_state = "corner_white_shuttle_alt"; dir = 8},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/away/refueling)
 "cN" = (/obj/floor_decal/corner/shuttle/fadeblue,/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/away/refueling)
 "cO" = (/obj/floor_decal/corner/shuttle/fadeblue{icon_state = "corner_white_shuttle"; dir = 10},/turf/simulated/floor/tiled/dark{color = "#cccccc"},/area/away/refueling)

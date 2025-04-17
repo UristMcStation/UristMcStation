@@ -845,7 +845,7 @@
 "cJ" = (
 /obj/machinery/atmospherics/unary/tank/hydrogen{
 	dir = 1;
-	icon_state = "h2_map"
+	icon_state = "h2"
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/boarding_ship)
@@ -965,7 +965,9 @@
 /turf/space,
 /area/boarding_ship)
 "db" = (
-/obj/structure/boarding/self_destruct/pirateship,
+/obj/structure/boarding/self_destruct/pirateship{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/boarding_ship)
 "dj" = (
@@ -1190,8 +1192,7 @@
 /area/boarding_ship)
 "eb" = (
 /obj/machinery/computer/modular/preset/cardslot/command{
-	dir = 4;
-	icon_state = "console"
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/boarding_ship)
@@ -1443,7 +1444,7 @@
 "eT" = (
 /obj/machinery/atmospherics/unary/heater{
 	dir = 4;
-	icon_state = "heater_0"
+	icon_state = "heater"
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/boarding_ship)

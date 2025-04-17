@@ -738,7 +738,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/item/disk,
+/obj/item/disk/data,
 /obj/item/paper/ecprobelog,
 /obj/machinery/computer/dummy{
 	name = "ship intelligence control console"

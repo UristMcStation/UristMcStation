@@ -1000,7 +1000,7 @@
 "cz" = (
 /obj/machinery/atmospherics/unary/heater{
 	dir = 1;
-	icon_state = "heater_0"
+	icon_state = "heater"
 	},
 /turf/simulated/floor/tiled/steel_ridged,
 /area/boarding_ship)
