@@ -6,7 +6,7 @@
 "af" = (/obj/structure/bed,/obj/machinery/flasher{id_tag = ""; pixel_x = -28},/mob/living/simple_animal/passive/scom/civ/civvie,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
 "ag" = (/obj/structure/bed,/obj/machinery/flasher{id_tag = ""; pixel_x = -28},/obj/random/contraband,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
 "ah" = (/obj/structure/bed,/obj/machinery/flasher{id_tag = ""; pixel_x = -28},/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
-"ai" = (/obj/structure/bed,/obj/machinery/flasher{id_tag = ""; pixel_x = -28},/mob/living/simple_animal/hostile/syndicate,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
+"ai" = (/obj/structure/bed,/obj/machinery/flasher{id_tag = ""; pixel_x = -28},/mob/living/simple_animal/hostile/human/syndicate,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
 "aj" = (/obj/structure/crematorium,/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
 "ak" = (/obj/structure/pit/closed/grave/random,/turf/simulated/floor/asteroid,/area/mine/unexplored)
 "al" = (/obj/machinery/door/airlock/centcom{name = "Holding Cell"; opacity = 1},/turf/simulated/floor/reinforced/airmix,/area/mine/unexplored)
