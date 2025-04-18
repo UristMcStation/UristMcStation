@@ -43,7 +43,7 @@ var/global/const/access_skrellbiodome = "ACCESS_SKRELLBIODOME"
 
 /obj/machinery/light/skrell_biodome
 	name = "skrellian light"
-	light_type = /obj/item/light/tube/skrell
+	light_type = /obj/item/light/tube/skrell_biodome
 	desc = "Some kind of strange alien lighting technology."
 
 /obj/item/light/tube/skrell_biodome
