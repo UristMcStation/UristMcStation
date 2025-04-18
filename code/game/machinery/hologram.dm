@@ -509,6 +509,7 @@ Holographic project of everything else.
 // Used for overmap capable ships that should have communications, but not be AI accessible
 /obj/machinery/hologram/holopad/longrange/remoteship
 	allow_ai = FALSE
+	construct_state = /singleton/machine_construction/default/panel_closed/computer/cannot_print
 
 #undef RANGE_BASED
 #undef AREA_BASED
