@@ -3,13 +3,13 @@
 /turf/simulated/floor/carpet/blue,
 /area/portal_showcase/B)
 "d" = (
-/obj/map_effect/portal/master/side_b{
+/obj/effect/map_effect/portal/master/side_b{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/blue,
 /area/portal_showcase/B)
 "f" = (
-/obj/map_effect/portal/line/side_b{
+/obj/effect/map_effect/portal/line/side_b{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/blue,
@@ -24,15 +24,15 @@
 /turf/simulated/wall/concrete,
 /area/portal_showcase/A)
 "m" = (
-/obj/map_effect/portal/master/side_a,
+/obj/effect/map_effect/portal/master/side_a,
 /turf/simulated/floor/carpet,
 /area/portal_showcase/A)
 "n" = (
-/obj/map_effect/portal/line/side_a,
+/obj/effect/map_effect/portal/line/side_a,
 /turf/simulated/floor/carpet,
 /area/portal_showcase/A)
 "p" = (
-/obj/map_effect/portal/master/side_a{
+/obj/effect/map_effect/portal/master/side_a{
 	dir = 4;
 	portal_id = "horizontal"
 	},
@@ -42,20 +42,20 @@
 /turf/simulated/floor/carpet,
 /area/portal_showcase/A)
 "E" = (
-/obj/map_effect/portal/master/side_b{
+/obj/effect/map_effect/portal/master/side_b{
 	dir = 8;
 	portal_id = "horizontal"
 	},
 /turf/simulated/floor/wood,
 /area/portal_showcase/A)
 "G" = (
-/obj/map_effect/portal/line/side_a{
+/obj/effect/map_effect/portal/line/side_a{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/portal_showcase/A)
 "L" = (
-/obj/map_effect/portal/line/side_b{
+/obj/effect/map_effect/portal/line/side_b{
 	dir = 8
 	},
 /turf/simulated/floor/wood,

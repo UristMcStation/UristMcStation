@@ -24,6 +24,7 @@
 	)
 
 	area_usage_test_exempted_root_areas = list(
+		/area/map_template/deepmaint_wfc,
 		/area/rnd/xenobiology,
 		/area/shuttle/naval1,
 		/area/shuttle/event1,

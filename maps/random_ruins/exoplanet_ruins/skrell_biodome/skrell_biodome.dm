@@ -23,3 +23,46 @@
 /area/map_template/biodome/atmos
 	name = "\improper Gas compartment"
 	icon_state = "atmos"
+
+// Bay accidentally coupled this template and Skrell Scout Ship, so this is a 'fork' version of scout ones
+
+var/global/const/access_skrellbiodome = "ACCESS_SKRELLBIODOME"
+
+/obj/machinery/vending/medical/skrell_biodome
+	req_access = list(access_skrellbiodome)
+
+/obj/machinery/space_heater/skrell_biodome
+	color = "#40e0d0"
+	name = "thermal induction generator"
+	desc = "Made by Krri'gli Corp using thermal induction technology, this heater is guaranteed not to set anything, or anyone, on fire."
+	set_temperature = T0C+40
+
+/obj/machinery/alarm/skrell_biodome
+	req_access = list(access_skrellbiodome)
+	target_temperature = T0C+40
+
+/obj/machinery/light/skrell_biodome
+	name = "skrellian light"
+	light_type = /obj/item/light/tube/skrell
+	desc = "Some kind of strange alien lighting technology."
+
+/obj/item/light/tube/skrell_biodome
+	name = "skrellian light filament"
+	color = LIGHT_COLOUR_SKRELL
+	b_colour = LIGHT_COLOUR_SKRELL
+	desc = "Some kind of strange alien lightbulb technology."
+	random_tone = FALSE
+
+/obj/item/light/tube/large/skrell_biodome
+	name = "skrellian light filament"
+	color = LIGHT_COLOUR_SKRELL
+	b_colour = LIGHT_COLOUR_SKRELL
+	desc = "Some kind of strange alien lightbulb technology."
+
+/obj/item/tape_roll/skrell_biodome
+	name = "modular adhesive dispenser"
+	desc = "A roll of sticky tape. Possibly for taping ducks... or was that ducts?"
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "taperoll"
+	color = "#40e0d0"
+	w_class = ITEM_SIZE_SMALL

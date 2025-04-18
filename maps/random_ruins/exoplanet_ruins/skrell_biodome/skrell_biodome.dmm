@@ -66,7 +66,7 @@
 	dir = 8;
 	pixel_x = 26;
 	id_tag = "sk_bd_south";
-	req_access = list("ACCESS_SKRELLSCOUT")
+	req_access = list("ACCESS_SKRELLBIODOME")
 	},
 /obj/structure/flora/pottedplant,
 /turf/simulated/floor/carpet/blue,
@@ -92,7 +92,7 @@
 /turf/simulated/floor/tiled/skrell/orange,
 /area/map_template/biodome/engineering)
 "dm" = (
-/obj/machinery/light/skrell{
+/obj/machinery/light/skrell_biodome{
 	dir = 8
 	},
 /obj/machinery/light_switch{
@@ -109,7 +109,7 @@
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 4
 	},
-/obj/machinery/light/skrell,
+/obj/machinery/light/skrell_biodome,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 4;
@@ -150,7 +150,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/light/skrell{
+/obj/machinery/light/skrell_biodome{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/skrell/red,
@@ -175,7 +175,7 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/external/bolted{
-	req_access = list("ACCESS_SKRELLSCOUT");
+	req_access = list("ACCESS_SKRELLBIODOME");
 	id_tag = "skrellbd_outer";
 	autoset_access = 0
 	},
@@ -187,7 +187,7 @@
 /obj/machinery/button/blast_door{
 	pixel_x = 26;
 	id_tag = "sk_bd_north";
-	req_access = list("ACCESS_SKRELLSCOUT")
+	req_access = list("ACCESS_SKRELLBIODOME")
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -275,7 +275,7 @@
 "in" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/floor_decal/industrial/outline/blue,
-/obj/machinery/alarm/skrell{
+/obj/machinery/alarm/skrell_biodome{
 	pixel_y = 14
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -315,7 +315,7 @@
 	dir = 4;
 	pixel_x = -26;
 	id_tag = "sk_bd_east";
-	req_access = list("ACCESS_SKRELLSCOUT")
+	req_access = list("ACCESS_SKRELLBIODOME")
 	},
 /turf/simulated/floor/tiled/skrell/green,
 /area/map_template/biodome/living)
@@ -346,7 +346,7 @@
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24;
-	req_access = list("ACCESS_SKRELLSCOUT")
+	req_access = list("ACCESS_SKRELLBIODOME")
 	},
 /obj/structure/cable,
 /turf/simulated/floor/tiled/skrell/blue,
@@ -385,13 +385,13 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/machinery/light/skrell{
+/obj/machinery/light/skrell_biodome{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/skrell/blue,
 /area/map_template/biodome/living)
 "pa" = (
-/obj/machinery/light/skrell,
+/obj/machinery/light/skrell_biodome,
 /turf/simulated/floor/tiled/skrell/white,
 /area/map_template/biodome/medbay)
 "pi" = (
@@ -403,7 +403,7 @@
 /turf/simulated/floor/tiled/skrell/blue,
 /area/map_template/biodome/atmos)
 "pv" = (
-/obj/machinery/space_heater/skrell,
+/obj/machinery/space_heater/skrell_biodome,
 /turf/simulated/floor/tiled/skrell/orange,
 /area/map_template/biodome/engineering)
 "pA" = (
@@ -423,7 +423,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/light/skrell{
+/obj/machinery/light/skrell_biodome{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/skrell/white,
@@ -454,7 +454,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/light/skrell{
+/obj/machinery/light/skrell_biodome{
 	dir = 4;
 	icon_state = "tube1"
 	},
@@ -498,7 +498,7 @@
 	dir = 4;
 	name = "east bump";
 	pixel_x = 24;
-	req_access = list("ACCESS_SKRELLSCOUT")
+	req_access = list("ACCESS_SKRELLBIODOME")
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/skrell/blue,
@@ -594,7 +594,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 4
 	},
-/obj/machinery/alarm/skrell{
+/obj/machinery/alarm/skrell_biodome{
 	dir = 1;
 	pixel_y = -22
 	},
@@ -622,7 +622,7 @@
 /area/template_noop)
 "vI" = (
 /obj/structure/table/woodentable/walnut,
-/obj/item/tape_roll/skrell,
+/obj/item/tape_roll/skrell_biodome,
 /turf/simulated/floor/carpet/blue,
 /area/map_template/biodome/living)
 "xj" = (
@@ -713,7 +713,7 @@
 	dir = 1;
 	pixel_y = -26;
 	id_tag = "sk_bd_west";
-	req_access = list("ACCESS_SKRELLSCOUT")
+	req_access = list("ACCESS_SKRELLBIODOME")
 	},
 /obj/structure/table/glass,
 /obj/item/storage/firstaid/surgery,
@@ -744,7 +744,7 @@
 /obj/machinery/body_scanconsole{
 	dir = 4
 	},
-/obj/machinery/light/skrell{
+/obj/machinery/light/skrell_biodome{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/skrell/white,
@@ -790,7 +790,7 @@
 /turf/simulated/floor/exoplanet/concrete/reinforced,
 /area/map_template/biodome/engineering)
 "Gu" = (
-/obj/machinery/light/skrell{
+/obj/machinery/light/skrell_biodome{
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air,
@@ -801,7 +801,7 @@
 	dir = 8
 	},
 /obj/machinery/door/airlock/external/bolted{
-	req_access = list("ACCESS_SKRELLSCOUT");
+	req_access = list("ACCESS_SKRELLBIODOME");
 	id_tag = "skrellbd_inner";
 	autoset_access = 0
 	},
@@ -852,7 +852,7 @@
 /obj/machinery/power/apc/critical{
 	name = "south bump";
 	pixel_y = -24;
-	req_access = list("ACCESS_SKRELLSCOUT")
+	req_access = list("ACCESS_SKRELLBIODOME")
 	},
 /obj/machinery/light_switch{
 	pixel_x = -22;
@@ -890,7 +890,7 @@
 /area/map_template/biodome/atmos)
 "IP" = (
 /obj/structure/hygiene/drain/bath,
-/obj/machinery/light/skrell,
+/obj/machinery/light/skrell_biodome,
 /turf/simulated/floor/pool,
 /area/map_template/biodome/living)
 "IV" = (
@@ -940,7 +940,7 @@
 /turf/simulated/floor/exoplanet/concrete/reinforced,
 /area/map_template/biodome/engineering)
 "Ke" = (
-/obj/machinery/vending/medical/skrell,
+/obj/machinery/vending/medical/skrell_biodome,
 /turf/simulated/floor/tiled/skrell/white,
 /area/map_template/biodome/medbay)
 "Ko" = (
@@ -972,7 +972,7 @@
 	dir = 5
 	},
 /obj/machinery/portable_atmospherics/powered/scrubber,
-/obj/machinery/light/skrell{
+/obj/machinery/light/skrell_biodome{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/skrell/orange,
@@ -991,7 +991,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/external/bolted{
-	req_access = list("ACCESS_SKRELLSCOUT");
+	req_access = list("ACCESS_SKRELLBIODOME");
 	id_tag = "skrellbd_inner";
 	autoset_access = 0
 	},
@@ -1017,18 +1017,18 @@
 /turf/simulated/floor/tiled/skrell/white,
 /area/map_template/biodome/medbay)
 "Lr" = (
-/obj/machinery/light/skrell{
+/obj/machinery/light/skrell_biodome{
 	dir = 4
 	},
 /obj/machinery/vending/engineering{
-	req_access = list("ACCESS_SKRELLSCOUT");
+	req_access = list("ACCESS_SKRELLBIODOME");
 	dir = 8
 	},
 /turf/simulated/floor/tiled/skrell/orange,
 /area/map_template/biodome/engineering)
 "LY" = (
 /obj/structure/table/standard,
-/obj/machinery/light/skrell{
+/obj/machinery/light/skrell_biodome{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/skrell/green,
@@ -1148,7 +1148,7 @@
 /obj/item/device/radio/hailing,
 /obj/item/gun/energy/gun/skrell,
 /obj/item/shuttle_beacon,
-/obj/machinery/light/skrell{
+/obj/machinery/light/skrell_biodome{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/blue,
@@ -1185,7 +1185,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/alarm/skrell{
+/obj/machinery/alarm/skrell_biodome{
 	pixel_y = 14
 	},
 /turf/simulated/floor/carpet/blue,
@@ -1274,7 +1274,7 @@
 /turf/simulated/floor/carpet/blue,
 /area/map_template/biodome/living)
 "QK" = (
-/obj/machinery/alarm/skrell{
+/obj/machinery/alarm/skrell_biodome{
 	pixel_y = 14
 	},
 /turf/simulated/floor/tiled/skrell/green,
@@ -1310,13 +1310,13 @@
 /obj/machinery/power/apc/critical{
 	name = "south bump";
 	pixel_y = -24;
-	req_access = list("ACCESS_SKRELLSCOUT")
+	req_access = list("ACCESS_SKRELLBIODOME")
 	},
 /obj/structure/cable,
 /turf/simulated/floor/tiled/skrell/white,
 /area/map_template/biodome/medbay)
 "Tr" = (
-/obj/machinery/light/skrell{
+/obj/machinery/light/skrell_biodome{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/blue,
@@ -1355,8 +1355,8 @@
 /turf/simulated/floor/exoplanet/concrete/reinforced,
 /area/map_template/biodome/engineering)
 "WS" = (
-/obj/machinery/space_heater/skrell,
-/obj/machinery/light/skrell{
+/obj/machinery/space_heater/skrell_biodome,
+/obj/machinery/light/skrell_biodome{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/skrell/orange,
@@ -1383,7 +1383,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/light/skrell{
+/obj/machinery/light/skrell_biodome{
 	dir = 4;
 	icon_state = "tube1"
 	},
@@ -1399,7 +1399,7 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/external/bolted{
-	req_access = list("ACCESS_SKRELLSCOUT");
+	req_access = list("ACCESS_SKRELLBIODOME");
 	id_tag = "skrellbd_outer";
 	autoset_access = 0
 	},
@@ -1466,7 +1466,7 @@
 /turf/simulated/floor/carpet/blue,
 /area/map_template/biodome/living)
 "ZR" = (
-/obj/machinery/alarm/skrell{
+/obj/machinery/alarm/skrell_biodome{
 	pixel_y = 14
 	},
 /obj/machinery/light_switch{
