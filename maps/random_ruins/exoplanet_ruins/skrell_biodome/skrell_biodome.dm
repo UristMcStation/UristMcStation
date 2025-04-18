@@ -30,6 +30,7 @@ var/global/const/access_skrellbiodome = "ACCESS_SKRELLBIODOME"
 
 /datum/access/skrell_biodome
 	id = access_skrellbiodome
+	desc = "Access to the Skrell Biodome"
 
 /obj/machinery/vending/medical/skrell_biodome
 	req_access = list(access_skrellbiodome)
