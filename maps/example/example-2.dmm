@@ -121,16 +121,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
-"lc" = (
-/obj/floor_decal/corner/blue/diagonal,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-4";
-	dir = 2
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/surgery)
 "lf" = (
 /obj/floor_decal/corner/blue/diagonal,
 /obj/machinery/honey_extractor,
@@ -138,12 +128,6 @@
 /area/medical/surgery)
 "lw" = (
 /obj/floor_decal/corner/blue/diagonal,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	dir = 4
-	},
 /obj/machinery/anomaly_container,
 /obj/machinery/artifact,
 /turf/simulated/floor/tiled/white,
@@ -175,11 +159,15 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "ns" = (
-/obj/floor_decal/corner/blue/diagonal,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
+/obj/machinery/power/apc{
+	dir = 8;
+	name = "west bump";
+	pixel_x = -24
 	},
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/structure/cable{
+	dir = 1
+	},
+/obj/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "nu" = (
@@ -265,15 +253,6 @@
 /obj/machinery/r_n_d/destructive_analyzer,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
-"rK" = (
-/obj/floor_decal/corner/blue/diagonal,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/white,
-/area/medical/surgery)
 "so" = (
 /obj/machinery/light_switch{
 	pixel_x = -25
@@ -285,16 +264,6 @@
 "sV" = (
 /obj/floor_decal/corner/blue/diagonal,
 /obj/machinery/beehive,
-/turf/simulated/floor/tiled/white,
-/area/medical/surgery)
-"tQ" = (
-/obj/floor_decal/corner/blue/diagonal,
-/obj/structure/closet/fridge/meat,
-/obj/machinery/power/apc{
-	dir = 8;
-	name = "west bump";
-	pixel_x = -24
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "uA" = (
@@ -323,12 +292,6 @@
 "vA" = (
 /obj/floor_decal/corner/blue/diagonal,
 /obj/machinery/light,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-4";
-	dir = 4
-	},
 /obj/machinery/artifact_scanpad,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
@@ -345,7 +308,10 @@
 /area/medical/surgery)
 "vR" = (
 /obj/floor_decal/corner/blue/diagonal,
-/obj/machinery/cooking/still,
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "wF" = (
@@ -401,21 +367,13 @@
 /area/medical/surgery)
 "zT" = (
 /obj/floor_decal/corner/blue/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "Ag" = (
 /obj/floor_decal/corner/blue/diagonal,
 /obj/structure/table/marble,
 /obj/machinery/cell_charger,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-4";
-	dir = 1
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "Cr" = (
@@ -434,16 +392,6 @@
 /obj/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/visible/blue,
 /obj/item/reagent_containers/glass/beaker/cryoxadone,
-/turf/simulated/floor/tiled/white,
-/area/medical/surgery)
-"Dh" = (
-/obj/floor_decal/corner/blue/diagonal,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	dir = 1
-	},
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "DL" = (
@@ -544,11 +492,9 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "QF" = (
-/obj/machinery/power/debug_items/infinite_generator,
 /obj/floor_decal/corner/blue/diagonal,
-/obj/structure/cable{
-	dir = 8
-	},
+/obj/structure/cable,
+/obj/machinery/power/debug_items/infinite_generator,
 /turf/simulated/floor/tiled/white,
 /area/medical/surgery)
 "QN" = (
@@ -1317,7 +1263,7 @@ hK
 YL
 iN
 lM
-tQ
+jM
 OD
 Mn
 cv
@@ -1352,13 +1298,13 @@ HE
 ad
 HE
 HE
-Dh
-Dh
-Dh
-Dh
-lc
+HE
+HE
+HE
+HE
+HE
 jH
-zT
+HE
 lw
 DL
 oP
@@ -1391,8 +1337,8 @@ KN
 VS
 oy
 Ag
-rK
-rK
+HE
+HE
 vA
 DL
 oP
@@ -1729,11 +1675,11 @@ pD
 QN
 Mf
 oy
-vR
 QY
 Ii
 iG
-HE
+zT
+vR
 DL
 oP
 oP
