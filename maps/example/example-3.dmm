@@ -175,6 +175,10 @@
 /obj/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
+"T" = (
+/obj/machinery/floor_light/mapped_on,
+/turf/simulated/floor/tiled,
+/area/maintenance/fsmaint2)
 
 (1,1,1) = {"
 a
@@ -971,8 +975,8 @@ a
 c
 d
 f
-g
-g
+f
+f
 d
 d
 d
@@ -1006,10 +1010,10 @@ c
 f
 f
 g
-g
+f
 d
 d
-d
+T
 d
 d
 d
@@ -1039,8 +1043,8 @@ a
 c
 d
 f
-g
-g
+f
+f
 d
 d
 d
