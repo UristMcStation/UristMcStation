@@ -40,7 +40,6 @@
 	ert_context = "The Emergency Response Team works for Asset Protection; your job is to protect NanoTrasen's ass-ets. There is a severe emergency on the ICS Nerva and you are tasked to go and fix the problem.\nYou should first gear up and discuss a plan with your team. More members may be joining, don't move out before you're ready."
 
 	map_admin_faxes = list("NanoTrasen Central Office", "Terran Confederacy Sector Headquarters", "United Human Alliance Outpost")
-
 	shuttle_docked_message = "Attention all hands: Jump preparation complete. The bluespace drive is now spooling up, secure all stations for departure. Time to jump: approximately %ETD%."
 	shuttle_leaving_dock = "Attention all hands: Jump initiated, exiting bluespace in %ETA%."
 	shuttle_called_message = "Attention all hands: Jump sequence initiated. Transit procedures are now in effect. Jump in %ETA%."
@@ -49,7 +48,7 @@
 	starting_money = 22000		//Money in station account //tweak this value
 	department_money = 1000		//Money in department accounts
 	salary_modifier	= 1			//Multiplier to starting character money
-
+	use_bluespace_interlude = TRUE
 	supply_currency_name = "Thalers"
 	supply_currency_name_short = "Th."
 
@@ -132,3 +131,15 @@
 		to_world("<b>T<font color='red'>[SSpayment_controller.total_paid]</font></b> was paid to the crew of the <b>[station_name]</b> in hourly salary payments today.")
 		to_world("The crew of the <b>[station_name]</b> completed <b>[completed_contracts]</b> contracts today, earning <b>T[contract_money]</b>.")
 		to_world("In addition <b>[destroyed_ships]</b> hostile ships were destroyed by the crew of the <b>[station_name]</b> today.")
+
+/datum/map/nerva/do_interlude_teleport(atom/movable/target, atom/destination, duration = 30 SECONDS, precision, type) // copypasta from torch proc to do the same
+	var/turf/T = pick_area_turf(/area/bluespace_interlude/platform, list(/proc/not_turf_contains_dense_objects, /proc/IsTurfAtmosSafe))
+
+	if (!T)
+		do_teleport(target, destination)
+		return
+
+	if (isliving(target))
+		to_chat(target, FONT_LARGE(SPAN_WARNING("Your vision goes blurry and nausea strikes your stomach. Where are you...?")))
+		do_teleport(target, T, precision, type)
+		addtimer(new Callback(GLOBAL_PROC, /proc/do_teleport, target, destination), duration)
