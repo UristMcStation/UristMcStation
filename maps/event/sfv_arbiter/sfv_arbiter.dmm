@@ -523,7 +523,7 @@
 "qq" = (
 /obj/structure/table/steel_reinforced,
 /obj/machinery/button/blast_door{
-	icon_state = "doorctrl0";
+	icon_state = "doorctrl";
 	id_tag = "rescuebridge";
 	name = "Window Shutters Control";
 	pixel_x = 4
@@ -1573,7 +1573,7 @@
 "Nf" = (
 /obj/structure/table/steel_reinforced,
 /obj/machinery/button/blast_door{
-	icon_state = "doorctrl0";
+	icon_state = "doorctrl";
 	id_tag = "rescuebridge";
 	name = "Window Shutters Control";
 	pixel_x = -4;
@@ -2275,7 +2275,7 @@
 	id_tag = "sfv_arbiter_shuttle_pump"
 	},
 /obj/machinery/button/blast_door{
-	icon_state = "doorctrl0";
+	icon_state = "doorctrl";
 	id_tag = "rescuedock";
 	name = "Window Shutters Control";
 	pixel_x = 24;
@@ -2537,7 +2537,7 @@
 /area/map_template/sfv_arbiter)
 "Zf" = (
 /obj/machinery/button/blast_door{
-	icon_state = "doorctrl0";
+	icon_state = "doorctrl";
 	id_tag = "rescuedock";
 	name = "Window Shutters Control";
 	pixel_x = -24;

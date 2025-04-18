@@ -2210,7 +2210,7 @@
 /area/planet/destroyed_colony)
 "hE" = (
 /obj/machinery/sleeper{
-	icon_state = "sleeper_0-r"
+	icon_state = "sleeper"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
@@ -2227,7 +2227,7 @@
 /area/planet/destroyed_colony)
 "hH" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2265,7 +2265,7 @@
 	pixel_x = 0;
 	pixel_y = 6
 	},
-/obj/item/scalpel,
+/obj/item/scalpel/basic,
 /obj/item/FixOVein{
 	pixel_x = -6;
 	pixel_y = 1
@@ -2303,7 +2303,7 @@
 /area/planet/destroyed_colony)
 "hT" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/item/ammo_magazine/c10mm/TD10,
@@ -2412,7 +2412,7 @@
 /area/planet/destroyed_colony)
 "in" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/floor_decal/industrial/outline/yellow,
@@ -4433,7 +4433,7 @@
 "ph" = (
 /obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/structure/largecrate,

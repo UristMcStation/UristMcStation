@@ -5700,7 +5700,7 @@
 /area/engineering/locker)
 "akn" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/random/maintenance,
@@ -24901,7 +24901,7 @@
 	},
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/random/maintenance,
@@ -27212,7 +27212,7 @@
 /obj/decal/cleanable/dirt,
 /obj/structure/table/standard,
 /obj/item/scissors/barber,
-/obj/item/scalpel,
+/obj/item/scalpel/basic,
 /obj/item/towel,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/cents)
@@ -27363,7 +27363,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/command/eva)
 "aVN" = (
-/obj/item/storage/firstaid/rad,
+/obj/item/storage/firstaid/radiation,
 /obj/item/storage/box/lights/mixed,
 /obj/structure/closet/firecloset,
 /obj/decal/cleanable/dirt,
@@ -27494,7 +27494,7 @@
 /obj/decal/cleanable/dirt,
 /obj/structure/window/reinforced/tinted,
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/item/organ/internal/heart,
@@ -30707,7 +30707,7 @@
 /area/security/entrance)
 "sxE" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /turf/simulated/floor/plating,

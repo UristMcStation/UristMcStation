@@ -1685,7 +1685,7 @@
 "eo" = (
 /obj/machinery/atmospherics/unary/freezer{
 	dir = 8;
-	icon_state = "freezer_1";
+	icon_state = "freezer";
 	use_power = 1
 	},
 /turf/simulated/floor/plating,
@@ -1946,14 +1946,14 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 4;
 	health_max = 1000;
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	name = "hardened window";
 	opacity = 0
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 1;
 	health_max = 1000;
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -1998,14 +1998,14 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
 	health_max = 1000;
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	name = "hardened window";
 	opacity = 0
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 1;
 	health_max = 1000;
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -2165,7 +2165,7 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 4;
 	health_max = 1000;
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -2210,7 +2210,7 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
 	health_max = 1000;
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -3630,7 +3630,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "research_outpost_hatch";
 	locked = 1;
 	name = "Research Outpost Docking Hatch";
@@ -4015,18 +4015,14 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/xenoarchaeologist{
-	req_access = list("ACCESS_RESEARCH")
-	},
 /obj/structure/window/reinforced,
+/obj/structure/closet/toolcloset/excavation/awaysite,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "iw" = (
-/obj/structure/closet/secure_closet/xenoarchaeologist{
-	req_access = list("ACCESS_RESEARCH")
-	},
 /obj/structure/disposalpipe/segment,
 /obj/structure/window/reinforced,
+/obj/structure/closet/toolcloset/excavation/awaysite,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/hallway)
 "ix" = (
@@ -6215,7 +6211,7 @@
 	dir = 4
 	},
 /obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/rad,
+/obj/item/storage/firstaid/radiation,
 /turf/simulated/floor/tiled/white,
 /area/outpost/research/isolation_monitoring)
 "mu" = (
@@ -7890,7 +7886,7 @@
 "qK" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "outpost_planet_dock_outer";
 	locked = 1;
 	name = "Outpost Dock Airlock"
@@ -8324,7 +8320,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "outpost_planet_dock_inner";
 	locked = 1;
 	name = "Outpost Dock Airlock"
@@ -8334,7 +8330,7 @@
 "rW" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "outpost_planet_dock_inner";
 	locked = 1;
 	name = "Outpost Dock Airlock"
@@ -10186,9 +10182,7 @@
 /area/outpost/security/storage)
 "wk" = (
 /obj/structure/table/standard,
-/obj/item/stack/rods{
-	amount = 50
-	},
+/obj/item/stack/material/rods/fifty,
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled,
 /area/outpost/engineering/hallway)
@@ -10312,7 +10306,7 @@
 /area/outpost/mining_main/refinery)
 "wy" = (
 /obj/structure/table/standard,
-/obj/item/scalpel{
+/obj/item/scalpel/basic{
 	pixel_y = 15
 	},
 /obj/item/circular_saw,
@@ -10788,7 +10782,7 @@
 "xv" = (
 /obj/machinery/atmospherics/unary/freezer{
 	dir = 8;
-	icon_state = "freezer_1";
+	icon_state = "freezer";
 	use_power = 1
 	},
 /turf/simulated/floor/plating,
@@ -11053,14 +11047,14 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 4;
 	health_max = 1000;
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	name = "hardened window";
 	opacity = 0
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 1;
 	health_max = 1000;
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -11105,14 +11099,14 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
 	health_max = 1000;
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	name = "hardened window";
 	opacity = 0
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 1;
 	health_max = 1000;
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -11125,7 +11119,7 @@
 "yd" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "mining_outpost_outer";
 	locked = 1;
 	name = "Mining Dock Airlock";
@@ -11160,7 +11154,7 @@
 "yf" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "mining_outpost_inner";
 	locked = 1;
 	name = "Mining Dock Airlock";
@@ -11392,7 +11386,7 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 4;
 	health_max = 1000;
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -11437,7 +11431,7 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
 	health_max = 1000;
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	name = "hardened window";
 	opacity = 0
 	},
@@ -11767,7 +11761,7 @@
 "zr" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "secdock_inner";
 	locked = 1;
 	name = "Security Dock Airlock"
@@ -11781,7 +11775,7 @@
 "zs" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "secdock_inner";
 	locked = 1;
 	name = "Security Dock Airlock"
@@ -11797,7 +11791,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "edock_inner";
 	locked = 1;
 	name = "Engineering Dock Airlock"
@@ -11816,7 +11810,7 @@
 "zv" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "edock_inner";
 	locked = 1;
 	name = "Engineering Dock Airlock"
@@ -12257,7 +12251,7 @@
 "Am" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "secdock_outer";
 	locked = 1;
 	name = "Security Dock Airlock"
@@ -12291,7 +12285,7 @@
 "Ap" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "edock_outer";
 	locked = 1;
 	name = "Engineering Dock Airlock"
@@ -12306,7 +12300,7 @@
 "Aq" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "edock_outer";
 	locked = 1;
 	name = "Engineering Dock Airlock"
@@ -12419,6 +12413,19 @@
 	density = 1
 	},
 /area/planet/jungle)
+"BZ" = (
+/obj/structure/blacksmithingfurnace/furnace,
+/turf/simulated/floor/wood/walnut{
+	icon_state = "wood_broken6"
+	},
+/area/planet/jungle)
+"DR" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/scientist,
+/turf/simulated/floor/wood/walnut,
+/area/outpost/research/hallway)
 "El" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -12459,6 +12466,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/security/storage)
+"XR" = (
+/obj/item/hammer/smithing,
+/turf/simulated/floor/wood/walnut{
+	icon_state = "wood_broken6"
+	},
+/area/planet/jungle)
+"ZW" = (
+/obj/item/ore/iron,
+/turf/simulated/floor/planet/plains,
+/area/planet/jungle)
 
 (1,1,1) = {"
 aa
@@ -23331,7 +23348,7 @@ dx
 bO
 fq
 fM
-gp
+DR
 gp
 gp
 hL
@@ -54371,8 +54388,8 @@ ae
 ae
 ae
 ae
-ae
-ae
+ZW
+ZW
 ae
 ae
 ae
@@ -54628,7 +54645,7 @@ ae
 ae
 ae
 aq
-ae
+ZW
 ax
 aq
 av
@@ -54883,7 +54900,7 @@ ae
 ae
 ae
 ae
-ae
+aq
 aq
 au
 ay
@@ -55140,11 +55157,11 @@ ae
 ae
 ae
 ae
-ae
 aq
-av
+BZ
+aA
 az
-ae
+ZW
 aC
 ae
 ae
@@ -55397,10 +55414,10 @@ ae
 ae
 ae
 ae
-ae
+aq
 aq
 aw
-aA
+XR
 av
 aq
 ae

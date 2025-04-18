@@ -58,7 +58,7 @@
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "ak" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /obj/structure/door_assembly/door_assembly_ext{
 	name = "Broken External Airlock"
 	},
@@ -86,7 +86,7 @@
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "ao" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "ap" = (
@@ -126,7 +126,7 @@
 /turf/simulated/wall,
 /area/outpost/abandoned)
 "av" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -134,7 +134,7 @@
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "aw" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /obj/structure/alien/node{
 	icon_state = "weeds2"
 	},
@@ -198,12 +198,12 @@
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "aF" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/simulated/floor/asteroid,
 /area/mine/unexplored)
 "aG" = (
 /obj/item/material/shard,
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "aH" = (
@@ -238,7 +238,7 @@
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "aM" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/simulated/floor/plating/airless,
 /area/outpost/abandoned)
 "aN" = (
@@ -511,12 +511,12 @@
 	},
 /obj/structure/grille{
 	density = 0;
-	icon_state = "brokengrille"
+	icon_state = "broken"
 	},
 /obj/item/material/shard{
 	icon_state = "small"
 	},
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/simulated/floor/plating,
 /area/outpost/abandoned)
 "bE" = (
@@ -534,9 +534,9 @@
 	},
 /obj/structure/grille{
 	density = 0;
-	icon_state = "brokengrille"
+	icon_state = "broken"
 	},
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /obj/item/material/shard,
 /turf/simulated/floor/plating/airless{
 	icon_state = "asteroidplating"
@@ -1157,7 +1157,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "research_inner";
 	locked = 1;
 	name = "Research Outpost External Access"
@@ -1332,7 +1332,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "research_outer";
 	locked = 1;
 	name = "Research Outpost External Access";
@@ -1944,7 +1944,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "mining_east_inner";
 	locked = 1;
 	name = "Mining External Access"
@@ -1990,7 +1990,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "mining_east_outer";
 	locked = 1;
 	name = "Mining External Access";

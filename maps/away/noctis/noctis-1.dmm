@@ -39,7 +39,7 @@
 /area/space)
 "aj" = (
 /obj/structure/table/standard,
-/obj/item/scalpel,
+/obj/item/scalpel/basic,
 /obj/item/hemostat,
 /obj/floor_decal/borderfloorwhite{
 	dir = 9;

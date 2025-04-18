@@ -40,7 +40,7 @@
 "aN" = (/obj/machinery/door/airlock{req_access = list(300)},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
 "aO" = (/turf/unsimulated/wall/other{icon_state = "metal4"},/area/awaymission/train/snow)
 "aP" = (/turf/unsimulated/wall/other{icon_state = "metal11"},/area/awaymission/train/snow)
-"aQ" = (/obj/structure/table/reinforced,/obj/item/scalpel{pixel_y = 15},/obj/item/circular_saw,/obj/machinery/camera{c_tag = "Surgery"; dir = 8},/obj/item/cautery,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"aQ" = (/obj/structure/table/reinforced,/obj/item/scalpel/basic{pixel_y = 15},/obj/item/circular_saw,/obj/machinery/camera{c_tag = "Surgery"; dir = 8},/obj/item/cautery,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
 "aR" = (/obj/structure/table/reinforced,/obj/item/bonegel{pixel_x = 4; pixel_y = 3},/obj/item/bonesetter,/obj/structure/window/reinforced{icon_state = "rwindow"; dir = 4},/obj/machinery/light/small{dir = 1; luminosity = 2},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
 "aS" = (/obj/structure/hygiene/sink{pixel_y = 30},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
 "aT" = (/obj/machinery/light/small{dir = 1; luminosity = 2},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
