@@ -148,5 +148,8 @@
 		/area/jungleoutpost,
 		/area/voxship,
 		/area/morninglight,
-		/area/planet/jungle
+		/area/planet/jungle,
+		/area/bluespace_interlude,
+		/area/bluespace_interlude/platform,
+		/area/bluespace_interlude/surroundings
 	)
