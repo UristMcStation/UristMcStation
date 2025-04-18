@@ -437,7 +437,7 @@
 "iu" = (/obj/floor_decal/corner/green{icon_state = "corner_white"; dir = 4},/obj/floor_decal/corner/purple,/obj/structure/closet/wardrobe/pjs,/turf/simulated/floor/tiled,/area/civilian/personal)
 "iv" = (/turf/simulated/wall,/area/civilian/personal)
 "iw" = (/obj/structure/closet/l3closet/janitor,/turf/simulated/floor/plating,/area/maintenance/sub/fore)
-"ix" = (/obj/machinery/camera/network/hatchling{c_tag = "Hatchling Habitation"; dir = 4},/obj/floor_decal/corner/white/three_quarters{icon_state = "corner_white_three_quarters"; dir = 8},/obj/machinery/sleeper{icon_state = "sleeper_0"; dir = 4},/turf/simulated/floor/tiled,/area/hatchling/start)
+"ix" = (/obj/machinery/camera/network/hatchling{c_tag = "Hatchling Habitation"; dir = 4},/obj/floor_decal/corner/white/three_quarters{icon_state = "corner_white_three_quarters"; dir = 8},/obj/machinery/sleeper{icon_state = "sleeper"; dir = 4},/turf/simulated/floor/tiled,/area/hatchling/start)
 "iy" = (/obj/structure/bed/chair/urist/shuttle{icon_state = "shuttlechair"; dir = 4},/obj/floor_decal/corner/white{icon_state = "corner_white"; dir = 4},/turf/simulated/floor/tiled,/area/hatchling/start)
 "iz" = (/obj/structure/table/reinforced,/obj/item/storage/box/checkers/chess,/obj/item/storage/box/checkers/chess/red,/obj/floor_decal/corner/white{icon_state = "corner_white"; dir = 4},/turf/simulated/floor/tiled,/area/hatchling/start)
 "iA" = (/obj/structure/bed/chair/urist/shuttle{icon_state = "shuttlechair"; dir = 8},/obj/floor_decal/corner/white{icon_state = "corner_white"; dir = 4},/turf/simulated/floor/tiled,/area/hatchling/start)

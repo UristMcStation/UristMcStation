@@ -8661,7 +8661,7 @@
 	pixel_y = 8
 	},
 /obj/item/hemostat,
-/obj/item/scalpel,
+/obj/item/scalpel/basic,
 /obj/item/stack/medical/advanced/bruise_pack,
 /turf/simulated/floor/shuttle/white,
 /area/map_template/skipjack_station/start)
@@ -16803,7 +16803,7 @@
 "NE" = (
 /obj/machinery/atmospherics/unary/tank/air{
 	dir = 1;
-	icon_state = "air_map";
+	icon_state = "air";
 	start_pressure = 740.5
 	},
 /obj/machinery/light/small,
@@ -16812,7 +16812,7 @@
 "NF" = (
 /obj/machinery/atmospherics/unary/tank/air{
 	dir = 1;
-	icon_state = "air_map";
+	icon_state = "air";
 	start_pressure = 740.5
 	},
 /turf/simulated/floor/plating,

@@ -82,6 +82,7 @@
 	#include "../away/scavver_gantry/scavver_gantry.dm"
 	#include "../away/abandoned_hotel/abandoned_hotel.dm"
 	#include "../bluespace_interlude/bluespace_interlude.dm"
+	#include "../bluespace_interlude/bluespace_interlude.dmm"
 
 
 	//keep your clothing hacks to yourself

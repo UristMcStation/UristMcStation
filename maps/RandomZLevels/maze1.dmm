@@ -48,7 +48,7 @@
 "aV" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 4; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access = list(100); state = 2; use_power = 0},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
 "aW" = (/obj/machinery/power/emitter{active = 1; active_power_usage = 0; anchored = 1; dir = 8; idle_power_usage = 0; locked = 1; name = "Energy Cannon"; req_access = list(100); state = 2; use_power = 0},/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor4"},/area/space)
 "aX" = (/obj/structure/sign/warning/secure_area,/turf/simulated/wall/r_wall,/area/space)
-"aY" = (/obj/machinery/door/airlock/command{icon_state = "door_closed"; locked = 0; name = "Gateway Access"; req_access = list(62)},/turf/simulated/floor,/area/space)
+"aY" = (/obj/machinery/door/airlock/command{icon_state = "closed"; locked = 0; name = "Gateway Access"; req_access = list(62)},/turf/simulated/floor,/area/space)
 "aZ" = (/obj/machinery/door/blast/shutters{id = null; name = "Gateway shutters"},/turf/simulated/floor,/area/space)
 "ba" = (/turf/unsimulated/floor{icon_state = "bcircuit"},/area/space)
 "bb" = (/turf/unsimulated/floor{icon_state = "elevatorshaft"},/area/space)

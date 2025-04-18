@@ -918,7 +918,7 @@
 /area/ship/scrap/crew/cryo)
 "dh" = (
 /obj/structure/window/reinforced/tinted{
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/hygiene/shower{
@@ -942,12 +942,12 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced/tinted{
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
-	icon_state = "twindow"
+	icon_state = "rwindow"
 	},
 /obj/decal/cleanable/dirt,
 /obj/landmark/start{
@@ -1264,12 +1264,12 @@
 	},
 /obj/structure/window/reinforced/tinted,
 /obj/structure/window/reinforced/tinted{
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
-	icon_state = "twindow"
+	icon_state = "rwindow"
 	},
 /obj/decal/cleanable/dirt,
 /obj/random_multi/single_item/captains_spare_id,
@@ -1282,10 +1282,10 @@
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
-	icon_state = "twindow"
+	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced/tinted{
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced/tinted,
@@ -2050,7 +2050,7 @@
 	},
 /obj/item/tape_roll,
 /obj/item/retractor,
-/obj/item/scalpel,
+/obj/item/scalpel/basic,
 /turf/simulated/floor/tiled/white,
 /area/ship/scrap/crew/medbay)
 "fw" = (
@@ -4596,10 +4596,10 @@
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
-	icon_state = "twindow"
+	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced/tinted{
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced/tinted{
@@ -4607,7 +4607,7 @@
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
-	icon_state = "twindow"
+	icon_state = "rwindow"
 	},
 /obj/machinery/alarm{
 	dir = 8;
@@ -5230,7 +5230,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced/tinted{
-	icon_state = "twindow";
+	icon_state = "rwindow";
 	dir = 4
 	},
 /obj/structure/window/reinforced/tinted,
