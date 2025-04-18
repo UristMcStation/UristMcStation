@@ -373,7 +373,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "escape_dock_north_outer";
 	locked = 1;
 	name = "Escape Airlock";
@@ -391,7 +391,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "escape_dock_north_outer";
 	locked = 1;
 	name = "Escape Airlock";
@@ -420,7 +420,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "escape_dock_south_outer";
 	locked = 1;
 	name = "Escape Airlock";
@@ -438,7 +438,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "escape_dock_south_outer";
 	locked = 1;
 	name = "Escape Airlock";
@@ -453,7 +453,7 @@
 "aaZ" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "escape_dock_south_outer";
 	locked = 1;
 	name = "Escape Airlock";
@@ -474,7 +474,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solar_chapel_outer";
 	locked = 1;
 	name = "Engineering External Access";
@@ -795,7 +795,7 @@
 "abP" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "escape_dock_south_inner";
 	locked = 1;
 	name = "Escape Airlock";
@@ -842,7 +842,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solar_chapel_inner";
 	locked = 1;
 	name = "Engineering External Access";
@@ -929,7 +929,7 @@
 "ach" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "escape_dock_north_inner";
 	locked = 1;
 	name = "Escape Airlock";
@@ -947,7 +947,7 @@
 "aci" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "escape_dock_north_inner";
 	locked = 1;
 	name = "Escape Airlock";
@@ -969,7 +969,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "escape_dock_south_inner";
 	locked = 1;
 	name = "Escape Airlock";
@@ -986,7 +986,7 @@
 "acl" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "escape_dock_south_inner";
 	locked = 1;
 	name = "Escape Airlock";
@@ -2207,7 +2207,7 @@
 "aeV" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "planet_shuttle_hatch";
 	locked = 1;
 	name = "Shuttle Hatch"
@@ -2321,7 +2321,7 @@
 "afj" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "merchant_shuttle_station_exterior";
 	locked = 1;
 	name = "Security Dock Airlock";
@@ -2431,7 +2431,7 @@
 /area/shuttle/planet/station)
 "afv" = (
 /obj/machinery/door/airlock/external{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "planet_dock_south_outer";
 	locked = 1;
 	name = "Planet Shuttle Airlock";
@@ -2443,7 +2443,7 @@
 "afw" = (
 /obj/machinery/shield_diffuser,
 /obj/machinery/door/airlock/external{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "planet_dock_south_outer";
 	locked = 1;
 	name = "Planet Shuttle Airlock";
@@ -2470,7 +2470,7 @@
 "afy" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solar_tool_outer";
 	locked = 1;
 	name = "Engineering External Access";
@@ -2600,7 +2600,7 @@
 "afP" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "merchant_shuttle_station_interior";
 	locked = 1;
 	name = "Security Dock Airlock";
@@ -2654,7 +2654,7 @@
 "afS" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "escape_pod_1_hatch";
 	locked = 1;
 	name = "Escape Pod Hatch";
@@ -2694,7 +2694,7 @@
 "afV" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "escape_pod_2_hatch";
 	locked = 1;
 	name = "Escape Pod Hatch";
@@ -3012,7 +3012,7 @@
 "agy" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "merchant_shuttle_station_interior";
 	locked = 1;
 	name = "Security Dock Airlock";
@@ -3217,7 +3217,7 @@
 /area/hallway/secondary/exit)
 "agS" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3394,7 +3394,7 @@
 "ahp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "planet_dock_south_inner";
 	locked = 1;
 	name = "Planet Shuttle Airlock";
@@ -3404,7 +3404,7 @@
 /area/hallway/secondary/entry)
 "ahq" = (
 /obj/machinery/door/airlock/external{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "planet_dock_south_inner";
 	locked = 1;
 	name = "Planet Shuttle Airlock";
@@ -3496,7 +3496,7 @@
 	pixel_y = -32
 	},
 /obj/machinery/computer/modular/preset/civilian{
-	icon_state = "console";
+	icon_state = "computer";
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -4389,7 +4389,7 @@
 /area/security/nuke_storage)
 "ajs" = (
 /obj/machinery/door/airlock/vault{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	locked = 1;
 	req_access = list("ACCESS_VAULT")
 	},
@@ -4923,9 +4923,7 @@
 "akz" = (
 /obj/structure/closet/crate,
 /obj/item/stack/material/cardboard,
-/obj/item/stack/rods{
-	amount = 50
-	},
+/obj/item/stack/material/rods,
 /obj/item/paper,
 /obj/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
@@ -5066,16 +5064,14 @@
 /area/hallway/secondary/exit)
 "akS" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/landmark/intelspawn,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "akT" = (
-/obj/item/stack/rods{
-	amount = 25
-	},
+/obj/item/stack/material/rods,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "akU" = (
@@ -5688,7 +5684,7 @@
 "amu" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "centcom_transport_exterior";
 	locked = 1;
 	name = "Arrival Airlock"
@@ -5996,7 +5992,7 @@
 "anb" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/command{
-	icon_state = "door_closed";
+	icon_state = "closed";
 	locked = 0;
 	name = "Gateway Access";
 	req_access = list("ACCESS_GATEWAY")
@@ -7024,7 +7020,7 @@
 "apk" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solar_tool3_outer";
 	locked = 1;
 	name = "Engineering External Access";
@@ -7851,12 +7847,8 @@
 /obj/item/stack/material/glass/reinforced{
 	amount = 50
 	},
-/obj/item/stack/rods{
-	amount = 50
-	},
-/obj/item/stack/rods{
-	amount = 50
-	},
+/obj/item/stack/material/rods/fifty,
+/obj/item/stack/material/rods/fifty,
 /turf/simulated/floor/tiled/techmaint,
 /area/ai_monitored/storage/eva)
 "arf" = (
@@ -7980,7 +7972,7 @@
 "art" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solar_tool3_inner";
 	locked = 1;
 	name = "Engineering External Access";
@@ -9267,7 +9259,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "robotics_solar2_outer";
 	locked = 1;
 	name = "Engineering External Access";
@@ -9313,7 +9305,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "robotics_solar2_inner";
 	locked = 1;
 	name = "Engineering External Access";
@@ -13513,9 +13505,7 @@
 /obj/item/stack/material/glass{
 	amount = 50
 	},
-/obj/item/stack/rods{
-	amount = 50
-	},
+/obj/item/stack/material/rods/fifty,
 /obj/floor_decal/corner/beige{
 	icon_state = "corner_white";
 	dir = 6
@@ -13584,7 +13574,7 @@
 /area/teleporter)
 "aDq" = (
 /obj/machinery/cryopod{
-	icon_state = "body_scanner_0";
+	icon_state = "body_scanner";
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
@@ -13625,7 +13615,7 @@
 /area/crew_quarters/captain)
 "aDu" = (
 /obj/machinery/cryopod{
-	icon_state = "body_scanner_0";
+	icon_state = "body_scanner";
 	dir = 4
 	},
 /obj/machinery/camera/network/urist{
@@ -16606,7 +16596,7 @@
 "aJk" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solar_tool2_outer";
 	locked = 1;
 	name = "Engineering External Access";
@@ -18016,7 +18006,7 @@
 "aMo" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solar_tool2_inner";
 	locked = 1;
 	name = "Engineering External Access";
@@ -18051,7 +18041,7 @@
 "aMu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/highsecurity{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	locked = 1;
 	name = "Atmospherics";
 	req_access = list("ACCESS_AI_UPLOAD")
@@ -19329,7 +19319,7 @@
 /area/security/main)
 "aPa" = (
 /obj/machinery/door/airlock/highsecurity{
-	icon_state = "door_closed";
+	icon_state = "closed";
 	locked = 0;
 	name = "AI Satellite Transit Tube";
 	req_access = list("ACCESS_BRIDGE")
@@ -19918,9 +19908,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/biostorage)
 "aQp" = (
-/obj/item/stack/rods{
-	amount = 25
-	},
+/obj/item/stack/material/rods,
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "aQq" = (
@@ -20773,11 +20761,11 @@
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 8;
-	icon_state = "twindow"
+	icon_state = "rwindow"
 	},
 /obj/structure/window/reinforced/tinted{
 	dir = 4;
-	icon_state = "twindow"
+	icon_state = "rwindow"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel/main)
@@ -22199,7 +22187,7 @@
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/toxin,
-/obj/item/storage/firstaid/rad,
+/obj/item/storage/firstaid/radiation,
 /obj/floor_decal/corner/paleblue{
 	icon_state = "corner_white";
 	dir = 9
@@ -22453,7 +22441,7 @@
 "aVr" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "toxin_test2_inner";
 	locked = 1;
 	name = "Engineering External Access";
@@ -22510,7 +22498,7 @@
 "aVt" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "toxin_test2_outer";
 	locked = 1;
 	name = "Engineering External Access";
@@ -22556,7 +22544,7 @@
 "aVz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/highsecurity{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	locked = 1;
 	name = "AI Chamber";
 	req_access = list("ACCESS_AI_UPLOAD")
@@ -26377,7 +26365,7 @@
 /obj/machinery/door/airlock/medical{
 	autoclose = 0;
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "virology_airlock_exterior";
 	locked = 1;
 	name = "Virology Exterior Airlock";
@@ -26447,7 +26435,7 @@
 /obj/machinery/door/airlock/medical{
 	autoclose = 0;
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "virology_airlock_interior";
 	locked = 1;
 	name = "Virology Interior Airlock";
@@ -28324,7 +28312,7 @@
 	},
 /obj/machinery/atmospherics/unary/freezer{
 	dir = 8;
-	icon_state = "freezer_1";
+	icon_state = "freezer";
 	use_power = 0
 	},
 /turf/simulated/floor/tiled/white,
@@ -31988,7 +31976,7 @@
 "bnE" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "security_shuttle_hatch";
 	locked = 1;
 	name = "Shuttle Hatch";
@@ -32122,7 +32110,7 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/sleeping)
 "bnP" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/crew_quarters/sleeping)
@@ -32435,7 +32423,7 @@
 /area/medical/medbay)
 "boy" = (
 /obj/machinery/sleeper{
-	icon_state = "sleeper_0";
+	icon_state = "sleeper";
 	dir = 1
 	},
 /obj/floor_decal/corner/paleblue/three_quarters{
@@ -32446,7 +32434,7 @@
 /area/medical/medbay)
 "boz" = (
 /obj/machinery/sleeper{
-	icon_state = "sleeper_0";
+	icon_state = "sleeper";
 	dir = 1
 	},
 /obj/floor_decal/corner/paleblue/three_quarters{
@@ -32475,7 +32463,7 @@
 	dir = 8
 	},
 /obj/machinery/sleeper{
-	icon_state = "sleeper_0";
+	icon_state = "sleeper";
 	dir = 1
 	},
 /obj/floor_decal/corner/blue,
@@ -32486,7 +32474,7 @@
 	dir = 1
 	},
 /obj/machinery/sleeper{
-	icon_state = "sleeper_0";
+	icon_state = "sleeper";
 	dir = 1
 	},
 /obj/floor_decal/corner/blue{
@@ -33477,12 +33465,6 @@
 /turf/simulated/wall/prepainted,
 /area/maintenance/medbay)
 "bqx" = (
-/obj/machinery/atmospherics/pipe/simple{
-	dir = 4;
-	icon_state = "intact-b-f";
-	level = 1;
-	name = "pipe"
-	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Bar Storage Maintenance";
 	req_access = list("ACCESS_KITCHEN")
@@ -33517,7 +33499,7 @@
 "bqA" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "security_dock_inner";
 	locked = 1;
 	name = "Security Dock Airlock";
@@ -33529,7 +33511,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "security_dock_inner";
 	locked = 1;
 	name = "Security Dock Airlock";
@@ -36101,7 +36083,7 @@
 "bvR" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "security_dock_outer";
 	locked = 1;
 	name = "Security Dock Airlock";
@@ -36729,7 +36711,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/research{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	locked = 1;
 	name = "Genetics";
 	req_access = list("ACCESS_MEDICAL")
@@ -38282,7 +38264,7 @@
 /area/hallway/primary/starboard)
 "bAo" = (
 /obj/structure/table/standard,
-/obj/item/scalpel{
+/obj/item/scalpel/basic{
 	pixel_y = 15
 	},
 /obj/item/circular_saw,
@@ -38428,7 +38410,7 @@
 /area/medical/surgery)
 "bAy" = (
 /obj/structure/table/standard,
-/obj/item/scalpel{
+/obj/item/scalpel/basic{
 	pixel_y = 15
 	},
 /obj/item/circular_saw,
@@ -38529,7 +38511,7 @@
 /area/medical/genetics)
 "bAI" = (
 /obj/machinery/door/airlock/research{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	locked = 1;
 	name = "Genetics";
 	req_access = list("ACCESS_MEDICAL")
@@ -38674,7 +38656,7 @@
 /obj/machinery/door/airlock/glass/research{
 	autoclose = 0;
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "tox_airlock_exterior";
 	locked = 1;
 	name = "Mixing Room Exterior Airlock";
@@ -39631,7 +39613,7 @@
 /area/medical/surgery)
 "bCC" = (
 /obj/item/material/shard,
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
@@ -39667,7 +39649,7 @@
 	dir = 8;
 	icon_state = "map_vent_out"
 	},
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/simulated/floor/plating,
 /area/medical/genetics)
 "bCF" = (
@@ -40194,9 +40176,7 @@
 	dir = 8
 	},
 /obj/item/stack/material/cardboard,
-/obj/item/stack/rods{
-	amount = 50
-	},
+/obj/item/stack/material/rods/ten,
 /obj/floor_decal/corner/grey/diagonal,
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/cobweb,
@@ -40795,7 +40775,7 @@
 /obj/machinery/door/airlock/glass/research{
 	autoclose = 0;
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "tox_airlock_interior";
 	locked = 1;
 	name = "Mixing Room Interior Airlock";
@@ -44055,7 +44035,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/autopsy_scanner,
-/obj/item/scalpel{
+/obj/item/scalpel/basic{
 	pixel_y = 15
 	},
 /turf/simulated/floor/tiled/dark,
@@ -44169,7 +44149,7 @@
 "bLx" = (
 /obj/structure/table/standard,
 /obj/item/circular_saw,
-/obj/item/scalpel{
+/obj/item/scalpel/basic{
 	pixel_y = 15
 	},
 /obj/structure/sign/warning/biohazard{
@@ -46182,10 +46162,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/crew_quarters/bar)
 "bPs" = (
-/obj/structure/closet/gmcloset{
-	icon_state = "black";
-	name = "formal wardrobe"
-	},
+/obj/structure/closet/gmcloset,
 /obj/item/device/eftpos{
 	eftpos_name = "Bar EFTPOS scanner"
 	},
@@ -47436,7 +47413,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/floor_decal/industrial/outline/yellow,
@@ -50706,7 +50683,7 @@
 	dir = 4
 	},
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/landmark/intelspawn,
@@ -51947,7 +51924,7 @@
 /area/assembly/chargebay)
 "cbq" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/item/device/assembly/prox_sensor,
@@ -52206,7 +52183,7 @@
 /area/maintenance/cargo)
 "cbS" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/item/cell/high,
@@ -52697,7 +52674,7 @@
 /area/turret_protected/ai_upload_foyer)
 "ccR" = (
 /obj/machinery/door/airlock/highsecurity{
-	icon_state = "door_closed";
+	icon_state = "closed";
 	locked = 0;
 	name = "AI Upload Access";
 	req_access = list("ACCESS_AI_UPLOAD")
@@ -52916,7 +52893,7 @@
 "cdr" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "security_inner";
 	locked = 1;
 	name = "External Access";
@@ -52964,7 +52941,7 @@
 "cdu" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "security_outer";
 	locked = 1;
 	name = "External Access";
@@ -53018,7 +52995,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "cargo_bay_door";
 	locked = 1;
 	name = "Cargo Docking Hatch";
@@ -54842,7 +54819,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "cargo_bay_door";
 	locked = 1;
 	name = "Cargo Docking Hatch";
@@ -56003,7 +55980,7 @@
 	density = 0;
 	icon_state = "broken"
 	},
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/simulated/floor/plating,
 /area/maintenance/kitchen)
 "ciY" = (
@@ -56192,7 +56169,7 @@
 /area/turret_protected/ai_upload)
 "cjr" = (
 /obj/machinery/door/airlock/highsecurity{
-	icon_state = "door_closed";
+	icon_state = "closed";
 	locked = 0;
 	name = "AI Upload";
 	req_access = list("ACCESS_AI_UPLOAD")
@@ -58683,7 +58660,7 @@
 /area/maintenance/asmaint2)
 "cos" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/item/device/assembly/prox_sensor,
@@ -61448,11 +61425,11 @@
 /area/maintenance/cargo)
 "ctO" = (
 /obj/structure/window/boron_reinforced{
-	icon_state = "phoronrwindow";
+	icon_state = "rwindow";
 	dir = 1
 	},
 /obj/structure/window/boron_reinforced{
-	icon_state = "phoronrwindow";
+	icon_state = "rwindow";
 	dir = 8
 	},
 /obj/machinery/mass_driver,
@@ -65318,7 +65295,7 @@
 	autoclose = 0;
 	frequency = 1449;
 	heat_proof = 1;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "incinerator_airlock_exterior";
 	locked = 1;
 	name = "Mixing Room Exterior Airlock";
@@ -65346,7 +65323,7 @@
 	autoclose = 0;
 	frequency = 1449;
 	heat_proof = 1;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "incinerator_airlock_interior";
 	locked = 1;
 	name = "Mixing Room Interior Airlock";
@@ -66267,9 +66244,7 @@
 /obj/item/stack/material/steel{
 	amount = 50
 	},
-/obj/item/stack/rods{
-	amount = 50
-	},
+/obj/item/stack/material/rods/fifty,
 /obj/item/stack/material/glass{
 	amount = 50
 	},
@@ -66556,9 +66531,7 @@
 	},
 /area/tcommsat/chamber/server)
 "cEP" = (
-/obj/item/stack/rods{
-	amount = 25
-	},
+/obj/item/stack/material/rods,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
 "cEQ" = (
@@ -69137,7 +69110,7 @@
 	dir = 8
 	},
 /obj/item/circular_saw,
-/obj/item/scalpel{
+/obj/item/scalpel/basic{
 	pixel_y = 12
 	},
 /obj/machinery/firealarm{
@@ -69947,7 +69920,7 @@
 	pixel_x = -22
 	},
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/rad,
+/obj/item/storage/firstaid/radiation,
 /turf/simulated/floor/tiled,
 /area/engineering)
 "cMl" = (
@@ -72283,7 +72256,7 @@
 /area/maintenance/aft)
 "cQx" = (
 /obj/machinery/door/airlock/glass{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	locked = 1;
 	name = "Abandoned Workshop"
 	},
@@ -72410,9 +72383,7 @@
 	pixel_x = 0;
 	pixel_y = 32
 	},
-/obj/decal/warning_stripes{
-	icon_state = "U-S"
-	},
+/obj/floor_decal/industrial/radiation/fulltile,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "cQK" = (
@@ -73085,9 +73056,7 @@
 	icon_state = "term";
 	dir = 1
 	},
-/obj/decal/warning_stripes{
-	icon_state = "U-N"
-	},
+/obj/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos)
 "cRZ" = (
@@ -74423,12 +74392,6 @@
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/asmaint)
-"cUQ" = (
-/obj/item/stack/rods{
-	amount = 10
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/asmaint)
 "cUR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -75009,7 +74972,7 @@
 "cWd" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "virology_inner";
 	locked = 1;
 	name = "Engineering External Access";
@@ -75159,7 +75122,7 @@
 	info = "i don't think i'll last much longer. they forgot about me. they left me. they left me to die. <br> it's so cold here. so cold. <br> it is peaceful in the end... <br> it will not be peaceful for those who left me here... <br> the cold... can't write. <br> this is it then... goodb..... <br> theyleftmetheyleftmetheyleftmetheyleftme..."
 	},
 /obj/item/clothing/suit/urist/welderapron,
-/obj/item/scalpel{
+/obj/item/scalpel/basic{
 	pixel_y = 15
 	},
 /obj/decal/cleanable/cobweb,
@@ -75885,7 +75848,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "robotics_solar_outer";
 	locked = 1;
 	name = "Engineering External Access";
@@ -75931,7 +75894,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "robotics_solar_inner";
 	locked = 1;
 	name = "Engineering External Access";
@@ -76061,7 +76024,7 @@
 /area/maintenance/aft)
 "cYg" = (
 /obj/machinery/door/airlock/maintenance{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	locked = 1;
 	name = "Maintenance Access";
 	req_access = list("ACCESS_MAINT")
@@ -76288,7 +76251,7 @@
 /area/engineering/engine_airlock)
 "cYE" = (
 /obj/machinery/door/airlock/hatch{
-	icon_state = "door_closed";
+	icon_state = "closed";
 	id_tag = null;
 	locked = 0;
 	name = "Engine Access";
@@ -76632,9 +76595,7 @@
 /area/maintenance/aft)
 "cZn" = (
 /obj/item/stack/material/cardboard,
-/obj/item/stack/rods{
-	amount = 4
-	},
+/obj/item/stack/material/rods,
 /obj/machinery/light/small/red{
 	icon_state = "firelight1";
 	dir = 1
@@ -77036,7 +76997,7 @@
 "dad" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "virology_outer";
 	locked = 1;
 	name = "Engineering External Access";
@@ -77093,7 +77054,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solar_xeno_inner";
 	locked = 1;
 	name = "Engineering External Access";
@@ -77361,9 +77322,7 @@
 /area/engineering)
 "daJ" = (
 /obj/structure/table/standard,
-/obj/item/stack/rods{
-	amount = 50
-	},
+/obj/item/stack/material/rods/fifty,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -77512,7 +77471,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/book/manual/supermatter_engine,
-/obj/item/storage/firstaid/rad,
+/obj/item/storage/firstaid/radiation,
 /turf/simulated/floor/tiled,
 /area/engineering/engine_airlock)
 "daV" = (
@@ -77665,7 +77624,7 @@
 "dbi" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "escape_pod_5_berth_hatch";
 	locked = 1;
 	name = "Escape Pod";
@@ -77680,7 +77639,7 @@
 "dbk" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "escape_pod_5_hatch";
 	locked = 1;
 	name = "Escape Pod Hatch";
@@ -78210,7 +78169,7 @@
 "dch" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1379;
-	icon_state = "door_closed";
+	icon_state = "closed";
 	id_tag = "engine_airlock_exterior";
 	locked = 0;
 	name = "Engine Airlock Exterior";
@@ -78388,7 +78347,7 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "solar_xeno_outer";
 	locked = 1;
 	name = "Engineering External Access";
@@ -78956,9 +78915,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/disposal)
 "ddD" = (
-/obj/item/stack/rods{
-	amount = 4
-	},
+/obj/item/stack/material/rods,
 /obj/item/wrench,
 /obj/item/screwdriver,
 /turf/simulated/floor/plating,
@@ -79353,7 +79310,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/hatch{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	locked = 1;
 	name = "Engine Electrical Maintenance";
 	req_access = list("ACCESS_ENGINEERING");
@@ -79364,7 +79321,7 @@
 /area/engineering/singulo)
 "dex" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/random/maintenance,
@@ -79408,7 +79365,7 @@
 "deC" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1379;
-	icon_state = "door_closed";
+	icon_state = "closed";
 	id_tag = "engine_airlock_interior";
 	locked = 0;
 	name = "Engine Airlock Interior";
@@ -79734,7 +79691,7 @@
 	name = "old airlock"
 	},
 /obj/item/tape/engineering{
-	icon_state = "engineering_door"
+	icon_state = "tape_door_0"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
@@ -80392,7 +80349,7 @@
 "dgJ" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "singu2_inner";
 	locked = 1;
 	name = "Engineering External Access";
@@ -80440,7 +80397,7 @@
 "dgM" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "security_outer";
 	locked = 1;
 	name = "Engineering External Access";
@@ -80787,7 +80744,7 @@
 /area/engineering/engine_room)
 "dhA" = (
 /obj/machinery/door/airlock/hatch{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "engine_access_hatch";
 	locked = 1;
 	req_access = list("ACCESS_ENGINE_EQUIP")
@@ -80927,7 +80884,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "dhQ" = (
-/obj/item/inflatable,
+/obj/item/inflatable/wall,
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "dhR" = (
@@ -81189,7 +81146,7 @@
 /area/maintenance/aft)
 "dis" = (
 /obj/structure/table/standard,
-/obj/item/inflatable,
+/obj/item/inflatable/wall,
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "dit" = (
@@ -81274,7 +81231,7 @@
 /area/engineering/engine_room)
 "diD" = (
 /obj/machinery/door/airlock/hatch{
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "engine_access_hatch";
 	locked = 1;
 	req_access = list("ACCESS_ENGINE_EQUIP")
@@ -81346,7 +81303,7 @@
 	req_access = list("ACCESS_EXTERNAL")
 	},
 /obj/item/tape/engineering{
-	icon_state = "engineering_door"
+	icon_state = "tape_door_0"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
@@ -81653,7 +81610,7 @@
 "djo" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "exti2_inner";
 	locked = 1;
 	name = "External Access";
@@ -82582,7 +82539,7 @@
 "dlb" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "door_locked";
+	icon_state = "closed";
 	id_tag = "exti3_outer";
 	locked = 1;
 	name = "External Access";
@@ -130206,7 +130163,7 @@ cQc
 cHB
 cxf
 cxf
-cUQ
+cEP
 cxf
 cXz
 cHB

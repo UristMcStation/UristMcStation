@@ -3584,7 +3584,7 @@
 /obj/item/circular_saw{
 	pixel_y = 8
 	},
-/obj/item/scalpel,
+/obj/item/scalpel/basic,
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "kq" = (

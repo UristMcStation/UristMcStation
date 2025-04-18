@@ -542,7 +542,7 @@
 /area/maintenance/first_deck/afp)
 "bf" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/random/smokes,
@@ -736,7 +736,7 @@
 /area/maintenance/first_deck/central)
 "bH" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/random/maintenance/clean,
@@ -1284,7 +1284,7 @@
 /area/maintenance/first_deck/central)
 "cQ" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/item/device/flashlight,
@@ -2567,7 +2567,7 @@
 	icon_state = "firelight1"
 	},
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /turf/simulated/floor/plating,
@@ -8028,7 +8028,7 @@
 "pk" = (
 /obj/item/device/flashlight,
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/random/tank,
@@ -8347,7 +8347,7 @@
 /obj/item/crowbar,
 /obj/item/clothing/glasses/welding,
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/random/tech_supply,

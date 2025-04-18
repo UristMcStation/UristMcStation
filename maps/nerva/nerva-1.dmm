@@ -15120,7 +15120,7 @@
 	pixel_y = -24
 	},
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /obj/structure/cable/yellow,
@@ -17798,7 +17798,7 @@
 /area/maintenance/fourth_deck/afs)
 "Fo" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /turf/simulated/floor/plating,
@@ -22612,7 +22612,7 @@
 "Uc" = (
 /obj/structure/table/standard,
 /obj/item/circular_saw,
-/obj/item/scalpel{
+/obj/item/scalpel/basic{
 	pixel_y = 12
 	},
 /obj/structure/disposalpipe/segment{
@@ -22836,7 +22836,7 @@
 /area/maintenance/fourth_deck/fs)
 "Va" = (
 /obj/structure/closet/crate{
-	icon_state = "crateopen";
+	icon_state = "base";
 	opened = 1
 	},
 /turf/simulated/floor/plating,

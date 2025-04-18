@@ -7,7 +7,7 @@
 "g" = (/obj/landmark/corpse/clown,/turf/simulated/floor/airless,/area/space)
 "h" = (/turf/simulated/floor/airless,/area/space)
 "i" = (/obj/structure/closet/crate,/turf/simulated/floor/airless,/area/space)
-"j" = (/obj/structure/closet/crate{icon_state = "crateopen"; opened = 1},/turf/simulated/floor/airless,/area/space)
+"j" = (/obj/structure/closet/crate{icon_state = "base"; opened = 1},/turf/simulated/floor/airless,/area/space)
 "k" = (/obj/structure/shuttle/engine/heater{icon_state = "heater"; dir = 4},/obj/structure/window/reinforced{dir = 8},/turf/simulated/floor/plating/airless,/area/space)
 "l" = (/obj/structure/shuttle/engine/propulsion{icon_state = "propulsion_l"; dir = 8},/obj/structure/shuttle/engine/propulsion{icon_state = "burst_r"; dir = 8},/turf/space,/area/space)
 "m" = (/obj/item/material/shard{icon_state = "small"},/turf/simulated/floor/asteroid,/area/space)
