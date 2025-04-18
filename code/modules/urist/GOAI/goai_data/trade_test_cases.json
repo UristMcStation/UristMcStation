@@ -1,0 +1,37 @@
+{
+	"buy_food_TESTCASE": {
+		"commodity_key": "/obj/food",
+		"trade_volume": 10,
+		"cash_value": -1000
+	},
+	"buy_food_small_TESTCASE": {
+		"commodity_key": "/obj/food",
+		"trade_volume": 1,
+		"cash_value": -100
+	},
+	"sell_food_TESTCASE": {
+		"commodity_key": "/obj/food",
+		"trade_volume": -10,
+		"cash_value": 1000
+	},
+	"sell_food_small_TESTCASE": {
+		"commodity_key": "/obj/food",
+		"trade_volume": -1,
+		"cash_value": 100
+	},
+	"buy_decor_TESTCASE": {
+		"commodity_key": "/obj/decor",
+		"trade_volume": 10,
+		"cash_value": -1000
+	},
+	"sell_decor_TESTCASE": {
+		"commodity_key": "/obj/decor",
+		"trade_volume": -10,
+		"cash_value": 1000
+	},
+	"_new_needs": {
+		"food_generic": 5,
+		"prestige": 20,
+		"wealth": 1000
+	}
+}
