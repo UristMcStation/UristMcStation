@@ -20,7 +20,6 @@
 		/area/map_template/merc_shuttle,
 		/area/map_template/wizard_station,
 		/area/map_template/vox_raider,
-		/area/map_template/deepmaint,
 		/area/mine/explored
 	)
 
