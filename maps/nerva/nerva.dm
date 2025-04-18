@@ -81,9 +81,9 @@
 	#include "../away/meatstation/meatstation.dm"
 	#include "../away/scavver_gantry/scavver_gantry.dm"
 	#include "../away/abandoned_hotel/abandoned_hotel.dm"
+	#include "../away/skrellscoutship/skrellscoutship.dm"
 	#include "../bluespace_interlude/bluespace_interlude.dm"
 	#include "../bluespace_interlude/bluespace_interlude.dmm"
-	#include "../skrellscoutship/skrellscoutship.dm
 
 	//keep your clothing hacks to yourself
 	// #include "../torch/items/clothing/solgov-accessory.dm"	These don't seem to actually be used, but are causing issues with double-importing
