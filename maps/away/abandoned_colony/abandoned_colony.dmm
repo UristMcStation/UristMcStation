@@ -16,16 +16,16 @@
 /area/planet/abandoned_colony)
 "ae" = (
 /obj/structure/hygiene/shower{
-	dir = 4;
 	icon_state = "shower";
+	dir = 4;
 	pixel_x = 0
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/abandoned_colony)
 "af" = (
 /obj/structure/hygiene/sink{
-	dir = 4;
 	icon_state = "sink";
+	dir = 4;
 	pixel_x = 11;
 	pixel_y = 0
 	},
@@ -48,8 +48,8 @@
 /area/planet/abandoned_colony)
 "aj" = (
 /obj/structure/hygiene/sink{
-	dir = 8;
 	icon_state = "sink";
+	dir = 8;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -57,8 +57,8 @@
 /area/planet/abandoned_colony)
 "ak" = (
 /obj/structure/hygiene/shower{
-	dir = 8;
 	icon_state = "shower";
+	dir = 8;
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -68,14 +68,14 @@
 /area/planet/abandoned_colony)
 "am" = (
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "an" = (
 /obj/structure/hygiene/sink{
-	dir = 4;
 	icon_state = "sink";
+	dir = 4;
 	pixel_x = 11;
 	pixel_y = 0
 	},
@@ -110,8 +110,8 @@
 /area/planet/abandoned_colony)
 "at" = (
 /obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -138,8 +138,8 @@
 	},
 /obj/item/clothing/head/soft,
 /obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "redyellowfull"
@@ -171,8 +171,8 @@
 /area/planet/abandoned_colony)
 "aA" = (
 /obj/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	icon_state = "warning";
+	dir = 1
 	},
 /obj/structure/grille,
 /turf/simulated/floor/pavement/empty,
@@ -221,8 +221,8 @@
 "aI" = (
 /obj/random/trash,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "aJ" = (
@@ -277,8 +277,8 @@
 /area/planet/abandoned_colony)
 "aT" = (
 /obj/machinery/light/colored{
-	dir = 4;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 4
 	},
 /obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
@@ -313,22 +313,22 @@
 /area/planet/abandoned_colony)
 "aW" = (
 /obj/floor_decal/industrial/warning{
-	dir = 9;
-	icon_state = "warning"
+	icon_state = "warning";
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "aX" = (
 /obj/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	icon_state = "warning";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "aY" = (
 /obj/floor_decal/industrial/warning{
-	dir = 5;
-	icon_state = "warning"
+	icon_state = "warning";
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -346,8 +346,8 @@
 /area/planet/abandoned_colony)
 "bb" = (
 /obj/machinery/light/colored/green{
-	dir = 1;
-	icon_state = "green1"
+	icon_state = "green1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
@@ -385,10 +385,10 @@
 /area/planet/abandoned_colony)
 "bi" = (
 /obj/machinery/requests_console{
-	department = "Cargo Bay";
-	departmentType = 2;
 	pixel_x = -30;
-	pixel_y = 0
+	pixel_y = 0;
+	department = "Cargo Bay";
+	departmentType = 2
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "redyellowfull"
@@ -396,26 +396,26 @@
 /area/planet/abandoned_colony)
 "bj" = (
 /obj/machinery/conveyor_switch{
-	id = "cargoserve";
-	name = "cargo service switch"
+	name = "cargo service switch";
+	id = "cargoserve"
 	},
 /obj/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	icon_state = "warning";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "bk" = (
 /obj/machinery/conveyor{
-	id = "cargoserve";
-	name = "cargo service belt"
+	name = "cargo service belt";
+	id = "cargoserve"
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "bl" = (
 /obj/floor_decal/industrial/warning{
-	dir = 4;
-	icon_state = "warning"
+	icon_state = "warning";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -446,8 +446,8 @@
 "bq" = (
 /obj/random/junk,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "br" = (
@@ -456,8 +456,8 @@
 /area/planet/abandoned_colony)
 "bs" = (
 /obj/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	icon_state = "warning";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -487,8 +487,8 @@
 /area/planet/abandoned_colony)
 "bw" = (
 /obj/machinery/conveyor{
-	id = "cargoserve";
-	name = "cargo service belt"
+	name = "cargo service belt";
+	id = "cargoserve"
 	},
 /obj/structure/plasticflaps{
 	name = "cargo plastic flaps";
@@ -554,8 +554,8 @@
 /area/planet/abandoned_colony)
 "bI" = (
 /obj/machinery/light/colored{
-	dir = 4;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 4
 	},
 /obj/structure/salvageable/console_broken_os{
 	icon_state = "os_console_broken";
@@ -582,38 +582,38 @@
 /area/planet/abandoned_colony)
 "bL" = (
 /obj/floor_decal/corner/beige{
-	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 9
 	},
 /obj/floor_decal/corner/pink{
-	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "bM" = (
 /obj/floor_decal/corner/pink{
-	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "bN" = (
 /obj/floor_decal/industrial/loading,
 /obj/floor_decal/corner/pink{
-	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "bO" = (
 /obj/floor_decal/corner/beige{
-	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 6
 	},
 /obj/floor_decal/corner/pink{
-	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 5
 	},
 /obj/structure/salvageable/console_broken_os,
 /turf/simulated/floor/tiled,
@@ -665,8 +665,8 @@
 /area/planet/abandoned_colony)
 "bW" = (
 /obj/machinery/light/colored{
-	dir = 8;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -687,8 +687,8 @@
 	},
 /obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/colored{
-	dir = 4;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -700,8 +700,8 @@
 /area/planet/abandoned_colony)
 "ca" = (
 /obj/item/reagent_containers/syringe{
-	desc = "Probably has at least five incurable STDs.";
-	name = "dirty syringe"
+	name = "dirty syringe";
+	desc = "Probably has at least five incurable STDs."
 	},
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
@@ -722,36 +722,36 @@
 /area/planet/abandoned_colony)
 "ce" = (
 /obj/floor_decal/corner/beige{
-	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "cf" = (
 /obj/floor_decal/corner/beige/three_quarters{
-	dir = 8;
-	icon_state = "corner_white_three_quarters"
+	icon_state = "corner_white_three_quarters";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "cg" = (
 /obj/floor_decal/corner/beige{
-	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "ch" = (
 /obj/floor_decal/corner/beige/three_quarters{
-	dir = 1;
-	icon_state = "corner_white_three_quarters"
+	icon_state = "corner_white_three_quarters";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "ci" = (
 /obj/floor_decal/corner/beige/three_quarters{
-	dir = 4;
-	icon_state = "corner_white_three_quarters"
+	icon_state = "corner_white_three_quarters";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -762,8 +762,8 @@
 "ck" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "cl" = (
@@ -773,8 +773,8 @@
 "cm" = (
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "cn" = (
@@ -783,20 +783,20 @@
 /area/planet/abandoned_colony)
 "co" = (
 /obj/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
+	icon_state = "warning";
+	dir = 1
 	},
 /obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "cp" = (
 /obj/structure/cable/yellow{
+	icon_state = "1-8";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-8"
+	d2 = 4
 	},
 /obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/uristturf/geminus{
@@ -808,23 +808,23 @@
 /area/planet/abandoned_colony)
 "cr" = (
 /obj/floor_decal/corner/beige{
-	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 9
 	},
 /obj/machinery/light/colored{
-	dir = 8;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "cs" = (
 /obj/floor_decal/corner/beige{
-	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 6
 	},
 /obj/machinery/light/colored{
-	dir = 4;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -839,8 +839,8 @@
 "cv" = (
 /obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "cw" = (
@@ -859,8 +859,8 @@
 /area/planet/abandoned_colony)
 "cz" = (
 /turf/unsimulated/wall/urist/other{
-	dir = 9;
-	icon_state = "3,15"
+	icon_state = "3,15";
+	dir = 9
 	},
 /area/planet/abandoned_colony)
 "cA" = (
@@ -882,8 +882,8 @@
 /area/planet/abandoned_colony)
 "cE" = (
 /turf/unsimulated/wall/urist/other{
-	dir = 2;
-	icon_state = "3,15"
+	icon_state = "3,15";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "cF" = (
@@ -900,15 +900,15 @@
 /obj/machinery/light/small,
 /obj/decal/cleanable/blood,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "cI" = (
 /obj/machinery/power/smes/buildable,
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -917,8 +917,8 @@
 "cJ" = (
 /obj/machinery/vending/boozeomat,
 /obj/machinery/light/colored/green{
-	dir = 1;
-	icon_state = "green1"
+	icon_state = "green1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/planet/abandoned_colony)
@@ -929,8 +929,8 @@
 /area/planet/abandoned_colony)
 "cL" = (
 /obj/machinery/light/colored/green{
-	dir = 1;
-	icon_state = "green1"
+	icon_state = "green1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "tiles1"
@@ -944,8 +944,8 @@
 "cN" = (
 /mob/living/simple_animal/hostile/scom/husk,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "cO" = (
@@ -990,8 +990,8 @@
 "cV" = (
 /obj/urist_intangible/spawn_bomb/abandoned,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "cW" = (
@@ -1055,9 +1055,9 @@
 /area/planet/abandoned_colony)
 "dg" = (
 /obj/structure/table/rack{
-	icon = 'icons/obj/coatrack.dmi';
-	icon_state = "coatrack0";
-	name = "wooden coat rack"
+	name = "wooden coat rack";
+	icon = 'icons/obj/structures/coatrack.dmi';
+	icon_state = "coatrack0"
 	},
 /obj/item/clothing/under/cheongsam,
 /obj/machinery/light/small{
@@ -1067,17 +1067,17 @@
 /area/planet/abandoned_colony)
 "dh" = (
 /obj/structure/table/rack{
-	icon = 'icons/obj/coatrack.dmi';
-	icon_state = "coatrack0";
-	name = "wooden coat rack"
+	name = "wooden coat rack";
+	icon = 'icons/obj/structures/coatrack.dmi';
+	icon_state = "coatrack0"
 	},
 /obj/item/clothing/under/assistantformal,
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "di" = (
 /obj/machinery/light/colored{
-	dir = 4;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "tiles1"
@@ -1138,8 +1138,8 @@
 	},
 /obj/decal/cleanable/dirt,
 /obj/item/reagent_containers/syringe{
-	desc = "Probably has at least five incurable STDs.";
-	name = "dirty syringe"
+	name = "dirty syringe";
+	desc = "Probably has at least five incurable STDs."
 	},
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
@@ -1246,8 +1246,8 @@
 /area/planet/abandoned_colony)
 "dJ" = (
 /obj/machinery/light/colored{
-	dir = 8;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "tiles1"
@@ -1260,8 +1260,8 @@
 "dL" = (
 /obj/machinery/door/airlock,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "dM" = (
@@ -1282,10 +1282,10 @@
 /area/planet/abandoned_colony)
 "dO" = (
 /obj/machinery/door/window{
-	base_state = "right";
-	dir = 4;
+	name = "Door";
 	icon_state = "right";
-	name = "Door"
+	dir = 4;
+	base_state = "right"
 	},
 /obj/item/storage/secure/safe{
 	dir = 1;
@@ -1438,15 +1438,15 @@
 /area/planet/abandoned_colony)
 "en" = (
 /obj/structure/bed/chair/couch/left{
-	dir = 1;
-	icon_state = "couch_left"
+	icon_state = "couch_left";
+	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
 /area/planet/abandoned_colony)
 "eo" = (
 /obj/structure/bed/chair/couch/right{
-	dir = 1;
-	icon_state = "couch_right"
+	icon_state = "couch_right";
+	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
 /area/planet/abandoned_colony)
@@ -1506,8 +1506,8 @@
 /area/planet/abandoned_colony)
 "ex" = (
 /obj/structure/cryofeed{
-	dir = 4;
-	icon_state = "cryo_rear"
+	icon_state = "cryo_rear";
+	dir = 4
 	},
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
@@ -1541,14 +1541,12 @@
 /area/planet/abandoned_colony)
 "eD" = (
 /obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 1
 	},
-/obj/structure/cryofeed{
-	desc = "An inert man-sized pod for entering suspended animation.";
-	dir = 4;
-	icon_state = "body_scanner_1";
-	name = "inert cryogenic freezer"
+/obj/structure/cryofeed/inertpod{
+	icon_state = "broken_cryo";
+	dir = 4
 	},
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
@@ -1783,8 +1781,8 @@
 /area/planet/abandoned_colony)
 "fq" = (
 /obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "bar"
@@ -1931,8 +1929,8 @@
 "fP" = (
 /obj/structure/hygiene/toilet,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	dir = 8;
-	icon_state = "whiteblue"
+	icon_state = "whiteblue";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "fQ" = (
@@ -1946,8 +1944,8 @@
 "fS" = (
 /obj/structure/hygiene/toilet,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	dir = 8;
-	icon_state = "whitered"
+	icon_state = "whitered";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "fT" = (
@@ -1958,8 +1956,8 @@
 /area/planet/abandoned_colony)
 "fU" = (
 /obj/machinery/atmospherics/unary/freezer{
-	dir = 1;
-	icon_state = "freezer"
+	icon_state = "freezer";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
@@ -1980,26 +1978,26 @@
 /area/planet/abandoned_colony)
 "fX" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
-	dir = 8;
-	icon_state = "whiteblue"
+	icon_state = "whiteblue";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "fY" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
-	dir = 4;
-	icon_state = "whiteblue"
+	icon_state = "whiteblue";
+	dir = 4
 	},
 /area/planet/abandoned_colony)
 "fZ" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
-	dir = 8;
-	icon_state = "whitered"
+	icon_state = "whitered";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "ga" = (
 /turf/simulated/floor/tiled/uristturf/geminus{
-	dir = 4;
-	icon_state = "whitered"
+	icon_state = "whitered";
+	dir = 4
 	},
 /area/planet/abandoned_colony)
 "gb" = (
@@ -2047,14 +2045,14 @@
 /area/planet/abandoned_colony)
 "gj" = (
 /obj/structure/hygiene/sink{
-	dir = 8;
 	icon_state = "sink";
+	dir = 8;
 	pixel_x = -12;
 	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	dir = 8;
-	icon_state = "whiteblue"
+	icon_state = "whiteblue";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "gk" = (
@@ -2064,27 +2062,27 @@
 "gl" = (
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	dir = 4;
-	icon_state = "whiteblue"
+	icon_state = "whiteblue";
+	dir = 4
 	},
 /area/planet/abandoned_colony)
 "gm" = (
 /obj/structure/hygiene/sink{
-	dir = 8;
 	icon_state = "sink";
+	dir = 8;
 	pixel_x = -12;
 	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
-	dir = 8;
-	icon_state = "whitered"
+	icon_state = "whitered";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "gn" = (
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	dir = 4;
-	icon_state = "whitered"
+	icon_state = "whitered";
+	dir = 4
 	},
 /area/planet/abandoned_colony)
 "go" = (
@@ -2097,9 +2095,9 @@
 "gp" = (
 /obj/item/bedsheet/red,
 /obj/structure/curtain{
-	color = "#4c0000";
 	name = "burgandy curtain";
-	pixel_y = 32
+	pixel_y = 32;
+	color = "#4c0000"
 	},
 /obj/structure/bed/padded,
 /turf/simulated/floor/wood/walnut,
@@ -2119,8 +2117,8 @@
 /area/planet/abandoned_colony)
 "gs" = (
 /obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 1
 	},
 /obj/structure/flora/pottedplant{
 	pixel_y = 10
@@ -2133,8 +2131,8 @@
 /area/planet/abandoned_colony)
 "gu" = (
 /obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 1
 	},
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
@@ -2145,12 +2143,12 @@
 /area/planet/abandoned_colony)
 "gw" = (
 /obj/item/reagent_containers/syringe{
-	desc = "Probably has at least five incurable STDs.";
-	name = "dirty syringe"
+	name = "dirty syringe";
+	desc = "Probably has at least five incurable STDs."
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "gx" = (
@@ -2161,9 +2159,9 @@
 /area/planet/abandoned_colony)
 "gy" = (
 /obj/structure/curtain{
-	color = "#4c0000";
 	name = "burgandy curtain";
-	pixel_y = 32
+	pixel_y = 32;
+	color = "#4c0000"
 	},
 /turf/simulated/floor/wood/walnut{
 	icon_state = "walnut_broken2"
@@ -2171,15 +2169,15 @@
 /area/planet/abandoned_colony)
 "gz" = (
 /obj/machinery/light/small/red{
-	dir = 2;
-	icon_state = "firelight1"
+	icon_state = "firelight1";
+	dir = 2
 	},
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "gA" = (
 /obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 1
 	},
 /obj/structure/table/woodentable/walnut,
 /obj/structure/flora/pottedplant{
@@ -2202,19 +2200,19 @@
 /obj/item/storage/pill_bottle/happy,
 /obj/item/storage/pill_bottle/zoom,
 /obj/item/paper{
-	info = "Zoom<br><br>impedrezene, hyperzine, synaptizine<br><br>Happiness<br>space drugs, sugar";
-	name = "recipes"
+	name = "recipes";
+	info = "Zoom<br><br>impedrezene, hyperzine, synaptizine<br><br>Happiness<br>space drugs, sugar"
 	},
 /obj/item/hand_labeler,
 /obj/item/storage/box/pillbottles,
 /obj/item/pen,
 /obj/item/reagent_containers/syringe{
-	desc = "Probably has at least five incurable STDs.";
-	name = "dirty syringe"
+	name = "dirty syringe";
+	desc = "Probably has at least five incurable STDs."
 	},
 /obj/item/reagent_containers/syringe{
-	desc = "Probably has at least five incurable STDs.";
-	name = "dirty syringe"
+	name = "dirty syringe";
+	desc = "Probably has at least five incurable STDs."
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
@@ -2341,8 +2339,8 @@
 /area/planet/abandoned_colony)
 "gV" = (
 /obj/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	icon_state = "warning";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -2488,16 +2486,16 @@
 /obj/item/reagent_containers/syringe/drugs,
 /obj/item/reagent_containers/syringe/drugs,
 /obj/item/reagent_containers/syringe{
-	desc = "Probably has at least five incurable STDs.";
-	name = "dirty syringe"
+	name = "dirty syringe";
+	desc = "Probably has at least five incurable STDs."
 	},
 /obj/item/reagent_containers/syringe{
-	desc = "Probably has at least five incurable STDs.";
-	name = "dirty syringe"
+	name = "dirty syringe";
+	desc = "Probably has at least five incurable STDs."
 	},
 /obj/item/reagent_containers/syringe{
-	desc = "Probably has at least five incurable STDs.";
-	name = "dirty syringe"
+	name = "dirty syringe";
+	desc = "Probably has at least five incurable STDs."
 	},
 /obj/item/reagent_containers/syringe/steroid,
 /turf/simulated/floor/tiled/uristturf/geminus{
@@ -2507,8 +2505,8 @@
 "hn" = (
 /obj/machinery/light/small,
 /obj/floor_decal/industrial/warning{
-	dir = 8;
-	icon_state = "warning"
+	icon_state = "warning";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -2529,9 +2527,9 @@
 "hq" = (
 /obj/structure/table/standard,
 /obj/machinery/door/blast/shutters{
+	name = "Gun Store Shutters";
 	dir = 8;
-	id_tag = "gunstore";
-	name = "Gun Store Shutters"
+	id_tag = "gunstore"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -2542,9 +2540,9 @@
 	dir = 1
 	},
 /obj/machinery/button/blast_door{
-	id_tag = "gunstore";
 	name = "Counter Shutters";
-	pixel_y = 32
+	pixel_y = 32;
+	id_tag = "gunstore"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -2575,9 +2573,9 @@
 "hw" = (
 /obj/structure/table/standard,
 /obj/machinery/door/blast/shutters{
+	name = "Gun Store Shutters";
 	dir = 8;
-	id_tag = "gunstore";
-	name = "Gun Store Shutters"
+	id_tag = "gunstore"
 	},
 /obj/item/flame/lighter/zippo,
 /obj/random/smokes,
@@ -2620,8 +2618,8 @@
 /obj/item/soap/random,
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	dir = 4;
-	icon_state = "whiteblue"
+	icon_state = "whiteblue";
+	dir = 4
 	},
 /area/planet/abandoned_colony)
 "hC" = (
@@ -2693,8 +2691,8 @@
 /obj/item/soap,
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/tiled/uristturf/geminus{
-	dir = 4;
-	icon_state = "whitered"
+	icon_state = "whitered";
+	dir = 4
 	},
 /area/planet/abandoned_colony)
 "hN" = (
@@ -2707,8 +2705,8 @@
 /area/planet/abandoned_colony)
 "hP" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	dir = 8;
-	icon_state = "benchmid"
+	icon_state = "benchmid";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -2774,13 +2772,13 @@
 /area/planet/abandoned_colony)
 "hX" = (
 /obj/structure/hygiene/shower{
-	dir = 8;
 	icon_state = "shower";
+	dir = 8;
 	pixel_x = 5
 	},
 /obj/machinery/light/coldtint{
-	dir = 1;
-	icon_state = "tube_map"
+	icon_state = "tube_map";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -2822,17 +2820,17 @@
 /area/planet/abandoned_colony)
 "id" = (
 /obj/machinery/button/blast_door{
-	id_tag = "sushi";
 	name = "sushi bar shutters";
 	pixel_x = 0;
-	pixel_y = 32
+	pixel_y = 32;
+	id_tag = "sushi"
 	},
 /obj/machinery/light/small{
 	dir = 8
 	},
 /obj/floor_decal/corner/grey{
-	dir = 4;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -2840,8 +2838,8 @@
 /area/planet/abandoned_colony)
 "ie" = (
 /obj/floor_decal/corner/grey{
-	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 5
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -2850,8 +2848,8 @@
 "if" = (
 /obj/machinery/cooker/fryer,
 /obj/floor_decal/corner/grey{
-	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -2865,8 +2863,8 @@
 /area/planet/abandoned_colony)
 "ih" = (
 /obj/structure/hygiene/sink{
-	dir = 8;
 	icon_state = "sink";
+	dir = 8;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -2920,15 +2918,15 @@
 /area/planet/abandoned_colony)
 "ip" = (
 /obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
 /area/planet/abandoned_colony)
 "iq" = (
 /obj/structure/hygiene/sink{
-	dir = 4;
 	icon_state = "sink";
+	dir = 4;
 	pixel_x = 11;
 	pixel_y = 0
 	},
@@ -3020,18 +3018,18 @@
 /area/planet/abandoned_colony)
 "iC" = (
 /obj/structure/bed/chair/office/light{
-	dir = 4;
-	icon_state = "officechair_white_preview"
+	icon_state = "officechair_white_preview";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "iD" = (
 /obj/structure/table/standard,
 /obj/machinery/door/window{
-	base_state = "right";
-	dir = 4;
+	name = "Door";
 	icon_state = "right";
-	name = "Door"
+	dir = 4;
+	base_state = "right"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
@@ -3076,8 +3074,8 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/decal/cleanable/dirt,
 /obj/decal/cleanable/cobweb{
-	dir = 8;
-	icon_state = "cobweb1"
+	icon_state = "cobweb1";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
@@ -3120,8 +3118,8 @@
 /area/planet/abandoned_colony)
 "iS" = (
 /obj/machinery/light_construct/small{
-	dir = 1;
-	icon_state = "bulb-construct-stage1"
+	icon_state = "bulb-construct-stage1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "redyellowfull"
@@ -3143,16 +3141,16 @@
 "iV" = (
 /obj/machinery/power/smes/buildable,
 /obj/machinery/light/coldtint{
-	dir = 1;
-	icon_state = "tube_map"
+	icon_state = "tube_map";
+	dir = 1
 	},
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "0-8";
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -3160,20 +3158,20 @@
 /area/planet/abandoned_colony)
 "iW" = (
 /obj/machinery/light_construct/small{
-	dir = 1;
-	icon_state = "bulb-construct-stage1"
+	icon_state = "bulb-construct-stage1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "iX" = (
 /obj/machinery/power/smes/buildable,
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "0-8";
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -3238,13 +3236,13 @@
 /area/planet/abandoned_colony)
 "ji" = (
 /obj/machinery/power/apc/derelict{
-	dir = 1;
 	icon_state = "apc0";
+	dir = 1;
 	pixel_y = 24
 	},
 /obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "0-8";
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -3254,18 +3252,13 @@
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
 "jk" = (
-/obj/structure/cryofeed{
-	desc = "An inert man-sized pod for entering suspended animation.";
-	dir = 8;
-	icon_state = "body_scanner_1";
-	name = "inert cryogenic freezer"
-	},
+/obj/structure/cryofeed/inertpod,
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
 "jl" = (
 /obj/machinery/light_construct/small{
-	dir = 4;
-	icon_state = "bulb-construct-stage1"
+	icon_state = "bulb-construct-stage1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "tiled"
@@ -3273,8 +3266,8 @@
 /area/planet/abandoned_colony)
 "jm" = (
 /obj/machinery/light_construct/small{
-	dir = 8;
-	icon_state = "bulb-construct-stage1"
+	icon_state = "bulb-construct-stage1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "tiled"
@@ -3298,9 +3291,9 @@
 /area/planet/abandoned_colony)
 "jq" = (
 /obj/machinery/door/window/brigdoor{
+	name = "Cell 1";
 	dir = 2;
-	id = "Cell 1";
-	name = "Cell 1"
+	id = "Cell 1"
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "tiled"
@@ -3308,9 +3301,9 @@
 /area/planet/abandoned_colony)
 "jr" = (
 /obj/machinery/door/window/brigdoor{
+	name = "Cell 2";
 	dir = 2;
-	id = "Cell 2";
-	name = "Cell 2"
+	id = "Cell 2"
 	},
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
@@ -3340,8 +3333,8 @@
 /area/planet/abandoned_colony)
 "jv" = (
 /obj/machinery/light_construct/small{
-	dir = 1;
-	icon_state = "bulb-construct-stage1"
+	icon_state = "bulb-construct-stage1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "tiled"
@@ -3356,8 +3349,8 @@
 /area/planet/abandoned_colony)
 "jy" = (
 /obj/structure/bed/chair/office/light{
-	dir = 4;
-	icon_state = "officechair_white_preview"
+	icon_state = "officechair_white_preview";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "bar"
@@ -3378,8 +3371,8 @@
 /area/planet/abandoned_colony)
 "jB" = (
 /obj/machinery/light_construct/small{
-	dir = 8;
-	icon_state = "bulb-construct-stage1"
+	icon_state = "bulb-construct-stage1";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
@@ -3435,12 +3428,12 @@
 /area/planet/abandoned_colony)
 "jN" = (
 /obj/item/reagent_containers/syringe{
-	desc = "Probably has at least five incurable STDs.";
-	name = "dirty syringe"
+	name = "dirty syringe";
+	desc = "Probably has at least five incurable STDs."
 	},
 /obj/item/reagent_containers/syringe{
-	desc = "Probably has at least five incurable STDs.";
-	name = "dirty syringe"
+	name = "dirty syringe";
+	desc = "Probably has at least five incurable STDs."
 	},
 /obj/decal/cleanable/blood/drip,
 /obj/decal/cleanable/cobweb2,
@@ -3523,8 +3516,8 @@
 "kd" = (
 /obj/dummy/spell_jaunt,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "ke" = (
@@ -3554,8 +3547,8 @@
 "kj" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/spray/cleaner{
-	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
-	name = "Surgery Cleaner"
+	name = "Surgery Cleaner";
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back."
 	},
 /turf/simulated/floor/plating,
 /area/planet/abandoned_colony)
@@ -3622,8 +3615,8 @@
 /area/planet/abandoned_colony)
 "ky" = (
 /obj/structure/hygiene/sink{
-	dir = 4;
 	icon_state = "sink";
+	dir = 4;
 	pixel_x = 11;
 	pixel_y = 0
 	},
@@ -3694,8 +3687,8 @@
 /area/planet/abandoned_colony)
 "kK" = (
 /obj/structure/hygiene/sink{
-	dir = 1;
 	icon_state = "sink";
+	dir = 1;
 	pixel_x = 0;
 	pixel_y = 20
 	},
@@ -3713,14 +3706,14 @@
 /area/planet/abandoned_colony)
 "kN" = (
 /turf/unsimulated/wall/urist/other{
-	dir = 6;
-	icon_state = "3,15"
+	icon_state = "3,15";
+	dir = 6
 	},
 /area/planet/abandoned_colony)
 "kO" = (
 /turf/unsimulated/wall/urist/other{
-	dir = 4;
-	icon_state = "3,15"
+	icon_state = "3,15";
+	dir = 4
 	},
 /area/planet/abandoned_colony)
 "kP" = (
@@ -3760,8 +3753,8 @@
 /area/planet/abandoned_colony)
 "kW" = (
 /turf/unsimulated/wall/urist/other{
-	dir = 8;
-	icon_state = "3,15"
+	icon_state = "3,15";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "kX" = (
@@ -3814,8 +3807,8 @@
 /area/planet/abandoned_colony)
 "lf" = (
 /turf/simulated/floor/pavement{
-	dir = 4;
-	icon_state = "pave_invert_corner"
+	icon_state = "pave_invert_corner";
+	dir = 4
 	},
 /area/planet/abandoned_colony)
 "lg" = (
@@ -3823,14 +3816,14 @@
 /area/planet/abandoned_colony)
 "lh" = (
 /turf/simulated/floor/pavement{
-	dir = 2;
-	icon_state = "pave_invert_corner"
+	icon_state = "pave_invert_corner";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "li" = (
 /turf/simulated/floor/pavement{
-	dir = 4;
-	icon_state = "pavement"
+	icon_state = "pavement";
+	dir = 4
 	},
 /area/planet/abandoned_colony)
 "lj" = (
@@ -3849,8 +3842,8 @@
 "ll" = (
 /obj/random/trash,
 /turf/simulated/floor/pavement{
-	dir = 8;
-	icon_state = "pavement"
+	icon_state = "pavement";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "lm" = (
@@ -3873,8 +3866,8 @@
 /area/planet/abandoned_colony)
 "lp" = (
 /turf/simulated/floor/pavement/corner{
-	dir = 4;
-	icon_state = "pave_corner"
+	icon_state = "pave_corner";
+	dir = 4
 	},
 /area/planet/abandoned_colony)
 "lq" = (
@@ -3893,27 +3886,27 @@
 /area/planet/abandoned_colony)
 "ls" = (
 /obj/machinery/light/colored/orange{
-	dir = 8;
-	icon_state = "orange1"
+	icon_state = "orange1";
+	dir = 8
 	},
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
 "lt" = (
 /turf/unsimulated/wall/urist/other{
-	dir = 5;
-	icon_state = "3,15"
+	icon_state = "3,15";
+	dir = 5
 	},
 /area/planet/abandoned_colony)
 "lu" = (
 /turf/unsimulated/wall/urist/other{
-	dir = 1;
-	icon_state = "3,15"
+	icon_state = "3,15";
+	dir = 1
 	},
 /area/planet/abandoned_colony)
 "lv" = (
 /turf/unsimulated/wall/urist/other{
-	dir = 8;
-	icon_state = "123456"
+	icon_state = "123456";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "lw" = (
@@ -3923,20 +3916,20 @@
 /area/planet/abandoned_colony)
 "lx" = (
 /turf/unsimulated/floor/uristturf/other/scom{
-	dir = 6;
-	icon_state = "2,14"
+	icon_state = "2,14";
+	dir = 6
 	},
 /area/planet/abandoned_colony)
 "ly" = (
 /turf/unsimulated/floor/uristturf/other/scom{
-	dir = 1;
-	icon_state = "2,14"
+	icon_state = "2,14";
+	dir = 1
 	},
 /area/planet/abandoned_colony)
 "lz" = (
 /turf/unsimulated/wall/urist/other{
-	dir = 10;
-	icon_state = "3,15"
+	icon_state = "3,15";
+	dir = 10
 	},
 /area/planet/abandoned_colony)
 "lA" = (
@@ -3954,20 +3947,20 @@
 /area/planet/abandoned_colony)
 "lC" = (
 /turf/simulated/floor/pavement/corner{
-	dir = 8;
-	icon_state = "pave_corner"
+	icon_state = "pave_corner";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "lD" = (
 /turf/simulated/floor/pavement/corner{
-	dir = 1;
-	icon_state = "pave_corner"
+	icon_state = "pave_corner";
+	dir = 1
 	},
 /area/planet/abandoned_colony)
 "lE" = (
 /obj/machinery/light/small/red{
-	dir = 4;
-	icon_state = "firelight1"
+	icon_state = "firelight1";
+	dir = 4
 	},
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
@@ -3990,8 +3983,8 @@
 "lH" = (
 /obj/machinery/light/street,
 /turf/simulated/floor/pavement{
-	dir = 4;
-	icon_state = "pavement"
+	icon_state = "pavement";
+	dir = 4
 	},
 /area/planet/abandoned_colony)
 "lI" = (
@@ -4001,20 +3994,20 @@
 /area/planet/abandoned_colony)
 "lJ" = (
 /turf/simulated/floor/pavement{
-	dir = 1;
-	icon_state = "pave_invert_corner"
+	icon_state = "pave_invert_corner";
+	dir = 1
 	},
 /area/planet/abandoned_colony)
 "lK" = (
 /turf/simulated/floor/pavement{
-	dir = 1;
-	icon_state = "pavement"
+	icon_state = "pavement";
+	dir = 1
 	},
 /area/planet/abandoned_colony)
 "lL" = (
 /turf/simulated/floor/pavement{
-	dir = 8;
-	icon_state = "pave_invert_corner"
+	icon_state = "pave_invert_corner";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "lM" = (
@@ -4042,15 +4035,15 @@
 /area/planet/abandoned_colony)
 "lQ" = (
 /obj/machinery/light/colored/green{
-	dir = 1;
-	icon_state = "green1"
+	icon_state = "green1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "lR" = (
 /obj/structure/hygiene/sink{
-	dir = 8;
 	icon_state = "sink";
+	dir = 8;
 	pixel_x = -12;
 	pixel_y = 2
 	},
@@ -4070,16 +4063,16 @@
 /area/planet/abandoned_colony)
 "lU" = (
 /obj/machinery/light/colored/green{
-	dir = 1;
-	icon_state = "green1"
+	icon_state = "green1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/abandoned_colony)
 "lV" = (
 /obj/structure/hygiene/shower,
 /obj/structure/hygiene/sink{
-	dir = 4;
 	icon_state = "sink";
+	dir = 4;
 	pixel_x = 11;
 	pixel_y = 0
 	},
@@ -4097,8 +4090,8 @@
 /area/planet/abandoned_colony)
 "lY" = (
 /obj/machinery/light/colored/green{
-	dir = 4;
-	icon_state = "green1"
+	icon_state = "green1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
@@ -4108,16 +4101,16 @@
 /area/planet/abandoned_colony)
 "ma" = (
 /obj/machinery/light/colored/green{
-	dir = 8;
-	icon_state = "green1"
+	icon_state = "green1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "mb" = (
 /obj/item/remains/human,
 /obj/machinery/light/colored/green{
-	dir = 1;
-	icon_state = "green1"
+	icon_state = "green1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -4126,9 +4119,9 @@
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "md" = (
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /obj/floor_decal/rust,
 /obj/machinery/light/coldtint,
-/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -4167,8 +4160,8 @@
 /area/planet/abandoned_colony)
 "mk" = (
 /obj/machinery/light/colored/green{
-	dir = 8;
-	icon_state = "green1"
+	icon_state = "green1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -4187,9 +4180,9 @@
 /area/planet/abandoned_colony)
 "mn" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 8;
-	icon_state = "closed";
 	name = "Apartments 1";
+	icon_state = "closed";
+	dir = 8;
 	pixel_x = 0
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4232,8 +4225,8 @@
 /area/planet/abandoned_colony)
 "mu" = (
 /obj/machinery/light/colored/green{
-	dir = 4;
-	icon_state = "green1"
+	icon_state = "green1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -4248,8 +4241,8 @@
 /area/planet/abandoned_colony)
 "mx" = (
 /obj/structure/hygiene/sink{
-	dir = 4;
 	icon_state = "sink";
+	dir = 4;
 	pixel_x = 11;
 	pixel_y = 0
 	},
@@ -4288,14 +4281,14 @@
 /area/planet/abandoned_colony)
 "mC" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 8;
-	icon_state = "innermaincornerinner"
+	icon_state = "innermaincornerinner";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "mD" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 4;
-	icon_state = "innermaincornerinner"
+	icon_state = "innermaincornerinner";
+	dir = 4
 	},
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "dottedverticalcorroded"
@@ -4303,8 +4296,8 @@
 /area/planet/abandoned_colony)
 "mE" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "innermaincornerinner"
+	icon_state = "innermaincornerinner";
+	dir = 1
 	},
 /area/planet/abandoned_colony)
 "mF" = (
@@ -4377,22 +4370,22 @@
 /area/planet/abandoned_colony)
 "mO" = (
 /turf/simulated/floor/pavement{
-	dir = 8;
-	icon_state = "pavement"
+	icon_state = "pavement";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "mP" = (
 /obj/structure/hygiene/toilet{
-	dir = 1;
-	icon_state = "toilet00"
+	icon_state = "toilet00";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/abandoned_colony)
 "mR" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 8;
-	icon_state = "closed";
 	name = "Apartments 2";
+	icon_state = "closed";
+	dir = 8;
 	pixel_x = 0
 	},
 /turf/simulated/floor/tiled/dark,
@@ -4454,8 +4447,8 @@
 /area/planet/abandoned_colony)
 "nc" = (
 /obj/machinery/light/colored/blue{
-	dir = 1;
-	icon_state = "blue1"
+	icon_state = "blue1";
+	dir = 1
 	},
 /obj/floor_decal/corner/white/diagonal,
 /obj/structure/table/reinforced,
@@ -4492,22 +4485,22 @@
 /area/planet/abandoned_colony)
 "nj" = (
 /obj/floor_decal/corner/brown/three_quarters{
-	dir = 8;
-	icon_state = "corner_white_three_quarters"
+	icon_state = "corner_white_three_quarters";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "nk" = (
 /obj/floor_decal/corner/brown{
-	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 5
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "nl" = (
 /obj/floor_decal/corner/brown/three_quarters{
-	dir = 1;
-	icon_state = "corner_white_three_quarters"
+	icon_state = "corner_white_three_quarters";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
@@ -4518,8 +4511,8 @@
 /area/planet/abandoned_colony)
 "nn" = (
 /obj/floor_decal/corner/brown{
-	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 9
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
@@ -4542,8 +4535,8 @@
 /area/planet/abandoned_colony)
 "nr" = (
 /obj/floor_decal/corner/brown{
-	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 6
 	},
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
@@ -4608,8 +4601,8 @@
 /area/planet/abandoned_colony)
 "nD" = (
 /obj/item/reagent_containers/syringe{
-	desc = "Probably has at least five incurable STDs.";
-	name = "dirty syringe"
+	name = "dirty syringe";
+	desc = "Probably has at least five incurable STDs."
 	},
 /turf/simulated/floor/planet/dirt/city,
 /area/planet/abandoned_colony)
@@ -4646,8 +4639,8 @@
 /area/planet/abandoned_colony)
 "nK" = (
 /obj/structure/sign/urist/barber{
-	dir = 1;
-	icon_state = "barber_pole"
+	icon_state = "barber_pole";
+	dir = 1
 	},
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
@@ -4655,16 +4648,16 @@
 /obj/floor_decal/corner/red/diagonal,
 /obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "nM" = (
 /obj/floor_decal/corner/blue/diagonal,
 /obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "nN" = (
@@ -4673,15 +4666,15 @@
 	name = "Grocery Store"
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "nO" = (
 /obj/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "nP" = (
@@ -4699,15 +4692,15 @@
 /obj/item/storage/bag/plasticbag,
 /obj/item/storage/bag/plasticbag,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "nS" = (
 /obj/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "nT" = (
@@ -4715,8 +4708,8 @@
 /obj/structure/table/standard,
 /obj/item/device/eftpos,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "nU" = (
@@ -4725,14 +4718,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "nV" = (
 /obj/structure/bed/chair/urist/barber{
-	dir = 8;
-	icon_state = "barber_chair"
+	icon_state = "barber_chair";
+	dir = 8
 	},
 /obj/item/storage/mirror{
 	pixel_x = -28
@@ -4741,8 +4734,8 @@
 /area/planet/abandoned_colony)
 "nW" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	dir = 8;
-	icon_state = "benchright"
+	icon_state = "benchright";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/abandoned_colony)
@@ -4753,12 +4746,12 @@
 /obj/item/storage/bag/plasticbag,
 /obj/item/storage/bag/plasticbag,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "nY" = (
@@ -4766,8 +4759,8 @@
 /obj/structure/table/standard,
 /obj/structure/salvageable/register,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "nZ" = (
@@ -4776,14 +4769,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "oa" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	dir = 8;
-	icon_state = "benchmid"
+	icon_state = "benchmid";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/abandoned_colony)
@@ -4792,8 +4785,8 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/snacks/canned/beef,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "oc" = (
@@ -4802,14 +4795,14 @@
 /obj/item/storage/pill_bottle/antidexafen,
 /obj/item/storage/pill_bottle/antidexafen,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "od" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	dir = 8;
-	icon_state = "benchleft"
+	icon_state = "benchleft";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/abandoned_colony)
@@ -4819,8 +4812,8 @@
 /obj/item/storage/box/glowsticks,
 /obj/item/storage/box/glowsticks,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "of" = (
@@ -4829,8 +4822,8 @@
 /obj/item/storage/pill_bottle/paracetamol,
 /obj/item/storage/pill_bottle/paracetamol,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "og" = (
@@ -4843,8 +4836,8 @@
 /obj/item/reagent_containers/food/snacks/canned/spinach,
 /obj/item/reagent_containers/food/snacks/canned/spinach,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "oh" = (
@@ -4853,8 +4846,8 @@
 /obj/item/storage/box/mixedglasses,
 /obj/item/storage/box/mixedglasses,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "oi" = (
@@ -4862,8 +4855,8 @@
 /obj/structure/table/rack,
 /obj/item/storage/fancy/smokable/jerichos,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "oj" = (
@@ -4873,8 +4866,8 @@
 /obj/item/storage/box/donut,
 /obj/item/storage/box/donut,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "ok" = (
@@ -4883,12 +4876,12 @@
 /obj/item/storage/box/donkpocket_mixed,
 /obj/item/storage/box/donkpocket_mixed,
 /obj/machinery/light{
-	dir = 8;
-	icon_state = "tube1"
+	icon_state = "tube1";
+	dir = 8
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "ol" = (
@@ -4897,8 +4890,8 @@
 /obj/item/reagent_containers/food/snacks/baguette,
 /obj/item/reagent_containers/food/snacks/baguette,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "om" = (
@@ -4907,8 +4900,8 @@
 /obj/item/storage/box/latexgloves,
 /obj/item/storage/box/latexgloves,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "on" = (
@@ -4920,8 +4913,8 @@
 	dir = 4
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "oo" = (
@@ -4941,8 +4934,8 @@
 /obj/structure/table/rack,
 /obj/item/reagent_containers/food/snacks/canned/beans,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "or" = (
@@ -4951,8 +4944,8 @@
 /obj/item/cell/standard,
 /obj/item/cell/standard,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "os" = (
@@ -4963,8 +4956,8 @@
 /obj/item/storage/fancy/egg_box,
 /obj/item/storage/fancy/egg_box,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "ot" = (
@@ -4974,8 +4967,8 @@
 /obj/item/storage/fancy/matches/matchbox,
 /obj/item/storage/fancy/matches/matchbox,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "ou" = (
@@ -4984,8 +4977,8 @@
 /obj/item/storage/box/mousetraps,
 /obj/item/storage/box/mousetraps,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "ov" = (
@@ -4997,8 +4990,8 @@
 /obj/item/reagent_containers/food/snacks/grown,
 /obj/item/reagent_containers/food/snacks/grown,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "ow" = (
@@ -5008,8 +5001,8 @@
 /obj/item/reagent_containers/food/snacks/grown/potato,
 /obj/item/reagent_containers/food/snacks/grown/potato,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "ox" = (
@@ -5021,8 +5014,8 @@
 /obj/item/reagent_containers/food/snacks/grown,
 /obj/machinery/light,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "oy" = (
@@ -5031,8 +5024,8 @@
 /obj/item/tape_roll,
 /obj/item/tape_roll,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "oz" = (
@@ -5040,8 +5033,8 @@
 /obj/structure/table/rack,
 /obj/item/weedkiller,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "oA" = (
@@ -5050,8 +5043,8 @@
 /obj/item/weedkiller,
 /obj/item/weedkiller,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "oB" = (
@@ -5138,8 +5131,8 @@
 	icon_state = "horizontalinnermain1"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "dottedhorizontalcorroded"
+	icon_state = "dottedhorizontalcorroded";
+	dir = 1
 	},
 /area/planet/abandoned_colony)
 "oO" = (
@@ -5147,14 +5140,14 @@
 	icon_state = "innermiddle"
 	},
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 1;
-	icon_state = "dottedhorizontaldegraded"
+	icon_state = "dottedhorizontaldegraded";
+	dir = 1
 	},
 /area/planet/abandoned_colony)
 "oP" = (
 /turf/simulated/floor/fixed/destroyedroad{
-	dir = 4;
-	icon_state = "innermaincornerinner"
+	icon_state = "innermaincornerinner";
+	dir = 4
 	},
 /area/planet/abandoned_colony)
 "oQ" = (
@@ -5166,8 +5159,8 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "oS" = (
@@ -5185,8 +5178,8 @@
 	dir = 8
 	},
 /obj/floor_decal/corner/grey{
-	dir = 4;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -5195,8 +5188,8 @@
 "oV" = (
 /obj/machinery/cooker/fryer,
 /obj/floor_decal/corner/grey{
-	dir = 1;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 1
 	},
 /obj/machinery/light/small{
 	dir = 4;
@@ -5210,8 +5203,8 @@
 /obj/decal/cleanable/blood/drip,
 /obj/random/junk,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "oX" = (
@@ -5243,15 +5236,15 @@
 "pc" = (
 /obj/machinery/light/street,
 /turf/simulated/floor/pavement{
-	dir = 1;
-	icon_state = "pavement"
+	icon_state = "pavement";
+	dir = 1
 	},
 /area/planet/abandoned_colony)
 "pd" = (
 /obj/machinery/power/port_gen/pacman/super/potato,
 /obj/structure/cable/yellow{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /turf/simulated/floor,
 /area/planet/abandoned_colony)
@@ -5261,8 +5254,8 @@
 /area/planet/abandoned_colony)
 "pf" = (
 /obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 1
 	},
 /obj/decal/cleanable/blood/gibs,
 /obj/decal/cleanable/blood,
@@ -5295,15 +5288,15 @@
 /area/planet/abandoned_colony)
 "pk" = (
 /obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "pl" = (
 /obj/machinery/door/morgue{
-	dir = 2;
-	icon_state = "door1"
+	icon_state = "door1";
+	dir = 2
 	},
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
@@ -5332,22 +5325,22 @@
 /area/planet/abandoned_colony)
 "pq" = (
 /obj/floor_decal/chapel{
-	dir = 1;
-	icon_state = "chapel"
+	icon_state = "chapel";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "pr" = (
 /obj/floor_decal/chapel{
-	dir = 4;
-	icon_state = "chapel"
+	icon_state = "chapel";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "ps" = (
 /obj/floor_decal/chapel{
-	dir = 8;
-	icon_state = "chapel"
+	icon_state = "chapel";
+	dir = 8
 	},
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled/dark,
@@ -5382,8 +5375,8 @@
 /area/planet/abandoned_colony)
 "py" = (
 /obj/floor_decal/chapel{
-	dir = 4;
-	icon_state = "chapel"
+	icon_state = "chapel";
+	dir = 4
 	},
 /obj/item/stool/padded,
 /obj/random/trash,
@@ -5391,8 +5384,8 @@
 /area/planet/abandoned_colony)
 "pz" = (
 /obj/floor_decal/chapel{
-	dir = 1;
-	icon_state = "chapel"
+	icon_state = "chapel";
+	dir = 1
 	},
 /obj/item/stool/padded,
 /turf/simulated/floor/tiled/dark,
@@ -5400,8 +5393,8 @@
 "pA" = (
 /obj/item/stool/bar,
 /obj/machinery/light/colored{
-	dir = 8;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 8
 	},
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
@@ -5424,8 +5417,8 @@
 "pF" = (
 /obj/machinery/door/unpowered/simple/wood,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "pG" = (
@@ -5459,8 +5452,8 @@
 "pM" = (
 /obj/machinery/light/street,
 /turf/simulated/floor/pavement/corner{
-	dir = 4;
-	icon_state = "pave_corner"
+	icon_state = "pave_corner";
+	dir = 4
 	},
 /area/planet/abandoned_colony)
 "pN" = (
@@ -5470,12 +5463,12 @@
 "pO" = (
 /obj/decal/cleanable/dirt,
 /obj/machinery/light/small/red{
-	dir = 2;
-	icon_state = "firelight1"
+	icon_state = "firelight1";
+	dir = 2
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "pP" = (
@@ -5486,8 +5479,8 @@
 /area/planet/abandoned_colony)
 "pQ" = (
 /obj/structure/hygiene/sink{
-	dir = 4;
 	icon_state = "sink";
+	dir = 4;
 	pixel_x = 11;
 	pixel_y = 0
 	},
@@ -5549,8 +5542,8 @@
 "qa" = (
 /obj/structure/table/standard,
 /obj/machinery/light/small{
-	dir = 8;
-	luminosity = 3
+	luminosity = 3;
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -5572,8 +5565,8 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "qe" = (
@@ -5611,25 +5604,18 @@
 	},
 /area/planet/abandoned_colony)
 "qj" = (
-/obj/structure/cryofeed{
-	desc = "An inert man-sized pod for entering suspended animation.";
-	dir = 4;
-	icon_state = "body_scanner_1";
-	name = "inert cryogenic freezer"
+/obj/structure/cryofeed/inertpod{
+	icon_state = "broken_cryo";
+	dir = 4
 	},
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
 "qk" = (
 /obj/machinery/light/colored{
-	dir = 1;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 1
 	},
-/obj/structure/cryofeed{
-	desc = "An inert man-sized pod for entering suspended animation.";
-	dir = 8;
-	icon_state = "body_scanner_1";
-	name = "inert cryogenic freezer"
-	},
+/obj/structure/cryofeed/inertpod,
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
 "ql" = (
@@ -5642,12 +5628,12 @@
 /area/planet/abandoned_colony)
 "qn" = (
 /obj/machinery/door/blast/regular/open{
+	name = "Protective Shutters";
+	icon_state = "pdoor0";
+	opacity = 0;
 	density = 0;
 	dir = 1;
-	icon_state = "pdoor0";
-	id_tag = "morninglight_shutters";
-	name = "Protective Shutters";
-	opacity = 0
+	id_tag = "morninglight_shutters"
 	},
 /obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/plating,
@@ -5655,16 +5641,16 @@
 "qo" = (
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	icon_state = "map_connector"
+	icon_state = "map_connector";
+	dir = 4
 	},
 /obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/morninglight/atmos)
 "qp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 4;
-	icon_state = "intact"
+	icon_state = "intact";
+	dir = 4
 	},
 /obj/machinery/meter,
 /obj/machinery/light{
@@ -5675,16 +5661,16 @@
 "qq" = (
 /obj/structure/table/woodentable/walnut,
 /obj/machinery/door/window/eastleft{
-	dir = 2;
-	icon_state = "left"
+	icon_state = "left";
+	dir = 2
 	},
 /obj/random/drinkbottle,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/planet/abandoned_colony)
 "qr" = (
 /obj/machinery/atmospherics/unary/tank/air{
-	dir = 4;
-	icon_state = "air"
+	icon_state = "air";
+	dir = 4
 	},
 /obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
@@ -5712,35 +5698,35 @@
 	},
 /obj/machinery/airlock_sensor{
 	dir = 4;
-	frequency = 1380;
-	id_tag = "morninglight_shuttle_sensor_external";
 	pixel_x = 24;
-	pixel_y = -6
+	pixel_y = -6;
+	frequency = 1380;
+	id_tag = "morninglight_shuttle_sensor_external"
 	},
 /obj/machinery/access_button/airlock_exterior{
-	frequency = 1380;
-	master_tag = "morninglight_shuttle";
 	pixel_x = 22;
-	pixel_y = 0
+	pixel_y = 0;
+	frequency = 1380;
+	master_tag = "morninglight_shuttle"
 	},
 /obj/structure/cable{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/morninglight/entrance)
 "qv" = (
 /obj/machinery/light/street,
 /turf/simulated/floor/pavement{
-	dir = 2;
-	icon_state = "pave_invert_corner"
+	icon_state = "pave_invert_corner";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "qw" = (
 /obj/structure/hygiene/shower{
-	dir = 4;
 	icon_state = "shower";
+	dir = 4;
 	pixel_x = 5;
 	pixel_y = 0
 	},
@@ -5752,8 +5738,8 @@
 "qx" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/handrail{
-	dir = 8;
-	icon_state = "handrail"
+	icon_state = "handrail";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/morninglight/main)
@@ -5767,8 +5753,8 @@
 /area/morninglight/atmos)
 "qz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 10;
-	icon_state = "intact"
+	icon_state = "intact";
+	dir = 10
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
@@ -5779,9 +5765,9 @@
 "qB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/atmos)
@@ -5794,15 +5780,15 @@
 "qD" = (
 /obj/machinery/light/street,
 /turf/simulated/floor/pavement{
-	dir = 8;
-	icon_state = "pavement"
+	icon_state = "pavement";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "qE" = (
 /obj/structure/cable/yellow{
+	icon_state = "2-8";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "2-8"
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -5811,8 +5797,8 @@
 "qF" = (
 /obj/machinery/power/port_gen/pacman/super/potato,
 /obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
+	icon_state = "0-2";
+	d2 = 2
 	},
 /turf/simulated/floor,
 /area/planet/abandoned_colony)
@@ -5856,32 +5842,32 @@
 /area/planet/abandoned_colony)
 "qM" = (
 /obj/machinery/door/airlock/external{
+	name = "Morning Light External Access";
 	density = 1;
 	frequency = 1380;
-	id_tag = "morninglight_shuttle_outer";
-	name = "Morning Light External Access"
+	id_tag = "morninglight_shuttle_outer"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
-	icon_state = "map"
+	icon_state = "map";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/morninglight/entrance)
 "qN" = (
 /obj/machinery/door/airlock/external{
+	name = "Morning Light External Access";
 	density = 1;
 	frequency = 1380;
-	id_tag = "morninglight_shuttle_outer";
-	name = "Morning Light External Access"
+	id_tag = "morninglight_shuttle_outer"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
-	icon_state = "map"
+	icon_state = "map";
+	dir = 4
 	},
 /obj/structure/cable{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/morninglight/entrance)
@@ -5895,19 +5881,19 @@
 "qP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6;
-	icon_state = "intact-supply"
+	icon_state = "intact-supply";
+	dir = 6
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/morninglight/main)
 "qQ" = (
 /obj/machinery/power/terminal{
-	dir = 1;
-	icon_state = "term"
+	icon_state = "term";
+	dir = 1
 	},
 /obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
+	icon_state = "0-2";
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -5919,8 +5905,8 @@
 /area/morninglight/cargo)
 "qS" = (
 /obj/machinery/light/colored/red{
-	dir = 8;
-	icon_state = "red1"
+	icon_state = "red1";
+	dir = 8
 	},
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
@@ -5937,17 +5923,17 @@
 /area/morninglight/entrance)
 "qU" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	icon_state = "map-supply";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	icon_state = "map-scrubbers";
+	dir = 8
 	},
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/atmos)
@@ -5977,16 +5963,16 @@
 /area/planet/abandoned_colony)
 "qZ" = (
 /obj/structure/bed/chair/shuttle/black{
-	dir = 4;
-	icon_state = "shuttle_chair_preview"
+	icon_state = "shuttle_chair_preview";
+	dir = 4
 	},
 /obj/submap_landmark/spawnpoint/colony_scavenger,
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "ra" = (
 /obj/structure/bed/chair/shuttle/black{
-	dir = 4;
-	icon_state = "shuttle_chair_preview"
+	icon_state = "shuttle_chair_preview";
+	dir = 4
 	},
 /obj/submap_landmark/spawnpoint/colony_scavenger,
 /turf/simulated/floor/tiled/techmaint,
@@ -5994,8 +5980,8 @@
 "rb" = (
 /obj/item/stool/padded,
 /obj/floor_decal/corner/white/border{
-	dir = 8;
-	icon_state = "bordercolor"
+	icon_state = "bordercolor";
+	dir = 8
 	},
 /obj/submap_landmark/spawnpoint/colony_scavenger,
 /turf/simulated/floor/tiled/techfloor,
@@ -6010,13 +5996,13 @@
 	id_tag = "morninglight_shuttle_pump_out_internal"
 	},
 /obj/machinery/light/small{
-	dir = 4;
-	icon_state = "bulb1"
+	icon_state = "bulb1";
+	dir = 4
 	},
 /obj/structure/cable{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/morninglight/entrance)
@@ -6025,18 +6011,18 @@
 	id_tag = "morninglight_shuttle_pump_out_internal"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	cycle_to_external_air = 1;
-	frequency = 1380;
-	id_tag = "morninglight_shuttle";
 	pixel_x = -24;
 	pixel_y = 0;
-	tag_exterior_sensor = "morninglight_shuttle_sensor_external"
+	frequency = 1380;
+	id_tag = "morninglight_shuttle";
+	tag_exterior_sensor = "morninglight_shuttle_sensor_external";
+	cycle_to_external_air = 1
 	},
 /obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "morninglight_shuttle_sensor";
 	pixel_x = -24;
-	pixel_y = 10
+	pixel_y = 10;
+	frequency = 1380;
+	id_tag = "morninglight_shuttle_sensor"
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/morninglight/entrance)
@@ -6070,14 +6056,14 @@
 /area/space)
 "rk" = (
 /obj/structure/cable/cyan{
+	icon_state = "2-8";
 	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
+	d2 = 8
 	},
 /obj/structure/cable/cyan{
+	icon_state = "1-8";
 	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+	d2 = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
@@ -6086,15 +6072,15 @@
 /area/morninglight/main)
 "rl" = (
 /obj/machinery/atmospherics/unary/engine{
-	dir = 4;
-	icon_state = "nozzle"
+	icon_state = "nozzle";
+	dir = 4
 	},
 /turf/simulated/floor/plating/airless,
 /area/morninglight/cargo)
 "rm" = (
 /obj/structure/shuttle/engine/heater{
-	dir = 8;
-	icon_state = "heater"
+	icon_state = "heater";
+	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -6111,9 +6097,9 @@
 	},
 /obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -6130,21 +6116,21 @@
 	id_tag = "morninglight_shuttle_pump_out_internal"
 	},
 /obj/structure/handrail{
-	dir = 8;
-	icon_state = "handrail"
+	icon_state = "handrail";
+	dir = 8
 	},
 /obj/structure/cable{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/morninglight/entrance)
 "rq" = (
 /obj/machinery/door/airlock/external{
+	name = "Morning Light External Access";
 	frequency = 1380;
-	id_tag = "morninglight_shuttle_inner";
-	name = "Morning Light External Access"
+	id_tag = "morninglight_shuttle_inner"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -6163,8 +6149,8 @@
 	dir = 4
 	},
 /obj/floor_decal/corner/paleblue/three_quarters{
-	dir = 8;
-	icon_state = "corner_white_three_quarters"
+	icon_state = "corner_white_three_quarters";
+	dir = 8
 	},
 /obj/machinery/light{
 	dir = 1
@@ -6173,8 +6159,8 @@
 /area/morninglight/main)
 "rt" = (
 /obj/machinery/atmospherics/binary/passive_gate/on{
-	dir = 4;
-	icon_state = "map_on"
+	icon_state = "map_on";
+	dir = 4
 	},
 /obj/machinery/vending/wallmed1{
 	pixel_y = 32
@@ -6192,23 +6178,23 @@
 /turf/simulated/floor/tiled/white,
 /area/morninglight/main)
 "rv" = (
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /obj/machinery/power/terminal{
-	dir = 1;
-	icon_state = "term"
+	icon_state = "term";
+	dir = 1
 	},
 /obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
+	icon_state = "0-2";
+	d2 = 2
 	},
-/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
 /area/planet/abandoned_colony)
 "rw" = (
 /obj/structure/shuttle/engine/heater{
-	dir = 8;
-	icon_state = "heater"
+	icon_state = "heater";
+	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -6230,8 +6216,8 @@
 	pixel_x = -24
 	},
 /obj/floor_decal/corner/yellow{
-	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -6243,8 +6229,8 @@
 	pixel_y = 16
 	},
 /obj/floor_decal/corner/yellow{
-	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -6256,8 +6242,8 @@
 	name = "blobstart"
 	},
 /obj/floor_decal/corner/yellow{
-	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -6270,8 +6256,8 @@
 	},
 /obj/structure/hygiene/shower,
 /obj/machinery/door/window/northleft{
-	dir = 3;
-	name = "Shower"
+	name = "Shower";
+	dir = 3
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -6284,8 +6270,8 @@
 	},
 /obj/structure/hygiene/shower,
 /obj/machinery/door/window/northleft{
-	dir = 3;
-	name = "Shower"
+	name = "Shower";
+	dir = 3
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -6318,20 +6304,20 @@
 	pixel_y = 32
 	},
 /obj/floor_decal/corner/orange{
-	dir = 5;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "rG" = (
 /obj/machinery/power/port_gen/pacman/super/potato,
 /obj/machinery/light/coldtint{
-	dir = 8;
-	icon_state = "tube_map"
+	icon_state = "tube_map";
+	dir = 8
 	},
 /obj/structure/cable/yellow{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /turf/simulated/floor,
 /area/planet/abandoned_colony)
@@ -6391,19 +6377,19 @@
 /area/morninglight/cargo)
 "rO" = (
 /obj/structure/cable/yellow{
+	icon_state = "4-8";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "4-8"
+	d2 = 4
 	},
 /obj/structure/cable/yellow{
+	icon_state = "2-4";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "2-4"
+	d2 = 4
 	},
 /obj/structure/cable/yellow{
+	icon_state = "1-4";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -6411,9 +6397,9 @@
 /area/planet/abandoned_colony)
 "rP" = (
 /obj/structure/cable/yellow{
+	icon_state = "4-8";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "4-8"
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -6424,18 +6410,18 @@
 /area/morninglight/entrance)
 "rR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+	icon_state = "intact";
+	dir = 9
 	},
 /obj/machinery/door/airlock/external{
+	name = "Morning Light External Access";
 	frequency = 1380;
-	id_tag = "morninglight_shuttle_inner";
-	name = "Morning Light External Access"
+	id_tag = "morninglight_shuttle_inner"
 	},
 /obj/structure/cable{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/morninglight/entrance)
@@ -6452,15 +6438,15 @@
 /area/morninglight/entrance)
 "rT" = (
 /obj/machinery/access_button/airlock_interior{
-	frequency = 1380;
-	master_tag = "morninglight_shuttle";
 	pixel_x = 22;
-	pixel_y = 22
+	pixel_y = 22;
+	frequency = 1380;
+	master_tag = "morninglight_shuttle"
 	},
 /obj/structure/cable{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/entrance)
@@ -6486,9 +6472,9 @@
 /area/morninglight/main)
 "rX" = (
 /obj/structure/table/rack{
-	icon = 'icons/obj/coatrack.dmi';
-	icon_state = "coatrack0";
-	name = "wooden coat rack"
+	name = "wooden coat rack";
+	icon = 'icons/obj/structures/coatrack.dmi';
+	icon_state = "coatrack0"
 	},
 /obj/item/clothing/suit/fire/heavy,
 /obj/item/clothing/suit/fire/firefighter,
@@ -6499,8 +6485,8 @@
 "rY" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/floor_decal/corner/yellow{
-	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -6517,16 +6503,16 @@
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
 /obj/floor_decal/corner/yellow{
-	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "sb" = (
 /obj/structure/cable{
+	icon_state = "2-8";
 	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
+	d2 = 8
 	},
 /obj/structure/closet/emcloset,
 /obj/item/tank/oxygen,
@@ -6535,13 +6521,13 @@
 /area/morninglight/entrance)
 "sc" = (
 /obj/floor_decal/chapel{
-	dir = 1;
-	icon_state = "chapel"
+	icon_state = "chapel";
+	dir = 1
 	},
 /obj/item/stool/padded,
 /obj/machinery/light/colored{
-	dir = 8;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
@@ -6571,8 +6557,8 @@
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/surgery,
 /obj/floor_decal/corner/paleblue{
-	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/morninglight/main)
@@ -6589,15 +6575,15 @@
 "sj" = (
 /obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	icon_state = "map_scrubber_on";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "sk" = (
 /obj/structure/hygiene/sink{
-	dir = 4;
 	icon_state = "sink";
+	dir = 4;
 	pixel_x = 11;
 	pixel_y = 0
 	},
@@ -6605,16 +6591,16 @@
 	pixel_x = 28
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	icon_state = "map_vent_out"
+	icon_state = "map_vent_out";
+	dir = 8
 	},
 /obj/machinery/light/small{
-	dir = 1;
-	icon_state = "bulb1"
+	icon_state = "bulb1";
+	dir = 1
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	icon_state = "alarm0";
+	dir = 1;
 	pixel_y = -24;
 	req_access = list("ACCESS_MORNING_LIGHT")
 	},
@@ -6623,9 +6609,9 @@
 "sl" = (
 /obj/machinery/door/airlock/engineering,
 /obj/structure/cable/yellow{
+	icon_state = "4-8";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "4-8"
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -6633,17 +6619,17 @@
 /area/planet/abandoned_colony)
 "sm" = (
 /obj/structure/handrail{
-	dir = 4;
-	icon_state = "handrail"
+	icon_state = "handrail";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/entrance)
 "sn" = (
 /obj/floor_decal/rust,
 /obj/structure/cable{
+	icon_state = "1-4";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/entrance)
@@ -6656,8 +6642,8 @@
 	dir = 4
 	},
 /obj/machinery/alarm{
-	dir = 1;
 	icon_state = "alarm0";
+	dir = 1;
 	pixel_y = -22;
 	req_access = list("ACCESS_MORNING_LIGHT")
 	},
@@ -6675,30 +6661,30 @@
 /area/morninglight/main)
 "sr" = (
 /obj/structure/bed/chair/shuttle/black{
-	dir = 4;
-	icon_state = "shuttle_chair_preview"
+	icon_state = "shuttle_chair_preview";
+	dir = 4
 	},
 /obj/machinery/button/blast_door{
-	id_tag = "morninglight_shutters";
 	name = "Protective Shutters Control";
 	pixel_x = -24;
-	pixel_y = 24
+	pixel_y = 24;
+	id_tag = "morninglight_shutters"
 	},
 /obj/floor_decal/rust,
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "ss" = (
 /obj/structure/handrail{
-	dir = 4;
-	icon_state = "handrail"
+	icon_state = "handrail";
+	dir = 4
 	},
 /obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "st" = (
 /obj/machinery/atmospherics/unary/freezer{
-	dir = 8;
-	icon_state = "freezer"
+	icon_state = "freezer";
+	dir = 8
 	},
 /obj/floor_decal/corner/paleblue/three_quarters{
 	dir = 1
@@ -6720,24 +6706,24 @@
 /area/morninglight/main)
 "su" = (
 /obj/machinery/atmospherics/binary/passive_gate/on{
-	dir = 8;
-	icon_state = "map_on"
+	icon_state = "map_on";
+	dir = 8
 	},
 /obj/floor_decal/rust,
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "sv" = (
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/cyan{
+	icon_state = "1-4";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
@@ -6752,18 +6738,18 @@
 "sy" = (
 /obj/machinery/optable,
 /obj/floor_decal/corner/paleblue{
-	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/morninglight/main)
 "sz" = (
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /obj/structure/hygiene/shower{
-	dir = 4;
 	icon_state = "shower";
+	dir = 4;
 	pixel_x = 0
 	},
-/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -6774,14 +6760,14 @@
 /area/morninglight/cargo)
 "sB" = (
 /obj/structure/cable/yellow{
+	icon_state = "4-8";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "4-8"
+	d2 = 4
 	},
 /obj/structure/cable/yellow{
+	icon_state = "1-8";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-8"
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -6790,14 +6776,14 @@
 "sC" = (
 /obj/item/stool/padded,
 /obj/floor_decal/corner/white/border{
-	dir = 8;
-	icon_state = "bordercolor"
+	icon_state = "bordercolor";
+	dir = 8
 	},
 /obj/machinery/light,
 /obj/structure/cable/cyan{
+	icon_state = "4-8";
 	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/morninglight/main)
@@ -6813,14 +6799,14 @@
 /area/morninglight/entrance)
 "sF" = (
 /obj/machinery/power/apc{
-	dir = 8;
 	name = "west bump";
+	dir = 8;
 	pixel_x = -25;
 	req_access = list("ACCESS_MORNING_LIGHT")
 	},
 /obj/structure/cable/cyan{
-	d2 = 2;
-	icon_state = "0-2"
+	icon_state = "0-2";
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6828,9 +6814,9 @@
 /area/morninglight/main)
 "sG" = (
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/light{
 	dir = 8
@@ -6863,13 +6849,13 @@
 "sI" = (
 /obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	icon_state = "map-scrubbers";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
@@ -6885,9 +6871,9 @@
 	dir = 1
 	},
 /obj/structure/cable/cyan{
+	icon_state = "4-8";
 	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/morninglight/main)
@@ -6895,34 +6881,34 @@
 /obj/structure/table/standard,
 /obj/machinery/microwave,
 /obj/structure/cable/cyan{
+	icon_state = "4-8";
 	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/morninglight/main)
 "sM" = (
 /obj/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/blast/regular/open{
+	name = "Protective Shutters";
+	icon_state = "pdoor0";
+	opacity = 0;
 	density = 0;
 	dir = 4;
-	icon_state = "pdoor0";
-	id_tag = "morninglight_shutters";
-	name = "Protective Shutters";
-	opacity = 0
+	id_tag = "morninglight_shutters"
 	},
 /obj/structure/cable/cyan{
+	icon_state = "4-8";
 	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d2 = 8
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/main)
 "sN" = (
 /obj/machinery/shipsensors,
 /obj/structure/cable/cyan{
-	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "0-8";
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/techfloor/airless,
 /area/morninglight/main)
@@ -6935,19 +6921,19 @@
 "sP" = (
 /obj/wallframe_spawn/reinforced/titanium,
 /obj/machinery/door/blast/regular/open{
+	name = "Protective Shutters";
+	icon_state = "pdoor0";
+	opacity = 0;
 	density = 0;
 	dir = 4;
-	icon_state = "pdoor0";
-	id_tag = "morninglight_shutters";
-	name = "Protective Shutters";
-	opacity = 0
+	id_tag = "morninglight_shutters"
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/main)
 "sQ" = (
 /obj/structure/crematorium{
-	dir = 4;
-	icon_state = "crema1"
+	icon_state = "crema1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -6967,8 +6953,8 @@
 /area/morninglight/main)
 "sT" = (
 /obj/structure/hygiene/sink{
-	dir = 4;
 	icon_state = "sink";
+	dir = 4;
 	pixel_x = 11;
 	pixel_y = 0
 	},
@@ -6980,15 +6966,15 @@
 /area/morninglight/main)
 "sU" = (
 /obj/machinery/alarm{
-	dir = 4;
 	icon_state = "alarm0";
+	dir = 4;
 	pixel_x = -22;
 	req_access = list("ACCESS_MORNING_LIGHT")
 	},
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7002,23 +6988,23 @@
 /area/planet/abandoned_colony)
 "sW" = (
 /obj/floor_decal/corner/lightgrey{
-	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 6
 	},
 /obj/machinery/computer/shuttle_control/explore/morninglight{
-	dir = 8;
-	icon_state = "computer"
+	icon_state = "computer";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "sX" = (
 /obj/machinery/door/blast/regular/open{
+	name = "Protective Shutters";
+	icon_state = "pdoor0";
+	opacity = 0;
 	density = 0;
 	dir = 4;
-	icon_state = "pdoor0";
-	id_tag = "morninglight_shutters";
-	name = "Protective Shutters";
-	opacity = 0
+	id_tag = "morninglight_shutters"
 	},
 /obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/plating,
@@ -7037,14 +7023,14 @@
 "ta" = (
 /obj/floor_decal/rust,
 /obj/structure/cable/yellow{
+	icon_state = "4-8";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "4-8"
+	d2 = 4
 	},
 /obj/structure/cable/yellow{
+	icon_state = "1-8";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-8"
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -7052,9 +7038,9 @@
 /area/planet/abandoned_colony)
 "tb" = (
 /obj/structure/cable/yellow{
+	icon_state = "1-8";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-8"
+	d2 = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
@@ -7097,22 +7083,22 @@
 	},
 /obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
+	icon_state = "1-4";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	d2 = 4
 	},
 /obj/structure/cable/cyan{
+	icon_state = "2-4";
 	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+	d2 = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	icon_state = "map-scrubbers";
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8;
-	icon_state = "map-supply"
+	icon_state = "map-supply";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/cargo)
@@ -7121,16 +7107,16 @@
 	dir = 6
 	},
 /obj/structure/cable/cyan{
+	icon_state = "4-8";
 	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d2 = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
+	icon_state = "intact-supply";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
@@ -7139,57 +7125,57 @@
 	name = "Shuttle Cargo"
 	},
 /obj/structure/cable/cyan{
+	icon_state = "4-8";
 	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d2 = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
+	icon_state = "intact-supply";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/cargo)
 "tj" = (
 /obj/structure/cable/cyan{
+	icon_state = "2-8";
 	d1 = 2;
-	d2 = 8;
-	icon_state = "2-8"
+	d2 = 8
 	},
 /obj/structure/cable/cyan{
+	icon_state = "2-4";
 	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+	d2 = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	icon_state = "map-supply";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1;
-	icon_state = "map-scrubbers"
+	icon_state = "map-scrubbers";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/entrance)
 "tk" = (
 /obj/floor_decal/chapel{
-	dir = 4;
-	icon_state = "chapel"
+	icon_state = "chapel";
+	dir = 4
 	},
 /obj/item/stool/padded,
 /obj/machinery/light/colored{
-	dir = 4;
-	icon_state = "yellow1"
+	icon_state = "yellow1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "tl" = (
 /obj/item/stool/bar,
 /obj/machinery/light/colored/purple{
-	dir = 4;
-	icon_state = "purple1"
+	icon_state = "purple1";
+	dir = 4
 	},
 /turf/simulated/floor/pavement/empty,
 /area/planet/abandoned_colony)
@@ -7198,11 +7184,11 @@
 /turf/simulated/floor/planet/dirt/city,
 /area/planet/abandoned_colony)
 "tn" = (
-/obj/floor_decal/industrial/warning{
-	dir = 1;
-	icon_state = "warning"
-	},
 /mob/living/simple_animal/hostile/scom/lactera/light,
+/obj/floor_decal/industrial/warning{
+	icon_state = "warning";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "old_tile_black_dirt"
 	},
@@ -7233,63 +7219,63 @@
 /area/planet/abandoned_colony)
 "tt" = (
 /obj/structure/cable/cyan{
+	icon_state = "4-8";
 	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d2 = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	icon_state = "map-supply";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/entrance)
 "tu" = (
 /obj/structure/cable/cyan{
+	icon_state = "4-8";
 	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d2 = 8
 	},
 /obj/structure/cable{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
+	icon_state = "intact-supply";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/entrance)
 "tv" = (
 /obj/machinery/door/airlock/hatch,
 /obj/structure/cable/cyan{
+	icon_state = "4-8";
 	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d2 = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
+	icon_state = "intact-supply";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "tw" = (
 /obj/structure/cable/cyan{
-	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "0-8";
+	d2 = 8
 	},
 /obj/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/machinery/power/smes/buildable/preset/morning_light{
-	charge = 5e+006
+	charge = 5e+06
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
@@ -7316,11 +7302,11 @@
 	},
 /area/planet/abandoned_colony)
 "tB" = (
-/obj/decal/cleanable/dirt,
 /mob/living/simple_animal/hostile/scom/husk,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "tC" = (
@@ -7337,8 +7323,8 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
+	icon_state = "intact-supply";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
@@ -7348,15 +7334,15 @@
 /area/planet/abandoned_colony)
 "tG" = (
 /obj/machinery/power/apc{
-	cell_type = /obj/item/cell/high;
-	dir = 2;
 	name = "south bump";
+	dir = 2;
 	pixel_y = -24;
-	req_access = list("ACCESS_MORNING_LIGHT")
+	req_access = list("ACCESS_MORNING_LIGHT");
+	cell_type = /obj/item/cell/high
 	},
 /obj/structure/cable/cyan{
-	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "0-8";
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/entrance)
@@ -7383,21 +7369,21 @@
 "tJ" = (
 /obj/floor_decal/industrial/shutoff,
 /obj/structure/cable/cyan{
+	icon_state = "1-8";
 	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+	d2 = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9;
-	icon_state = "intact-scrubbers"
+	icon_state = "intact-scrubbers";
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
 	pixel_y = 0
 	},
 /obj/structure/handrail{
-	dir = 8;
-	icon_state = "handrail"
+	icon_state = "handrail";
+	dir = 8
 	},
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1
@@ -7406,8 +7392,8 @@
 /area/morninglight/engineering)
 "tK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9;
-	icon_state = "intact-scrubbers"
+	icon_state = "intact-scrubbers";
+	dir = 9
 	},
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1
@@ -7418,27 +7404,27 @@
 /obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1;
-	icon_state = "map-scrubbers"
+	icon_state = "map-scrubbers";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "tM" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
+	icon_state = "map-supply";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "tN" = (
 /obj/floor_decal/corner/lightgrey{
-	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9;
-	icon_state = "intact-scrubbers"
+	icon_state = "intact-scrubbers";
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -7457,9 +7443,9 @@
 	pixel_y = 4
 	},
 /obj/structure/cable{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/structure/closet/emcloset,
 /obj/item/tank/oxygen,
@@ -7486,9 +7472,9 @@
 	req_access = list("ACCESS_MORNING_LIGHT")
 	},
 /obj/structure/cable{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/entrance)
@@ -7500,14 +7486,14 @@
 "tS" = (
 /obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8;
-	icon_state = "map-supply"
+	icon_state = "map-supply";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/cargo)
@@ -7526,17 +7512,17 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	icon_state = "map_vent_out"
+	icon_state = "map_vent_out";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "tU" = (
 /obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7546,15 +7532,15 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
+	icon_state = "pipe-c";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/cargo)
@@ -7579,18 +7565,18 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/structure/cable/cyan{
+	icon_state = "1-4";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	d2 = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4;
-	icon_state = "map-supply"
+	icon_state = "map-supply";
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
@@ -7605,8 +7591,8 @@
 "tZ" = (
 /obj/paint/black,
 /obj/structure/disposalpipe/segment{
-	dir = 4;
-	icon_state = "pipe-c"
+	icon_state = "pipe-c";
+	dir = 4
 	},
 /turf/simulated/wall/titanium,
 /area/morninglight/cargo)
@@ -7627,9 +7613,9 @@
 /area/morninglight/cargo)
 "uc" = (
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7647,8 +7633,8 @@
 /obj/random/drinkbottle,
 /obj/random/drinkbottle,
 /obj/machinery/light_construct/small{
-	dir = 4;
-	icon_state = "bulb-construct-stage1"
+	icon_state = "bulb-construct-stage1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "redyellowfull"
@@ -7664,16 +7650,16 @@
 /obj/item/carpentry/axe,
 /obj/item/material/hatchet/wood,
 /obj/machinery/power/apc{
-	cell_type = /obj/item/cell/super;
-	dir = 4;
 	name = "east bump";
+	dir = 4;
 	pixel_x = 24;
 	pixel_y = 0;
-	req_access = list("ACCESS_MORNING_LIGHT")
+	req_access = list("ACCESS_MORNING_LIGHT");
+	cell_type = /obj/item/cell/super
 	},
 /obj/structure/cable/cyan{
-	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "0-8";
+	d2 = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
@@ -7681,18 +7667,18 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/catwalk_plated/dark,
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+	icon_state = "map-scrubbers";
+	dir = 8
 	},
 /obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
+	icon_state = "pipe-c";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/cargo)
@@ -7721,8 +7707,8 @@
 "uj" = (
 /obj/structure/table/standard,
 /obj/machinery/alarm{
-	dir = 1;
 	icon_state = "alarm0";
+	dir = 1;
 	pixel_y = -24;
 	req_access = list("ACCESS_MORNING_LIGHT")
 	},
@@ -7730,9 +7716,9 @@
 	dir = 1
 	},
 /obj/structure/cable/cyan{
+	icon_state = "4-8";
 	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	d2 = 8
 	},
 /obj/item/dice,
 /turf/simulated/floor/tiled/techfloor,
@@ -7764,13 +7750,13 @@
 /area/morninglight/dorms)
 "um" = (
 /obj/structure/handrail{
-	dir = 4;
-	icon_state = "handrail"
+	icon_state = "handrail";
+	dir = 4
 	},
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7791,24 +7777,24 @@
 /obj/item/ammo_magazine/speedloader/magnum,
 /obj/item/ammo_magazine/rifle/military/stripper,
 /obj/machinery/power/apc{
-	cell_type = /obj/item/cell/super;
-	dir = 4;
 	name = "east bump";
+	dir = 4;
 	pixel_x = 24;
 	pixel_y = 0;
-	req_access = list("ACCESS_MORNING_LIGHT")
+	req_access = list("ACCESS_MORNING_LIGHT");
+	cell_type = /obj/item/cell/super
 	},
 /obj/structure/cable/cyan{
-	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "0-8";
+	d2 = 8
 	},
 /turf/simulated/floor/carpet,
 /area/morninglight/dorms)
 "up" = (
 /obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm{
-	dir = 1;
 	icon_state = "alarm0";
+	dir = 1;
 	pixel_y = -24;
 	req_access = list("ACCESS_MORNING_LIGHT")
 	},
@@ -7834,8 +7820,8 @@
 /area/planet/abandoned_colony)
 "us" = (
 /obj/machinery/alarm{
-	dir = 1;
 	icon_state = "alarm0";
+	dir = 1;
 	pixel_y = -24;
 	req_access = list("ACCESS_MORNING_LIGHT")
 	},
@@ -7843,16 +7829,16 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1;
-	icon_state = "map_vent_out"
+	icon_state = "map_vent_out";
+	dir = 1
 	},
 /obj/machinery/power/port_gen/pacman/mrs{
 	sheets = 100
 	},
 /obj/structure/cable/yellow,
 /obj/structure/cable/yellow{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
@@ -7903,8 +7889,8 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "uB" = (
-/obj/machinery/light/overhead_blue,
 /mob/living/simple_animal/hostile/scom/husk,
+/obj/machinery/light/overhead_blue,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "tiles1"
 	},
@@ -7960,24 +7946,24 @@
 /area/planet/abandoned_colony)
 "uK" = (
 /obj/floor_decal/corner/white/border{
-	dir = 9;
-	icon_state = "bordercolor"
+	icon_state = "bordercolor";
+	dir = 9
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/morninglight/main)
 "uL" = (
 /obj/item/stool/padded,
 /obj/floor_decal/corner/white/border{
-	dir = 1;
-	icon_state = "bordercolor"
+	icon_state = "bordercolor";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/techfloor,
 /area/morninglight/main)
 "uM" = (
 /obj/floor_decal/corner/white/border{
-	dir = 1;
-	icon_state = "bordercolor"
+	icon_state = "bordercolor";
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/techfloor,
@@ -7996,8 +7982,8 @@
 /obj/item/storage/box/donkpocket_mixed,
 /obj/item/storage/box/donkpocket_mixed,
 /obj/floor_decal/corner/white/border{
-	dir = 1;
-	icon_state = "bordercolor"
+	icon_state = "bordercolor";
+	dir = 1
 	},
 /obj/item/reagent_containers/food/drinks/glass2/shot,
 /turf/simulated/floor/tiled/techfloor,
@@ -8015,12 +8001,12 @@
 	pixel_y = -28
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1;
-	icon_state = "map_vent_out"
+	icon_state = "map_vent_out";
+	dir = 1
 	},
 /obj/floor_decal/corner/lightgrey{
-	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 9
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/techmaint,
@@ -8081,13 +8067,13 @@
 /area/planet/abandoned_colony)
 "va" = (
 /obj/structure/handrail{
-	dir = 4;
-	icon_state = "handrail"
+	icon_state = "handrail";
+	dir = 4
 	},
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8126,11 +8112,11 @@
 /turf/simulated/floor/tiled/freezer,
 /area/planet/abandoned_colony)
 "vh" = (
-/obj/floor_decal/corner/red/diagonal,
 /mob/living/simple_animal/hostile/scom/husk,
+/obj/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	dir = 2;
-	icon_state = "cafeteria"
+	icon_state = "cafeteria";
+	dir = 2
 	},
 /area/planet/abandoned_colony)
 "vi" = (
@@ -8149,15 +8135,15 @@
 /area/planet/abandoned_colony)
 "vk" = (
 /obj/machinery/computer/air_control{
-	dir = 8;
+	name = "Atmospheric Sensors";
 	icon_state = "computer";
-	id_tag = list("morninglight_out");
-	name = "Atmospheric Sensors"
+	dir = 8;
+	id_tag = list("morninglight_out")
 	},
 /obj/structure/cable{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/light{
 	dir = 4
@@ -8166,9 +8152,9 @@
 /area/morninglight/entrance)
 "vl" = (
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8202,18 +8188,18 @@
 /area/planet/abandoned_colony)
 "vp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 10;
-	icon_state = "intact"
+	icon_state = "intact";
+	dir = 10
 	},
 /obj/machinery/power/apc{
-	dir = 1;
 	name = "north bump";
+	dir = 1;
 	pixel_y = 24;
 	req_access = list("ACCESS_MORNING_LIGHT")
 	},
 /obj/structure/cable/cyan{
-	d2 = 2;
-	icon_state = "0-2"
+	icon_state = "0-2";
+	d2 = 2
 	},
 /obj/machinery/carpentry/planer,
 /turf/simulated/floor/plating,
@@ -8241,21 +8227,21 @@
 /obj/structure/table/standard,
 /obj/machinery/reagentgrinder,
 /obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1;
-	icon_state = "map_vent_out"
+	icon_state = "map_vent_out";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/morninglight/main)
 "vw" = (
 /obj/structure/cable/cyan{
+	icon_state = "2-4";
 	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+	d2 = 4
 	},
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8268,9 +8254,9 @@
 /obj/random/maintenance/clean,
 /obj/item/device/radio,
 /obj/structure/cable{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/entrance)
@@ -8283,24 +8269,24 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
+	icon_state = "map-scrubbers";
+	dir = 4
 	},
 /obj/structure/cable/cyan{
+	icon_state = "1-4";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	d2 = 4
 	},
 /obj/structure/cable/yellow{
-	d2 = 2;
-	icon_state = "0-2"
+	icon_state = "0-2";
+	d2 = 2
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
 "vB" = (
 /obj/floor_decal/chapel{
-	dir = 8;
-	icon_state = "chapel"
+	icon_state = "chapel";
+	dir = 8
 	},
 /obj/item/stool/padded,
 /obj/item/remains/human,
@@ -8308,8 +8294,8 @@
 /area/planet/abandoned_colony)
 "vE" = (
 /obj/structure/shuttle/engine/heater{
-	dir = 8;
-	icon_state = "heater"
+	icon_state = "heater";
+	dir = 8
 	},
 /obj/structure/window/reinforced{
 	dir = 4
@@ -8322,8 +8308,8 @@
 "vF" = (
 /obj/structure/table/standard,
 /obj/machinery/door/window/southright{
-	dir = 4;
-	icon_state = "right"
+	icon_state = "right";
+	dir = 4
 	},
 /obj/random/ammo,
 /turf/simulated/floor/tiled/uristturf/geminus{
@@ -8343,9 +8329,9 @@
 	name = "Shuttle Fuel"
 	},
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8357,9 +8343,9 @@
 	req_access = newlist()
 	},
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8384,9 +8370,9 @@
 	name = "Dorms"
 	},
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -8413,19 +8399,19 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6;
-	icon_state = "intact-scrubbers"
+	icon_state = "intact-scrubbers";
+	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
+	icon_state = "intact-supply";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
 "vR" = (
+/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /obj/item/reagent_containers/syringe/drugs,
 /obj/decal/cleanable/dirt,
-/mob/living/simple_animal/hostile/scom/forgotten/awaymap,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "vS" = (
@@ -8447,9 +8433,9 @@
 /area/morninglight/dorms)
 "vX" = (
 /obj/structure/cable/cyan{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8478,8 +8464,8 @@
 	dir = 4
 	},
 /obj/structure/handrail{
-	dir = 4;
-	icon_state = "handrail"
+	icon_state = "handrail";
+	dir = 4
 	},
 /obj/item/storage/toolbox/mechanical{
 	pixel_x = -2;
@@ -8518,28 +8504,28 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5;
-	icon_state = "intact-scrubbers"
+	icon_state = "intact-scrubbers";
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4;
-	icon_state = "map-supply"
+	icon_state = "map-supply";
+	dir = 4
 	},
 /obj/structure/cable/yellow{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
 "wh" = (
 /obj/machinery/power/terminal{
-	dir = 1;
-	icon_state = "term"
+	icon_state = "term";
+	dir = 1
 	},
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /obj/floor_decal/industrial/warning{
 	dir = 4
@@ -8548,8 +8534,8 @@
 	dir = 10
 	},
 /obj/structure/handrail{
-	dir = 8;
-	icon_state = "handrail"
+	icon_state = "handrail";
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
@@ -8569,13 +8555,13 @@
 /area/morninglight/dorms)
 "wk" = (
 /obj/structure/cable/cyan{
+	icon_state = "1-4";
 	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	d2 = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9;
-	icon_state = "intact-scrubbers"
+	icon_state = "intact-scrubbers";
+	dir = 9
 	},
 /turf/simulated/floor/carpet,
 /area/morninglight/dorms)
@@ -8595,21 +8581,21 @@
 	dir = 9
 	},
 /obj/machinery/power/apc{
-	dir = 1;
 	name = "north bump";
+	dir = 1;
 	pixel_y = 24;
 	req_access = list("ACCESS_MORNING_LIGHT")
 	},
 /obj/structure/cable/cyan{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
+	icon_state = "intact-supply";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
@@ -8621,19 +8607,19 @@
 /area/morninglight/dorms)
 "wu" = (
 /obj/structure/handrail{
-	dir = 8;
-	icon_state = "handrail"
+	icon_state = "handrail";
+	dir = 8
 	},
 /turf/simulated/floor/carpet,
 /area/morninglight/dorms)
 "wv" = (
 /obj/machinery/door/blast/regular/open{
+	name = "Protective Shutters";
+	icon_state = "pdoor0";
+	opacity = 0;
 	density = 0;
 	dir = 1;
-	icon_state = "pdoor0";
-	id_tag = "morninglight_shutters";
-	name = "Protective Shutters";
-	opacity = 0
+	id_tag = "morninglight_shutters"
 	},
 /obj/wallframe_spawn/reinforced/titanium,
 /turf/simulated/floor/plating,
@@ -8646,8 +8632,8 @@
 /area/planet/abandoned_colony)
 "wx" = (
 /obj/machinery/constructable_frame/computerframe{
-	dir = 1;
-	icon_state = "0"
+	icon_state = "0";
+	dir = 1
 	},
 /obj/structure/salvageable/console_broken_os{
 	icon_state = "os_console_broken";
@@ -8656,26 +8642,26 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "wy" = (
-/obj/machinery/light_construct/small{
-	dir = 4;
-	icon_state = "bulb-construct-stage1"
-	},
 /mob/living/simple_animal/hostile/scom/forgotten/awaymap,
+/obj/machinery/light_construct/small{
+	icon_state = "bulb-construct-stage1";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "tiled"
 	},
 /area/planet/abandoned_colony)
 "wz" = (
 /obj/machinery/light/colored/orange{
-	dir = 8;
-	icon_state = "orange1"
+	icon_state = "orange1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "wA" = (
 /obj/machinery/light/colored/orange{
-	dir = 4;
-	icon_state = "orange1"
+	icon_state = "orange1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -8698,8 +8684,8 @@
 /area/morninglight/main)
 "wF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10;
-	icon_state = "intact"
+	icon_state = "intact";
+	dir = 10
 	},
 /obj/paint/black,
 /turf/simulated/wall/titanium,
@@ -8726,15 +8712,15 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /obj/machinery/meter,
 /obj/structure/handrail{
-	dir = 1;
-	icon_state = "handrail"
+	icon_state = "handrail";
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/atmos)
 "wK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
+	icon_state = "intact";
+	dir = 5
 	},
 /obj/paint/black,
 /turf/simulated/wall/titanium,
@@ -8754,16 +8740,16 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/floor_decal/corner/lightgrey{
-	dir = 9;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 9
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/morninglight/main)
 "wO" = (
 /obj/structure/table/rack,
 /obj/structure/cable/cyan{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "0-4";
+	d2 = 4
 	},
 /obj/item/shuttle_beacon,
 /obj/item/device/radio,
@@ -8777,8 +8763,8 @@
 /obj/item/stack/material/tritium/ten,
 /obj/item/stack/material/tritium/ten,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4;
-	icon_state = "map_scrubber_on"
+	icon_state = "map_scrubber_on";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
@@ -8791,8 +8777,8 @@
 /area/morninglight/cargo)
 "wQ" = (
 /obj/machinery/door/airlock/multi_tile{
-	dir = 8;
-	icon_state = "closed"
+	icon_state = "closed";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
@@ -8800,23 +8786,23 @@
 /obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/floodlight,
 /obj/structure/handrail{
-	dir = 4;
-	icon_state = "handrail"
+	icon_state = "handrail";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/morninglight/cargo)
 "wS" = (
 /obj/machinery/light/colored/orange{
-	dir = 8;
-	icon_state = "orange1"
+	icon_state = "orange1";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "wV" = (
 /obj/item/storage/backpack/weldpack,
 /obj/floor_decal/corner/yellow{
-	dir = 10;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 10
 	},
 /obj/random/tank,
 /obj/item/tank/phoron,
@@ -8835,19 +8821,19 @@
 /area/planet/abandoned_colony)
 "xa" = (
 /obj/floor_decal/industrial/warning{
-	dir = 6;
-	icon_state = "warning"
+	icon_state = "warning";
+	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1;
-	icon_state = "map_scrubber_on"
+	icon_state = "map_scrubber_on";
+	dir = 1
 	},
 /obj/machinery/power/port_gen/pacman/mrs{
 	sheets = 100
 	},
 /obj/structure/cable/yellow{
-	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "0-8";
+	d2 = 8
 	},
 /turf/simulated/floor/plating,
 /area/morninglight/engineering)
@@ -8864,9 +8850,9 @@
 /area/morninglight/engineering)
 "xd" = (
 /obj/structure/cable{
+	icon_state = "1-2";
 	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	d2 = 2
 	},
 /obj/paint/black,
 /turf/simulated/wall/titanium,
@@ -8877,8 +8863,8 @@
 /area/morninglight/dorms)
 "xf" = (
 /obj/structure/handrail{
-	dir = 4;
-	icon_state = "handrail"
+	icon_state = "handrail";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/morninglight/main)
@@ -8906,28 +8892,28 @@
 /area/planet/abandoned_colony)
 "xm" = (
 /obj/structure/cable{
+	icon_state = "1-8";
 	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+	d2 = 8
 	},
 /obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/morninglight/engineering)
 "xo" = (
 /obj/machinery/light/colored/orange{
-	dir = 4;
-	icon_state = "orange1"
+	icon_state = "orange1";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "xs" = (
 /obj/structure/disposalpipe/trunk{
-	dir = 1;
-	icon_state = "pipe-t"
+	icon_state = "pipe-t";
+	dir = 1
 	},
 /obj/structure/disposaloutlet{
-	dir = 8;
-	name = "disposal outlet"
+	name = "disposal outlet";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/techfloor/airless,
 /area/morninglight/engineering)
@@ -8966,12 +8952,12 @@
 /area/planet/abandoned_colony)
 "zE" = (
 /obj/machinery/light/colored/orange{
-	dir = 8;
-	icon_state = "orange1"
+	icon_state = "orange1";
+	dir = 8
 	},
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	dir = 4;
-	icon_state = "benchmid"
+	icon_state = "benchmid";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -9038,8 +9024,8 @@
 "CP" = (
 /obj/random/junk,
 /turf/simulated/floor/pavement{
-	dir = 1;
-	icon_state = "pavement"
+	icon_state = "pavement";
+	dir = 1
 	},
 /area/planet/abandoned_colony)
 "CX" = (
@@ -9090,8 +9076,8 @@
 /area/planet/abandoned_colony)
 "GJ" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	dir = 8;
-	icon_state = "benchright"
+	icon_state = "benchright";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -9120,8 +9106,8 @@
 "IQ" = (
 /obj/machinery/light/colored/purple,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "Ja" = (
@@ -9155,8 +9141,8 @@
 /obj/random/junk,
 /obj/random/junk,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "Ln" = (
@@ -9173,8 +9159,8 @@
 /area/planet/abandoned_colony)
 "Lq" = (
 /obj/floor_decal/corner/lightgrey{
-	dir = 6;
-	icon_state = "corner_white"
+	icon_state = "corner_white";
+	dir = 6
 	},
 /obj/machinery/computer/ship/sensors{
 	dir = 8
@@ -9190,8 +9176,8 @@
 "LV" = (
 /obj/machinery/light/street,
 /turf/simulated/floor/pavement/corner{
-	dir = 8;
-	icon_state = "pave_corner"
+	icon_state = "pave_corner";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "Md" = (
@@ -9208,11 +9194,11 @@
 	},
 /area/planet/abandoned_colony)
 "Mh" = (
-/obj/machinery/light/colored/green{
-	dir = 1;
-	icon_state = "green1"
-	},
 /mob/living/simple_animal/hostile/scom/lactera,
+/obj/machinery/light/colored/green{
+	icon_state = "green1";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/planet/abandoned_colony)
 "MI" = (
@@ -9323,15 +9309,15 @@
 /obj/decal/cleanable/blood/drip,
 /obj/decal/cleanable/blood,
 /turf/simulated/floor/fixed/uristturf/geminus{
-	color = "#cccccc";
-	icon_state = "square_grey"
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "Rt" = (
 /obj/random/junk,
 /turf/simulated/floor/pavement{
-	dir = 8;
-	icon_state = "pavement"
+	icon_state = "pavement";
+	dir = 8
 	},
 /area/planet/abandoned_colony)
 "Ry" = (
@@ -9356,26 +9342,26 @@
 /area/planet/abandoned_colony)
 "TB" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
-	dir = 4;
-	icon_state = "benchright"
+	icon_state = "benchright";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "TI" = (
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	dir = 4;
-	icon_state = "benchmid"
+	icon_state = "benchmid";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "Uj" = (
 /obj/machinery/light/colored/orange{
-	dir = 4;
-	icon_state = "orange1"
+	icon_state = "orange1";
+	dir = 4
 	},
 /obj/structure/bed/chair/urist/bench/bench1/mid{
-	dir = 8;
-	icon_state = "benchmid"
+	icon_state = "benchmid";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -9401,14 +9387,14 @@
 "Vn" = (
 /obj/decal/cleanable/blood/drip,
 /turf/simulated/floor/pavement{
-	dir = 4;
-	icon_state = "pavement"
+	icon_state = "pavement";
+	dir = 4
 	},
 /area/planet/abandoned_colony)
 "Vr" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	dir = 4;
-	icon_state = "benchleft"
+	icon_state = "benchleft";
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
@@ -9442,8 +9428,8 @@
 /area/planet/abandoned_colony)
 "WU" = (
 /obj/machinery/light/colored/green{
-	dir = 8;
-	icon_state = "green1"
+	icon_state = "green1";
+	dir = 8
 	},
 /obj/item/clothing/accessory/bowtie/ugly,
 /turf/simulated/floor/tiled/dark,
@@ -9505,8 +9491,8 @@
 /area/planet/abandoned_colony)
 "ZO" = (
 /obj/structure/bed/chair/urist/bench/bench1/left{
-	dir = 8;
-	icon_state = "benchleft"
+	icon_state = "benchleft";
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
