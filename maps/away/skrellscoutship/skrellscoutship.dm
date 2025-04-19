@@ -17,7 +17,7 @@
 		/area/ship/skrellscoutship/externalwing/port = NO_SCRUBBER|NO_VENT|NO_APC,
 		/area/ship/skrellscoutship/externalwing/starboard = NO_SCRUBBER|NO_VENT|NO_APC
 	)
-	spawn_weight = 0.45
+	spawn_weight = 0.35
 
 /obj/overmap/visitable/sector/skrellscoutspace
 	name = "Empty Sector"
@@ -86,10 +86,11 @@ var/global/const/access_skrellscoutship = "ACCESS_SKRELLSCOUT"
 	whitelisted_species = list("Skrell")
 	outfit_type = /singleton/hierarchy/outfit/job/skrellscoutship
 	info = "Your vessel is scouting through unknown space, working to map out any potential dangers, as well as potential allies."
-	branch = /datum/mil_branch/skrell_fleet
-	rank = /datum/mil_rank/skrell_fleet
-	allowed_branches = list(/datum/mil_branch/skrell_fleet)
-	allowed_ranks = list(/datum/mil_rank/skrell_fleet)
+//	branch = /datum/mil_branch/skrell_fleet
+//	rank = /datum/mil_rank/skrell_fleet
+//	allowed_branches = list(/datum/mil_branch/skrell_fleet)
+//	allowed_ranks = list(/datum/mil_rank/skrell_fleet)
+	email_domain = "sdtf.qb"
 	skill_points = 30
 	is_semi_antagonist = TRUE
 	min_skill = list( // 20 points

@@ -473,13 +473,21 @@ SUBSYSTEM_DEF(jobs)
 			var/domain
 			var/addr = H.real_name
 			var/pass
-			if(H.char_branch)
-				if(H.char_branch.email_domain)
-					domain = H.char_branch.email_domain
-				if (H.char_branch.allow_custom_email && H.client.prefs.email_addr)
-					addr = H.client.prefs.email_addr
+			if(GLOB.using_map.flags & MAP_HAS_BRANCH)
+				if(H.char_branch)
+					if(H.char_branch.email_domain)
+						domain = H.char_branch.email_domain
+					if (H.char_branch.allow_custom_email && H.client.prefs.email_addr)
+						addr = H.client.prefs.email_addr
 			else
+				if(job.email_domain)
+					domain = job.email_domain
+				if(job.allow_custom_email && H.client.prefs.email_addr)
+					addr = H.client.prefs.email_addr
+
+			if(!domain) //if at this point we don't have a domain set, we use the generic one
 				domain = "freemail.net"
+
 			if (H.client.prefs.email_pass)
 				pass = H.client.prefs.email_pass
 			if(domain)

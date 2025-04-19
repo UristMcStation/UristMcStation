@@ -15,6 +15,7 @@
 
 /datum/job
 	required_language = LANGUAGE_GALCOM
+	email_domain = "nssurist.nt"
 
 //Resource Technician et al
 
@@ -64,6 +65,8 @@
 	access = list(access_maint_tunnels, access_mime, access_theatre)
 	minimal_player_age = 10
 	outfit_type = /singleton/hierarchy/outfit/job/mime
+	email_domain = "freemail.net"
+	allow_custom_email = TRUE
 
 /* //This hasn't worked for a while,
 /datum/job/mime/equip(mob/living/carbon/human/H)
@@ -101,6 +104,8 @@
 	access = list(access_maint_tunnels, access_clown, access_theatre)
 	minimal_player_age = 10
 	outfit_type = /singleton/hierarchy/outfit/job/clown
+	email_domain = "freemail.net"
+	allow_custom_email = TRUE
 
 /datum/job/clown/equip(mob/living/carbon/human/H)
 	. = ..()
@@ -157,3 +162,10 @@
 	flags = OUTFIT_RESET_EQUIPMENT | OUTFIT_ADJUSTMENT_SKIP_BACKPACK
 	head = null
 	gloves = null
+
+/datum/job/merchant
+	email_domain = "freemail.net"
+	allow_custom_email = TRUE
+
+/datum/job/lawyer
+	email_domain = "internalaffairs.nt"

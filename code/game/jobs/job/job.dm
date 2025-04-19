@@ -55,6 +55,8 @@
 	var/required_language
 
 	var/faction = MOB_FACTION_CREW
+	var/email_domain
+	var/allow_custom_email
 
 /datum/job/New()
 

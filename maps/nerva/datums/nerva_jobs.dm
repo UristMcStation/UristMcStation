@@ -26,6 +26,7 @@
 
 /datum/job
 	required_language = LANGUAGE_GALCOM
+	allow_custom_email = TRUE
 
 /datum/job/ai
 	minimal_player_age = 7
@@ -98,6 +99,7 @@
 	minimal_player_age = 14
 	outfit_type = /singleton/hierarchy/outfit/job/nerva/captain
 	economic_power = 3
+	email_domain = "icsnerva.cheapdomainsbuynow.net"
 
 /datum/job/captain/get_description_blurb()
 	return "You are the Captain and owner of the ICS Nerva. You are the top dog. Your backstory and destiny is your own to decide, however, you are ultimately responsible for all that happens onboard. Your job is to make sure the that Nerva survives its time in this sector, and turns a profit for you. Delegate to your First Officer, the Second Officer, and your department heads to effectively manage the ship, and listen to and trust their expertise. It might be the difference between life and death. Oh, and watch out for pirates. The ICS Nerva only has a small complement of weapons at first, which can be upgraded either by your supply team, or by purchasing/salvaging additional weaponry. Good luck."
@@ -132,6 +134,8 @@
 	title = "Senior Scientist"
 	supervisors = "NanoTrasen Central Command and the captain"
 	hud_icon = "hudseniorscientist"
+	email_domain = "externalresearch.nt"
+	allow_custom_email = FALSE
 	outfit_type = /singleton/hierarchy/outfit/job/nerva/seniorscientist
 	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network, access_seniornt,
 			 					access_maint_tunnels, access_heads, access_medical, access_ai_upload, access_eva, access_bridge, access_morgue, access_hydroponics,
@@ -305,6 +309,8 @@
 	hud_icon = "hudscientist"
 	outfit_type = /singleton/hierarchy/outfit/job/nerva/scientist
 	access = list(access_tox, access_tox_storage, access_research, access_xenobiology, access_xenoarch, access_expedition, access_network, access_maint_tunnels, access_prim_tool)
+	email_domain = "externalresearch.nt"
+	allow_custom_email = FALSE
 
 /datum/job/scientist/get_description_blurb()
 	return	"You are a NanoTrasen scientist, working aboard the ICS Nerva under contract. The captain has provided space on the ship for you to do research, in exchange for a nice payout from NanoTrasen, and access to NanoTrasen research contracts. This unique arrangement is owing to NanoTrasen's weak position in the outer sectors. Thus, you are not fully part of the Nerva's crew, and answer to NanoTrasen Central Command above all else. However, while on the ship, you are expected to answer to the senior scientist, while also respecting the wishes of the captain or the ranking officer, particularly in emergency situations."
