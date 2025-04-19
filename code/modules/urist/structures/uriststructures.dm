@@ -505,3 +505,11 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	icon = 'icons/urist/structures&machinery/structures.dmi'
 	icon_state = "well1"
 	clogged = -1
+
+/obj/structure/cryofeed/inertpod //inert cryopods for awaymaps
+	name = "inert cryogenic freezer"
+	desc = "An inert man-sized pod for entering suspended animation."
+	icon = 'icons/obj/machines/medical/cryopod.dmi'
+	icon_state = "broken_cryo"
+	anchored = TRUE
+	dir = WEST
