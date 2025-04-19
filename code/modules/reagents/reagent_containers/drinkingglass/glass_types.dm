@@ -2,6 +2,7 @@
 	name = "half-pint glass"
 	base_name = "glass"
 	base_icon = "square"
+	icon_state = "square"
 	icon = 'icons/obj/food/drink_glasses/square.dmi'
 	desc = "Your standard drinking glass."
 	filling_states = "20;40;60;80;100"
@@ -14,6 +15,7 @@
 	desc = "A robust tumbler with a thick, weighted bottom."
 	base_name = "glass"
 	base_icon = "rocks"
+	icon_state = "rocks"
 	icon = 'icons/obj/food/drink_glasses/rocks.dmi'
 	filling_states = "25;50;75;100"
 	volume = 20
@@ -25,6 +27,7 @@
 	desc = "Stemware with an untapered conical bowl."
 	base_name = "glass"
 	base_icon = "shake"
+	icon_state = "shake"
 	icon = 'icons/obj/food/drink_glasses/shake.dmi'
 	filling_states = "25;50;75;100"
 	volume = 30
@@ -36,6 +39,7 @@
 	desc = "Fragile stemware with a stout conical bowl. Don't spill."
 	base_name = "glass"
 	base_icon = "cocktail"
+	icon_state = "cocktail"
 	icon = 'icons/obj/food/drink_glasses/cocktail.dmi'
 	filling_states = "33;66;100"
 	volume = 15
@@ -47,6 +51,7 @@
 	desc = "A small glass, designed so that its contents can be consumed in one gulp."
 	base_name = "shot"
 	base_icon = "shot"
+	icon_state = "shot"
 	icon = 'icons/obj/food/drink_glasses/shot.dmi'
 	filling_states = "33;66;100"
 	volume = 5
@@ -58,6 +63,7 @@
 	name = "pint glass"
 	base_name = "pint"
 	base_icon = "pint"
+	icon_state = "pint"
 	icon = 'icons/obj/food/drink_glasses/pint.dmi'
 	filling_states = "16;33;50;66;83;100"
 	volume = 60
@@ -70,6 +76,7 @@
 	desc = "A heavy mug with thick walls."
 	base_name = "mug"
 	base_icon = "mug"
+	icon_state = "mug"
 	icon = 'icons/obj/food/drink_glasses/mug.dmi'
 	filling_states = "25;50;75;100"
 	volume = 40
@@ -81,6 +88,7 @@
 	desc = "A piece of elegant stemware."
 	base_name = "glass"
 	base_icon = "wine"
+	icon_state = "wine"
 	icon = 'icons/obj/food/drink_glasses/wine.dmi'
 	filling_states = "20;40;60;80;100"
 	volume = 25
@@ -92,6 +100,7 @@
 	desc = "A piece of very elegant stemware."
 	base_name = "glass"
 	base_icon = "flute"
+	icon_state = "flute"
 	icon = 'icons/obj/food/drink_glasses/flute.dmi'
 	filling_states = "20;40;60;80;100"
 	volume = 25
@@ -103,6 +112,7 @@
 	desc = "A handled glass pitcher."
 	base_name = "pitcher"
 	base_icon = "carafe"
+	icon_state = "carafe"
 	icon = 'icons/obj/food/drink_glasses/carafe.dmi'
 	filling_states = "10;20;30;40;50;60;70;80;90;100"
 	volume = 120
@@ -264,6 +274,7 @@
 	desc = "A mug made from a hollowed pineapple. Tropical!"
 	base_name = "pineapple mug"
 	base_icon = "pineapple"
+	icon_state = "pineapple"
 	icon = 'icons/obj/food/drink_glasses/pineapple.dmi'
 	filling_states = "25;50;75;100"
 	volume = 40
@@ -274,6 +285,7 @@
 	name = "coconut cup"
 	base_name = "coconut cup"
 	base_icon = "coconut"
+	icon_state = "coconut"
 	icon = 'icons/obj/food/drink_glasses/coconut.dmi'
 	desc = "A cup made from a hollowed coconut."
 	filling_states = "20;40;60;80;100"
@@ -286,6 +298,7 @@
 	desc = "A snitfer, also known as a cognac glass, made for serving aged spirits."
 	base_name = "glass"
 	base_icon = "cognac"
+	icon_state = "cognac"
 	icon = 'icons/obj/food/drink_glasses/cognac.dmi'
 	filling_states = "25;50;75;100"
 	volume = 20
@@ -297,6 +310,7 @@
 	desc = "A glass goblet, used to deliver alcohol to the upper class since ancient times."
 	base_name = "goblet"
 	base_icon = "goblet"
+	icon_state = "goblet"
 	icon = 'icons/obj/food/drink_glasses/goblet.dmi'
 	filling_states = "20;40;60;80;100"
 	volume = 25
