@@ -43,7 +43,7 @@
 /mob/living/simple_animal/passive/npc/colonist/trader/crop_trader/get_trade_value(obj/O)
 	. = get_value(O) * 25
 
-/mob/living/simple_animal/passive/npc/colonist/trader/crop_trader/player_sell(obj/O, var/mob/M, var/resell = 1)
+/mob/living/simple_animal/passive/npc/colonist/trader/crop_trader/player_sell(obj/O, mob/M, resell = 1)
 	return ..(O, M, 0)
 
 

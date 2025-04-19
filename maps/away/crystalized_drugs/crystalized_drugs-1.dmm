@@ -2,15 +2,15 @@
 "ab" = (
 /obj/structure/table/steel_reinforced/dark,
 /obj/item/spacecash/bundle/c100,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "ac" = (
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /turf/simulated/wall,
 /area/crystaldrugs/botany)
 "an" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
 /obj/random/trash,
@@ -22,10 +22,10 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "aq" = (
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -63,12 +63,12 @@
 	name = "south bump";
 	pixel_y = -24
 	},
-/obj/effect/floor_decal/borderfloorbeige,
+/obj/floor_decal/borderfloorbeige,
 /obj/structure/cable/blue,
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/hallway2)
 "aC" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -85,7 +85,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/crystaldrugs/bacchus/dorms)
 "aE" = (
-/obj/effect/floor_decal/borderfloorbeige,
+/obj/floor_decal/borderfloorbeige,
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4
 	},
@@ -114,7 +114,7 @@
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/dorms)
 "aG" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
@@ -131,7 +131,7 @@
 /area/crystaldrugs/hallway)
 "aT" = (
 /obj/machinery/floodlight,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "aX" = (
@@ -139,7 +139,7 @@
 /turf/simulated/floor/plating/airless,
 /area/crystaldrugs/asteroid)
 "aY" = (
-/obj/effect/shuttle_landmark/automatic,
+/obj/shuttle_landmark/automatic,
 /turf/space,
 /area/space)
 "ba" = (
@@ -150,7 +150,7 @@
 	name = "chemical heater control console";
 	pressure_setting = 101
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "bf" = (
@@ -187,7 +187,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/atmos)
 "bt" = (
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "bu" = (
@@ -203,11 +203,11 @@
 /turf/simulated/floor/tiled/monotile,
 /area/crystaldrugs/exterior)
 "bx" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel_grid,
 /area/crystaldrugs/bacchus/cargo)
 "by" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/reagentgrinder,
 /obj/structure/cable/blue{
 	d1 = 4;
@@ -217,7 +217,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "bC" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
 /obj/structure/cable/blue{
@@ -239,7 +239,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/exterior)
 "bM" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
@@ -263,8 +263,8 @@
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/armory)
 "bV" = (
-/obj/effect/floor_decal/techfloor,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/techfloor,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -274,7 +274,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/hallway)
 "bW" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
@@ -283,10 +283,10 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "bY" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/structure/cable/blue{
 	d1 = 2;
 	d2 = 8;
@@ -322,10 +322,10 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/bacchus/engine)
 "cc" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -335,7 +335,7 @@
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/atmos)
 "cg" = (
@@ -360,7 +360,7 @@
 	color = "#ff7900";
 	init_color = "#ff7900"
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -374,11 +374,11 @@
 /turf/simulated/floor/tiled/old_cargo/gray,
 /area/crystaldrugs/chem_lab)
 "co" = (
-/obj/effect/floor_decal/industrial/outline/orange,
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/industrial/outline/orange,
+/obj/floor_decal/techfloor/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -395,7 +395,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/crystaldrugs/mining)
 "cz" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -407,7 +407,7 @@
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/chem_lab)
 "cG" = (
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /turf/simulated/wall,
 /area/crystaldrugs/dorms)
 "cH" = (
@@ -415,7 +415,7 @@
 	dir = 4;
 	icon_state = "intact"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -437,7 +437,7 @@
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/loading)
 "cJ" = (
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
 /obj/structure/railing/mapped{
@@ -445,10 +445,10 @@
 	color = "#ff7900";
 	init_color = "#ff7900"
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4
 	},
 /obj/structure/table/steel_reinforced/dark,
@@ -472,7 +472,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crystaldrugs/bacchus)
 "cP" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -501,7 +501,7 @@
 	color = "#ff7900";
 	init_color = "#ff7900"
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4
 	},
 /obj/machinery/alarm{
@@ -523,7 +523,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "da" = (
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall/titanium,
 /area/crystaldrugs/bacchus/dorms)
 "db" = (
@@ -531,14 +531,14 @@
 /area/crystaldrugs/bacchus)
 "de" = (
 /obj/structure/sign/poster,
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /turf/simulated/wall/false,
 /area/crystaldrugs/dorms)
 "dg" = (
 /obj/structure/bed/chair/comfy/black{
 	dir = 4
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/manager)
 "dt" = (
@@ -552,7 +552,7 @@
 /turf/simulated/floor/tiled/old_cargo/gray,
 /area/crystaldrugs/loading)
 "dv" = (
-/obj/effect/paint/vox,
+/obj/paint/vox,
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 5
 	},
@@ -582,7 +582,7 @@
 /turf/simulated/floor/plating/airless,
 /area/crystaldrugs/asteroid)
 "dD" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
@@ -603,8 +603,8 @@
 /area/crystaldrugs/hallway2)
 "dK" = (
 /obj/structure/table/woodentable_reinforced/walnut,
-/obj/item/material/clipboard/steel,
-/obj/item/folder/yellow,
+/obj/item/material/folder/clipboard/steel,
+/obj/item/material/folder/yellow,
 /obj/item/paper_bin,
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/manager)
@@ -635,8 +635,8 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/mining)
 "dU" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/effect/paint/merc,
+/obj/wallframe_spawn/reinforced,
+/obj/paint/merc,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/docking)
 "dW" = (
@@ -658,10 +658,10 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "ec" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -676,14 +676,14 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/bacchus/cargo)
 "ee" = (
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall,
 /area/crystaldrugs/exterior)
 "eg" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/beige/border{
+/obj/floor_decal/corner/beige/border{
 	dir = 8
 	},
 /obj/machinery/atmospherics/binary/pump{
@@ -692,10 +692,10 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "eo" = (
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -712,11 +712,11 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/dorms)
 "er" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "eB" = (
@@ -729,7 +729,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/crystaldrugs/mining)
 "eG" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
 /obj/structure/table/rack/dark,
@@ -742,13 +742,13 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "eK" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "eO" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -772,12 +772,12 @@
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/botany)
 "eZ" = (
-/obj/effect/floor_decal/floordetail/edgedrain{
+/obj/floor_decal/floordetail/edgedrain{
 	color = "#5f5f5f";
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor/corner,
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner,
+/obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -794,7 +794,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/crystaldrugs/chem_lab)
 "fb" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/coldtint,
 /turf/simulated/floor/tiled/steel_grid,
 /area/crystaldrugs/bacchus/cargo)
@@ -810,7 +810,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "fi" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/machinery/power/breakerbox,
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
@@ -834,7 +834,7 @@
 /obj/machinery/air_sensor{
 	id_tag = "heater1sensor"
 	},
-/obj/effect/decal/cleanable/blood/gibs,
+/obj/decal/cleanable/blood/gibs,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "fy" = (
@@ -843,10 +843,10 @@
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/manager)
 "fz" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/beige/border{
+/obj/floor_decal/corner/beige/border{
 	dir = 8
 	},
 /obj/structure/cable/blue{
@@ -862,15 +862,15 @@
 /area/crystaldrugs/bacchus/cargo)
 "fD" = (
 /obj/machinery/light/d_green,
-/obj/effect/floor_decal/techfloor,
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/floor_decal/techfloor,
+/obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "fF" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 4
 	},
 /obj/machinery/light/d_green{
@@ -893,13 +893,13 @@
 /area/crystaldrugs/bacchus/dorms)
 "fK" = (
 /obj/machinery/light/d_green,
-/obj/effect/floor_decal/techfloor,
-/obj/effect/floor_decal/rust,
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/floor_decal/techfloor,
+/obj/floor_decal/rust,
+/obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "fR" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -923,14 +923,14 @@
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/dorms)
 "fZ" = (
-/obj/effect/floor_decal/industrial/outline/orange,
+/obj/floor_decal/industrial/outline/orange,
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "gc" = (
-/obj/effect/wallframe_spawn,
+/obj/wallframe_spawn,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/botany)
 "gf" = (
@@ -974,23 +974,23 @@
 "gs" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/hos,
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
 /turf/simulated/floor/wood/walnut,
 /area/crystaldrugs/bacchus/dorms)
 "gv" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/dorms)
 "gC" = (
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall/titanium,
 /area/crystaldrugs/bacchus/cargo)
 "gL" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
@@ -1004,7 +1004,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/hallway)
 "gN" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1033,7 +1033,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/docking)
 "gV" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
 /obj/machinery/chem_master,
@@ -1055,14 +1055,14 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/bacchus/engine)
 "gY" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/factory)
 "gZ" = (
 /turf/simulated/floor/asteroid,
 /area/crystaldrugs/asteroid)
 "hb" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1070,13 +1070,13 @@
 "he" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
 /turf/simulated/floor/wood/walnut,
 /area/crystaldrugs/bacchus/dorms)
 "hl" = (
-/obj/effect/floor_decal/borderfloorbeige,
+/obj/floor_decal/borderfloorbeige,
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4
 	},
@@ -1097,7 +1097,7 @@
 /turf/simulated/floor/tiled/old_cargo/gray,
 /area/crystaldrugs/chem_lab)
 "hr" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1131,7 +1131,7 @@
 /turf/simulated/floor/tiled/old_cargo/gray,
 /area/crystaldrugs/loading)
 "hK" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "hM" = (
@@ -1139,14 +1139,14 @@
 	dir = 9;
 	icon_state = "intact"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/light/small/red{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "hP" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -1172,7 +1172,7 @@
 	dir = 4;
 	icon_state = "intact"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/loading)
 "hW" = (
@@ -1184,7 +1184,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel_grid,
 /area/crystaldrugs/factory)
 "id" = (
@@ -1195,7 +1195,7 @@
 /obj/structure/catwalk,
 /obj/structure/table/rack/dark,
 /obj/item/gun/launcher/syringe/rapid,
-/obj/effect/decal/cleanable/cobweb{
+/obj/decal/cleanable/cobweb{
 	dir = 1
 	},
 /obj/item/crowbar/prybar,
@@ -1211,17 +1211,17 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/vault)
 "io" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /obj/structure/bookcase,
 /turf/simulated/floor/wood/walnut,
 /area/crystaldrugs/bacchus/dorms)
 "it" = (
-/obj/effect/floor_decal/corner_techfloor_grid{
+/obj/floor_decal/corner_techfloor_grid{
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -1235,10 +1235,10 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/exterior)
 "iN" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/b_green/border{
+/obj/floor_decal/corner/b_green/border{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1256,25 +1256,25 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/hallway2)
 "iV" = (
-/obj/effect/floor_decal/industrial/outline/orange,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/industrial/outline/orange,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "iY" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "iZ" = (
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloorbeige/corner,
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner,
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
@@ -1285,7 +1285,7 @@
 	dir = 10;
 	icon_state = "intact"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/light/small/red,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
@@ -1298,13 +1298,13 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/bacchus/cargo)
 "jh" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/hallway)
 "jo" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
@@ -1315,7 +1315,7 @@
 	dir = 1;
 	icon_state = "map"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "jy" = (
@@ -1323,11 +1323,11 @@
 	dir = 9;
 	icon_state = "intact"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/loading)
 "jA" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
@@ -1340,7 +1340,7 @@
 /obj/machinery/light/d_green{
 	dir = 4
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor,
@@ -1349,7 +1349,7 @@
 /turf/simulated/floor/tiled/old_cargo/gray,
 /area/crystaldrugs/chem_lab)
 "jJ" = (
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 8
 	},
 /obj/structure/bed/chair/padded/beige{
@@ -1361,8 +1361,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/crystaldrugs/bacchus/dorms)
 "jK" = (
-/obj/effect/floor_decal/industrial/outline/orange,
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/industrial/outline/orange,
+/obj/floor_decal/techfloor/corner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -1376,7 +1376,7 @@
 /obj/machinery/floodlight{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1388,7 +1388,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "jR" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 8
 	},
 /obj/machinery/computer/modular/preset/dock{
@@ -1405,7 +1405,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "jT" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1444,8 +1444,8 @@
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/manager)
 "kb" = (
-/obj/effect/floor_decal/industrial/outline/orange,
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/industrial/outline/orange,
+/obj/floor_decal/techfloor/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -1472,7 +1472,7 @@
 	name = "north bump";
 	pixel_y = 24
 	},
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1489,14 +1489,14 @@
 	init_color = "#ff7900";
 	color = "#ff7900"
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
 /obj/machinery/firealarm,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "kl" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8
 	},
 /obj/machinery/light/d_green{
@@ -1505,7 +1505,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "ko" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "kp" = (
@@ -1516,10 +1516,10 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "kv" = (
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/borderfloorbeige/corner,
+/obj/floor_decal/borderfloorbeige/corner,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -1527,7 +1527,7 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/hallway2)
 "kE" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
 /obj/machinery/floodlight{
@@ -1554,7 +1554,7 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/armory)
 "kL" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
@@ -1563,11 +1563,11 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/hallway)
 "kS" = (
-/obj/effect/floor_decal/industrial/outline/orange,
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/industrial/outline/orange,
+/obj/floor_decal/techfloor/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/techfloor/corner,
+/obj/floor_decal/techfloor/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4;
 	icon_state = "intact"
@@ -1575,7 +1575,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "kX" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -21
@@ -1606,7 +1606,7 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/manager)
 "lh" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/vault)
 "lo" = (
@@ -1619,7 +1619,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/hallway)
 "lv" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 4
 	},
 /obj/machinery/power/apc{
@@ -1648,7 +1648,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/crystaldrugs/exterior)
 "lE" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/structure/table/steel_reinforced/dark,
 /obj/machinery/alarm{
 	dir = 1;
@@ -1658,11 +1658,11 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "lH" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters/open{
 	id_tag = "drugdorms"
 	},
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/dorms)
 "lI" = (
@@ -1683,17 +1683,17 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/effect/floor_decal/corner_techfloor_gray{
+/obj/floor_decal/corner_techfloor_gray{
 	dir = 10
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "lJ" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 4
 	},
 /obj/machinery/button/blast_door{
@@ -1706,7 +1706,7 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/dorms)
 "lL" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/power/terminal{
 	dir = 1
 	},
@@ -1717,13 +1717,13 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "lM" = (
-/obj/effect/floor_decal/corner_techfloor_grid{
+/obj/floor_decal/corner_techfloor_grid{
 	dir = 8
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/chem_lab)
 "lP" = (
@@ -1742,14 +1742,14 @@
 "ma" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/borderfloor/corner,
+/obj/floor_decal/borderfloor/corner,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "mh" = (
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/dorms)
 "mn" = (
@@ -1812,11 +1812,11 @@
 	pixel_x = 9;
 	mapped = 1
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 8
 	},
-/obj/effect/floor_decal/rust,
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/floor_decal/rust,
+/obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "mr" = (
@@ -1842,8 +1842,8 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
-/obj/effect/floor_decal/rust,
-/obj/effect/spider/spiderling/mundane,
+/obj/floor_decal/rust,
+/obj/spider/spiderling/mundane,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/atmos)
 "mz" = (
@@ -1851,7 +1851,7 @@
 /turf/simulated/floor/asteroid,
 /area/space)
 "mB" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
@@ -1860,7 +1860,7 @@
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/bacchus/engine)
 "mF" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1877,7 +1877,7 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/dorms)
 "mL" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
 	icon_state = "intact"
@@ -1904,7 +1904,7 @@
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/dorms)
 "mX" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 6
 	},
 /obj/structure/table/standard,
@@ -1914,14 +1914,14 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "na" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "nb" = (
 /obj/structure/sign/poster,
-/obj/effect/paint/vox,
+/obj/paint/vox,
 /turf/simulated/wall/titanium,
 /area/crystaldrugs/bacchus/dorms)
 "nj" = (
@@ -1929,7 +1929,7 @@
 	dir = 2;
 	icon_state = "map"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1945,14 +1945,14 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/hallway2)
 "nn" = (
-/obj/effect/overmap/visitable/sector/drug_lab,
+/obj/overmap/visitable/sector/drug_lab,
 /turf/space,
 /area/space)
 "nq" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 4
 	},
 /obj/structure/bed/chair{
@@ -1961,7 +1961,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "nu" = (
-/obj/effect/floor_decal/techfloor/corner,
+/obj/floor_decal/techfloor/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1971,18 +1971,18 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/crystaldrugs/hallway)
 "ny" = (
-/obj/effect/wallframe_spawn,
+/obj/wallframe_spawn,
 /obj/machinery/door/firedoor,
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/botany)
 "nC" = (
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /turf/simulated/wall,
 /area/crystaldrugs/exterior)
 "nJ" = (
-/obj/effect/floor_decal/techfloor,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/techfloor,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/vault)
 "nN" = (
@@ -2009,7 +2009,7 @@
 /turf/space,
 /area/space)
 "nV" = (
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall/titanium,
 /area/crystaldrugs/bacchus/engine)
 "oa" = (
@@ -2032,7 +2032,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/hallway)
 "ol" = (
-/obj/effect/floor_decal/industrial/outline/red,
+/obj/floor_decal/industrial/outline/red,
 /obj/machinery/light/d_green{
 	dir = 8
 	},
@@ -2055,7 +2055,7 @@
 	},
 /area/crystaldrugs/exterior)
 "ow" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -2079,7 +2079,7 @@
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/loading)
 "oD" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 1
 	},
 /obj/structure/cable/blue{
@@ -2096,7 +2096,7 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/armory)
 "oI" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 5
 	},
 /obj/machinery/firealarm{
@@ -2109,17 +2109,17 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "pc" = (
-/obj/effect/paint/vox,
+/obj/paint/vox,
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 9
 	},
 /turf/simulated/wall/titanium,
 /area/crystaldrugs/bacchus/engine)
 "pj" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 4
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 8
 	},
 /obj/machinery/door/airlock{
@@ -2141,7 +2141,7 @@
 /obj/machinery/light/d_green{
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -2162,10 +2162,10 @@
 /obj/machinery/door/airlock/maintenance{
 	door_color = "#5c636b"
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 4
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2183,14 +2183,14 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/fancy/wood/cee{
+/obj/floor_decal/spline/fancy/wood/cee{
 	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
 /area/crystaldrugs/bacchus/dorms)
 "pv" = (
-/obj/effect/floor_decal/borderfloor,
-/obj/effect/floor_decal/corner/b_green/border,
+/obj/floor_decal/borderfloor,
+/obj/floor_decal/corner/b_green/border,
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
@@ -2226,7 +2226,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crystaldrugs/bacchus)
 "pI" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 8
 	},
 /obj/machinery/door/firedoor,
@@ -2238,10 +2238,10 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/crystaldrugs/docking)
 "pK" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 5
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -2256,7 +2256,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/hallway2)
 "pO" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/machinery/light/d_green,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
@@ -2276,7 +2276,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crystaldrugs/bacchus)
 "qa" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 5
 	},
 /obj/structure/table/standard,
@@ -2285,10 +2285,10 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "qg" = (
-/obj/effect/floor_decal/corner_techfloor_grid{
+/obj/floor_decal/corner_techfloor_grid{
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
@@ -2305,7 +2305,7 @@
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/loading)
 "qi" = (
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2320,7 +2320,7 @@
 /obj/machinery/floodlight{
 	dir = 1
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "qs" = (
@@ -2333,8 +2333,8 @@
 /obj/machinery/atmospherics/valve/shutoff/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/rust,
-/obj/effect/decal/cleanable/blood/oil/streak,
+/obj/floor_decal/rust,
+/obj/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "qw" = (
@@ -2355,8 +2355,8 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "qA" = (
-/obj/effect/floor_decal/borderfloorblack,
-/obj/effect/floor_decal/borderfloorblack/corner{
+/obj/floor_decal/borderfloorblack,
+/obj/floor_decal/borderfloorblack/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -2387,7 +2387,7 @@
 /turf/simulated/floor/tiled/old_cargo/gray,
 /area/crystaldrugs/loading)
 "qE" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/machinery/computer/air_control{
 	dir = 4;
 	input_tag = "heater2in";
@@ -2399,7 +2399,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "qH" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -2409,14 +2409,14 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall/false,
 /area/crystaldrugs/manager)
 "qL" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/structure/railing/mapped{
 	init_color = "#ff7900";
 	color = "#ff7900"
@@ -2433,7 +2433,7 @@
 	dir = 8;
 	pixel_x = 21
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2481,8 +2481,8 @@
 /obj/machinery/light/d_green{
 	dir = 4
 	},
-/obj/effect/floor_decal/borderfloorbeige,
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige,
+/obj/floor_decal/borderfloorbeige{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -2496,7 +2496,7 @@
 	dir = 5;
 	icon_state = "intact"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2512,7 +2512,7 @@
 /area/crystaldrugs/factory)
 "rm" = (
 /obj/structure/filingcabinet/chestdrawer,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -2533,7 +2533,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/hallway2)
 "rD" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "rF" = (
@@ -2561,7 +2561,7 @@
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/dorms)
 "rJ" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
 /obj/machinery/power/apc{
@@ -2583,12 +2583,12 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/atmos)
 "rP" = (
-/obj/effect/wallframe_spawn/reinforced,
-/obj/effect/paint/merc,
+/obj/wallframe_spawn/reinforced,
+/obj/paint/merc,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "rV" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/structure/railing/mapped{
 	init_color = "#ff7900";
 	color = "#ff7900"
@@ -2602,7 +2602,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "rX" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -2612,7 +2612,7 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/manager)
 "sb" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 10
 	},
 /obj/structure/table/steel_reinforced/dark,
@@ -2620,7 +2620,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "sc" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -2636,10 +2636,10 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/mining)
 "sl" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/hallway)
 "sm" = (
@@ -2647,7 +2647,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/hallway2)
 "sr" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 1
 	},
 /obj/structure/cable/blue{
@@ -2663,16 +2663,16 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "su" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/vault)
 "sy" = (
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 1
 	},
-/obj/effect/floor_decal/borderfloorblack/corner{
+/obj/floor_decal/borderfloorblack/corner{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -2751,14 +2751,14 @@
 	pixel_x = 9;
 	mapped = 1
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 9
 	},
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "sJ" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
 /obj/structure/reagent_dispensers/water_cooler,
@@ -2768,7 +2768,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/crystaldrugs/bacchus/dorms)
 "sN" = (
-/obj/effect/paint/vox,
+/obj/paint/vox,
 /turf/simulated/wall/titanium,
 /area/crystaldrugs/bacchus/cargo)
 "sV" = (
@@ -2784,7 +2784,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/crystaldrugs/factory)
 "ta" = (
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2802,7 +2802,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel_grid,
 /area/crystaldrugs/factory)
 "tg" = (
@@ -2812,7 +2812,7 @@
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/chem_lab)
 "tj" = (
-/obj/effect/floor_decal/techfloor/corner,
+/obj/floor_decal/techfloor/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -2827,7 +2827,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/crystaldrugs/hallway)
 "tk" = (
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2844,7 +2844,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/crystaldrugs/docking)
 "ty" = (
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -2911,13 +2911,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner_techfloor_gray{
+/obj/floor_decal/corner_techfloor_gray{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "tU" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/coldtint{
 	dir = 1
 	},
@@ -2930,11 +2930,11 @@
 	},
 /area/crystaldrugs/exterior)
 "tY" = (
-/obj/effect/floor_decal/borderfloor/corner,
+/obj/floor_decal/borderfloor/corner,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "ub" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
 /obj/item/device/radio/intercom{
@@ -2957,14 +2957,14 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "uk" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "um" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 10
 	},
 /obj/structure/railing/mapped{
@@ -2989,7 +2989,7 @@
 /area/crystaldrugs/bacchus)
 "ux" = (
 /obj/structure/table/steel_reinforced/dark,
-/obj/item/material/kitchen/utensil/spork/silver,
+/obj/item/material/utensil/spork/silver,
 /obj/machinery/light/coldtint{
 	dir = 8;
 	icon_state = "tube_map"
@@ -2997,11 +2997,11 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crystaldrugs/bacchus/dorms)
 "uB" = (
-/obj/effect/floor_decal/floordetail/edgedrain{
+/obj/floor_decal/floordetail/edgedrain{
 	color = "#5f5f5f";
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -21
@@ -3017,7 +3017,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/crystaldrugs/chem_lab)
 "uE" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/chem_lab)
 "uH" = (
@@ -3025,7 +3025,7 @@
 	dir = 6;
 	icon_state = "intact"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/light/small/red,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
@@ -3043,7 +3043,7 @@
 /obj/machinery/light/d_green{
 	dir = 4
 	},
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -3058,7 +3058,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
 /turf/simulated/floor/wood/walnut,
@@ -3066,7 +3066,7 @@
 "vd" = (
 /obj/item/reagent_containers/glass/beaker/large,
 /obj/structure/table/steel_reinforced/dark,
-/obj/machinery/reagent_temperature/cooler,
+/obj/machinery/reagent_temperature,
 /obj/machinery/light/coldtint{
 	dir = 8
 	},
@@ -3074,7 +3074,7 @@
 /area/crystaldrugs/chem_lab)
 "vf" = (
 /obj/structure/table/standard,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -3089,8 +3089,8 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "vg" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/vox,
+/obj/wallframe_spawn/reinforced/titanium,
+/obj/paint/vox,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id_tag = "bacchusbridge"
@@ -3098,8 +3098,8 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/bacchus)
 "vn" = (
-/obj/effect/floor_decal/borderfloorbeige,
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige,
+/obj/floor_decal/borderfloorbeige{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -3110,10 +3110,10 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/botany)
 "vr" = (
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -3123,7 +3123,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "vt" = (
-/obj/effect/landmark/map_load_mark/crystal_drugs,
+/obj/landmark/map_load_mark/crystal_drugs,
 /turf/space,
 /area/space)
 "vA" = (
@@ -3131,11 +3131,11 @@
 /turf/simulated/floor/wood/maple,
 /area/crystaldrugs/dorms)
 "vB" = (
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /turf/simulated/wall,
 /area/crystaldrugs/mining)
 "vI" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -3209,18 +3209,18 @@
 	pixel_x = 9;
 	mapped = 1
 	},
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "vX" = (
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloorbeige/corner,
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner,
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -3230,7 +3230,7 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/botany)
 "we" = (
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall,
 /area/crystaldrugs/manager)
 "wf" = (
@@ -3244,7 +3244,7 @@
 /obj/item/reagent_containers/chem_disp_cartridge/silicon,
 /obj/item/reagent_containers/chem_disp_cartridge/hydrazine,
 /obj/item/reagent_containers/chem_disp_cartridge/hydrazine,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/secure/biohazard{
 	req_access = list("ACCESS_CENT_MEDBAY");
 	name = "\improper Vey-Med chemical supplies cart"
@@ -3318,13 +3318,13 @@
 	pixel_y = 3;
 	mapped = 1
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "wK" = (
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -3348,12 +3348,12 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "wN" = (
-/obj/effect/floor_decal/industrial/outline/red,
+/obj/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/chem_lab)
 "wW" = (
-/obj/effect/floor_decal/techfloor/corner,
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner,
+/obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -3368,7 +3368,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "wY" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 8
 	},
 /obj/structure/cable/blue{
@@ -3379,8 +3379,8 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "xd" = (
-/obj/effect/floor_decal/borderfloor/corner,
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner,
+/obj/floor_decal/borderfloor/corner{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -3398,17 +3398,17 @@
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/loading)
 "xi" = (
-/obj/effect/paint/vox,
+/obj/paint/vox,
 /turf/simulated/wall/titanium,
 /area/crystaldrugs/bacchus)
 "xl" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner_techfloor_grid{
+/obj/floor_decal/corner_techfloor_grid{
 	dir = 8
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -3421,10 +3421,10 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/asteroid)
 "xq" = (
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3437,10 +3437,10 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/dorms)
 "xu" = (
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/structure/cable/blue{
 	d1 = 1;
 	d2 = 4;
@@ -3453,15 +3453,15 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/fancy/wood/cee{
+/obj/floor_decal/spline/fancy/wood/cee{
 	dir = 8
 	},
 /obj/item/modular_computer/tablet/preset/custom_loadout/cheap,
-/obj/effect/computer_file_creator/crystal_drugs_eml,
+/obj/computer_file_creator/crystal_drugs_eml,
 /turf/simulated/floor/wood/walnut,
 /area/crystaldrugs/bacchus/dorms)
 "xC" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
@@ -3476,15 +3476,15 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "xE" = (
-/obj/effect/floor_decal/borderfloorbeige,
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige,
+/obj/floor_decal/borderfloorbeige{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/botany)
 "xF" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -3494,21 +3494,21 @@
 	dir = 1;
 	icon_state = "map"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/meter,
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "xK" = (
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall/r_wall,
 /area/crystaldrugs/factory)
 "xL" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner_techfloor_grid,
-/obj/effect/floor_decal/techfloor/corner,
+/obj/floor_decal/corner_techfloor_grid,
+/obj/floor_decal/techfloor/corner,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
@@ -3517,7 +3517,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "xM" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3536,10 +3536,10 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "xS" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "xW" = (
@@ -3547,7 +3547,7 @@
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/chem_lab)
 "xY" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/access_button/airlock_interior{
 	master_tag = "crystal_lock";
 	pixel_y = 22;
@@ -3577,25 +3577,25 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/bacchus/engine)
 "ym" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
 /turf/simulated/floor/wood/walnut,
 /area/crystaldrugs/bacchus/dorms)
 "yq" = (
-/obj/effect/floor_decal/borderfloorbeige,
+/obj/floor_decal/borderfloorbeige,
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/botany)
 "yz" = (
-/obj/effect/floor_decal/techfloor/corner,
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner,
+/obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/vault)
 "yM" = (
-/obj/effect/floor_decal/corner_techfloor_grid,
-/obj/effect/floor_decal/techfloor/corner,
+/obj/floor_decal/corner_techfloor_grid,
+/obj/floor_decal/techfloor/corner,
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/chem_lab)
 "yR" = (
@@ -3622,7 +3622,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/bacchus/engine)
 "yY" = (
-/obj/effect/floor_decal/corner_techfloor_grid{
+/obj/floor_decal/corner_techfloor_grid{
 	dir = 4
 	},
 /obj/structure/cable/blue{
@@ -3654,7 +3654,7 @@
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/hallway2)
 "ze" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
 /obj/structure/cable/blue{
@@ -3678,7 +3678,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crystaldrugs/bacchus)
 "zh" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 1
 	},
 /obj/structure/cable/blue{
@@ -3694,7 +3694,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "zk" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 5
 	},
 /obj/structure/table/steel_reinforced/dark,
@@ -3702,7 +3702,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "zn" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 4
 	},
 /obj/item/stool/padded,
@@ -3714,14 +3714,14 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "zs" = (
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall,
 /area/crystaldrugs/chem_lab)
 "zu" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 6
 	},
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/liquid_fuel,
 /obj/item/device/assembly_holder/prox_igniter,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
@@ -3732,7 +3732,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crystaldrugs/bacchus)
 "zB" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
 /obj/structure/table/rack/dark,
@@ -3753,7 +3753,7 @@
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/bacchus/engine)
 "zQ" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
@@ -3777,10 +3777,10 @@
 /turf/simulated/floor/asteroid,
 /area/crystaldrugs/asteroid)
 "zX" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/structure/railing/mapped{
 	init_color = "#ff7900";
 	color = "#ff7900"
@@ -3788,17 +3788,17 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "zY" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/bacchus/cargo)
 "Aa" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 8
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/light/d_green{
 	dir = 8
 	},
@@ -3827,12 +3827,12 @@
 /turf/simulated/floor/tiled/monotile,
 /area/crystaldrugs/factory)
 "An" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/nt_red,
+/obj/wallframe_spawn/reinforced/titanium,
+/obj/paint/nt_red,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "Aq" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 4
 	},
 /obj/item/device/radio/intercom{
@@ -3871,7 +3871,7 @@
 /turf/simulated/floor/bluegrid,
 /area/crystaldrugs/vault)
 "Ay" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/vault)
 "AE" = (
@@ -3881,8 +3881,8 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "AG" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/vox,
+/obj/wallframe_spawn/reinforced/titanium,
+/obj/paint/vox,
 /obj/machinery/door/blast/shutters/open{
 	id_tag = "bacchusview"
 	},
@@ -3897,20 +3897,20 @@
 	pixel_y = 12;
 	master_tag = "crystaldrug"
 	},
-/obj/effect/shuttle_landmark/bacchus,
+/obj/shuttle_landmark/bacchus,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/bacchus/cargo)
 "AJ" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "AM" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -3926,13 +3926,13 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "AR" = (
-/obj/effect/floor_decal/borderfloorbeige,
+/obj/floor_decal/borderfloorbeige,
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/dorms)
 "AS" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /obj/machinery/door/blast/shutters/open{
 	id_tag = "drugfactory"
 	},
@@ -4002,14 +4002,14 @@
 	pixel_x = 9;
 	mapped = 1
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "Bc" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/cable/blue{
 	d2 = 4;
 	icon_state = "0-4"
@@ -4025,10 +4025,10 @@
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/dorms)
 "BG" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "BM" = (
@@ -4057,10 +4057,10 @@
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/manager)
 "BS" = (
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4080,7 +4080,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/hallway)
 "Ch" = (
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall,
 /area/crystaldrugs/mining)
 "Cs" = (
@@ -4100,11 +4100,11 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/docking)
 "Cx" = (
-/obj/effect/floor_decal/floordetail/edgedrain{
+/obj/floor_decal/floordetail/edgedrain{
 	color = "#5f5f5f";
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -4112,7 +4112,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/crystaldrugs/chem_lab)
 "Cy" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 8
 	},
 /obj/structure/bed/chair/office/dark{
@@ -4122,20 +4122,20 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "CA" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/beige/border{
+/obj/floor_decal/corner/beige/border{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "CE" = (
 /turf/simulated/mineral,
 /area/crystaldrugs/asteroid)
 "CJ" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -4157,15 +4157,15 @@
 /turf/simulated/floor/tiled/monotile,
 /area/crystaldrugs/mining)
 "CW" = (
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/industrial/outline/red,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/chem_lab)
 "CX" = (
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloorbeige/corner,
+/obj/floor_decal/borderfloorbeige/corner,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -4181,8 +4181,8 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/botany)
 "Db" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/vox,
+/obj/wallframe_spawn/reinforced/titanium,
+/obj/paint/vox,
 /obj/machinery/door/blast/shutters/open{
 	id_tag = "bacchusbridge"
 	},
@@ -4195,10 +4195,10 @@
 /turf/simulated/floor/wood/maple,
 /area/crystaldrugs/dorms)
 "Dg" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4215,7 +4215,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "Dh" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
@@ -4233,14 +4233,14 @@
 /obj/machinery/conveyor_switch/oneway{
 	id = "heater1out"
 	},
-/obj/effect/floor_decal/corner_techfloor_gray{
+/obj/floor_decal/corner_techfloor_gray{
 	dir = 5
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "Do" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor,
@@ -4279,19 +4279,19 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "Dz" = (
-/obj/effect/paint/nt_red,
+/obj/paint/nt_red,
 /turf/simulated/wall/titanium,
 /area/crystaldrugs/factory)
 "DG" = (
-/obj/effect/paint/nt_red,
+/obj/paint/nt_red,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/wall/titanium,
 /area/crystaldrugs/factory)
 "DJ" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 8
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 4
 	},
 /obj/machinery/door/airlock{
@@ -4309,7 +4309,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/exterior)
 "DM" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
 /turf/simulated/floor/wood/walnut,
@@ -4321,7 +4321,7 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/bacchus/engine)
 "DU" = (
@@ -4334,7 +4334,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/vault)
 "DW" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/techmaint,
@@ -4347,31 +4347,31 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/docking)
 "Ec" = (
-/obj/effect/spider/stickyweb/dark,
+/obj/spider/stickyweb/dark,
 /turf/simulated/floor/tiled/old_cargo/gray,
 /area/crystaldrugs/bacchus/engine)
 "Ed" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "Eg" = (
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/hallway)
 "Ek" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/random/trash,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "Eo" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -4383,10 +4383,10 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "Et" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/beige/border{
+/obj/floor_decal/corner/beige/border{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/old_tile/gray,
@@ -4405,13 +4405,13 @@
 /turf/simulated/floor/tiled/monotile,
 /area/crystaldrugs/factory)
 "EC" = (
-/obj/effect/floor_decal/corner_techfloor_grid{
+/obj/floor_decal/corner_techfloor_grid{
 	dir = 10
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/techfloor/corner,
+/obj/floor_decal/techfloor/corner,
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/chem_lab)
 "EK" = (
@@ -4419,8 +4419,8 @@
 	init_color = "#ff7900";
 	color = "#ff7900"
 	},
-/obj/effect/floor_decal/borderfloor,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/borderfloor,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "EP" = (
@@ -4446,8 +4446,8 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/atmos)
 "EU" = (
-/obj/effect/catwalk_plated,
-/obj/effect/floor_decal/rust,
+/obj/catwalk_plated,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
@@ -4523,10 +4523,10 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "Fo" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -4547,7 +4547,7 @@
 	pixel_x = 24;
 	pixel_y = 0
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/structure/cable/blue{
 	d2 = 8;
 	icon_state = "0-8"
@@ -4555,8 +4555,8 @@
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/chem_lab)
 "Fy" = (
-/obj/effect/floor_decal/borderfloorblack,
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack,
+/obj/floor_decal/borderfloorblack{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -4588,7 +4588,7 @@
 /turf/simulated/mineral,
 /area/crystaldrugs/hallway2)
 "FF" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/techfloor,
@@ -4601,7 +4601,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/crystaldrugs/mining)
 "FJ" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
 /obj/structure/table/steel_reinforced/dark,
@@ -4616,7 +4616,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "FL" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4640,16 +4640,16 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "FO" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "Gg" = (
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -4663,8 +4663,8 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment/bent,
-/obj/effect/computer_file_creator/crystal_drugs_dc,
-/obj/effect/computer_file_creator/crystal_drugs_receipt,
+/obj/computer_file_creator/crystal_drugs_dc,
+/obj/computer_file_creator/crystal_drugs_receipt,
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/manager)
 "Gj" = (
@@ -4678,7 +4678,7 @@
 /obj/structure/closet/medical_wall{
 	pixel_x = -24
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 9
 	},
 /obj/item/storage/firstaid/regular,
@@ -4712,7 +4712,7 @@
 	},
 /area/crystaldrugs/exterior)
 "GK" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
@@ -4741,7 +4741,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner_techfloor_gray{
+/obj/floor_decal/corner_techfloor_gray{
 	dir = 5
 	},
 /obj/machinery/conveyor_switch{
@@ -4757,7 +4757,7 @@
 /turf/simulated/floor/tiled/old_cargo/gray,
 /area/crystaldrugs/loading)
 "Hn" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
@@ -4836,7 +4836,7 @@
 /turf/simulated/floor/plating/airless,
 /area/crystaldrugs/asteroid)
 "HC" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -4850,14 +4850,14 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/hallway)
 "HR" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/manager)
 "HS" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloorbeige/corner,
+/obj/floor_decal/borderfloorbeige/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
@@ -4878,7 +4878,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/bacchus/engine)
 "If" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/machinery/firealarm{
 	dir = 1
 	},
@@ -4894,8 +4894,8 @@
 /turf/simulated/floor/plating/airless,
 /area/space)
 "Ij" = (
-/obj/effect/floor_decal/borderfloor,
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4910,7 +4910,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/bacchus/cargo)
 "Il" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/blue{
 	d1 = 4;
@@ -4936,13 +4936,13 @@
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/dorms)
 "Ix" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id_tag = "drugfactory"
 	},
 /obj/machinery/door/firedoor,
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /obj/structure/cable/blue{
 	d2 = 4;
 	icon_state = "0-4"
@@ -4950,8 +4950,8 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/manager)
 "IB" = (
-/obj/effect/floor_decal/borderfloorblack,
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack,
+/obj/floor_decal/borderfloorblack{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -4989,13 +4989,13 @@
 /turf/simulated/wall/maple,
 /area/crystaldrugs/dorms)
 "IH" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "IQ" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating/airless,
 /area/space)
 "IX" = (
@@ -5005,8 +5005,8 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crystaldrugs/bacchus/dorms)
 "Jb" = (
-/obj/effect/floor_decal/borderfloorbeige,
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige,
+/obj/floor_decal/borderfloorbeige{
 	dir = 1
 	},
 /obj/machinery/floodlight{
@@ -5019,7 +5019,7 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/botany)
 "Jd" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5046,7 +5046,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/mining)
 "Jg" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -5067,7 +5067,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/hallway2)
 "Jk" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
@@ -5075,7 +5075,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/crystaldrugs/docking)
 "Jl" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -5087,7 +5087,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/crystaldrugs/bacchus/dorms)
 "Jr" = (
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5126,7 +5126,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "Jx" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 6
 	},
 /obj/structure/table/steel_reinforced/dark,
@@ -5134,16 +5134,16 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "Jy" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/b_green/border{
+/obj/floor_decal/corner/b_green/border{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "JA" = (
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /turf/simulated/wall,
 /area/crystaldrugs/armory)
 "JC" = (
@@ -5171,8 +5171,8 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/armory)
 "JH" = (
-/obj/effect/floor_decal/techfloor/corner,
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner,
+/obj/floor_decal/techfloor/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5197,7 +5197,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/crystaldrugs/bacchus/cargo)
 "JN" = (
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall,
 /area/crystaldrugs/hallway)
 "JO" = (
@@ -5207,7 +5207,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crystaldrugs/bacchus)
 "JQ" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
 	icon_state = "intact"
@@ -5235,7 +5235,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /obj/structure/cable/blue{
 	d1 = 1;
 	d2 = 2;
@@ -5250,13 +5250,13 @@
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/loading)
 "Kj" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
 /turf/simulated/floor/wood/walnut,
 /area/crystaldrugs/bacchus/dorms)
 "Kn" = (
-/obj/effect/paint/vox,
+/obj/paint/vox,
 /turf/simulated/wall/titanium,
 /area/crystaldrugs/bacchus/dorms)
 "Kq" = (
@@ -5283,21 +5283,21 @@
 /area/crystaldrugs/loading)
 "KA" = (
 /obj/machinery/light/d_green,
-/obj/effect/floor_decal/borderfloorbeige,
+/obj/floor_decal/borderfloorbeige,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/hallway2)
 "KB" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/voxshuttle,
 /area/crystaldrugs/vault)
 "KE" = (
 /obj/structure/closet,
 /obj/item/card/id/drug_smuggler,
 /obj/machinery/light/small,
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
 /turf/simulated/floor/wood/walnut,
@@ -5306,16 +5306,16 @@
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 8
 	},
-/obj/effect/floor_decal/rust,
-/obj/effect/spider/spiderling/mundane,
+/obj/floor_decal/rust,
+/obj/spider/spiderling/mundane,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/atmos)
 "KK" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/armory)
 "KL" = (
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /turf/simulated/wall,
 /area/crystaldrugs/hallway2)
 "KQ" = (
@@ -5324,13 +5324,13 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crystaldrugs/bacchus/dorms)
 "KT" = (
-/obj/effect/floor_decal/borderfloorbeige,
+/obj/floor_decal/borderfloorbeige,
 /obj/machinery/floodlight,
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/botany)
 "KV" = (
 /obj/structure/sign/poster,
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /turf/simulated/wall,
 /area/crystaldrugs/armory)
 "KY" = (
@@ -5340,35 +5340,35 @@
 /obj/structure/table/rack/dark,
 /obj/item/storage/toolbox/syndicate,
 /obj/random/toolbox,
-/obj/effect/decal/cleanable/cobweb{
+/obj/decal/cleanable/cobweb{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/bacchus/engine)
 "Lh" = (
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloorbeige/corner,
+/obj/floor_decal/borderfloorbeige/corner,
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/botany)
 "Lm" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/fancy/wood/corner{
+/obj/floor_decal/spline/fancy/wood/corner{
 	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
 /area/crystaldrugs/bacchus/dorms)
 "Ln" = (
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5386,22 +5386,22 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/hallway)
 "Lu" = (
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall/r_wall,
 /area/crystaldrugs/loading)
 "Ly" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 1
 	},
 /obj/random/trash,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "LD" = (
-/obj/effect/floor_decal/borderfloor/corner,
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner,
+/obj/floor_decal/borderfloor/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5424,7 +5424,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/effect/overmap/visitable/ship/landable/bacchus,
+/obj/overmap/visitable/ship/landable/bacchus,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/bacchus/cargo)
 "LF" = (
@@ -5437,7 +5437,7 @@
 "LI" = (
 /obj/structure/table/steel_reinforced/dark,
 /obj/item/spacecash/bundle/c200,
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techfloor,
@@ -5453,7 +5453,7 @@
 /obj/machinery/light/d_green{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5475,7 +5475,7 @@
 	init_color = "#ff7900";
 	color = "#ff7900"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel_grid,
 /area/crystaldrugs/bacchus/cargo)
 "Mc" = (
@@ -5489,7 +5489,7 @@
 	init_color = "#ff7900";
 	color = "#ff7900"
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
 /obj/machinery/light/d_green{
@@ -5498,7 +5498,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "Mi" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8
 	},
 /obj/random/trash,
@@ -5527,10 +5527,10 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/manager)
 "Mp" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
-/obj/effect/floor_decal/trimline/grey/warning{
+/obj/floor_decal/trimline/grey/warning{
 	dir = 1;
 	color = "#cc6600"
 	},
@@ -5549,7 +5549,7 @@
 /turf/simulated/floor/reinforced,
 /area/crystaldrugs/atmos)
 "Mt" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 9
 	},
 /obj/structure/cable/blue{
@@ -5622,10 +5622,10 @@
 	pixel_x = 9;
 	mapped = 1
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "Mx" = (
@@ -5634,10 +5634,10 @@
 	name = "west bump";
 	pixel_x = -24
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8
 	},
 /obj/machinery/light/small{
@@ -5647,8 +5647,8 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/bacchus/cargo)
 "MA" = (
-/obj/effect/floor_decal/borderfloorbeige,
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige,
+/obj/floor_decal/borderfloorbeige{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5658,7 +5658,7 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/botany)
 "ME" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 6
 	},
 /obj/structure/railing/mapped{
@@ -5669,8 +5669,8 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "MJ" = (
-/obj/effect/floor_decal/borderfloorbeige/corner,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/borderfloorbeige/corner,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/dorms)
 "MT" = (
@@ -5699,8 +5699,8 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/effect/floor_decal/spline/fancy/wood/corner{
+/obj/floor_decal/spline/fancy/wood,
+/obj/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
 /turf/simulated/floor/wood/walnut,
@@ -5713,8 +5713,8 @@
 	tag_south = 1;
 	tag_west = 2
 	},
-/obj/effect/floor_decal/rust,
-/obj/effect/spider/spiderling/mundane,
+/obj/floor_decal/rust,
+/obj/spider/spiderling/mundane,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/atmos)
 "Nk" = (
@@ -5734,7 +5734,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/mining)
 "Nl" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5762,7 +5762,7 @@
 /area/crystaldrugs/chem_lab)
 "Nn" = (
 /obj/structure/table/steel_reinforced/dark,
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
 /obj/item/storage/box/cola/sodawater,
@@ -5794,7 +5794,7 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/crystaldrugs/bacchus/cargo)
 "ND" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 9
 	},
 /obj/structure/cable/blue{
@@ -5808,11 +5808,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/loading)
 "NJ" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
@@ -5848,7 +5848,7 @@
 	name = "vault access";
 	id_tag = "drug_vault"
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -5858,10 +5858,10 @@
 /turf/simulated/floor/plating/airless,
 /area/crystaldrugs/asteroid)
 "Oa" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/structure/railing/mapped{
 	init_color = "#ff7900";
 	color = "#ff7900"
@@ -5913,7 +5913,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/atmos)
 "Ou" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/vending/sovietsoda,
 /turf/simulated/floor/tiled/steel_grid,
 /area/crystaldrugs/bacchus/cargo)
@@ -5922,14 +5922,14 @@
 	init_color = "#ff7900";
 	color = "#ff7900"
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "OC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /turf/simulated/wall,
 /area/crystaldrugs/factory)
 "OE" = (
@@ -5949,7 +5949,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/mining)
 "OV" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6003,7 +6003,7 @@
 	},
 /area/crystaldrugs/hallway)
 "Pi" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/mining)
@@ -6043,17 +6043,17 @@
 	dir = 2;
 	icon_state = "map"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "PC" = (
-/obj/effect/floor_decal/corner_techfloor_grid{
+/obj/floor_decal/corner_techfloor_grid{
 	dir = 4
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
@@ -6068,18 +6068,18 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner_techfloor_gray{
+/obj/floor_decal/corner_techfloor_gray{
 	dir = 10
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "PG" = (
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall/r_wall,
 /area/crystaldrugs/atmos)
 "PI" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6133,7 +6133,7 @@
 /area/crystaldrugs/factory)
 "Qq" = (
 /obj/item/stool/wood,
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/old_tile/beige,
@@ -6166,10 +6166,10 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/bacchus/engine)
 "QD" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloor/corner,
+/obj/floor_decal/borderfloor/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -6187,7 +6187,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/corner_techfloor_gray{
+/obj/floor_decal/corner_techfloor_gray{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
@@ -6206,11 +6206,11 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "Rd" = (
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /turf/simulated/wall,
 /area/crystaldrugs/factory)
 "Rf" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -6222,19 +6222,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner_techfloor_gray{
+/obj/floor_decal/corner_techfloor_gray{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "Rm" = (
-/obj/effect/floor_decal/corner_techfloor_grid{
+/obj/floor_decal/corner_techfloor_grid{
 	dir = 5
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 4
 	},
 /obj/machinery/alarm{
@@ -6263,7 +6263,7 @@
 	dir = 4;
 	icon_state = "map"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/mining)
 "Ru" = (
@@ -6282,7 +6282,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crystaldrugs/bacchus)
 "Ry" = (
-/obj/effect/floor_decal/borderfloorbeige,
+/obj/floor_decal/borderfloorbeige,
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -21
@@ -6293,8 +6293,8 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/hallway2)
 "RA" = (
-/obj/effect/floor_decal/techfloor/corner,
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner,
+/obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -6311,7 +6311,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "RB" = (
-/obj/effect/floor_decal/borderfloor/corner,
+/obj/floor_decal/borderfloor/corner,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
@@ -6349,7 +6349,7 @@
 /turf/space,
 /area/space)
 "RJ" = (
-/obj/effect/paint/vox,
+/obj/paint/vox,
 /turf/simulated/wall/titanium,
 /area/crystaldrugs/bacchus/engine)
 "RN" = (
@@ -6360,10 +6360,10 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/bacchus/cargo)
 "RO" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloor/corner,
+/obj/floor_decal/borderfloor/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
@@ -6388,16 +6388,16 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/factory)
 "RV" = (
-/obj/effect/floor_decal/corner_techfloor_grid{
+/obj/floor_decal/corner_techfloor_grid{
 	dir = 4
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/hallway)
 "RX" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6424,7 +6424,7 @@
 /area/crystaldrugs/hallway)
 "Se" = (
 /obj/item/device/assembly_holder/prox_igniter,
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "Sf" = (
@@ -6452,10 +6452,10 @@
 /turf/simulated/floor/asteroid,
 /area/crystaldrugs/exterior)
 "Sv" = (
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
@@ -6487,10 +6487,10 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "SE" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -6505,10 +6505,10 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/bacchus/cargo)
 "SF" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/vault)
 "SH" = (
@@ -6521,10 +6521,10 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/hallway)
 "SS" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 8
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/hallway)
 "SX" = (
@@ -6536,7 +6536,7 @@
 	init_color = "#ff7900";
 	color = "#ff7900"
 	},
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/random/trash,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
@@ -6571,10 +6571,10 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/asteroid)
 "Tj" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 8
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 4
 	},
 /obj/machinery/door/airlock{
@@ -6598,14 +6598,14 @@
 /obj/item/reagent_containers/food/condiment/enzyme,
 /obj/item/reagent_containers/food/condiment/enzyme,
 /obj/structure/closet/crate/freezer,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel_grid,
 /area/crystaldrugs/factory)
 "Tn" = (
-/obj/effect/floor_decal/corner_techfloor_grid{
+/obj/floor_decal/corner_techfloor_grid{
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 1
 	},
 /obj/structure/cable/blue{
@@ -6622,19 +6622,19 @@
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/manager)
 "Tu" = (
-/obj/effect/catwalk_plated,
-/obj/effect/floor_decal/rust,
+/obj/catwalk_plated,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "TA" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "TE" = (
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall/r_wall,
 /area/crystaldrugs/docking)
 "TF" = (
@@ -6686,26 +6686,26 @@
 /turf/simulated/floor/tiled/old_cargo/gray,
 /area/crystaldrugs/chem_lab)
 "TY" = (
-/obj/effect/floor_decal/borderfloor,
-/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/floor_decal/borderfloor,
+/obj/decal/cleanable/blood/gibs/robot,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "Ua" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/machinery/light/d_green,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "Ud" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/structure/table/steel_reinforced/dark,
 /obj/random/contraband,
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "Uf" = (
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/techfloor/corner,
+/obj/floor_decal/techfloor/corner,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
@@ -6720,7 +6720,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/hallway)
 "Uj" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/machinery/power/apc{
 	dir = 2;
 	name = "south bump";
@@ -6739,7 +6739,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 10
 	},
-/obj/effect/spider/spiderling/mundane,
+/obj/spider/spiderling/mundane,
 /obj/structure/cable/blue{
 	d1 = 1;
 	d2 = 4;
@@ -6748,20 +6748,20 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/atmos)
 "Un" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 9
 	},
 /obj/machinery/radio_beacon,
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "Uo" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/dorms)
 "Up" = (
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /obj/structure/sign/poster,
 /turf/simulated/wall/titanium,
 /area/crystaldrugs/bacchus/dorms)
@@ -6796,7 +6796,7 @@
 /turf/simulated/floor/tiled/old_tile/gray,
 /area/crystaldrugs/bacchus/engine)
 "UG" = (
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -6804,7 +6804,7 @@
 /area/crystaldrugs/bacchus/dorms)
 "UK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/paint/nt_red,
+/obj/paint/nt_red,
 /turf/simulated/wall/titanium,
 /area/crystaldrugs/factory)
 "UQ" = (
@@ -6821,7 +6821,7 @@
 /turf/simulated/floor/plating/airless,
 /area/crystaldrugs/mining)
 "UY" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
 /obj/structure/cable/blue{
@@ -6839,7 +6839,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/atmos)
 "Vb" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/old_tile/beige,
@@ -6883,11 +6883,11 @@
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/manager)
 "Vv" = (
-/obj/effect/paint/machine_gray,
+/obj/paint/machine_gray,
 /turf/simulated/wall,
 /area/crystaldrugs/manager)
 "Vx" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -6902,7 +6902,7 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/factory)
 "Vz" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 8
 	},
 /obj/structure/cable/blue{
@@ -6918,7 +6918,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "VH" = (
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 10
 	},
 /obj/structure/bed/chair/padded/beige{
@@ -6930,10 +6930,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/crystaldrugs/bacchus/dorms)
 "VS" = (
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/techfloor/corner,
+/obj/floor_decal/techfloor/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/blue{
@@ -6947,7 +6947,7 @@
 /obj/item/reagent_containers/chem_disp_cartridge/mercury,
 /obj/item/reagent_containers/chem_disp_cartridge/mercury,
 /obj/item/reagent_containers/chem_disp_cartridge/lithium,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/secure/biohazard{
 	req_access = list("ACCESS_CENT_MEDBAY");
 	name = "\improper Vey-Med chemical supplies cart"
@@ -6955,15 +6955,15 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/crystaldrugs/factory)
 "VX" = (
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall/r_wall,
 /area/crystaldrugs/dorms)
 "VY" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
-/obj/effect/floor_decal/techfloor/corner,
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner,
+/obj/floor_decal/techfloor/corner{
 	dir = 8
 	},
 /obj/machinery/power/apc{
@@ -6984,14 +6984,14 @@
 	pixel_x = 21
 	},
 /obj/item/device/gps,
-/obj/item/device/spaceflare,
+/obj/item/shuttle_beacon,
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
 /turf/simulated/floor/tiled/dark,
 /area/crystaldrugs/bacchus)
 "We" = (
-/obj/effect/catwalk_plated,
-/obj/effect/floor_decal/rust,
+/obj/catwalk_plated,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -7010,7 +7010,7 @@
 /turf/simulated/floor/wood/maple,
 /area/crystaldrugs/dorms)
 "Wk" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -7021,14 +7021,14 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/hallway)
 "Wr" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "Wu" = (
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/exterior)
 "Wz" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/old_tile/beige,
@@ -7041,7 +7041,7 @@
 	dir = 1
 	},
 /obj/item/trash/cubewrapper,
-/obj/effect/floor_decal/corner_techfloor_gray{
+/obj/floor_decal/corner_techfloor_gray{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
@@ -7063,13 +7063,13 @@
 	init_color = "#ff7900";
 	color = "#ff7900"
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/factory)
 "WO" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 5
 	},
 /obj/machinery/alarm{
@@ -7079,10 +7079,10 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/bacchus/cargo)
 "WP" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 8
 	},
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/old_tile/beige,
@@ -7104,10 +7104,10 @@
 /turf/simulated/floor/plating,
 /area/crystaldrugs/hallway2)
 "Xi" = (
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/borderfloorbeige/corner{
+/obj/floor_decal/borderfloorbeige/corner{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -7131,13 +7131,13 @@
 /area/crystaldrugs/hallway2)
 "Xp" = (
 /obj/machinery/light/d_green,
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 10
 	},
 /obj/structure/reagent_dispensers/fueltank{
 	modded = 1
 	},
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "Xr" = (
@@ -7147,7 +7147,7 @@
 	pixel_x = 24;
 	pixel_y = 0
 	},
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -7159,7 +7159,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crystaldrugs/bacchus/dorms)
 "Xs" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4
 	},
 /obj/machinery/firealarm{
@@ -7207,7 +7207,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/vault)
 "XX" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel_grid,
 /area/crystaldrugs/factory)
 "Yp" = (
@@ -7228,14 +7228,14 @@
 /turf/simulated/floor/tiled/monotile,
 /area/crystaldrugs/bacchus/cargo)
 "YB" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "YH" = (
-/obj/effect/floor_decal/industrial/outline/orange,
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/industrial/outline/orange,
+/obj/floor_decal/techfloor/corner{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/techmaint,
@@ -7244,7 +7244,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall/r_wall,
 /area/crystaldrugs/factory)
 "YL" = (
@@ -7257,15 +7257,15 @@
 /area/crystaldrugs/mining)
 "YS" = (
 /obj/machinery/light/d_green,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/old_tile/beige,
 /area/crystaldrugs/manager)
 "YU" = (
-/obj/effect/floor_decal/techfloor,
-/obj/effect/decal/cleanable/liquid_fuel,
+/obj/floor_decal/techfloor,
+/obj/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/techfloor,
 /area/crystaldrugs/vault)
 "YV" = (
@@ -7283,13 +7283,13 @@
 /turf/simulated/floor/plating/airless,
 /area/crystaldrugs/asteroid)
 "Za" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "Zb" = (
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall/titanium,
 /area/crystaldrugs/bacchus)
 "Zc" = (
@@ -7309,11 +7309,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
 	},
-/obj/effect/paint/merc,
+/obj/paint/merc,
 /turf/simulated/wall/r_wall,
 /area/crystaldrugs/atmos)
 "Zm" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 9
 	},
 /obj/machinery/alarm{
@@ -7326,7 +7326,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "Zo" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4;
 	icon_state = "intact"
@@ -7343,7 +7343,7 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/bacchus/cargo)
 "Zt" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 10
 	},
 /obj/machinery/reagentgrinder,
@@ -7351,10 +7351,10 @@
 /turf/simulated/floor/tiled,
 /area/crystaldrugs/mining)
 "Zv" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1
 	},
-/obj/effect/floor_decal/trimline/grey/warning{
+/obj/floor_decal/trimline/grey/warning{
 	dir = 1;
 	color = "#cc6600"
 	},
@@ -7371,7 +7371,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/hallway)
 "ZE" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump,
@@ -7404,8 +7404,8 @@
 /turf/simulated/floor/tiled/old_cargo/beige,
 /area/crystaldrugs/hallway2)
 "ZO" = (
-/obj/effect/floor_decal/industrial/outline/orange,
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/industrial/outline/orange,
+/obj/floor_decal/techfloor/corner{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -7415,7 +7415,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/docking)
 "ZP" = (
-/obj/effect/floor_decal/borderfloorbeige{
+/obj/floor_decal/borderfloorbeige{
 	dir = 10
 	},
 /obj/machinery/atmospherics/portables_connector{
@@ -7442,13 +7442,13 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crystaldrugs/bacchus/dorms)
 "ZU" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/crystaldrugs/vault)
 "ZY" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{

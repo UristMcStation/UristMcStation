@@ -1,10 +1,6 @@
-//Basically a one way passive valve. If the pressure inside is greater than the environment then gas will flow passively,
-//but it does not permit gas to flow back from the environment into the injector. Can be turned off to prevent any gas flow.
-//When it receives the "inject" signal, it will try to pump it's entire contents into the environment regardless of pressure, using power.
-
 /obj/machinery/atmospherics/unary/outlet_injector
 	icon = 'icons/atmos/injector.dmi'
-	icon_state = "off"
+	icon_state = "map_injector"
 
 	name = "injector"
 	desc = "Passively injects air into its surroundings. Has a valve attached to it that can control flow rate."
@@ -34,10 +30,9 @@
 	//Give it a small reservoir for injecting. Also allows it to have a higher flow rate limit than vent pumps, to differentiate injectors a bit more.
 	air_contents.volume = ATMOS_DEFAULT_VOLUME_PUMP + 500
 
-/obj/machinery/atmospherics/unary/outlet_injector/Initialize()
-	. = ..()
 	set_frequency(frequency)
 	broadcast_status()
+
 
 /obj/machinery/atmospherics/unary/outlet_injector/Destroy()
 	unregister_radio(src, frequency)
@@ -66,41 +61,59 @@
 			else
 				add_underlay(T,, dir)
 
-/obj/machinery/atmospherics/unary/outlet_injector/proc/get_console_data()
-	. = list()
-	. += "<table>"
-	. += "<tr><td><b>Name:</b></td><td>[name]</td>"
-	. += "<tr><td><b>Power:</b></td><td>[use_power ? SPAN_COLOR("green", "Injecting") : SPAN_COLOR("red", "Offline")]</td><td><a href='?src=\ref[src];toggle_power=\ref[src]'>Toggle</a></td></tr>"
-	. += "<tr><td><b>ID Tag:</b></td><td>[id]</td><td><a href='?src=\ref[src];settag=\ref[id]'>Set ID Tag</a></td></td></tr>"
-	if(frequency%10)
-		. += "<tr><td><b>Frequency:</b></td><td>[frequency/10]</td><td><a href='?src=\ref[src];setfreq=\ref[frequency]'>Set Frequency</a></td></td></tr>"
-	else
-		. += "<tr><td><b>Frequency:</b></td><td>[frequency/10].0</td><td><a href='?src=\ref[src];setfreq=\ref[frequency]'>Set Frequency</a></td></td></tr>"
-	.+= "</table>"
-	. = JOINTEXT(.)
-
-/obj/machinery/atmospherics/unary/outlet_injector/OnTopic(mob/user, href_list, datum/topic_state/state)
-	if((. = ..()))
+/obj/machinery/atmospherics/unary/outlet_injector/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
+	if(inoperable())
 		return
-	if(href_list["toggle_power"])
+
+	var/data[0]
+
+	data = list(
+		"on" = use_power,
+		"id" = id,
+		"frequency" = frequency,
+		"flow_rate" = volume_rate,
+		"last_flow_rate" = round(last_flow_rate*10),
+	)
+
+	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
+	if (!ui)
+		ui = new(user, src, ui_key, "injector.tmpl", name, 480, 240)
+		ui.set_initial_data(data)
+		ui.open()
+		ui.set_auto_update(1)
+
+/obj/machinery/atmospherics/unary/outlet_injector/Topic(href,href_list)
+	if((. = ..())) return
+
+	if(href_list["power"])
 		update_use_power(!use_power)
-		queue_icon_update()
-		to_chat(user, SPAN_NOTICE("The multitool emits a short beep confirming the change."))
-		return TOPIC_REFRESH
+		. = 1
+
 	if(href_list["settag"])
-		var/t = sanitizeSafe(input(user, "Enter the ID tag for [src.name]", src.name, id), MAX_NAME_LEN)
-		if(t && CanInteract(user, state))
-			id = t
-			to_chat(user, SPAN_NOTICE("The multitool emits a short beep confirming the change."))
-			return TOPIC_REFRESH
-		return TOPIC_HANDLED
+		var/t = sanitizeSafe(input(usr, "Enter the ID tag for [src.name]", src.name, id), MAX_NAME_LEN)
+		id = t
+		. = 1
+
 	if(href_list["setfreq"])
-		var/freq = input(user, "Enter the Frequency for [src.name]. Decimal will automatically be inserted", src.name, frequency) as num|null
-		if(CanInteract(user, state))
-			set_frequency(freq)
-			to_chat(user, SPAN_NOTICE("The multitool emits a short beep confirming the change."))
-			return TOPIC_REFRESH
-		return TOPIC_HANDLED
+		var/freq = input(usr, "Enter the Frequency for [src.name]. Decimal will automatically be inserted", src.name, frequency) as num|null
+		set_frequency(freq)
+		. = 1
+
+	switch(href_list["set_flow_rate"])
+		if ("max")
+			volume_rate = air_contents.volume
+			. = 1
+		if ("set")
+			var/new_rate = input(usr,"Enter maximum flow rate (0-[air_contents.volume]L/s)", src.name, src.volume_rate) as num
+			src.volume_rate = clamp(new_rate, 0, air_contents.volume)
+			. = 1
+
+	if(.)
+		src.update_icon()
+
+/obj/machinery/atmospherics/unary/outlet_injector/interface_interact(mob/user)
+	ui_interact(user)
+	return TRUE
 
 /obj/machinery/atmospherics/unary/outlet_injector/Process()
 	..()
@@ -127,6 +140,7 @@
 
 	return 1
 
+// This proc seems to only exist for compatibility
 /obj/machinery/atmospherics/unary/outlet_injector/proc/inject()
 	set waitfor = 0
 
@@ -195,23 +209,18 @@
 		volume_rate = clamp(number, 0, air_contents.volume)
 
 	if(signal.data["status"])
-		addtimer(new Callback(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+		addtimer(new Callback(src, PROC_REF(broadcast_status)), 2, TIMER_UNIQUE)
 		return
 
-	addtimer(new Callback(src, .proc/broadcast_status), 2, TIMER_UNIQUE)
+	addtimer(new Callback(src, PROC_REF(broadcast_status)), 2, TIMER_UNIQUE)
 
 /obj/machinery/atmospherics/unary/outlet_injector/hide(i)
 	update_underlays()
 
-/obj/machinery/atmospherics/unary/outlet_injector/attackby(obj/item/O as obj, mob/user as mob)
-	if(isMultitool(O))
-		var/datum/browser/popup = new (user, "Vent Configuration Utility", "[src] Configuration Panel", 600, 200)
-		popup.set_content(jointext(get_console_data(),"<br>"))
-		popup.open()
-		return
-
+/obj/machinery/atmospherics/unary/outlet_injector/use_tool(obj/item/O, mob/living/user, list/click_params)
 	if(isWrench(O))
 		new /obj/item/pipe(loc, src)
 		qdel(src)
-		return
+		return TRUE
+
 	return ..()

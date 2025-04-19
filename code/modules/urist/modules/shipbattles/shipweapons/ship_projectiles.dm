@@ -8,7 +8,7 @@
 	ship = 1
 	life_span = 300
 
-/obj/item/projectile/ion/ship/on_hit(atom/target, var/blocked = 0)
+/obj/item/projectile/ion/ship/on_hit(atom/target, blocked = 0)
 	var/flicker_range = light_effect_range * 2 //16 for the base ion pulse
 	for(var/obj/machinery/light/L in range(flicker_range, target))
 		L.flicker(rand(5,15))
@@ -48,7 +48,7 @@
 //	explosion(A, -1, 0, 2)
 //	..()
 
-/obj/effect/meteor/shipmissile
+/obj/meteor/shipmissile
 	meteordrop = null
 	ismissile = TRUE
 	dropamt = 0
@@ -57,13 +57,13 @@
 	var/ex_range
 	var/wall_decon = FALSE
 
-/obj/effect/meteor/shipmissile/meteor_effect()
+/obj/meteor/shipmissile/meteor_effect()
 	..()
 	explosion(src.loc, ex_range, hitpwr, adminlog = 0, turf_breaker = wall_decon)
 
 //missiles
 
-/obj/effect/meteor/shipmissile/smallmissile
+/obj/meteor/shipmissile/smallmissile
 	name = "small missile"
 	icon_state= "smallmissile"
 	shield_damage_override = 10
@@ -72,7 +72,7 @@
 	ex_range = 8
 	flicker_range = 12
 
-/obj/effect/meteor/shipmissile/smallalienmissile
+/obj/meteor/shipmissile/smallalienmissile
 	name = "small alien missile"
 	icon_state= "smallalienmissile"
 	wall_decon = TRUE
@@ -82,7 +82,7 @@
 	ex_range = 11
 	flicker_range = 15
 
-/obj/effect/meteor/shipmissile/bigmissile
+/obj/meteor/shipmissile/bigmissile
 	name = "big missile"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigmissile"
@@ -93,7 +93,7 @@
 	ex_range = 12
 	flicker_range = 15
 
-/obj/effect/meteor/shipmissile/bigalienmissile
+/obj/meteor/shipmissile/bigalienmissile
 	name = "big alien missile"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigalienmissile"
@@ -106,7 +106,7 @@
 
 //torpedoes
 
-/obj/effect/meteor/shipmissile/smalltorpedo
+/obj/meteor/shipmissile/smalltorpedo
 	name = "small torpedo"
 	icon_state= "smalltorpedo"
 	shield_damage_override = 10
@@ -116,7 +116,7 @@
 	ex_range = 15
 	flicker_range = 20
 
-/obj/effect/meteor/shipmissile/bigtorpedo
+/obj/meteor/shipmissile/bigtorpedo
 	name = "big torpedo"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "bigtorpedo"
@@ -127,7 +127,7 @@
 	ex_range = 20
 	flicker_range = 25
 
-/obj/effect/meteor/shipmissile/alientorpedo
+/obj/meteor/shipmissile/alientorpedo
 	name = "alien torpedo"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "alientorpedo"
@@ -138,7 +138,7 @@
 	ex_range = 20
 	flicker_range = 25
 
-/obj/effect/meteor/shipmissile/bigalientorpedo
+/obj/meteor/shipmissile/bigalientorpedo
 	name = "alien torpedo"
 	icon = 'icons/urist/items/ship_projectiles48x48.dmi'
 	icon_state= "alientorpedo"
@@ -150,7 +150,7 @@
 	flicker_range = 30
 
 //misc "missiles"
-/obj/effect/meteor/shipmissile/mininuke
+/obj/meteor/shipmissile/mininuke
 	name = "mininuke"
 	icon_state = "minibomb-nuke"
 	shield_damage_override = 10
@@ -160,27 +160,27 @@
 	ex_range = 6
 	flicker_range = 30
 
-/obj/effect/meteor/shipmissile/mininuke/meteor_effect()
+/obj/meteor/shipmissile/mininuke/meteor_effect()
 	..()
-	new /obj/effect/decal/cleanable/greenglow(get_turf(src))
+	new /obj/decal/cleanable/greenglow(get_turf(src))
 	SSradiation.radiate(src, 50)
 
 
 //beam weapons
 
-/obj/effect/projectile/ship
+/obj/projectile/ship
 	icon = 'icons/urist/items/ship_projectiles.dmi'
 
-/obj/effect/projectile/ship/heavy_laser
-	light_max_bright = 1
+/obj/projectile/ship/heavy_laser
+	light_power = 1
 
-/obj/effect/projectile/ship/heavy_laser/tracer
+/obj/projectile/ship/heavy_laser/tracer
 	icon_state = "beam_heavy"
 
-/obj/effect/projectile/ship/heavy_laser/muzzle
+/obj/projectile/ship/heavy_laser/muzzle
 	icon_state = "muzzle_beam_heavy"
 
-/obj/effect/projectile/ship/heavy_laser/impact
+/obj/projectile/ship/heavy_laser/impact
 	icon_state = "impact_beam_heavy"
 
 /obj/item/projectile/beam/ship
@@ -193,7 +193,7 @@
 	var/ex_range = 2
 	var/shake_range = 10
 
-/obj/item/projectile/beam/ship/on_hit(atom/target, var/blocked = 0)
+/obj/item/projectile/beam/ship/on_hit(atom/target, blocked = 0)
 	for(var/mob/M in range(shake_range, target))
 		if(!M.stat && !istype(M, /mob/living/silicon/ai))\
 			shake_camera(M, 3, 1)
@@ -220,9 +220,9 @@
 	damage = 300
 	armor_penetration = 100
 
-	muzzle_type = /obj/effect/projectile/laser/heavy/muzzle
-	tracer_type = /obj/effect/projectile/laser/heavy/tracer
-	impact_type = /obj/effect/projectile/laser/heavy/impact
+	muzzle_type = /obj/projectile/laser/heavy/muzzle
+	tracer_type = /obj/projectile/laser/heavy/tracer
+	impact_type = /obj/projectile/laser/heavy/impact
 
 /obj/item/projectile/beam/ship/heavylaser
 	name = "heavy laser"
@@ -233,15 +233,15 @@
 //	life = 30
 	wall_decon = TRUE
 
-	muzzle_type = /obj/effect/projectile/laser/heavy/muzzle
-	tracer_type = /obj/effect/projectile/laser/heavy/tracer
-	impact_type = /obj/effect/projectile/laser/heavy/impact
+	muzzle_type = /obj/projectile/laser/heavy/muzzle
+	tracer_type = /obj/projectile/laser/heavy/tracer
+	impact_type = /obj/projectile/laser/heavy/impact
 
 /obj/item/projectile/beam/ship/alien
 	icon = 'icons/urist/items/guns.dmi'
-	muzzle_type = /obj/effect/projectile/laser/xray/muzzle
-	tracer_type = /obj/effect/projectile/laser/xray/tracer
-	impact_type = /obj/effect/projectile/laser/xray/impact
+	muzzle_type = /obj/projectile/laser/xray/muzzle
+	tracer_type = /obj/projectile/laser/xray/tracer
+	impact_type = /obj/projectile/laser/xray/impact
 	wall_decon = TRUE
 
 /obj/item/projectile/beam/ship/alien/light
@@ -264,9 +264,9 @@
 	icon_state = "pulse"
 	fire_sound='sound/weapons/pulse.ogg'
 
-	muzzle_type = /obj/effect/projectile/laser/pulse/muzzle
-	tracer_type = /obj/effect/projectile/laser/pulse/tracer
-	impact_type = /obj/effect/projectile/laser/pulse/impact
+	muzzle_type = /obj/projectile/laser/pulse/muzzle
+	tracer_type = /obj/projectile/laser/pulse/tracer
+	impact_type = /obj/projectile/laser/pulse/impact
 
 /obj/item/projectile/beam/ship/pulse/light
 	damage = 100

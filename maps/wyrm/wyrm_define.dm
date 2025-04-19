@@ -110,7 +110,7 @@
 	minor_announcement = new(new_sound = sound('sound/AI/torch/commandreport.ogg', volume = 45))
 
 /datum/map/wyrm/send_welcome()
-	var/obj/effect/overmap/visitable/ship/wyrm = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/wyrm)
+	var/obj/overmap/visitable/ship/wyrm = SSshuttle.ship_by_type(/obj/overmap/visitable/ship/wyrm)
 
 	var/welcome_text = "<center><br /><font size = 3><b>ISC Wyrm</b> Sensor Readings:</font><hr />"
 	welcome_text += "Report generated on [stationdate2text()] at [stationtime2text()]</center><br /><br />"
@@ -121,14 +121,14 @@
 		welcome_text += "Time since last port visit:<br /><b>[rand(30,50)] days</b><br />"
 		welcome_text += "Scan results:<br />"
 		var/list/space_things = list()
-		var/obj/effect/overmap/torch = map_sectors["1"]
+		var/obj/overmap/torch = map_sectors["1"]
 		for(var/zlevel in map_sectors)
-			var/obj/effect/overmap/O = map_sectors[zlevel]
+			var/obj/overmap/O = map_sectors[zlevel]
 			if(O.name == torch.name)
 				continue
 			space_things |= O
 
-		for(var/obj/effect/overmap/O in space_things)
+		for(var/obj/overmap/O in space_things)
 			var/location_desc = " at present co-ordinates."
 			if (O.loc != torch.loc)
 				var/bearing = round(90 - Atan2(O.x - torch.x, O.y - torch.y),5) //fucking triangles how do they work

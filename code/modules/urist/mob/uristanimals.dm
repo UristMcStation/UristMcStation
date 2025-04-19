@@ -120,7 +120,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/venom_sac
 	name = "venom sac"
 	desc = "A sac something evolved to store venom in."
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/organs.dmi'
 	icon_state = "roro core"
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/chem_type_amt = 3 //should def it probably; max chem types

@@ -24,7 +24,7 @@
 	var/slap_message = "You have neglected your Hunger for too long. Time to pay the price..."
 
 
-/datum/power/revenant/bs_slap/proc/Slap(var/mob/M)
+/datum/power/revenant/bs_slap/proc/Slap(mob/M)
 	return
 
 
@@ -54,7 +54,7 @@ var/global/list/revenant_slaps = (typesof(/datum/power/revenant/bs_slap) - /datu
 	return tagged_list
 
 
-/datum/bluespace_revenant/proc/select_slaps(var/list/flavors_override = null)
+/datum/bluespace_revenant/proc/select_slaps(list/flavors_override = null)
 	var/helper_result = src.select_bsrevenant_attributes(flavors_override, /datum/bluespace_revenant/proc/get_slaps_by_tag, 3, "Slap")
 	return helper_result
 
@@ -107,7 +107,7 @@ var/global/list/revenant_slaps = (typesof(/datum/power/revenant/bs_slap) - /datu
 	slap_message = "You have neglected your Hunger for too long! You feel your tendons snapping and your muscles tearing away from the bone as your organs violently burst..."
 
 
-/datum/power/revenant/bs_slap/gib/Slap(var/mob/M)
+/datum/power/revenant/bs_slap/gib/Slap(mob/M)
 	if(!istype(M))
 		return FALSE
 
@@ -129,7 +129,7 @@ var/global/list/revenant_slaps = (typesof(/datum/power/revenant/bs_slap) - /datu
 	slap_message = "You have neglected your Hunger for too long! You feel every molecule in your body vibrate faster and faster, achieving impossible speeds as you try to keep yourself together..."
 
 
-/datum/power/revenant/bs_slap/boom/Slap(var/mob/M)
+/datum/power/revenant/bs_slap/boom/Slap(mob/M)
 	if(!istype(M))
 		return FALSE
 
@@ -156,7 +156,7 @@ var/global/list/revenant_slaps = (typesof(/datum/power/revenant/bs_slap) - /datu
 	slap_message = "You have neglected your Hunger for too long! You no longer have the strength to fight against reality itself - you let go and start slowly drifting away from existence..."
 
 
-/datum/power/revenant/bs_slap/fadeout/Slap(var/mob/M)
+/datum/power/revenant/bs_slap/fadeout/Slap(mob/M)
 	if(!istype(M))
 		return FALSE
 
@@ -193,7 +193,7 @@ var/global/list/revenant_slaps = (typesof(/datum/power/revenant/bs_slap) - /datu
 	slap_message = "You have neglected your Hunger for too long! Dark tendrils and limbs pierce out of your body as an unearthly presence uses you as a gateway into this universe!"
 
 
-/datum/power/revenant/bs_slap/raisehell/Slap(var/mob/M)
+/datum/power/revenant/bs_slap/raisehell/Slap(mob/M)
 	if(!istype(M))
 		return FALSE
 
@@ -230,7 +230,7 @@ var/global/list/revenant_slaps = (typesof(/datum/power/revenant/bs_slap) - /datu
 	slap_message = "You have neglected your Hunger for too long! Your flesh and mind decay under the uncanny influence, stripping you of all but the most base, bestial insticts!"
 
 
-/datum/power/revenant/bs_slap/raisehell/Slap(var/mob/M)
+/datum/power/revenant/bs_slap/raisehell/Slap(mob/M)
 	if(!istype(M))
 		return FALSE
 

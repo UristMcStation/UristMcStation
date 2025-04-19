@@ -40,7 +40,7 @@
 		name = "[warhead.ammo_name] torpedo"
 		load_amount = 1
 
-/obj/structure/shipammo/torpedo/attackby(obj/item/I, mob/user as mob)
+/obj/structure/shipammo/torpedo/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/shipweapons/torpedo_warhead))
 		if(!src.load_amount && user.unEquip(I, src))
 			load_amount = 1

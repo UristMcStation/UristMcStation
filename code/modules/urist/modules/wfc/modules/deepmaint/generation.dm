@@ -1,18 +1,18 @@
-/proc/deepmaint_rebuild_mapfile(var/ruleset = "deepmaint.json")
+/proc/deepmaint_rebuild_mapfile(ruleset = "deepmaint.json")
 	var/success = generate_wfc_map(ruleset)
 	return success
 
-/area/map_template/deepmaint_wfc/proc/deepmaint_rebuild_mapfile(var/ruleset = "deepmaint.json")
+/area/map_template/deepmaint_wfc/proc/deepmaint_rebuild_mapfile(ruleset = "deepmaint.json")
 	var/success = generate_wfc_map(ruleset)
 	return success
 
 
-/area/map_template/deepmaint_wfc/proc/deepmaint_from_mapfile(var/zlevel, var/mapname = "genmap.json", var/overwrite_all = FALSE)
+/area/map_template/deepmaint_wfc/proc/deepmaint_from_mapfile(zlevel, mapname = "genmap.json", overwrite_all = FALSE)
 	var/success = generate_from_wfc_file(mapname, overwrite_all = overwrite_all, zlevel = zlevel)
 	return success
 
 
-/area/map_template/deepmaint_wfc/proc/generate_deepmaint(var/ruleset = "deepmaint.json", var/mapname = "genmap.json")
+/area/map_template/deepmaint_wfc/proc/generate_deepmaint(ruleset = "deepmaint.json", mapname = "genmap.json")
 	var/min_z = null
 
 	// For now, we'll assume the min-valued registered z-level is the start of the generation
@@ -36,7 +36,7 @@
 	return success
 
 
-/area/map_template/deepmaint_wfc/proc/generate_deepmaint_periodic(var/zlevel, var/sleeptime = 200)
+/area/map_template/deepmaint_wfc/proc/generate_deepmaint_periodic(zlevel, sleeptime = 200)
 	var/ruleset = "deepmaint.json"
 	var/mapname = "genmap.json"
 	var/_sleeptime = max(1, sleeptime)

@@ -97,7 +97,7 @@
 		"belt" =         list("loc" = ui_belt,      "name" = "Belt",         "slot" = slot_belt,      "state" = "belt")
 		)*/
 
-/datum/species/xenos/lactera
+/singleton/species/xenos/lactera
 	name = "Lactera"
 	name_plural = "Lactera"
 
@@ -178,12 +178,12 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/lactera)
 		)
 
-/datum/species/xenos/lactera/handle_death(mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
+/singleton/species/xenos/lactera/handle_death(mob/living/carbon/human/H) //Handles any species-specific death events (such as dionaea nymph spawns).
 	var/image/flicker = image('icons/uristmob/scommobs.dmi',"fire")
 	flick(flicker, H)
 	spawn(5)
 		qdel(H)
 	return
 
-/datum/species/xenos/lactera/get_bodytype(mob/living/carbon/human/H)
+/singleton/species/xenos/lactera/get_bodytype(mob/living/carbon/human/H)
 	return name

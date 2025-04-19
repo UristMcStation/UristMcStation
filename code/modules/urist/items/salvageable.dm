@@ -13,7 +13,7 @@
 			new path (loc)
 	return
 
-/obj/structure/salvageable/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/salvageable/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(isCrowbar(W))
 		playsound(loc, 'sound/items/Crowbar.ogg', 50, 1)
 		user.visible_message( \
@@ -332,7 +332,7 @@
 	. = ..()
 	icon_state = "bliss[rand(0,1)]"
 
-/obj/structure/salvageable/bliss/attackby(obj/item/I, mob/user)
+/obj/structure/salvageable/bliss/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if((. = ..()))
 		playsound(user, 'sound/urist/shutdown.ogg', 60, 1)
 

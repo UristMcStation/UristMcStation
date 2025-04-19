@@ -3,47 +3,53 @@
 /obj/structure/undies_wardrobe
 	name = "underwear wardrobe"
 	desc = "Holds item of clothing you shouldn't be showing off in the hallways."
-	icon = 'icons/obj/undies_wardrobe.dmi'
+	icon = 'icons/obj/structures/undies_wardrobe.dmi'
 	icon_state = "closed"
 	density = TRUE
+	anchored = TRUE
+	obj_flags = OBJ_FLAG_ANCHORABLE
 	var/static/list/amount_of_underwear_by_id_card
 
-/obj/structure/undies_wardrobe/attackby(obj/item/I, mob/user)
 
-	if(isWrench(I))
+/obj/structure/undies_wardrobe/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Underwear - Return to wardrobe
+	if(isWrench(tool))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		var/obj/item/stack/material/wood/S = new /obj/item/stack/material/wood(src.loc)
 		S.amount = 5
 		qdel(src)
 
-	if(istype(I, /obj/item/underwear))
-		if(!user.unEquip(I))
-			return
-		qdel(I)
-		user.visible_message(SPAN_NOTICE("\The [user] inserts \their [I.name] into \the [src]."), SPAN_NOTICE("You insert your [I.name] into \the [src]."))
-
-		var/id = user.GetIdCard()
+	if (istype(tool, /obj/item/underwear))
+		if (!user.unEquip(tool, src))
+			FEEDBACK_UNEQUIP_FAILURE(user, tool)
+			return TRUE
+		user.visible_message(
+			SPAN_NOTICE("\The [user] inserts \a [tool] into \the [src]."),
+			SPAN_NOTICE("You insert \the [tool] into \the [src].")
+		)
+		qdel(tool)
+		var/obj/item/card/id/id = user.GetIdCard()
 		var/message
-		if(id)
+		if (id)
 			message = "ID card detected. Your underwear quota for this shift has been increased, if applicable."
 		else
 			message = "No ID card detected. Thank you for your contribution."
-
 		audible_message(message, WARDROBE_BLIND_MESSAGE(user))
 
 		var/number_of_underwear = LAZYACCESS(amount_of_underwear_by_id_card, id) - 1
-		if(number_of_underwear)
+		if (number_of_underwear)
 			LAZYSET(amount_of_underwear_by_id_card, id, number_of_underwear)
-			GLOB.destroyed_event.register(id, src, /obj/structure/undies_wardrobe/proc/remove_id_card)
+			GLOB.destroyed_event.register(id, src, PROC_REF(remove_id_card))
 		else
 			remove_id_card(id)
+		return TRUE
 
-	else
-		..()
+	return ..()
+
 
 /obj/structure/undies_wardrobe/proc/remove_id_card(id_card)
 	LAZYREMOVE(amount_of_underwear_by_id_card, id_card)
-	GLOB.destroyed_event.unregister(id_card, src, /obj/structure/undies_wardrobe/proc/remove_id_card)
+	GLOB.destroyed_event.unregister(id_card, src, PROC_REF(remove_id_card))
 
 /obj/structure/undies_wardrobe/attack_hand(mob/user)
 	if(!human_who_can_use_underwear(user))
@@ -59,7 +65,7 @@
 	dat += "You may claim [id ? length(GLOB.underwear.categories) - LAZYACCESS(amount_of_underwear_by_id_card, id) : 0] more article\s this shift.<br><br>"
 	dat += "<b>Available Categories</b><br><hr>"
 	for(var/datum/category_group/underwear/UWC in GLOB.underwear.categories)
-		dat += "[UWC.name] <a href='?src=\ref[src];select_underwear=[UWC.name]'>(Select)</a><br>"
+		dat += "[UWC.name] <a href='byond://?src=\ref[src];select_underwear=[UWC.name]'>(Select)</a><br>"
 	dat = jointext(dat,null)
 	show_browser(H, dat, "window=wardrobe;size=400x250")
 

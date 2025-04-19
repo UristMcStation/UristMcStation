@@ -2,7 +2,7 @@
 /obj/item/device/scanner/plant
 	name = "plant analyzer"
 	desc = "A hand-held botanical scanner used to analyze plants."
-	icon = 'icons/obj/plant_analyzer.dmi'
+	icon = 'icons/obj/tools/plant_analyzer.dmi'
 	icon_state = "hydro"
 	item_state = "analyzer"
 	scan_sound = 'sound/effects/fastbeep.ogg'
@@ -46,7 +46,7 @@
 	if(grown_seed.mysterious && !grown_seed.scanned)
 		grown_seed.scanned = TRUE
 		var/area/map = locate(/area/overmap)
-		for(var/obj/effect/overmap/visitable/sector/exoplanet/P in map)
+		for(var/obj/overmap/visitable/sector/exoplanet/P in map)
 			if(grown_seed in P.seeds)
 				GLOB.stat_flora_scanned += 1
 				break
@@ -179,4 +179,4 @@
 	if(grown_seed.get_trait(TRAIT_CONSUME_GASSES))
 		dat += "<br>It will remove gas from the environment."
 
-	return JOINTEXT(dat)
+	return jointext(dat, null)

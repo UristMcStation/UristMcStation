@@ -1,7 +1,7 @@
 /obj/item/pickaxe/xeno
 	name = "master xenoarch pickaxe"
 	desc = "A miniature excavation tool for precise digging."
-	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon = 'icons/obj/tools/xenoarcheology_tools.dmi'
 	item_state = "xenoarch_pick"
 	force = 3
 	throwforce = 0
@@ -83,6 +83,7 @@
 
 /obj/item/pickaxe/xeno/drill
 	name = "excavation drill"
+	icon = 'icons/obj/tools/xenoarcheology_drill.dmi'
 	icon_state = "pick_drill1"
 	item_state = "xenoarch_device"
 	digspeed = 15
@@ -165,7 +166,7 @@
 
 /obj/item/storage/excavation
 	name = "excavation pick set"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/tools/xenoarcheology_tools.dmi'
 	icon_state = "excavation"
 	item_state = "utility"
 	desc = "A rugged metal case containing a set of standardized picks used in archaeological digs."
@@ -175,10 +176,11 @@
 	storage_slots = 7
 	slot_flags = SLOT_BELT
 	w_class = ITEM_SIZE_NORMAL
-	can_hold = list(/obj/item/pickaxe/xeno)
+	contents_allowed = list(/obj/item/pickaxe/xeno)
 	max_storage_space = 18
 	max_w_class = ITEM_SIZE_NORMAL
-	use_to_pickup = 1
+	allow_quick_gather = TRUE
+	allow_quick_empty = TRUE
 	startswith = list(
 		/obj/item/pickaxe/xeno/brush,
 		/obj/item/pickaxe/xeno/one_pick,
@@ -189,8 +191,9 @@
 		/obj/item/pickaxe/xeno/six_pick)
 
 /obj/item/storage/excavation/handle_item_insertion()
-	..()
-	sort_picks()
+	. = ..()
+	if (.)
+		sort_picks()
 
 /obj/item/storage/excavation/proc/sort_picks()
 	var/list/obj/item/pickaxe/xeno/picksToSort = list()

@@ -41,7 +41,7 @@
 	var/last_tick_distortion_tiles = 0
 
 
-/datum/bluespace_revenant/proc/get_effective_distortion(var/total_distortion_override = null, var/suppressed_distortion_override = null)
+/datum/bluespace_revenant/proc/get_effective_distortion(total_distortion_override = null, suppressed_distortion_override = null)
 	var/raw_true_total_distortion = (isnull(total_distortion_override) ? src.total_distortion : total_distortion_override)
 	var/raw_true_suppressed_distortion = (isnull(suppressed_distortion_override) ? src.suppressed_distortion : suppressed_distortion_override)
 
@@ -54,7 +54,7 @@
 	return effective_distortion
 
 
-/datum/bluespace_revenant/proc/HandleDistortionUpdates(var/ticks = 1)
+/datum/bluespace_revenant/proc/HandleDistortionUpdates(ticks = 1)
 	src.total_distortion += (src._distortion_per_tick * ticks)
 	var/safe_distortion = max(src.total_distortion, 0)
 
@@ -81,7 +81,7 @@
 	return distortion_base_rate
 
 
-/datum/bluespace_revenant/proc/SpreadDistortion(var/ticks = 1)
+/datum/bluespace_revenant/proc/SpreadDistortion(ticks = 1)
 	set waitfor = FALSE
 
 	if(isnull(src.mob_ref))

@@ -6,7 +6,10 @@
 	item_state = "pen"
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 0
+	force = 2
 	w_class = ITEM_SIZE_TINY
+	force = 2
+	puncture = TRUE
 	throw_speed = 7
 	throw_range = 15
 	matter = list(MATERIAL_PLASTIC = 10)
@@ -44,20 +47,19 @@
 	colour = "white"
 	color_description = "transluscent ink"
 
-/obj/item/pen/attack(atom/A, mob/user, target_zone)
-	if(ismob(A))
-		var/mob/M = A
-		if(ishuman(A) && user.a_intent == I_HELP && target_zone == BP_HEAD)
-			var/mob/living/carbon/human/H = M
-			var/obj/item/organ/external/head/head = H.organs_by_name[BP_HEAD]
-			if(istype(head))
-				head.write_on(user, color_description)
-		else
-			to_chat(user, SPAN_WARNING("You stab [M] with \the [src]."))
-			admin_attack_log(user, M, "Stabbed using \a [src]", "Was stabbed with \a [src]", "used \a [src] to stab")
-	else if(istype(A, /obj/item/organ/external/head))
+/obj/item/pen/use_after(atom/A, mob/user)
+	. = FALSE
+	if (ishuman(A) && user.a_intent == I_HELP && user.zone_sel.selecting == BP_HEAD)
+		var/mob/living/carbon/human/H = A
+		var/obj/item/organ/external/head/head = H.organs_by_name[BP_HEAD]
+		if (istype(head))
+			head.write_on(user, color_description)
+			return TRUE
+
+	if (istype(A, /obj/item/organ/external/head))
 		var/obj/item/organ/external/head/head = A
 		head.write_on(user, color_description)
+		return TRUE
 
 /obj/item/pen/proc/toggle()
 	return

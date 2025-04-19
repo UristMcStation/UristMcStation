@@ -6,7 +6,7 @@
 	var/chops = 0 //how many times it's been chopped. Gotta make them work for it!
 	var/size = 0
 
-/obj/structure/flora/tree/planet/attackby(obj/item/I, mob/user as mob)
+/obj/structure/flora/tree/planet/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/carpentry/axe) || istype(I, /obj/item/material/twohanded/fireaxe))
 		to_chat(user, "<span class='notice'>You chop [src] with [I].</span>")
 
@@ -81,7 +81,7 @@
 	density = TRUE
 	anchored = FALSE
 
-/obj/structure/log/attackby(obj/item/I, mob/user as mob)
+/obj/structure/log/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/carpentry/saw))
 		to_chat(user, "<span class='notice'>You saw the [src] with [I].</span>")
 
@@ -92,9 +92,10 @@
 			W.pixel_y = src.pixel_y
 			W.amount = rand(3,6) //going to mess with this value for a while, we'll see
 
-			qdel(src)
+			qdel_self()
+			return TRUE
 
-	return
+	return ..()
 
 //dead arid tree
 

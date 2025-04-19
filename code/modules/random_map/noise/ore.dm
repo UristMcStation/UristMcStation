@@ -60,7 +60,7 @@
 
 			generate_tile(T, tmp_cell)
 
-/datum/random_map/noise/ore/proc/generate_map_tile(var/turf/simulated/T)
+/datum/random_map/noise/ore/proc/generate_map_tile(turf/simulated/T)
 	if(!istype(T) || !T.has_resources)
 		return
 
@@ -72,7 +72,7 @@
 
 	generate_tile(T, tmp_cell)
 
-/datum/random_map/noise/ore/proc/generate_tile(var/turf/simulated/T, var/tmp_cell)
+/datum/random_map/noise/ore/proc/generate_tile(turf/simulated/T, tmp_cell)
 	T.resources = list()
 	T.resources[MATERIAL_SAND] = rand(3,5)
 	T.resources[MATERIAL_GRAPHITE] = rand(3,5)

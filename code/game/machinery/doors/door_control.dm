@@ -1,7 +1,7 @@
 /obj/machinery/button/remote
 	name = "remote object control"
 	desc = "It controls objects, remotely."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/structures/buttons.dmi'
 	icon_state = "doorctrl"
 	power_channel = ENVIRON
 	var/desiredstate = 0
@@ -24,7 +24,7 @@
 		to_chat(user, "Error, no route to host.")
 
 
-/obj/machinery/button/remote/emag_act(remaining_charges, var/mob/user)
+/obj/machinery/button/remote/emag_act(remaining_charges, mob/user)
 	if(length(req_access))
 		req_access.Cut()
 		playsound(src.loc, "sparks", 100, 1)
@@ -159,7 +159,7 @@
 /obj/machinery/button/remote/driver
 	name = "mass driver button"
 	desc = "A remote control switch for a mass driver."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/structures/buttons.dmi'
 	icon_state = "launcherbtt"
 
 /obj/machinery/button/remote/driver/trigger(mob/user as mob)

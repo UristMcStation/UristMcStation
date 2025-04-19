@@ -1,4 +1,4 @@
-/mob/living/simple_animal/passive/npc/proc/player_sell(obj/O, var/mob/M, var/resell = 1)
+/mob/living/simple_animal/passive/npc/proc/player_sell(obj/O, mob/M, resell = 1)
 	if(no_resell)
 		resell = 0
 	var/worth = get_trade_value(O)	//Update the price here aswell as nanoUI updates are slow and can allow for multiple sales at the same rate
@@ -57,7 +57,7 @@
 		return 1
 	return 0
 
-/mob/living/simple_animal/passive/npc/proc/player_buy(item_name, var/mob/M)
+/mob/living/simple_animal/passive/npc/proc/player_buy(item_name, mob/M)
 	var/datum/trade_item/D = trade_items_inventory_by_name[item_name]
 	var/value = D.value
 	var/obj/item/spacecash/B = M.l_hand
@@ -108,7 +108,7 @@
 
 				GiveItem(D, M)
 
-/mob/living/simple_animal/passive/npc/proc/GiveItem(datum/trade_item/D, var/mob/M)
+/mob/living/simple_animal/passive/npc/proc/GiveItem(datum/trade_item/D, mob/M)
 	//create the object and pass it over
 
 	if(D.is_bulky)
@@ -134,7 +134,7 @@
 	D.value = round(D.value * (1+src.price_modifier))		//price goes up a little
 	update_trade_item_ui(D)
 
-/mob/living/simple_animal/passive/npc/proc/GiveFreeItem(datum/trade_item/D, var/mob/M)
+/mob/living/simple_animal/passive/npc/proc/GiveFreeItem(datum/trade_item/D, mob/M)
 	var/obj/O = new D.item_type(M.loc)
 	M.put_in_hands(O)
 	M.visible_message("<span class='info'>[src] hands [M] an item.</span>",\
@@ -143,7 +143,7 @@
 	M.visible_message("<span class='info'>[src] whispers something to [M].</span>", user_msg)
 
 
-/mob/living/simple_animal/passive/npc/proc/CanPurchase(mob/M, var/access)
+/mob/living/simple_animal/passive/npc/proc/CanPurchase(mob/M, access)
 	var/obj/item/card/id/id_card = M.GetIdCard()
 	var/list/L = id_card.GetAccess()
 	if(has_access(access, list(), L))

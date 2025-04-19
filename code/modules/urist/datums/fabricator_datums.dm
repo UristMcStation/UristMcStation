@@ -10,16 +10,16 @@
 	path = /obj/item/scissors
 	category = "General"
 
-///obj/item/material/clipboard/matter = list("wood" = 30)
+////obj/item/material/folder/clipboard= list("wood" = 30)
 
 /datum/fabricator_recipe/clipboard
 	name = "clipboard"
-	path = /obj/item/material/clipboard
+	path = /obj/item/material/folder/clipboard
 	category = "General"
 
 /datum/fabricator_recipe/rollingpin
 	name = "rolling pin"
-	path = /obj/item/material/kitchen/rollingpin
+	path = /obj/item/material/rollingpin
 	category = "General"
 
 /obj/item/pickaxe/hand/matter = list(DEFAULT_WALL_MATERIAL = 1250, "wood" = 500)

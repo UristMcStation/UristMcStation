@@ -34,7 +34,7 @@
 	light_overlay = "helmet_light_dual"
 	icon = 'maps/torch/icons/obj/obj_head_solgov.dmi'
 	item_icons = list(slot_head_str = 'maps/torch/icons/mob/onmob_head_solgov.dmi')
-	camera = /obj/machinery/camera/network/command
+	camera = /obj/machinery/camera/network/helmet
 	species_restricted = list(SPECIES_HUMAN,SPECIES_IPC) //no available icons for aliens
 
 /obj/item/clothing/suit/space/rig/command
@@ -297,9 +297,8 @@
 		/obj/item/device/core_sampler,
 		/obj/item/device/gps,
 		/obj/item/pinpointer/radio,
-		/obj/item/pickaxe/xeno,
-		/obj/item/storage/bag/fossils,
-		/obj/item/rig_module/grenade_launcher/light
+		/obj/item/pickaxe,
+		/obj/item/storage/bag/fossils
 	)
 
 /obj/item/clothing/shoes/magboots/rig/command/science
@@ -308,6 +307,7 @@
 
 /obj/item/rig/command/science/equipped
 	initial_modules = list(
+		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/maneuvering_jets,
 		/obj/item/rig_module/device/flash,
 		/obj/item/rig_module/device/anomaly_scanner,
@@ -348,9 +348,10 @@
 	siemens_coefficient = 0
 
 /obj/item/clothing/head/helmet/space/rig/command/exploration
-	camera = /obj/machinery/camera/network/exploration
+	camera = /obj/machinery/camera/network/helmet
 	icon_state = "command_exp_rig"
 	light_overlay = "helmet_light_wide"
+	head_light_range = 5
 	brightness_on = 0.8
 
 /obj/item/clothing/suit/space/rig/command/exploration
@@ -389,5 +390,5 @@
 	icon_state = "command_sci_rig"
 	armor = list(melee = 25, bullet = 15, laser = 45, energy = 80, bomb = 60, bio = 100, rad = 100)
 
-	chest_type = /obj/item/clothing/suit/space/rig/command/science
-	helm_type = /obj/item/clothing/head/helmet/space/rig/command/science
+/obj/item/clothing/head/helmet/space/rig/industrial
+	camera = /obj/machinery/camera/network/helmet

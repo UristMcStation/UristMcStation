@@ -20,6 +20,7 @@
 	name = "skrellian recon hardsuit helmet"
 	desc = "A powerful recon hardsuit with integrated power supply and atmosphere. It's impressive design perfectly tailors to the user's body."
 	light_overlay = "helmet_light_dual"
+	head_light_range = 5
 	species_restricted = list(SPECIES_SKRELL)
 	sprite_sheets = list(
 		SPECIES_SKRELL = 'icons/mob/species/skrell/onmob_head_rig_skrell.dmi'
@@ -215,13 +216,16 @@
 	interface_name = "multitool"
 	interface_desc = "A limited-sentience integrated multitool capable of interfacing with any number of systems."
 	device = /obj/item/device/multitool/skrell
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/tools/multitool.dmi'
 	icon_state = "skrell_multitool"
 	usable = FALSE
 	selectable = TRUE
 
 /obj/item/rig_module/device/multitool/skrell/IsMultitool()
-	return TRUE
+	if(holder)
+		return TRUE
+	else
+		return FALSE
 
 /obj/item/rig_module/device/cable_coil/skrell
 	name = "skrellian cable extruder"
@@ -229,8 +233,8 @@
 	interface_name = "cable fabricator"
 	interface_desc = "A cable nanofabricator of Skrellian design."
 	device = /obj/item/stack/cable_coil/fabricator
-	icon = 'icons/obj/tools.dmi'
-	icon_state = "cablecoil"
+	icon = 'icons/obj/machines/power/power_cond_white.dmi'
+	icon_state = "coil"
 	usable = FALSE
 	selectable = TRUE
 
@@ -239,7 +243,7 @@
 	desc = "An electrical cutting torch of Skrellian design."
 	interface_name = "welding arm"
 	interface_desc = "An electrical cutting torch of Skrellian design."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/tools/welder.dmi'
 	icon_state = "skrell_welder1"
 	engage_string = "Toggle Welder"
 	device = /obj/item/weldingtool/electric
@@ -251,7 +255,7 @@
 	desc = "A complex assembly of self-guiding, modular heads capable of performing most manual tasks."
 	interface_name = "modular clustertool"
 	interface_desc = "A complex assembly of self-guiding, modular heads capable of performing most manual tasks."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/tools/swapper.dmi'
 	icon_state = "clustertool"
 	engage_string = "Select Mode"
 	device = /obj/item/clustertool
@@ -259,16 +263,16 @@
 	selectable = TRUE
 
 /obj/item/rig_module/device/clustertool/IsWrench()
-	return device.IsWrench(device)
+	return isWrench(device)
 
 /obj/item/rig_module/device/clustertool/IsWirecutter()
-	return device.IsWirecutter(device)
+	return isWirecutter(device)
 
 /obj/item/rig_module/device/clustertool/IsScrewdriver()
-	return device.IsScrewdriver(device)
+	return isScrewdriver(device)
 
 /obj/item/rig_module/device/clustertool/IsCrowbar()
-	return device.IsCrowbar(device)
+	return isCrowbar(device)
 
 // Self-charging power cell.
 /obj/item/cell/skrell
@@ -293,7 +297,7 @@
 /obj/item/clustertool
 	name = "alien clustertool"
 	desc = "A bewilderingly complex knot of tool heads."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/tools/swapper.dmi'
 	icon_state = "clustertool"
 	w_class = ITEM_SIZE_SMALL
 
@@ -333,6 +337,6 @@
 
 /obj/item/device/multitool/skrell
 	name = "skrellian multitool"
-	name = "An extreme sophisticated microcomputer capable of interfacing with practically any system."
-	icon = 'icons/obj/tools.dmi'
+	desc = "An extreme sophisticated microcomputer capable of interfacing with practically any system."
+	icon = 'icons/obj/tools/multitool.dmi'
 	icon_state = "skrell_multitool"

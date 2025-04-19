@@ -12,7 +12,7 @@
 /obj/item/material/knife/folding/swiss
 	name = "combi-knife"
 	desc = "A small, colourable, multi-purpose folding knife."
-	icon = 'icons/obj/swiss_knife.dmi'
+	icon = 'icons/obj/tools/swiss_knife.dmi'
 	icon_state = "swissknf_closed"
 	handle_icon = "swissknf_handle"
 	takes_colour = FALSE
@@ -84,13 +84,13 @@
 
 /obj/item/material/knife/folding/swiss/on_update_icon()
 	if(active_tool != null)
-		overlays.Cut()
-		overlays += overlay_image(icon, active_tool, flags=RESET_COLOR)
+		ClearOverlays()
+		AddOverlays(overlay_image(icon, active_tool, flags=RESET_COLOR))
 		item_state = initial(item_state)
 		if(active_tool == SWISSKNF_LBLADE || active_tool == SWISSKNF_SBLADE)
 			item_state = "knife"
 		if(blood_overlay)
-			overlays += blood_overlay
+			AddOverlays(blood_overlay)
 
 /obj/item/material/knife/folding/swiss/IsCrowbar()
 	return active_tool == SWISSKNF_CROWBAR
@@ -104,19 +104,28 @@
 /obj/item/material/knife/folding/swiss/IsHatchet()
 	return active_tool == SWISSKNF_WBLADE
 
-/obj/item/material/knife/folding/swiss/resolve_attackby(obj/target, mob/user)
-	if((istype(target, /obj/structure/window) || istype(target, /obj/structure/grille)) && active_tool == SWISSKNF_GBLADE)
-		force = force * 8
-		. = ..()
-		update_force()
-		return
-	if(istype(target, /obj/item))
-		if(target.w_class <= ITEM_SIZE_HUGE)
+
+/obj/item/material/knife/folding/swiss/use_before(atom/target, mob/living/user, click_parameters)
+	// Damage increase for windows and grilles
+	if (active_tool == SWISSKNF_GBLADE && (istype(target, /obj/structure/window) || istype(target, /obj/structure/grille)))
+		force *= 8
+
+	// Allow usage on huge or smaller items
+	if (isitem(target))
+		var/obj/item/target_item = target
+		if (target_item.w_class <= ITEM_SIZE_HUGE)
 			can_use_tools = TRUE
-			. = ..()
-			can_use_tools = FALSE
-			return
+
 	return ..()
+
+
+/obj/item/material/knife/folding/swiss/use_after(atom/target, mob/living/user, click_parameters)
+	// Reset per-use vars
+	update_force()
+	can_use_tools = FALSE
+
+	return ..()
+
 
 /obj/item/material/knife/folding/swiss/officer
 	name = "officer's combi-knife"
@@ -126,7 +135,7 @@
 	tools = list(SWISSKNF_LBLADE, SWISSKNF_CLIFTER, SWISSKNF_COPENER, SWISSKNF_CSCREW)
 
 /obj/item/material/knife/folding/swiss/sec
-	name = "Master-At-Arms' combi-knife"
+	name = "master-at-arms' combi-knife"
 	desc = "A small, red, multi-purpose folding knife. This one adds no special tools."
 	color = COLOR_NT_RED
 

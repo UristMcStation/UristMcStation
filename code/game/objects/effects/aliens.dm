@@ -5,7 +5,7 @@
  #define ACID_MODERATE   1.5
  #define ACID_WEAK       1
 
-/obj/effect/acid
+/obj/xeno/acid
 	name = "acid"
 	desc = "Burbling corrosive stuff. Probably a bad idea to roll around in it."
 	icon_state = "acid"
@@ -20,18 +20,18 @@
 	var/melt_time = 10 SECONDS
 	var/last_melt = 0
 
-/obj/effect/acid/New(loc, supplied_target)
+/obj/xeno/acid/New(loc, supplied_target)
 	..(loc)
 	target = supplied_target
 	melt_time = melt_time / acid_strength
 	START_PROCESSING(SSprocessing, src)
 
-/obj/effect/acid/Destroy()
+/obj/xeno/acid/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	target = null
 	. = ..()
 
-/obj/effect/acid/Process()
+/obj/xeno/acid/Process()
 	if(QDELETED(target))
 		qdel(src)
 	else if(world.time > last_melt + melt_time)

@@ -24,10 +24,19 @@
 	var/fed = 0 // Counter for how many egg laying 'charges' the spider has.
 	var/laying_eggs = FALSE	// Only allow one set of eggs to be laid at once.
 	var/egg_inject_chance = 25 // One in four chance to get eggs.
-	var/egg_type = /obj/effect/spider/eggcluster
-	var/web_type = /obj/effect/spider/stickyweb/dark
+	var/egg_type = /obj/spider/eggcluster
+	var/web_type = /obj/spider/stickyweb/dark
 
 	var/mob/living/simple_animal/hostile/giant_spider/guard/paired_guard
+
+	/// The next time the spider can lay. This is set to a random time between the minimum and maximum times.
+	var/next_egg_time = 0
+
+	/// The minimum amount of time the spider must wait before laying eggs again.
+	var/minimum_disturbed_time = 5 MINUTES
+
+	/// The maximum amount of time the spider can wait before laying eggs again.
+	var/maximum_disturbed_time = 10 MINUTES
 
 /obj/item/natural_weapon/bite/spider/nurse
 	force = 10
@@ -36,6 +45,10 @@
 	mauling = TRUE		// The nurse puts mobs into webs by attacking, so it needs to attack in crit
 	handle_corpse = TRUE	// Lets the nurse wrap dead things
 
+/mob/living/simple_animal/hostile/giant_spider/nurse/Initialize(mapload, atom/parent)
+	. = ..()
+	next_egg_time = world.time + (rand(3, 8) MINUTES)
+
 /mob/living/simple_animal/hostile/giant_spider/nurse/inject_poison(mob/living/L, target_zone)
 	..() // Inject the stoxin here.
 	if(ishuman(L) && prob(egg_inject_chance))
@@ -43,7 +56,7 @@
 		var/obj/item/organ/external/O = H.get_organ(target_zone)
 		if(O)
 			var/eggcount = 0
-			for(var/obj/effect/spider/eggcluster/E in O.implants)
+			for(var/obj/spider/eggcluster/small/E in O.implants)
 				eggcount++
 			if(!eggcount)
 				var/eggs = new egg_type(O, src)
@@ -60,10 +73,11 @@
 
 	if(isliving(A))
 		var/mob/living/L = A
+		next_egg_time = world.time + rand(minimum_disturbed_time, maximum_disturbed_time)
 		if(!L.stat)
 			return ..()
 
-	if(!istype(A, /atom/movable))
+	if(!ismovable(A))
 		return
 	var/atom/movable/AM = A
 
@@ -95,7 +109,7 @@
 		return FALSE
 
 	// Finally done with the checks.
-	var/obj/effect/spider/cocoon/C = new(AM.loc)
+	var/obj/spider/cocoon/C = new(AM.loc)
 	var/large_cocoon = FALSE
 	for(var/mob/living/L in C.contents)
 		if(istype(L, /mob/living/simple_animal/hostile/giant_spider)) // Cannibalism is bad.
@@ -114,8 +128,8 @@
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/handle_special()
 	set waitfor = FALSE
-	if(get_AI_stance() == STANCE_IDLE && !is_AI_busy() && isturf(loc))
-		if(fed)
+	if (get_AI_stance() == STANCE_IDLE && !is_AI_busy() && isturf(loc))
+		if (fed || next_egg_time < world.time)
 			lay_eggs(loc)
 		else
 			web_tile(loc)
@@ -124,7 +138,7 @@
 	if(!istype(T))
 		return FALSE
 
-	var/obj/effect/spider/stickyweb/W = locate() in T
+	var/obj/spider/stickyweb/W = locate() in T
 	if(W)
 		return FALSE // Already got webs here.
 
@@ -149,10 +163,11 @@
 	if(!istype(T))
 		return FALSE
 
-	if(!fed)
+	if (GLOB.SPIDER_COUNT >= GLOB.MAX_SPIDER_COUNT)
+		next_egg_time = world.time + rand(minimum_disturbed_time, maximum_disturbed_time)
 		return FALSE
 
-	var/obj/effect/spider/eggcluster/E = locate() in T
+	var/obj/spider/eggcluster/E = locate() in T
 	if(E)
 		return FALSE // Already got eggs here.
 
@@ -173,6 +188,10 @@
 	set_AI_busy(FALSE)
 	new egg_type(T)
 	fed--
+	if (fed < 0)
+		fed = 0
+
+	next_egg_time = world.time + rand(minimum_disturbed_time, maximum_disturbed_time)
 	laying_eggs = FALSE
 	return TRUE
 
@@ -184,13 +203,13 @@
 
 // Variant that 'blocks' light (by being a negative light source).
 // This is done to make webbed rooms scary and allow for spiders on the other side of webs to see prey.
-/obj/effect/spider/stickyweb/dark
+/obj/spider/stickyweb/dark
 	name = "dense web"
 	desc = "It's sticky, and blocks a lot of light."
 
-/obj/effect/spider/stickyweb/dark/Initialize()
+/obj/spider/stickyweb/dark/Initialize()
 	. = ..()
-	set_light(-1, 0.5, 1, 1, l_color = "#ffffff")
+	set_light(1, -1, l_color = "#ffffff")
 
 // The AI for nurse spiders. Wraps things in webs by 'attacking' them.
 /datum/ai_holder/simple_animal/melee/nurse_spider
@@ -223,7 +242,7 @@
 /datum/ai_holder/simple_animal/melee/nurse_spider/can_attack(atom/movable/the_target, vision_required = TRUE)
 	. = ..()
 	if (!.) // Parent returned FALSE.
-		if (istype(the_target, /obj))
+		if (isobj(the_target))
 			var/obj/O = the_target
 			if (!O.anchored)
 				return TRUE

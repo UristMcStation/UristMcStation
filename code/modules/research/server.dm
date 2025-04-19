@@ -1,6 +1,6 @@
 /obj/machinery/r_n_d/server
-	name = "R&D Server"
-	icon = 'icons/obj/machines/research.dmi'
+	name = "\improper R&D server"
+	icon = 'icons/obj/machines/research/server.dmi'
 	icon_state = "server"
 	base_type = /obj/machinery/r_n_d/server
 	construct_state = /singleton/machine_construction/default/panel_closed
@@ -18,11 +18,11 @@
 	var/delay = 10
 	req_access = list(access_rd) //Only the R&D can change server settings.
 
-/obj/machinery/r_n_d/server/RefreshParts()
-	var/tot_rating = 0
-	for(var/obj/item/stock_parts/SP in src)
-		tot_rating += SP.rating
-	change_power_consumption(initial(idle_power_usage)/max(1, tot_rating), POWER_USE_IDLE)
+
+/obj/machinery/r_n_d/server/Destroy()
+	QDEL_NULL(files)
+	return ..()
+
 
 /obj/machinery/r_n_d/server/Initialize()
 	. = ..()
@@ -39,6 +39,36 @@
 		temp_list = splittext(id_with_download_string, ";")
 		for(var/N in temp_list)
 			id_with_download += text2num(N)
+	update_icon()
+
+
+/obj/machinery/r_n_d/server/operable()
+	return !inoperable(MACHINE_STAT_EMPED)
+
+
+/obj/machinery/r_n_d/server/on_update_icon()
+	ClearOverlays()
+	if (operable())
+		AddOverlays(list(
+			"server_on",
+			"server_lights_on",
+			emissive_appearance(icon, "server_lights_on"),
+		))
+	else
+		AddOverlays(list(
+			"server_lights_off",
+			emissive_appearance(icon, "server_lights_off")
+		))
+	if (panel_open)
+		AddOverlays("server_panel")
+
+
+/obj/machinery/r_n_d/server/RefreshParts()
+	var/tot_rating = 0
+	for(var/obj/item/stock_parts/SP in src)
+		tot_rating += SP.rating
+	change_power_consumption(initial(idle_power_usage)/max(1, tot_rating), POWER_USE_IDLE)
+
 
 /obj/machinery/r_n_d/server/Process()
 	..()
@@ -61,6 +91,7 @@
 	else
 		produce_heat()
 		delay = initial(delay)
+	update_icon()
 
 /obj/machinery/r_n_d/server/proc/produce_heat()
 	if(!produces_heat)
@@ -86,7 +117,7 @@
 			env.merge(removed)
 
 /obj/machinery/r_n_d/server/centcom
-	name = "Central R&D Database"
+	name = "central R&D database"
 	server_id = -1
 
 /obj/machinery/r_n_d/server/centcom/proc/update_connections()
@@ -115,7 +146,7 @@
 	return PROCESS_KILL //don't need process()
 
 /obj/machinery/computer/rdservercontrol
-	name = "R&D Server Controller"
+	name = "\improper R&D server controller"
 	icon_keyboard = "rd_key"
 	icon_screen = "rdcomp"
 	light_color = "#a97faa"
@@ -214,9 +245,9 @@
 				if((istype(S, /obj/machinery/r_n_d/server/centcom) && !badmin) || (ST && !AreConnectedZLevels(ST.z, T.z)))
 					continue
 				dat += "[S.name] || "
-				dat += "<A href='?src=\ref[src];access=[S.server_id]'> Access Rights</A> | "
-				dat += "<A href='?src=\ref[src];data=[S.server_id]'>Data Management</A>"
-				if(badmin) dat += " | <A href='?src=\ref[src];transfer=[S.server_id]'>Server-to-Server Transfer</A>"
+				dat += "<A href='byond://?src=\ref[src];access=[S.server_id]'> Access Rights</A> | "
+				dat += "<A href='byond://?src=\ref[src];data=[S.server_id]'>Data Management</A>"
+				if(badmin) dat += " | <A href='byond://?src=\ref[src];transfer=[S.server_id]'>Server-to-Server Transfer</A>"
 				dat += "<BR>"
 
 		if(1) //Access rights menu
@@ -224,7 +255,7 @@
 			dat += "Consoles with Upload Access<BR>"
 			for(var/obj/machinery/computer/rdconsole/C in consoles)
 				var/turf/console_turf = get_turf(C)
-				dat += "* <A href='?src=\ref[src];upload_toggle=[C.id]'>[console_turf.loc]" //FYI, these are all numeric ids, eventually.
+				dat += "* <A href='byond://?src=\ref[src];upload_toggle=[C.id]'>[console_turf.loc]" //FYI, these are all numeric ids, eventually.
 				if(C.id in temp_server.id_with_upload)
 					dat += " (Remove)</A><BR>"
 				else
@@ -232,31 +263,31 @@
 			dat += "Consoles with Download Access<BR>"
 			for(var/obj/machinery/computer/rdconsole/C in consoles)
 				var/turf/console_turf = get_turf(C)
-				dat += "* <A href='?src=\ref[src];download_toggle=[C.id]'>[console_turf.loc]"
+				dat += "* <A href='byond://?src=\ref[src];download_toggle=[C.id]'>[console_turf.loc]"
 				if(C.id in temp_server.id_with_download)
 					dat += " (Remove)</A><BR>"
 				else
 					dat += " (Add)</A><BR>"
-			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
+			dat += "<HR><A href='byond://?src=\ref[src];main=1'>Main Menu</A>"
 
 		if(2) //Data Management menu
 			dat += "[temp_server.name] Data ManagementP<BR><BR>"
 			dat += "Known Technologies<BR>"
 			for(var/datum/tech/T in temp_server.files.known_tech)
 				dat += "* [T.name] "
-				dat += "<A href='?src=\ref[src];reset_tech=[T.id]'>(Reset)</A><BR>" //FYI, these are all strings.
+				dat += "<A href='byond://?src=\ref[src];reset_tech=[T.id]'>(Reset)</A><BR>" //FYI, these are all strings.
 			dat += "Known Designs<BR>"
 			for(var/datum/design/D in temp_server.files.known_designs)
 				dat += "* [D.name] "
-				dat += "<A href='?src=\ref[src];reset_design=[D.id]'>(Delete)</A><BR>"
-			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
+				dat += "<A href='byond://?src=\ref[src];reset_design=[D.id]'>(Delete)</A><BR>"
+			dat += "<HR><A href='byond://?src=\ref[src];main=1'>Main Menu</A>"
 
 		if(3) //Server Data Transfer
 			dat += "[temp_server.name] Server to Server Transfer<BR><BR>"
 			dat += "Send Data to what server?<BR>"
 			for(var/obj/machinery/r_n_d/server/S in servers)
-				dat += "[S.name] <A href='?src=\ref[src];send_to=[S.server_id]'> (Transfer)</A><BR>"
-			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
+				dat += "[S.name] <A href='byond://?src=\ref[src];send_to=[S.server_id]'> (Transfer)</A><BR>"
+			dat += "<HR><A href='byond://?src=\ref[src];main=1'>Main Menu</A>"
 	show_browser(user, "<TITLE>R&D Server Control</TITLE><HR>[dat]", "window=server_control;size=575x400")
 	onclose(user, "server_control")
 	return
@@ -266,18 +297,18 @@
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = TRUE
 		req_access.Cut()
-		to_chat(user, SPAN_NOTICE("You you disable the security protocols."))
+		to_chat(user, SPAN_NOTICE("You disable the security protocols."))
 		src.updateUsrDialog()
 		return 1
 
 /obj/machinery/r_n_d/server/robotics
-	name = "Robotics R&D Server"
-	id_with_upload_string = "1;2"
-	id_with_download_string = "1;2"
+	name = "robotics R&D server"
+	id_with_upload_string = "1;2;3"
+	id_with_download_string = "1;2;3"
 	server_id = 2
 
 /obj/machinery/r_n_d/server/core
-	name = "Core R&D Server"
+	name = "core R&D server"
 	id_with_upload_string = "1;3"
 	id_with_download_string = "1;3"
 	server_id = 1

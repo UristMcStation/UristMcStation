@@ -46,22 +46,41 @@
 			to_chat(user, "There is no cell in \the [src].")
 	to_chat(user, "The internal capacitor currently has [round(currently_stored_power/max_stored_power * 100)]% charge.")
 
-/obj/item/device/personal_shield/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/cell))
-		if(!open)
-			to_chat(user, SPAN_WARNING("\The [src] needs to be open first."))
-		else if(power_cell)
-			to_chat(user, SPAN_WARNING("\The [src] already has a battery."))
-		else if(user.unEquip(W, src))
-			user.visible_message("\The [user] installs \the [W] into \the [src].", SPAN_NOTICE("You install \the [W] into \the [src]."))
-			power_cell = W
-			START_PROCESSING(SSobj, src)
-			update_icon()
-	if(isScrewdriver(W))
-		playsound(src, 'sound/items/Screwdriver.ogg', 15, 1)
-		user.visible_message("\The [user] [open ? "screws" : "unscrews"] the top of \the [src].", SPAN_NOTICE("You [open ? "screw" : "unscrew"] the top of \the [src]."))
-		open = !open
+
+/obj/item/device/personal_shield/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Power Cell - Install cell
+	if (istype(tool, /obj/item/cell))
+		if (!open)
+			USE_FEEDBACK_FAILURE("\The [src]'s panel needs to be open before you can install \the [tool].")
+			return TRUE
+		if (power_cell)
+			USE_FEEDBACK_FAILURE("\The [src] already has \a [power_cell] installed.")
+			return TRUE
+		if (!user.unEquip(tool, src))
+			FEEDBACK_UNEQUIP_FAILURE(user, tool)
+			return TRUE
+		power_cell = tool
+		START_PROCESSING(SSobj, src)
 		update_icon()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] installs \a [tool] into \a [src]."),
+			SPAN_NOTICE("You install \the [tool] into \the [src].")
+		)
+		return TRUE
+
+	// Screwdriver - Toggle panel
+	if (isScrewdriver(tool))
+		open = !open
+		playsound(src, 'sound/items/Screwdriver.ogg', 50, TRUE)
+		update_icon()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] [open ? "opens" : "closes"] \a [src]'s panel with \a [tool]."),
+			SPAN_NOTICE("You [open ? "open" : "close"] \the [src]'s panel with \the [tool].")
+		)
+		return TRUE
+
+	return ..()
+
 
 /obj/item/device/personal_shield/attack_self(mob/living/user)
 	if (open && power_cell)
@@ -138,8 +157,8 @@
 /obj/item/device/personal_shield/AltClick(mob/user)
 	if (loc == user)
 		toggle(user)
-	else
-		. = ..()
+		return TRUE
+	return ..()
 
 /obj/item/device/personal_shield/proc/take_charge()
 	if(!actual_take_charge())
@@ -176,84 +195,3 @@
 		SetName("activated [initial(name)]")
 	else
 		SetName(initial(name))
-
-/obj/item/rig_module/personal_shield
-	name = "hardsuit energy shield"
-	desc = "Truly a life-saver: this device protects its user from being hit by objects moving very, very fast. It draws power from a hardsuit's internal battery."
-	icon = 'icons/obj/tools/batterer.dmi'
-	icon_state = "battereroff"
-	var/shield_type = /obj/aura/personal_shield/device
-	var/shield_power_cost = 100
-	var/obj/aura/personal_shield/device/shield
-
-	VAR_PRIVATE/currently_stored_power = 500
-	VAR_PRIVATE/max_stored_power = 500
-	VAR_PRIVATE/restored_power_per_tick = 5
-	VAR_PRIVATE/enable_when_powered = FALSE
-
-	toggleable = TRUE
-
-	interface_name = "energy shield"
-	interface_desc = "A device that protects its user from being hit by fast moving projectiles. Its internal capacitor can hold 5 charges at a time and recharges slowly over time."
-	module_cooldown = 10 SECONDS
-	origin_tech = list(TECH_MATERIAL = 5, TECH_POWER = 6, TECH_MAGNET = 6, TECH_ESOTERIC = 6, TECH_ENGINEERING = 7)
-	activate_string = "Enable Shield"
-	deactivate_string = "Disable Shield"
-
-/obj/item/rig_module/personal_shield/Initialize()
-	. = ..()
-	var/obj/item/rig/holder = loc
-	if (holder.cell)
-		currently_stored_power = holder.cell.use(max_stored_power)
-
-/obj/item/rig_module/personal_shield/activate()
-	if (!..())
-		return FALSE
-
-	var/mob/living/carbon/human/H = holder.wearer
-
-	if (shield || !H)
-		return FALSE
-	if (currently_stored_power < shield_power_cost)
-		to_chat(H, SPAN_WARNING("\The [src]'s internal capacitor does not have enough charge."))
-		return FALSE
-	shield = new shield_type(H, src)
-	return TRUE
-
-/obj/item/rig_module/personal_shield/deactivate()
-	if (!..())
-		return FALSE
-
-	if (!shield)
-		return
-	QDEL_NULL(shield)
-	return TRUE
-
-/obj/item/rig_module/personal_shield/Process(wait)
-	if (!holder.cell?.charge || currently_stored_power >= max_stored_power)
-		return PROCESS_KILL
-	var/amount_to_restore = min(restored_power_per_tick * wait, max_stored_power - currently_stored_power)
-	currently_stored_power += holder.cell.use(amount_to_restore)
-
-	if (enable_when_powered && currently_stored_power >= shield_power_cost)
-		activate(get_holder_of_type(src, /mob))
-
-/obj/item/rig_module/personal_shield/proc/take_charge()
-	if (!actual_take_charge())
-		deactivate()
-		return FALSE
-	return TRUE
-
-/obj/item/rig_module/personal_shield/proc/actual_take_charge()
-	if (!holder.cell)
-		return FALSE
-	if (currently_stored_power < shield_power_cost)
-		return FALSE
-
-	currently_stored_power -= shield_power_cost
-	START_PROCESSING(SSobj, src)
-
-	if (currently_stored_power < shield_power_cost)
-		enable_when_powered = TRUE
-		return FALSE
-	return TRUE

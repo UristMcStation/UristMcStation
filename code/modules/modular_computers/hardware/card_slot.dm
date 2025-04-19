@@ -1,5 +1,5 @@
 /obj/item/stock_parts/computer/card_slot
-	name = "RFID card slot"
+	name = "\improper RFID card slot"
 	desc = "Slot that allows this computer to write data on RFID cards. Necessary for some programs to run properly."
 	power_usage = 10 //W
 	critical = FALSE
@@ -101,14 +101,14 @@
 		loc.verbs |= /obj/item/stock_parts/computer/card_slot/proc/verb_eject_id
 	return TRUE
 
-/obj/item/stock_parts/computer/card_slot/attackby(obj/item/card/id/I, mob/living/user)
-	if(!istype(I))
+/obj/item/stock_parts/computer/card_slot/use_tool(obj/item/I, mob/living/user, list/click_params)
+	if(!istype(I, /obj/item/card/id))
 		return ..()
 	insert_id(I, user)
 	return TRUE
 
 /obj/item/stock_parts/computer/card_slot/broadcaster // read only
-	name = "RFID card broadcaster"
+	name = "\improper RFID card broadcaster"
 	desc = "Reads and broadcasts the RFID signal of an inserted card."
 	can_write = FALSE
 	can_broadcast = TRUE

@@ -57,7 +57,7 @@
 
 	if(use_random_drops)
 		var/landmarkspawns = 0
-		for(var/obj/effect/landmark/intelspawn/IS in landmarks_list)
+		for(var/obj/landmark/intelspawn/IS in landmarks_list)
 			if(landmarkspawns < max_landmark_spawns)
 				var/spawnprob = 50
 				if(IS.probability)

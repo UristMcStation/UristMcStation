@@ -17,22 +17,21 @@
 	else
 		return FALSE
 
-/obj/item/auto_cpr/attack(mob/living/carbon/human/M, mob/living/user, target_zone)
-	if(istype(M) && user.a_intent == I_HELP)
-		if(M.wear_suit)
+/obj/item/auto_cpr/use_before(mob/living/carbon/human/M, mob/living/user)
+	. = FALSE
+	if (istype(M) && user.a_intent == I_HELP)
+		if (M.wear_suit)
 			to_chat(user, SPAN_WARNING("Their [M.wear_suit] is in the way, remove it first!"))
-			return 1
+			return TRUE
 		user.visible_message(SPAN_NOTICE("[user] starts fitting [src] onto the [M]'s chest."))
 
-		if(!do_after(user, 2 SECONDS, M, DO_EQUIP))
-			return
+		if (!do_after(user, 2 SECONDS, M, DO_EQUIP))
+			return TRUE
 
-		if(user.unEquip(src))
-			if(!M.equip_to_slot_if_possible(src, slot_wear_suit, TRYEQUIP_REDRAW | TRYEQUIP_SILENT))
+		if (user.unEquip(src))
+			if (!M.equip_to_slot_if_possible(src, slot_wear_suit, TRYEQUIP_REDRAW | TRYEQUIP_SILENT))
 				user.put_in_active_hand(src)
-			return 1
-	else
-		return ..()
+			return TRUE
 
 /obj/item/auto_cpr/equipped(mob/user, slot)
 	..()
@@ -53,7 +52,7 @@
 	if(H.get_inventory_slot(src) != slot_wear_suit)
 		return PROCESS_KILL
 
-	if(world.time > last_pump + 15 SECONDS)
+	if(world.time > last_pump + 10 SECONDS)
 		last_pump = world.time
 		playsound(src, 'sound/machines/pump.ogg', 25)
 		var/obj/item/organ/internal/heart/heart = H.internal_organs_by_name[BP_HEART]

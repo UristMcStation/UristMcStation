@@ -32,11 +32,11 @@
 			holder.Beam(M, icon_state = "r_beam", time = 1 SECOND)
 
 	if (world.time - last_eat >= eat_interval)
-		var/obj/effect/decal/cleanable/blood/B = locate() in range(2,holder)
+		var/obj/decal/cleanable/blood/B = locate() in range(2,holder)
 		if (B)
 			last_eat = world.time
 			B.loc = null
-			if (istype(B, /obj/effect/decal/cleanable/blood/drip))
+			if (istype(B, /obj/decal/cleanable/blood/drip))
 				charges += 0.25
 			else
 				charges += 1
@@ -80,7 +80,7 @@
 		var/target = pick(M.organs_by_name)
 		M.apply_damage(rand(5, 10), INJURY_TYPE_CUT, target)
 		to_chat(M, SPAN_DANGER("The skin on your [parse_zone(target)] feels like it's ripping apart, and a stream of blood flies out."))
-		var/obj/effect/decal/cleanable/blood/splatter/animated/B = new(M.loc)
+		var/obj/decal/cleanable/blood/splatter/animated/B = new(M.loc)
 		B.basecolor = M.species.get_blood_colour(M)
 		B.color = M.species.get_blood_colour(M)
 		B.target_turf = pick(range(1, get_turf(holder)))

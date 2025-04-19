@@ -31,7 +31,7 @@
 	interacting_mob = user
 	ui_interact(user)
 
-/mob/living/simple_animal/passive/npc/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, var/force_open = 1)
+/mob/living/simple_animal/passive/npc/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 
 	if(!can_use(user))
 		close_ui(ui)

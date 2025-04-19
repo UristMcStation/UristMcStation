@@ -1,6 +1,6 @@
 
 //spawns one of the specified animal type
-/obj/effect/landmark/animal_spawner
+/obj/landmark/animal_spawner
 	icon_state = "x3"
 	var/spawn_type
 	var/mob/living/spawned_animal
@@ -9,10 +9,10 @@
 	var/spawn_time_low = 1200
 	var/crosstrigger = FALSE
 
-/obj/effect/landmark/animal_spawner/New()
+/obj/landmark/animal_spawner/New()
 	if(!crosstrigger)
 		if(!spawn_type)
-			var/new_type = pick(typesof(/obj/effect/landmark/animal_spawner) - /obj/effect/landmark/animal_spawner)
+			var/new_type = pick(typesof(/obj/landmark/animal_spawner) - /obj/landmark/animal_spawner)
 			new new_type(get_turf(src))
 			qdel(src)
 
@@ -20,7 +20,7 @@
 		spawned_animal = new spawn_type(get_turf(src))
 	..()
 
-/obj/effect/landmark/animal_spawner/Process()
+/obj/landmark/animal_spawner/Process()
 	//if any of our animals are killed, spawn new ones
 	if(!spawned_animal || spawned_animal.stat == DEAD)
 		spawned_animal = new spawn_type(src)
@@ -28,36 +28,36 @@
 		spawn(rand(spawn_time_low,spawn_time_high))
 			spawned_animal.loc = locate(src.x + rand(-12,12), src.y + rand(-12,12), src.z)
 
-/obj/effect/landmark/animal_spawner/Destroy()
+/obj/landmark/animal_spawner/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	..()
 
-/obj/effect/landmark/animal_spawner/panther
+/obj/landmark/animal_spawner/panther
 	name = "panther spawner"
 	spawn_type = /mob/living/simple_animal/hostile/huntable/panther
 
-/obj/effect/landmark/animal_spawner/parrot
+/obj/landmark/animal_spawner/parrot
 	name = "parrot spawner"
 	spawn_type = /mob/living/simple_animal/hostile/retaliate/parrot/jungle
 
-/obj/effect/landmark/animal_spawner/monkey
+/obj/landmark/animal_spawner/monkey
 	name = "monkey spawner"
 	spawn_type = /mob/living/simple_animal/huntable/monkey
 
-/obj/effect/landmark/animal_spawner/snake
+/obj/landmark/animal_spawner/snake
 	name = "snake spawner"
 	spawn_type = /mob/living/simple_animal/hostile/snake
 
-/obj/effect/landmark/animal_spawner/random
+/obj/landmark/animal_spawner/random
 	var/spawn_list
 	var/x_offset = 0
 	var/y_offset = 0
 
-/obj/effect/landmark/animal_spawner/random/New()
+/obj/landmark/animal_spawner/random/New()
 	spawn_type = pick(spawn_list)
 	..()
 
-/obj/effect/landmark/animal_spawner/random/Process()
+/obj/landmark/animal_spawner/random/Process()
 	//if any of our animals are killed, spawn new ones
 	if(!spawned_animal || spawned_animal.stat == DEAD)
 		if(!spawn_type)
@@ -67,7 +67,7 @@
 		spawn(rand(spawn_time_low,spawn_time_high))
 			spawned_animal.loc = locate(src.x + x_offset, src.y + x_offset, src.z)
 
-/obj/effect/landmark/animal_spawner/random/Crossed(mob/living/M)
+/obj/landmark/animal_spawner/random/Crossed(mob/living/M)
 	if(crosstrigger) //if an animal crosses this thing, they "leave" the map, and then this landmark starts spawning animals
 		if (istype(M, /mob/living/simple_animal) || istype(M, /mob/living/carbon/human/monkey))
 			qdel(M)
@@ -77,7 +77,7 @@
 	else
 		..()
 
-/obj/effect/landmark/animal_spawner/random/jungle
+/obj/landmark/animal_spawner/random/jungle
 	name = "jungle animal spawner"
 	x_offset = -8
 	crosstrigger = 1
@@ -88,7 +88,7 @@
 		/mob/living/simple_animal/hostile/huntable/deer
 		)
 
-/obj/effect/landmark/animal_spawner/random/plains
+/obj/landmark/animal_spawner/random/plains
 	name = "plains animal spawner"
 	y_offset = -2
 	spawn_list = list(
@@ -96,11 +96,11 @@
 		/mob/living/simple_animal/hostile/snake/randvenom/green
 		)
 
-/obj/effect/landmark/animal_spawner/random/jungle/crosstrigger
+/obj/landmark/animal_spawner/random/jungle/crosstrigger
 	crosstrigger = 1
 	icon_state = "x2"
 
-/obj/effect/landmark/animal_spawner/random/plains/crosstrigger
+/obj/landmark/animal_spawner/random/plains/crosstrigger
 	crosstrigger = 1
 	icon_state = "x2"
 
@@ -324,7 +324,7 @@
 	if(.)
 		holder.custom_emote(1,"hisses wickedly")
 
-/mob/living/simple_animal/hostile/snake/UnarmedAttack(atom/A, var/proximity)
+/mob/living/simple_animal/hostile/snake/UnarmedAttack(atom/A, proximity)
 	. =..()
 	if(istype(A, /mob/living/carbon))
 		var/mob/living/carbon/L = A

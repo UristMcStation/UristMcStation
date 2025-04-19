@@ -40,7 +40,7 @@ var/global/datum/antagonist/agent/agents
 	if(leader.current)
 		faction_welcome = "Follow [leader.current]'s orders. Cooperate with fellow agents - but trust no-one."
 
-/datum/antagonist/agent/get_indicator(datum/mind/recipient, var/datum/mind/other)
+/datum/antagonist/agent/get_indicator(datum/mind/recipient, datum/mind/other)
 	if(!antag_indicator || !other.current || !recipient.current)
 		return
 	var/indicator = (faction_indicator && (other == leader)) ? faction_indicator : antag_indicator

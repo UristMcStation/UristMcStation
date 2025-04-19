@@ -51,7 +51,7 @@
 /obj/machinery/telecomms/relay/long_range_planetary/fake_jungle
 	name = "Planetary Signal Relay"
 	desc = "A mighty piece of hardware used to send massive amounts of data far away."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/machines/telecomms.dmi'
 	icon_state = "relay"
 	id = "Planet-Relay"
 	autolinkers = list("p_relay")

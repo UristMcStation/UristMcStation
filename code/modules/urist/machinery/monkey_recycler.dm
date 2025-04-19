@@ -2,7 +2,7 @@
 /obj/machinery/monkey_recycler
 	name = "monkey recycler"
 	desc = "A machine used for recycling dead monkeys into monkey cubes. It requires 5 monkeys per cube."
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'icons/obj/machines/kitchen.dmi'
 	icon_state = "grinder"
 	layer = 2.9
 	density = TRUE
@@ -13,7 +13,7 @@
 	var/grinded = 0
 
 
-/obj/machinery/monkey_recycler/attackby(obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/monkey_recycler/use_tool(obj/item/O, mob/living/user, list/click_params)
 
 	if (src.stat != 0) //NOPOWER etc
 		return

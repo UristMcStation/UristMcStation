@@ -1,7 +1,7 @@
 /obj/item/material/ashtray
 	name = "ashtray"
 	desc = "A thing to keep your butts in."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/ashtray.dmi'
 	icon_state = "ashtray"
 	max_force = 10
 	force_multiplier = 0.1
@@ -20,24 +20,21 @@
 
 /obj/item/material/ashtray/on_update_icon()
 	..()
-	overlays.Cut()
+	ClearOverlays()
 	if (length(contents) == max_butts)
-		overlays |= image('icons/obj/objects.dmi',"ashtray_full")
+		AddOverlays(image('icons/obj/ashtray.dmi',"ashtray_full"))
 	else if (length(contents) >= max_butts/2)
-		overlays |= image('icons/obj/objects.dmi',"ashtray_half")
+		AddOverlays(image('icons/obj/ashtray.dmi',"ashtray_half"))
 
-/obj/item/material/ashtray/attackby(obj/item/W as obj, mob/user as mob)
-	if (health_dead)
-		return
-
-	if (user.a_intent == I_HURT)
-		..()
-		return
+/obj/item/material/ashtray/use_tool(obj/item/W, mob/living/user, list/click_params)
+	if (health_dead())
+		USE_FEEDBACK_FAILURE("\The [src] is damaged beyond use!")
+		return TRUE
 
 	if (istype(W,/obj/item/trash/cigbutt) || istype(W,/obj/item/clothing/mask/smokable/cigarette) || istype(W, /obj/item/flame/match))
 		if (length(contents) >= max_butts)
 			to_chat(user, "\The [src] is full.")
-			return
+			return TRUE
 
 		if (istype(W,/obj/item/clothing/mask/smokable/cigarette))
 			var/obj/item/clothing/mask/smokable/cigarette/cig = W
@@ -51,9 +48,9 @@
 			visible_message("[user] places [W] in [src].")
 			set_extension(src, /datum/extension/scent/ashtray)
 			update_icon()
-		return
+		return TRUE
 
-	..()
+	return ..()
 
 /obj/item/material/ashtray/throw_impact(atom/hit_atom)
 	if (get_max_health())

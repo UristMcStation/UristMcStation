@@ -1,15 +1,15 @@
-/datum/antagonist/bluespace_revenant/update_antag_mob(var/datum/mind/player)
+/datum/antagonist/bluespace_revenant/update_antag_mob(datum/mind/player)
 	..()
 	player.current.make_bsrevenant() // (in revenant_add_remove.dm)
 
 
-/datum/antagonist/bluespace_revenant/add_antagonist(var/datum/mind/player)
+/datum/antagonist/bluespace_revenant/add_antagonist(datum/mind/player)
 	. = ..()
 	if(.)
 		player.current.make_bsrevenant()
 
 
-/mob/proc/make_bsrevenant(var/flavor_override = null, var/list/powerset_override = null, var/list/flavorset_override = null, var/list/hungers_override = null, var/force_rebuild = FALSE)
+/mob/proc/make_bsrevenant(flavor_override = null, list/powerset_override = null, list/flavorset_override = null, list/hungers_override = null, force_rebuild = FALSE)
 	// This is a bit funky - flavor_override is meant for badmin convenience at the cost of flexibility,
 	// flavorset_override is programmatic - more flexible, less ergonomic for human users.
 	if(!(src.mind))
@@ -52,7 +52,7 @@
 		P.Deactivate(src.mind)
 
 
-/datum/antagonist/bluespace_revenant/remove_antagonist(var/datum/mind/player)
+/datum/antagonist/bluespace_revenant/remove_antagonist(datum/mind/player)
 	if(player)
 		var/mob/Current = player.current
 		if(istype(Current))
@@ -63,7 +63,7 @@
 	..()
 
 
-/datum/bluespace_revenant/proc/turn_into_child_revenant(var/mob/M, var/as_antag = TRUE)
+/datum/bluespace_revenant/proc/turn_into_child_revenant(mob/M, as_antag = TRUE)
 	// Turns the target mob into a Bluespace Revenant of the same type as the source.
 	// Meant for use for 'infectious' Revenants a'la old Vamp.
 	// The 'as_antag' param controls whether the babby Revenant is added as an antagonist;

@@ -20,7 +20,7 @@
 	if (!origin)
 		return FALSE
 	var/turf/epicenter
-	if (istype(origin, /turf))
+	if (isturf(origin))
 		epicenter = origin
 	else
 		epicenter = get_turf(origin)
@@ -28,10 +28,10 @@
 		return FALSE
 
 	if (log)
-		log_and_message_admins(append_admin_tools("EMP with size ([heavy_range], [light_range]) in area [get_area(origin)]", location = epicenter))
+		log_and_message_admins("EMP with size ([heavy_range], [light_range]) in area [get_area(origin)].", null, epicenter)
 
 	if (heavy_range > 1)
-		new /obj/effect/overlay/self_deleting/emppulse(epicenter)
+		new /obj/overlay/emp_pulse (epicenter)
 
 	if (heavy_range > light_range)
 		light_range = heavy_range
@@ -57,6 +57,6 @@
 			T.emp_act(EMP_ACT_LIGHT)
 		#ifdef EMPDEBUG
 		if ((world.timeofday - time) >= EMPDEBUG)
-			log_and_message_admins("EMPDEBUG: [T.name] - [T.type] - took [world.timeofday - time]ds to process emp_act()!")
+			log_and_message_admins("EMPDEBUG: [T.name] - [T.type] - took [world.timeofday - time]ds to process emp_act()!", null)
 		#endif
 	return TRUE

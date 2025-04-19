@@ -1,7 +1,7 @@
 //A portable analyzer, for research borgs.  This is better then giving them a gripper which can hold anything and letting them use the normal analyzer.
 /obj/item/portable_destructive_analyzer
 	name = "Portable Destructive Analyzer"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools/portable_analyzer.dmi'
 	icon_state = "portable_analyzer"
 	desc = "Similar to the stationary version, this rather unwieldy device allows you to break down objects in the name of science."
 
@@ -76,30 +76,29 @@
 			to_chat(user, "The [src] is already empty.")
 
 
-/obj/item/portable_destructive_analyzer/afterattack(atom/target, mob/living/user, proximity)
-	if(!target)
-		return
-	if(!proximity)
-		return
+/obj/item/portable_destructive_analyzer/use_after(atom/target, mob/living/user, click_parameters)
+	if(!isitem(target))
+		return FALSE
 	if(!isturf(target.loc)) // Don't load up stuff if it's inside a container or mob!
-		return
-	if(istype(target,/obj/item))
-		if(loaded_item)
-			to_chat(user, "Your [src] already has something inside.  Analyze or eject it first.")
-			return
-		var/obj/item/I = target
-		I.forceMove(src)
-		loaded_item = I
-		for(var/mob/M in viewers())
-			M.show_message(text(SPAN_NOTICE("[user] adds the [I] to the [src].")), 1)
-		desc = initial(desc) + "<br>It is holding \the [loaded_item]."
-		flick("portable_analyzer_load", src)
-		icon_state = "portable_analyzer_full"
+		return FALSE
+	if(loaded_item)
+		to_chat(user, SPAN_WARNING("\The [src] already has something inside.  Analyze or eject it first."))
+		return TRUE
+
+	var/obj/item/I = target
+	I.forceMove(src)
+	loaded_item = I
+	for(var/mob/M in viewers())
+		M.show_message(text(SPAN_NOTICE("[user] adds the [I] to the [src].")), 1)
+	desc = initial(desc) + "<br>It is holding \the [loaded_item]."
+	flick("portable_analyzer_load", src)
+	icon_state = "portable_analyzer_full"
+	return TRUE
 
 /obj/item/party_light
 	name = "party light"
 	desc = "An array of LEDs in tons of colors."
-	icon = 'icons/obj/lighting.dmi'
+	icon = 'icons/obj/structures/lighting.dmi'
 	icon_state = "partylight-off"
 	item_state = "partylight-off"
 	var/activated = 0
@@ -114,7 +113,7 @@
 /obj/item/party_light/on_update_icon()
 	if (activated)
 		icon_state = "partylight-on"
-		set_light(1, 1, 7)
+		set_light(7, 1)
 	else
 		icon_state = "partylight_off"
 		set_light(0)
@@ -124,11 +123,11 @@
 
 	// Create the party light effect and place it on the turf of who/whatever has it.
 	var/turf/T = get_turf(src)
-	var/obj/effect/party_light/L = new(T)
+	var/obj/party_light/L = new(T)
 	strobe_effect = L
 
 	// Make the light effect follow this party light object.
-	GLOB.moved_event.register(src, L, /atom/movable/proc/move_to_turf_or_null)
+	GLOB.moved_event.register(src, L, TYPE_PROC_REF(/atom/movable, move_to_turf_or_null))
 
 	update_icon()
 
@@ -136,7 +135,7 @@
 	activated = 0
 
 	// Cause the party light effect to stop following this object, and then delete it.
-	GLOB.moved_event.unregister(src, strobe_effect, /atom/movable/proc/move_to_turf_or_null)
+	GLOB.moved_event.unregister(src, strobe_effect, TYPE_PROC_REF(/atom/movable, move_to_turf_or_null))
 	QDEL_NULL(strobe_effect)
 
 	update_icon()
@@ -145,7 +144,7 @@
 	deactivate_strobe()
 	. = .. ()
 
-/obj/effect/party_light
+/obj/party_light
 	name = "party light"
 	desc = "This is probably bad for your eyes."
 	icon = 'icons/effects/lens_flare.dmi'
@@ -155,7 +154,7 @@
 	pixel_x = -30
 	pixel_y = -4
 
-/obj/effect/party_light/Initialize()
+/obj/party_light/Initialize()
 	update_icon()
 	. = ..()
 
@@ -173,19 +172,17 @@
 	icon = 'icons/obj/weapons/other.dmi'
 	icon_state = "autoharvester"
 
-/obj/item/robot_harvester/afterattack(atom/target, mob/living/user, proximity)
-	if(!target)
-		return
-	if(!proximity)
-		return
-	if(istype(target,/obj/machinery/portable_atmospherics/hydroponics))
-		var/obj/machinery/portable_atmospherics/hydroponics/T = target
-		if(T.harvest) //Try to harvest, assuming it's alive.
-			T.harvest(user)
-		else if(T.dead) //It's probably dead otherwise.
-			T.remove_dead(user)
-	else
-		to_chat(user, "Harvesting \a [target] is not the purpose of this tool. \The [src] is for plants being grown.")
+/obj/item/robot_harvester/use_after(atom/target, mob/living/user, click_parameters)
+	if(!istype(target,/obj/machinery/portable_atmospherics/hydroponics))
+		to_chat(user, SPAN_WARNING("Harvesting \a [target] is not the purpose of this tool. \The [src] is for plants being grown."))
+		return TRUE
+
+	var/obj/machinery/portable_atmospherics/hydroponics/T = target
+	if(T.harvest) //Try to harvest, assuming it's alive.
+		T.harvest(user)
+	else if(T.dead) //It's probably dead otherwise.
+		T.remove_dead(user)
+	return TRUE
 
 // A special tray for the service droid. Allow droid to pick up and drop items as if they were using the tray normally
 // Click on table to unload, click on item to load. Otherwise works identically to a tray.
@@ -256,16 +253,10 @@
 	icon_state = "paper_bin1"
 	item_state = "sheet-metal"
 
-/obj/item/form_printer/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	return
-
-/obj/item/form_printer/afterattack(atom/target as mob|obj|turf|area, mob/living/user as mob|obj, flag, params)
-
-	if(!target || !flag)
-		return
-
+/obj/item/form_printer/use_after(atom/target, mob/living/user, click_parameters)
 	if(istype(target,/obj/structure/table))
 		deploy_paper(get_turf(target))
+		return TRUE
 
 /obj/item/form_printer/attack_self(mob/user as mob)
 	deploy_paper(get_turf(src))
@@ -279,7 +270,7 @@
 /obj/item/borg/combat/shield
 	name = "personal shielding"
 	desc = "A powerful experimental module that turns aside or absorbs incoming attacks at the cost of charge."
-	icon = 'icons/obj/decals.dmi'
+	icon = 'icons/obj/structures/decals.dmi'
 	icon_state = "shock"
 	var/shield_level = 0.5 //Percentage of damage absorbed by the shield.
 
@@ -295,13 +286,13 @@
 /obj/item/borg/combat/mobility
 	name = "mobility module"
 	desc = "By retracting limbs and tucking in its head, a combat android can roll at high speeds."
-	icon = 'icons/obj/decals.dmi'
+	icon = 'icons/obj/structures/decals.dmi'
 	icon_state = "shock"
 
 /obj/item/inflatable_dispenser
 	name = "inflatables dispenser"
 	desc = "Hand-held device which allows rapid deployment and removal of inflatables."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/tools/inflatable_dispenser.dmi'
 	icon_state = "inf_deployer"
 	item_state = "RPED"
 	w_class = ITEM_SIZE_LARGE
@@ -328,9 +319,7 @@
 	mode = !mode
 	to_chat(usr, "You set \the [src] to deploy [mode ? "doors" : "walls"].")
 
-/obj/item/inflatable_dispenser/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
-	if (!user)
-		return
+/obj/item/inflatable_dispenser/use_after(atom/target, mob/living/user, click_parameters)
 	if (loc != user)
 		return
 	var/turf/T = get_turf(target)
@@ -339,7 +328,7 @@
 
 	if (istype(target, /obj/structure/inflatable))
 		if (!do_after(user, 0.5 SECONDS, target, DO_PUBLIC_UNIQUE))
-			return
+			return TRUE
 		playsound(loc, 'sound/machines/hiss.ogg', 75, 1)
 		var/obj/item/inflatable/I
 		if (istype(target, /obj/structure/inflatable/door))
@@ -362,6 +351,7 @@
 			var/obj/structure/inflatable/S = target
 			copy_health(S, I)
 		qdel(target)
+		return TRUE
 
 	else if (istype(target, /obj/item/inflatable))
 		var/collected = FALSE
@@ -382,22 +372,23 @@
 			qdel(target)
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is already full of those."))
+		return TRUE
 
 	else
 		var/active_mode = mode
 		if (active_mode ? (!stored_doors) : (!stored_walls))
 			to_chat(user, SPAN_WARNING("\The [src] is out of [active_mode ? "doors" : "walls"]."))
-			return
+			return TRUE
 		var/obstruction = T.get_obstruction()
 		if (obstruction)
 			to_chat(user, SPAN_WARNING("\The [english_list(obstruction)] is blocking that spot."))
-			return
+			return TRUE
 		if (!do_after(user, 0.5 SECONDS, T, DO_PUBLIC_UNIQUE))
-			return
+			return TRUE
 		obstruction = T.get_obstruction()
 		if (obstruction)
 			to_chat(user, SPAN_WARNING("\The [english_list(obstruction)] is blocking that spot."))
-			return
+			return TRUE
 		var/placed
 		if (active_mode)
 			placed = new /obj/structure/inflatable/door(T)
@@ -411,7 +402,7 @@
 			range = 5
 		)
 		playsound(loc, 'sound/items/zip.ogg', 75, 1)
-
+		return TRUE
 /obj/item/reagent_containers/spray/cleaner/drone
 	name = "space cleaner"
 	desc = "BLAM!-brand non-foaming space cleaner!"
@@ -448,19 +439,27 @@
 	to_chat(user, SPAN_NOTICE("You deploy \a [R]."))
 	R.add_fingerprint(user)
 
-/obj/item/robot_rack/resolve_attackby(obj/O, mob/user, click_params)
-	if(istype(O, object_type))
-		if(length(held) < capacity)
-			to_chat(user, SPAN_NOTICE("You collect \the [O]."))
-			O.forceMove(src)
-			held += O
-			return
-		to_chat(user, SPAN_WARNING("\The [src] is full and can't store any more items."))
-		return
-	if(istype(O, interact_type))
-		O.attack_hand(user)
-		return
-	. = ..()
+
+/obj/item/robot_rack/use_before(atom/target, mob/living/user, click_parameters)
+	// Pick up thing
+	if (istype(target, object_type))
+		if (length(held) >= capacity)
+			USE_FEEDBACK_FAILURE("\The [src] is full and can't store any more items.")
+			return TRUE
+		var/obj/target_obj = target
+		target_obj.forceMove(src)
+		held += target
+		to_chat(user, SPAN_NOTICE("You collect \the [target] with \the [src]."))
+		return TRUE
+
+	// Use the thing
+	if (istype(target, interact_type))
+		var/obj/target_obj = target
+		if (target_obj.attack_hand(user))
+			return TRUE
+
+	return ..()
+
 
 /obj/item/robot_rack/verb/empty_rack()
 	set name = "Empty Rack"
@@ -475,7 +474,7 @@
 /obj/item/bioreactor
 	name = "bioreactor"
 	desc = "An integrated power generator that runs on most kinds of biomass."
-	icon = 'icons/obj/power.dmi'
+	icon = 'icons/obj/structures/portgen.dmi'
 	icon_state = "portgen0"
 
 	var/base_power_generation = 75 KILOWATTS
@@ -493,22 +492,23 @@
 	else
 		to_chat(user, SPAN_WARNING("There is nothing loaded into \the [src]."))
 
-/obj/item/bioreactor/afterattack(atom/movable/target, mob/user, proximity_flag, click_parameters)
-	if(!proximity_flag || !istype(target))
-		return
+/obj/item/bioreactor/use_after(atom/movable/target, mob/living/user, click_parameters)
+	if(!istype(target))
+		return FALSE
 
 	var/is_fuel = istype(target, /obj/item/reagent_containers/food/snacks/grown)
 	is_fuel = is_fuel || is_type_in_list(target, fuel_types)
 
 	if(!is_fuel)
 		to_chat(user, SPAN_WARNING("\The [target] cannot be used as fuel by \the [src]."))
-		return
-
+		return TRUE
 	if(length(contents) >= max_fuel_items)
 		to_chat(user, SPAN_WARNING("\The [src] can fit no more fuel inside."))
-		return
+		return TRUE
+
 	target.forceMove(src)
 	to_chat(user, SPAN_NOTICE("You load \the [target] into \the [src]."))
+	return TRUE
 
 /obj/item/bioreactor/Initialize()
 	. = ..()

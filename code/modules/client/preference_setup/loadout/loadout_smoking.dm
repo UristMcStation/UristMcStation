@@ -8,7 +8,7 @@
 
 /datum/gear/matchbook
 	display_name = "matchbook"
-	path = /obj/item/storage/box/matches
+	path = /obj/item/storage/fancy/matches/matchbox
 
 /datum/gear/zippo
 	display_name = "plain zippo"

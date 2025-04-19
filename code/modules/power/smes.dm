@@ -7,6 +7,7 @@
 /obj/machinery/power/smes
 	name = "power storage unit"
 	desc = "A high-capacity superconducting magnetic energy storage (SMES) unit."
+	icon = 'icons/obj/machines/power/smes.dmi'
 	icon_state = "smes"
 	density = TRUE
 	anchored = TRUE
@@ -22,7 +23,7 @@
 
 	var/capacity = 5e6 // maximum charge
 	var/charge = 1e6 // actual charge
-	var/overlay_icon = 'icons/obj/power.dmi'
+	var/overlay_icon = 'icons/obj/machines/power/smes.dmi'
 	var/input_attempt = 0 			// 1 = attempting to charge, 0 = not attempting to charge
 	var/inputting = 0 				// 1 = actually inputting, 0 = not inputting
 	var/input_level = 50000 		// amount of power the SMES attempts to charge by
@@ -95,35 +96,39 @@
 	return 0
 
 /obj/machinery/power/smes/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(MACHINE_IS_BROKEN(src))	return
 
-	overlays += image(overlay_icon, "smes-op[outputting]")
+	AddOverlays(emissive_appearance(icon, "smes-op[outputting]"))
+	AddOverlays(image(overlay_icon, "smes-op[outputting]"))
 
 	if(inputting == 2)
-		overlays += image(overlay_icon, "smes-oc2")
+		AddOverlays(emissive_appearance(icon, "smes-oc2"))
+		AddOverlays(image(overlay_icon, "smes-oc2"))
 	else if (inputting == 1)
-		overlays += image(overlay_icon, "smes-oc1")
+		AddOverlays(emissive_appearance(icon, "smes-oc1"))
+		AddOverlays(image(overlay_icon, "smes-oc1"))
 	else if (input_attempt)
-		overlays += image(overlay_icon, "smes-oc0")
+		AddOverlays(emissive_appearance(icon, "smes-oc0"))
+		AddOverlays(image(overlay_icon, "smes-oc0"))
 
 	var/clevel = chargedisplay()
 	if(clevel)
-		var/image/I = image(overlay_icon, "smes-og[clevel]")
-		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		I.layer = ABOVE_LIGHTING_LAYER
-		overlays += I
-		set_light(0.4, 1.2, 4, 10)
+		AddOverlays(emissive_appearance(icon, "smes-og[clevel]"))
+		AddOverlays(image(overlay_icon, "smes-og[clevel]"))
 
 	if(outputting == 2)
-		overlays += image(overlay_icon, "smes-op2")
+		AddOverlays(emissive_appearance(icon, "smes-op2"))
+		AddOverlays(image(overlay_icon, "smes-op2"))
 	else if (outputting == 1)
-		overlays += image(overlay_icon, "smes-op1")
+		AddOverlays(emissive_appearance(icon, "smes-op1"))
+		AddOverlays(image(overlay_icon, "smes-op1"))
 	else
-		overlays += image(overlay_icon, "smes-op0")
+		AddOverlays(emissive_appearance(icon, "smes-op0"))
+		AddOverlays(image(overlay_icon, "smes-op0"))
 
 	if(panel_open)
-		overlays += image(overlay_icon, "smes-panel")
+		AddOverlays(image(overlay_icon, "smes-panel"))
 
 
 /obj/machinery/power/smes/proc/chargedisplay()
@@ -235,9 +240,9 @@
 	ui_interact(user)
 	return TRUE
 
-/obj/machinery/power/smes/attackby(obj/item/W as obj, mob/user as mob)
-	if(component_attackby(W, user))
-		return TRUE
+/obj/machinery/power/smes/use_tool(obj/item/W, mob/living/user, list/click_params)
+	if((.= ..()))
+		return
 
 	if (!panel_open)
 		to_chat(user, SPAN_WARNING("You need to open the access hatch on \the [src] first!"))
@@ -245,13 +250,12 @@
 
 	if(isWelder(W))
 		var/obj/item/weldingtool/WT = W
-		if(!WT.isOn())
-			to_chat(user, "Turn on \the [WT] first!")
+		if(!WT.can_use(5, user))
 			return TRUE
 		if(!damage)
 			to_chat(user, "\The [src] is already fully repaired.")
 			return TRUE
-		if(WT.remove_fuel(0,user) && do_after(user, damage, src, DO_REPAIR_CONSTRUCT))
+		if(do_after(user, damage, src, DO_REPAIR_CONSTRUCT) && WT.remove_fuel(5 ,user))
 			to_chat(user, "You repair all structural damage to \the [src]")
 			damage = 0
 		return TRUE

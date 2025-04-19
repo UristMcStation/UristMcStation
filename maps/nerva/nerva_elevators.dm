@@ -45,13 +45,13 @@
 	icon_screen = "lift"
 	density = FALSE
 
-/obj/effect/shuttle_landmark/liftnerva/top
+/obj/shuttle_landmark/liftnerva/top
 	name = "Top Deck"
 	landmark_tag = "nav_nerva_lift_top"
 	base_area = /area/logistics/uppercargo
 	base_turf = /turf/simulated/open
 
-/obj/effect/shuttle_landmark/liftnerva/bottom
+/obj/shuttle_landmark/liftnerva/bottom
 	name = "Lower Deck"
 	landmark_tag = "nav_nerva_lift_bottom"
 	base_area = /area/logistics/lowercargo
@@ -141,7 +141,7 @@
 
 		if(EAST)
 
-			int_panel_x = ux + Floor(lift_size_x/2)
+			int_panel_x = ux + floor(lift_size_x/2)
 			int_panel_y = ey
 			ext_panel_x = ex+2
 			ext_panel_y = ey + 1

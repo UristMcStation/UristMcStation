@@ -12,21 +12,20 @@
 
 /turf/simulated/floor/exoplanet/New()
 	if(GLOB.using_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		var/obj/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 		if(istype(E))
-			if(E.atmosphere)
-				initial_gas = E.atmosphere.gas.Copy()
-				temperature = E.atmosphere.temperature
-			else
-				initial_gas = list()
-				temperature = T0C
-			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
-			set_light(E.lightlevel, 0.1, 2)
+			// if(E.atmosphere)
+			// 	initial_gas = E.atmosphere.gas.Copy()
+			// 	temperature = E.atmosphere.temperature
+			// else
+			// 	initial_gas = list()
+			// 	temperature = T0C
+
 			if(E.planetary_area && istype(loc, world.area))
 				ChangeArea(src, E.planetary_area)
 	..()
 
-/turf/simulated/floor/exoplanet/attackby(obj/item/C, mob/user)
+/turf/simulated/floor/exoplanet/use_tool(obj/item/C, mob/living/user, list/click_params)
 	if(diggable && istype(C,/obj/item/shovel))
 		visible_message(SPAN_NOTICE("\The [user] starts digging \the [src]"))
 		if(do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
@@ -35,15 +34,22 @@
 			diggable = 0
 		else
 			to_chat(user,SPAN_NOTICE("You stop shoveling."))
+		return TRUE
+
 	else if(istype(C, /obj/item/stack/tile))
 		var/obj/item/stack/tile/T = C
-		if(T.use(1))
-			playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
-			ChangeTurf(/turf/simulated/floor, FALSE, FALSE, TRUE)
+		if(!T.can_use(1))
+			USE_FEEDBACK_STACK_NOT_ENOUGH(T, 1, "to place a tile.")
+			return TRUE
+		T.use(1)
+		playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
+		ChangeTurf(/turf/simulated/floor, FALSE, FALSE, TRUE)
+		return TRUE
+
 	else if (isCrowbar(C) || isWelder(C) || istype(C, /obj/item/gun/energy/plasmacutter))
 		return
 	else
-		..()
+		return ..()
 
 /turf/simulated/floor/exoplanet/ex_act(severity)
 	switch(severity)
@@ -58,9 +64,9 @@
 	update_icon(1)
 
 /turf/simulated/floor/exoplanet/on_update_icon(update_neighbors)
-	overlays.Cut()
+	ClearOverlays()
 	if(LAZYLEN(decals))
-		overlays += decals
+		AddOverlays(decals)
 	for(var/direction in GLOB.cardinal)
 		var/turf/turf_to_check = get_step(src,direction)
 		if(!istype(turf_to_check, type))
@@ -75,7 +81,7 @@
 					rock_side.pixel_x += world.icon_size
 				if(WEST)
 					rock_side.pixel_x -= world.icon_size
-			overlays += rock_side
+			AddOverlays(rock_side)
 		else if(update_neighbors)
 			turf_to_check.update_icon()
 
@@ -94,11 +100,12 @@
 	footstep_type = /singleton/footsteps/water
 	var/reagent_type = /datum/reagent/water
 
-/turf/simulated/floor/exoplanet/water/shallow/attackby(obj/item/O, mob/living/user)
+/turf/simulated/floor/exoplanet/water/shallow/use_tool(obj/item/O, mob/living/user, list/click_params)
 	var/obj/item/reagent_containers/RG = O
 	if (reagent_type && istype(RG) && RG.is_open_container() && RG.reagents)
 		RG.reagents.add_reagent(reagent_type, min(RG.volume - RG.reagents.total_volume, RG.amount_per_transfer_from_this))
 		user.visible_message(SPAN_NOTICE("[user] fills \the [RG] from \the [src]."),SPAN_NOTICE("You fill \the [RG] from \the [src]."))
+		return TRUE
 	else
 		return ..()
 
@@ -146,7 +153,7 @@
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
 	if(GLOB.using_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+		var/obj/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 		if(istype(E) && E.grass_color)
 			color = E.grass_color
 	if(!resources)
@@ -197,11 +204,11 @@
 	icon_state = "concrete"
 
 /turf/simulated/floor/exoplanet/concrete/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(burnt)
-		overlays |= get_damage_overlay("burned[(x + y) % 3]", BLEND_MULTIPLY)
+		AddOverlays(get_damage_overlay("burned[(x + y) % 3]", BLEND_MULTIPLY))
 	if(broken)
-		overlays |= get_damage_overlay("broken[(x + y) % 5]", BLEND_MULTIPLY)
+		AddOverlays(get_damage_overlay("broken[(x + y) % 5]", BLEND_MULTIPLY))
 
 /turf/simulated/floor/exoplanet/concrete/melt()
 	burnt = TRUE
@@ -217,10 +224,11 @@
 	dynamic_lighting = FALSE
 	icon = null
 	icon_state = null
+	permit_ao = FALSE
 
 /turf/simulated/planet_edge/Initialize()
 	. = ..()
-	var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+	var/obj/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 	if(!istype(E))
 		return
 	var/nx = x
@@ -240,14 +248,14 @@
 		vis_contents = list(NT)
 
 	//Need to put a mouse-opaque overlay there to prevent people turning/shooting towards ACTUAL location of vis_content things
-	var/obj/effect/overlay/O = new(src)
+	var/obj/overlay/O = new(src)
 	O.mouse_opacity = 2
 	O.name = "distant terrain"
 	O.desc = "You need to come over there to take a better look."
 
 /turf/simulated/planet_edge/Bumped(atom/movable/A)
 	. = ..()
-	var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+	var/obj/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 	if(!istype(E))
 		return
 	if(E.planetary_area && istype(loc, world.area))

@@ -13,9 +13,9 @@
 	weather_enabled = 1
 	if(dynamic)
 		weather_dynamic = dynamic
-	if(SSweather)
-		if(!(src in SSweather.weather_cache))
-			SSweather.weather_cache += src
+	if(SSurist_weather)
+		if(!(src in SSurist_weather.weather_cache))
+			SSurist_weather.weather_cache += src
 	else
 		if(!(src in pending_weathers))
 			pending_weathers += src
@@ -56,9 +56,9 @@
 
 //Something entered the weather zone so the weather has to do work
 /turf/proc/weather_activate()
-	if(SSweather)
+	if(SSurist_weather)
 		if(!(weather_safe)) //does not process effects, so don't bother
-			SSweather.active_cache += src
+			SSurist_weather.active_cache += src
 
 /turf/proc/inflictW()
 	if(!(weather_safe))
@@ -83,10 +83,10 @@ for when you don't want to mess with the obj weather
 
 DO NOT map it in en-masse to enable a lot of turfs,
 use area procs or whatever, or you'll break the map */
-/obj/effect/weather_enabler
+/obj/urist_intangible/weather_enabler
 	icon_state = "splash"
 
-/obj/effect/weather_enabler/New()
+/obj/urist_intangible/weather_enabler/New()
 	if(istype(src.loc, /turf))
 		var/turf/WT = src.loc
 		WT.weather_enable()

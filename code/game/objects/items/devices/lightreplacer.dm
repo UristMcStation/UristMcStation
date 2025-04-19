@@ -36,7 +36,7 @@
 /obj/item/device/lightreplacer
 	name = "light replacer"
 	desc = "A lightweight automated device, capable of interfacing with and rapidly replacing standard light installations."
-	icon = 'icons/obj/janitor.dmi'
+	icon = 'icons/obj/janitor_tools.dmi'
 	icon_state = "lightreplacer0"
 	item_state = "electronic"
 
@@ -65,61 +65,82 @@
 			else
 				to_chat(user, "It is configured to print bulbs in this color: <span style='color: [lighting_tone];'>■</span>")
 
-/obj/item/device/lightreplacer/resolve_attackby(atom/A, mob/user)
 
-	//Check for lights in a container, refilling our charges.
-	if(istype(A, /obj/item/storage))
-		var/obj/item/storage/S = A
+/obj/item/device/lightreplacer/use_before(atom/target, mob/living/user, click_parameters)
+	// Replace light bulbs
+	if (istype(target, /obj/machinery/light))
+		var/obj/machinery/light/fixture = target
+		ReplaceLight(fixture, user)
+		return TRUE
+
+	return ..()
+
+
+/obj/item/device/lightreplacer/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Light bulb - Add light
+	if (istype(tool, /obj/item/light))
+		if (uses >= max_uses)
+			USE_FEEDBACK_FAILURE("\The [src] is full.")
+			return TRUE
+		var/obj/item/light/light = tool
+		if (light.status != LIGHT_OK)
+			USE_FEEDBACK_FAILURE("\The [tool] is broken.")
+			return TRUE
+		if (!user.unEquip(tool, src))
+			FEEDBACK_UNEQUIP_FAILURE(user, tool)
+			return TRUE
+		AddUses(1)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] adds \a [tool] to \a [src]."),
+			SPAN_NOTICE("You add \the [tool] to \the [src]. It now has [uses] light\s remaining.")
+		)
+		qdel(tool)
+		return TRUE
+
+	// Container - Add lights
+	if (istype(tool, /obj/item/storage))
+		if (uses >= max_uses)
+			USE_FEEDBACK_FAILURE("\The [src] is full.")
+			return TRUE
+		var/obj/item/storage/storage = tool
 		var/amt_inserted = 0
-		var/turf/T = get_turf(user)
-		for(var/obj/item/light/L in S.contents)
-			if(!user.stat && src.uses < src.max_uses && L.status == LIGHT_OK)
-				src.AddUses(1)
-				amt_inserted++
-				S.remove_from_storage(L, T, 1)
-				qdel(L)
-		S.finish_bulk_removal()
-		if(amt_inserted)
-			to_chat(user, "You insert [amt_inserted] light\s into \The [src]. It has [uses] light\s remaining.")
-			add_fingerprint(user)
-			return
-
-	//Actually replace the light.
-	if(istype(A, /obj/machinery/light))
-		var/obj/machinery/light/L = A
-		if(isliving(user))
-			var/mob/living/U = user
-			ReplaceLight(L, U)
-			add_fingerprint(user)
-			return
-	. = ..()
-
-/obj/item/device/lightreplacer/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/material) && W.get_material_name() == MATERIAL_GLASS)
-		var/obj/item/stack/G = W
-		if(uses >= max_uses)
-			to_chat(user, SPAN_WARNING("[src.name] is full."))
-			return
-		else if(G.use(1))
-			AddUses(16) //Autolathe converts 1 sheet into 16 lights.
-			to_chat(user, SPAN_NOTICE("You insert a piece of glass into \the [src.name]. You have [uses] light\s remaining."))
-			return
-		else
-			to_chat(user, SPAN_WARNING("You need one sheet of glass to replace lights."))
-
-	if(istype(W, /obj/item/light))
-		var/obj/item/light/L = W
-		if(L.status == LIGHT_OK)
-			if(uses < max_uses)
-				if(!user.unEquip(L))
-					return
+		for (var/obj/item/light/light in storage.contents)
+			if (uses < max_uses && light.status == LIGHT_OK)
 				AddUses(1)
-				to_chat(user, "You insert \the [L.name] into \the [src.name]. You have [uses] light\s remaining.")
-				qdel(L)
-				return
-		else
-			to_chat(user, "You need a working light.")
-			return
+				amt_inserted++
+				storage.remove_from_storage(light, src, TRUE)
+				qdel(light)
+		if (!amt_inserted)
+			USE_FEEDBACK_FAILURE("\The [tool] has no lights to add to \the [src].")
+			return TRUE
+		storage.finish_bulk_removal()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] transfers some lights from \a [tool] to \a [src]."),
+			SPAN_NOTICE("You insert [amt_inserted] light\s from \the [tool] to \the [src]. It now has [uses] light\s remaining.")
+		)
+		return TRUE
+
+	// Material Stack - Add lights
+	if (istype(tool, /obj/item/stack/material))
+		if (tool.get_material_name() != MATERIAL_GLASS)
+			USE_FEEDBACK_FAILURE("\The [src] can only be loaded with glass.")
+			return TRUE
+		if (uses >= max_uses)
+			USE_FEEDBACK_FAILURE("\The [src] is full.")
+			return TRUE
+		var/obj/item/stack/material/material_stack = tool
+		if (!material_stack.use(1))
+			USE_FEEDBACK_STACK_NOT_ENOUGH(material_stack, 1, "to refill \the [src].")
+			return TRUE
+		AddUses(16)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] loads \a [src] with [material_stack.get_vague_name(FALSE)]."),
+			SPAN_NOTICE("You load \the [src] with [material_stack.get_exact_name(1)]. It now has [uses] light\s remaining.")
+		)
+		return TRUE
+
+	return ..()
+
 
 /obj/item/device/lightreplacer/attack_self(mob/user)
 	/* // This would probably be a bit OP. If you want it though, uncomment the code.

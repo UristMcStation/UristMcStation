@@ -34,7 +34,7 @@
 	var/name				//replaces mob/var/original_name
 	var/mob/living/current
 	var/mob/living/original	//TODO: remove.not used in any meaningful way ~Carn. First I'll need to tweak the way silicon-mobs handle minds.
-	var/active = 0
+	var/active = FALSE
 
 	var/assigned_role
 	var/special_role
@@ -53,10 +53,12 @@
 	var/has_been_rev = 0//Tracks if this mind has been a rev or not
 
 	var/faction 			//associated faction
-	var/datum/changeling/changeling		//changeling holder
+	var/datum/changeling/changeling		//changeling holde
+
+	///String. Last spoken message.
+	var/last_words
 
 	var/rev_cooldown = 0
-	var/last_words
 
 	// the world.time since the mob has been brigged, or -1 if not at all
 	var/brigged_since = -1
@@ -66,7 +68,7 @@
 
 	var/list/initial_email_login = list("login" = "", "password" = "")
 
-	var/list/known_mobs
+	var/list/known_mobs = list()
 
 /datum/mind/New(key)
 	src.key = key
@@ -84,7 +86,7 @@
 	if(current)					//remove ourself from our old body's mind variable
 		if(changeling)
 			current.remove_changeling_powers()
-			current.verbs -= /datum/changeling/proc/EvolutionMenu
+			current.verbs -= /datum/changeling/proc/EvolutionTree
 		current.mind = null
 
 		SSnano.user_transferred(current, new_character) // transfer active NanoUI instances to new user
@@ -99,9 +101,6 @@
 	if(learned_spells && length(learned_spells))
 		restore_spells(new_character)
 
-	if(changeling)
-		new_character.make_changeling()
-
 	if(active)
 		new_character.key = key		//now transfer the key to link the client to our new body
 
@@ -112,7 +111,7 @@
 
 	var/out = "<B>[name]</B>[(current&&(current.real_name!=name))?" (as [current.real_name])":""]<br>"
 	out += "Mind currently owned by key: [key] [active?"(synced)":"(not synced)"]<br>"
-	out += "Assigned role: [assigned_role]. <a href='?src=\ref[src];role_edit=1'>Edit</a><br>"
+	out += "Assigned role: [assigned_role]. <a href='byond://?src=\ref[src];role_edit=1'>Edit</a><br>"
 	out += "<hr>"
 	out += "Factions and special roles:<br><table>"
 	var/list/all_antag_types = GLOB.all_antag_types_
@@ -126,16 +125,16 @@
 		var/num = 1
 		for(var/datum/objective/O in objectives)
 			out += "<b>Objective #[num]:</b> [O.explanation_text] "
-			out += " <a href='?src=\ref[src];obj_delete=\ref[O]'>\[remove\]</a><br>"
+			out += " <a href='byond://?src=\ref[src];obj_delete=\ref[O]'>\[remove\]</a><br>"
 			num++
-		out += "<br><a href='?src=\ref[src];obj_announce=1'>\[announce objectives\]</a>"
+		out += "<br><a href='byond://?src=\ref[src];obj_announce=1'>\[announce objectives\]</a>"
 
 	else
 		out += "None."
-	out += "<br><a href='?src=\ref[src];obj_add=1'>\[add\]</a><br><br>"
+	out += "<br><a href='byond://?src=\ref[src];obj_add=1'>\[add\]</a><br><br>"
 
 	var/datum/goal/ambition/ambition = SSgoals.ambitions[src]
-	out += "<b>Ambitions:</b> [ambition ? ambition.description : "None"] <a href='?src=\ref[src];amb_edit=\ref[src]'>\[edit\]</a></br>"
+	out += "<b>Ambitions:</b> [ambition ? ambition.description : "None"] <a href='byond://?src=\ref[src];amb_edit=\ref[src]'>\[edit\]</a></br>"
 	show_browser(usr, out, "window=edit_memory[src]")
 
 /datum/mind/Topic(href, href_list)
@@ -147,8 +146,9 @@
 
 	if(href_list["add_goal"])
 
-		var/mob/caller = locate(href_list["add_goal_caller"])
-		if(!isghost(usr) && caller && caller == current) can_modify = TRUE
+		var/mob/calling_mob = locate(href_list["add_goal_caller"])
+		if(!isghost(usr) && calling_mob && calling_mob == current)
+			can_modify = TRUE
 
 		if(can_modify)
 			var/did_generate_goal = generate_goals(assigned_job, TRUE, 1, bypass_goal_checks = is_admin)
@@ -168,8 +168,9 @@
 	if(href_list["abandon_goal"])
 		var/datum/goal/goal = locate(href_list["abandon_goal"])
 
-		var/mob/caller = locate(href_list["abandon_goal_caller"])
-		if(!isghost(usr) && caller && caller == current) can_modify = TRUE
+		var/mob/calling_mob = locate(href_list["abandon_goal_caller"])
+		if(!isghost(usr) && calling_mob && calling_mob == current)
+			can_modify = TRUE
 
 		if(can_modify && goal && (goal in goals))
 			if(delete_goal(assigned_job, goal, is_admin))
@@ -184,8 +185,9 @@
 	if(href_list["reroll_goal"])
 		var/datum/goal/goal = locate(href_list["reroll_goal"])
 
-		var/mob/caller = locate(href_list["reroll_goal_caller"])
-		if(!isghost(usr) && caller && caller == current) can_modify = TRUE
+		var/mob/calling_mob = locate(href_list["reroll_goal_caller"])
+		if(!isghost(usr) && calling_mob && calling_mob == current)
+			can_modify = TRUE
 
 		if(can_modify && goal && (goal in goals))
 			if(generate_goals(assigned_job, TRUE, 1, bypass_goal_checks = TRUE))
@@ -420,7 +422,6 @@
 				to_chat(H, SPAN_DANGER(FONT_LARGE("You somehow have become the recepient of a loyalty transplant, and it just activated!")))
 				H.implant_loyalty(H, override = TRUE)
 				log_admin("[key_name_admin(usr)] has loyalty implanted [current].")
-			else
 	else if (href_list["silicon"])
 		SET_BIT(current.hud_updateflag, SPECIALROLE_HUD)
 		switch(href_list["silicon"])
@@ -429,17 +430,6 @@
 				var/mob/living/silicon/robot/R = current
 				if (istype(R))
 					R.emagged = FALSE
-					if (R.IsHolding(R.module.emag))
-						R.module_active = null
-					if(R.module_state_1 == R.module.emag)
-						R.module_state_1 = null
-						R.module.emag.forceMove(null)
-					else if(R.module_state_2 == R.module.emag)
-						R.module_state_2 = null
-						R.module.emag.forceMove(null)
-					else if(R.module_state_3 == R.module.emag)
-						R.module_state_3 = null
-						R.module.emag.forceMove(null)
 					log_admin("[key_name_admin(usr)] has unemag'ed [R].")
 
 			if("unemagcyborgs")
@@ -447,18 +437,6 @@
 					var/mob/living/silicon/ai/ai = current
 					for (var/mob/living/silicon/robot/R in ai.connected_robots)
 						R.emagged = FALSE
-						if (R.module)
-							if (R.IsHolding(R.module.emag))
-								R.module_active = null
-							if(R.module_state_1 == R.module.emag)
-								R.module_state_1 = null
-								R.module.emag.forceMove(null)
-							else if(R.module_state_2 == R.module.emag)
-								R.module_state_2 = null
-								R.module.emag.forceMove(null)
-							else if(R.module_state_3 == R.module.emag)
-								R.module_state_3 = null
-								R.module.emag.forceMove(null)
 					log_admin("[key_name_admin(usr)] has unemag'ed [ai]'s Cyborgs.")
 
 	else if (href_list["common"])

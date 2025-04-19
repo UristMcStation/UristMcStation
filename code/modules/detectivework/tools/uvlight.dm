@@ -1,7 +1,7 @@
 /obj/item/device/uv_light
 	name = "\improper UV light"
 	desc = "A small handheld black light."
-	icon = 'icons/obj/uv_light.dmi'
+	icon = 'icons/obj/tools/uv_light.dmi'
 	icon_state = "uv_off"
 	slot_flags = SLOT_BELT
 	w_class = ITEM_SIZE_SMALL
@@ -21,7 +21,7 @@
 /obj/item/device/uv_light/attack_self(mob/user)
 	on = !on
 	if(on)
-		set_light(0.5, 0.1, range, 2, "#007fff")
+		set_light(range, 0.5, "#007fff")
 		START_PROCESSING(SSobj, src)
 		icon_state = "uv_on"
 	else
@@ -45,7 +45,7 @@
 		stored_alpha.Cut()
 	if(length(reset_objects))
 		for(var/obj/item/I in reset_objects)
-			I.overlays -= I.blood_overlay
+			I.CutOverlays(I.blood_overlay)
 			if(I.fluorescent == ATOM_FLOURESCENCE_ACTVE)
 				I.fluorescent = ATOM_FLOURESCENCE_INACTIVE
 		reset_objects.Cut()
@@ -70,5 +70,5 @@
 					if(istype(A, /obj/item))
 						var/obj/item/O = A
 						if(O.was_bloodied && !(O.blood_overlay in O.overlays))
-							O.overlays |= O.blood_overlay
+							O.AddOverlays(O.blood_overlay)
 							reset_objects |= O

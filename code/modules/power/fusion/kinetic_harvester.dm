@@ -4,8 +4,8 @@
 	density = TRUE
 	anchored = TRUE
 	use_power = POWER_USE_IDLE
-	icon = 'icons/obj/kinetic_harvester.dmi'
-	icon_state = "off"
+	icon = 'icons/obj/machines/kinetic_harvester.dmi'
+	icon_state = "harvester"
 	var/initial_id_tag
 	var/list/stored =     list()
 	var/list/harvesting = list()
@@ -27,12 +27,13 @@
 	ui_interact(user)
 	return TRUE
 
-/obj/machinery/kinetic_harvester/attackby(obj/item/thing, mob/user)
+/obj/machinery/kinetic_harvester/use_tool(obj/item/thing, mob/living/user, list/click_params)
 	if(isMultitool(thing))
 		var/datum/extension/local_network_member/lanm = get_extension(src, /datum/extension/local_network_member)
 		if(lanm.get_new_tag(user))
 			find_core()
-		return
+		return TRUE
+
 	return ..()
 
 /obj/machinery/kinetic_harvester/proc/find_core()
@@ -62,7 +63,7 @@
 	for(var/mat in stored)
 		var/material/material = SSmaterials.get_material_by_name(mat)
 		if(material)
-			var/sheets = Floor(stored[mat]/(material.units_per_sheet * 1.5))
+			var/sheets = floor(stored[mat]/(material.units_per_sheet * 1.5))
 			data["materials"] += list(list("material" = mat, "rawamount" = stored[mat], "amount" = sheets, "harvest" = harvesting[mat]))
 
 	ui = SSnano.try_update_ui(user, src, ui_key, ui, data, force_open)
@@ -94,12 +95,15 @@
 			harvesting.Cut()
 
 /obj/machinery/kinetic_harvester/on_update_icon()
-	if(inoperable())
-		icon_state = "broken"
-	else if(use_power >= POWER_USE_ACTIVE)
-		icon_state = "on"
-	else
-		icon_state = "off"
+	ClearOverlays()
+	if(panel_open)
+		AddOverlays("[icon_state]_panel")
+	if(is_powered())
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
+	if(use_power == POWER_USE_ACTIVE)
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
+		AddOverlays("[icon_state]_lights_working")
 
 /obj/machinery/kinetic_harvester/OnTopic(mob/user, href_list, datum/topic_state/state)
 	if(href_list["remove_mat"])
@@ -107,7 +111,7 @@
 		var/material/material = SSmaterials.get_material_by_name(mat)
 		if(material)
 			var/sheet_cost = (material.units_per_sheet * 1.5)
-			var/sheets = Floor(stored[mat]/sheet_cost)
+			var/sheets = floor(stored[mat]/sheet_cost)
 			if(sheets > 0)
 				material.place_sheet(loc, sheets)
 				stored[mat] -= sheets * sheet_cost

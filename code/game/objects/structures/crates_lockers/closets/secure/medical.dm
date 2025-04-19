@@ -7,7 +7,8 @@
 				list(/obj/item/clothing/under/rank/medical/scrubs/lilac, /obj/item/clothing/head/surgery/lilac), \
 				list(/obj/item/clothing/under/rank/medical/scrubs/teal, /obj/item/clothing/head/surgery/teal), \
 				list(/obj/item/clothing/under/rank/medical/scrubs/heliodor, /obj/item/clothing/head/surgery/heliodor), \
-				list(/obj/item/clothing/under/rank/medical/scrubs/navyblue, /obj/item/clothing/head/surgery/navyblue)\
+				list(/obj/item/clothing/under/rank/medical/scrubs/navyblue, /obj/item/clothing/head/surgery/navyblue), \
+				list(/obj/item/clothing/under/rank/medical/scrubs/lavender, /obj/item/clothing/head/surgery/lavender) \
 			) \
 		)
 
@@ -24,10 +25,10 @@
 		/obj/item/reagent_containers/dropper = 2,
 		/obj/item/reagent_containers/glass/beaker = 2,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 2,
-		/obj/item/reagent_containers/glass/bottle/antitoxin = 2,
+		/obj/item/reagent_containers/glass/bottle/dylovene = 2,
 		/obj/random/firstaid,
 		/obj/item/storage/box/masks,
-		/obj/item/storage/box/gloves
+		/obj/item/storage/box/latexgloves
 	)
 
 /obj/structure/closet/secure_closet/medical2
@@ -77,7 +78,7 @@
 	    /obj/item/storage/box/autoinjectors,
 	    /obj/item/storage/box/syringes,
 	    /obj/item/reagent_containers/glass/bottle/inaprovaline,
-	    /obj/item/reagent_containers/glass/bottle/antitoxin,
+	    /obj/item/reagent_containers/glass/bottle/dylovene,
 	    /obj/item/storage/belt/medical/emt,
 	    /obj/item/clothing/mask/gas,
 	    /obj/item/clothing/suit/storage/toggle/fr_jacket,
@@ -157,8 +158,8 @@
 		/obj/item/clothing/shoes/white,
 		/obj/item/storage/pill_bottle/citalopram,
 		/obj/item/storage/pill_bottle/methylphenidate,
-		/obj/item/material/clipboard,
-		/obj/item/folder/white,
+		/obj/item/material/folder/clipboard,
+		/obj/item/material/folder/white,
 		/obj/item/device/taperecorder,
 		/obj/item/device/tape/random = 3,
 		/obj/item/device/camera,
@@ -181,9 +182,9 @@
 		/obj/item/reagent_containers/glass/bottle/inaprovaline,
 		/obj/item/storage/pill_bottle/spaceacillin,
 		/obj/item/reagent_containers/syringe/antiviral,
-		/obj/item/reagent_containers/glass/bottle/antitoxin,
+		/obj/item/reagent_containers/glass/bottle/dylovene,
 		/obj/item/storage/box/masks,
-		/obj/item/storage/box/gloves,
+		/obj/item/storage/box/latexgloves,
 		/obj/item/clothing/under/rank/virologist,
 		/obj/item/clothing/shoes/white,
 		/obj/item/clothing/suit/storage/toggle/labcoat/virologist,
@@ -201,7 +202,7 @@
 /obj/structure/closet/secure_closet/psychiatry/WillContain()
 	return list(
 		/obj/item/clothing/suit/straight_jacket,
-		/obj/item/reagent_containers/glass/bottle/stoxin,
+		/obj/item/reagent_containers/glass/bottle/soporific,
 		/obj/item/reagent_containers/syringe,
 		/obj/item/storage/pill_bottle/citalopram,
 		/obj/item/storage/pill_bottle/methylphenidate,

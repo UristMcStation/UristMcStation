@@ -18,7 +18,7 @@
 
 // Used by update statements, this is to handle shit like preventing editing the /datum/admins though SDQL but WITHOUT +PERMISSIONS.
 // Assumes the variable actually exists.
-/datum/proc/SDQL_update(const/var_name, new_value)
+/datum/proc/SDQL_update(var_name, new_value)
 	vars[var_name] = new_value
 	return 1
 
@@ -104,15 +104,15 @@
 				if("select")
 					var/text = ""
 					for(var/datum/t in objs)
-						text += "<A HREF='?_src_=vars;Vars=\ref[t]'>\ref[t]</A>"
-						if(istype(t, /atom))
+						text += "<A HREF='byond://?_src_=vars;Vars=\ref[t]'>\ref[t]</A>"
+						if(isloc(t))
 							var/atom/a = t
 
 							if(a.x)
-								text += ": [t] at <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[a.x];Y=[a.y];Z=[a.z]'>([a.x], [a.y], [a.z])</a><br>"
+								text += ": [t] at <A HREF='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[a.x];Y=[a.y];Z=[a.z]'>([a.x], [a.y], [a.z])</a><br>"
 
 							else if(a.loc && a.loc.x)
-								text += ": [t] in <A HREF='?_src_=vars;Vars=\ref[a.loc]'>[a.loc]</A> at <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[a.loc.x];Y=[a.loc.y];Z=[a.loc.z]'>([a.loc.x], [a.loc.y], [a.loc.z])</a><br>"
+								text += ": [t] in <A HREF='byond://?_src_=vars;Vars=\ref[a.loc]'>[a.loc]</A> at <A HREF='byond://?_src_=holder;adminplayerobservecoodjump=1;X=[a.loc.x];Y=[a.loc.y];Z=[a.loc.z]'>([a.loc.x], [a.loc.y], [a.loc.z])</a><br>"
 
 							else
 								text += ": [t]<br>"
@@ -133,7 +133,7 @@
 								var/i = 0
 								for(var/v in sets)
 									if(++i == length(sets))
-										if(istype(temp, /turf) && (v == "x" || v == "y" || v == "z"))
+										if(isturf(temp) && (v == "x" || v == "y" || v == "z"))
 											break
 
 										temp.SDQL_update(v, SDQL_expression(d, set_list[sets]))
@@ -196,7 +196,7 @@
 		spaces += "&nbsp;&nbsp;&nbsp;&nbsp;"
 
 	for(var/item in query_tree)
-		if(istype(item, /list))
+		if(islist(item))
 			to_chat(usr, "[spaces](")
 			SDQL_testout(item, indent + 1)
 			to_chat(usr, "[spaces])")
@@ -206,7 +206,7 @@
 
 		if(!isnum(item) && query_tree[item])
 
-			if(istype(query_tree[item], /list))
+			if(islist(query_tree[item]))
 				to_chat(usr, "[spaces]&nbsp;&nbsp;&nbsp;&nbsp;(")
 				SDQL_testout(query_tree[item], indent + 2)
 				to_chat(usr, "[spaces]&nbsp;&nbsp;&nbsp;&nbsp;)")
@@ -325,7 +325,7 @@
 	if(i > length(expression))
 		return list("val" = null, "i" = i)
 
-	if(istype(expression[i], /list))
+	if(islist(expression[i]))
 		val = SDQL_expression(object, expression[i])
 
 	else if(expression[i] == "!")

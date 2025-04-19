@@ -1,4 +1,4 @@
-/datum/species/teshari
+/singleton/species/teshari
 	name = SPECIES_RESOMI
 	name_plural = "Teshari"
 	description = "A race of feathered raptors who developed alongside the Skrell, inhabiting \

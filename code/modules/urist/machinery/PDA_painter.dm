@@ -39,11 +39,11 @@
 		src.colorlist += D
 
 
-/obj/machinery/pdapainter/attackby(obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/pdapainter/use_tool(obj/item/O, mob/living/user, list/click_params)
 	if(istype(O, /obj/item/modular_computer/pda))
 		if(storedpda)
 			to_chat(user, "There is already a PDA inside.")
-			return
+			return TRUE
 		else
 			var/obj/item/modular_computer/pda/P = usr.get_active_hand()
 			if(istype(P))
@@ -52,6 +52,9 @@
 				P.loc = src
 				P.add_fingerprint(usr)
 				update_icon()
+				return TRUE
+
+	return ..()
 
 
 /obj/machinery/pdapainter/attack_hand(mob/user as mob)

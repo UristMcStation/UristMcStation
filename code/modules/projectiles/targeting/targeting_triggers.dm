@@ -23,7 +23,7 @@
 	if (!istype(G))
 		return
 	if (owner == aiming_at)
-		addtimer(new Callback(G, /obj/item/gun/proc/handle_suicide, owner, 2))
+		addtimer(new Callback(G, TYPE_PROC_REF(/obj/item/gun, handle_suicide), owner, 2))
 		return
 	owner.setClickCooldown(DEFAULT_QUICK_COOLDOWN) // Spam prevention, essentially.
 	owner.visible_message(SPAN_DANGER("\The [owner] pulls the trigger reflexively!"))

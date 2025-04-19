@@ -2,12 +2,13 @@
 /obj/item/storage/mirror
 	name = "mirror"
 	desc = "A SalonPro Nano-Mirror! The leading brand in hair salon products, utilizing nano-machinery to style your hair just right."
-	icon = 'icons/obj/watercloset.dmi'
+	icon = 'icons/obj/structures/mirror.dmi'
 	icon_state = "mirror"
 	density = FALSE
 	anchored = TRUE
 	max_w_class = ITEM_SIZE_NORMAL
 	max_storage_space = DEFAULT_LARGEBOX_STORAGE
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 	use_sound = 'sound/effects/closet_open.ogg'
 	startswith = list(
 		/obj/item/haircomb/random,
@@ -51,7 +52,7 @@
 		shatter()
 	..()
 
-/obj/item/storage/mirror/attackby(obj/item/I, mob/user)
+/obj/item/storage/mirror/use_tool(obj/item/I, mob/living/user, list/click_params)
 	. = ..()
 	if (!.)
 		return
@@ -64,7 +65,7 @@
 /obj/item/mirror
 	name = "mirror"
 	desc = "A SalonPro Nano-Mirror(TM) brand mirror! Now a portable version."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/lavatory.dmi'
 	icon_state = "mirror"
 	var/list/ui_cache
 

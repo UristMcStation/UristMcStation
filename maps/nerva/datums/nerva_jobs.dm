@@ -394,7 +394,7 @@
 //vox
 /datum/map/nerva
 	species_to_job_whitelist = list(
-		/datum/species/vox = list(/datum/job/ai, /datum/job/cyborg, /datum/job/merchant, /datum/job/stowaway)
+		/singleton/species/vox = list(/datum/job/ai, /datum/job/cyborg, /datum/job/merchant, /datum/job/stowaway)
 	)
 
 //Mime

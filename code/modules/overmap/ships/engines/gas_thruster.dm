@@ -55,7 +55,7 @@
 /obj/machinery/atmospherics/unary/engine
 	name = "rocket nozzle"
 	desc = "Simple rocket nozzle, expelling gas at hypersonic velocities to propell the ship."
-	icon = 'icons/obj/ship_engine.dmi'
+	icon = 'icons/obj/machines/ship_engine.dmi'
 	icon_state = "nozzle"
 	opacity = 1
 	density = TRUE
@@ -86,16 +86,15 @@
 
 /obj/machinery/atmospherics/unary/engine/Initialize()
 	. = ..()
-	controller = new(src)
-	update_nearby_tiles(need_rebuild=1)
-
-	for(var/ship in SSshuttle.ships)
-		var/obj/effect/overmap/visitable/ship/S = ship
-		if(S.check_ownership(src))
-			S.engines |= controller
-			if(dir != S.fore_dir)
-				set_broken(TRUE)
-			break
+	controller = new (src)
+	update_nearby_tiles(need_rebuild = TRUE)
+	for (var/obj/overmap/visitable/ship/ship as anything in SSshuttle.ships)
+		if (!ship.check_ownership(src))
+			continue
+		ship.engines |= controller
+		if (dir != ship.fore_dir)
+			set_broken(TRUE)
+		break
 
 /obj/machinery/atmospherics/unary/engine/Destroy()
 	QDEL_NULL(controller)
@@ -103,9 +102,9 @@
 	. = ..()
 
 /obj/machinery/atmospherics/unary/engine/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(is_on())
-		overlays += image_repository.overlay_image(icon, "nozzle_idle", plane = EFFECTS_ABOVE_LIGHTING_PLANE, layer = ABOVE_LIGHTING_LAYER)
+		AddOverlays(image_repository.overlay_image(icon, "nozzle_idle", plane = EFFECTS_ABOVE_LIGHTING_PLANE, layer = ABOVE_LIGHTING_LAYER))
 
 /obj/machinery/atmospherics/unary/engine/proc/get_status()
 	. = list()
@@ -179,7 +178,7 @@
 	var/turf/T = get_step(src,exhaust_dir)
 	if(T)
 		T.assume_air(removed)
-		new/obj/effect/engine_exhaust(T, dir)
+		new/obj/engine_exhaust(T, dir)
 
 /obj/machinery/atmospherics/unary/engine/proc/calculate_thrust(datum/gas_mixture/propellant, used_part = 1)
 	return round(sqrt(propellant.get_mass() * used_part * air_contents.return_pressure()/100),0.1)
@@ -196,23 +195,23 @@
 	change_power_consumption(initial(idle_power_usage) / energy_upgrade, POWER_USE_IDLE)
 
 //Exhaust effect
-/obj/effect/engine_exhaust
+/obj/engine_exhaust
 	name = "engine exhaust"
-	icon = 'icons/obj/ship_engine.dmi'
+	icon = 'icons/obj/machines/ship_engine.dmi'
 	icon_state = "nozzle_burn"
 	light_color = "#00a2ff"
 	anchored = TRUE
 
-/obj/effect/engine_exhaust/New(turf/nloc, ndir)
+/obj/engine_exhaust/New(turf/nloc, ndir)
 	..(nloc)
-	nloc.hotspot_expose(1000,125)
-	set_light(0.5, 1, 4)
+	nloc.hotspot_expose(1000)
+	set_light(4, 0.5)
 	set_dir(ndir)
 	spawn(20)
 		qdel(src)
 
 /obj/item/stock_parts/circuitboard/unary_atmos/engine//why don't we move this elsewhere?
-	name = T_BOARD("gas thruster")
+	name = "circuit board (gas thruster)"
 	icon_state = "mcontroller"
 	build_path = /obj/machinery/atmospherics/unary/engine
 	origin_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 2)

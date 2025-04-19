@@ -8,7 +8,7 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 	name = "glass" // Name when empty
 	base_name = "glass"
 	desc = "A generic drinking glass." // Description when empty
-	icon = 'icons/obj/drink_glasses/square.dmi'
+	icon = 'icons/obj/food/drink_glasses/square.dmi'
 	icon_state = null
 	base_icon = "square" // Base icon name
 	filling_states = "20;40;60;80;100"
@@ -138,7 +138,7 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 	if(!filling_icons_cache["[base_icon][amount][overlay]"])
 		var/icon/base = new/icon(icon, "[base_icon][amount]")
 		if(overlay)
-			var/icon/extra = new/icon('icons/obj/drink_glasses/extras.dmi', overlay)
+			var/icon/extra = new/icon('icons/obj/food/drink_glasses/extras.dmi', overlay)
 			base.Blend(extra, ICON_MULTIPLY)
 		filling_icons_cache["[base_icon][amount][overlay]"] = image(base)
 	I.appearance = filling_icons_cache["[base_icon][amount][overlay]"]
@@ -146,7 +146,7 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 
 /obj/item/reagent_containers/food/drinks/glass2/on_update_icon()
 	underlays.Cut()
-	overlays.Cut()
+	ClearOverlays()
 
 	if (length(reagents?.reagent_list))
 		var/datum/reagent/R = reagents.get_master_reagent()
@@ -178,11 +178,11 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 		var/image/filling = get_filling_overlay(amnt, R.glass_icon)
 		filling.color = reagents.get_color()
 		if(filling_overlayed)
-			overlays += filling
+			AddOverlays(filling)
 		else
 			underlays += filling
 
-		overlays += over_liquid
+		AddOverlays(over_liquid)
 
 	else
 		SetName(custom_name || initial(name))
@@ -207,13 +207,14 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 		else continue
 		side = "right"
 
-/obj/item/reagent_containers/food/drinks/glass2/afterattack(obj/target, mob/user, proximity)
-	if (!proximity || standard_dispenser_refill(user, target) || standard_pour_into(user, target))
+/obj/item/reagent_containers/food/drinks/glass2/use_after(obj/target, mob/living/user, click_parameters)
+	if (standard_dispenser_refill(user, target) || standard_pour_into(user, target))
 		return TRUE
 	splashtarget(target, user)
+	return TRUE
 
-/obj/item/reagent_containers/food/drinks/glass2/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/material/kitchen/utensil/spoon))
+/obj/item/reagent_containers/food/drinks/glass2/use_tool(obj/item/W, mob/living/user, list/click_params)
+	if(istype(W, /obj/item/material/utensil/spoon))
 		if(user.a_intent == I_HURT)
 			user.visible_message(SPAN_WARNING("[user] bashes \the [src] with a spoon, shattering it to pieces! What a rube."))
 			playsound(src, "shatter", 30, 1)
@@ -221,10 +222,11 @@ var/global/const/DRINK_ICON_NOISY = "noise"
 				user.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [user]!"))
 				reagents.splash(user, reagents.total_volume)
 			qdel(src)
-			return
+			return TRUE
 		user.visible_message(SPAN_NOTICE("[user] gently strikes \the [src] with a spoon, calling the room to attention."))
 		playsound(src, "sound/items/wineglass.ogg", 65, 1)
-	else return ..()
+		return TRUE
+	return ..()
 
 /obj/item/reagent_containers/food/drinks/glass2/ProcessAtomTemperature()
 	var/old_temp = temperature

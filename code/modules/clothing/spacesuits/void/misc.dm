@@ -19,7 +19,7 @@
 
 //Skrell space gear. Sleek like a wetsuit.
 /obj/item/clothing/head/helmet/space/void/skrell
-	name = "Skrellian helmet"
+	name = "skrellian helmet"
 	desc = "Smoothly contoured and polished to a shine. Still looks like a fishbowl."
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
@@ -31,6 +31,8 @@
 		rad = ARMOR_RAD_SHIELDED
 		)
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
+	valid_accessory_slots = null
+	restricted_accessory_slots = null
 	species_restricted = list(SPECIES_SKRELL,SPECIES_HUMAN)
 
 /obj/item/clothing/head/helmet/space/void/skrell/white
@@ -40,7 +42,7 @@
 	icon_state = "skrell_helmet_black"
 
 /obj/item/clothing/suit/space/void/skrell
-	name = "Skrellian voidsuit"
+	name = "skrellian voidsuit"
 	desc = "Seems like a wetsuit with reinforced plating seamlessly attached to it. Very chic."
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,

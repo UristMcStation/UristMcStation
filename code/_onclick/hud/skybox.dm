@@ -18,14 +18,10 @@
 	var/turf/T = get_turf(eye)
 	if(T)
 		if(rebuild)
-			skybox.overlays.Cut()
-			skybox.overlays += SSskybox.get_skybox(T.z)
+			skybox.ClearOverlays()
+			skybox.AddOverlays(SSskybox.get_skybox(T.z))
 			screen |= skybox
 		skybox.screen_loc = "CENTER:[-224 - T.x],CENTER:[-224 - T.y]"
-
-/mob/Login()
-	..()
-	client.update_skybox(1)
 
 /mob/Move()
 	var/old_z = get_z(src)

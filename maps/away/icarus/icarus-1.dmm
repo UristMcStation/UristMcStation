@@ -216,23 +216,23 @@
 /turf/simulated/wall,
 /area/icarus/vessel)
 "aX" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "aY" = (
 /obj/random/obstruction,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "aZ" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "ba" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "bb" = (
@@ -240,7 +240,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/icarus/vessel2)
 "bc" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /turf/simulated/floor/tiled/freezer,
 /area/icarus/vessel2)
 "bd" = (
@@ -354,7 +354,7 @@
 	dir = 1
 	},
 /obj/structure/table/steel,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "by" = (
@@ -391,7 +391,7 @@
 /area/icarus/vessel2)
 "bD" = (
 /obj/random/trash,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel2)
 "bE" = (
@@ -401,7 +401,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel2)
 "bF" = (
@@ -421,7 +421,7 @@
 	icon_state = "shower";
 	pixel_x = 0
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel2)
 "bH" = (
@@ -429,11 +429,11 @@
 	dir = 8;
 	icon_state = "shower"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel2)
 "bI" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -441,13 +441,13 @@
 "bJ" = (
 /obj/structure/table/marble,
 /obj/machinery/microwave,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "bK" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/cooker/grill,
@@ -457,7 +457,7 @@
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel2)
 "bL" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/cooker/fryer,
@@ -465,7 +465,7 @@
 /area/icarus/vessel2)
 "bM" = (
 /obj/structure/table/marble,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/reagentgrinder,
@@ -473,7 +473,7 @@
 /area/icarus/vessel2)
 "bN" = (
 /obj/structure/table/steel,
-/obj/item/folder/white,
+/obj/item/material/folder/white,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "bO" = (
@@ -502,7 +502,7 @@
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "bS" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -524,7 +524,7 @@
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "bW" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel2)
 "bX" = (
@@ -541,41 +541,41 @@
 	pixel_x = 0
 	},
 /obj/random/trash,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel2)
 "bZ" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel2)
 "ca" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel2)
 "cb" = (
 /obj/structure/table/marble,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "cc" = (
 /obj/structure/table/marble,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/item/reagent_containers/food/condiment/flour,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "cd" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/icarus/open)
@@ -613,7 +613,7 @@
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "cj" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -656,14 +656,14 @@
 	pixel_y = 2
 	},
 /obj/random/soap,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel2)
 "co" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel2)
 "cp" = (
@@ -672,11 +672,11 @@
 	dir = 4;
 	pixel_y = 0
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel2)
 "cq" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/alarm{
@@ -689,27 +689,27 @@
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel2)
 "cr" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel2)
 "cs" = (
 /obj/structure/table/marble,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
-/obj/item/material/kitchen/rollingpin,
+/obj/item/material/rollingpin,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "ct" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "cu" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -736,17 +736,17 @@
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "cy" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/corpse/chef,
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/dirt,
+/obj/landmark/corpse/chef,
+/obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/white,
 /area/icarus/vessel2)
 "cz" = (
 /obj/structure/table/marble,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/item/trash/plate,
@@ -803,7 +803,7 @@
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "cJ" = (
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/machinery/door/window/southleft,
@@ -811,22 +811,22 @@
 /area/icarus/vessel2)
 "cK" = (
 /obj/structure/table/marble,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /obj/item/trash/plate,
-/obj/item/material/kitchen/utensil/fork,
+/obj/item/material/utensil/fork,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "cL" = (
 /obj/machinery/vending/dinnerware,
-/obj/effect/floor_decal/corner/grey/diagonal{
+/obj/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "cM" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "cN" = (
@@ -891,7 +891,7 @@
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "cV" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "cW" = (
@@ -924,14 +924,14 @@
 /obj/structure/icarus/broken_cryo{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "dc" = (
 /obj/structure/table/standard,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -968,8 +968,8 @@
 "di" = (
 /obj/structure/table/standard,
 /obj/item/towel,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -985,7 +985,7 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "dm" = (
@@ -1012,25 +1012,25 @@
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "dq" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/wall,
 /area/icarus/vessel2)
 "dr" = (
-/obj/effect/landmark/corpse/doctor,
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/landmark/corpse/doctor,
+/obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "ds" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "dt" = (
 /obj/structure/table/standard,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "du" = (
@@ -1039,7 +1039,7 @@
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "dv" = (
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "dw" = (
@@ -1072,13 +1072,13 @@
 	dir = 4;
 	icon_state = "tube1"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/icarus/vessel2)
 "dB" = (
 /obj/structure/table/standard,
 /obj/random/accessory,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -1140,7 +1140,7 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1167,7 +1167,7 @@
 /area/icarus/open)
 "dQ" = (
 /obj/structure/table/standard,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/open)
 "dR" = (
@@ -1178,7 +1178,7 @@
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "dT" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "dU" = (
@@ -1187,7 +1187,7 @@
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "dV" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
@@ -1245,41 +1245,41 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "ed" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "ee" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/icarus/open)
 "ef" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/icarus/open)
 "eg" = (
 /obj/random/tank,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/open)
 "eh" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "ei" = (
 /obj/random/trash,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "ej" = (
@@ -1287,41 +1287,41 @@
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "ek" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "el" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/icarus/open)
 "em" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "en" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/icarus/open)
 "eo" = (
 /obj/structure/filingcabinet/filingcabinet,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "ep" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
 /area/icarus/open)
 "eq" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "er" = (
@@ -1333,7 +1333,7 @@
 /area/icarus/open)
 "et" = (
 /obj/item/clothing/mask/smokable/cigarette/killthroat,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "eu" = (
@@ -1341,9 +1341,9 @@
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "ev" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/clothing/mask/breath/emergency,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
@@ -1357,9 +1357,9 @@
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "ey" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
@@ -1370,385 +1370,385 @@
 	},
 /area/icarus/open)
 "eA" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/scalpel,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/item/scalpel/basic,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eB" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eC" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/bedsheet/orange,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eD" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/icarus/open)
 "eE" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "eF" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/clothing/mask/surgical,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eG" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eH" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/trash/plate,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eI" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/material/knife/kitchen,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eJ" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/structure/bed/padded,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eK" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/random/snack,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eL" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eM" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/trash/plate,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eN" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/structure/bed/chair{
 	dir = 1
 	},
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eO" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/ash,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/ash,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eP" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/stack/material/rods,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eQ" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/ore/slag,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eR" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eS" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/ash,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/ash,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eT" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/ore/slag,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eU" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/stack/material/rods,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eV" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/random/snack,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eW" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/random/trash,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eX" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/ash,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/ash,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eY" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/stack/material/rods,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "eZ" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/storage/pill_bottle/antidexafen,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fa" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/random/trash,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fb" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/storage/bag/trash,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fc" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/random/trash,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fd" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fe" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "ff" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/stack/material/rods,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fg" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/reagent_containers/food/drinks/cans/waterbottle,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fh" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/stack/material/rods,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fi" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/stack/material/rods,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fj" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/ash,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/ash,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fk" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fl" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/random/trash,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fm" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/ash,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/ash,
 /obj/random/trash,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fn" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/random/material,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fo" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/stack/material/rods,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fp" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/ash,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/ash,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fq" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/random/material,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fr" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/ore/slag,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fs" = (
-/obj/effect/icarus/irradiate,
-/obj/effect/decal/cleanable/dirt,
+/obj/icarus/irradiate,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "fu" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/icarus/open)
 "fv" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/airless{
 	icon_state = "dmg2"
 	},
@@ -1763,13 +1763,13 @@
 /turf/simulated/floor/tiled,
 /area/icarus/open)
 "fy" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/vessel)
 "fz" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/vessel)
 "fA" = (
@@ -1787,10 +1787,10 @@
 /turf/simulated/floor/tiled,
 /area/icarus/vessel)
 "fD" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/vessel)
 "fE" = (
@@ -1798,12 +1798,12 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "fF" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/vessel)
 "fG" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/random/trash,
 /turf/simulated/floor/beach/sand,
 /area/icarus/vessel)
@@ -1872,7 +1872,7 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "fT" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/floor_decal/industrial/loading{
 	dir = 8;
 	icon_state = "loadingarea"
 	},
@@ -1892,13 +1892,13 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "fW" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "fX" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -1906,20 +1906,20 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "fY" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "fZ" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "ga" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -1946,7 +1946,7 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "gg" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1956,15 +1956,15 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "gi" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/random/trash,
 /turf/simulated/floor/beach/sand,
 /area/icarus/vessel)
 "gj" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4
 	},
 /obj/structure/closet/crate/plastic,
@@ -1998,7 +1998,7 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "gr" = (
-/obj/effect/floor_decal/industrial/loading{
+/obj/floor_decal/industrial/loading{
 	dir = 8;
 	icon_state = "loadingarea"
 	},
@@ -2006,7 +2006,7 @@
 /area/icarus/open)
 "gs" = (
 /obj/structure/closet/crate/hydroponics,
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -2021,7 +2021,7 @@
 /turf/simulated/floor/plating,
 /area/icarus/open)
 "gu" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "warning"
 	},
@@ -2045,7 +2045,7 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "gz" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 10;
 	icon_state = "warning"
 	},
@@ -2056,44 +2056,44 @@
 /turf/simulated/floor/plating,
 /area/icarus/open)
 "gB" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/icarus/open)
 "gC" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /obj/structure/closet/crate/plastic,
 /turf/simulated/floor/plating,
 /area/icarus/open)
 "gD" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "gE" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 10;
 	icon_state = "warning"
 	},
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "gF" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "gG" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /obj/structure/closet/crate/plastic,
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "gH" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "gI" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 6
 	},
 /obj/random/toolbox,
@@ -2196,7 +2196,7 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "gY" = (
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "gZ" = (
@@ -2256,8 +2256,8 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "hk" = (
-/obj/effect/landmark/corpse/engineer,
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/landmark/corpse/engineer,
+/obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "hl" = (
@@ -2272,20 +2272,18 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "hn" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id_tag = "d1starboardnacelle"
 	},
-/obj/structure/window/phoronreinforced{
-	dir = 8;
-	icon_state = "phoronrwindow"
+/obj/structure/window/boron_reinforced{
+	dir = 8
 	},
-/obj/structure/window/phoronreinforced{
-	dir = 1;
-	icon_state = "phoronrwindow"
+/obj/structure/window/boron_reinforced{
+	dir = 1
 	},
 /obj/structure/grille,
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -2371,12 +2369,11 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "hA" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced{
-	dir = 8;
-	icon_state = "phoronrwindow"
+/obj/structure/window/boron_reinforced{
+	dir = 8
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
@@ -2418,13 +2415,12 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "hF" = (
-/obj/structure/window/phoronreinforced{
+/obj/structure/window/boron_reinforced{
 	dir = 4
 	},
-/obj/structure/window/phoronreinforced,
-/obj/structure/window/phoronreinforced{
-	dir = 8;
-	icon_state = "phoronrwindow"
+/obj/structure/window/boron_reinforced,
+/obj/structure/window/boron_reinforced{
+	dir = 8
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
@@ -2535,8 +2531,8 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "hV" = (
-/obj/effect/decal/cleanable/ash,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/ash,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "hW" = (
@@ -2544,9 +2540,9 @@
 /turf/simulated/floor/plating,
 /area/icarus/open)
 "hX" = (
-/obj/effect/decal/cleanable/ash,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/ash,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "hY" = (
@@ -2562,18 +2558,18 @@
 /turf/simulated/floor/plating,
 /area/icarus/vessel)
 "ia" = (
-/obj/effect/decal/cleanable/ash,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/ash,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "ib" = (
-/obj/effect/decal/cleanable/ash,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/ash,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "ic" = (
@@ -2583,106 +2579,106 @@
 /turf/simulated/wall/r_wall,
 /area/icarus/open)
 "id" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/ore/slag,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "ie" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/ore/slag,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "if" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/random/trash,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "ig" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/vehicle/train/cargo/trolley,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "ih" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/ore/slag,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "ii" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/engine{
 	anchored = 0
 	},
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "ij" = (
-/obj/effect/decal/cleanable/ash,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/ash,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "ik" = (
-/obj/effect/decal/cleanable/ash,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/ash,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "il" = (
-/obj/effect/decal/cleanable/ash,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/ash,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/item/ore/slag,
 /turf/simulated/floor/beach/sand,
 /area/icarus/open)
 "in" = (
-/obj/effect/decal/cleanable/ash,
+/obj/decal/cleanable/ash,
 /turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "io" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "ip" = (
 /turf/unsimulated/mineral,
 /area/space)
 "jb" = (
-/obj/effect/shuttle_landmark/nav_icarus/nav1,
+/obj/shuttle_landmark/nav_icarus/nav1,
 /turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "kb" = (
-/obj/effect/shuttle_landmark/nav_icarus/nav2,
+/obj/shuttle_landmark/nav_icarus/nav2,
 /turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "lb" = (
-/obj/effect/shuttle_landmark/nav_icarus/nav3,
+/obj/shuttle_landmark/nav_icarus/nav3,
 /turf/simulated/floor/exoplanet/grass,
 /area/icarus/open)
 "rz" = (

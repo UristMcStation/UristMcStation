@@ -33,7 +33,7 @@
 		"SFP Territory Support",
 		"SFP Special Investigations",
 		"SFP Fugitive Recovery",
-		"Sol Fleet Mars Commmand",
+		"Sol Fleet Mars Command",
 		"Bureau of Diplomatic Affairs",
 		"Emergency Management Bureau",
 		"Secure Routing Service"
@@ -57,3 +57,5 @@
 	id_hud_icons = 'maps/torch/icons/assignment_hud.dmi'
 
 	welcome_sound = null
+
+	use_bluespace_interlude = TRUE

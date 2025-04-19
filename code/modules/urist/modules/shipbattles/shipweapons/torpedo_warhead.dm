@@ -43,7 +43,7 @@
 	if(is_rigged)
 		to_chat(user, "<span class='warning'>There is \a [attached_device] attached to the warhead.</span>")
 
-/obj/item/shipweapons/torpedo_warhead/attackby(obj/item/I, mob/user as mob)
+/obj/item/shipweapons/torpedo_warhead/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/crowbar))
 		if(riggedstate == CIRCUITRY_EXPOSED && !attached_device) // can't close it if it's got something it's not supposed to have.
 			to_chat(user, "<span class='notice'>You carefully close the warhead's circuitry panel.</span>")
@@ -87,7 +87,7 @@
 				riggedstate = CIRCUITRY_MODIFIED
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				icon_state = "torpedowarhead-open-mod"
-		return
+		return TRUE
 	else if(istype(I, /obj/item/device/multitool))
 		if(riggedstate == CIRCUITRY_EXPOSED)
 			wires.Interact(user)
@@ -108,7 +108,8 @@
 			log_and_message_admins("has rigged a torpedo IED.",  user)
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 			icon_state = "torpedowarhead-open-mod-armed"
-	return
+
+	return ..()
 
 /obj/item/shipweapons/torpedo_warhead/attack_self(mob/user as mob)
 	..()
@@ -176,7 +177,7 @@ var/global/const/TWARHEAD_DETONATE = 4
 		if(TWARHEAD_DETONATE)
 			N.detonate()
 
-/datum/wires/torpedowarhead/UpdateCut(index, var/mended)
+/datum/wires/torpedowarhead/UpdateCut(index, mended)
 	var/obj/item/shipweapons/torpedo_warhead/N = holder
 	switch(index)
 		if(TWARHEAD_SAFE)

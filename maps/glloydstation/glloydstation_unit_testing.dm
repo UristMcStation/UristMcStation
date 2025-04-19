@@ -208,9 +208,5 @@
 		/area/crew_quarters/heads/hor,
 		/area/crew_quarters/heads/cmo,
 		/area/crew_quarters/heads_dorms,
-		/area/skipjack_station,
-		/area/icarus,
-		/area/icarus/vessel,
-		/area/icarus/vessel2,
-		/area/icarus/open
+		/area/skipjack_station
 	)

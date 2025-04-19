@@ -13,11 +13,11 @@
 	var/ending = copytext(text, -1)
 
 	if (ending == "?")
-		return "asks";
+		return "asks"
 	else if (ending == "!")
-		return "cries";
+		return "cries"
 
-	return "chirps";
+	return "chirps"
 
 /mob/living/carbon/slime/say_understands(other)
 	if (istype(other, /mob/living/carbon/slime))

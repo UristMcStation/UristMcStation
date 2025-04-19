@@ -82,7 +82,7 @@
 	var/obj/item/card/id/myid// An ID card if they have one to give them access to stuff.
 
 	//Movement things.
-	var/movement_cooldown = 5			// Lower is faster.
+	var/movement_cooldown = 3			// Lower is faster.
 	var/movement_sound = null			// If set, will play this sound when it moves on its own will.
 	var/turn_sound = null				// If set, plays the sound when the mob's dir changes in most cases.
 	var/movement_shake_radius = 0		// If set, moving will shake the camera of all living mobs within this radius slightly.
@@ -228,7 +228,7 @@
 	..()
 	updatehealth()
 
-/mob/living/simple_animal/say(message, var/language)
+/mob/living/simple_animal/say(message, language)
 	var/verb = "says"
 	if(length(speak_emote))
 		verb = pick(speak_emote)
@@ -257,7 +257,7 @@
 				var/obj/item/meat = new meat_type(get_turf(src))
 				meat.SetName("[src.name] [meat.name]")
 				if(can_bleed)
-					var/obj/effect/decal/cleanable/blood/splatter/splat = new(get_turf(src))
+					var/obj/decal/cleanable/blood/splatter/splat = new(get_turf(src))
 					splat.basecolor = bleed_colour
 					splat.update_icon()
 
@@ -286,7 +286,7 @@
 		if(BULLET_IMPACT_MEAT)
 			if (P.damtype == DAMAGE_BRUTE)
 				var/hit_dir = get_dir(P.starting, src)
-				var/obj/effect/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
+				var/obj/decal/cleanable/blood/B = blood_splatter(get_step(src, hit_dir), src, 1, hit_dir)
 				B.icon_state = pick("dir_splatter_1","dir_splatter_2")
 				B.basecolor = bleed_colour
 				B.SetTransform(scale = min(1, round(mob_size / MOB_MEDIUM, 0.1)))
@@ -310,9 +310,9 @@
 
 /mob/living/simple_animal/update_fire()
 	. = ..()
-	overlays -= image("icon"='icons/mob/OnFire.dmi', "icon_state"="Generic_mob_burning")
+	CutOverlays(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Generic_mob_burning"))
 	if(on_fire)
-		overlays += image("icon"='icons/mob/OnFire.dmi', "icon_state"="Generic_mob_burning")
+		AddOverlays(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Generic_mob_burning"))
 
 /mob/living/simple_animal/is_burnable()
 	return heat_damage_per_tick
@@ -332,7 +332,7 @@
 	bleed_ticks--
 	adjustBruteLoss(1)
 
-	var/obj/effect/decal/cleanable/blood/drip/drip = new(get_turf(src))
+	var/obj/decal/cleanable/blood/drip/drip = new(get_turf(src))
 	drip.basecolor = bleed_colour
 	drip.update_icon()
 
@@ -362,7 +362,7 @@
 	else if(movement_sound && old_turf != get_turf(src)) // Playing both sounds at the same time generally sounds bad.
 		playsound(src, movement_sound, 50, 1)
 
-/mob/living/simple_animal/movement_delay()
+/mob/living/simple_animal/movement_delay(singleton/move_intent/using_intent = move_intent)
 	. = movement_cooldown
 
 	// Turf related slowdown

@@ -65,11 +65,16 @@
 	l_ear = /obj/item/device/radio/headset/vox_raider
 	belt = /obj/item/storage/belt/utility/full
 	gloves = /obj/item/clothing/gloves/vox
-	r_hand = /obj/item/gun/launcher/alien/spikethrower
 
 	id_slot = slot_wear_id
 	id_types = list(/obj/item/card/id/syndicate)
 	id_pda_assignment = "Scavenger"
-
-
 	flags = OUTFIT_HAS_BACKPACK|OUTFIT_RESET_EQUIPMENT
+
+
+/singleton/hierarchy/outfit/anomalist
+	name = "Anomalist"
+	uniform = /obj/item/clothing/under/color/white
+	shoes = /obj/item/clothing/shoes/white
+	suit = /obj/item/clothing/suit/bio_suit/anomaly
+	head = /obj/item/clothing/head/bio_hood/anomaly

@@ -2,7 +2,7 @@
 /obj/item/cell
 	name = "power cell"
 	desc = "A rechargable electrochemical power cell."
-	icon = 'icons/obj/power.dmi'
+	icon = 'icons/obj/powercells.dmi'
 	icon_state = "cell"
 	item_state = "cell"
 	origin_tech = list(TECH_POWER = 1)
@@ -50,9 +50,9 @@
 
 	if(new_overlay_state != overlay_state)
 		overlay_state = new_overlay_state
-		overlays.Cut()
+		ClearOverlays()
 		if(overlay_state)
-			overlays += image('icons/obj/power.dmi', overlay_state)
+			AddOverlays(image('icons/obj/powercells.dmi', overlay_state))
 
 /obj/item/cell/proc/percent()		// return % charge of cell
 	return maxcharge && (100.0*charge/maxcharge)
@@ -102,17 +102,21 @@
 		charge = 0
 	..()
 
-/obj/item/cell/attackby(obj/item/attacking_item, mob/user)
+/obj/item/cell/use_tool(obj/item/attacking_item, mob/user, click_params)
 	if(istype(attacking_item, /obj/item/device/assembly_holder))
 		var/obj/item/device/assembly_holder/assembly = attacking_item
+
 		if (istype(assembly.a_left, /obj/item/device/assembly/signaler) && istype(assembly.a_right, /obj/item/device/assembly/signaler))
 			user.drop_item()
 			user.drop_from_inventory(src)
+			new /obj/item/device/radio_jammer_urist/improvised(assembly, src, user)
 
-			new /obj/item/device/radio_jammer/improvised(assembly, src, user)
 		else
-			to_chat(user, "<span class='notice'>You'd need both devices to be signallers for this to work.</span>")
-		return
+			to_chat(user, SPAN_NOTICE("You'd need both devices to be signallers for this to work."))
+
+		return TRUE
+
+	return ..()
 
 /obj/item/cell/proc/get_electrocute_damage()
 	switch (charge)
@@ -242,7 +246,7 @@
 	name = "potato battery"
 	desc = "A rechargable starch based power cell."
 	origin_tech = list(TECH_POWER = 1)
-	icon = 'icons/obj/power.dmi' //'icons/obj/harvest.dmi'
+	icon = 'icons/obj/powercells.dmi' //'icons/obj/harvest.dmi'
 	icon_state = "potato_cell" //"potato_battery"
 	maxcharge = 20
 

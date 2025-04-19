@@ -8,7 +8,7 @@
 			plant.remove_device(holder)
 	. = ..()
 
-/datum/extension/fusion_plant_member/proc/set_tag(mob/user, var/new_ident)
+/datum/extension/fusion_plant_member/proc/set_tag(mob/user, new_ident)
 	if(id_tag == new_ident)
 		to_chat(user, SPAN_WARNING("\The [holder] is already part of the [new_ident] network."))
 		return FALSE

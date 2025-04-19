@@ -3,7 +3,7 @@ SUBSYSTEM_DEF(vote)
 	wait = 1 SECOND
 	priority = SS_PRIORITY_VOTE
 	flags = SS_NO_TICK_CHECK | SS_KEEP_TIMING
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	runlevels = RUNLEVELS_PREGAME | RUNLEVELS_GAME
 
 	var/last_started_time        //To enforce delay between votes.
 	var/antag_added              //Enforces a maximum of one added antag per round.
@@ -89,16 +89,15 @@ SUBSYSTEM_DEF(vote)
 	voting |= C
 
 	. = list()
-	. += "<html><head><title>Voting Panel</title></head><body>"
 	if(active_vote)
 		. += active_vote.interface(C.mob)
 		if(admin)
-			. += "(<a href='?src=\ref[src];cancel=1'>Cancel Vote</a>) "
+			. += "(<a href='byond://?src=\ref[src];cancel=1'>Cancel Vote</a>) "
 	else
 		. += "<h2>Start a vote:</h2><hr><ul>"
 		for(var/vote_type in vote_prototypes)
 			var/datum/vote/vote_datum = vote_prototypes[vote_type]
-			. += "<li><a href='?src=\ref[src];vote=\ref[vote_datum.type]'>"
+			. += "<li><a href='byond://?src=\ref[src];vote=\ref[vote_datum.type]'>"
 			if(vote_datum.can_run(C.mob))
 				. += "[capitalize(vote_datum.name)]"
 			else
@@ -106,12 +105,12 @@ SUBSYSTEM_DEF(vote)
 			. += "</a>"
 			var/toggle = vote_datum.check_toggle()
 			if(admin && toggle)
-				. += "\t(<a href='?src=\ref[src];toggle=1;vote=\ref[vote_datum.type]'>toggle; currently [toggle]</a>)"
+				. += "\t(<a href='byond://?src=\ref[src];toggle=1;vote=\ref[vote_datum.type]'>toggle; currently [toggle]</a>)"
 			. += "</li>"
 		. += "</ul><hr>"
 
-	. += "<a href='?src=\ref[src];close=1' style='position:absolute;right:50px'>Close</a></body></html>"
-	return JOINTEXT(.)
+	. += "<a href='byond://?src=\ref[src];close=1' style='position:absolute;right:50px'>Close</a>"
+	return jointext(., null)
 
 /datum/controller/subsystem/vote/proc/show_panel(mob/user)
 	var/win_x = 450
@@ -119,8 +118,9 @@ SUBSYSTEM_DEF(vote)
 	if(active_vote)
 		win_x = active_vote.win_x
 		win_y = active_vote.win_y
-	show_browser(user, interface(user.client),"window=vote;size=[win_x]x[win_y]")
-	onclose(user, "vote", src)
+	var/datum/browser/popup = new(user, "vote", "Voting Panel", win_x, win_y)
+	popup.set_content(interface(user.client))
+	popup.open()
 
 /datum/controller/subsystem/vote/proc/close_panel(mob/user)
 	show_browser(user, null, "window=vote")

@@ -2,7 +2,7 @@
 	name = "electronic cigarette"
 	desc = "Device with modern approach to smoking."
 	icon = 'icons/obj/ecig.dmi'
-	var/active = 0
+	active = 0
 	var/obj/item/cell/cigcell
 	var/cartridge_type = /obj/item/reagent_containers/ecig_cartridge/med_nicotine
 	var/obj/item/reagent_containers/ecig_cartridge/ec_cartridge
@@ -13,7 +13,6 @@
 	body_parts_covered = 0
 	var/brightness_on = 1
 	chem_volume = 0 //ecig has no storage on its own but has reagent container created by parent obj
-	item_state = "ecigoff"
 	var/icon_off
 	var/icon_empty
 	var/power_usage = 450 //value for simple ecig, enough for about 1 cartridge, in JOULES!
@@ -47,7 +46,7 @@
 
 /obj/item/clothing/mask/smokable/ecig/util
 	name = "electronic cigarette"
-	desc = "A popular utilitarian model electronic cigarette, the ONI-55. Comes in a variety of colors."
+	desc = "A popular utilitarian model of electronic cigarette, the ONI-55. Comes in a variety of colors."
 	icon_state = "ecigoff1"
 	icon_off = "ecigoff1"
 	icon_empty = "ecigoff1"
@@ -132,7 +131,7 @@
 	if (active)
 		item_state = icon_on
 		icon_state = icon_on
-		set_light(0.6, 0.5, brightness_on)
+		set_light(brightness_on)
 	else if (ec_cartridge)
 		set_light(0)
 		item_state = icon_off
@@ -148,16 +147,18 @@
 		M.update_inv_r_hand(1)
 
 
-/obj/item/clothing/mask/smokable/ecig/attackby(obj/item/I, mob/user as mob)
+/obj/item/clothing/mask/smokable/ecig/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/reagent_containers/ecig_cartridge))
 		if (ec_cartridge)//can't add second one
-			to_chat(user, "[SPAN_NOTICE("A cartridge has already been installed.")] ")
-		else if(user.unEquip(I, src))//fits in new one
+			to_chat(user, "[SPAN_WARNING("A cartridge has already been installed.")] ")
+			return TRUE
+		if (user.unEquip(I, src))//fits in new one
 			ec_cartridge = I
 			update_icon()
 			to_chat(user, "[SPAN_NOTICE("You insert \the [I] into \the [src].")] ")
+			return TRUE
 
-	if(istype(I, /obj/item/screwdriver))
+	if (isScrewdriver(I))
 		if(cigcell) //if contains powercell
 			cigcell.update_icon()
 			cigcell.dropInto(loc)
@@ -165,6 +166,7 @@
 			to_chat(user, SPAN_NOTICE("You remove \the [cigcell] from \the [src]."))
 		else //does not contains cell
 			to_chat(user, SPAN_NOTICE("There's no battery in \the [src]."))
+		return TRUE
 
 	if(istype(I, /obj/item/cell/device))
 		if(!cigcell && user.unEquip(I))
@@ -174,6 +176,9 @@
 			update_icon()
 		else
 			to_chat(user, SPAN_NOTICE("\The [src] already has a battery installed."))
+		return TRUE
+
+	return ..()
 
 
 /obj/item/clothing/mask/smokable/ecig/attack_self(mob/user as mob)
@@ -306,3 +311,6 @@
 	reagents.add_reagent(/datum/reagent/tobacco/liquid, 5)
 	reagents.add_reagent(/datum/reagent/water, 10)
 	reagents.add_reagent(/datum/reagent/drink/coffee, 5)
+
+/obj/item/clothing/mask/smokable/ecig/smoke(amount)
+	..(amount * 0.1)

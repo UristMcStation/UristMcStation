@@ -23,19 +23,27 @@
 /singleton/surgery_step/generic/cut_with_laser
 	name = "Make laser incision"
 	allowed_tools = list(
-		/obj/item/scalpel/laser3 = 95,
-		/obj/item/scalpel/laser2 = 85,
-		/obj/item/scalpel/laser1 = 75,
+		/obj/item/scalpel/laser = 100,
 		/obj/item/melee/energy/sword = 5
 	)
 	min_duration = 90
 	max_duration = 110
+
+/singleton/surgery_step/generic/cut_with_laser/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	if(.)
+		var/obj/item/organ/external/affected = .
+		if(affected.how_open())
+			var/datum/wound/cut/incision = affected.get_incision()
+			to_chat(user, SPAN_NOTICE("The [incision.desc] provides enough access."))
+			return FALSE
 
 /singleton/surgery_step/generic/cut_with_laser/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts the bloodless incision on [target]'s [affected.name] with \the [tool].", \
 	"You start the bloodless incision on [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("You feel a horrible, searing pain in your [affected.name]!",50, affecting = affected)
+	playsound(target.loc, 'sound/items/cautery.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/generic/cut_with_laser/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -59,16 +67,26 @@
 /singleton/surgery_step/generic/managed
 	name = "Make managed incision"
 	allowed_tools = list(
-		/obj/item/scalpel/manager = 100
+		/obj/item/scalpel/ims = 100
 	)
 	min_duration = 80
 	max_duration = 120
+
+/singleton/surgery_step/generic/managed/assess_bodypart(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	. = ..()
+	if(.)
+		var/obj/item/organ/external/affected = .
+		if(affected.how_open())
+			var/datum/wound/cut/incision = affected.get_incision()
+			to_chat(user, SPAN_NOTICE("The [incision.desc] provides enough access."))
+			return FALSE
 
 /singleton/surgery_step/generic/managed/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("[user] starts to construct a prepared incision on and within [target]'s [affected.name] with \the [tool].", \
 	"You start to construct a prepared incision on and within [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("You feel a horrible, searing pain in your [affected.name] as it is pushed apart!",50, affecting = affected)
+	playsound(target.loc, 'sound/items/circularsaw.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/generic/managed/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -92,7 +110,7 @@
 /singleton/surgery_step/generic/cut_open
 	name = "Make incision"
 	allowed_tools = list(
-		/obj/item/scalpel = 100,
+		/obj/item/scalpel/basic = 100,
 		/obj/item/material/knife = 75,
 		/obj/item/broken_bottle = 50,
 		/obj/item/material/shard = 50
@@ -116,6 +134,7 @@
 	user.visible_message("[user] starts [access_string] on [target]'s [affected.name] with \the [tool].", \
 	"You start [access_string] on [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("You feel a horrible pain as if from a sharp knife in your [affected.name]!",40, affecting = affected)
+	playsound(target.loc, 'sound/items/scalpel.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/generic/cut_open/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -162,6 +181,7 @@
 	user.visible_message("[user] starts clamping bleeders in [target]'s [affected.name] with \the [tool].", \
 	"You start clamping bleeders in [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("The pain in your [affected.name] is maddening!",40, affecting = affected)
+	playsound(target.loc, 'sound/items/hemostat.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/generic/clamp_bleeders/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -185,9 +205,10 @@
 	name = "Widen incision"
 	allowed_tools = list(
 		/obj/item/retractor = 100,
+		/obj/item/swapper/jaws_of_life = 80,
 		/obj/item/crowbar = 75,
 		/obj/item/material/knife = 50,
-		/obj/item/material/kitchen/utensil/fork = 50
+		/obj/item/material/utensil/fork = 50
 	)
 	min_duration = 30
 	max_duration = 40
@@ -209,6 +230,7 @@
 	user.visible_message("[user] starts to pry open the incision on [target]'s [affected.name] with \the [tool].",	\
 	"You start to pry open the incision on [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("It feels like the skin on your [affected.name] is on fire!",40,affecting = affected)
+	playsound(target.loc, 'sound/items/retractor.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/generic/retract_skin/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -269,6 +291,7 @@
 	user.visible_message("[user] is beginning to [cauterize_term][W ? " \a [W.desc] on" : ""] \the [target]'s [affected.name] with \the [tool]." , \
 	"You are beginning to [cauterize_term][W ? " \a [W.desc] on" : ""] \the [target]'s [affected.name] with \the [tool].")
 	target.custom_pain("Your [affected.name] is being burned!",40,affecting = affected)
+	playsound(target.loc, 'sound/items/cautery.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/generic/cauterize/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -313,6 +336,7 @@
 	user.visible_message("[user] is beginning to amputate [target]'s [affected.name] with \the [tool]." , \
 	FONT_LARGE("You are beginning to cut through [target]'s [affected.amputation_point] with \the [tool]."))
 	target.custom_pain("Your [affected.amputation_point] is being ripped apart!",100,affecting = affected)
+	playsound(target.loc, 'sound/items/amputation.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/generic/amputate/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

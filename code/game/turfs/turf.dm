@@ -28,7 +28,7 @@
 	var/movement_delay
 
 	var/fluid_can_pass
-	var/obj/effect/flood/flood_object
+	var/obj/flood/flood_object
 	var/fluid_blocked_dirs = 0
 	var/flooded // Whether or not this turf is absolutely flooded ie. a water source.
 	var/height = 0 // Determines if fluids can overflow onto next turf
@@ -43,7 +43,35 @@
 	var/has_opaque_atom
 
 	/// Reference to the turf fire on the turf
-	var/obj/effect/turf_fire/turf_fire
+	var/obj/turf_fire/turf_fire
+
+	// Some quick notes on the vars below: is_outside should be left set to OUTSIDE_AREA unless you
+	// EXPLICITLY NEED a turf to have a different outside state to its area (ie. you have used a
+	// roofing tile). By default, it will ask the area for the state to use, and will update on
+	// area change. When dealing with weather, it will check the entire z-column for interruptions
+	// that will prevent it from using its own state, so a floor above a level will generally
+	// override both area is_outside, and turf is_outside. The only time the base value will be used
+	// by itself is if you are dealing with a non-multiz level, or the top level of a multiz chunk.
+
+	// Weather relies on is_outside to determine if it should apply to a turf or not and will be
+	// automatically updated on ChangeTurf set_outside etc. Don't bother setting it manually, it will
+	// get overridden almost immediately.
+
+	// TL;DR: just leave these vars alone.
+	var/obj/abstract/weather_system/weather
+	var/is_outside = OUTSIDE_AREA
+	var/last_outside_check = OUTSIDE_UNCERTAIN
+
+	//In practice only used by simulated turfs but I would like to get rid of unsimmed ones some day
+	/// Will participate in ZAS, join zones, etc.
+	var/zone_membership_candidate = FALSE
+	/// Will participate in external atmosphere simulation if the turf is outside and no zone is set.
+	var/external_atmosphere_participation = TRUE
+
+/turf/examine(mob/user, distance, infix, suffix)
+	. = ..()
+	if(user && weather)
+		weather.examine(user)
 
 /turf/Initialize(mapload, ...)
 	. = ..()
@@ -52,7 +80,17 @@
 	else
 		luminosity = 1
 
-	RecalculateOpacity()
+	if (light_power && light_range)
+		update_light()
+
+	if (!mapload)
+		update_weather(force_update_below = TRUE)
+
+	if (is_outside())
+		AMBIENT_LIGHT_QUEUE_TURF(src)
+
+	if (opacity)
+		has_opaque_atom = TRUE
 
 	if (mapload && permit_ao)
 		queue_ao()
@@ -77,6 +115,8 @@
 
 	changing_turf = FALSE
 
+	AMBIENT_LIGHT_DEQUEUE_TURF(src)
+
 	remove_cleanables(FALSE)
 	fluid_update()
 	REMOVE_ACTIVE_FLUID_SOURCE(src)
@@ -91,11 +131,26 @@
 	if (mimic_proxy)
 		QDEL_NULL(mimic_proxy)
 
+	if(weather)
+		remove_vis_contents(src,  weather.vis_contents_additions)
+		weather = null
+
 	..()
-	return QDEL_HINT_IWILLGC
+	return QDEL_HINT_LETMELIVE
 
 /turf/proc/is_solid_structure()
 	return 1
+
+/turf/proc/get_base_movement_delay(travel_dir, mob/mover)
+	return movement_delay
+
+/turf/proc/get_terrain_movement_delay(travel_dir, mob/mover)
+	. = get_base_movement_delay(travel_dir, mover)
+	if(weather)
+		. += weather.get_movement_delay(return_air(), travel_dir)
+	// TODO: check user species webbed feet, wearing swimming gear (In general full swimming should slow us down less)
+	if(get_fluid_depth() > FLUID_SHALLOW)
+		. += 3
 
 /turf/attack_hand(mob/user)
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
@@ -127,12 +182,15 @@
 	if(Adjacent(user))
 		attack_hand(user)
 
-/turf/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/storage))
-		var/obj/item/storage/S = W
-		if(S.use_to_pickup && S.collection_mode)
-			S.gather_all(src, user)
+
+/turf/use_tool(obj/item/item, mob/living/user, list/click_params)
+	if (istype(item, /obj/item/storage))
+		var/obj/item/storage/storage = item
+		if (storage.allow_quick_gather && !storage.quick_gather_single)
+			storage.gather_all(src, user)
+			return TRUE
 	return ..()
+
 
 /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 
@@ -145,33 +203,33 @@
 	for(var/obj/obstacle in mover.loc)
 		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != obstacle) && (forget != obstacle))
 			if(!obstacle.CheckExit(mover, src))
-				mover.Bump(obstacle, 1)
+				mover.Bump(obstacle, TRUE)
 				return 0
 
 	//Now, check objects to block exit that are on the border
 	for(var/obj/border_obstacle in mover.loc)
 		if((border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != border_obstacle) && (forget != border_obstacle))
 			if(!border_obstacle.CheckExit(mover, src))
-				mover.Bump(border_obstacle, 1)
+				mover.Bump(border_obstacle, TRUE)
 				return 0
 
 	//Next, check objects to block entry that are on the border
 	for(var/obj/border_obstacle in src)
 		if(border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER)
 			if(!border_obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != border_obstacle))
-				mover.Bump(border_obstacle, 1)
+				mover.Bump(border_obstacle, TRUE)
 				return 0
 
 	//Then, check the turf itself
 	if (!src.CanPass(mover, src))
-		mover.Bump(src, 1)
+		mover.Bump(src, TRUE)
 		return 0
 
 	//Finally, check objects/mobs to block entry that are not on the border
 	for(var/atom/movable/obstacle in src)
 		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 			if(!obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != obstacle))
-				mover.Bump(obstacle, 1)
+				mover.Bump(obstacle, TRUE)
 				return 0
 	return 1 //Nothing found to block so return success!
 
@@ -182,32 +240,29 @@ var/global/const/enterloopsanity = 100
 
 	QUEUE_TEMPERATURE_ATOMS(atom)
 
-	if(!istype(atom, /atom/movable))
+	if(!ismovable(atom))
 		return
 
 	var/atom/movable/A = atom
 
 	if(ismob(A))
 		var/mob/M = A
-		if(!M.check_solid_ground())
-			inertial_drift(M)
-			//we'll end up checking solid ground again but we still need to check the other things.
-			//Ususally most people aren't in space anyways so hopefully this is acceptable.
-			M.update_floating()
-		else
-			M.inertia_dir = 0
-			M.make_floating(0) //we know we're not on solid ground so skip the checks to save a bit of processing
+		M.make_floating(0) //we know we're not on solid ground so skip the checks to save a bit of processing
 
 	var/objects = 0
-	if(A && (A.movable_flags & MOVABLE_FLAG_PROXMOVE))
+	if (A && HAS_FLAGS(A.movable_flags, MOVABLE_FLAG_PROXMOVE))
 		for(var/atom/movable/thing in range(1))
 			if(objects > enterloopsanity) break
 			objects++
 			spawn(0)
 				if(A)
 					A.HasProximity(thing)
-					if ((thing && A) && (thing.movable_flags & MOVABLE_FLAG_PROXMOVE))
+					if ((thing && A) && HAS_FLAGS(thing.movable_flags, MOVABLE_FLAG_PROXMOVE))
 						thing.HasProximity(A)
+
+	if (HAS_FLAGS(A.movable_flags, MOVABLE_FLAG_POSTMOVEMENT) && isturf(old_loc))
+		A.post_movement(old_loc, src)
+
 	return
 
 /turf/proc/adjacent_fire_act(turf/simulated/floor/adj_turf, datum/gas_mixture/adj_air, adj_temp, adj_volume)
@@ -218,20 +273,6 @@ var/global/const/enterloopsanity = 100
 
 /turf/proc/protects_atom(atom/A)
 	return FALSE
-
-/turf/proc/inertial_drift(atom/movable/A)
-	if(!(A.last_move))	return
-	if((ismob(A) && src.x > 2 && src.x < (world.maxx - 1) && src.y > 2 && src.y < (world.maxy-1)))
-		var/mob/M = A
-		if(M.Allow_Spacemove(1)) //if this mob can control their own movement in space then they shouldn't be drifting
-			M.inertia_dir  = 0
-			return
-		spawn(5)
-			if(M && !(M.anchored) && !(M.pulledby) && (M.loc == src))
-				if(!M.inertia_dir)
-					M.inertia_dir = M.last_move
-				step(M, M.inertia_dir)
-	return
 
 /turf/proc/levelupdate()
 	for(var/obj/O in src)
@@ -292,8 +333,8 @@ var/global/const/enterloopsanity = 100
 	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.
 
 /turf/proc/remove_cleanables(skip_blood = TRUE)
-	for(var/obj/effect/O in src)
-		if(istype(O,/obj/effect/rune) || (istype(O,/obj/effect/decal/cleanable) && (!skip_blood || !istype(O, /obj/effect/decal/cleanable/blood))))
+	for(var/obj/O in src)
+		if(istype(O,/obj/rune) || (istype(O,/obj/decal/cleanable) && (!skip_blood || !istype(O, /obj/decal/cleanable/blood))))
 			qdel(O)
 
 /turf/proc/update_blood_overlays()
@@ -313,11 +354,14 @@ var/global/const/enterloopsanity = 100
 			if(length(M.pinned))
 				return
 
-		var/intial_dir = TT.init_dir
-		spawn(2)
-			step(AM, turn(intial_dir, 180))
+			if(M.pinned)
+				return
+		addtimer(new Callback(src, PROC_REF(bounce_off), AM, TT.init_dir), 2)
 
 	..()
+
+/turf/proc/bounce_off(atom/movable/AM, direction)
+	step(AM, turn(direction, 180))
 
 /turf/proc/can_engrave()
 	return FALSE
@@ -337,7 +381,7 @@ var/global/const/enterloopsanity = 100
 		return FALSE
 
 	var/too_much_graffiti = 0
-	for(var/obj/effect/decal/writing/W in src)
+	for(var/obj/decal/writing/W in src)
 		too_much_graffiti++
 	if(too_much_graffiti >= 5)
 		to_chat(vandal, SPAN_WARNING("There's too much graffiti here to add more."))
@@ -356,7 +400,7 @@ var/global/const/enterloopsanity = 100
 		return FALSE
 
 	vandal.visible_message(SPAN_DANGER("\The [vandal] carves some graffiti into \the [src]."))
-	var/obj/effect/decal/writing/graffiti = new(src)
+	var/obj/decal/writing/graffiti = new(src)
 	graffiti.message = message
 	graffiti.author = vandal.ckey
 	vandal.update_personal_goal(/datum/goal/achievement/graffiti, TRUE)
@@ -374,6 +418,124 @@ var/global/const/enterloopsanity = 100
 
 /turf/proc/is_floor()
 	return FALSE
+
+/turf/proc/update_weather(obj/abstract/weather_system/new_weather, force_update_below = FALSE)
+
+	if(isnull(new_weather))
+		new_weather = LAZYACCESS(SSweather.weather_by_z, z)
+
+	// We have a weather system and we are exposed to it; update our vis contents.
+	if(istype(new_weather) && is_outside())
+		if(weather != new_weather)
+			weather = new_weather
+			. = TRUE
+
+	// We are indoors or there is no local weather system, clear our vis contents.
+	else if(weather)
+		weather = null
+		. = TRUE
+
+	if(.)
+		refresh_vis_contents()
+
+	// Propagate our weather downwards if we permit it.
+	if(force_update_below || (is_open() && .))
+		var/turf/below = GetBelow(src)
+		if(below)
+			below.update_weather(new_weather)
+
+/// Updates turf participation in ZAS according to outside status and atmosphere participation bools. Must be called whenever any of those values may change.
+/turf/simulated/proc/update_external_atmos_participation()
+	var/old_outside = last_outside_check
+	last_outside_check = OUTSIDE_UNCERTAIN
+	if(is_outside())
+		if(zone && external_atmosphere_participation)
+			if(can_safely_remove_from_zone())
+				zone.remove(src)
+			else
+				zone.rebuild()
+	else if(!zone && zone_membership_candidate && old_outside == OUTSIDE_YES)
+		// Set the turf's air to the external atmosphere to add to its new zone.
+		air = get_external_air(FALSE)
+
+	SSair.mark_for_update(src)
+
+/turf/is_outside()
+	//Determine if a turf is considered external for purpose of light and weather
+
+	// Can't rain inside or through solid walls.
+	// TODO: dense structures like full windows should probably also block weather.
+	if(density)
+		return OUTSIDE_NO
+
+	if(last_outside_check != OUTSIDE_UNCERTAIN)
+		return last_outside_check
+
+	// What is our local outside value?
+	// Some turfs can be roofed irrespective of the turf above them in multiz.
+	// I have the feeling this is redundat as a roofed turf below max z will
+	// have a floor above it, but ah well.
+	. = is_outside
+	if(. == OUTSIDE_AREA)
+		var/area/A = get_area(src)
+		. = A ? A.area_flags & AREA_FLAG_EXTERNAL : OUTSIDE_NO
+
+	// If we are in a multiz volume and not already inside, we return
+	// the outside value of the highest unenclosed turf in the stack.
+	if(HasAbove(z))
+		. =  OUTSIDE_YES // assume for the moment we're unroofed until we learn otherwise.
+		var/turf/top_of_stack = src
+		while(HasAbove(top_of_stack.z))
+			var/turf/next_turf = GetAbove(top_of_stack)
+			if(!next_turf.is_open())
+				return OUTSIDE_NO
+			top_of_stack = next_turf
+		// If we hit the top of the stack without finding a roof, we ask the upmost turf if we're outside.
+		. = top_of_stack.is_outside()
+	last_outside_check = . // Cache this for later calls.
+
+/turf/proc/set_outside(new_outside, skip_weather_update = FALSE)
+	if(is_outside == new_outside)
+		return FALSE
+
+	is_outside = new_outside
+	var/turf/simulated/W = src
+	if (istype(W))
+		W.update_external_atmos_participation()
+	AMBIENT_LIGHT_QUEUE_TURF(src)
+
+	if(!skip_weather_update)
+		update_weather()
+
+	if(!HasBelow(z))
+		return TRUE
+
+	// Invalidate the outside check cache for turfs below us.
+	var/turf/checking = src
+	while(HasBelow(checking.z))
+		checking = GetBelow(checking)
+		if(!isturf(checking))
+			break
+		var/turf/simulated/checksim = checking
+		if (istype(checksim))
+			checksim.update_external_atmos_participation()
+		if(!checking.is_open())
+			break
+	return TRUE
+
+/turf/proc/get_air_graphic()
+	return
+
+/turf/get_vis_contents_to_add()
+	var/air_graphic = get_air_graphic()
+	if(length(air_graphic))
+		LAZYDISTINCTADD(., air_graphic)
+	if(length(weather?.vis_contents_additions))
+		LAZYADD(., weather.vis_contents_additions)
+		. += pick(weather.particle_sources) // we know . is never null here
+
+/turf/get_affecting_weather()
+	return weather
 
 /turf/proc/get_obstruction()
 	if (density)

@@ -50,7 +50,7 @@
 			max_number = 6
 			vermstring = "lizards"
 		if(VERM_SPIDERS)
-			spawn_types = list(/obj/effect/spider/spiderling)
+			spawn_types = list(/obj/spider/spiderling)
 			max_number = 3
 			vermstring = "spiders"
 		if(VERM_POSSUMS)
@@ -74,14 +74,14 @@
 		var/num = 0
 		for(var/i = 1 to severity)
 			num += rand(2,max_number)
-		log_and_message_admins("Vermin infestation spawned ([vermstring] x[num]) in \the [location]", location = pick_area_turf(location))
+		log_and_message_admins("Vermin infestation spawned ([vermstring] x[num]) in \the [location]", user = null, location = pick_area_turf(location))
 		while(length(vermin_turfs) && num > 0)
 			var/turf/simulated/floor/T = pick(vermin_turfs)
 			vermin_turfs.Remove(T)
 			num--
 
 			var/spawn_type = pick(spawn_types)
-			var/obj/effect/spider/spiderling/S = new spawn_type(T)
+			var/obj/spider/spiderling/S = new spawn_type(T)
 			if(istype(S))
 				S.amount_grown = -1
 
@@ -89,13 +89,19 @@
 	command_announcement.Announce("Bioscans indicate that [vermstring] have been breeding in \the [location]. Further infestation is likely if left unchecked.", "[location_name()] Biologic Sensor Network", zlevels = affecting_z)
 
 /datum/event/infestation/proc/set_location_get_infestation_turfs()
-	location = pick_area(list(/proc/is_not_space_area, /proc/is_station_area))
+	location = pick_area(list(
+		GLOBAL_PROC_REF(is_not_space_area),
+		GLOBAL_PROC_REF(is_station_area)
+	))
 	if(!location)
 		log_debug("Vermin infestation failed to find a viable area. Aborting.")
 		kill(TRUE)
 		return
 
-	var/list/vermin_turfs = get_area_turfs(location, list(/proc/not_turf_contains_dense_objects, /proc/IsTurfAtmosSafe))
+	var/list/vermin_turfs = get_area_turfs(location, list(
+		GLOBAL_PROC_REF(not_turf_contains_dense_objects),
+		GLOBAL_PROC_REF(IsTurfAtmosSafe)
+	))
 	if(!length(vermin_turfs))
 		log_debug("Vermin infestation failed to find viable turfs in \the [location].")
 		return

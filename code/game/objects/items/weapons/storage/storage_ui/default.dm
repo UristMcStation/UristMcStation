@@ -1,5 +1,5 @@
 /datum/storage_ui/default
-	var/list/is_seeing = new/list() //List of mobs which are currently seeing the contents of this item's storage
+	var/list/is_seeing = list() //List of mobs which are currently seeing the contents of this item's storage
 
 	var/obj/screen/storage/boxes
 	var/obj/screen/storage/storage_start //storage UI
@@ -132,7 +132,7 @@
 //Creates the storage UI
 /datum/storage_ui/default/prepare_ui()
 	//if storage slots is null then use the storage space UI, otherwise use the slots UI
-	if(storage.storage_slots == null)
+	if(isnull(storage.storage_slots))
 		space_orient_objs()
 	else
 		slot_orient_objs()
@@ -200,7 +200,7 @@
 	var/stored_cap_width = 4 //length of sprite for start and end of the box representing the stored item
 	var/storage_width = min( round( 224 * storage.max_storage_space/baseline_max_storage_space ,1) ,284) //length of sprite for the box representing total storage space
 
-	storage_start.overlays.Cut()
+	storage_start.ClearOverlays()
 
 	storage_continue.SetTransform(scale_x = (storage_width - storage_cap_width * 2 + 3) / 32)
 
@@ -220,9 +220,11 @@
 			offset_x = startpoint + stored_cap_width + (endpoint - startpoint - stored_cap_width * 2) / 2 - 16,
 			scale_x = (endpoint - startpoint - stored_cap_width * 2) / 32
 		)
-		storage_start.overlays += stored_start
-		storage_start.overlays += stored_continue
-		storage_start.overlays += stored_end
+		storage_start.AddOverlays(list(
+			stored_start,
+			stored_continue,
+			stored_end
+		))
 
 		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
 		O.maptext = ""

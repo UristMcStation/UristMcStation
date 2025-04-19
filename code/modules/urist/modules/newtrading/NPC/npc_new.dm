@@ -9,7 +9,7 @@
 	my_species = new species_type()
 	create_base_icon()
 
-	var/datum/species/S = all_species[my_species.name]
+	var/singleton/species/S = GLOB.species_by_name[my_species.name]
 	var/singleton/cultural_info/culture/C = SSculture.get_culture(S.default_cultural_info[TAG_CULTURE])
 	if(istype(C))
 		real_name = C.get_random_name(gender)
@@ -88,7 +88,7 @@
 
 //repository/images/proc/overlay_image(var/icon, var/icon_state, var/alpha, var/appearance_flags, var/color, var/dir, var/plane = FLOAT_PLANE, var/layer = FLOAT_LAYER)
 /mob/living/simple_animal/passive/npc/var/list/overlay_images = list()
-/mob/living/simple_animal/passive/npc/proc/sprite_equip(obj/item/I, var/slot)
+/mob/living/simple_animal/passive/npc/proc/sprite_equip(obj/item/I, slot)
 	overlays += I.get_mob_overlay(src, slot)
 	overlay_images += I.get_mob_overlay(src, slot)
 

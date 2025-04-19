@@ -20,11 +20,11 @@
 		/area/map_template/merc_shuttle,
 		/area/map_template/wizard_station,
 		/area/map_template/vox_raider,
-		/area/map_template/deepmaint,
 		/area/mine/explored
 	)
 
 	area_usage_test_exempted_root_areas = list(
+		/area/map_template/deepmaint_wfc,
 		/area/rnd/xenobiology,
 		/area/shuttle/naval1,
 		/area/shuttle/event1,
@@ -46,7 +46,5 @@
 		/area/map_template/skipjack_station,
 		/area/map_template/syndicate_mothership,
 		/area/map_template/merc_spawn,
-		/area/map_template/ninja_dojo,
-		/area/icarus,
-		/area/map_template/deepmaint_wfc
+		/area/map_template/ninja_dojo
 	)

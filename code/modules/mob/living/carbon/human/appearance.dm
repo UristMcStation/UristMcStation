@@ -1,5 +1,5 @@
-/mob/living/carbon/human/proc/change_appearance(flags, species, mob/user = src, datum/topic_state/state = GLOB.default_state)
-	var/datum/nano_module/appearance_changer/changer = new(src, flags, species)
+/mob/living/carbon/human/proc/change_appearance(flags, mob/user = src, datum/topic_state/state = GLOB.default_state)
+	var/datum/nano_module/appearance_changer/changer = new(src, flags)
 	changer.ui_interact(user, state = state)
 
 /mob/living/carbon/human/proc/change_species(new_species)
@@ -9,7 +9,7 @@
 	if(species == new_species)
 		return
 
-	if(!(new_species in all_species))
+	if(!(new_species in GLOB.species_by_name))
 		return
 
 	var/datum/antagonist/antag = get_antag_data(mind?.special_role)
@@ -25,11 +25,15 @@
 /mob/living/carbon/human/proc/change_gender(gender)
 	if(src.gender == gender)
 		return
-
 	src.gender = gender
+
 	reset_hair()
+	force_update_limbs()
 	update_body()
 	update_dna()
+	src.sync_organ_dna()
+	if(src.gender == MALE)
+		src.UpdateAppearance()
 	return 1
 
 /mob/living/carbon/human/proc/randomize_gender()
@@ -160,29 +164,33 @@
 			result[lang_key] = all_languages[lang_key]
 	return result
 
-/mob/living/carbon/human/proc/generate_valid_species(check_whitelist = 1, list/whitelist = list(), list/blacklist = list())
-	var/list/valid_species = new()
+
+/mob/living/carbon/human/proc/generate_valid_species(appearance_flags, list/allow, list/deny)
+	var/list/result = list()
 	var/datum/antagonist/antag = get_antag_data(mind?.special_role)
-
-	for(var/current_species_name in all_species)
-		var/datum/species/current_species = all_species[current_species_name]
-
-		if(check_whitelist) //If we're using the whitelist, make sure to check it!
-			if((current_species.spawn_flags & SPECIES_IS_RESTRICTED) && !check_rights(R_ADMIN, 0, src))
+	for (var/name in GLOB.species_by_name)
+		if (name in deny)
+			continue
+		if (!appearance_flags)
+			result += name
+			continue
+		if (name in allow)
+			result += name
+			continue
+		var/singleton/species/species = GLOB.species_by_name[name]
+		if (!(appearance_flags & APPEARANCE_SKIP_RESTRICTED_CHECK))
+			if (species.spawn_flags & SPECIES_IS_RESTRICTED)
 				continue
-			if(!is_alien_whitelisted(src, current_species))
+		if (!(appearance_flags & APPEARANCE_SKIP_ALLOW_LIST_CHECK))
+			if (!is_alien_whitelisted(src, species))
 				continue
-		if(length(whitelist) && !(current_species_name in whitelist))
+		if(!(name in antag?.valid_species))
 			continue
-		if(length(blacklist) && (current_species_name in blacklist))
-			continue
-		if(!(current_species_name in antag?.valid_species))
-			continue
+		result += name
+	return result
 
-		valid_species += current_species_name
+
 	//valid_species = list("Unathi","Skrell","Human") //fuck it
-
-	return valid_species
 
 /mob/living/carbon/human/proc/generate_valid_hairstyles(check_gender = 1)
 	. = list()

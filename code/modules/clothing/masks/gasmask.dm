@@ -132,7 +132,7 @@
 		)
 
 /obj/item/clothing/mask/gas/death_commando
-	name = "\improper Death Commando Mask"
+	name = "\improper Death Commando mask"
 	desc = "A grim tactical mask worn by the fictional Death Commandos, elites of the also fictional Space Syndicate. Saturdays at 10!"
 	icon_state = "death"
 	item_state = "death"
@@ -204,7 +204,7 @@
 	body_parts_covered = 0
 	species_restricted = list(SPECIES_VOX)
 	filtered_gases = list(GAS_OXYGEN)
-
+	item_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT | ITEM_FLAG_AIRTIGHT | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/mask/gas/swat/vox
 	name = "alien mask"
@@ -223,6 +223,7 @@
 		GAS_METHYL_BROMIDE,
 		GAS_METHANE
 		)
+	item_flags = ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT | ITEM_FLAG_AIRTIGHT | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/mask/gas/aquabreather
 	name = "aquabreather"

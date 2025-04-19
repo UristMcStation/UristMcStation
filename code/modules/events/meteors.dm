@@ -69,50 +69,50 @@
 			return meteors_minor
 
 var/global/list/meteors_minor = list(
-	/obj/effect/meteor/medium     = 80,
-	/obj/effect/meteor/dust       = 30,
-	/obj/effect/meteor/irradiated = 30,
-	/obj/effect/meteor/big        = 30,
-	/obj/effect/meteor/flaming    = 10,
-	/obj/effect/meteor/golden     = 10,
-	/obj/effect/meteor/silver     = 10,
+	/obj/meteor/medium     = 80,
+	/obj/meteor/dust       = 30,
+	/obj/meteor/irradiated = 30,
+	/obj/meteor/big        = 30,
+	/obj/meteor/flaming    = 10,
+	/obj/meteor/golden     = 10,
+	/obj/meteor/silver     = 10,
 )
 
 var/global/list/meteors_moderate = list(
-	/obj/effect/meteor/medium     = 80,
-	/obj/effect/meteor/big        = 30,
-	/obj/effect/meteor/dust       = 30,
-	/obj/effect/meteor/irradiated = 30,
-	/obj/effect/meteor/flaming    = 10,
-	/obj/effect/meteor/golden     = 10,
-	/obj/effect/meteor/silver     = 10,
-	/obj/effect/meteor/emp        = 10,
+	/obj/meteor/medium     = 80,
+	/obj/meteor/big        = 30,
+	/obj/meteor/dust       = 30,
+	/obj/meteor/irradiated = 30,
+	/obj/meteor/flaming    = 10,
+	/obj/meteor/golden     = 10,
+	/obj/meteor/silver     = 10,
+	/obj/meteor/emp        = 10,
 )
 
 var/global/list/meteors_major = list(
-	/obj/effect/meteor/medium     = 80,
-	/obj/effect/meteor/big        = 30,
-	/obj/effect/meteor/dust       = 30,
-	/obj/effect/meteor/irradiated = 30,
-	/obj/effect/meteor/emp        = 30,
-	/obj/effect/meteor/flaming    = 10,
-	/obj/effect/meteor/golden     = 10,
-	/obj/effect/meteor/silver     = 10,
-	/obj/effect/meteor/tunguska   = 1,
+	/obj/meteor/medium     = 80,
+	/obj/meteor/big        = 30,
+	/obj/meteor/dust       = 30,
+	/obj/meteor/irradiated = 30,
+	/obj/meteor/emp        = 30,
+	/obj/meteor/flaming    = 10,
+	/obj/meteor/golden     = 10,
+	/obj/meteor/silver     = 10,
+	/obj/meteor/tunguska   = 1,
 )
 
 /datum/event/meteor_wave/overmap
 	next_meteor_lower = 5
 	next_meteor_upper = 10
 	next_meteor = 0
-	var/obj/effect/overmap/visitable/ship/victim
+	var/obj/overmap/visitable/ship/victim
 
 /datum/event/meteor_wave/overmap/Destroy()
 	victim = null
 	. = ..()
 
 /datum/event/meteor_wave/overmap/tick()
-	if(victim && !victim.is_still()) //Meteors mostly fly in your face
+	if(victim && victim.is_moving()) //Meteors mostly fly in your face
 		start_side = prob(90) ? victim.fore_dir : pick(GLOB.cardinal)
 	else //Unless you're standing
 		start_side = pick(GLOB.cardinal)
@@ -121,7 +121,7 @@ var/global/list/meteors_major = list(
 	. = ..()
 	if (!victim)
 		return
-	if(victim.is_still()) //Standing still means less shit flies your way
+	if(!victim.is_moving()) //Standing still means less shit flies your way
 		. = round(. * 0.25)
 	if(victim.get_speed() < victim.min_speed * 5) //Slow and steady
 		. = round(. * 0.6)

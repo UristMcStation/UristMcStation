@@ -353,7 +353,7 @@
 	return
 
 
-/datum/admins/proc/create_new_poll(polltype,var/timelength,var/question,list/polloptions,var/adminonly,var/multilimit,var/maxval,var/minval,var/descmax,var/descmin,var/descmed)
+/datum/admins/proc/create_new_poll(polltype, timelength, question,list/polloptions, adminonly, multilimit, maxval, minval, descmax, descmin, descmed)
 
 	if(!check_rights(R_ADMIN,1))	return
 

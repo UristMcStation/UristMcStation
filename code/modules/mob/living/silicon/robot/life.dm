@@ -15,6 +15,7 @@
 	if(client)
 		handle_regular_hud_updates()
 		update_items()
+	handle_environment(loc?.return_air())
 	if (src.stat != DEAD) //still using power
 		use_power()
 		process_queued_alarms()
@@ -141,53 +142,37 @@
 
 /mob/living/silicon/robot/handle_regular_hud_updates()
 	..()
-
 	var/obj/item/borg/sight/hud/hud = (locate(/obj/item/borg/sight/hud) in src)
-	if(hud && hud.hud)
+	if (hud?.hud)
 		hud.hud.process_hud(src)
 	else
-		switch(src.sensor_mode)
+		switch (sensor_mode)
 			if (SEC_HUD)
-				process_sec_hud(src,0)
+				process_sec_hud(src, FALSE)
 			if (MED_HUD)
-				process_med_hud(src,0)
-
-	if (src.healths)
-		if (src.stat != 2)
-			if(istype(src,/mob/living/silicon/robot/drone))
-				switch(health)
-					if(35 to INFINITY)
-						src.healths.icon_state = "health0"
-					if(25 to 34)
-						src.healths.icon_state = "health1"
-					if(15 to 24)
-						src.healths.icon_state = "health2"
-					if(5 to 14)
-						src.healths.icon_state = "health3"
-					if(0 to 4)
-						src.healths.icon_state = "health4"
-					if(-35 to 0)
-						src.healths.icon_state = "health5"
-					else
-						src.healths.icon_state = "health6"
-			else
-				switch(health)
-					if(200 to INFINITY)
-						src.healths.icon_state = "health0"
-					if(150 to 200)
-						src.healths.icon_state = "health1"
-					if(100 to 150)
-						src.healths.icon_state = "health2"
-					if(50 to 100)
-						src.healths.icon_state = "health3"
-					if(0 to 50)
-						src.healths.icon_state = "health4"
-					if(config.health_threshold_dead to 0)
-						src.healths.icon_state = "health5"
-					else
-						src.healths.icon_state = "health6"
+				process_med_hud(src, FALSE)
+	if (healths)
+		if (stat != DEAD)
+			var/health_fraction = health / maxHealth
+			if (health_fraction < 0 && !istype(src, /mob/living/silicon/robot/drone))
+				health_fraction = health / -config.health_threshold_dead
+			switch (health_fraction)
+				if (1 to POSITIVE_INFINITY)
+					healths.icon_state = "health0"
+				if (0.75 to 1)
+					healths.icon_state = "health1"
+				if (0.5 to 0.75)
+					healths.icon_state = "health2"
+				if (0.25 to 0.5)
+					healths.icon_state = "health3"
+				if (0 to 0.25)
+					healths.icon_state = "health4"
+				if (-1 to 0)
+					healths.icon_state = "health5"
+				else
+					healths.icon_state = "health6"
 		else
-			src.healths.icon_state = "health7"
+			healths.icon_state = "health7"
 
 	if (src.syndicate && src.client)
 		for(var/datum/mind/tra in GLOB.traitors.current_antagonists)
@@ -204,7 +189,7 @@
 
 	if (src.cells)
 		if (src.cell)
-			var/chargeNum = clamp(Ceil(cell.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
+			var/chargeNum = clamp(ceil(cell.percent()/25), 0, 4)	//0-100 maps to 0-4, but give it a paranoid clamp just in case.
 			src.cells.icon_state = "charge[chargeNum]"
 		else
 			src.cells.icon_state = "charge-empty"
@@ -230,7 +215,7 @@
 			else
 				src.fire.icon_state = "fire1"
 	if(oxygen && environment)
-		var/datum/species/species = all_species[SPECIES_HUMAN]
+		var/singleton/species/species = GLOB.species_by_name[SPECIES_HUMAN]
 		if(environment.gas[species.breath_type] >= species.breath_pressure)
 			src.oxygen.icon_state = "oxy0"
 			for(var/gas in species.poison_types)
@@ -253,8 +238,7 @@
 			if (machine.check_eye(src) < 0)
 				reset_view(null)
 		else
-			if(client && !client.adminobs)
-				reset_view(null)
+			reset_view(null)
 
 	return 1
 
@@ -302,9 +286,9 @@
 	update_icon()
 
 /mob/living/silicon/robot/update_fire()
-	overlays -= image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing")
-	if(on_fire)
-		overlays += image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing")
+	CutOverlays(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
+	if (on_fire)
+		AddOverlays(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
 
 /mob/living/silicon/robot/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
 	if (status_flags & GODMODE)

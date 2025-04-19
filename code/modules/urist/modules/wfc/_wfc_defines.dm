@@ -19,7 +19,7 @@
 
 #define DEEPMAINT_WALL_OPACITY 0
 
-#define DEEPMAINT_LIGHT /obj/effect/deepmaint_light
+#define DEEPMAINT_LIGHT /obj/deepmaint_light
 
 #define DEEPMAINT_TELEPORTABLE_MOBTYPE /mob
 
@@ -36,7 +36,7 @@
 
 #define DEEPMAINT_WALL_OPACITY 1
 
-#define DEEPMAINT_LIGHT /obj/effect/deepmaint_light
+#define DEEPMAINT_LIGHT /obj/deepmaint_light
 
 #define DEEPMAINT_TELEPORTABLE_MOBTYPE /mob/living
 

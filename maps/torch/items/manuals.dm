@@ -13,7 +13,7 @@
 		</head>
 
 		<body>
-		<iframe width='100%' height='97%' src="[config.wiki_url]Sol_Central_Government_Law&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
+		<iframe width='100%' height='97%' src="[config.wiki_url]/index.php?title=Sol_Central_Government_Law" frameborder="0" id="main_frame"></iframe>
 		</body>
 
 		</html>
@@ -36,7 +36,7 @@
 		</head>
 
 		<body>
-		<iframe width='100%' height='97%' src="[config.wiki_url]Sol_Gov_Military_Justice&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
+		<iframe width='100%' height='97%' src="[config.wiki_url]/index.php?title=Sol_Code_of_Uniform_Justice" frameborder="0" id="main_frame"></iframe>
 		</body>
 
 		</html>
@@ -58,25 +58,24 @@
 		</head>
 
 		<body>
-		<iframe width='100%' height='97%' src="[config.wiki_url]Standard_Operating_Procedure&printable=yes&remove_links=1" frameborder="0" id="main_frame"></iframe>
+		<iframe width='100%' height='97%' src="[config.wiki_url]/index.php?title=Standard_Operating_Procedure" frameborder="0" id="main_frame"></iframe>
 		</body>
 
 		</html>
 
 		"}
 
-/obj/item/folder/nt/rd
+/obj/item/material/folder/nt/rd
 
-/obj/item/folder/envelope/captain
+/obj/item/material/folder/envelope/preset/captain
 	desc = "A thick envelope. The SCG crest is stamped in the corner, along with 'TOP SECRET - TORCH UMBRA'."
 
-/obj/item/folder/envelope/captain/Initialize()
+/obj/item/material/folder/envelope/preset/captain/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/item/folder/envelope/captain/LateInitialize()
-	..()
-	var/obj/effect/overmap/visitable/torch = map_sectors["[z]"]
+/obj/item/material/folder/envelope/preset/captain/LateInitialize(mapload)
+	var/obj/overmap/visitable/torch = map_sectors["[z]"]
 	var/memo = {"
 	<tt><center><b>[SPAN_COLOR("red", "SECRET - CODE WORDS: TORCH")]</b>
 	<h3>SOL CENTRAL GOVERNMENT EXPEDITIONARY COMMAND</h3>
@@ -111,10 +110,11 @@
 	new/obj/item/paper(src, memo, "Standing Orders")
 	new/obj/item/paper/umbra(src)
 
-/obj/item/folder/envelope/rep
+/obj/item/material/folder/envelope/preset/rep
 	desc = "A thick envelope. The SCG crest is stamped in the corner, along with 'TOP SECRET - TORCH UMBRA'."
+	seal_stamp = "General Secretary rubber stamp"
 
-/obj/item/folder/envelope/rep/Initialize()
+/obj/item/material/folder/envelope/preset/rep/Initialize()
 	. = ..()
 	new/obj/item/paper/umbra(src)
 
@@ -142,3 +142,18 @@
 	<i>Regards, John.</i></tt>
 	<i>This paper has been stamped with the stamp of Office of the General Secretary of SCG.</i>
 	"}
+
+/obj/item/paper/newrust
+	name = "note - RUST Wiring Updates (Mandatory Reading)"
+	info = {"
+	<div style="text-align: center;">
+<h1>RUST Wiring Updates</h1>
+</div>
+<h2></h2>
+<p>Boys at the Observatory decided to upgrade the wiring of our fusion engine room. To adapt, we will need to adjust our normal procedures.</p>
+<ul>
+<li>You do NOT need to bypass the SMES in this antechamber. It is no longer irrelevant, it is the only thing separating RUST output from the main power grid.</li>
+<li>If you are running a standard setup, you SHOULD NOT run the gyrotron after the Hydrogen to Helium reaction starts. This was always a bad idea, as it isn't necessary and the gyrotron will eat 1.25 MW of power at the highest settings, but now it is on a subgrid that will struggle if that much power is being drained constantly.</li>
+</ul>
+<p><i>Chief Petty Officer Meng Jiao</i></p>
+"}

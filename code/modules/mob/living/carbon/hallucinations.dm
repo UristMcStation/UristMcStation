@@ -157,7 +157,7 @@
 			var/add = prob(20) ? ", [pick(names)]" : ""
 			var/list/phrases = list("[prob(50) ? "Hey, " : ""][pick(names)]!","[prob(50) ? "Hey, " : ""][pick(names)]?","Get out[add]!","Go away[add].","What are you doing[add]?","Where's your ID[add]?")
 			if(holder.hallucination_power > 50)
-				phrases += list("What did you come here for[add]?","Don't touch me[add].","You're not getting out of here[add].", "You are a failure, [pick(names)].","Just kill yourself already, [pick(names)]")
+				phrases += list("What did you come here for[add]?","Don't touch me[add].","You're not getting out of here[add].", "You are a failure, [pick(names)].","Just leave already, [pick(names)]")
 			message = pick(phrases)
 			to_chat(holder,"[SPAN_CLASS("game say", "[SPAN_CLASS("name", display_name)] [holder.say_quote(message)], [SPAN_CLASS("message", "[SPAN_CLASS("body", "\"[message]\"")]")]")]")
 		else
@@ -221,7 +221,7 @@
 	number = 2
 
 /datum/hallucination/mirage/money/generate_mirage()
-	return image('icons/obj/items.dmi', "spacecash[pick(1000,500,200,100,50)]", layer = BELOW_TABLE_LAYER)
+	return image('icons/obj/money.dmi', "spacecash[pick(1000,500,200,100,50)]", layer = BELOW_TABLE_LAYER)
 
 //Blood and aftermath of firefight
 /datum/hallucination/mirage/carnage
@@ -234,7 +234,7 @@
 		I.color = COLOR_BLOOD_HUMAN
 		return I
 	else
-		var/image/I = image('icons/obj/ammo.dmi', "s-casing-spent", layer = BELOW_TABLE_LAYER)
+		var/image/I = image('icons/obj/weapons/ammo.dmi', "s-casing-spent", layer = BELOW_TABLE_LAYER)
 		I.layer = BELOW_TABLE_LAYER
 		I.dir = pick(GLOB.alldirs)
 		I.pixel_x = rand(-10,10)

@@ -1,7 +1,7 @@
 /obj/machinery/igniter
 	name = "igniter"
 	desc = "It's useful for igniting flammable items."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/structures/igniter.dmi'
 	icon_state = "igniter1"
 	var/on = 0
 	anchored = TRUE
@@ -39,7 +39,7 @@
 	if(is_powered())
 		var/turf/location = src.loc
 		if (isturf(location))
-			location.hotspot_expose(1000,500,1)
+			location.hotspot_expose(1000)
 	return 1
 
 /obj/machinery/igniter/proc/ignite()
@@ -64,7 +64,7 @@
 /singleton/public_access/public_method/igniter_toggle
 	name = "igniter toggle"
 	desc = "Toggle the igniter on or off."
-	call_proc = /obj/machinery/igniter/proc/ignite
+	call_proc = TYPE_PROC_REF(/obj/machinery/igniter, ignite)
 
 /singleton/stock_part_preset/radio/receiver/igniter
 	frequency = BUTTON_FREQ
@@ -73,9 +73,9 @@
 // Wall mounted remote-control igniter.
 
 /obj/machinery/sparker
-	name = "Mounted igniter"
+	name = "mounted igniter"
 	desc = "A wall-mounted ignition device."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/structures/mounted_igniter.dmi'
 	icon_state = "migniter"
 	var/disable = 0
 	var/last_spark = 0
@@ -104,17 +104,17 @@
 		icon_state = "migniter-p"
 //		src.sd_SetLuminosity(0)
 
-/obj/machinery/sparker/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/sparker/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(isScrewdriver(W))
-		add_fingerprint(user)
 		disable = !disable
 		if(disable)
 			user.visible_message(SPAN_WARNING("[user] has disabled the [src]!"), SPAN_WARNING("You disable the connection to the [src]."))
 		else if(!disable)
 			user.visible_message(SPAN_WARNING("[user] has reconnected the [src]!"), SPAN_WARNING("You fix the connection to the [src]."))
 		update_icon()
-	else
-		..()
+		return TRUE
+
+	return ..()
 
 /obj/machinery/sparker/attack_ai(mob/user)
 	if(!ai_can_interact(user))
@@ -133,14 +133,14 @@
 
 
 	flick("migniter-spark", src)
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+	var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 	s.set_up(2, 1, src)
 	s.start()
 	src.last_spark = world.time
 	use_power_oneoff(2000)
 	var/turf/location = src.loc
 	if (isturf(location))
-		location.hotspot_expose(1000,500,1)
+		location.hotspot_expose(1000)
 	return 1
 
 /obj/machinery/sparker/emp_act(severity)
@@ -153,7 +153,7 @@
 /singleton/public_access/public_method/sparker_spark
 	name = "spark"
 	desc = "Creates sparks to ignite nearby gases."
-	call_proc = /obj/machinery/sparker/proc/ignite
+	call_proc = TYPE_PROC_REF(/obj/machinery/sparker, ignite)
 
 /singleton/stock_part_preset/radio/receiver/sparker
 	frequency = BUTTON_FREQ

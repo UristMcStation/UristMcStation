@@ -24,7 +24,7 @@
 	var/list/grass_cache
 
 /datum/random_map/noise/exoplanet/New(seed, tx, ty, tz, tlx, tly, do_not_apply, do_not_announce, never_be_priority = 0, used_area, list/_plant_colors)
-	if (target_turf_type == null)
+	if (isnull(target_turf_type))
 		target_turf_type = world.turf
 	water_level = rand(water_level_min,water_level_max)
 	//automagically adjust probs for bigger maps to help with lag
@@ -75,16 +75,16 @@
 
 /datum/random_map/noise/exoplanet/proc/spawn_fauna(turf/T)
 	if (prob(megafauna_spawn_prob))
-		new /obj/effect/landmark/exoplanet_spawn/megafauna(T)
+		new /obj/landmark/exoplanet_spawn/megafauna(T)
 	else
-		new /obj/effect/landmark/exoplanet_spawn(T)
+		new /obj/landmark/exoplanet_spawn(T)
 
 /datum/random_map/noise/exoplanet/proc/get_grass_overlay()
 	var/grass_num = "[rand(1,6)]"
 	if (!LAZYACCESS(grass_cache, grass_num))
 		var/color = pick(plantcolors)
 		if (color == "RANDOM")
-			color = get_random_colour(0,75,190)
+			color = get_random_colour(75, 190)
 		var/image/grass = overlay_image('icons/obj/flora/greygrass.dmi', "grass_[grass_num]", color, RESET_COLOR)
 		grass.underlays += overlay_image('icons/obj/flora/greygrass.dmi', "grass_[grass_num]_shadow", null, RESET_COLOR)
 		LAZYSET(grass_cache, grass_num, grass)
@@ -92,19 +92,19 @@
 
 /datum/random_map/noise/exoplanet/proc/spawn_flora(turf/T, big)
 	if (big)
-		new /obj/effect/landmark/exoplanet_spawn/large_plant(T)
+		new /obj/landmark/exoplanet_spawn/large_plant(T)
 		for(var/turf/neighbor in RANGE_TURFS(T, 1))
 			spawn_grass(neighbor)
 	else
-		new /obj/effect/landmark/exoplanet_spawn/plant(T)
+		new /obj/landmark/exoplanet_spawn/plant(T)
 		spawn_grass(T)
 
 /datum/random_map/noise/exoplanet/proc/spawn_grass(turf/T)
 	if (istype(T, water_type))
 		return
-	if (locate(/obj/effect/floor_decal) in T)
+	if (locate(/obj/floor_decal) in T)
 		return
-	new /obj/effect/floor_decal(T, null, null, get_grass_overlay())
+	new /obj/floor_decal(T, null, null, get_grass_overlay())
 
 /datum/random_map/noise/exoplanet/cleanup()
 	..()

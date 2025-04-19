@@ -14,7 +14,7 @@
 	var/activate_message
 
 
-/datum/power/revenant/proc/Activate(var/datum/mind/M)
+/datum/power/revenant/proc/Activate(datum/mind/M)
 	if(!M)
 		return FALSE
 
@@ -35,7 +35,7 @@
 	return TRUE
 
 
-/datum/power/revenant/proc/Deactivate(var/datum/mind/M)
+/datum/power/revenant/proc/Deactivate(datum/mind/M)
 	if(!M)
 		return TRUE
 
@@ -55,13 +55,13 @@
 	return TRUE
 
 
-/datum/power/revenant/proc/revertEffects(var/datum/mind/M)
+/datum/power/revenant/proc/revertEffects(datum/mind/M)
 	// Reverts the effects of non-Verb powers.
 	// Override per BSR power/hunger as needed.
 	return TRUE
 
 
-/datum/power/revenant/New(var/list/init_flavor_tags = null)
+/datum/power/revenant/New(list/init_flavor_tags = null)
 	. = ..()
 
 	if(init_flavor_tags && istype(init_flavor_tags))
@@ -70,7 +70,7 @@
 	return
 
 
-/datum/bluespace_revenant/proc/select_flavors(var/amt = 2, var/list/choices_override = null) // -> assoc list<flavor_tag : weight>
+/datum/bluespace_revenant/proc/select_flavors(amt = 2, list/choices_override = null) // -> assoc list<flavor_tag : weight>
 	var/safe_amt = max(0, amt)
 
 	var/list/choices = null
@@ -110,7 +110,7 @@
 	return flavors
 
 
-/datum/bluespace_revenant/proc/select_bsrevenant_attributes(var/list/flavors_override = null, var/options_callable = null, var/count = 1, var/identifier = "attribute", var/abort_on_flv_miss = FALSE)
+/datum/bluespace_revenant/proc/select_bsrevenant_attributes(list/flavors_override = null, options_callable = null, count = 1, identifier = "attribute", abort_on_flv_miss = FALSE)
 	// This is a generic helper used by Power/Hunger/Distortions procgen
 
 	if(isnull(options_callable))
@@ -196,7 +196,7 @@
 	return powerset
 
 
-/datum/bluespace_revenant/proc/unlockPower(var/datum/mind/M, var/Pname, var/remake_verbs = 1, var/identifier = "attribute")
+/datum/bluespace_revenant/proc/unlockPower(datum/mind/M, Pname, remake_verbs = 1, identifier = "attribute")
 	if(!M || !M.bluespace_revenant)
 		return
 

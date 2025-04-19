@@ -25,11 +25,11 @@
 		missionloc1 = missionloc11
 		missionloc2 = missionloc12
 
-/obj/effect/shuttle_landmark/SCOM/S1/M0
+/obj/shuttle_landmark/SCOM/S1/M0
 	name = "Shuttle 1 - Mission 0"
 	landmark_tag = "SCOM_S1_M0"
 
-/obj/effect/shuttle_landmark/SCOM/S2/M0
+/obj/shuttle_landmark/SCOM/S2/M0
 	name = "Shuttle 2 - Mission 0"
 	landmark_tag = "SCOM_S2_M0"
 
@@ -42,25 +42,25 @@
 	missionloc11 = "SCOM_S1_M11"
 	missionloc12 = "SCOM_S2_M11"
 
-/obj/effect/shuttle_landmark/SCOM/S1/M1
+/obj/shuttle_landmark/SCOM/S1/M1
 	name = "Shuttle 1 - Mission 1"
 	landmark_tag = "SCOM_S1_M1"
 	base_turf = /turf/unsimulated/floor/plating
 	base_area = /area/scom/mission/nolighting
 
-/obj/effect/shuttle_landmark/SCOM/S2/M1
+/obj/shuttle_landmark/SCOM/S2/M1
 	name = "Shuttle 2 - Mission 1"
 	landmark_tag = "SCOM_S2_M1"
 	base_turf = /turf/unsimulated/floor/plating
 	base_area = /area/scom/mission/nolighting
 
-/obj/effect/shuttle_landmark/SCOM/S1/M11
+/obj/shuttle_landmark/SCOM/S1/M11
 	name = "Shuttle 1 - Mission 11"
 	landmark_tag = "SCOM_S1_M11"
 	base_turf = /turf/unsimulated/floor/plating
 	base_area = /area/scom/mission/nolighting
 
-/obj/effect/shuttle_landmark/SCOM/S2/M11
+/obj/shuttle_landmark/SCOM/S2/M11
 	name = "Shuttle 2 - Mission 11"
 	landmark_tag = "SCOM_S2_M11"
 	base_turf = /turf/unsimulated/floor/plating
@@ -75,25 +75,25 @@
 	missionloc11 = "SCOM_S1_M12"
 	missionloc12 = "SCOM_S2_M12"
 
-/obj/effect/shuttle_landmark/SCOM/S1/M2
+/obj/shuttle_landmark/SCOM/S1/M2
 	name = "Shuttle 1 - Mission 2"
 	landmark_tag = "SCOM_S1_M2"
 	base_turf = /turf/unsimulated/floor/snow
 	base_area = /area/scom/mission/nolighting
 
-/obj/effect/shuttle_landmark/SCOM/S2/M2
+/obj/shuttle_landmark/SCOM/S2/M2
 	name = "Shuttle 2 - Mission 2"
 	landmark_tag = "SCOM_S2_M2"
 	base_turf = /turf/unsimulated/floor/snow
 	base_area = /area/scom/mission/nolighting
 
-/obj/effect/shuttle_landmark/SCOM/S1/M12
+/obj/shuttle_landmark/SCOM/S1/M12
 	name = "Shuttle 1 - Mission 12"
 	landmark_tag = "SCOM_S1_M12"
 	base_turf = /turf/unsimulated/floor/snow
 	base_area = /area/scom/mission/nolighting
 
-/obj/effect/shuttle_landmark/SCOM/S2/M12
+/obj/shuttle_landmark/SCOM/S2/M12
 	name = "Shuttle 2 - Mission 12"
 	landmark_tag = "SCOM_S2_M12"
 	base_turf = /turf/unsimulated/floor/snow
@@ -108,25 +108,25 @@
 	missionloc11 = "SCOM_S1_M13"
 	missionloc12 = "SCOM_S2_M13"
 
-/obj/effect/shuttle_landmark/SCOM/S1/M3
+/obj/shuttle_landmark/SCOM/S1/M3
 	name = "Shuttle 1 - Mission 3"
 	landmark_tag = "SCOM_S1_M3"
 	base_turf = /turf/simulated/floor/planet/jungle/clear/dark
 	base_area = /area/scom/mission/nolighting
 
-/obj/effect/shuttle_landmark/SCOM/S2/M3
+/obj/shuttle_landmark/SCOM/S2/M3
 	name = "Shuttle 2 - Mission 3"
 	landmark_tag = "SCOM_S2_M3"
 	base_turf = /turf/simulated/floor/planet/jungle/clear/dark
 	base_area = /area/scom/mission/nolighting
 
-/obj/effect/shuttle_landmark/SCOM/S1/M13
+/obj/shuttle_landmark/SCOM/S1/M13
 	name = "Shuttle 1 - Mission 13"
 	landmark_tag = "SCOM_S1_M13"
 	base_turf = /turf/simulated/floor/planet/jungle/clear/dark
 	base_area = /area/scom/mission/nolighting
 
-/obj/effect/shuttle_landmark/SCOM/S2/M13
+/obj/shuttle_landmark/SCOM/S2/M13
 	name = "Shuttle 2 - Mission 13"
 	landmark_tag = "SCOM_S2_M13"
 	base_turf = /turf/simulated/floor/planet/jungle/clear/dark
@@ -141,25 +141,25 @@
 	missionloc11 = "SCOM_S1_M14"
 	missionloc12 = "SCOM_S2_M14"
 
-/obj/effect/shuttle_landmark/SCOM/S1/M4
+/obj/shuttle_landmark/SCOM/S1/M4
 	name = "Shuttle 1 - Mission 4"
 	landmark_tag = "SCOM_S1_M4"
 	base_turf = /turf/unsimulated/beach/sand
 	base_area = /area/scom/mission/nolighting
 
-/obj/effect/shuttle_landmark/SCOM/S2/M4
+/obj/shuttle_landmark/SCOM/S2/M4
 	name = "Shuttle 2 - Mission 4"
 	landmark_tag = "SCOM_S2_M4"
 	base_turf = /turf/unsimulated/beach/sand
 	base_area = /area/scom/mission/nolighting
 
-/obj/effect/shuttle_landmark/SCOM/S1/M14
+/obj/shuttle_landmark/SCOM/S1/M14
 	name = "Shuttle 1 - Mission 14"
 	landmark_tag = "SCOM_S1_M14"
 	base_turf = /turf/unsimulated/beach/sand
 	base_area = /area/scom/mission/nolighting
 
-/obj/effect/shuttle_landmark/SCOM/S2/M14
+/obj/shuttle_landmark/SCOM/S2/M14
 	name = "Shuttle 2 - Mission 14"
 	landmark_tag = "SCOM_S2_M14"
 	base_turf = /turf/unsimulated/beach/sand
@@ -172,13 +172,13 @@
 	missionloc1 = "SCOM_S1_M5"
 	missionloc2 = "SCOM_S2_M5"
 
-/obj/effect/shuttle_landmark/SCOM/S1/M5
+/obj/shuttle_landmark/SCOM/S1/M5
 	name = "Shuttle 1 - Mission 5"
 	landmark_tag = "SCOM_S1_M5"
 	base_turf = /turf/unsimulated/floor/uristturf/train/grass
 	base_area = /area/scom/mission/nolighting
 
-/obj/effect/shuttle_landmark/SCOM/S2/M5
+/obj/shuttle_landmark/SCOM/S2/M5
 	name = "Shuttle 2 - Mission 5"
 	landmark_tag = "SCOM_S2_M5"
 	base_turf = /turf/unsimulated/floor/uristturf/train/grass
@@ -191,11 +191,11 @@
 	missionloc1 = "SCOM_S1_M6"
 	missionloc2 = "SCOM_S2_M6"
 
-/obj/effect/shuttle_landmark/SCOM/S1/M6
+/obj/shuttle_landmark/SCOM/S1/M6
 	name = "Shuttle 1 - Mission 6"
 	landmark_tag = "SCOM_S1_M6"
 
-/obj/effect/shuttle_landmark/SCOM/S2/M6
+/obj/shuttle_landmark/SCOM/S2/M6
 	name = "Shuttle 2 - Mission 6"
 	landmark_tag = "SCOM_S2_M6"
 
@@ -206,13 +206,13 @@
 	missionloc1 = "SCOM_S1_M7"
 	missionloc2 = "SCOM_S2_M7"
 
-/obj/effect/shuttle_landmark/SCOM/S1/M7
+/obj/shuttle_landmark/SCOM/S1/M7
 	name = "Shuttle 1 - Mission 7"
 	landmark_tag = "SCOM_S1_M7"
 	base_turf = /turf/unsimulated/floor/plating
 	base_area = /area/scom/mission/nolighting
 
-/obj/effect/shuttle_landmark/SCOM/S2/M7
+/obj/shuttle_landmark/SCOM/S2/M7
 	name = "Shuttle 2 - Mission 7"
 	landmark_tag = "SCOM_S2_M7"
 	base_turf = /turf/unsimulated/floor/plating

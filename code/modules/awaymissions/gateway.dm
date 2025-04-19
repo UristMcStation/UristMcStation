@@ -122,7 +122,7 @@
 		M.set_dir(SOUTH)
 		return
 	else
-		var/obj/effect/landmark/dest = pick(GLOB.awaydestinations)
+		var/obj/landmark/dest = pick(GLOB.awaydestinations)
 		if(dest)
 			M.forceMove(dest.loc)
 			M.set_dir(SOUTH)

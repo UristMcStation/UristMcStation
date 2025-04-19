@@ -19,9 +19,6 @@
 	name = "\improper Blast Door Computer Circuitboard"
 	build_path = /obj/machinery/computer/trigger/blast
 
-/obj/machinery/computer/trigger/attackby(obj/O, mob/user)
-	return
-
 /obj/machinery/computer/trigger/blast/proc/trigger()
 	for(var/obj/machinery/door/blast/M in SSmachines.machinery)
 		if(M.id_tag == src.id)

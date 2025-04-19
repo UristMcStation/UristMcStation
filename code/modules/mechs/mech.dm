@@ -24,6 +24,8 @@
 
 	can_be_buckled = FALSE
 
+	ignore_hazard_flags = HAZARD_FLAG_SHARD
+
 	var/emp_damage = 0
 
 	var/obj/item/device/radio/exosuit/radio
@@ -46,7 +48,7 @@
 	var/obj/item/mech_component/chassis/body
 
 	// Invisible components.
-	var/datum/effect/effect/system/spark_spread/sparks
+	var/datum/effect/spark_spread/sparks
 
 	// Equipment tracking vars.
 	var/obj/item/mech_equipment/selected_system
@@ -87,6 +89,9 @@
 
 /mob/living/exosuit/is_flooded(lying_mob, absolute)
 	. = (body && body.pilot_coverage >= 100 && hatch_closed) ? FALSE : ..()
+
+/mob/living/exosuit/isSynthetic()
+	return TRUE
 
 /mob/living/exosuit/Initialize(mapload, obj/structure/heavy_vehicle_frame/source_frame)
 	. = ..()

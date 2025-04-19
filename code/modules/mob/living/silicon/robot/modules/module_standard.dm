@@ -13,16 +13,19 @@
 		"Eyebot" = "Eyebot-standard"
 	)
 	equipment = list(
-		/obj/item/device/flash,
 		/obj/item/extinguisher,
 		/obj/item/wrench,
 		/obj/item/crowbar,
 		/obj/item/device/scanner/health
 	)
-	emag = /obj/item/melee/energy/sword
+	emag_gear = list(
+		/obj/item/melee/baton/robot/electrified_arm,
+		/obj/item/device/flash,
+		/obj/item/borg/combat/shield
+	)
 	skills = list(
-		SKILL_COMBAT       = SKILL_ADEPT,
-		SKILL_MEDICAL      = SKILL_ADEPT,
-		SKILL_CONSTRUCTION = SKILL_ADEPT,
-		SKILL_BUREAUCRACY  = SKILL_ADEPT
+		SKILL_COMBAT       = SKILL_TRAINED,
+		SKILL_MEDICAL      = SKILL_TRAINED,
+		SKILL_CONSTRUCTION = SKILL_TRAINED,
+		SKILL_BUREAUCRACY  = SKILL_TRAINED
 	)

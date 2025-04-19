@@ -12,9 +12,9 @@
 	max_shells = 6
 	fire_delay = 12 //Revolvers are naturally slower-firing
 	ammo_type = /obj/item/ammo_casing/pistol/magnum
-	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
 	mag_insert_sound = 'sound/weapons/guns/interaction/rev_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/rev_magout.ogg'
+	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	accuracy = 2
 	accuracy_power = 8
 	one_hand_penalty = 2
@@ -30,6 +30,8 @@
 /obj/item/gun/projectile/revolver/AltClick()
 	if(CanPhysicallyInteract(usr))
 		spin_cylinder()
+		return TRUE
+	return ..()
 
 /obj/item/gun/projectile/revolver/verb/spin_cylinder()
 	set name = "Spin cylinder"
@@ -70,6 +72,7 @@
 	safety_icon = "detective_safety"
 	caliber = CALIBER_PISTOL
 	ammo_type = /obj/item/ammo_casing/pistol
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	desc = "The Lumoco Arms' Solid is a rugged revolver for people who don't keep their guns well-maintained."
 	accuracy = 1
 	bulk = 0
@@ -83,11 +86,13 @@
 	item_state = "revolver"
 	caliber = CALIBER_PISTOL_SMALL
 	ammo_type = /obj/item/ammo_casing/pistol/small
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	w_class = ITEM_SIZE_SMALL
 	accuracy = 1
 	one_hand_penalty = 0
 	bulk = 0
 	fire_delay = 7
+	item_flags = ITEM_FLAG_CAN_HIDE_IN_SHOES
 
 /obj/item/gun/projectile/revolver/holdout/on_update_icon()
 	. = ..()
@@ -97,18 +102,47 @@
 	name = "cap gun"
 	desc = "Looks almost like the real thing! Ages 8 and up."
 	icon_state = "revolver-toy"
+	fire_sound = 'sound/weapons/gunshot/gunshot.ogg'
 	caliber = CALIBER_CAPS
 	origin_tech = list(TECH_COMBAT = 1, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/cap
+	var/snipped = FALSE
 
-/obj/item/gun/projectile/revolver/capgun/attackby(obj/item/wirecutters/W, mob/user)
-	if(!istype(W) || icon_state == "revolver")
-		return ..()
-	to_chat(user, SPAN_NOTICE("You snip off the toy markings off the [src]."))
-	name = "revolver"
-	icon_state = "revolver"
-	desc += " Someone snipped off the barrel's toy mark. How dastardly, this could get someone shot."
-	return 1
+
+/obj/item/gun/projectile/revolver/capgun/on_update_icon()
+	if (snipped)
+		icon_state = "revolver"
+	else
+		icon_state = "revolver-toy"
+	..()
+
+
+/obj/item/gun/projectile/revolver/capgun/proc/set_snipped(new_snipped = TRUE)
+	snipped = new_snipped
+	if (new_snipped)
+		SetName("revolver")
+		desc += " Someone snipped off the barrel's toy mark. How dastardly, this could get someone shot."
+	else
+		SetName(initial(name))
+		desc = initial(desc)
+	update_icon()
+
+
+/obj/item/gun/projectile/revolver/capgun/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Wirecutters - Remove toy marking
+	if (isWirecutter(tool))
+		if (snipped)
+			USE_FEEDBACK_FAILURE("\The [src] has already had it's barrel snipped.")
+			return TRUE
+		user.visible_message(
+			SPAN_NOTICE("\The [user] snips \a [src]'s toy markings with \a [tool]."),
+			SPAN_NOTICE("You snip \the [src]'s toy markings with \the [tool]."),
+			range = 3
+		)
+		set_snipped()
+		return TRUE
+
+	return ..()
 
 /obj/item/gun/projectile/revolver/webley
 	name = "service revolver"
@@ -122,3 +156,4 @@
 	caliber = CALIBER_PISTOL_MAGNUM
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/pistol/magnum
+

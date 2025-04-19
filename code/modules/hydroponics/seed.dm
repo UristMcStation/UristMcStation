@@ -21,7 +21,7 @@
 	var/list/exude_gasses          // The plant will exude these gasses during its life.
 	var/kitchen_tag                // Used by the reagent grinder.
 	var/trash_type                 // Garbage item produced when eaten.
-	var/splat_type = /obj/effect/decal/cleanable/fruit_smudge // Graffiti decal
+	var/splat_type = /obj/decal/cleanable/fruit_smudge // Graffiti decal
 	/// Used when product isn't under /food/snacks/grown (e.g. simplemobs, aquaculture).
 	var/product_type
 	/// If mob, whether players can possess
@@ -89,6 +89,11 @@
 	if(trait == TRAIT_PLANT_ICON)
 		update_growth_stages()
 
+/// Returns between 0 and 1 along an approximate log curve for potency up to 200
+/datum/seed/proc/get_potency_curve()
+	var/scale = clamp(get_trait(TRAIT_POTENCY), 1, 200) / 200
+	return (1.2 * scale) / (0.2 + scale)
+
 /datum/seed/proc/create_spores(turf/T)
 	if(!T)
 		return
@@ -102,7 +107,7 @@
 		var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/3))
 		R.add_reagent(rid,injecting)
 
-	var/datum/effect/effect/system/smoke_spread/chem/spores/S = new(name)
+	var/datum/effect/smoke_spread/chem/spores/S = new(name)
 	S.attach(T)
 	S.set_up(R, round(get_trait(TRAIT_POTENCY)/4), 0, T)
 	S.start()
@@ -196,15 +201,16 @@
 
 //Splatter a turf.
 /datum/seed/proc/splatter(turf/T,obj/item/thrown)
-	if(splat_type && !(locate(/obj/effect/vine) in T))
-		var/obj/effect/vine/splat = new splat_type(T, src)
+	if(splat_type && !(locate(/obj/vine) in T))
+		var/obj/vine/splat = new splat_type(T, src)
 		if(!istype(splat)) // Plants handle their own stuff.
 			splat.SetName("[thrown.name] [pick("smear","smudge","splatter")]")
 			if(get_trait(TRAIT_BIOLUM))
 				var/clr
+				var/biolum_power = get_potency_curve()
 				if(get_trait(TRAIT_BIOLUM_COLOUR))
 					clr = get_trait(TRAIT_BIOLUM_COLOUR)
-				splat.set_light(0.5, 0.1, 3, l_color = clr)
+				splat.set_light(6 * biolum_power, biolum_power, l_color = clr)
 			var/flesh_colour = get_trait(TRAIT_FLESH_COLOUR)
 			if(!flesh_colour) flesh_colour = get_trait(TRAIT_PRODUCT_COLOUR)
 			if(flesh_colour) splat.color = get_trait(TRAIT_PRODUCT_COLOUR)
@@ -284,7 +290,7 @@
 
 	if(istype(target,/mob/living))
 		splatted = apply_special_effect(target,thrown)
-	else if(istype(target,/turf))
+	else if(isturf(target))
 		splatted = 1
 		for(var/mob/living/M in target.contents)
 			apply_special_effect(M)
@@ -343,7 +349,7 @@
 		if(abs(light_supplied - get_trait(TRAIT_IDEAL_LIGHT)) > get_trait(TRAIT_LIGHT_TOLERANCE))
 			health_change += rand(1,3) * HYDRO_SPEED_MULTIPLIER
 
-	for(var/obj/effect/effect/smoke/chem/smoke in range(1, current_turf))
+	for(var/obj/effect/smoke/chem/smoke in range(1, current_turf))
 		if(smoke.reagents.has_reagent(/datum/reagent/toxin/plantbgone))
 			return 100
 
@@ -370,10 +376,10 @@
 
 		var/turf/T = get_random_turf_in_range(target, outer_teleport_radius, inner_teleport_radius)
 		if(T)
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+			var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 			s.set_up(3, 1, get_turf(target))
 			s.start()
-			new/obj/effect/decal/cleanable/molten_item(get_turf(target)) // Leave a pile of goo behind for dramatic effect...
+			new/obj/decal/cleanable/molten_item(get_turf(target)) // Leave a pile of goo behind for dramatic effect...
 			target.forceMove(T)                                     // And teleport them to the chosen location.
 			impact = 1
 
@@ -434,8 +440,8 @@
 	set_trait(TRAIT_POTENCY,rand(5,30),200,0)
 	set_trait(TRAIT_PRODUCT_ICON,pick(SSplants.plant_product_sprites))
 	set_trait(TRAIT_PLANT_ICON,pick(SSplants.plant_sprites))
-	set_trait(TRAIT_PLANT_COLOUR,get_random_colour(0,75,190))
-	set_trait(TRAIT_PRODUCT_COLOUR,get_random_colour(0,75,190))
+	set_trait(TRAIT_PLANT_COLOUR,get_random_colour(75, 190))
+	set_trait(TRAIT_PRODUCT_COLOUR,get_random_colour(75, 190))
 	update_growth_stages()
 
 	if(prob(20))
@@ -481,7 +487,7 @@
 			/datum/reagent/nanites,
 			/datum/reagent/water/holywater,
 			/datum/reagent/toxin/plantbgone,
-			/datum/reagent/chloralhydrate/beer2,
+			/datum/reagent/chloralhydrate/beer,
 			/datum/reagent/zombie
 			)
 		banned_chems += subtypesof(/datum/reagent/ethanol)
@@ -550,7 +556,7 @@
 
 	if(prob(5))
 		set_trait(TRAIT_BIOLUM,1)
-		set_trait(TRAIT_BIOLUM_COLOUR,get_random_colour(0,75,190))
+		set_trait(TRAIT_BIOLUM_COLOUR,get_random_colour(75, 190))
 
 	set_trait(TRAIT_ENDURANCE,rand(60,100))
 	set_trait(TRAIT_YIELD,rand(3,15))
@@ -579,7 +585,7 @@
 				set_trait(TRAIT_ENDURANCE,get_trait(TRAIT_ENDURANCE)-rand(10,20),null,0)
 				source_turf.visible_message(SPAN_DANGER("\The [display_name] withers rapidly!"))
 			if(1)
-				set_trait(TRAIT_NUTRIENT_CONSUMPTION,get_trait(TRAIT_NUTRIENT_CONSUMPTION)+rand(-(degree*0.1),(degree*0.1)),5,0)
+				set_trait(TRAIT_NUTRIENT_CONSUMPTION,get_trait(TRAIT_NUTRIENT_CONSUMPTION)+Frand(-(degree*0.1),(degree*0.1)),5,0)
 				set_trait(TRAIT_WATER_CONSUMPTION,   get_trait(TRAIT_WATER_CONSUMPTION)   +rand(-degree,degree),50,0)
 				set_trait(TRAIT_JUICY,              !get_trait(TRAIT_JUICY))
 				set_trait(TRAIT_STINGS,             !get_trait(TRAIT_STINGS))
@@ -624,7 +630,7 @@
 					if(get_trait(TRAIT_BIOLUM))
 						source_turf.visible_message(SPAN_NOTICE("\The [display_name] begins to glow!"))
 						if(prob(degree*2))
-							set_trait(TRAIT_BIOLUM_COLOUR,get_random_colour(0,75,190))
+							set_trait(TRAIT_BIOLUM_COLOUR,get_random_colour(75, 190))
 							source_turf.visible_message("[SPAN_NOTICE("\The [display_name]'s glow ")][SPAN_COLOR(get_trait(TRAIT_BIOLUM_COLOUR), "changes colour")]!")
 					else
 						source_turf.visible_message(SPAN_NOTICE("\The [display_name]'s glow dims..."))
@@ -788,9 +794,10 @@
 
 			if(get_trait(TRAIT_BIOLUM))
 				var/clr
+				var/biolum_power = get_potency_curve()
 				if(get_trait(TRAIT_BIOLUM_COLOUR))
 					clr = get_trait(TRAIT_BIOLUM_COLOUR)
-				product.set_light(0.5, 0.1, 3, l_color = clr)
+				product.set_light(6 * biolum_power, biolum_power, l_color = clr)
 
 			//Handle spawning in living, mobile products (like dionaea).
 			if(istype(product,/mob/living))
@@ -854,19 +861,19 @@
 
 /datum/seed/proc/get_icon(growth_stage)
 	var/plant_icon = get_trait(TRAIT_PLANT_ICON)
-	var/image/res = image('icons/obj/hydroponics_growing.dmi', "[plant_icon]-[growth_stage]")
+	var/image/res = image('icons/obj/flora/hydroponics_growing.dmi', "[plant_icon]-[growth_stage]")
 	if(get_growth_type())
 		res.icon_state = "[get_growth_type()]-[growth_stage]"
 	else
 		res.icon_state = "[plant_icon]-[growth_stage]"
 
 	if(get_growth_type())
-		res.icon = 'icons/obj/hydroponics_vines.dmi'
+		res.icon = 'icons/obj/flora/hydroponics_vines.dmi'
 
 	res.color = get_trait(TRAIT_PLANT_COLOUR)
 
 	if(get_trait(TRAIT_LARGE))
-		res.icon = 'icons/obj/hydroponics_large.dmi'
+		res.icon = 'icons/obj/flora/hydroponics_large.dmi'
 		res.pixel_x = -8
 		res.pixel_y = -16
 
@@ -875,6 +882,6 @@
 		var/image/I = image(res.icon, "[plant_icon]-[growth_stage]-leaves")
 		I.color = leaves
 		I.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
-		res.overlays += I
+		res.AddOverlays(I)
 
 	return res

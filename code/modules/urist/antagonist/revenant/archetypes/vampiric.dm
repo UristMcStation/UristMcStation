@@ -177,7 +177,7 @@
 	distortion_threshold = 54000 // 45 mins
 
 
-/datum/power/revenant/distortion/bats/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/bats/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -185,7 +185,7 @@
 	if(!istype(T))
 		return
 
-	var/obj/effect/gateway/hole = new(T)
+	var/obj/gateway/hole = new(T)
 	hole.density = FALSE
 
 	QDEL_IN(hole, 30 SECONDS)
@@ -221,7 +221,7 @@
 
 	src.visible_message(SPAN_WARNING("\The [src] yanks \his hand back sharply, leaving a portal behind!"))
 
-	var/obj/effect/gateway/hole = new(T)
+	var/obj/gateway/hole = new(T)
 	hole.density = FALSE
 
 	QDEL_IN(hole, 30 SECONDS)
@@ -401,7 +401,7 @@
 	attack_name = "vampire bite"
 
 
-/datum/unarmed_attack/bsrevenant_vampbite/is_usable(var/mob/living/carbon/human/user, var/mob/target, var/zone)
+/datum/unarmed_attack/bsrevenant_vampbite/is_usable(mob/living/carbon/human/user, mob/target, zone)
 	// Check if they have a functioning head
 	if(!istype(user))
 		return 0
@@ -450,10 +450,10 @@
 	if(!istype(H))
 		return
 
-	var/datum/species/curr_species = null
+	var/singleton/species/curr_species = null
 
 	if(!istype(curr_species))
-		var/datum/species/new_species = new H.species.type()
+		var/singleton/species/new_species = new H.species.type()
 
 		if(!istype(new_species))
 			return
@@ -487,4 +487,3 @@
 	isVerb = FALSE
 	verbpath = /mob/proc/bsrevenant_mutate_fangs
 	distortion_threshold = 6000 // 5 mins
-

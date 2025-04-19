@@ -1,7 +1,7 @@
 /mob/living/carbon/human
 	move_intents = list(/singleton/move_intent/walk)
 
-/mob/living/carbon/human/movement_delay()
+/mob/living/carbon/human/movement_delay(singleton/move_intent/using_intent = move_intent)
 	var/tally = ..()
 
 	var/obj/item/organ/external/H = get_organ(BP_GROIN) // gets species slowdown, which can be reset by robotize()
@@ -85,34 +85,41 @@
 	. = ..()
 	. += species.strength
 
-/mob/living/carbon/human/Allow_Spacemove(check_drift = 0)
-	. = ..()
-	if(.)
-		return
-
-	// This is horrible but short of spawning a jetpack inside the organ than locating
-	// it, I don't really see another viable approach short of a total jetpack refactor.
+/mob/living/carbon/human/Process_Spacemove(allow_movement)
+	var/obj/item/tank/jetpack/thrust = get_jetpack()
+	var/implant_jet = FALSE // Certified shitcode
 	for(var/obj/item/organ/internal/powered/jets/jet in internal_organs)
 		if(!jet.is_broken() && jet.active)
-			inertia_dir = 0
-			return 1
-	// End 'eugh'
+			implant_jet = TRUE
 
-	//Do we have a working jetpack?
-	var/obj/item/tank/jetpack/thrust
+	if(implant_jet || (thrust && thrust.on && (allow_movement || thrust.stabilization_on) && thrust.allow_thrust(0.01, src)))
+		return TRUE
+
+	. = ..()
+
+/mob/living/carbon/human/space_do_move(allow_move, direction)
+	if(allow_move == 1)
+		var/obj/item/tank/jetpack/thrust = get_jetpack()
+		if(thrust && thrust.on && skill_fail_prob(SKILL_EVA, 10, SKILL_TRAINED))
+			to_chat(src, SPAN_WARNING("You fumble with [thrust] controls!"))
+			if(prob(50))
+				thrust.toggle()
+			if(prob(50))
+				thrust.stabilization_on = 0
+			SetMoveCooldown(15)	//2 seconds of random rando panic drifting
+			step(src, pick(GLOB.alldirs))
+			return 0
+	. = ..()
+
+/mob/living/carbon/human/proc/get_jetpack()
 	if(back)
 		if(istype(back,/obj/item/tank/jetpack))
-			thrust = back
+			return back
 		else if(istype(back,/obj/item/rig))
 			var/obj/item/rig/rig = back
 			for(var/obj/item/rig_module/maneuvering_jets/module in rig.installed_modules)
-				thrust = module.jets
-				break
+				return module.jets
 
-	if(thrust && thrust.on)
-		if(((!check_drift) || (check_drift && thrust.stabilization_on)) && (!lying) && (thrust.allow_thrust(0.01, src)))
-			inertia_dir = 0
-			return 1
 
 /mob/living/carbon/human/slip_chance(prob_slip = 5)
 	if(!..())
@@ -144,7 +151,7 @@
 		return
 	var/crutches = 0
 	for (var/obj/item/cane/C as anything in GetAllHeld(/obj/item/cane))
-		if(istype(C))
+		if(istype(C) && C.can_support)
 			crutches++
 	for(var/organ_name in list(BP_L_LEG, BP_R_LEG, BP_L_FOOT, BP_R_FOOT))
 		var/obj/item/organ/external/E = get_organ(organ_name)

@@ -1,26 +1,25 @@
 #include "icarus_areas.dm"
 
-/obj/effect/overmap/visitable/sector/planetoid/icarus
+/obj/overmap/visitable/sector/planetoid/icarus
 	name = "forest planetoid"
 	desc = "Sensors detect anomalous radiation area with the presence of artificial structures."
 	icon_state = "globe"
-	known = 0
 	initial_generic_waypoints = list(
 		"nav_icarus_1",
 		"nav_icarus_2",
 		"nav_icarus_antag"
 	)
 
-/obj/effect/overmap/visitable/sector/planetoid/icarus/New(nloc, max_x, max_y)
+/obj/overmap/visitable/sector/planetoid/icarus/New(nloc, max_x, max_y)
 	name = "[generate_planet_name()], \a [name]"
 	..()
 
-/obj/effect/icarus/irradiate
+/obj/icarus/irradiate
 	var/radiation_power = 20//20 Bq. Dangerous but survivable for 10-15 minutes if crew is too lazy to read away map description
 	var/datum/radiation_source/S
 	var/req_range = 100//to cover whole level
 
-/obj/effect/icarus/irradiate/Initialize()
+/obj/icarus/irradiate/Initialize()
 	. = ..()
 	S = new()
 	S.flat = TRUE
@@ -31,7 +30,7 @@
 	S.update_rad_power(radiation_power)
 	SSradiation.add_source(S)
 
-/obj/effect/icarus/irradiate/Destroy()
+/obj/icarus/irradiate/Destroy()
 	. = ..()
 	QDEL_NULL(S)
 
@@ -44,17 +43,17 @@
 	generate_mining_by_z = list(1,2)
 	area_coherency_test_exempt_areas = list(/area/icarus/open)
 
-/obj/effect/shuttle_landmark/nav_icarus/nav1
+/obj/shuttle_landmark/nav_icarus/nav1
 	name = "Planetary Navpoint #1"
 	landmark_tag = "nav_icarus_1"
 	flags = SLANDMARK_FLAG_AUTOSET
 
-/obj/effect/shuttle_landmark/nav_icarus/nav2
+/obj/shuttle_landmark/nav_icarus/nav2
 	name = "Planetary Navpoint #2"
 	landmark_tag = "nav_icarus_2"
 	flags = SLANDMARK_FLAG_AUTOSET
 
-/obj/effect/shuttle_landmark/nav_icarus/nav3
+/obj/shuttle_landmark/nav_icarus/nav3
 	name = "Planetary Navpoint #3"
 	landmark_tag = "nav_icarus_antag"
 	flags = SLANDMARK_FLAG_AUTOSET
@@ -77,10 +76,10 @@
 		to_chat(user, "<span class='notice'>The glass is already open.</span>")
 
 
-/obj/structure/icarus/broken_cryo/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/icarus/broken_cryo/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if (busy)
 		to_chat(user, "<span class='notice'>Someone else is attempting to open this.</span>")
-		return
+		return TRUE
 	if (closed)
 		if (isCrowbar(W))
 			busy = 1
@@ -88,7 +87,7 @@
 			if (!do_after(user, 50, src))
 				visible_message("[user] stops trying to pry the glass off of \the [src].")
 				busy = 0
-				return
+				return TRUE
 			closed = 0
 			busy = 0
 			icon_state = "broken_cryo_open"
@@ -96,6 +95,7 @@
 			dead.dir = src.dir//skeleton is oriented as cryo
 	else
 		to_chat(user, "<span class='notice'>The glass cover is already open.</span>")
+		return ..()
 
 /obj/item/icarus/dead_personnel
 	name = "partial skeleton remains"
@@ -107,7 +107,7 @@
 /obj/item/disk/icarus
 	name = "black box backup disk"
 	desc = "Digital storage. Inscription says: \"Deliver to Sol Goverment Expeditionary Corps Command!\". Content is encrypted with quantum crypthography methods."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/datadisks.dmi'
 	icon_state = "nucleardisk"
 	item_state = "card-id"
 	w_class = ITEM_SIZE_TINY
@@ -217,9 +217,8 @@
 	icon_state = "solgovflag-right"
 
 /turf/simulated/floor/exoplanet/desert/skylight
-	light_max_bright = 0.3
-	light_inner_range = 0.5
-	light_outer_range = 1.0
+	light_power = 0.3
+	light_range = 1.0
 	light_color = "#ffffff"
 
 /turf/simulated/floor/exoplanet/desert/skylight/Initialize()
@@ -227,9 +226,8 @@
 	. = ..()
 
 /turf/simulated/floor/exoplanet/grass/skylight
-	light_max_bright = 0.3
-	light_inner_range = 0.5
-	light_outer_range = 1.0
+	light_power = 0.3
+	light_range = 1.0
 	light_color = "#ffffff"
 
 /turf/simulated/floor/exoplanet/grass/skylight/Initialize()
@@ -237,9 +235,8 @@
 	. = ..()
 
 /turf/simulated/open/skylight
-	light_max_bright = 0.3
-	light_inner_range = 0.5
-	light_outer_range = 1.0
+	light_power = 0.3
+	light_range = 1.0
 	light_color = "#ffffff"
 
 /turf/simulated/open/skylight/Initialize()

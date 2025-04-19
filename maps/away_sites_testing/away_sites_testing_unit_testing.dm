@@ -20,9 +20,6 @@
 		/area/overmap,
 		/area/turbolift,
 		/area/template_noop,
-		/area/awaymission,
-		/area/infestation,
-		/area/boarding_ship,
 		/area/beach,
 		/area/syndicate_elite_squad,
 		/area/awaymission/maze
@@ -46,5 +43,8 @@
 		/area/shuttle/escape,
 		/area/scom,
 		/area/map_template,
-		/area/exoplanet
+		/area/exoplanet,
+		/area/awaymission,
+		/area/infestation,
+		/area/boarding_ship
 		)

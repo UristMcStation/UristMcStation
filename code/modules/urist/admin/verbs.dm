@@ -18,7 +18,7 @@
 
 
 //Urist mass-callproc, call it by regular callproc. SUPER risky.
-/client/proc/mass_callproc(atom/A, var/procpath, var/strict_typing = 1)
+/client/proc/mass_callproc(atom/A, procpath, strict_typing = 1)
 	set category = "Debug"
 	set name = "ProcCall All"
 	set waitfor = FALSE
@@ -85,4 +85,3 @@
 				job.supervisors = "yourself and your counterpart, as you are the owners of this ship and the sole arbiters of its destiny. However, be careful not to anger NanoTrasen and the other factions that have set up outposts in this sector, or your own staff for that matter. It could lead to your undoing."
 
 	return
-

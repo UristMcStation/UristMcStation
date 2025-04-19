@@ -118,7 +118,7 @@
 		to_chat(owner, SPAN_WARNING("You must keep hold of your weapon!"))
 	else if(owner.eye_blind)
 		to_chat(owner, SPAN_WARNING("You are blind and cannot see your target!"))
-	else if(!aiming_at || !istype(aiming_at.loc, /turf))
+	else if(!aiming_at || !isturf(aiming_at.loc))
 		to_chat(owner, SPAN_WARNING("You have lost sight of your target!"))
 	else if(owner.incapacitated() || owner.lying || owner.restrained())
 		to_chat(owner, SPAN_WARNING("You must be conscious and standing to keep track of your target!"))
@@ -159,14 +159,15 @@
 	var/mob/living/carbon/human/user = owner
 
 	if (istype(user))
+		var/datum/pronouns/pronouns = user.choose_from_pronouns()
 		if (user.zone_sel.selecting == BP_MOUTH)
 			admin_attacker_log(user, "is getting ready to suicide with \a [thing]")
 			if (user.check_has_mouth() && !(user.check_mouth_coverage()))
-				gunpointedself = SPAN_DANGER("\The [owner] puts the barrel of \the [thing] in their mouth, ready to pull the trigger...")
+				gunpointedself = SPAN_DANGER("\The [owner] puts the barrel of \the [thing] in [pronouns.his] mouth, ready to pull the trigger...")
 			else
-				gunpointedself = SPAN_DANGER("\The [owner] aims \the [thing] at themselves, ready to pull the trigger...")
+				gunpointedself = SPAN_DANGER("\The [owner] aims \the [thing] at [pronouns.self], ready to pull the trigger...")
 		else
-			gunpointedself = SPAN_DANGER("\The [owner] aims \the [thing] at themselves!")
+			gunpointedself = SPAN_DANGER("\The [owner] aims \the [thing] at [pronouns.self]!")
 
 	if (aiming_at)
 		if (!no_target_change)
@@ -204,9 +205,9 @@
 	locked = 0
 	update_icon()
 	lock_time = world.time + 35
-	GLOB.moved_event.register(owner, src, /obj/aiming_overlay/proc/update_aiming)
-	GLOB.moved_event.register(aiming_at, src, /obj/aiming_overlay/proc/target_moved)
-	GLOB.destroyed_event.register(aiming_at, src, /obj/aiming_overlay/proc/cancel_aiming)
+	GLOB.moved_event.register(owner, src, PROC_REF(update_aiming))
+	GLOB.moved_event.register(aiming_at, src, PROC_REF(target_moved))
+	GLOB.destroyed_event.register(aiming_at, src, PROC_REF(cancel_aiming))
 
 /obj/aiming_overlay/on_update_icon()
 	if(locked)

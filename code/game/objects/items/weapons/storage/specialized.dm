@@ -1,18 +1,17 @@
 /obj/item/storage/ore
 	name = "mining satchel"
 	desc = "This sturdy bag can be used to store and transport ores."
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/mining_satchel.dmi'
 	icon_state = "satchel"
 	slot_flags = SLOT_BELT
 	max_storage_space = 200
 	max_w_class = ITEM_SIZE_NORMAL
 	w_class = ITEM_SIZE_LARGE
-	can_hold = list(
+	contents_allowed = list(
 		/obj/item/ore
 	)
 	allow_quick_gather = TRUE
 	allow_quick_empty = TRUE
-	use_to_pickup = TRUE
 
 
 /obj/item/storage/evidence
@@ -23,7 +22,7 @@
 	max_storage_space = 100
 	max_w_class = ITEM_SIZE_SMALL
 	w_class = ITEM_SIZE_NORMAL
-	can_hold = list(
+	contents_allowed = list(
 		/obj/item/sample,
 		/obj/item/evidencebag,
 		/obj/item/forensics,
@@ -33,37 +32,35 @@
 	)
 	allow_quick_gather = TRUE
 	allow_quick_empty = TRUE
-	use_to_pickup = TRUE
 
 
 /obj/item/storage/plants
 	name = "botanical satchel"
 	desc = "This bag can be used to store all kinds of plant products and botanical specimen."
-	icon = 'icons/obj/hydroponics_machines.dmi'
+	icon = 'icons/obj/machines/hydroponics_machines.dmi'
 	icon_state = "plantbag"
 	slot_flags = SLOT_BELT
 	max_storage_space = 100
 	max_w_class = ITEM_SIZE_NORMAL
 	w_class = ITEM_SIZE_NORMAL
-	can_hold = list(
+	contents_allowed = list(
 		/obj/item/reagent_containers/food/snacks/grown,
 		/obj/item/seeds,
 		/obj/item/shellfish
 	)
 	allow_quick_gather = TRUE
 	allow_quick_empty = TRUE
-	use_to_pickup = TRUE
 
 
 /obj/item/storage/sheetsnatcher
 	name = "sheet snatcher"
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/mining_satchel.dmi'
 	icon_state = "sheetsnatcher"
 	desc = "A patented storage system designed for any kind of mineral sheet."
 	storage_ui = /datum/storage_ui/default/sheetsnatcher
 	w_class = ITEM_SIZE_NORMAL
 	storage_slots = 7
-	use_to_pickup = TRUE
+	allow_quick_gather = TRUE
 	virtual = TRUE
 	var/max_sheets = 300
 	var/cur_sheets = 0

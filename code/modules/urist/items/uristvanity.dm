@@ -125,7 +125,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	name = "purple comb"
 	desc = "A pristine purple comb made from flexible plastic."
 	w_class = 2.0
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/lavatory.dmi'
 	icon_state = "comb"
 	item_state = "comb"
 	color = "#9932cc"

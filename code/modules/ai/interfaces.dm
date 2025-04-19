@@ -13,8 +13,12 @@
 
 /mob/living/carbon/human/IAttack(atom/A)
 	if (!canClick()) // Still on cooldown from a "click".
-		return FALSE
-	return ClickOn(A) // Except this is an actual fake "click".
+		return ATTACK_ON_COOLDOWN
+	if (!zone_sel)
+		zone_sel = new /obj/screen/zone_sel(null)
+		zone_sel.selecting = BP_CHEST
+	ClickOn(A) // Except this is an actual fake "click".
+	return TRUE
 
 /mob/living/proc/IRangedAttack(atom/A)
 	return FALSE
@@ -84,7 +88,7 @@
 		if (safety && !newloc.is_safe_to_enter(src))
 			return MOVEMENT_FAILED
 
-	if (!check_solid_ground() && !Allow_Spacemove())
+	if (!Process_Spacemove())
 		return MOVEMENT_FAILED
 
 	// Move()ing to another tile successfully returns 32 because BYOND. Would rather deal with TRUE/FALSE-esque terms.

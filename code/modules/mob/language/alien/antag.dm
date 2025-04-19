@@ -5,7 +5,7 @@
 	speech_verb = "hisses"
 	ask_verb = "hisses"
 	exclaim_verb = "hisses"
-	key = "l"
+	key = "9"
 	flags = RESTRICTED
 	syllables = list("sss","sSs","SSS")
 	machine_understands = 0

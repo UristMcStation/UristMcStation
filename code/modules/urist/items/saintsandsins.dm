@@ -39,11 +39,11 @@
 	icon_state = "deck_box_saintsandsins"
 	var/decklimit = 31 //maximum card count
 
-/obj/item/deck/saintsandsins/saintsandsins/attackby(obj/O, mob/user)
+/obj/item/deck/saintsandsins/saintsandsins/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(decklimit && (decklimit <= length(cards)))
 		to_chat(user, SPAN_WARNING("This deck is full!"))
 		return
-	..()
+	..(I, user, click_params)
 
 /datum/playingcard/saintsandsins
 

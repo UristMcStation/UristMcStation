@@ -5,28 +5,28 @@
  * - `user` - The attacking mob.
  * - `damage` (int) - The damage value.
  * - `attack_verb` (string) - The verb/string used for attack messages.
- * - `wallbreaker` (boolean) - Whether or not the attack is considered a 'wallbreaker' attack - I.e., hulk.
+ * - `wallbreaker` (boolean) - Whether or not the attack is considered a 'wallbreaker' attack.
  * - `damtype` (string, one of `DAMAGE_*`) - The attack's damage type.
  * - `armorcheck` (string) - TODO: Unused. Remove.
  * - `dam_flags` (bitfield, any of `DAMAGE_FLAG_*`) - Damage flags associated with the attack.
  *
  * Returns boolean.
  */
-/atom/proc/attack_generic(mob/user, damage, attack_verb = "hits", wallbreaker = FALSE, damtype = DAMAGE_BRUTE, armorcheck = "melee", dam_flags = EMPTY_BITFIELD)
+/atom/proc/attack_generic(mob/user, damage, attack_verb = "hits", wallbreaker = FALSE, damtype = DAMAGE_BRUTE, armorcheck = "melee", dam_flags = FLAGS_OFF)
 	if (damage && get_max_health())
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.do_attack_animation(src)
 		if (!can_damage_health(damage, damtype))
-			playsound(src, damage_hitsound, 50)
+			playsound(src, damage_hitsound, 50, TRUE)
 			user.visible_message(
 				SPAN_WARNING("\The [user] bonks \the [src] harmlessly!"),
 				SPAN_WARNING("You bonk \the [src] harmlessly!")
 			)
 			return
-		var/damage_flags = EMPTY_BITFIELD
+		var/damage_flags = FLAGS_OFF
 		if (wallbreaker)
 			SET_FLAGS(damage_flags, DAMAGE_FLAG_TURF_BREAKER)
-		playsound(src, damage_hitsound, 75)
+		playsound(src, damage_hitsound, 75, TRUE)
 		if (damage_health(damage, damtype, damage_flags, skip_can_damage_check = TRUE))
 			user.visible_message(
 				SPAN_DANGER("\The [user] smashes through \the [src]!"),
@@ -192,20 +192,20 @@
 	Animals
 */
 /mob/living/simple_animal/UnarmedAttack(atom/A, proximity)
-
-	if(!..())
+	if (!..())
 		return
 	setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(istype(A,/mob/living))
-		if(!get_natural_weapon() || a_intent == I_HELP)
-			custom_emote(1,"[friendly] [A]!")
+	if (istype(A,/mob/living))
+		if (!get_natural_weapon() || a_intent == I_HELP)
+			custom_emote(VISIBLE_MESSAGE, "[friendly] [A]!")
 			return
-		if(ckey)
+		if (ckey)
 			admin_attack_log(src, A, "Has attacked its victim.", "Has been attacked by its attacker.")
-	if(a_intent == I_HELP)
+	if (a_intent == I_HELP)
 		A.attack_animal(src)
 	else if (get_natural_weapon())
-		A.attackby(get_natural_weapon(), src)
+		var/obj/item/weapon = get_natural_weapon()
+		weapon.resolve_attackby(A, src)
 
 
 /**

@@ -26,7 +26,7 @@ SUBSYSTEM_DEF(worths_test)
 		/obj/item/organ/internal/mmi_holder,
 		/obj/weathertype,
 		/obj/effect,
-		/obj/effects,
+		/obj/urist_intangible,
 		/obj/machinery/ai_powersupply,
 		/obj/item/proxy_debug,
 		/obj/item/rig_module/mounted,
@@ -162,8 +162,8 @@ SUBSYSTEM_DEF(worths_test)
 		stage++
 
 /datum/controller/subsystem/worths_test/proc/init_object_queue()
-	src.trader_loc = get_turf(locate(/obj/effect/landmark/start))
-	src.safe_loc = get_turf(locate(/obj/effect/landmark/test/safe_turf))
+	src.trader_loc = get_turf(locate(/obj/landmark/start))
+	src.safe_loc = get_turf(locate(/obj/landmark/test/safe_turf))
 
 	src.object_queue = (subtypesof(/obj) - (src.exceptions | src.processed_objects))
 	src.obj_total = length(src.object_queue)

@@ -44,8 +44,8 @@
 	. = ..()
 	icon_state = "brain-prosthetic"
 
-/obj/item/organ/internal/brain/New(mob/living/carbon/holder)
-	..()
+/obj/item/organ/internal/brain/Initialize()
+	. = ..()
 	if(species)
 		set_max_damage(species.total_health)
 	else
@@ -211,18 +211,18 @@
 		if (owner)
 			owner.flash_eyes()
 			owner.eye_blurry += damage_secondary
-			owner.confused += damage_secondary * 2
+			owner.mod_confused(damage_secondary * 2)
 			owner.Paralyse(damage_secondary)
 			owner.Weaken(round(damageTaken, 1))
 			if (prob(30))
-				addtimer(new Callback(src, .proc/brain_damage_callback, damage), rand(6, 20) SECONDS, TIMER_UNIQUE)
+				addtimer(new Callback(src, PROC_REF(brain_damage_callback), damage), rand(6, 20) SECONDS, TIMER_UNIQUE)
 
 /obj/item/organ/internal/brain/proc/brain_damage_callback(damage) //Confuse them as a somewhat uncommon aftershock. Side note: Only here so a spawn isn't used. Also, for the sake of a unique timer.
 	if (!owner || owner.stat == DEAD || (status & ORGAN_DEAD))
 		return
 
 	to_chat(owner, SPAN_NOTICE(SPAN_STYLE("font-size: 10", "<B>I can't remember which way is forward...</B>")))
-	owner.confused += damage
+	owner.mod_confused(damage)
 
 /obj/item/organ/internal/brain/proc/handle_disabilities()
 	if(owner.stat)
@@ -254,11 +254,11 @@
 	var/blood_volume = owner.get_blood_oxygenation()
 	if(blood_volume < BLOOD_VOLUME_BAD)
 		to_chat(user, SPAN_DANGER("Parts of [src] didn't survive the procedure due to lack of air supply!"))
-		set_max_damage(Floor(max_damage - 0.25*damage))
+		set_max_damage(floor(max_damage - 0.25*damage))
 	heal_damage(damage)
 
 /obj/item/organ/internal/brain/get_scarring_level()
-	. = (species.total_health - max_damage)/species.total_health
+	return (species.total_health - max_damage) * 100 / species.total_health
 
 /obj/item/organ/internal/brain/get_mechanical_assisted_descriptor()
 	return "machine-interface [name]"

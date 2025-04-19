@@ -37,7 +37,7 @@
 	return loc
 
 /obj/item/device/uplink/New(atom/location, datum/mind/owner, telecrystals = DEFAULT_TELECRYSTAL_AMOUNT)
-	if(!istype(location, /atom))
+	if(!isloc(location))
 		CRASH("Invalid spawn location. Expected /atom, was [location ? location.type : "NULL"]")
 
 	..()

@@ -1,4 +1,4 @@
-/obj/effect/overmap/visitable/ship/combat/nerva
+/obj/overmap/visitable/ship/combat/nerva
 	name = "ICS Nerva"
 	ship_name = "ICS Nerva"
 	classification = "large class vessel"	//???
@@ -14,9 +14,13 @@
 	evac_x = 143
 	evac_y = 97
 	evac_z = 3
-	base = TRUE
 	target_zs = list(1,2,3)
 	target_dirs = list(NORTH, SOUTH, EAST)
+	sector_flags = OVERMAP_SECTOR_KNOWN|OVERMAP_SECTOR_IN_SPACE|OVERMAP_SECTOR_BASE
+	known_ships = list(
+		/obj/overmap/visitable/ship/landable/trajan,
+		/obj/overmap/visitable/ship/landable/hadrian
+	)
 
 	initial_generic_waypoints = list(
 		"nerva_north_dock",
@@ -49,26 +53,34 @@
 		"hostile"
 	)
 
-/obj/effect/overmap/visitable/ship/combat/nerva/Initialize()
+/obj/overmap/visitable/ship/combat/nerva/Initialize()
 	GLOB.using_map.overmap_ship = src
 
 	.=..()
 
-/obj/effect/overmap/visitable/ship/landable/trajan
+/obj/overmap/visitable/ship/landable/trajan
 	name = "Trajan"
 	shuttle = "Trajan"
 	fore_dir = NORTH
 	vessel_mass = 1000
 	vessel_size = SHIP_SIZE_SMALL
+	known_ships = list(
+		/obj/overmap/visitable/ship/combat/nerva,
+		/obj/overmap/visitable/ship/landable/hadrian
+	)
 
-/obj/effect/overmap/visitable/ship/landable/hadrian
+/obj/overmap/visitable/ship/landable/hadrian
 	name = "Hadrian"
 	shuttle = "Hadrian"
 	fore_dir = EAST
 	vessel_mass = 750
 	vessel_size = SHIP_SIZE_TINY
+	known_ships = list(
+		/obj/overmap/visitable/ship/combat/nerva,
+		/obj/overmap/visitable/ship/landable/trajan
+	)
 
-/obj/effect/overmap/visitable/ship/combat/nerva/pve_mapfire(projectile_type)
+/obj/overmap/visitable/ship/combat/nerva/pve_mapfire(projectile_type)
 	if(ispath(projectile_type))
 		var/turf/start_turf = spaceDebrisStartLoc(pick(GLOB.cardinal), 6)
 		var/turf/target_turf = locate(100, 100, 6) //set up values for enemy ships

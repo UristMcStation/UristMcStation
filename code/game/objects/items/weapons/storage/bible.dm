@@ -1,6 +1,7 @@
 /obj/item/storage/bible
 	name = "bible"
 	desc = "Apply to head repeatedly."
+	icon = 'icons/obj/books.dmi'
 	icon_state ="bible"
 	throw_speed = 1
 	throw_range = 5
@@ -33,12 +34,14 @@
 				H.UpdateDamageIcon()
 	return
 
-/obj/item/storage/bible/attack(mob/living/M as mob, mob/living/user as mob)
+/obj/item/storage/bible/use_before(atom/target, mob/living/user, click_parameters)
+	var/mob/living/M = target
+	if(!istype(M))
+		return FALSE
 
-	var/chaplain = 0
+	var/chaplain = FALSE
 	if(user.mind && (user.mind.assigned_role == "Chaplain"))
-		chaplain = 1
-
+		chaplain = TRUE
 
 	admin_attack_log(src, M, "Used the [src.name] to attack [M.name] ([M.ckey])", "Has been attacked with [src.name] by [user.name] ([user.ckey])", "bible attack")
 
@@ -47,6 +50,7 @@
 	if (!(istype(user, /mob/living/carbon/human)) && SSticker.mode.name != "monkey")
 		to_chat(user, "<span class='warning'> You don't have the dexterity to do this!</span>")
 		return
+
 	if(!chaplain)
 		to_chat(user, "<span class='warning'> The book sizzles in your hands.</span>")
 		user.take_organ_damage(0,10)
@@ -79,11 +83,13 @@
 			for(var/mob/O in viewers(M, null))
 				O.show_message(text("<span class='danger'>[] beats [] over the head with []!</span>", user, M, src), 1)
 			playsound(src.loc, "punch", 25, 1, -1)
+
 	else if(M.stat == 2)
 		for(var/mob/O in viewers(M, null))
 			O.show_message(text("<span class='danger'>[] smacks []'s lifeless corpse with [].</span>", user, M, src), 1)
 		playsound(src.loc, "punch", 25, 1, -1)
-	return
+
+	return TRUE
 
 /obj/item/storage/bible/bible
 	name = "\improper Bible"
@@ -126,31 +132,33 @@
 	renamed = 1
 	icon_changed = 1
 
-/obj/item/storage/bible/attack(mob/living/carbon/human/M, mob/living/carbon/human/user)
-	if(user == M || !ishuman(user) || !ishuman(M))
-		return
-	if(user.mind && istype(user.mind.assigned_job, /datum/job/chaplain))
+/obj/item/storage/bible/use_before(mob/living/carbon/human/M, mob/living/carbon/human/user)
+	. = FALSE
+	if (user == M || !ishuman(user) || !ishuman(M))
+		return FALSE
+	if (user.mind && istype(user.mind.assigned_job, /datum/job/chaplain))
 		user.visible_message(SPAN_NOTICE("\The [user] places \the [src] on \the [M]'s forehead, reciting a prayer..."))
-		if(do_after(user, 5 SECONDS, M, DO_DEFAULT | DO_USER_UNIQUE_ACT | DO_PUBLIC_PROGRESS) && user.Adjacent(M))
-			user.visible_message("\The [user] finishes reciting \his prayer, removing \the [src] from \the [M]'s forehead.", "You finish reciting your prayer, removing \the [src] from \the [M]'s forehead.")
-			if(user.get_cultural_value(TAG_RELIGION) == M.get_cultural_value(TAG_RELIGION))
+		if (do_after(user, 5 SECONDS, M, DO_DEFAULT | DO_USER_UNIQUE_ACT | DO_PUBLIC_PROGRESS) && user.Adjacent(M))
+			var/datum/pronouns/pronouns = user.choose_from_pronouns()
+			user.visible_message("\The [user] finishes reciting [pronouns.his] prayer, removing \the [src] from \the [M]'s forehead.", "You finish reciting your prayer, removing \the [src] from \the [M]'s forehead.")
+			if (user.get_cultural_value(TAG_RELIGION) == M.get_cultural_value(TAG_RELIGION))
 				to_chat(M, SPAN_NOTICE("You feel calm and relaxed, at one with the universe."))
 			else
 				to_chat(M, "Nothing happened.")
-		..()
+		return TRUE
 
-/obj/item/storage/bible/afterattack(atom/A, mob/user as mob, proximity)
-	if(!proximity) return
+/obj/item/storage/bible/use_after(atom/A, mob/living/user, click_parameters)
 	if(user.mind && istype(user.mind.assigned_job, /datum/job/chaplain))
-		if(A.reagents && A.reagents.has_reagent(/datum/reagent/water)) //blesses all the water in the holder
-			to_chat(user, SPAN_NOTICE("You bless \the [A].")) // I wish it was this easy in nethack
+		if(A.reagents && A.reagents.has_reagent(/datum/reagent/water))
+			to_chat(user, SPAN_NOTICE("You bless \the [A]."))
 			var/water2holy = A.reagents.get_reagent_amount(/datum/reagent/water)
 			A.reagents.del_reagent(/datum/reagent/water)
 			A.reagents.add_reagent(/datum/reagent/water/holywater,water2holy)
+			return TRUE
 
-/obj/item/storage/bible/attackby(obj/item/W as obj, mob/user as mob)
-	if (src.use_sound)
-		playsound(src.loc, src.use_sound, 50, 1, -5)
+/obj/item/storage/bible/use_tool(obj/item/W, mob/living/user, list/click_params)
+	if (use_sound)
+		playsound(loc, use_sound, 50, 1, -5)
 	return ..()
 
 /obj/item/storage/bible/attack_self(mob/living/carbon/human/user)

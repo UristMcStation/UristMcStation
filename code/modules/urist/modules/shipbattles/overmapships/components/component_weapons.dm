@@ -16,11 +16,11 @@
 	if(ready && !broken)
 		Fire()
 
-/datum/shipcomponents/weapons/proc/Fire(var/turf/start_turf, var/turf/target_turf, var/target_edge, var/target_z) //now infinitely less hacky and broken
+/datum/shipcomponents/weapons/proc/Fire(turf/start_turf, turf/target_turf, target_edge, target_z) //now infinitely less hacky and broken
 	if(broken || !projectile_type) //check one more time, just in case. doing it this way can stop salvo fire mid salvo
 		return
 
-	var/obj/effect/overmap/visitable/ship/combat/target = mastership?.target_ship
+	var/obj/overmap/visitable/ship/combat/target = mastership?.target_ship
 	if(!target)
 		return
 
@@ -54,7 +54,7 @@
 					Fire(start_turf, null, target_edge, target_z) //doing this so we fire from the same spot at different targets.
 																//this gets us sustained fire on parts of the ship instead of a straight line of rockets, or the random scatter we had in the distant past.
 
-/datum/shipcomponents/weapons/proc/locate_target(var/target_z)
+/datum/shipcomponents/weapons/proc/locate_target(target_z)
 	var/target_x = rand(mastership.target_ship.target_x_bounds[1],mastership.target_ship.target_x_bounds[2])
 	var/target_y = rand(mastership.target_ship.target_y_bounds[1],mastership.target_ship.target_y_bounds[2])
 
@@ -88,18 +88,18 @@
 /datum/shipcomponents/weapons/heavy_cannon
 	name = "heavy armour-piercing cannon"
 	firedelay = 48 SECONDS
-	projectile_type = /obj/effect/meteor/supermatter/missile/sabot_round
+	projectile_type = /obj/meteor/supermatter/missile/sabot_round
 
 /datum/shipcomponents/weapons/mininuke
 	name = "mini-nuke launcher"
 	firedelay = 28 SECONDS
-	projectile_type = /obj/effect/meteor/shipmissile/mininuke
+	projectile_type = /obj/meteor/shipmissile/mininuke
 
 //missiles
 
 /datum/shipcomponents/weapons/smallmissile
 	name = "small missile launcher"
-	projectile_type = /obj/effect/meteor/shipmissile/smallmissile
+	projectile_type = /obj/meteor/shipmissile/smallmissile
 	firedelay = 20 SECONDS
 	salvo = 2
 
@@ -110,7 +110,7 @@
 
 /datum/shipcomponents/weapons/smallalienmissile
 	name = "small alien missile launcher"
-	projectile_type = /obj/effect/meteor/shipmissile/smallalienmissile
+	projectile_type = /obj/meteor/shipmissile/smallalienmissile
 	firedelay = 26 SECONDS
 	salvo = 2
 
@@ -121,7 +121,7 @@
 
 /datum/shipcomponents/weapons/bigmissile
 	name = "large missile launcher"
-	projectile_type = /obj/effect/meteor/shipmissile/bigmissile
+	projectile_type = /obj/meteor/shipmissile/bigmissile
 	firedelay = 30 SECONDS
 	salvo = 2
 
@@ -132,7 +132,7 @@
 
 /datum/shipcomponents/weapons/bigalienmissile
 	name = "large alien missile launcher"
-	projectile_type = /obj/effect/meteor/shipmissile/bigalienmissile
+	projectile_type = /obj/meteor/shipmissile/bigalienmissile
 	firedelay = 36 SECONDS
 
 /datum/shipcomponents/weapons/bigalienmissile/dual
@@ -142,24 +142,24 @@
 
 /datum/shipcomponents/weapons/smallmissilepod // For small/tiny ships, 1 missle a shot.
 	name = "small missile pod"
-	projectile_type = /obj/effect/meteor/shipmissile/smallmissile
+	projectile_type = /obj/meteor/shipmissile/smallmissile
 	firedelay = 16 SECONDS
 
 //torpedo
 
 /datum/shipcomponents/weapons/smalltorpedo
 	name = "small torpedo launcher"
-	projectile_type = /obj/effect/meteor/shipmissile/smalltorpedo
+	projectile_type = /obj/meteor/shipmissile/smalltorpedo
 	firedelay = 26 SECONDS
 
 /datum/shipcomponents/weapons/bigtorpedo
 	name = "large torpedo launcher"
-	projectile_type = /obj/effect/meteor/shipmissile/bigtorpedo
+	projectile_type = /obj/meteor/shipmissile/bigtorpedo
 	firedelay = 42 SECONDS
 
 /datum/shipcomponents/weapons/alientorpedo
 	name = "alien torpedo launcher"
-	projectile_type = /obj/effect/meteor/shipmissile/alientorpedo
+	projectile_type = /obj/meteor/shipmissile/alientorpedo
 	firedelay = 34 SECONDS
 
 //beam

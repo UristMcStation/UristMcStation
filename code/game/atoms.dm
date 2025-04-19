@@ -9,10 +9,12 @@
 	var/was_bloodied = FALSE
 	/// Color. The color of the blood overlay effect, if present.
 	var/blood_color
+	/// The amount of times blood will transfer to other atoms.
+	var/blood_transfer_amount = 0
 	/// Integer. The `world.time` the atom was last bumped into. Only used by some subtypes to prevent bump spamming.
 	var/last_bumped = 0
 	/// Bitflag (Any of `PASS_FLAG_*`). Flags indicating the types of dense objects this atom is able to pass through/over.
-	var/pass_flags = EMPTY_BITFIELD
+	var/pass_flags = FLAGS_OFF
 	/// Boolean. Whether or not thrown objects can pass through/over the atom.
 	var/throwpass = FALSE
 	/// Integer. The atom's current germ level. The higher the germ level, the more germ on the atom.
@@ -28,34 +30,35 @@
 	/// Float. The multiplier applied to the `do_after()` timer when a mob climbs the atom.
 	var/climb_speed_mult = 1
 	/// Bitflag (Any of `INIT_*`). Flags for special/additional handling of the `Initialize()` chain. See `code\__defines\misc.dm`.
-	var/init_flags = EMPTY_BITFIELD
+	var/init_flags = FLAGS_OFF
+
+	/// This atom's cache of non-protected overlays, used for normal icon additions. Do not manipulate directly- See SSoverlays.
+	var/list/atom_overlay_cache
+
+	/// This atom's cache of overlays that can only be removed explicitly, like C4. Do not manipulate directly- See SSoverlays.
+	var/list/atom_protected_overlay_cache
+
 
 /atom/New(loc, ...)
-	SHOULD_CALL_PARENT(TRUE) // Ensures atoms don't unintentionally skip initialization by not calling parent in New()
-
-	//atom creation method that preloads variables at creation
-	if(GLOB.use_preloader && (src.type == GLOB._preloader.target_path))//in case the instanciated atom is creating other atoms in New()
+	SHOULD_CALL_PARENT(TRUE)
+	if (GLOB.use_preloader && type == GLOB._preloader.target_path)
 		GLOB._preloader.load(src)
-
-	var/do_initialize = SSatoms.atom_init_stage
-	var/list/created = SSatoms.created_atoms
-	if(do_initialize > INITIALIZATION_INSSATOMS_LATE)
-		args[1] = do_initialize == INITIALIZATION_INNEW_MAPLOAD
-		if(SSatoms.InitAtom(src, args))
-			//we were deleted
+	var/atom_init_stage = SSatoms.atom_init_stage
+	var/list/init_queue = SSatoms.init_queue
+	if (atom_init_stage > INITIALIZATION_INSSATOMS_LATE)
+		args[1] = atom_init_stage == INITIALIZATION_INNEW_MAPLOAD
+		if (SSatoms.InitAtom(src, args))
 			return
-	else if(created)
-
+	else if (init_queue)
 		var/list/argument_list
-		if(length(args) > 1)
+		if (length(args) > 1)
 			argument_list = args.Copy(2)
-		if(argument_list || do_initialize == INITIALIZATION_INSSATOMS_LATE)
-			created[src] = argument_list
-
-	if(atom_flags & ATOM_FLAG_CLIMBABLE)
+		if (argument_list || atom_init_stage == INITIALIZATION_INSSATOMS_LATE)
+			init_queue[src] = argument_list
+	if (atom_flags & ATOM_FLAG_CLIMBABLE)
 		verbs += /atom/proc/climb_on
-
 	..()
+
 
 /**
  * Initialization handler for atoms. It is preferred to use this over `New()`.
@@ -82,33 +85,37 @@
 		log_debug("Abstract atom [type] created!")
 		return INITIALIZE_HINT_QDEL
 
-	if(light_max_bright && light_outer_range)
+	if(light_power && light_range)
 		update_light()
 
 	if(opacity)
 		updateVisibility(src)
 		var/turf/T = loc
 		if(istype(T))
-			T.RecalculateOpacity()
+			T.recalc_atom_opacity()
 
 	if (health_max)
 		health_current = health_max
-		health_dead = FALSE
 
 	return INITIALIZE_HINT_NORMAL
 
 /**
- * Late initialization handler. Called after the `Initialize()` chain for any atoms that returned `INITIALIZE_HINT_LATELOAD`. Primarily used for atoms that rely on initialized values from other atoms.
+ * Late initialization handler.
+ * Called after the `Initialize()` chain for any atoms that returned `INITIALIZE_HINT_LATELOAD`.
+ * Primarily used for atoms that rely on initialized values from other atoms.
  *
  * **Parameters**:
  * - `mapload` - Whether or not the initialization was called while the map was being loaded.
  * - All parameters except `loc` are passed directly from `New()`.
+ *
+ * Has no return value.
  */
 /atom/proc/LateInitialize(mapload, ...)
 	return
 
 /atom/Destroy()
 	QDEL_NULL(reagents)
+	QDEL_NULL(light)
 	. = ..()
 
 /**
@@ -226,7 +233,7 @@
  * - `mover` - The atom that's attempting to move.
  * - `target` - The detination turf `mover` is attempting to move to.
  *
- * Returns boolean. If `FALSE`, blocks movement and calls `mover.Bump(src)`.
+ * Returns boolean. If `FALSE`, blocks movement and calls `mover.Bump(src, TRUE)`.
  */
 /atom/proc/CheckExit(atom/movable/mover, turf/target)
 	return TRUE
@@ -240,7 +247,6 @@
 /atom/proc/HasProximity(atom/movable/AM as mob|obj)
 	return
 
-
 /**
  * Called when the atom is affected by an EMP.
  *
@@ -248,10 +254,12 @@
  * - `severity` Integer. The strength of the EMP, ranging from 1 to 3. NOTE: Lower numbers are stronger.
  */
 /atom/proc/emp_act(severity)
+	SHOULD_CALL_PARENT(TRUE)
 	if (get_max_health())
 		// No hitsound here - Doesn't make sense for EMPs.
 		// Generalized - 75-125 damage at max, 38-63 at medium, 25-42 at minimum severities.
 		damage_health(rand(75, 125) / severity, DAMAGE_EMP, severity = severity)
+	GLOB.empd_event.raise_event(src, severity)
 
 
 /**
@@ -287,11 +295,11 @@
 	. = 0
 	if (get_max_health())
 		var/damage = P.damage
-		if (istype(src, /obj/structure) || istype(src, /turf/simulated/wall) || istype(src, /obj/machinery)) // TODO Better conditions for non-structures that want to use structure damage
+		if (GET_FLAGS(health_flags, HEALTH_FLAG_STRUCTURE))
 			damage = P.get_structure_damage()
 		if (!can_damage_health(damage, P.damage_type, P.damage_flags))
 			return
-		playsound(src, damage_hitsound, 75)
+		playsound(src, use_weapon_hitsound ? P.hitsound : damage_hitsound, 75)
 		damage_health(damage, P.damage_type, P.damage_flags, skip_can_damage_check = TRUE)
 
 /**
@@ -342,7 +350,7 @@
  */
 /atom/proc/get_container(container_type)
 	var/atom/A = src
-	while (!istype(A, /area))
+	while (!isarea(A))
 		if (istype(A.loc, container_type))
 			return A.loc
 		A = A.loc
@@ -360,15 +368,17 @@
  * **Parameters**:
  * - `user` - The mob performing the examine.
  * - `distance` - The distance in tiles from `user` to `src`.
+ * - `is_adjacent` - Whether `user` is adjacent to `src`.
  * - `infix` String - String that is appended immediately after the atom's name.
  * - `suffix` String - Additional string appended after the atom's name and infix.
  *
- * Returns boolean.
+ * Returns boolean - The caller always expects TRUE
+ *  This is used rather than SHOULD_CALL_PARENT as it enforces that subtypes of a type that explicitly returns still call parent
  */
-/atom/proc/examine(mob/user, distance, infix = "", suffix = "")
+/atom/proc/examine(mob/user, distance, is_adjacent, infix = "", suffix = "")
 	//This reformat names to get a/an properly working on item descriptions when they are bloody
 	var/f_name = "\a [src][infix]."
-	if(blood_color && !istype(src, /obj/effect/decal))
+	if(blood_color && !istype(src, /obj/decal))
 		if(gender == PLURAL)
 			f_name = "some "
 		else
@@ -379,6 +389,19 @@
 	to_chat(user, desc)
 	if (get_max_health())
 		examine_damage_state(user)
+
+	if (IsFlameSource())
+		to_chat(user, SPAN_DANGER("It has an open flame."))
+	else if (distance <= 1 && IsHeatSource())
+		to_chat(user, SPAN_WARNING("It's hot to the touch."))
+
+	return TRUE
+
+/// Works same as /atom/proc/Examine(), only this output comes immediately after any and all made by /atom/proc/Examine()
+/atom/proc/LateExamine(mob/user, distance, is_adjacent)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	user.ForensicsExamination(src, distance)
 	return TRUE
 
 /**
@@ -402,6 +425,18 @@
 		return FALSE
 	dir = new_dir
 	GLOB.dir_set_event.raise_event(src, old_dir, dir)
+
+	//Lighting
+	if(light_source_solo)
+		if(light_source_solo.light_angle)
+			light_source_solo.source_atom.update_light()
+	else if(light_source_multi)
+		var/datum/light_source/L
+		for(var/thing in light_source_multi)
+			L = thing
+			if(L.light_angle)
+				L.source_atom.update_light()
+
 	return TRUE
 
 /**
@@ -430,6 +465,7 @@
 		return
 	on_update_icon(arglist(args))
 
+
 /**
  * Handler for updating the atom's icon and overlay states. Generally, all changes to `overlays`, `underlays`, `icon`,
  * `icon_state`, `item_state`, etc should be contained in here.
@@ -438,6 +474,7 @@
  */
 /atom/proc/on_update_icon()
 	return
+
 
 /**
  * Called when an explosion affects the atom.
@@ -451,7 +488,7 @@
 	if (max_health)
 		// No hitsound here to avoid noise spam.
 		// Damage is based on severity and maximum health, with DEVASTATING being guaranteed death without any resistances.
-		var/damage_flags = turf_breaker ? DAMAGE_FLAG_TURF_BREAKER : EMPTY_BITFIELD
+		var/damage_flags = turf_breaker ? DAMAGE_FLAG_TURF_BREAKER : FLAGS_OFF
 		var/damage = 0
 		switch (severity)
 			if (EX_ACT_DEVASTATING)
@@ -512,7 +549,7 @@
 		return FALSE
 	if (get_max_health())
 		fire_act(air, temperature)
-		if (!health_dead)
+		if (!health_dead())
 			return FALSE
 	visible_message(SPAN_DANGER("\The [src] sizzles and melts away, consumed by the lava!"))
 	playsound(src, 'sound/effects/flare.ogg', 100, 3)
@@ -534,11 +571,15 @@
 	if (get_max_health())
 		var/damage = 0
 		var/damage_type = DAMAGE_BRUTE
-		var/damage_flags = EMPTY_BITFIELD
+		var/damage_flags = FLAGS_OFF
+		var/damage_hitsound = src.damage_hitsound
 		if (isobj(AM))
 			var/obj/O = AM
 			damage = O.throwforce
 			damage_type = O.damtype
+			if (use_weapon_hitsound && isitem(O))
+				var/obj/item/I = O
+				damage_hitsound = I.hitsound
 		else if (ismob(AM))
 			var/mob/M = AM
 			damage = M.mob_size
@@ -560,25 +601,66 @@
  * Returns boolean - `TRUE` if the atom was bloodied, `FALSE` otherwise.
  */
 /atom/proc/add_blood(mob/living/carbon/human/M as mob)
+	if(!istype(M))
+		return 0
+	if (!istype(M.dna, /datum/dna))
+		M.dna = new /datum/dna(null)
+		M.dna.real_name = M.real_name
+	M.check_dna()
+	return add_blood_custom(M.species.get_blood_colour(M), 3, list(M.dna))
+
+/**
+ * Adds custom blood effects and DNA to the atom.
+ *
+ * **Parameters**:
+ * - `colour` - The blood colour to apply.
+ * - `colour` - The blood colour to apply.
+ * - `colour` - The blood colour to apply.
+ *
+ * Returns boolean - `TRUE` if the atom was bloodied, `FALSE` otherwise.
+ */
+/atom/proc/add_blood_custom(source_blood_color = COLOR_BLOOD_HUMAN, amount = 1, list/source_blood_DNA = list())
 	if(atom_flags & ATOM_FLAG_NO_BLOOD)
 		return 0
 
-	if(!blood_DNA || !istype(blood_DNA, /list))	//if our list of DNA doesn't exist yet (or isn't a list) initialise it.
+	if(!blood_DNA || !islist(blood_DNA))	//if our list of DNA doesn't exist yet (or isn't a list) initialise it.
 		blood_DNA = list()
 
 	was_bloodied = 1
-	blood_color = COLOR_BLOOD_HUMAN
-	if(istype(M))
-		if (!istype(M.dna, /datum/dna))
-			M.dna = new /datum/dna(null)
-			M.dna.real_name = M.real_name
-			M.dna.species = M.species
-		M.check_dna()
-		blood_color = M.species.get_blood_colour(M)
+	blood_color = source_blood_color
+	blood_DNA |= source_blood_DNA.Copy()
+	blood_transfer_amount = max(amount, blood_transfer_amount)
 	. = 1
 	return 1
 
-/mob/living/proc/handle_additional_vomit_reagents(obj/effect/decal/cleanable/vomit/vomit)
+/**
+ * Transfers existing blood effects to the target.
+ *
+ * **Parameters**:
+ * - `target` - The target mob to transfer to.
+ * - `target_zone` - Optional target zone for humanoid mobs to apply to a specific part of the body.
+ *
+ * Returns boolean - `TRUE` if the atom was bloodied, `FALSE` otherwise.
+ */
+/atom/proc/transfer_blood(mob/living/carbon/human/target, target_zone)
+	if (!ishuman(target))
+		return 0
+	var/taken = rand(min(1, blood_transfer_amount), blood_transfer_amount)
+	if(!taken)
+		return 0
+	var/obj/item/clothing/equipped_item = target.get_covering_equipped_item_by_zone(target_zone)
+	if(istype(equipped_item))
+		equipped_item.add_blood_custom(blood_color, taken, blood_DNA)
+	else
+		switch(target_zone)
+			if(BP_L_HAND , BP_R_HAND)
+				target.bloody_hands_custom(blood_color, 3, blood_DNA)
+			if(BP_CHEST, BP_GROIN, BP_L_ARM , BP_R_ARM, BP_L_LEG , BP_R_LEG)
+				target.bloody_body_custom(blood_color, taken, blood_DNA)
+	blood_transfer_amount -= taken
+	return 1
+
+/mob/living/proc/handle_additional_vomit_reagents(obj/decal/cleanable/vomit/vomit)
 	vomit.reagents.add_reagent(/datum/reagent/acid/stomach, 5)
 
 /**
@@ -593,7 +675,7 @@
 	germ_level = 0
 	blood_color = null
 	gunshot_residue = null
-	if(istype(blood_DNA, /list))
+	if(islist(blood_DNA))
 		blood_DNA = null
 		return 1
 
@@ -949,6 +1031,7 @@
 	var/mob/living/H = user
 	if(istype(H) && can_climb(H) && target == user)
 		do_climb(target)
+		return TRUE
 	else
 		return ..()
 
@@ -983,24 +1066,44 @@
 	L.visible_message(SPAN_WARNING("\The [L] [pick("ran", "slammed")] into \the [src]!"))
 	playsound(L, "punch", 25, 1, FALSE)
 
+
 /atom/proc/create_bullethole(obj/item/projectile/Proj)
 	var/p_x = Proj.p_x + rand(-8, 8)
 	var/p_y = Proj.p_y + rand(-8, 8)
-	var/obj/effect/overlay/bmark/bullet_mark = new(src)
+	var/obj/overlay/bullet_hole/bullet_hole = new(src)
 
-	bullet_mark.pixel_x = p_x
-	bullet_mark.pixel_y = p_y
+	bullet_hole.pixel_x = p_x
+	bullet_hole.pixel_y = p_y
 
 	// offset correction
-	bullet_mark.pixel_x--
-	bullet_mark.pixel_y--
+	bullet_hole.pixel_x--
+	bullet_hole.pixel_y--
 
 	if(Proj.damage >= 50)
-		bullet_mark.icon_state = "scorch"
-		bullet_mark.set_dir(pick(NORTH,SOUTH,EAST,WEST)) // random scorch design
+		bullet_hole.icon_state = "scorch"
+		bullet_hole.set_dir(pick(NORTH,SOUTH,EAST,WEST)) // random scorch design
 	else
-		bullet_mark.icon_state = "light_scorch"
+		bullet_hole.icon_state = "light_scorch"
 
 /atom/proc/clear_bulletholes()
-	for(var/obj/effect/overlay/bmark/bullet_mark in src)
-		qdel(bullet_mark)
+	for(var/obj/overlay/bullet_hole/bullet_hole in src)
+		qdel(bullet_hole)
+
+/atom/proc/get_overhead_text_x_offset()
+	return 0
+
+/atom/proc/get_overhead_text_y_offset()
+	return 0
+
+/atom/proc/get_affecting_weather()
+	return
+
+/atom/proc/is_outside()
+	var/turf/turf = get_turf(src)
+	return istype(turf) ? turf.is_outside() : OUTSIDE_UNCERTAIN
+
+/// Set this atom's color and light to match origin
+/atom/proc/copy_light_and_color(atom/origin)
+	if (istype(origin))
+		color = origin.color
+		set_light(origin.light_range, origin.light_power)

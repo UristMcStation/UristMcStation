@@ -17,7 +17,7 @@
 
 	var/image/I = get_image_from_backpack(H)
 	AddAltAppearance(H, I, GLOB.silicon_mobs+H) //you look like a robot to robots! (including yourself because you're totally a robot)
-	GLOB.logged_in_event.register_global(src, /singleton/appearance_handler/cardborg/proc/mob_joined)	// Duplicate registration request are handled for us
+	GLOB.logged_in_event.register_global(src, PROC_REF(mob_joined))	// Duplicate registration request are handled for us
 
 /singleton/appearance_handler/cardborg/proc/item_removed(obj/item/item, mob/user)
 	if((istype(item, /obj/item/clothing/suit/cardborg) || istype(item, /obj/item/clothing/head/cardborg)) || istype(item, /obj/item/storage/backpack))
@@ -36,7 +36,7 @@
 
 	var/image/I = image(icon = 'icons/mob/robots.dmi', icon_state = ca.icon_state, loc = H)
 	I.override = 1
-	I.overlays += image(icon = 'icons/mob/robots.dmi', icon_state = "eyes-[ca.icon_state]") //gotta look realistic
+	I.AddOverlays(image(icon = 'icons/mob/robots.dmi', icon_state = "eyes-[ca.icon_state]"))
 	return I
 
 /singleton/appearance_handler/cardborg/proc/init_appearances()
@@ -75,10 +75,10 @@
 
 /singleton/cardborg_appearance/science
 	icon_state = "droid-science"
-	backpack_type = /obj/item/storage/backpack/toxins
+	backpack_type = /obj/item/storage/backpack/corpsci
 
 /singleton/cardborg_appearance/science/satchel
-	backpack_type = /obj/item/storage/backpack/satchel/tox
+	backpack_type = /obj/item/storage/backpack/satchel/corpsci
 
 /singleton/cardborg_appearance/security
 	icon_state = "securityrobot"

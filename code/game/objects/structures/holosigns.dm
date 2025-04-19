@@ -2,7 +2,7 @@
 	name = "wet floor sign"
 	desc = "The words flicker as if they mean nothing."
 	anchored = TRUE
-	icon = 'icons/obj/janitor.dmi' // move these into their own dmi if we ever add more than 1 of these
+	icon = 'icons/obj/janitor_tools.dmi' // move these into their own dmi if we ever add more than 1 of these
 	var/obj/item/holosign_creator/projector
 	icon_state = "holosign"
 
@@ -25,9 +25,26 @@
 	visible_message(SPAN_NOTICE("\The [user] waves through \the [src], causing it to dissipate."))
 	deactivate(user)
 
-/obj/structure/holosign/attackby(obj/W, mob/living/user)
-	visible_message(SPAN_NOTICE("\The [user] waves \a [W] through \the [src], causing it to dissipate."))
+
+/obj/structure/holosign/use_weapon(obj/item/weapon, mob/user, list/click_params)
+	SHOULD_CALL_PARENT(FALSE)
+	user.visible_message(
+		SPAN_WARNING("\The [user] swings \a [weapon] at \the [src], causing it to vanish."),
+		SPAN_WARNING("You swing \the [weapon] at \the [src], causing it to vanish.")
+	)
 	deactivate(user)
+	return TRUE
+
+
+/obj/structure/holosign/use_tool(obj/item/tool, mob/user, list/click_params)
+	SHOULD_CALL_PARENT(FALSE)
+	user.visible_message(
+		SPAN_NOTICE("\The [user] waves \a [tool] at \the [src], causing it to vanish."),
+		SPAN_NOTICE("You wave \the [tool] at \the [src], causing it to vanish.")
+	)
+	deactivate(user)
+	return TRUE
+
 
 /obj/structure/holosign/proc/deactivate(mob/living/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

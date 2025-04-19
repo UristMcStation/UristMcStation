@@ -17,7 +17,7 @@
 "q" = (/obj/random/trash,/turf/simulated/floor/lino,/area/mine/unexplored)
 "r" = (/obj/item/tank/oxygen_emergency_double,/turf/simulated/floor/lino,/area/mine/unexplored)
 "s" = (/obj/structure/table/woodentable,/obj/item/material/ashtray/bronze,/obj/item/storage/pill_bottle/zoom,/obj/random/contraband,/obj/weathertype/fog{name = "smoke"},/turf/simulated/floor/lino,/area/mine/unexplored)
-"t" = (/obj/structure/table/woodentable,/obj/item/folder/red,/obj/weathertype/fog{name = "smoke"},/turf/simulated/floor/lino,/area/mine/unexplored)
+"t" = (/obj/structure/table/woodentable,/obj/item/material/folder/red,/obj/weathertype/fog{name = "smoke"},/turf/simulated/floor/lino,/area/mine/unexplored)
 "u" = (/obj/item/stool/urist/bar,/obj/weathertype/fog{name = "smoke"},/turf/simulated/floor/lino,/area/mine/unexplored)
 "v" = (/obj/structure/table/marble,/turf/simulated/floor/lino,/area/mine/unexplored)
 "w" = (/obj/weathertype/fog{name = "smoke"},/turf/simulated/floor/lino,/area/mine/unexplored)

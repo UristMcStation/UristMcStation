@@ -30,10 +30,8 @@
 	icon_state = "pave_invert_corner"
 
 /turf/simulated/floor/pavement/lighting
-	light_max_bright = 0.4
-	light_inner_range = 0.1
-	light_outer_range = 1.5
-	light_falloff_curve = 0.5
+	light_power = 0.4
+	light_range = 1.5
 
 /turf/simulated/floor/pavement/lighting/Initialize()
 	light_color = SSskybox.background_color

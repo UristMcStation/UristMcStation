@@ -19,13 +19,13 @@
 	var/footer = null
 	var/footerOn = FALSE
 
-	var/logo_list = list("sollogo.png","eclogo.png","fleetlogo.png","exologo.png","ntlogo.png","bluentlogo.png","daislogo.png","xynlogo.png","terralogo.png", "sfplogo.png")
+	var/logo_list = list("sollogo.png","eclogo.png","fleetlogo.png","exologo.png","ntlogo.png","daislogo.png","xynlogo.png","terralogo.png", "sfplogo.png", "falogo.png", "zhlogo.png","bluentlogo.png","nervalogo.png")
 	var/logo = ""
 
 	var/unformatedText = ""
 
-/obj/item/paper/admin/New()
-	..()
+/obj/item/paper/admin/Initialize()
+	. = ..()
 	generateInteractions()
 
 
@@ -35,15 +35,15 @@
 
 	//Snapshot is crazy and likes putting each topic hyperlink on a seperate line from any other tags so it's nice and clean.
 	interactions += "<HR><center><span style='font-size: 10px'>The fax will transmit everything above this line</span><br>"
-	interactions += "<A href='?src=\ref[src];confirm=1'>Send fax</A> "
-	interactions += "<A href='?src=\ref[src];penmode=1'>Pen mode: [isCrayon ? "Crayon" : "Pen"]</A> "
-	interactions += "<A href='?src=\ref[src];cancel=1'>Cancel fax</A> "
+	interactions += "<A href='byond://?src=\ref[src];confirm=1'>Send fax</A> "
+	interactions += "<A href='byond://?src=\ref[src];penmode=1'>Pen mode: [isCrayon ? "Crayon" : "Pen"]</A> "
+	interactions += "<A href='byond://?src=\ref[src];cancel=1'>Cancel fax</A> "
 	interactions += "<BR>"
-	interactions += "<A href='?src=\ref[src];changelogo=1'>Change logo</A> "
-	interactions += "<A href='?src=\ref[src];changelanguage=1'>Change language ([language])</A> "
-	interactions += "<A href='?src=\ref[src];toggleheader=1'>Toggle Header</A> "
-	interactions += "<A href='?src=\ref[src];togglefooter=1'>Toggle Footer</A> "
-	interactions += "<A href='?src=\ref[src];clear=1'>Clear page</A> "
+	interactions += "<A href='byond://?src=\ref[src];changelogo=1'>Change logo</A> "
+	interactions += "<A href='byond://?src=\ref[src];changelanguage=1'>Change language ([language])</A> "
+	interactions += "<A href='byond://?src=\ref[src];toggleheader=1'>Toggle Header</A> "
+	interactions += "<A href='byond://?src=\ref[src];togglefooter=1'>Toggle Footer</A> "
+	interactions += "<A href='byond://?src=\ref[src];clear=1'>Clear page</A> "
 	interactions += "</center>"
 
 /obj/item/paper/admin/proc/generateHeader()
@@ -90,7 +90,7 @@
 		if(!t)
 			return
 
-		var last_fields_value = fields
+		var/last_fields_value = fields
 
 		unformatedText = t
 
@@ -164,5 +164,6 @@
 
 	if (href_list["changelanguage"])
 		choose_language(usr, TRUE)
+		generateInteractions()
 		updateDisplay()
 		return

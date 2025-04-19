@@ -81,11 +81,11 @@ note dizziness decrements automatically in the mob's Life() proc.
 
 /mob/proc/update_floating()
 
-	if(anchored || buckled || check_solid_ground())
+	if(anchored || buckled || has_gravity())
 		make_floating(0)
 		return
 
-	if(Check_Shoegrip() && Check_Dense_Object())
+	if(check_space_footing())
 		make_floating(0)
 		return
 
@@ -241,22 +241,25 @@ note dizziness decrements automatically in the mob's Life() proc.
 	animate(I, alpha = 175, pixel_x = 0, pixel_y = 0, pixel_z = 0, time = 3)
 
 /mob/proc/spin(spintime, speed)
-	spawn()
-		var/D = dir
-		while(spintime >= speed)
-			sleep(speed)
-			switch(D)
-				if(NORTH)
-					D = EAST
-				if(SOUTH)
-					D = WEST
-				if(EAST)
-					D = SOUTH
-				if(WEST)
-					D = NORTH
-			set_dir(D)
-			spintime -= speed
-	return
+	set waitfor = FALSE
+	if (!spintime || !speed)
+		return
+	spintime = clamp(spintime, 1, 10 SECONDS)
+	speed = clamp(speed, 1, 2 SECONDS)
+	var/D = dir
+	while(spintime >= speed)
+		sleep(speed)
+		switch(D)
+			if(NORTH)
+				D = EAST
+			if(SOUTH)
+				D = WEST
+			if(EAST)
+				D = SOUTH
+			if(WEST)
+				D = NORTH
+		set_dir(D)
+		spintime -= speed
 
 /mob/proc/phase_in(turf/T)
 	if(!T)
@@ -287,3 +290,27 @@ note dizziness decrements automatically in the mob's Life() proc.
 /mob/living/Move()
 	. = ..()
 	on_structure_offset(0)
+
+/mob/var/waddling = FALSE
+
+/mob/proc/waddle()
+	var/mob/living/L = src
+
+	if (!istype(L) || L.incapacitated() || L.lying)
+		return
+
+	animate(L, pixel_z = 4, time = 0)
+	animate(
+		pixel_z = 0,
+		transform = matrix().Update(rotation = pick(-12, 0, 12)),
+		time = 2
+	)
+	animate(pixel_z = 0, transform = matrix(), time = 0)
+
+/mob/proc/make_waddle()
+	waddling = TRUE
+	GLOB.moved_event.register(src, src, PROC_REF(waddle))
+
+/mob/proc/stop_waddle()
+	waddling = FALSE
+	GLOB.moved_event.unregister(src, src, PROC_REF(waddle))

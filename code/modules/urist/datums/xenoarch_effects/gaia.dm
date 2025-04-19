@@ -9,21 +9,21 @@
 	to_chat(user, SPAN_CLASS("alien", "You feel the presence of something long forgotten."))
 	for (var/obj/machinery/portable_atmospherics/hydroponics/Tray in view(world.view,get_turf(holder)))
 		age_plantlife(Tray)
-	for (var/obj/effect/vine/P in view(world.view,get_turf(holder)))
+	for (var/obj/vine/P in view(world.view,get_turf(holder)))
 		age_plantlife(P)
 
 
 /datum/artifact_effect/gaia/DoEffectAura()
 	for (var/obj/machinery/portable_atmospherics/hydroponics/Tray in view(effectrange,holder))
 		age_plantlife(Tray)
-	for (var/obj/effect/vine/P in view(effectrange,get_turf(holder)))
+	for (var/obj/vine/P in view(effectrange,get_turf(holder)))
 		age_plantlife(P)
 
 
 /datum/artifact_effect/gaia/DoEffectPulse()
 	for (var/obj/machinery/portable_atmospherics/hydroponics/Tray in view(effectrange,holder))
 		age_plantlife(Tray)
-	for (var/obj/effect/vine/P in view(effectrange,get_turf(holder)))
+	for (var/obj/vine/P in view(effectrange,get_turf(holder)))
 		age_plantlife(P)
 
 
@@ -40,8 +40,8 @@
 			 (!Tray.harvest && !Tray.dead))
 				Tray.harvest = 1
 				Tray.lastproduce = Tray.age
-	else if (istype(Tray, /obj/effect/vine))
-		var/obj/effect/vine/P = Tray
+	else if (istype(Tray, /obj/vine))
+		var/obj/vine/P = Tray
 		Tray = P.plant
 		if (Tray)
 			age_plantlife(Tray)

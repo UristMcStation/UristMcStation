@@ -1,7 +1,6 @@
 SUBSYSTEM_DEF(typing)
 	name = "Typing"
 	flags = SS_BACKGROUND | SS_NO_INIT
-	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 	wait = 0.5 SECONDS
 
 	/// The skin control to poll for TYPING_STATE_INPUT status.
@@ -35,7 +34,7 @@ SUBSYSTEM_DEF(typing)
 			istyping_input = 0|1,
 			istyping_hotkey = 0|1
 		), ...)
-		See .proc/GetEntry for details.
+		See PROC_REF(GetEntry) for details.
 	*/
 	var/static/list/status = list()
 
@@ -160,11 +159,11 @@ SUBSYSTEM_DEF(typing)
 		if (!target.typing_indicator)
 			target.typing_indicator = new (null, target)
 		target.typing_indicator.pixel_y = target.icon_height - 32
-		target.vis_contents += target.typing_indicator
+		target.add_vis_contents(target.typing_indicator)
 		target.is_typing = TRUE
 	else
 		if (target.typing_indicator)
-			target.vis_contents -= target.typing_indicator
+			target.remove_vis_contents(target.typing_indicator)
 		target.is_typing = FALSE
 
 
@@ -173,7 +172,7 @@ SUBSYSTEM_DEF(typing)
 	icon_state = "typing"
 	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	layer = SPEECH_INDICATOR_LAYER
-	mouse_opacity = XMOUSE_OPACITY_NEVER
+	mouse_opacity = MOUSE_OPACITY_UNCLICKABLE
 	simulated = FALSE
 	anchored = TRUE
 
@@ -182,7 +181,7 @@ SUBSYSTEM_DEF(typing)
 
 /atom/movable/typing_indicator/Destroy()
 	if (owner)
-		owner.vis_contents -= src
+		owner.remove_vis_contents(src)
 		owner.typing_indicator = null
 	owner = null
 	return ..()
@@ -211,7 +210,7 @@ SUBSYSTEM_DEF(typing)
 
 /mob/living/Logout()
 	if (typing_indicator)
-		vis_contents -= typing_indicator
+		remove_vis_contents(typing_indicator)
 	is_typing = FALSE
 	..()
 

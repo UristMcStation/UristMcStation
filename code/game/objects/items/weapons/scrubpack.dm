@@ -7,7 +7,7 @@
 	desc = "A heavy, unwieldy machine that can filter harmful gasses out of the atmosphere. It runs on an internal power source."
 	w_class = ITEM_SIZE_HUGE
 	slot_flags = SLOT_BACK
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/scrubpack.dmi'
 	icon_state = "scrubpack"
 	item_state_slots = list(slot_l_hand_str = "scrubberpack", slot_r_hand_str = "scrubberpack")
 	action_button_name = "Toggle Scrubber"
@@ -70,7 +70,7 @@
 					display = "low ([display]%)"
 			to_chat(user, "\The [cell] charge is [display]")
 
-/obj/item/scrubpack/attackby(obj/item/W, mob/user)
+/obj/item/scrubpack/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if (istype(W, /obj/item/cell))
 		if (cell)
 			to_chat(user, SPAN_WARNING("\The [src] already has \an [cell]."))
@@ -79,7 +79,8 @@
 			to_chat(user, SPAN_WARNING("\The [W] is too small for \the [src]."))
 			return TRUE
 		if (!user.unEquip(W, src))
-			return
+			FEEDBACK_UNEQUIP_FAILURE(user, W)
+			return TRUE
 		user.visible_message(
 			SPAN_ITALIC("\The [user] fits \the [W] to \the [src]."),
 			SPAN_ITALIC("You fit \the [W] to \the [src]."),
@@ -97,7 +98,8 @@
 			to_chat(user, SPAN_WARNING("\The [src] can't fit \a [W]."))
 			return TRUE
 		if (!user.unEquip(W, src))
-			return
+			FEEDBACK_UNEQUIP_FAILURE(user, W)
+			return TRUE
 		user.visible_message(
 			SPAN_ITALIC("\The [user] fits \the [W] to \the [src]."),
 			SPAN_ITALIC("You fit \the [W] to \the [src]."),
@@ -143,12 +145,12 @@
 		playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
 		return TRUE
 
-	. = ..()
+	return ..()
 
 /obj/item/scrubpack/attack_self(mob/user)
 	toggle(user)
 
-/obj/item/scrubpack/ui_action_click()
+/obj/item/scrubpack/ui_action_click(mob/living/user)
 	toggle(usr)
 
 /obj/item/scrubpack/proc/set_sound_state(on_off)

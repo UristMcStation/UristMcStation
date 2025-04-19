@@ -27,17 +27,18 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 	var/admin_ghosted = 0
 	var/anonsay = 0
 	var/ghostvision = 1 //is the ghost able to see things humans can't?
-	var/seedarkness = 1
+	seedarkness = 1
 
 	var/obj/item/device/multitool/ghost_multitool
 	var/list/hud_images // A list of hud images
 
-/mob/observer/ghost/New(mob/body)
+/mob/observer/ghost/Initialize(mapload)
 	see_in_dark = 100
 	verbs += /mob/proc/toggle_antag_pool
 
 	var/turf/T
-	if(ismob(body))
+	if(ismob(loc))
+		var/mob/body = loc
 		T = get_turf(body)               //Where is the body located?
 		attack_logs_ = body.attack_logs_ //preserve our attack logs by copying them to our ghost
 
@@ -72,7 +73,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 
 	GLOB.ghost_mobs += src
 
-	..()
+	. = ..()
 
 /mob/observer/ghost/Destroy()
 	GLOB.ghost_mobs -= src
@@ -88,7 +89,7 @@ var/global/list/image/ghost_sightless_images = list() //this is a list of images
 /mob/observer/ghost/OnSelfTopic(href_list, topic_status)
 	if (topic_status == STATUS_INTERACTIVE)
 		if (href_list["track"])
-			if(istype(href_list["track"],/mob))
+			if(ismob(href_list["track"]))
 				var/mob/target = locate(href_list["track"]) in SSmobs.mob_list
 				if(target)
 					start_following(target)
@@ -137,6 +138,8 @@ Works together with spawning an observer, noted above.
 	return 1
 
 /mob/proc/ghostize(can_reenter_corpse = CORPSE_CAN_REENTER)
+	//remove color filters
+	clear_client_colors()
 	// Are we the body of an aghosted admin? If so, don't make a ghost.
 	if(teleop && istype(teleop, /mob/observer/ghost))
 		var/mob/observer/ghost/G = teleop
@@ -150,10 +153,10 @@ Works together with spawning an observer, noted above.
 		ghost.key = key
 		if(ghost.client && !ghost.client.holder && !config.antag_hud_allowed)		// For new ghosts we remove the verb from even showing up if it's not allowed.
 			ghost.verbs -= /mob/observer/ghost/verb/toggle_antagHUD	// Poor guys, don't know what they are missing!
+			ghost.update_client_color()
 		return ghost
 
 /mob/observer/ghostize() // Do not create ghosts of ghosts.
-
 /*
 This is the proc mobs get to turn into a ghost. Forked from ghostize due to compatibility issues.
 */
@@ -161,11 +164,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set category = "OOC"
 	set name = "Ghost"
 	set desc = "Relinquish your life and enter the land of the dead."
-
 	if (admin_paralyzed)
 		to_chat(usr, SPAN_DEBUG("You cannot ghost while admin paralyzed."))
 		return
-
+	clear_client_colors()
 	if(stat == DEAD)
 		announce_ghost_joinleave(ghostize(1))
 	else
@@ -188,9 +190,16 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		if (ghost)
 			ghost.timeofdeath = world.time // Because the living mob won't have a time of death and we want the respawn timer to work properly.
 			announce_ghost_joinleave(ghost)
+		ghost.update_client_color()
 
-/mob/observer/ghost/can_use_hands()	return 0
-/mob/observer/ghost/is_active()		return 0
+
+/mob/observer/ghost/can_use_hands()
+	return FALSE
+
+
+/mob/observer/ghost/is_active()
+	return FALSE
+
 
 /mob/observer/ghost/Stat()
 	. = ..()
@@ -199,6 +208,8 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			var/eta_status = evacuation_controller.get_status_panel_eta()
 			if(eta_status)
 				stat(null, eta_status)
+		stat("Local Time:", "[stationtime2text()]")
+		stat("Local Date:", "[stationdate2text()]")
 
 /mob/observer/ghost/verb/reenter_corpse()
 	set category = "Ghost"
@@ -268,7 +279,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		to_chat(src, "No area available.")
 		return
 
-	var/list/area_turfs = get_area_turfs(thearea, shall_check_if_holy() ? list(/proc/is_not_holy_turf) : list())
+	var/list/predicates = list()
+	if (shall_check_if_holy())
+		predicates += GLOBAL_PROC_REF(is_not_holy_turf)
+	var/list/area_turfs = get_area_turfs(thearea, predicates)
 	if(!length(area_turfs))
 		to_chat(src, SPAN_WARNING("This area has been entirely made into sacred grounds, you cannot enter it while you are in this plane of existence!"))
 		return
@@ -407,7 +421,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	var/dat
 	dat += "<h4>Crew Manifest</h4>"
-	dat += html_crew_manifest(OOC = TRUE)
+	dat += html_crew_manifest()
 
 	var/datum/browser/popup = new(src, "Crew Manifest", "Crew Manifest", 370, 420, src)
 	popup.set_content(dat)
@@ -430,13 +444,17 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 
 	return ..()
 
-/mob/observer/ghost/proc/try_possession(mob/living/M)
-	if(!config.ghosts_can_possess_animals)
+/mob/observer/ghost/proc/try_possession(mob/living/target)
+	if(target.is_zombie())
+		if(!config.ghosts_can_possess_zombies)
+			to_chat(src, SPAN_WARNING("Ghosts are not permitted to possess zombies."))
+			return 0
+	else if(!config.ghosts_can_possess_animals)
 		to_chat(src, SPAN_WARNING("Ghosts are not permitted to possess animals."))
 		return 0
-	if(!M.can_be_possessed_by(src))
+	if(!target.can_be_possessed_by(src))
 		return 0
-	return M.do_possession(src)
+	return target.do_possession(src)
 
 /mob/observer/ghost/pointed(atom/A as mob|obj|turf in view())
 	if(!..())
@@ -473,6 +491,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	ghostvision = !(ghostvision)
 	updateghostsight()
 	to_chat(src, "You [(ghostvision?"now":"no longer")] have ghost vision.")
+
+/mob/observer/ghost/verb/set_ghost_alpha()
+	set name = "Set Ghost Alpha"
+	set desc = "Giving you option to enter value for custom ghost transparency"
+	set category = "Ghost"
+	alpha = alpha == 127 ? 0 : 127
+	mouse_opacity = alpha ? 1 : 0
 
 /mob/observer/ghost/verb/toggle_darkness()
 	set name = "Toggle Darkness"
@@ -539,18 +564,13 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	return TRUE
 
 /mob/observer/ghost/proc/set_appearance(mob/target)
-	var/pre_alpha = alpha
-	var/pre_plane = plane
-	var/pre_layer = layer
-	var/pre_invis = invisibility
-
-	appearance = target
-	appearance_flags |= initial(appearance_flags)
-	alpha = pre_alpha
-	plane = pre_plane
-	layer = pre_layer
-	set_invisibility(pre_invis)
 	ClearTransform()
+	ClearOverlays()
+	if (!target)
+		icon = initial(icon)
+		return
+	icon = null
+	CopyOverlays(target)
 
 
 /mob/observer/ghost/verb/respawn()

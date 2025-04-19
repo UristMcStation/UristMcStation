@@ -15,6 +15,8 @@
 
 	var/timer_id
 
+	zone_membership_candidate = TRUE
+
 // This is not great.
 /turf/simulated/proc/wet_floor(wet_val = 1, overwrite = FALSE)
 	if(wet_val < wet && !overwrite)
@@ -23,19 +25,19 @@
 	if(!wet)
 		wet = wet_val
 		wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
-		overlays += wet_overlay
+		AddOverlays(wet_overlay)
 
-	timer_id = addtimer(new Callback(src,/turf/simulated/proc/unwet_floor),8 SECONDS, TIMER_STOPPABLE|TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_OVERRIDE)
+	timer_id = addtimer(new Callback(src, PROC_REF(unwet_floor)), 8 SECONDS, TIMER_STOPPABLE|TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_OVERRIDE)
 
 /turf/simulated/proc/unwet_floor(check_very_wet = TRUE)
 	if(check_very_wet && wet >= 2)
 		wet--
-		timer_id = addtimer(new Callback(src,/turf/simulated/proc/unwet_floor), 8 SECONDS, TIMER_STOPPABLE|TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_OVERRIDE)
+		timer_id = addtimer(new Callback(src, PROC_REF(unwet_floor)), 8 SECONDS, TIMER_STOPPABLE|TIMER_UNIQUE|TIMER_NO_HASH_WAIT|TIMER_OVERRIDE)
 		return
 
 	wet = 0
 	if(wet_overlay)
-		overlays -= wet_overlay
+		CutOverlays(wet_overlay)
 		wet_overlay = null
 
 /turf/simulated/examine()
@@ -44,7 +46,7 @@
 		to_chat(usr, "<span class='warning'>It has a slight shimmer to it.</span>")
 
 /turf/simulated/clean_blood()
-	for(var/obj/effect/decal/cleanable/blood/B in contents)
+	for(var/obj/decal/cleanable/blood/B in contents)
 		B.clean_blood()
 	..()
 
@@ -55,17 +57,17 @@
 	levelupdate()
 
 /turf/simulated/proc/AddTracks(typepath,bloodDNA,comingdir,goingdir,bloodcolor=COLOR_BLOOD_HUMAN)
-	var/obj/effect/decal/cleanable/blood/tracks/tracks = locate(typepath) in src
+	var/obj/decal/cleanable/blood/tracks/tracks = locate(typepath) in src
 	if(!tracks)
 		tracks = new typepath(src)
 	tracks.AddTracks(bloodDNA,comingdir,goingdir,bloodcolor)
 
 /turf/simulated/proc/update_dirt()
 	dirt = min(dirt+0.5, 101)
-	var/obj/effect/decal/cleanable/dirt/dirtoverlay = locate(/obj/effect/decal/cleanable/dirt, src)
+	var/obj/decal/cleanable/dirt/dirtoverlay = locate(/obj/decal/cleanable/dirt, src)
 	if (dirt > 50)
 		if (!dirtoverlay)
-			dirtoverlay = new/obj/effect/decal/cleanable/dirt(src)
+			dirtoverlay = new/obj/decal/cleanable/dirt(src)
 		dirtoverlay.alpha = min((dirt - 50) * 5, 255)
 
 /turf/simulated/remove_cleanables()
@@ -89,10 +91,10 @@
 				var/obj/item/clothing/shoes/S = H.shoes
 				if(istype(S))
 					S.handle_movement(src, MOVING_QUICKLY(H))
-					if(S.track_blood && S.blood_DNA)
+					if(S.blood_transfer_amount && S.blood_DNA)
 						bloodDNA = S.blood_DNA
 						bloodcolor = S.blood_color
-						S.track_blood--
+						S.blood_transfer_amount--
 			else
 				if(H.track_blood && H.feet_blood_DNA)
 					bloodDNA = H.feet_blood_DNA
@@ -125,15 +127,12 @@
 				slip_stun = 10
 
 			if(M.slip("the [floor_type] floor", slip_stun))
-				addtimer(new Callback(M, /mob/proc/slip_handler, M.dir, slip_dist - 1, 1), 1)
-			else
-				M.inertia_dir = 0
-		else
-			M.inertia_dir = 0
+				addtimer(new Callback(M, TYPE_PROC_REF(/mob, slip_handler), M.dir, slip_dist - 1, 1), 1)
+
 
 /mob/proc/slip_handler(dir, dist, delay)
 	if (dist > 0)
-		addtimer(new Callback(src, .proc/slip_handler, dir, dist - 1, delay), delay)
+		addtimer(new Callback(src, PROC_REF(slip_handler), dir, dist - 1, delay), delay)
 	step(src, dir)
 
 //returns 1 if made bloody, returns 0 otherwise
@@ -142,7 +141,7 @@
 		return 0
 
 	if(istype(M))
-		for(var/obj/effect/decal/cleanable/blood/B in contents)
+		for(var/obj/decal/cleanable/blood/B in contents)
 			if(!B.blood_DNA)
 				B.blood_DNA = list()
 			if(!B.blood_DNA[M.dna.unique_enzymes])
@@ -155,20 +154,59 @@
 // Only adds blood on the floor -- Skie
 /turf/simulated/proc/add_blood_floor(mob/living/carbon/M as mob)
 	if( istype(M, /mob/living/carbon/alien ))
-		var/obj/effect/decal/cleanable/blood/xeno/this = new /obj/effect/decal/cleanable/blood/xeno(src)
+		var/obj/decal/cleanable/blood/xeno/this = new /obj/decal/cleanable/blood/xeno(src)
 		this.blood_DNA["UNKNOWN BLOOD"] = "X*"
 	else if( istype(M, /mob/living/silicon/robot ))
-		new /obj/effect/decal/cleanable/blood/oil(src)
+		new /obj/decal/cleanable/blood/oil(src)
 
 /turf/simulated/proc/can_build_cable(mob/user)
 	return 0
 
-/turf/simulated/attackby(obj/item/thing, mob/user)
+/turf/simulated/use_tool(obj/item/thing, mob/living/user, list/click_params)
 	if(isCoil(thing) && can_build_cable(user))
 		var/obj/item/stack/cable_coil/coil = thing
 		coil.PlaceCableOnTurf(src, user)
-		return
+		return TRUE
 	return ..()
+
+/turf/simulated/attack_hand(mob/living/user)
+	. = ..()
+
+	if (Adjacent(user))
+		add_fingerprint(user)
+
+	if (!get_max_health() || !ishuman(user) || user.a_intent != I_HURT)
+		return
+
+	var/mob/living/carbon/human/assailant = user
+	var/datum/unarmed_attack/attack = assailant.get_unarmed_attack(src)
+	if (!attack)
+		return
+	assailant.do_attack_animation(src)
+	assailant.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	var/damage = attack.damage + rand(1,5)
+	var/attack_verb = "[pick(attack.attack_verb)]"
+
+	if (MUTATION_FERAL in user.mutations)
+		attack_verb = "smashes"
+		damage = 15
+
+	playsound(src, damage_hitsound, 25, TRUE, -1)
+	if (!can_damage_health(damage, attack.get_damage_type()))
+		user.visible_message(
+			SPAN_WARNING("\The [user] [attack_verb] \the [src], but doesn't even leave a dent!"),
+			SPAN_WARNING("You [attack_verb] \the [src], but cause no visible damage and hurt yourself!")
+		)
+		if (!(MUTATION_FERAL in user.mutations))
+			user.apply_damage(3, DAMAGE_BRUTE, user.hand ? BP_L_HAND : BP_R_HAND)
+		return TRUE
+
+	assailant.visible_message(
+			SPAN_WARNING("\The [assailant] [attack_verb] \the [src]!"),
+			SPAN_WARNING("You [attack_verb] \the [src]!")
+			)
+	damage_health(damage, attack.get_damage_type(), attack.damage_flags())
+	return TRUE
 
 /turf/simulated/Initialize()
 	if(GAME_STATE >= RUNLEVEL_GAME)

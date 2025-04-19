@@ -1,7 +1,7 @@
 /obj/item/device/scanner/health
 	name = "health analyzer"
 	desc = "A hand-held body scanner able to distinguish vital signs of the subject."
-	icon = 'icons/obj/health_analyzer.dmi'
+	icon = 'icons/obj/tools/health_analyzer.dmi'
 	icon_state = "health"
 	item_state = "analyzer"
 	item_state_slots = list(slot_belt_str = "healthanalyzer", slot_s_store_str = "healthanalyzer")
@@ -303,28 +303,24 @@
 	. = jointext(.,"<br>")
 	. = jointext(list(header,.),null)
 
+
 // Calculates severity based on the ratios defined external limbs.
-/proc/get_wound_severity(damage_ratio, can_heal_overkill = 0)
-	var/degree
-
+/proc/get_wound_severity(damage_ratio, can_heal_overkill)
 	switch(damage_ratio)
-		if(0 to 0.1)
-			degree = "minor"
-		if(0.1 to 0.25)
-			degree = "moderate"
-		if(0.25 to 0.5)
-			degree = "significant"
-		if(0.5 to 0.75)
-			degree = "severe"
-		if(0.75 to 1)
-			degree = "extreme"
-		else
-			if(can_heal_overkill)
-				degree = "critical"
-			else
-				degree = "irreparable"
+		if (0 to 10)
+			return "minor"
+		if (10 to 25)
+			return "moderate"
+		if (25 to 50)
+			return "significant"
+		if (50 to 75)
+			return "severe"
+		if (75 to 99)
+			return "extreme"
+	if (can_heal_overkill)
+		return "critical"
+	return "irreparable"
 
-	return degree
 
 /obj/item/device/scanner/health/verb/toggle_mode()
 	set name = "Switch Verbosity"

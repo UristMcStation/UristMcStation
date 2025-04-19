@@ -44,11 +44,11 @@
 	return TRUE
 
 /obj/machinery/computer/modular/on_update_icon()
-	. = ..()
+	..()
 	var/datum/extension/interactive/ntos/os = get_extension(src, /datum/extension/interactive/ntos)
 	if(os)
 		if(os.on)
-			set_light(light_max_bright_on, light_inner_range_on, light_outer_range_on, 2, light_color)
+			set_light(light_range_on, light_power_on, light_color)
 		else
 			set_light(0)
 
@@ -60,6 +60,7 @@
 /obj/machinery/computer/modular/get_keyboard_overlay()
 	var/datum/extension/interactive/ntos/os = get_extension(src, /datum/extension/interactive/ntos)
 	if(os)
+		icon_keyboard = os.get_keyboard_state()
 		return os.get_keyboard_overlay()
 
 /obj/machinery/computer/modular/emag_act(remaining_charges, mob/user)
@@ -75,7 +76,7 @@
 	var/obj/item/stock_parts/computer/P = path
 	return initial(P.external_slot)
 
-/obj/machinery/computer/modular/attackby(obj/item/I, mob/user)
+/obj/machinery/computer/modular/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/stock_parts/computer/hard_drive/portable))
 		if(portable_drive)
 			to_chat(user, SPAN_WARNING("There's already \a [portable_drive] plugged in."))
@@ -120,11 +121,12 @@
 
 /obj/machinery/computer/modular/CtrlAltClick(mob/user)
 	if(!CanPhysicallyInteract(user))
-		return 0
+		return FALSE
 	var/datum/extension/interactive/ntos/os = get_extension(src, /datum/extension/interactive/ntos)
 	if(os)
 		os.open_terminal(user)
-		return 1
+		return TRUE
+	return FALSE
 
 /obj/machinery/computer/modular/verb/emergency_shutdown()
 	set name = "Forced Shutdown"

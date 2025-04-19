@@ -5,12 +5,10 @@
 // Used for advanced grid control (read: Substations)
 
 /obj/machinery/power/breakerbox
-	name = "Breaker Box"
-	icon = 'icons/obj/power.dmi'
-	icon_state = "bbox_off"
+	name = "breaker box"
+	icon = 'icons/obj/machines/power/breakerbox.dmi'
+	icon_state = "bbox"
 	//directwired = 0
-	var/icon_state_on = "bbox_on"
-	var/icon_state_off = "bbox_off"
 	density = TRUE
 	anchored = TRUE
 	var/on = 0
@@ -25,7 +23,6 @@
 		R.FindDevices()
 
 /obj/machinery/power/breakerbox/activated
-	icon_state = "bbox_on"
 
 	// Enabled on server startup. Used in substations to keep them in bypass mode.
 /obj/machinery/power/breakerbox/activated/Initialize()
@@ -87,21 +84,19 @@
 	busy = 0
 	return TRUE
 
-/obj/machinery/power/breakerbox/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/power/breakerbox/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(isMultitool(W))
 		var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 		if(newtag)
 			RCon_tag = newtag
 			to_chat(user, SPAN_NOTICE("You changed the RCON tag to: [newtag]"))
+		return TRUE
 
-
-
-
+	return ..()
 
 /obj/machinery/power/breakerbox/proc/set_state(state)
 	on = state
 	if(on)
-		icon_state = icon_state_on
 		var/list/connection_dirs = list()
 		for(var/direction in directions)
 			for(var/obj/structure/cable/C in get_step(src,direction))
@@ -126,9 +121,9 @@
 				C.mergeDiagonalsNetworks(C.d2)
 
 	else
-		icon_state = icon_state_off
 		for(var/obj/structure/cable/C in src.loc)
 			qdel(C)
+	update_icon()
 
 // Used by RCON to toggle the breaker box.
 /obj/machinery/power/breakerbox/proc/auto_toggle()
@@ -137,3 +132,11 @@
 		update_locked = 1
 		spawn(600)
 			update_locked = 0
+
+/obj/machinery/power/breakerbox/on_update_icon()
+	ClearOverlays()
+	if(panel_open)
+		AddOverlays("[icon_state]_panel")
+	if(on)
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")

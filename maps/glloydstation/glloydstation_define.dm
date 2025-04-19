@@ -12,6 +12,17 @@
 	company_short = "NT"
 	ert_context = "NanoTrasen"
 	lobby_screens = list('maps/glloydstation/glloydstation_lobby.png')
+	lobby_tracks = list(
+		/singleton/audio/track/df_theme,
+		/singleton/audio/track/digit_one,
+		/singleton/audio/track/dilbert,
+		/singleton/audio/track/chasing_time,
+		/singleton/audio/track/human,
+		/singleton/audio/track/lysendraa,
+		/singleton/audio/track/level3_mod,
+		/singleton/audio/track/rimward_cruise,
+		/singleton/audio/track/ambispace
+	)
 	current_lobby_screen = 'maps/glloydstation/glloydstation_lobby.png'
 
 	station_levels = list(1)
@@ -58,16 +69,24 @@
 		"the captain's pinpointer" = /obj/item/pinpointer
 		)
 
-/obj/effect/overmap/visitable/urist
+/obj/overmap/visitable/urist
 	name = "NSS Urist"
 	desc = "Starbase records report: NT owned, unknown crew status."
-	base = TRUE
 	start_x = 11
 	start_y = 12
 
-/obj/effect/overmap/visitable/uristplanet
+	sector_flags = OVERMAP_SECTOR_KNOWN|OVERMAP_SECTOR_IN_SPACE|OVERMAP_SECTOR_BASE
+	known_ships = list(
+		/obj/overmap/visitable/uristplanet
+	)
+
+/obj/overmap/visitable/uristplanet
 	name = "Nyx Phi III"
 	desc = "Geneseeded world detected, possible intelligent life detected."
-	base = TRUE
 	start_x = 12
 	start_y = 13
+
+	sector_flags = OVERMAP_SECTOR_KNOWN|OVERMAP_SECTOR_BASE
+	known_ships = list(
+		/obj/overmap/visitable/urist
+	)

@@ -7,6 +7,7 @@
 	matter = list(MATERIAL_STEEL = 10000, MATERIAL_PLASTIC = 5000, MATERIAL_OSMIUM = 500)
 	force = 10
 
+	var/on_mech_icon = 'icons/mecha/mech_weapon_overlays.dmi'
 	var/list/restricted_hardpoints
 	var/mob/living/exosuit/owner
 	var/list/restricted_software
@@ -16,9 +17,6 @@
 	var/mech_layer = MECH_GEAR_LAYER //For the part where it's rendered as mech gear
 	var/require_adjacent = TRUE
 	var/active = FALSE //For gear that has an active state (ie, floodlights)
-
-/obj/item/mech_equipment/attack(mob/living/M, mob/living/user, target_zone) //Generally it's not desired to be able to attack with items
-	return 0
 
 /obj/item/mech_equipment/afterattack(atom/target, mob/living/user, inrange, params)
 	if(require_adjacent)
@@ -102,7 +100,7 @@
 
 /obj/item/mech_equipment/mounted_system/proc/forget_holding()
 	if(holding) //It'd be strange for this to be called with this var unset
-		GLOB.destroyed_event.unregister(holding, src, .proc/forget_holding)
+		GLOB.destroyed_event.unregister(holding, src, PROC_REF(forget_holding))
 		holding = null
 		qdel(src)
 
@@ -110,7 +108,7 @@
 	. = ..()
 	if(holding_type)
 		holding = new holding_type(src)
-		GLOB.destroyed_event.register(holding, src, .proc/forget_holding)
+		GLOB.destroyed_event.register(holding, src, PROC_REF(forget_holding))
 	if(holding)
 		if(!icon_state)
 			icon = holding.icon
@@ -120,7 +118,7 @@
 
 
 /obj/item/mech_equipment/mounted_system/Destroy()
-	GLOB.destroyed_event.unregister(holding, src, .proc/forget_holding)
+	GLOB.destroyed_event.unregister(holding, src, PROC_REF(forget_holding))
 	if(holding)
 		QDEL_NULL(holding)
 	. = ..()

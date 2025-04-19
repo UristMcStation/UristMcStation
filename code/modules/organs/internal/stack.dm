@@ -19,7 +19,7 @@
 	var/datum/mind/backup
 	var/prompting = FALSE // Are we waiting for a user prompt?
 
-/obj/item/organ/internal/stack/examine(var/mob/user)
+/obj/item/organ/internal/stack/examine(mob/user)
 	. = ..(user)
 	if(!istype(backup)) // Do we not have a backup?
 		to_chat(user, "The light on \the [src] is off, it doesn't have a backup.")
@@ -31,6 +31,7 @@
 		to_chat(user, "The light on \the [src] is blinking slowly. Maybe wait a while...")
 
 /obj/item/organ/internal/stack/emp_act()
+	SHOULD_CALL_PARENT(FALSE)
 	return
 
 /obj/item/organ/internal/stack/getToxLoss()
@@ -44,8 +45,8 @@
 		if(owner.ckey)
 			ownerckey = owner.ckey
 
-/obj/item/organ/internal/stack/New()
-	..()
+/obj/item/organ/internal/stack/Initialize()
+	. = ..()
 	robotize()
 	addtimer(new Callback(src, .proc/do_backup), 2 SECONDS)
 

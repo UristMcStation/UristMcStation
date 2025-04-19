@@ -4,7 +4,7 @@
 	icon_keyboard = "tech_key"
 
 /obj/machinery/computer/telecomms/server
-	name = "Telecommunications Server Monitor"
+	name = "telecommunications server monitor"
 	icon_screen = "comm_logs"
 	machine_name = "telecommunications server monitor console"
 	machine_desc = "A terminal used to view and browse the logs of a telecommunications network."
@@ -36,23 +36,23 @@
 
 		if(0)
 			dat += "<br>[temp]<br>"
-			dat += "<br>Current Network: <a href='?src=\ref[src];network=1'>[network]</a><br>"
+			dat += "<br>Current Network: <a href='byond://?src=\ref[src];network=1'>[network]</a><br>"
 			if(length(servers))
 				dat += "<br>Detected Telecommunication Servers:<ul>"
 				for(var/obj/machinery/telecomms/T in servers)
-					dat += "<li><a href='?src=\ref[src];viewserver=[T.id]'>\ref[T] [T.name]</a> ([T.id])</li>"
+					dat += "<li><a href='byond://?src=\ref[src];viewserver=[T.id]'>\ref[T] [T.name]</a> ([T.id])</li>"
 				dat += "</ul>"
-				dat += "<br><a href='?src=\ref[src];operation=release'>\[Flush Buffer\]</a>"
+				dat += "<br><a href='byond://?src=\ref[src];operation=release'>\[Flush Buffer\]</a>"
 
 			else
-				dat += "<br>No servers detected. Scan for servers: <a href='?src=\ref[src];operation=scan'>\[Scan\]</a>"
+				dat += "<br>No servers detected. Scan for servers: <a href='byond://?src=\ref[src];operation=scan'>\[Scan\]</a>"
 
 
 		// --- Viewing Server ---
 
 		if(1)
 			dat += "<br>[temp]<br>"
-			dat += "<center><a href='?src=\ref[src];operation=mainmenu'>\[Main Menu\]</a>     <a href='?src=\ref[src];operation=refresh'>\[Refresh\]</a></center>"
+			dat += "<center><a href='byond://?src=\ref[src];operation=mainmenu'>\[Main Menu\]</a>     <a href='byond://?src=\ref[src];operation=refresh'>\[Refresh\]</a></center>"
 			dat += "<br>Current Network: [network]"
 			dat += "<br>Selected Server: [SelectedServer.id]"
 
@@ -71,7 +71,7 @@
 				// If the log is a speech file
 				if(C.input_type == "Speech File")
 
-					dat += "<li>[SPAN_COLOR("#008f00", C.name)]  <a href='?src=\ref[src];delete=[i]'>[SPAN_COLOR("#ff0000", "\[X\]")]</a><br>"
+					dat += "<li>[SPAN_COLOR("#008f00", C.name)]  <a href='byond://?src=\ref[src];delete=[i]'>[SPAN_COLOR("#ff0000", "\[X\]")]</a><br>"
 
 					// -- Determine race of orator --
 
@@ -100,7 +100,7 @@
 
 				else if(C.input_type == "Execution Error")
 
-					dat += "<li>[SPAN_COLOR("#990000", C.name)]  [SPAN_COLOR("#ff0000", "<a href='?src=\ref[src];delete=[i]'>\[X\]</a>")]<br>"
+					dat += "<li>[SPAN_COLOR("#990000", C.name)]  [SPAN_COLOR("#ff0000", "<a href='byond://?src=\ref[src];delete=[i]'>\[X\]</a>")]<br>"
 					dat += "<u>[SPAN_COLOR("#787700", "Output")]</u>: \"[C.parameters["message"]]\"<br>"
 					dat += "</li><br>"
 
@@ -109,7 +109,7 @@
 
 
 	var/datum/browser/popup = new(user, "comm_monitor", "Telecommunications Monitor", 575, 400)
-	popup.set_content(JOINTEXT(dat))
+	popup.set_content(jointext(dat, null))
 	popup.open()
 
 	temp = ""
@@ -194,6 +194,6 @@
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = TRUE
 		req_access.Cut()
-		to_chat(user, SPAN_NOTICE("You you disable the security protocols"))
+		to_chat(user, SPAN_NOTICE("You disable the security protocols"))
 		src.updateUsrDialog()
 		return 1

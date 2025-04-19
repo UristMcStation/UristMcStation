@@ -14,13 +14,14 @@
 //  Programmer: Veryinky
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /obj/machinery/door_timer
-	name = "Door Timer"
-	icon = 'icons/obj/status_display.dmi'
+	name = "door timer"
+	icon = 'icons/obj/machines/status_display.dmi'
 	icon_state = "frame"
 	desc = "A remote control for a door."
 	req_access = list(access_brig)
 	anchored = TRUE    		// can't pick it up
 	density = FALSE       		// can walk through it.
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 	var/id = null     		// id of door it controls.
 	var/releasetime = 0		// when world.timeofday reaches it - release the prisoner
 	var/timing = 1    		// boolean, true/1 timer is on, false/0 means it's not timing
@@ -35,7 +36,7 @@
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/door_timer/LateInitialize()
+/obj/machinery/door_timer/LateInitialize(mapload)
 	for(var/obj/machinery/door/window/brigdoor/M in SSmachines.machinery)
 		if (M.id == src.id)
 			targets += M
@@ -190,7 +191,7 @@
 		else
 			timer_start()
 			if(timetoset > 18000)
-				log_and_message_admins("has started a brig timer over 30 minutes in length!")
+				log_and_message_admins("has started a brig timer over 30 minutes in length!", user)
 		. =  TOPIC_REFRESH
 
 	if (href_list["flash"])
@@ -234,8 +235,8 @@
 // Adds an icon in case the screen is broken/off, stolen from status_display.dm
 /obj/machinery/door_timer/proc/set_picture(state)
 	picture_state = state
-	overlays.Cut()
-	overlays += image('icons/obj/status_display.dmi', icon_state=picture_state)
+	ClearOverlays()
+	AddOverlays(image('icons/obj/machines/status_display.dmi', icon_state=picture_state))
 
 
 //Checks to see if there's 1 line or 2, adds text-icons-numbers/letters over display
@@ -249,17 +250,17 @@
 //Actual string input to icon display for loop, with 5 pixel x offsets for each letter.
 //Stolen from status_display
 /obj/machinery/door_timer/proc/texticon(tn, px = 0, py = 0)
-	var/image/I = image('icons/obj/status_display.dmi', "blank")
+	var/image/I = image('icons/obj/machines/status_display.dmi', "blank")
 	var/len = length(tn)
 
 	for(var/d = 1 to len)
 		var/char = copytext(tn, len-d+1, len-d+2)
 		if(char == " ")
 			continue
-		var/image/ID = image('icons/obj/status_display.dmi', icon_state=char)
+		var/image/ID = image('icons/obj/machines/status_display.dmi', icon_state=char)
 		ID.pixel_x = -(d-1)*5 + px
 		ID.pixel_y = py
-		I.overlays += ID
+		I.AddOverlays(ID)
 	return I
 
 

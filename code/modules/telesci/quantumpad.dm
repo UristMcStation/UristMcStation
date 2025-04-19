@@ -21,7 +21,7 @@
 	var/map_pad_link_id = "" as text //who's my friend
 
 /obj/item/stock_parts/circuitboard/telepad
-	name = T_BOARD("telepad")
+	name = "circuit board (telepad)"
 	build_path = /obj/machinery/power/quantumpad
 	board_type = "machine"
 	origin_tech = list(TECH_POWER = 6, TECH_ENGINEERING = 4, TECH_BLUESPACE = 4)
@@ -121,7 +121,7 @@
 	doteleport(user)
 
 /obj/machinery/power/quantumpad/proc/sparks()
-	var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
+	var/datum/effect/spark_spread/sparks = new /datum/effect/spark_spread()
 	sparks.set_up(5, 1, get_turf(src))
 	sparks.start()
 

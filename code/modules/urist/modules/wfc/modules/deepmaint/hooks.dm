@@ -1,4 +1,4 @@
-/hook/death/proc/deepmaint_death_handler(var/mob/living/carbon/human/H, var/gibbed = FALSE)
+/hook/death/proc/deepmaint_death_handler(mob/living/carbon/human/H, gibbed = FALSE)
 	var/mob/living/carbon/human/deadman = H
 
 	if(isnull(deadman))

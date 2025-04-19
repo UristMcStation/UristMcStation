@@ -13,7 +13,7 @@
 /obj/structure/morgue
 	name = "morgue"
 	desc = "Used to keep bodies in until someone fetches them."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/structures/morgue_tray.dmi'
 	icon_state = "morgue1"
 	dir = EAST
 	density = TRUE
@@ -90,22 +90,32 @@
 /obj/structure/morgue/attack_robot(mob/user)
 	if(Adjacent(user))
 		return attack_hand(user)
-	else return ..()
+	return ..()
 
-/obj/structure/morgue/attackby(P as obj, mob/user as mob)
-	if (istype(P, /obj/item/pen))
-		var/t = input(user, "What would you like the label to be?", text("[]", src.name), null)  as text
-		if (user.get_active_hand() != P)
-			return
-		if ((!in_range(src, usr) && src.loc != user))
-			return
-		t = sanitizeSafe(t, MAX_NAME_LEN)
-		if (t)
-			src.SetName(text("Morgue- '[]'", t))
+
+/obj/structure/morgue/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Pen - Add label
+	if (istype(tool, /obj/item/pen))
+		var/input = input(user, "What would you like the label to be? Leave null to clear label.", "\The [initial(name)] - Label") as null|text
+		input = sanitizeSafe(input, MAX_NAME_LEN)
+		if (!user.use_sanity_check(src, tool))
+			return TRUE
+		if (!input)
+			SetName(initial(name))
+			user.visible_message(
+				SPAN_NOTICE("\The [user] clears \the [src]'s label with \a [tool]."),
+				SPAN_NOTICE("You clear \the [src]'s label with \the [tool].")
+			)
 		else
-			src.SetName("Morgue")
-	src.add_fingerprint(user)
-	return
+			SetName("[initial(name)] - '[input]'")
+			user.visible_message(
+				SPAN_NOTICE("\The [user] labels \the [src] with \a [tool]."),
+				SPAN_NOTICE("You label \the [src] with \the [tool].")
+			)
+		return TRUE
+
+	return ..()
+
 
 /obj/structure/morgue/relaymove(mob/user as mob)
 	if (user.stat)
@@ -131,7 +141,7 @@
 /obj/structure/m_tray
 	name = "morgue tray"
 	desc = "Apply corpse before closing."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/structures/morgue_tray.dmi'
 	icon_state = "morguet"
 	density = TRUE
 	layer = BELOW_OBJ_LAYER
@@ -159,7 +169,7 @@
 	return
 
 /obj/structure/m_tray/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
-	if ((!( istype(O, /atom/movable) ) || O.anchored || get_dist(user, src) > 1 || get_dist(user, O) > 1 || user.contents.Find(src) || user.contents.Find(O)))
+	if ((!( ismovable(O) ) || O.anchored || get_dist(user, src) > 1 || get_dist(user, O) > 1 || user.contents.Find(src) || user.contents.Find(O)))
 		return
 	if (!ismob(O) && !istype(O, /obj/structure/closet/body_bag))
 		return
@@ -180,7 +190,7 @@
 /obj/structure/crematorium
 	name = "crematorium"
 	desc = "A human incinerator. Works well on barbeque nights."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/structures/crematorium.dmi'
 	icon_state = "crema1"
 	density = TRUE
 	var/obj/structure/c_tray/connected = null
@@ -258,20 +268,30 @@
 	src.add_fingerprint(user)
 	update()
 
-/obj/structure/crematorium/attackby(P as obj, mob/user as mob)
-	if(istype(P, /obj/item/pen))
-		var/t = input(user, "What would you like the label to be?", text("[]", src.name), null)  as text
-		if(user.get_active_hand() != P)
-			return
-		if((!in_range(src, usr) > 1 && src.loc != user))
-			return
-		t = sanitizeSafe(t, MAX_NAME_LEN)
-		if(t)
-			src.SetName(text("Crematorium- '[]'", t))
+
+/obj/structure/crematorium/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Pen - Add label
+	if (istype(tool, /obj/item/pen))
+		var/input = input(user, "What would you like the label to be? Leave null to clear label.", "\The [initial(name)] - Label") as null|text
+		input = sanitizeSafe(input, MAX_NAME_LEN)
+		if (!user.use_sanity_check(src, tool))
+			return TRUE
+		if (!input)
+			SetName(initial(name))
+			user.visible_message(
+				SPAN_NOTICE("\The [user] clears \the [src]'s label with \a [tool]."),
+				SPAN_NOTICE("You clear \the [src]'s label with \the [tool].")
+			)
 		else
-			src.SetName("Crematorium")
-	src.add_fingerprint(user)
-	return
+			SetName("[initial(name)] - '[input]'")
+			user.visible_message(
+				SPAN_NOTICE("\The [user] labels \the [src] with \a [tool]."),
+				SPAN_NOTICE("You label \the [src] with \the [tool].")
+			)
+		return TRUE
+
+	return ..()
+
 
 /obj/structure/crematorium/relaymove(mob/user as mob)
 	if (user.stat || locked)
@@ -366,7 +386,7 @@
 		for(var/obj/O in contents) //obj instead of obj/item so that bodybags and ashes get destroyed. We dont want tons and tons of ash piling up
 			qdel(O)
 
-		new /obj/effect/decal/cleanable/ash(src)
+		new /obj/decal/cleanable/ash(src)
 		sleep(30)
 		cremating = initial(cremating)
 		locked = initial(locked)
@@ -380,7 +400,7 @@
 /obj/structure/c_tray
 	name = "crematorium tray"
 	desc = "Apply body before burning."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/structures/crematorium.dmi'
 	icon_state = "cremat"
 	density = TRUE
 	layer = BELOW_OBJ_LAYER
@@ -408,7 +428,7 @@
 	return
 
 /obj/structure/c_tray/MouseDrop_T(atom/movable/O as mob|obj, mob/user as mob)
-	if ((!( istype(O, /atom/movable) ) || O.anchored || get_dist(user, src) > 1 || get_dist(user, O) > 1 || user.contents.Find(src) || user.contents.Find(O)))
+	if ((!( ismovable(O) ) || O.anchored || get_dist(user, src) > 1 || get_dist(user, O) > 1 || user.contents.Find(src) || user.contents.Find(O)))
 		return
 	if (!ismob(O) && !istype(O, /obj/structure/closet/body_bag))
 		return
@@ -421,13 +441,10 @@
 /obj/machinery/button/crematorium
 	name = "crematorium igniter"
 	desc = "Burn baby burn!"
-	icon = 'icons/obj/power.dmi'
-	icon_state = "crema_switch"
+	icon = 'icons/obj/structures/buttons.dmi'
+	icon_state = "blastctrl"
 	req_access = list(access_crematorium)
 	id_tag = 1
-
-/obj/machinery/button/crematorium/on_update_icon()
-	return
 
 /obj/machinery/button/crematorium/activate(mob/user)
 	if(operating)

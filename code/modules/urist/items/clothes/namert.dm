@@ -62,7 +62,7 @@
 	storage_slots = 7
 	max_w_class = 3
 	max_storage_space = 28
-	can_hold = list(
+	contents_allowed = list(
 		/obj/item/grenade,
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/handcuffs,

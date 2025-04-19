@@ -116,7 +116,7 @@
 	..()
 	update_icon()*/
 
-/obj/item/stack/material/rods/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/stack/material/rods/use_tool(obj/item/W, mob/living/user, list/click_params)
 	var/obj/item/stack/material/rods/R = src
 
 	if(W.sharp && W.edge && !sharp)
@@ -229,7 +229,7 @@
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
 	default_material = "wood"
 
-/obj/item/material/woodwirerod/attackby(obj/item/I, mob/user as mob)
+/obj/item/material/woodwirerod/use_tool(obj/item/I, mob/living/user, list/click_params)
 	..()
 	var/obj/item/finished
 	if(istype(I, /obj/item/material/shard) || istype(I, /obj/item/material/small_blade) || istype(I, /obj/item/material/large_blade))
@@ -307,7 +307,7 @@
 		location.hotspot_expose(700, 5)
 		return
 
-/obj/item/flame/torch/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/flame/torch/use_tool(obj/item/W, mob/living/user, list/click_params)
 	..()
 	if(burnt || lit)
 		return
@@ -422,7 +422,7 @@
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "axehead"
 
-/obj/item/improv/axe_head/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/improv/axe_head/use_tool(obj/item/W, mob/living/user, list/click_params)
 	..()
 
 	if(istype(W, /obj/item/stack/material/rods))
@@ -443,7 +443,7 @@
 	icon = 'icons/urist/items/improvised.dmi'
 	icon_state = "pickaxehead"
 
-/obj/item/improv/pickaxe_head/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/improv/pickaxe_head/use_tool(obj/item/W, mob/living/user, list/click_params)
 	..()
 
 	if(istype(W, /obj/item/stack/material/rods))
@@ -497,7 +497,7 @@
 /obj/item/disk/fakenucleardisk
 	name = "nuclear authentication disk"
 	desc = "A nuclear authentication disk, used for arming the self-destruct system. On closer inspection, this appears to be some sort of dummy replica meant for training exercises, how did it end up here?"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/datadisks.dmi'
 	icon_state = "nucleardisk"
 	item_state = "card-id"
 	w_class = ITEM_SIZE_TINY
@@ -543,7 +543,7 @@
 /obj/random/clown
 	name = "Random Clown Item"
 	desc = "This is a random clown item."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/parcels.dmi'
 	icon_state = "gift3"
 
 /obj/random/clown/spawn_choices()
@@ -741,7 +741,7 @@
 /obj/random/treasure
 	name = "random treasure"
 	desc = "This is some random loot."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/parcels.dmi'
 	icon_state = "gift3"
 
 /obj/random/treasure/spawn_choices()
@@ -761,7 +761,7 @@
 /obj/random/treasure/plush
 	name = "random treasure plush"
 	desc = "This is some random loot."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/parcels.dmi'
 	icon_state = "gift3"
 
 /obj/random/treasure/plush/spawn_choices()
@@ -775,7 +775,7 @@
 /obj/random/treasure/portrait
 	name = "random treasure portrait"
 	desc = "This is some random loot."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/parcels.dmi'
 	icon_state = "gift3"
 
 /obj/random/treasure/portrait/spawn_choices()
@@ -817,13 +817,13 @@
 /obj/random/utensil
 	name = "random utensil"
 	desc = "This is a random utensil."
-	icon = 'icons/obj/kitchen.dmi'
+	icon = 'icons/obj/machines/kitchen.dmi'
 	icon_state = "fork"
 
 /obj/random/utensil/spawn_choices()
-	return list(/obj/item/material/kitchen/utensil/fork,
-				/obj/item/material/kitchen/utensil/spoon,
-				/obj/item/material/kitchen/utensil/spork
+	return list(/obj/item/material/utensil/fork,
+				/obj/item/material/utensil/spoon,
+				/obj/item/material/utensil/spork
 				)
 
 /obj/random/officetoy
@@ -868,7 +868,7 @@
 /obj/item/bodyguardkit
 	name = "bodyguard plate carrier kit"
 	desc = "A secure box containing a plate carrier."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/boxes.dmi'
 	icon_state = "excavation"
 	var/list/armor_options = list(
 		"Classic - Blue Security Armor" = /obj/item/clothing/suit/armor/pcarrier/deus_blueshield,
@@ -895,8 +895,8 @@
 	attack_verb = list ("smacked", "thwacked", "thunked")
 	matter = list(MATERIAL_STEEL = 100, MATERIAL_GLASS = 100, MATERIAL_PLASTIC = 150)
 	hitsound = "swing_hit"
-	flashlight_max_bright = 0.75
-	flashlight_outer_range = 6
+	flashlight_power = 0.75
+	flashlight_range = 6
 
 //blueshield action figure
 /obj/item/toy/figure/blueshield

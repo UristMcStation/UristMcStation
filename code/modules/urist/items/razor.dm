@@ -71,16 +71,19 @@
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	w_class = 1.0
 
-/obj/item/razor/attack(mob/living/carbon/M as mob, mob/user as mob)
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
+/obj/item/razor/use_before(atom/target, mob/living/user, click_parameters)
+	if(ishuman(target))
+		var/mob/living/carbon/human/H = target
+
 		if(user.zone_sel.selecting == "mouth")
 			if(!get_location_accessible(H, "mouth"))
 				to_chat(user, "<span class='warning'>The mask is in the way.</span>")
-				return
+				return TRUE
+
 			if(H.facial_hair_style == "Shaved")
 				to_chat(user, "<span class='notice'>Already clean-shaven.</span>")
-				return
+				return TRUE
+
 			if(H == user) //shaving yourself
 				user.visible_message("<span class='notice'>[user] starts to shave their facial hair with \the [src].</span>", \
 				"<span class='notice'>You take a moment shave your facial hair with \the [src].</span>")
@@ -90,6 +93,8 @@
 					H.facial_hair_style = "Shaved"
 					H.update_hair()
 					playsound(src.loc, 'sound/items/Welder2.ogg', 20, 1)
+				return TRUE
+
 			else
 				var/turf/user_loc = user.loc
 				var/turf/H_loc = H.loc
@@ -102,13 +107,17 @@
 						H.facial_hair_style = "Shaved"
 						H.update_hair()
 						playsound(src.loc, 'sound/items/Welder2.ogg', 20, 1)
+				return TRUE
+
 		if(user.zone_sel.selecting == "head")
 			if(!get_location_accessible(H, "head"))
 				to_chat(user, "<span class='warning'>The headgear is in the way.</span>")
-				return
+				return TRUE
+
 			if(H.head_hair_style == "Bald" || H.head_hair_style == "Balding Hair" || H.head_hair_style == "Skinhead")
 				to_chat(user, "<span class='notice'>There is not enough hair left to shave...</span>")
-				return
+				return TRUE
+
 			if(H == user) //shaving yourself
 				user.visible_message("<span class='warning'>[user] starts to shave their head with \the [src].</span>", \
 				"<span class='warning'>You start to shave your head with \the [src].</span>")
@@ -118,6 +127,8 @@
 					H.head_hair_style = "Skinhead"
 					H.update_hair()
 					playsound(src.loc, 'sound/items/Welder2.ogg', 40, 1)
+				return TRUE
+
 			else
 				var/turf/user_loc = user.loc
 				var/turf/H_loc = H.loc
@@ -130,6 +141,7 @@
 						H.head_hair_style = "Skinhead"
 						H.update_hair()
 						playsound(src.loc, 'sound/items/Welder2.ogg', 40, 1)
+				return TRUE
 		else
 			..()
 	else

@@ -20,7 +20,7 @@
 	..()
 	beams = list()
 	seen_turfs = list()
-	proximity_trigger = new(src, /obj/item/device/assembly/infra/proc/on_beam_entered, /obj/item/device/assembly/infra/proc/on_visibility_change, world.view, PROXIMITY_EXCLUDE_HOLDER_TURF)
+	proximity_trigger = new(src, PROC_REF(on_beam_entered), PROC_REF(on_visibility_change), world.view, PROXIMITY_EXCLUDE_HOLDER_TURF)
 
 /obj/item/device/assembly/infra/Destroy()
 	qdel(proximity_trigger)
@@ -44,15 +44,15 @@
 		proximity_trigger.unregister_turfs()
 	update_icon()
 
-/obj/item/device/assembly/infra/toggle_secure()
-	secured = !secured
+/obj/item/device/assembly/infra/set_secure(make_secure)
+	..()
 	set_active(secured ? FALSE : on)
 	return secured
 
 /obj/item/device/assembly/infra/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(on)
-		overlays += "infrared_on"
+		AddOverlays("infrared_on")
 	if(holder)
 		holder.update_icon()
 	update_beams()
@@ -65,9 +65,9 @@
 
 	user.set_machine(src)
 	var/dat = list()
-	dat += text("<TT><B>Infrared Laser</B>\n<B>Status</B>: []<BR>\n<B>Visibility</B>: []<BR>\n</TT>", (on ? text("<A href='?src=\ref[];state=0'>On</A>", src) : text("<A href='?src=\ref[];state=1'>Off</A>", src)), (src.visible ? text("<A href='?src=\ref[];visible=0'>Visible</A>", src) : text("<A href='?src=\ref[];visible=1'>Invisible</A>", src)))
-	dat += "<BR><BR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
-	dat += "<BR><BR><A href='?src=\ref[src];close=1'>Close</A>"
+	dat += text("<TT><B>Infrared Laser</B>\n<B>Status</B>: []<BR>\n<B>Visibility</B>: []<BR>\n</TT>", (on ? text("<A href='byond://?src=\ref[];state=0'>On</A>", src) : text("<A href='byond://?src=\ref[];state=1'>Off</A>", src)), (src.visible ? text("<A href='byond://?src=\ref[];visible=0'>Visible</A>", src) : text("<A href='byond://?src=\ref[];visible=1'>Invisible</A>", src)))
+	dat += "<BR><BR><A href='byond://?src=\ref[src];refresh=1'>Refresh</A>"
+	dat += "<BR><BR><A href='byond://?src=\ref[src];close=1'>Close</A>"
 	show_browser(user, jointext(dat,null), "window=infra")
 	onclose(user, "infra")
 
@@ -125,7 +125,7 @@
 	var/list/turfs_that_need_beams = seen_turfs.Copy()
 
 	for(var/b in existing_beams)
-		var/obj/effect/beam/ir_beam/beam = b
+		var/obj/beam/ir_beam/beam = b
 		if(beam.loc in turfs_that_need_beams)
 			turfs_that_need_beams -= beam.loc
 			beam.set_invisibility(visible ? 0 : INVISIBILITY_MAXIMUM)
@@ -137,11 +137,11 @@
 		return
 
 	for(var/t in turfs_that_need_beams)
-		var/obj/effect/beam/ir_beam/beam = new(t)
+		var/obj/beam/ir_beam/beam = new(t)
 		existing_beams += beam
 		beam.set_dir(dir)
 
-/obj/effect/beam/ir_beam
+/obj/beam/ir_beam
 	name = "ir beam"
 	icon = 'icons/obj/projectiles.dmi'
 	icon_state = "ibeam"

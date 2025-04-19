@@ -66,6 +66,7 @@
 	var/dart_reagent_amount = 15
 	var/container_type = /obj/item/reagent_containers/glass/beaker
 	var/list/starting_chems = null
+	action_button_name = "Access Mixing Controls"
 
 /obj/item/gun/projectile/dartgun/Initialize()
 	if(starting_chems)
@@ -104,11 +105,15 @@
 				for(var/datum/reagent/R in B.reagents.reagent_list)
 					to_chat(user, SPAN_NOTICE("[R.volume] units of [R.name]"))
 
-/obj/item/gun/projectile/dartgun/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/reagent_containers/glass))
-		add_beaker(I, user)
-		return 1
-	..()
+
+/obj/item/gun/projectile/dartgun/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Glass Reagent Container - Add beaker
+	if (istype(tool, /obj/item/reagent_containers/glass))
+		add_beaker(tool, user)
+		return TRUE
+
+	return ..()
+
 
 /obj/item/gun/projectile/dartgun/proc/add_beaker(obj/item/reagent_containers/glass/B, mob/user)
 	if(!istype(B, container_type))
@@ -154,21 +159,21 @@
 				for(var/datum/reagent/R in B.reagents.reagent_list)
 					dat += "<br>    [R.volume] units of [R.name], "
 				if(B in mixing)
-					dat += "<A href='?src=\ref[src];stop_mix=[i]'>[SPAN_COLOR("green", "Mixing")]</A> "
+					dat += "<A href='byond://?src=\ref[src];stop_mix=[i]'>[SPAN_COLOR("green", "Mixing")]</A> "
 				else
-					dat += "<A href='?src=\ref[src];mix=[i]'>[SPAN_COLOR("red", "Not mixing")]</A> "
+					dat += "<A href='byond://?src=\ref[src];mix=[i]'>[SPAN_COLOR("red", "Not mixing")]</A> "
 			else
 				dat += "nothing."
-			dat += " \[<A href='?src=\ref[src];eject=[i]'>Eject</A>\]<br>"
+			dat += " \[<A href='byond://?src=\ref[src];eject=[i]'>Eject</A>\]<br>"
 
 	if(ammo_magazine)
 		if(ammo_magazine.stored_ammo && length(ammo_magazine.stored_ammo))
 			dat += "The dart cartridge has [length(ammo_magazine.stored_ammo)] shots remaining."
 		else
 			dat += SPAN_COLOR("red", "The dart cartridge is empty!")
-		dat += " \[<A href='?src=\ref[src];eject_cart=1'>Eject</A>\]<br>"
+		dat += " \[<A href='byond://?src=\ref[src];eject_cart=1'>Eject</A>\]<br>"
 
-	dat += "<br>\[<A href='?src=\ref[src];refresh=1'>Refresh</A>\]"
+	dat += "<br>\[<A href='byond://?src=\ref[src];refresh=1'>Refresh</A>\]"
 
 	var/datum/browser/popup = new(user, "dartgun", "[src] mixing control")
 	popup.set_content(jointext(dat,null))

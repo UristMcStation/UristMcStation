@@ -26,7 +26,7 @@
 	..()
 	block=GLOB.MUTEBLOCK
 
-/datum/dna/gene/disability/mute/OnSay(mob/M, var/message)
+/datum/dna/gene/disability/mute/OnSay(mob/M, message)
 	return ""
 
 ////////////////////////////////////////
@@ -52,7 +52,7 @@
 		L.rad_act(5)
 	return
 
-/datum/dna/gene/disability/radioactive/OnDrawUnderlays(mob/M,var/g,var/fat)
+/datum/dna/gene/disability/radioactive/OnDrawUnderlays(mob/M,g,fat)
 	return "rads[fat]_s"
 
 ////////////////////////////////////////
@@ -141,7 +141,7 @@
 	..()
 	block=GLOB.CHAVBLOCK
 
-/datum/dna/gene/disability/speech/chav/OnSay(mob/M, var/message)
+/datum/dna/gene/disability/speech/chav/OnSay(mob/M, message)
 	// THIS ENTIRE THING BEGS FOR REGEX
 	message = replacetext(message,"dick","prat")
 	message = replacetext(message,"comdom","knob'ead")
@@ -185,7 +185,7 @@
 	..()
 	block=GLOB.SWEDEBLOCK
 
-/datum/dna/gene/disability/speech/swedish/OnSay(mob/M, var/message)
+/datum/dna/gene/disability/speech/swedish/OnSay(mob/M, message)
 	// svedish
 	message = replacetext(message,"w","v")
 	if(prob(30))
@@ -269,7 +269,7 @@
 	..()
 	block=GLOB.HORNSBLOCK
 
-/datum/dna/gene/disability/horns/OnDrawUnderlays(mob/M,var/g,var/fat)
+/datum/dna/gene/disability/horns/OnDrawUnderlays(mob/M,g,fat)
 	return "horns_s"
 
 /* Stupid
@@ -396,5 +396,5 @@
 	..()
 	block=GLOB.LISPBLOCK
 
-/datum/dna/gene/disability/lisp/OnSay(mob/M, var/message)
+/datum/dna/gene/disability/lisp/OnSay(mob/M, message)
 		return replacetext(message,"s","th")

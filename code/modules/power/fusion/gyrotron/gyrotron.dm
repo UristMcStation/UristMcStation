@@ -2,9 +2,9 @@
 
 /obj/machinery/power/emitter/gyrotron
 	name = "gyrotron"
-	icon = 'icons/obj/machines/power/fusion.dmi'
+	icon = 'icons/obj/machines/power/gyrotron.dmi'
 	desc = "A heavy-duty, highly configurable industrial gyrotron suited for powering fusion reactors."
-	icon_state = "emitter-off"
+	icon_state = "emitter"
 	req_lock_access = list(access_engine)
 	use_power = POWER_USE_IDLE
 	active_power_usage = GYRO_POWER
@@ -42,22 +42,22 @@
 /obj/machinery/power/emitter/gyrotron/get_burst_delay()
 	return rate * 10
 
-/obj/machinery/power/emitter/gyrotron/get_emitter_beam()
-	var/obj/item/projectile/beam/emitter/E = ..()
-	E.damage = mega_energy * 50
-	return E
+/obj/machinery/power/emitter/gyrotron/get_emitter_damage()
+	return mega_energy * 50
 
 /obj/machinery/power/emitter/gyrotron/on_update_icon()
+	ClearOverlays()
+	if(panel_open)
+		AddOverlays("[icon_state]_panel")
 	if (active && powernet && avail(active_power_usage))
-		icon_state = "emitter-on"
-	else
-		icon_state = "emitter-off"
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
 
-/obj/machinery/power/emitter/gyrotron/attackby(obj/item/W, mob/user)
+/obj/machinery/power/emitter/gyrotron/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(isMultitool(W))
 		var/datum/extension/local_network_member/fusion = get_extension(src, /datum/extension/local_network_member)
 		fusion.get_new_tag(user)
-		return
+		return TRUE
 	return ..()
 
 #undef GYRO_POWER

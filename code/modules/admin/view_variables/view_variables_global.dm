@@ -1,8 +1,7 @@
-GLOBAL_DATUM_INIT(debug_real_globals, /datum/debug_real_globals, new)
+GLOBAL_TYPED_NEW(debug_real_globals, /datum/debug_real_globals)
 
 
 /datum/debug_real_globals
-	var/static/atom/movable/clickable_stat/__stat_line
 	var/static/list/global_names
 
 
@@ -12,14 +11,7 @@ GLOBAL_DATUM_INIT(debug_real_globals, /datum/debug_real_globals, new)
 	for (var/name in global.vars)
 		if (name in hidden)
 			continue
-		ADD_SORTED(global_names, name, /proc/cmp_text_asc)
-
-
-/datum/debug_real_globals/proc/UpdateStat()
-	if (!__stat_line)
-		__stat_line = new (null, src)
-		__stat_line.name = "Edit"
-	stat("Real Globals", __stat_line)
+		ADD_SORTED(global_names, name, GLOBAL_PROC_REF(cmp_text_asc))
 
 
 /datum/debug_real_globals/get_variables()
@@ -27,7 +19,7 @@ GLOBAL_DATUM_INIT(debug_real_globals, /datum/debug_real_globals, new)
 
 
 /datum/debug_real_globals/make_view_variables_variable_entry(name, value)
-	return {"(<a href="?_src_=vars;datumedit=\ref[src];varnameedit=[name]">E</a>) "}
+	return {"(<a href="byond://?_src_=vars;datumedit=\ref[src];varnameedit=[name]">E</a>) "}
 
 
 /datum/debug_real_globals/set_variable_value(name, value)

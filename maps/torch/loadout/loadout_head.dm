@@ -1,7 +1,7 @@
 /datum/gear/head/solberet
 	display_name = "SolGov beret selection"
 	description = "A beret denoting service in an organization within SolGov."
-	path = /obj/item/clothing/head/beret/solgov
+	path = /obj/item/clothing/head/beret
 	allowed_branches = SOLGOV_BRANCHES
 	flags = GEAR_HAS_NO_CUSTOMIZATION
 
@@ -14,7 +14,6 @@
 	berets["customs and trade beret"] = /obj/item/clothing/head/beret/solgov/customs
 	berets["government research beret"] = /obj/item/clothing/head/beret/solgov/research
 	berets["health service beret"] = /obj/item/clothing/head/beret/solgov/health
-	berets["diplomatic security beret"] = /obj/item/clothing/head/beret/solgov/diplomatic
 	berets["border security beret"] = /obj/item/clothing/head/beret/solgov/borderguard
 	gear_tweaks += new/datum/gear_tweak/path(berets)
 
@@ -66,9 +65,6 @@
 /datum/gear/sterile_mask
 	display_name = "sterile mask"
 	path = /obj/item/clothing/mask/surgical
-
-/datum/gear/head/bandana
-	allowed_branches = CIVILIAN_BRANCHES
 
 /datum/gear/head/beanie
 	allowed_branches = CIVILIAN_BRANCHES
@@ -140,3 +136,53 @@
 
 /datum/gear/head/deckcrew
 	allowed_roles = SUPPLY_ROLES
+
+
+/datum/gear/tactical/armor_tag_flag
+	display_name = "Armor Tag Selection - Flags"
+	path = /obj/item/clothing/accessory/armor_tag
+	flags = GEAR_HAS_NO_CUSTOMIZATION
+
+
+/datum/gear/tactical/armor_tag_flag/New()
+	..()
+	var/list/options = list()
+	options["SCG flag"] = /obj/item/clothing/accessory/armor_tag/solgov
+	options["EC flag"] = /obj/item/clothing/accessory/armor_tag/solgov/ec
+	options["Fleet flag"] =  /obj/item/clothing/accessory/armor_tag/solgov/fleet
+	gear_tweaks += new /datum/gear_tweak/path (options)
+
+
+/datum/gear/tactical/armor_tag_blood
+	display_name = "Armor Tag Selection - Blood Type"
+	path = /obj/item/clothing/accessory/armor_tag
+	flags = GEAR_HAS_NO_CUSTOMIZATION
+
+
+/datum/gear/tactical/armor_tag_blood/New()
+	..()
+	var/list/options = list()
+	options["O+ blood patch"] = /obj/item/clothing/accessory/armor_tag/opos
+	options["O- blood patch"] = /obj/item/clothing/accessory/armor_tag/oneg
+	options["A+ blood patch"] = /obj/item/clothing/accessory/armor_tag/apos
+	options["A- blood patch"] = /obj/item/clothing/accessory/armor_tag/aneg
+	options["AB+ blood patch"] = /obj/item/clothing/accessory/armor_tag/abpos
+	options["AB- blood patch"] = /obj/item/clothing/accessory/armor_tag/abneg
+	options["B+ blood patch"] = /obj/item/clothing/accessory/armor_tag/bpos
+	options["B- blood patch"] = /obj/item/clothing/accessory/armor_tag/bneg
+	gear_tweaks += new /datum/gear_tweak/path (options)
+
+
+/datum/gear/tactical/armor_tag_corporate
+	display_name = "Armor Tag Selection - Faction Insignia"
+	path = /obj/item/clothing/accessory/armor_tag
+	flags = GEAR_HAS_NO_CUSTOMIZATION
+
+
+/datum/gear/tactical/armor_tag_corporate/New()
+	..()
+	var/list/options = list()
+	options["SAARE tag"] = /obj/item/clothing/accessory/armor_tag/saare
+	options["PCRC tag"] =  /obj/item/clothing/accessory/armor_tag/pcrc
+	options["SFP tag"] = /obj/item/clothing/accessory/armor_tag/sfp
+	gear_tweaks += new /datum/gear_tweak/path (options)

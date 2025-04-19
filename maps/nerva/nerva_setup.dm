@@ -16,7 +16,7 @@
 	return jointext(., "<br>")
 
 /datum/map/nerva/send_welcome()
-	var/obj/effect/overmap/visitable/ship/combat/nerva = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/combat/nerva)
+	var/obj/overmap/visitable/ship/combat/nerva = SSshuttle.ship_by_type(/obj/overmap/visitable/ship/combat/nerva)
 	contracts += new /datum/contract/nanotrasen/anomaly
 	var/welcome_text = "<center><img src = [GLOB.using_map.logo]><br>"
 	welcome_text += "<br /><font size = 3><b>ICS Nerva</b> Sensor Readings:</font><hr />"
@@ -28,19 +28,19 @@
 		welcome_text += "Travel time to Sol:<br /><b>[rand(5,10)] days</b><br />"
 		welcome_text += "Time since last port visit:<br /><b>[rand(30,50)] days</b><br />"
 		welcome_text += "Scan results:<br />"
-		//var/obj/effect/overmap/nerva = map_sectors["1"]
+		//var/obj/overmap/nerva = map_sectors["1"]
 		for(var/zlevel in map_sectors)
-			var/obj/effect/overmap/visitable/O = map_sectors[zlevel]
+			var/obj/overmap/visitable/O = map_sectors[zlevel]
 			if(O.name == nerva.name)
 				continue
-			if(istype(O, /obj/effect/overmap/visitable/ship/landable)) //Don't show shuttles
+			if(istype(O, /obj/overmap/visitable/ship/landable)) //Don't show shuttles
 				continue
 			if (O.hide_from_reports)
 				continue
 			space_things |= O
 
 		var/list/distress_calls
-		for(var/obj/effect/overmap/O in space_things)
+		for(var/obj/overmap/O in space_things)
 			var/location_desc = " at present co-ordinates."
 			if (O.loc != nerva.loc)
 				var/bearing = round(90 - Atan2(O.x - nerva.x, O.y - nerva.y),5) //fucking triangles how do they work

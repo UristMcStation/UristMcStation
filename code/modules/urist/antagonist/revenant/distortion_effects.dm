@@ -10,7 +10,7 @@
 var/global/list/revenant_distortions = (typesof(/datum/power/revenant/distortion) - /datum/power/revenant/distortion)
 
 
-/datum/power/revenant/distortion/proc/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/proc/Apply(atom/A, datum/bluespace_revenant/revenant)
 	// Does A Thing to an entity, generally someone else than the BsRev
 	return
 
@@ -38,7 +38,7 @@ var/global/list/revenant_distortions = (typesof(/datum/power/revenant/distortion
 	return tagged_list
 
 
-/datum/bluespace_revenant/proc/select_distortions(var/list/flavors_override = null)
+/datum/bluespace_revenant/proc/select_distortions(list/flavors_override = null)
 	var/list/helper_result = src.select_bsrevenant_attributes(flavors_override, /datum/bluespace_revenant/proc/get_distortions_by_tag, 4, "Distortion")
 	if(!istype(helper_result))
 		helper_result = list()
@@ -52,7 +52,7 @@ var/global/list/revenant_distortions = (typesof(/datum/power/revenant/distortion
 	return helper_result
 
 
-/datum/bluespace_revenant/proc/roll_for_effects(var/current_distortion = 0)
+/datum/bluespace_revenant/proc/roll_for_effects(current_distortion = 0)
 	if((current_distortion || 0) <= 0)
 		return FALSE
 
@@ -70,7 +70,7 @@ var/global/list/revenant_distortions = (typesof(/datum/power/revenant/distortion
 	return perc_odds
 
 
-/datum/bluespace_revenant/proc/HandleDistortionFX(var/atom/A)
+/datum/bluespace_revenant/proc/HandleDistortionFX(atom/A)
 	if(!istype(A))
 		return
 
@@ -107,7 +107,7 @@ var/global/list/revenant_distortions = (typesof(/datum/power/revenant/distortion
 
 
 
-/datum/bluespace_revenant/proc/ApplyDistortionFX(var/atom/A)
+/datum/bluespace_revenant/proc/ApplyDistortionFX(atom/A)
 	if(!istype(A))
 		return
 
@@ -135,4 +135,3 @@ var/global/list/revenant_distortions = (typesof(/datum/power/revenant/distortion
 
 	. = distEff?.Apply(A, src)
 	return
-

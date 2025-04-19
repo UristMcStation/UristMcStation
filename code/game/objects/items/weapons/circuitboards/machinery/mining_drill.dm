@@ -1,5 +1,5 @@
 /obj/item/stock_parts/circuitboard/miningdrill
-	name = T_BOARD("mining drill head")
+	name = "circuit board (mining drill head)"
 	build_path = /obj/machinery/mining/drill
 	board_type = "machine"
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
@@ -13,7 +13,7 @@
 	)
 
 /obj/item/stock_parts/circuitboard/miningdrillbrace
-	name = T_BOARD("mining drill brace")
+	name = "circuit board (mining drill brace)"
 	build_path = /obj/machinery/mining/brace
 	board_type = "machine"
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)

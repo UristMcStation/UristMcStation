@@ -1,18 +1,18 @@
-/obj/effect/landmark/corpse/fleet
+/obj/landmark/corpse/fleet
 	name = "Fleet Armsman"
 	corpse_outfits = list(/singleton/hierarchy/outfit/job/torch/ert/hostile)
 	spawn_flags = CORPSE_SPAWNER_RANDOM_NAMELESS | CORPSE_SPAWNER_ALL_SKIPS
 
-/obj/effect/landmark/corpse/fleet/leader
+/obj/landmark/corpse/fleet/leader
 	name = "Fleet Team Leader"
 	corpse_outfits = list(/singleton/hierarchy/outfit/job/torch/ert/hostile/leader)
 
-/obj/effect/landmark/corpse/fleet/space
+/obj/landmark/corpse/fleet/space
 	name = "Fleet Assault Armsman"
 	corpse_outfits = list(/singleton/hierarchy/outfit/job/torch/ert/hostile/suit)
 
 /obj/item/clothing/suit/armor/bulletproof/armsman
-	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_ARMOR_A, ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
+	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_ARMOR_ARMS, ACCESSORY_SLOT_ARMOR_LEGS, ACCESSORY_SLOT_ARMOR_STORAGE)
 	accessories = list(
 		/obj/item/clothing/accessory/arm_guards/riot,
 		/obj/item/clothing/accessory/leg_guards/riot,
@@ -23,7 +23,7 @@
 /obj/item/clothing/head/helmet/armsman
 	accessories = list(/obj/item/clothing/accessory/helmet_cover/lead)
 
-/mob/living/simple_animal/hostile/fleet
+/mob/living/simple_animal/hostile/human/fleet
 	name = "\improper Fleet Armsman"
 	desc = "An armsman wearing Fleet garbs. They have a Fleet patch on their uniform, and pride on their shoulders."
 	icon_state = "fleetarmsman"
@@ -58,7 +58,7 @@
 	say_list_type = /datum/say_list/fleet/traitor
 	ranged = TRUE
 
-/mob/living/simple_animal/hostile/fleet/death(gibbed, deathmessage, show_dead_message)
+/mob/living/simple_animal/hostile/human/fleet/death(gibbed, deathmessage, show_dead_message)
 	..(gibbed, deathmessage, show_dead_message)
 	if(corpse)
 		new corpse (loc)
@@ -71,26 +71,26 @@
 
 ///////////////Pistol////////////////
 
-/mob/living/simple_animal/hostile/fleet/ranged
+/mob/living/simple_animal/hostile/human/fleet/ranged
 	name = "\improper Armed Fleet Armsman"
 	icon_state = "fleetarmsmanarmed"
 	icon_living = "fleetarmsmanarmed"
 
-	corpse = /obj/effect/landmark/corpse/fleet
+	corpse = /obj/landmark/corpse/fleet
 
 	casingtype = /obj/item/ammo_casing/pistol
 	projectiletype = /obj/item/projectile/bullet/pistol
 	natural_weapon = /obj/item/gun/projectile/pistol/m22f
 	weapon1 = /obj/item/gun/projectile/pistol/m22f
-	status_flags = EMPTY_BITFIELD
+	status_flags = FLAGS_OFF
 
-/mob/living/simple_animal/hostile/fleet/ranged/neutral
+/mob/living/simple_animal/hostile/human/fleet/ranged/neutral
 	say_list_type = /datum/say_list/fleet/friendly
 	faction = MOB_FACTION_CREW
 
 //////////////Bullpup////////////////
 
-/mob/living/simple_animal/hostile/fleet/ranged/bullpup
+/mob/living/simple_animal/hostile/human/fleet/ranged/bullpup
 	name = "\improper Fleet Rifleman"
 	icon_state = "fleetrifleman"
 	icon_living = "fleetrifleman"
@@ -98,15 +98,15 @@
 	projectiletype = /obj/item/projectile/bullet/rifle
 	natural_weapon = /obj/item/gun/projectile/automatic/z8/light
 	weapon1 = /obj/item/gun/projectile/automatic/z8/light
-	status_flags = EMPTY_BITFIELD
+	status_flags = FLAGS_OFF
 
-/mob/living/simple_animal/hostile/fleet/ranged/bullpup/neutral
+/mob/living/simple_animal/hostile/human/fleet/ranged/bullpup/neutral
 	say_list_type = /datum/say_list/fleet/friendly
 	faction = MOB_FACTION_CREW
 
 //////////////Team Leader////////////////
 
-/mob/living/simple_animal/hostile/fleet/ranged/leader
+/mob/living/simple_animal/hostile/human/fleet/ranged/leader
 	name = "\improper Fleet Team Leader"
 	desc = "A Fleet armsman with armaments. This one seems to be more armed than the rest, sporting a Vesper machine-pistol."
 	icon_state = "fleetteamlead"
@@ -117,14 +117,14 @@
 	projectiletype = /obj/item/projectile/bullet/pistol
 	natural_weapon = /obj/item/gun/projectile/automatic/machine_pistol
 	weapon1 = /obj/item/gun/projectile/automatic/machine_pistol
-	status_flags = EMPTY_BITFIELD
+	status_flags = FLAGS_OFF
 
-	corpse = /obj/effect/landmark/corpse/fleet/leader
+	corpse = /obj/landmark/corpse/fleet/leader
 
 	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile/fleet/ranged/teamlead
 	rapid = TRUE
 
-/mob/living/simple_animal/hostile/fleet/ranged/leader/neutral
+/mob/living/simple_animal/hostile/human/fleet/ranged/leader/neutral
 	say_list_type = /datum/say_list/fleet/friendly
 	faction = MOB_FACTION_CREW
 
@@ -132,13 +132,13 @@
 
 //////////////Rigsuit////////////////
 
-/mob/living/simple_animal/hostile/fleet/space
+/mob/living/simple_animal/hostile/human/fleet/space
 	name = "\improper Fleet Assault Armsman"
 	desc = "A Fleet Armsman clad in a special-purpose rigsuit. They seem tough and hardy."
 	icon_state = "fleetassault"
 	icon_living = "fleetassault"
 	icon_dead = "fleetassault_dead"
-	corpse = /obj/effect/landmark/corpse/fleet/space
+	corpse = /obj/landmark/corpse/fleet/space
 	ranged = TRUE
 	natural_armor = list(
 		melee = ARMOR_MELEE_KNIVES,
@@ -156,34 +156,37 @@
 	ai_holder = /datum/ai_holder/simple_animal/humanoid/hostile/fleet/ranged/space
 
 
-/mob/living/simple_animal/hostile/fleet/space/emp_act(severity)
+/mob/living/simple_animal/hostile/human/fleet/space/emp_act(severity)
 	if (status_flags & GODMODE)
 		return
 	. = ..()
 	stun()
 
-/mob/living/simple_animal/hostile/fleet/space/proc/stun()
+/mob/living/simple_animal/hostile/human/fleet/space/proc/stun()
 	if (deactivated)
 		return
 	set_AI_busy(TRUE)
 	deactivated = TRUE
 	visible_message(SPAN_MFAUNA("\The [src]'s rigsuit flashes hastily, locking into place!"))
 	update_icon()
-	addtimer(new Callback(src, .proc/reactivate), 6 SECONDS)
+	addtimer(new Callback(src, PROC_REF(reactivate)), 6 SECONDS)
 
-/mob/living/simple_animal/hostile/fleet/space/proc/reactivate()
+/mob/living/simple_animal/hostile/human/fleet/space/proc/reactivate()
 	set_AI_busy(FALSE)
 	deactivated = FALSE
 	visible_message(SPAN_MFAUNA("\The [src]'s rigsuit stops flashing, regaining motion!"))
 	update_icon()
 
-/mob/living/simple_animal/hostile/fleet/space/neutral
+/mob/living/simple_animal/hostile/human/fleet/space/neutral
 	say_list_type = /datum/say_list/fleet/friendly
 	faction = MOB_FACTION_CREW
 
+/mob/living/simple_animal/hostile/human/fleet/space/Process_Spacemove(allow_movement)
+	return TRUE
+
 //////////////Rigsuit - Bullpup////////////////
 
-/mob/living/simple_animal/hostile/fleet/space/ranged
+/mob/living/simple_animal/hostile/human/fleet/space/ranged
 	icon_state = "fleetassaultarmed"
 	icon_living = "fleetassaultarmed"
 	casingtype = /obj/item/ammo_casing/rifle
@@ -191,16 +194,16 @@
 	natural_weapon = /obj/item/gun/projectile/automatic/z8/light
 	weapon1 = /obj/item/gun/projectile/automatic/z8/light
 
-/mob/living/simple_animal/hostile/fleet/space/ranged/on_update_icon()
+/mob/living/simple_animal/hostile/human/fleet/space/ranged/on_update_icon()
 	..()
 	if(stat != DEAD)
 		if(deactivated)
-			overlays += image(icon, "disabled")
+			AddOverlays(image(icon, "disabled"))
 			return
 
-		overlays.Cut()
+		ClearOverlays()
 
-/mob/living/simple_animal/hostile/fleet/space/ranged/neutral
+/mob/living/simple_animal/hostile/human/fleet/space/ranged/neutral
 	say_list_type = /datum/say_list/fleet/friendly
 	faction = MOB_FACTION_CREW
 
@@ -210,7 +213,7 @@
 #define ATTACK_MODE_LAS      "las"
 #define ATTACK_MODE_SAW      "saw"
 
-/mob/living/simple_animal/hostile/fleet/space/ranged/heavy
+/mob/living/simple_animal/hostile/human/fleet/space/ranged/heavy
 	name = "\improper Fleet Heavy Weapons Specialist"
 	desc = "A Fleet Specialist clad in a heavier variant of the special-purpose rigsuit. Their module seems to carry a shoulder-mounted laser. Complementing their L6 SAW."
 	icon_state = "fleetheavy"
@@ -230,11 +233,11 @@
 	var/attack_mode = ATTACK_MODE_SAW
 	var/num_shots
 
-/mob/living/simple_animal/hostile/fleet/space/ranged/heavy/Initialize()
+/mob/living/simple_animal/hostile/human/fleet/space/ranged/heavy/Initialize()
 	. = ..()
 	switch_mode(ATTACK_MODE_LAS)
 
-/mob/living/simple_animal/hostile/fleet/space/ranged/heavy/Life()
+/mob/living/simple_animal/hostile/human/fleet/space/ranged/heavy/Life()
 	. = ..()
 	if(!.)
 		return
@@ -242,7 +245,7 @@
 	if(time_last_used_ability < world.time)
 		switch_mode(ATTACK_MODE_LAS)
 
-/mob/living/simple_animal/hostile/fleet/space/ranged/heavy/proc/switch_mode(new_mode)
+/mob/living/simple_animal/hostile/human/fleet/space/ranged/heavy/proc/switch_mode(new_mode)
 	if(!new_mode || new_mode == attack_mode)
 		return
 
@@ -263,11 +266,11 @@
 			num_shots = 10
 			fire_desc = "fires a burst"
 			time_last_used_ability = base_attack_cooldown + world.time
-			visible_message(SPAN_MFAUNA("\The [src] pulls up \the machinegun to bear!"))
+			visible_message(SPAN_MFAUNA("\The [src] pulls up a machinegun to bear!"))
 
 	update_icon()
 
-/mob/living/simple_animal/hostile/fleet/space/ranged/heavy/shoot_target(target_mob)
+/mob/living/simple_animal/hostile/human/fleet/space/ranged/heavy/shoot_target(target_mob)
 	if(num_shots <= 0)
 		if(attack_mode == ATTACK_MODE_LAS)
 			switch_mode(ATTACK_MODE_SAW)
@@ -275,24 +278,24 @@
 			switch_mode(ATTACK_MODE_LAS)
 	..()
 
-/mob/living/simple_animal/hostile/fleet/space/ranged/heavy/shoot(target, start, user, bullet)
+/mob/living/simple_animal/hostile/human/fleet/space/ranged/heavy/shoot(target, start, user, bullet)
 	if (projectiletype)
 		..()
 		num_shots--
 
-/mob/living/simple_animal/hostile/fleet/space/ranged/heavy/on_update_icon()
+/mob/living/simple_animal/hostile/human/fleet/space/ranged/heavy/on_update_icon()
 	..()
 	if(stat != DEAD)
 		if(deactivated)
-			overlays += image(icon, "disabled")
+			AddOverlays(image(icon, "disabled"))
 			return
 
-		overlays.Cut()
+		ClearOverlays()
 		switch(attack_mode)
 			if(ATTACK_MODE_LAS)
-				overlays += image(icon, "laser")
+				AddOverlays(image(icon, "laser"))
 
-/mob/living/simple_animal/hostile/fleet/space/ranged/heavy/neutral
+/mob/living/simple_animal/hostile/human/fleet/space/ranged/heavy/neutral
 	say_list_type = /datum/say_list/fleet/friendly
 	faction = MOB_FACTION_CREW
 

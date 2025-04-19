@@ -45,7 +45,7 @@
 	if(target == selected_hardpoint)
 		clear_selected_hardpoint()
 
-	GLOB.destroyed_event.unregister(module_to_forget, src, .proc/forget_module)
+	GLOB.destroyed_event.unregister(module_to_forget, src, PROC_REF(forget_module))
 
 	var/obj/screen/exosuit/hardpoint/H = hardpoint_hud_elements[target]
 	H.holding = null
@@ -87,18 +87,21 @@
 				SPAN_NOTICE("\The [user] begins trying to install \the [system] into \the [src]."),
 				SPAN_NOTICE("You begin trying to install \the [system] into \the [src].")
 			)
-			if(!do_after(user, delay, src, DO_PUBLIC_UNIQUE) || user.get_active_hand() != system)
+			if(!do_after(user, delay, src, DO_PUBLIC_UNIQUE) || user.get_active_hand() != system || !user.use_sanity_check(src, system, SANITY_CHECK_DEFAULT | SANITY_CHECK_TOOL_UNEQUIP))
 				return FALSE
 
 			if(hardpoints_locked || hardpoints[system_hardpoint])
 				return FALSE
 
 			if(user.unEquip(system))
-				to_chat(user, SPAN_NOTICE("You install \the [system] in \the [src]'s [system_hardpoint]."))
+				user.visible_message(
+					SPAN_NOTICE("\The [user] installs \the [system] into \the [src]'s [system_hardpoint]."),
+					SPAN_NOTICE("You install \the [system] in \the [src]'s [system_hardpoint].")
+				)
 				playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			else return FALSE
 
-	GLOB.destroyed_event.register(system, src, .proc/forget_module)
+	GLOB.destroyed_event.register(system, src, PROC_REF(forget_module))
 
 	system.forceMove(src)
 	hardpoints[system_hardpoint] = system
@@ -140,7 +143,7 @@
 	system.forceMove(get_turf(src))
 	system.screen_loc = null
 	system.layer = initial(system.layer)
-	GLOB.destroyed_event.unregister(system, src, .proc/forget_module)
+	GLOB.destroyed_event.unregister(system, src, PROC_REF(forget_module))
 
 	var/obj/screen/exosuit/hardpoint/H = hardpoint_hud_elements[system_hardpoint]
 	H.holding = null

@@ -173,7 +173,7 @@
 /turf/simulated/floor/plating/airless,
 /area/djstation)
 "ax" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating/airless,
 /area/djstation)
 "ay" = (
@@ -417,7 +417,7 @@
 /area/djstation)
 "aV" = (
 /obj/structure/closet/emcloset,
-/obj/effect/decal/cleanable/cobweb,
+/obj/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled,
 /area/djstation)
 "aX" = (
@@ -499,7 +499,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood{
+/obj/decal/cleanable/blood{
 	name = "dried blood"
 	},
 /turf/simulated/floor/tiled/white/airless,
@@ -537,7 +537,7 @@
 /turf/simulated/floor/tiled,
 /area/djstation)
 "bx" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "by" = (
@@ -776,7 +776,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "cj" = (
@@ -823,11 +823,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "cp" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/solar_control)
 "cq" = (
@@ -837,8 +837,8 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/rust,
-/obj/effect/decal/cleanable/dirt,
+/obj/floor_decal/rust,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/primary)
 "cr" = (
@@ -860,11 +860,11 @@
 	dir = 4;
 	icon_state = "intact-scrubbers"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "cs" = (
-/obj/effect/floor_decal/urist/russian{
+/obj/floor_decal/urist/russian{
 	icon_state = "derelict16"
 	},
 /obj/structure/cable{
@@ -875,25 +875,25 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
 "ct" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "cu" = (
-/obj/effect/decal/cleanable/blood{
+/obj/decal/cleanable/blood{
 	name = "dried blood"
 	},
 /turf/simulated/wall/prepainted,
 /area/solar/derelict_aft)
 "cv" = (
-/obj/effect/landmark/scorcher/certain,
-/obj/effect/floor_decal/rust,
-/obj/effect/decal/cleanable/dirt,
+/obj/landmark/scorcher/certain,
+/obj/floor_decal/rust,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "cw" = (
 /obj/structure/bed/nice,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "cx" = (
@@ -908,16 +908,16 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "cz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/singularity_engine)
 "cA" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -1014,7 +1014,7 @@
 /turf/simulated/floor/plating/airless,
 /area/solar/derelict_starboard)
 "cJ" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/solar_control)
@@ -1038,8 +1038,8 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/solar_control)
 "cN" = (
-/obj/effect/overmap/visitable/sector/russianderelict,
-/obj/effect/landmark/scorcher/certain,
+/obj/overmap/visitable/sector/russianderelict,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "cO" = (
@@ -1054,7 +1054,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "cR" = (
@@ -1164,7 +1164,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/armory)
 "dd" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/armory)
@@ -1193,8 +1193,8 @@
 /turf/space,
 /area/russianderelict/bridge/ai_upload)
 "dk" = (
-/obj/effect/landmark/scorcher/certain,
-/obj/effect/decal/cleanable/dirt,
+/obj/landmark/scorcher/certain,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/space)
 "dl" = (
@@ -1229,7 +1229,7 @@
 /turf/simulated/wall/r_wall/prepainted,
 /area/russianderelict/singularity_engine)
 "do" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/bridge/access)
@@ -1240,7 +1240,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "dq" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
@@ -1334,7 +1334,7 @@
 /area/russianderelict/solar_control)
 "dG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "dH" = (
@@ -1352,8 +1352,8 @@
 /area/russianderelict/bridge)
 "dL" = (
 /obj/structure/closet/radiation,
-/obj/effect/landmark/scorcher/certain,
-/obj/effect/decal/cleanable/dirt,
+/obj/landmark/scorcher/certain,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "dM" = (
@@ -1370,7 +1370,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "dP" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/medical)
 "dQ" = (
@@ -1387,7 +1387,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "dS" = (
@@ -1407,7 +1407,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/airless,
@@ -1441,13 +1441,13 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "dZ" = (
-/obj/effect/floor_decal/urist/russian{
+/obj/floor_decal/urist/russian{
 	icon_state = "derelict4"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
 "ea" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/singularity_engine)
@@ -1498,7 +1498,7 @@
 /obj/item/material/shard{
 	icon_state = "medium"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/security)
 "ei" = (
@@ -1520,7 +1520,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/ai_upload)
 "el" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -1560,11 +1560,11 @@
 	info = "<b>Objective #1</b>: Destroy the station with a nuclear device.";
 	name = "Objectives of a Nuclear Operative"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "eq" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor,
 /area/russianderelict/bridge/access)
@@ -1628,9 +1628,9 @@
 /area/russianderelict/singularity_engine)
 "eA" = (
 /obj/item/material/shard,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/door/firedoor/autoset,
-/obj/effect/floor_decal/rust/bar{
+/obj/floor_decal/rust/bar{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/airless,
@@ -1655,7 +1655,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/primary)
 "eD" = (
-/obj/effect/floor_decal/urist/russian{
+/obj/floor_decal/urist/russian{
 	icon_state = "derelict3"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -1722,11 +1722,11 @@
 /obj/item/material/shard{
 	icon_state = "small"
 	},
-/obj/effect/decal/cleanable/ash,
+/obj/decal/cleanable/ash,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/singularity_engine)
 "eM" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/space)
 "eN" = (
@@ -1739,7 +1739,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/solar/derelict_aft)
 "eO" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 4;
 	icon_state = "chapel"
 	},
@@ -1764,7 +1764,7 @@
 /turf/simulated/wall/r_wall/prepainted,
 /area/russianderelict/bridge)
 "eR" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/bridge)
@@ -1965,7 +1965,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/bridge/access)
 "fr" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/bridge/access)
@@ -2015,7 +2015,7 @@
 /obj/item/airlock_electronics,
 /obj/item/module/power_control,
 /obj/item/device/t_scanner,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "fx" = (
@@ -2035,7 +2035,7 @@
 "fD" = (
 /obj/item/material/shard,
 /obj/machinery/door/firedoor/autoset,
-/obj/effect/floor_decal/rust/bar{
+/obj/floor_decal/rust/bar{
 	dir = 4
 	},
 /turf/simulated/floor/plating/airless,
@@ -2101,7 +2101,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
@@ -2254,7 +2254,7 @@
 /area/space)
 "go" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "gp" = (
@@ -2276,7 +2276,7 @@
 /turf/simulated/wall/prepainted,
 /area/russianderelict/medical)
 "gv" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/medical)
@@ -2296,7 +2296,7 @@
 /obj/item/material/shard,
 /obj/structure/grille{
 	density = 0;
-	icon_state = "brokengrille"
+	icon_state = "broken"
 	},
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/medical)
@@ -2313,13 +2313,13 @@
 /area/russianderelict/medical)
 "gA" = (
 /obj/machinery/light/small,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "gB" = (
@@ -2408,7 +2408,7 @@
 /area/russianderelict/medical)
 "gL" = (
 /obj/item/stack/medical/bruise_pack,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/medical)
 "gM" = (
@@ -2426,7 +2426,7 @@
 /area/russianderelict/arrival)
 "gO" = (
 /obj/machinery/light/small,
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 4;
 	icon_state = "chapel"
 	},
@@ -2499,7 +2499,7 @@
 /area/russianderelict/arrival)
 "gY" = (
 /obj/machinery/door/firedoor/autoset,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "gZ" = (
@@ -2507,7 +2507,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 8;
 	icon_state = "chapel"
 	},
@@ -2525,7 +2525,7 @@
 /area/russianderelict/medical)
 "hb" = (
 /obj/item/stack/medical/ointment,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/medical)
 "hc" = (
@@ -2548,12 +2548,12 @@
 /turf/space,
 /area/space)
 "hf" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /turf/simulated/floor/tiled/white,
 /area/russianderelict/medical)
 "hg" = (
 /obj/item/trash/cigbutt,
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /turf/simulated/floor/tiled/white,
 /area/russianderelict/medical)
 "hh" = (
@@ -2563,7 +2563,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "hi" = (
@@ -2573,7 +2573,7 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "hj" = (
@@ -2590,7 +2590,7 @@
 "hm" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 1;
 	icon_state = "chapel"
 	},
@@ -2599,7 +2599,7 @@
 /area/russianderelict/medical/chapel)
 "hn" = (
 /obj/structure/window/reinforced,
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 4;
 	icon_state = "chapel"
 	},
@@ -2671,7 +2671,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /turf/simulated/floor/tiled/white,
 /area/russianderelict/medical)
 "hv" = (
@@ -2680,7 +2680,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/medical)
 "hw" = (
@@ -2712,11 +2712,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "hB" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "hC" = (
@@ -2751,7 +2751,7 @@
 	autoset_access = 0
 	},
 /obj/structure/closet/coffin/wooden,
-/obj/effect/decal/cleanable/remains,
+/obj/decal/cleanable/remains,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/medical/chapel)
 "hF" = (
@@ -2792,7 +2792,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/medical)
 "hL" = (
@@ -2836,7 +2836,7 @@
 /turf/simulated/wall/prepainted,
 /area/russianderelict/arrival)
 "hS" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/arrival)
@@ -2864,7 +2864,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 1;
 	icon_state = "chapel"
 	},
@@ -2875,7 +2875,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 4;
 	icon_state = "chapel"
 	},
@@ -2905,8 +2905,8 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/medical)
 "ib" = (
-/obj/effect/landmark/scorcher/certain,
-/obj/effect/decal/cleanable/dirt,
+/obj/landmark/scorcher/certain,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "ic" = (
@@ -2930,7 +2930,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/science)
 "id" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
@@ -2993,7 +2993,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/space)
 "il" = (
@@ -3005,17 +3005,17 @@
 /turf/simulated/floor/airless,
 /area/space)
 "in" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating/airless,
 /area/space)
 "io" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/space)
 "ip" = (
@@ -3086,7 +3086,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "ix" = (
@@ -3165,7 +3165,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/vault)
 "iH" = (
-/obj/effect/floor_decal/urist/russian{
+/obj/floor_decal/urist/russian{
 	icon_state = "derelict11"
 	},
 /obj/structure/cable{
@@ -3194,7 +3194,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/primary)
 "iL" = (
@@ -3246,13 +3246,13 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "iT" = (
-/obj/effect/floor_decal/urist/russian{
+/obj/floor_decal/urist/russian{
 	icon_state = "derelict8"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
 "iU" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/primary)
@@ -3261,7 +3261,7 @@
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "iW" = (
@@ -3340,7 +3340,7 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/security)
 "jg" = (
@@ -3405,7 +3405,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/security)
 "jq" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/structure/cable{
 	icon_state = "0-4";
 	d2 = 4
@@ -3452,7 +3452,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/russianderelict/medical/chapel)
 "jx" = (
-/obj/effect/floor_decal/urist/russian{
+/obj/floor_decal/urist/russian{
 	icon_state = "derelict15"
 	},
 /obj/structure/cable{
@@ -3662,7 +3662,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/secondary)
 "ka" = (
-/obj/effect/floor_decal/urist/russian{
+/obj/floor_decal/urist/russian{
 	icon_state = "derelict9"
 	},
 /obj/structure/cable{
@@ -3710,7 +3710,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/secondary)
 "kg" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/secondary)
@@ -3728,7 +3728,7 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "ki" = (
@@ -3841,13 +3841,13 @@
 	},
 /obj/item/ammo_casing/rifle/military/used,
 /obj/item/ammo_casing/rifle/military/used,
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/blood/splatter,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/airless,
 /area/solar/derelict_aft)
 "ku" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/solar/derelict_aft)
@@ -3985,14 +3985,14 @@
 /area/solar/derelict_aft)
 "kL" = (
 /obj/item/clothing/suit/space/syndicate,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/solar/derelict_aft)
 "kM" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "kN" = (
@@ -4143,8 +4143,8 @@
 /turf/simulated/floor/plating/airless,
 /area/solar/derelict_aft)
 "lb" = (
-/obj/effect/landmark/scorcher/certain,
-/obj/effect/decal/cleanable/dirt,
+/obj/landmark/scorcher/certain,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "lc" = (
@@ -4164,14 +4164,14 @@
 	dir = 4;
 	icon_state = "intact-scrubbers"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "lf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/primary)
 "lg" = (
@@ -4193,8 +4193,8 @@
 /area/russianderelict/solar_control)
 "lj" = (
 /obj/item/stool/padded,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "lk" = (
@@ -4208,7 +4208,7 @@
 	dir = 8;
 	icon_state = "map_vent_out"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -4217,7 +4217,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "lm" = (
-/obj/effect/template_loader/space,
+/obj/urist_intangible/trigger/template_loader/space,
 /turf/space,
 /area/space)
 "ln" = (
@@ -4226,7 +4226,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
@@ -4261,7 +4261,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "lA" = (
@@ -4308,7 +4308,7 @@
 /area/russianderelict/medical/chapel)
 "lX" = (
 /obj/machinery/door/firedoor/autoset,
-/obj/effect/floor_decal/rust/bar{
+/obj/floor_decal/rust/bar{
 	dir = 1
 	},
 /turf/simulated/floor/plating/airless,
@@ -4374,8 +4374,8 @@
 "ms" = (
 /obj/structure/table/standard,
 /obj/item/stack/cable_coil/cut,
-/obj/effect/landmark/scorcher/certain,
-/obj/effect/decal/cleanable/ash,
+/obj/landmark/scorcher/certain,
+/obj/decal/cleanable/ash,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "mt" = (
@@ -4505,7 +4505,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/arrival)
 "nB" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
@@ -4567,7 +4567,7 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "nR" = (
@@ -4579,7 +4579,7 @@
 /obj/structure/table/rack,
 /obj/random/tool,
 /obj/random/tool,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "nW" = (
@@ -4616,7 +4616,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/ai_upload)
 "oh" = (
@@ -4625,7 +4625,7 @@
 	pixel_x = 24;
 	pixel_y = 0
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/security)
 "oi" = (
@@ -4645,17 +4645,17 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
 "or" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/atmospherics)
 "os" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "ot" = (
@@ -4709,7 +4709,7 @@
 /obj/item/material/shard{
 	icon_state = "medium"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "oL" = (
@@ -4717,7 +4717,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 1;
 	icon_state = "chapel"
 	},
@@ -4732,7 +4732,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/ai_upload)
 "oR" = (
-/obj/effect/floor_decal/urist/russian{
+/obj/floor_decal/urist/russian{
 	icon_state = "derelict14"
 	},
 /obj/structure/cable{
@@ -4767,7 +4767,7 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "pk" = (
@@ -4775,7 +4775,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "pl" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/power/rad_collector,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
@@ -4815,13 +4815,13 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/singularity_engine)
 "pC" = (
-/obj/effect/landmark/scorcher/certain,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/landmark/scorcher/certain,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "pG" = (
-/obj/effect/floor_decal/urist/russian{
+/obj/floor_decal/urist/russian{
 	icon_state = "derelict7"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -4832,7 +4832,7 @@
 	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "pO" = (
@@ -4858,12 +4858,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/rust,
-/obj/effect/decal/cleanable/dirt,
+/obj/floor_decal/rust,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "pU" = (
-/obj/effect/floor_decal/chapel,
+/obj/floor_decal/chapel,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/russianderelict/medical/chapel)
@@ -4906,7 +4906,7 @@
 /turf/simulated/wall/prepainted,
 /area/russianderelict/bridge/access)
 "qq" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
@@ -4918,7 +4918,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/ai_upload)
 "qs" = (
@@ -4931,14 +4931,14 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "qw" = (
@@ -4962,7 +4962,7 @@
 /obj/item/ammo_casing/pistol/used,
 /obj/item/ammo_casing/pistol/used,
 /obj/item/ammo_casing/pistol/used,
-/obj/effect/decal/cleanable/blood{
+/obj/decal/cleanable/blood{
 	name = "dried blood"
 	},
 /obj/item/gun/projectile/automatic/c20r/empty,
@@ -5016,7 +5016,7 @@
 /turf/simulated/floor/airless,
 /area/russianderelict/security)
 "rj" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 4;
 	icon_state = "chapel"
 	},
@@ -5049,11 +5049,11 @@
 	icon_state = "0-4";
 	d2 = 4
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/solar_control)
 "rs" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/atmospherics)
 "rt" = (
@@ -5111,7 +5111,7 @@
 	pixel_x = 24;
 	pixel_y = 0
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/atmospherics)
 "rN" = (
@@ -5157,7 +5157,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "sd" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /turf/space,
 /area/russianderelict/medical/chapel)
 "sh" = (
@@ -5293,7 +5293,7 @@
 	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "sZ" = (
@@ -5321,15 +5321,15 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "ti" = (
-/obj/effect/shuttle_landmark/automatic/nav_russian_derelict/nav3,
+/obj/shuttle_landmark/automatic/nav_russian_derelict/nav3,
 /turf/space,
 /area/space)
 "to" = (
-/obj/effect/shuttle_landmark/automatic/nav_russian_derelict/nav2,
+/obj/shuttle_landmark/automatic/nav_russian_derelict/nav2,
 /turf/space,
 /area/space)
 "tt" = (
-/obj/effect/decal/cleanable/blood{
+/obj/decal/cleanable/blood{
 	name = "dried blood"
 	},
 /obj/structure/cable{
@@ -5372,7 +5372,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/science)
 "tF" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 4;
 	icon_state = "chapel"
 	},
@@ -5390,7 +5390,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/arrival)
 "tO" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/solar/derelict_aft)
 "tU" = (
@@ -5426,7 +5426,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/atmospherics)
 "um" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/singularity_engine)
 "uq" = (
@@ -5444,7 +5444,7 @@
 /area/russianderelict/solar_control)
 "ur" = (
 /obj/structure/bed/nice,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "uu" = (
@@ -5468,7 +5468,7 @@
 	},
 /obj/structure/grille/broken,
 /obj/machinery/door/firedoor/autoset,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -5497,7 +5497,7 @@
 /area/russianderelict/arrival)
 "uF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "uG" = (
@@ -5508,7 +5508,7 @@
 /area/russianderelict/bridge/access)
 "uK" = (
 /obj/machinery/door/firedoor/autoset,
-/obj/effect/floor_decal/rust/bar,
+/obj/floor_decal/rust/bar,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/singularity_engine)
 "uL" = (
@@ -5529,12 +5529,12 @@
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "uP" = (
 /obj/machinery/suit_cycler,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/solar_control)
 "uR" = (
@@ -5558,13 +5558,13 @@
 /turf/simulated/floor/plating/airless,
 /area/solar/derelict_starboard)
 "uU" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "uV" = (
@@ -5605,7 +5605,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/russianderelict/arrival)
 "vc" = (
-/obj/effect/floor_decal/urist/russian{
+/obj/floor_decal/urist/russian{
 	icon_state = "derelict13"
 	},
 /obj/structure/cable{
@@ -5620,7 +5620,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "vi" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/item/stool/padded,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
@@ -5729,7 +5729,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/solar_control)
 "wq" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/airless,
@@ -5764,22 +5764,6 @@
 	name = "ushanka"
 	},
 /obj/item/clothing/head/helmet/urist/wwii/soviethelm,
-/obj/item/clothing/head/ushanka/solgov{
-	desc = "A synthfur-lined hat for operating in cold environments.";
-	name = "ushanka"
-	},
-/obj/item/clothing/head/ushanka/solgov/army{
-	desc = "A synthfur-lined hat for operating in cold environments.";
-	name = "ushanka"
-	},
-/obj/item/clothing/head/ushanka/solgov/army/green{
-	desc = "A green synthfur-lined hat for operating in cold environments.";
-	name = "ushanka"
-	},
-/obj/item/clothing/head/ushanka/solgov/fleet{
-	desc = "A synthfur-lined hat for operating in cold environments.";
-	name = "ushanka"
-	},
 /obj/item/clothing/head/urist/wwii/sovietofficer,
 /obj/item/clothing/head/urist/wwii/sovietofficer,
 /obj/item/clothing/head/urist/pelt/bear/brown,
@@ -5844,7 +5828,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
 "xf" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -5863,7 +5847,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -5893,7 +5877,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/decal/cleanable/ash,
+/obj/decal/cleanable/ash,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white/airless,
 /area/russianderelict/medical)
@@ -5907,7 +5891,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/bridge/ai_upload)
 "xx" = (
@@ -6006,7 +5990,7 @@
 	pixel_x = -24
 	},
 /obj/machinery/suit_cycler,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/solar_control)
 "yf" = (
@@ -6016,7 +6000,7 @@
 /turf/simulated/floor/plating/airless,
 /area/space)
 "yy" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/space,
 /area/russianderelict/arrival)
 "yB" = (
@@ -6041,7 +6025,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 1;
 	icon_state = "chapel"
 	},
@@ -6065,7 +6049,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "za" = (
-/obj/effect/floor_decal/chapel,
+/obj/floor_decal/chapel,
 /turf/simulated/floor/tiled/dark,
 /area/russianderelict/medical/chapel)
 "zc" = (
@@ -6083,7 +6067,7 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
@@ -6151,7 +6135,7 @@
 /area/djstation)
 "zG" = (
 /obj/structure/table/standard,
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 8;
 	icon_state = "chapel"
 	},
@@ -6179,11 +6163,11 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "zU" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -6225,7 +6209,7 @@
 	pixel_x = 24;
 	pixel_y = 0
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "Ak" = (
@@ -6243,11 +6227,11 @@
 	icon_state = "medium"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "Ay" = (
-/obj/effect/floor_decal/urist/russian{
+/obj/floor_decal/urist/russian{
 	icon_state = "derelict5"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -6256,7 +6240,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 2
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "AF" = (
@@ -6281,7 +6265,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
@@ -6306,7 +6290,7 @@
 /area/russianderelict/hallway/primary)
 "Bo" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Bq" = (
@@ -6316,7 +6300,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "Bt" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -6328,20 +6312,20 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/decal/cleanable/blood{
+/obj/decal/cleanable/blood{
 	name = "dried blood"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "BI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "BM" = (
-/obj/effect/landmark/corpse/pirate/ranged,
+/obj/landmark/corpse/pirate/ranged,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/ai_upload)
 "BN" = (
@@ -6356,10 +6340,10 @@
 /area/russianderelict/solar_control)
 "BP" = (
 /obj/machinery/door/firedoor/autoset,
-/obj/effect/floor_decal/rust/bar{
+/obj/floor_decal/rust/bar{
 	dir = 8
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "BQ" = (
@@ -6367,15 +6351,15 @@
 /turf/space,
 /area/space)
 "BS" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/science)
 "BT" = (
-/obj/effect/floor_decal/urist/russian,
+/obj/floor_decal/urist/russian,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
 "BY" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/science)
@@ -6429,7 +6413,7 @@
 	icon_state = "0-2";
 	d2 = 2
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "Cp" = (
@@ -6445,7 +6429,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/solar_control)
 "Cy" = (
-/obj/effect/landmark/corpse/pirate,
+/obj/landmark/corpse/pirate,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/ai_upload)
 "CA" = (
@@ -6456,7 +6440,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "CB" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
@@ -6464,7 +6448,7 @@
 /obj/machinery/door/window/southleft,
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "CE" = (
@@ -6497,7 +6481,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
 "CS" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/ai_upload)
 "CT" = (
@@ -6527,7 +6511,7 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -6543,18 +6527,18 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "Dh" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/armory)
 "Dj" = (
 /obj/item/material/shard,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "Dk" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -6572,7 +6556,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Du" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "Dy" = (
@@ -6665,7 +6649,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/arrival)
 "Et" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/security)
 "EB" = (
@@ -6712,13 +6696,13 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/singularity_engine)
 "EO" = (
-/obj/effect/floor_decal/urist/russian{
+/obj/floor_decal/urist/russian{
 	icon_state = "derelict6"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
 "ER" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 1;
 	icon_state = "chapel"
 	},
@@ -6747,13 +6731,13 @@
 	z_locked = 0;
 	name = "old drone fabricator"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/solar_control)
 "EW" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "EY" = (
@@ -6822,7 +6806,7 @@
 /area/russianderelict/bridge/vault)
 "FN" = (
 /obj/structure/table/standard,
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 1;
 	icon_state = "chapel"
 	},
@@ -6830,7 +6814,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/russianderelict/medical/chapel)
 "FY" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/airless,
@@ -6856,7 +6840,7 @@
 	dir = 4;
 	icon_state = "intact-scrubbers"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
@@ -6941,7 +6925,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "GA" = (
@@ -6976,7 +6960,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/armory)
 "GI" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/alarm{
 	frequency = 1439;
 	pixel_y = 24
@@ -7038,7 +7022,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/security)
 "GQ" = (
@@ -7085,7 +7069,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "Hk" = (
@@ -7095,7 +7079,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Hm" = (
@@ -7114,11 +7098,11 @@
 /area/russianderelict/science)
 "Hs" = (
 /obj/structure/table,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Hu" = (
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/airless,
 /area/solar/derelict_aft)
 "Hx" = (
@@ -7135,7 +7119,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge)
 "HC" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -7164,8 +7148,8 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/atmospherics)
 "HJ" = (
-/obj/effect/landmark/scorcher/certain,
-/obj/effect/decal/cleanable/ash,
+/obj/landmark/scorcher/certain,
+/obj/decal/cleanable/ash,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "HK" = (
@@ -7179,7 +7163,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
 "HO" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/medical)
 "HR" = (
@@ -7221,7 +7205,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Il" = (
@@ -7242,8 +7226,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/landmark/scorcher/certain,
-/obj/effect/floor_decal/rust,
+/obj/landmark/scorcher/certain,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Ix" = (
@@ -7271,7 +7255,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/ai_upload)
 "IH" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
@@ -7281,7 +7265,7 @@
 /area/russianderelict/science)
 "IQ" = (
 /obj/item/stack/material/rods,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "IT" = (
@@ -7315,7 +7299,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "IZ" = (
@@ -7406,16 +7390,16 @@
 /area/russianderelict/bridge/access)
 "JP" = (
 /obj/item/clothing/head/helmet/space/void,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/bridge/ai_upload)
 "JQ" = (
-/obj/effect/decal/cleanable/blood{
+/obj/decal/cleanable/blood{
 	name = "dried blood"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "JS" = (
@@ -7435,7 +7419,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/security)
 "Kc" = (
-/obj/effect/floor_decal/urist/russian{
+/obj/floor_decal/urist/russian{
 	icon_state = "derelict12"
 	},
 /obj/structure/cable{
@@ -7469,8 +7453,8 @@
 /turf/simulated/floor/wood/mahogany,
 /area/russianderelict/medical/chapel)
 "Kn" = (
-/obj/effect/landmark/scorcher/certain,
-/obj/effect/floor_decal/rust,
+/obj/landmark/scorcher/certain,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Ko" = (
@@ -7487,7 +7471,7 @@
 /area/russianderelict/atmospherics)
 "Kt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/cleanable/blood{
+/obj/decal/cleanable/blood{
 	name = "dried blood"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -7500,7 +7484,7 @@
 	dir = 2;
 	pixel_y = 25
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/structure/closet/firecloset,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
@@ -7529,7 +7513,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "KQ" = (
@@ -7557,7 +7541,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/bridge/ai_upload)
 "KY" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -7605,7 +7589,7 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Li" = (
@@ -7653,7 +7637,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/atmospherics)
 "Ls" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -7662,14 +7646,14 @@
 "LB" = (
 /obj/item/stack/material/rods,
 /obj/machinery/door/firedoor/autoset,
-/obj/effect/floor_decal/rust/bar{
+/obj/floor_decal/rust/bar{
 	dir = 8
 	},
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/singularity_engine)
 "LC" = (
 /obj/structure/window/reinforced,
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 1;
 	icon_state = "chapel"
 	},
@@ -7684,7 +7668,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "LF" = (
@@ -7705,7 +7689,7 @@
 	pixel_x = 24
 	},
 /obj/machinery/field_generator,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "LI" = (
@@ -7774,7 +7758,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Me" = (
@@ -7790,7 +7774,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
 "Ml" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -7802,7 +7786,7 @@
 /obj/structure/noticeboard{
 	pixel_y = 28
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "Mo" = (
@@ -7819,7 +7803,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/science)
 "Ms" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/item/table_parts,
 /obj/random/maintenance/clean,
 /turf/simulated/floor/tiled/airless,
@@ -7839,11 +7823,11 @@
 /area/russianderelict/bridge/access)
 "MC" = (
 /obj/structure/closet/emcloset,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "MD" = (
-/obj/effect/floor_decal/urist/russian{
+/obj/floor_decal/urist/russian{
 	icon_state = "derelict2"
 	},
 /turf/simulated/floor/tiled/airless,
@@ -7865,7 +7849,7 @@
 /obj/item/cell/high,
 /obj/item/stock_parts/capacitor,
 /obj/item/storage/box/lights/mixed,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "MN" = (
@@ -7876,7 +7860,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/russianderelict/medical)
 "MQ" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
@@ -7886,7 +7870,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/atmospherics)
 "MT" = (
-/obj/effect/decal/cleanable/blood/tracks/body,
+/obj/decal/cleanable/blood/tracks/body,
 /obj/item/stack/medical/bruise_pack,
 /turf/simulated/floor/tiled/white,
 /area/russianderelict/medical)
@@ -7895,7 +7879,7 @@
 	dir = 8;
 	icon_state = "map_vent_out"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "MY" = (
@@ -7904,7 +7888,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/atmospherics)
 "MZ" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Ne" = (
@@ -7923,7 +7907,7 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
@@ -7945,7 +7929,7 @@
 /area/russianderelict/bridge)
 "Nr" = (
 /obj/item/device/t_scanner,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/structure/closet/firecloset{
 	opened = 1
 	},
@@ -7979,7 +7963,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "NB" = (
@@ -8058,7 +8042,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "Oc" = (
@@ -8131,11 +8115,11 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/arrival)
 "Ox" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "OB" = (
@@ -8157,7 +8141,7 @@
 /turf/simulated/wall/prepainted,
 /area/russianderelict/bridge/access)
 "OE" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/airless,
@@ -8181,7 +8165,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/russianderelict/medical/chapel)
 "OV" = (
-/obj/effect/decal/cleanable/blood{
+/obj/decal/cleanable/blood{
 	name = "dried blood"
 	},
 /obj/structure/cable{
@@ -8210,7 +8194,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
 "Pa" = (
@@ -8239,8 +8223,8 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/effect/landmark/scorcher/certain,
-/obj/effect/floor_decal/rust,
+/obj/landmark/scorcher/certain,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Pg" = (
@@ -8266,13 +8250,13 @@
 	autoset_access = 0
 	},
 /obj/machinery/door/firedoor/autoset,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "Px" = (
 /obj/item/material/shard,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -8289,7 +8273,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Pz" = (
@@ -8314,7 +8298,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge)
 "PI" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 4;
 	icon_state = "chapel"
 	},
@@ -8344,7 +8328,7 @@
 	dir = 4;
 	pixel_x = 24
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/security)
 "PM" = (
@@ -8358,14 +8342,14 @@
 /area/russianderelict/arrival)
 "PN" = (
 /obj/item/stack/cable_coil/cut,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "PU" = (
 /obj/structure/table/standard,
-/obj/item/stack/cable_coil/random,
+/obj/random/single/color/cable_coil,
 /obj/item/device/t_scanner,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "PV" = (
@@ -8381,7 +8365,7 @@
 /area/russianderelict/hallway/primary)
 "PY" = (
 /obj/machinery/light/small,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/atmospherics)
 "PZ" = (
@@ -8457,7 +8441,7 @@
 	dir = 4;
 	icon_state = "intact-scrubbers"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "QP" = (
@@ -8490,7 +8474,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/primary)
 "QX" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
 "Rb" = (
@@ -8501,17 +8485,17 @@
 	dir = 4;
 	icon_state = "intact-scrubbers"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "Rc" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Re" = (
 /obj/structure/table/standard,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
@@ -8519,7 +8503,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood{
+/obj/decal/cleanable/blood{
 	name = "dried blood"
 	},
 /turf/simulated/floor/tiled/white/airless,
@@ -8545,8 +8529,8 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "Rn" = (
-/obj/effect/landmark/scorcher/certain,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/secondary)
 "Rp" = (
@@ -8600,7 +8584,7 @@
 /area/russianderelict/singularity_engine)
 "RD" = (
 /obj/item/stack/cable_coil/cut,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -8618,7 +8602,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/decal/cleanable/greenglow,
+/obj/decal/cleanable/greenglow,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/medical)
 "RP" = (
@@ -8626,12 +8610,12 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "RQ" = (
-/obj/effect/landmark/scorcher/certain,
-/obj/effect/decal/cleanable/dirt,
+/obj/landmark/scorcher/certain,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/arrival)
 "RR" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -8673,7 +8657,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/vault)
 "Sn" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/medical)
 "So" = (
@@ -8681,9 +8665,9 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/bridge)
 "Su" = (
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/blood/splatter,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "Sx" = (
@@ -8696,7 +8680,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "SJ" = (
@@ -8713,7 +8697,7 @@
 	icon_state = "intact-scrubbers"
 	},
 /obj/structure/sign/russianplaque,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "SN" = (
@@ -8731,7 +8715,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/science)
 "SV" = (
@@ -8756,21 +8740,21 @@
 /turf/simulated/floor/reinforced/airless,
 /area/russianderelict/atmospherics)
 "Ti" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/science)
 "Tj" = (
 /obj/item/storage/toolbox/syndicate,
-/obj/effect/landmark/scorcher/certain,
-/obj/effect/decal/cleanable/dirt,
+/obj/landmark/scorcher/certain,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "Tk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/rust,
-/obj/effect/decal/cleanable/dirt,
+/obj/floor_decal/rust,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Tn" = (
@@ -8798,7 +8782,7 @@
 	pixel_y = 0
 	},
 /obj/machinery/suit_cycler,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/solar_control)
 "Tz" = (
@@ -8830,11 +8814,11 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/space)
 "TT" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/bridge/ai_upload)
 "TW" = (
@@ -8843,7 +8827,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/ai_upload)
 "TX" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -8853,7 +8837,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/medical)
 "TZ" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
@@ -8863,12 +8847,12 @@
 /area/russianderelict/solar_control)
 "Ud" = (
 /obj/structure/bed/chair,
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/medical)
 "Uh" = (
 /obj/machinery/door/firedoor/autoset,
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "Uj" = (
@@ -8886,7 +8870,7 @@
 /area/russianderelict/security)
 "Um" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/access)
 "Uo" = (
@@ -8913,14 +8897,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "UE" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge/ai_upload)
 "UR" = (
@@ -8956,7 +8940,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "Vc" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /obj/structure/cable{
 	d1 = 1;
 	icon_state = "1-2"
@@ -8992,7 +8976,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor,
 /area/russianderelict/bridge/access)
 "Vs" = (
@@ -9019,7 +9003,7 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/bridge)
 "VA" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 4;
 	icon_state = "chapel"
 	},
@@ -9093,7 +9077,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "VP" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/structure/table/standard,
 /obj/item/cell/high,
 /obj/item/device/flash,
@@ -9160,7 +9144,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Wf" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -9181,11 +9165,11 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "Wg" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -9213,7 +9197,7 @@
 /turf/simulated/wall/prepainted,
 /area/russianderelict/medical)
 "Wv" = (
-/obj/effect/shuttle_landmark/automatic/nav_russian_derelict/nav1,
+/obj/shuttle_landmark/automatic/nav_russian_derelict/nav1,
 /turf/space,
 /area/space)
 "Wy" = (
@@ -9241,18 +9225,18 @@
 /turf/simulated/floor/tiled,
 /area/russianderelict/solar_control)
 "WC" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/arrival)
 "WE" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/medical/chapel)
 "WM" = (
-/obj/effect/landmark/scorcher/certain,
+/obj/landmark/scorcher/certain,
 /obj/item/remains/human,
-/obj/effect/decal/cleanable/ash,
+/obj/decal/cleanable/ash,
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "WN" = (
@@ -9262,11 +9246,11 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/primary)
 "WO" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/arrival)
 "WP" = (
@@ -9303,7 +9287,7 @@
 "Xn" = (
 /obj/item/stool/padded,
 /obj/item/trash/liquidfood,
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "Xq" = (
@@ -9312,12 +9296,12 @@
 /area/russianderelict/singularity_engine)
 "Xu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/splatter,
 /turf/simulated/floor/airless,
 /area/russianderelict/security)
 "Xw" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 8;
 	icon_state = "chapel"
 	},
@@ -9371,7 +9355,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/hallway/primary)
 "XL" = (
@@ -9379,7 +9363,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "XM" = (
-/obj/effect/floor_decal/chapel{
+/obj/floor_decal/chapel{
 	dir = 1;
 	icon_state = "chapel"
 	},
@@ -9476,13 +9460,13 @@
 /area/russianderelict/bridge/access)
 "Zf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/splatter,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/splatter,
 /obj/item/remains/human,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
 "Zh" = (
-/obj/effect/floor_decal/rust/bar{
+/obj/floor_decal/rust/bar{
 	dir = 4
 	},
 /turf/simulated/floor/plating/airless,
@@ -9506,7 +9490,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/hallway/primary)
 "Zt" = (
-/obj/effect/wallframe_spawn/reinforced/no_grille,
+/obj/wallframe_spawn/reinforced/no_grille,
 /obj/machinery/door/firedoor/autoset,
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/security)
@@ -9550,7 +9534,7 @@
 /turf/simulated/floor/plating/airless,
 /area/russianderelict/medical)
 "ZS" = (
-/obj/effect/floor_decal/urist/russian{
+/obj/floor_decal/urist/russian{
 	icon_state = "derelict10"
 	},
 /obj/structure/cable{

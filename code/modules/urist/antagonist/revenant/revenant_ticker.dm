@@ -10,7 +10,7 @@
 	// to be real-time, higher tick time/per-tick rate can be nicer on the CPU.
 
 
-/datum/bluespace_revenant/proc/Tick(var/ticks = 1)
+/datum/bluespace_revenant/proc/Tick(ticks = 1)
 	var/safe_ticks = (ticks || 0)
 
 	var/mob/M = null

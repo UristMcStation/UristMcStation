@@ -7,8 +7,8 @@
 	stack_type = /obj/item/stack/material/snow
 	flags = MATERIAL_BRITTLE
 	integrity = 10
-	icon_base = "solid"
-	icon_reinf = "reinf_over"
+	wall_icon_base = "solid"
+	wall_icon_reinf = "reinf_over"
 	icon_colour = COLOR_WHITE
 	hardness = MATERIAL_SOFT
 	weight = 1

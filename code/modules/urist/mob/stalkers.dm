@@ -66,7 +66,7 @@
 	var/caution = 1 //hit and run if low on health
 
 	var/flickerlights = 0 //for more fun - can fuck with lights around the victim to get a TP zone.
-	//var/datum/effect/effect/system/tele_effect = null //something to spawn when teleporting/disappearing, presumably effects
+	//var/datum/effect/tele_effect = null //something to spawn when teleporting/disappearing, presumably effects
 	ai_holder = /datum/ai_holder/simple_animal/urist_humanoid/stalker
 
 	// CUSTOM STUFF:
@@ -167,7 +167,7 @@
 
 /mob/living/simple_animal/hostile/urist/stalker/proc/HandleTeleFX(atom/fxloc)
 	if(tele_effect)
-		var/datum/effect/effect/system/fx_instance = new tele_effect()
+		var/datum/effect/fx_instance = new tele_effect()
 		fx_instance.set_up(3, 0, fxloc)
 		fx_instance.start()
 

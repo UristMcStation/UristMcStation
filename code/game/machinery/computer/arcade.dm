@@ -201,9 +201,9 @@
 			src.temp = "[src.enemy_name] has fallen! Rejoice!"
 
 			if(emagged)
-				new /obj/effect/spawner/newbomb/timer/syndicate(src.loc)
+				new /obj/spawner/newbomb/timer/syndicate(src.loc)
 				new /obj/item/clothing/head/collectable/petehat(src.loc)
-				log_and_message_admins("has outbombed Cuban Pete and been awarded a bomb.")
+				log_and_message_admins("has outbombed Cuban Pete and been awarded a bomb.", user)
 				SetupGame()
 				emagged = FALSE
 			else

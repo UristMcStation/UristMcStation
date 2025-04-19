@@ -6,7 +6,7 @@
 /atom/proc/DefaultTopicState()
 	return GLOB.default_state
 
-/atom/Topic(href, href_list = list(), datum/topic_state/state)
+/atom/Topic(href, list/href_list = list(), datum/topic_state/state)
 	if((. = ..()))
 		return
 	state = state || DefaultTopicState() || GLOB.default_state

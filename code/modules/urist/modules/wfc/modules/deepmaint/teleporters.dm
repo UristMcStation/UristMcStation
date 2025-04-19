@@ -1,5 +1,5 @@
 
-/proc/deepmaint_yeet_trg(var/atom/movable/trg, var/xoffset = 1, var/yoffset = 1)
+/proc/deepmaint_yeet_trg(atom/movable/trg, xoffset = 1, yoffset = 1)
 	if(!ismovable(trg))
 		// This would be silly
 		return FALSE
@@ -28,7 +28,7 @@
 	return TRUE
 
 
-/proc/deepmaint_send_trg(var/atom/movable/trg)
+/proc/deepmaint_send_trg(atom/movable/trg)
 	if(!ismovable(trg))
 		// This would be silly
 		return FALSE
@@ -70,7 +70,7 @@
 	return TRUE
 
 
-/proc/deepmaint_return_trg(var/atom/movable/trg)
+/proc/deepmaint_return_trg(atom/movable/trg)
 	if(!ismovable(trg))
 		// This would be silly
 		return FALSE
@@ -117,7 +117,7 @@
 	return TRUE
 
 
-/proc/deepmaint_conditional_yeet(var/atom/movable/trg, var/tele_proba = 60)
+/proc/deepmaint_conditional_yeet(atom/movable/trg, tele_proba = 60)
 	var/proba = (isnull(tele_proba) ? 60 : tele_proba)
 
 	if(prob(proba))
@@ -129,7 +129,7 @@
 	return FALSE
 
 
-/proc/deepmaint_conditional_send(var/atom/movable/trg, var/tele_proba = 10)
+/proc/deepmaint_conditional_send(atom/movable/trg, tele_proba = 10)
 	var/proba = (isnull(tele_proba) ? 10 : tele_proba)
 
 	if(prob(proba))
@@ -139,7 +139,7 @@
 	return FALSE
 
 
-/proc/deepmaint_conditional_stationyeet(var/atom/movable/trg, var/tele_proba = 2)
+/proc/deepmaint_conditional_stationyeet(atom/movable/trg, tele_proba = 2)
 	var/proba = (isnull(tele_proba) ? 2 : tele_proba)
 
 	if(prob(proba))

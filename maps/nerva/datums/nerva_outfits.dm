@@ -185,7 +185,7 @@
 	uniform = /obj/item/clothing/under/urist/nerva/seniornt
 	suit = /obj/item/clothing/suit/storage/toggle/urist/science
 	shoes = /obj/item/clothing/shoes/brown
-	l_hand = /obj/item/material/clipboard
+	l_hand = /obj/item/material/folder/clipboard
 	id_types = list(/obj/item/card/id/nerva_senior_scientist)
 	pda_type = /obj/item/modular_computer/pda/science
 

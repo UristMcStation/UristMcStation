@@ -16,7 +16,7 @@
 	maxbodytemp = 323	//Above 50 Degrees Celsius
 	holder_type = /obj/item/holder/cat
 	mob_size = MOB_SMALL
-	possession_candidate = 1
+	possession_candidate = TRUE
 	pass_flags = PASS_FLAG_TABLE
 	density = FALSE
 
@@ -214,9 +214,11 @@
 	holder_type = /obj/item/holder/cat/fluff/bones
 	var/friend_name = "Erstatz Vryroxes"
 
-/mob/living/simple_animal/passive/cat/kitten/New()
+
+/mob/living/simple_animal/passive/cat/kitten/Initialize(mapload)
+	. = ..()
 	gender = pick(MALE, FEMALE)
-	..()
+
 
 /datum/ai_holder/simple_animal/passive/cat
 	can_flee = TRUE

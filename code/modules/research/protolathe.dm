@@ -2,6 +2,7 @@
 	name = "protolathe"
 	desc = "Accessed by a connected core fabricator console, it produces items from various materials."
 	icon_state = "protolathe"
+	icon = 'icons/obj/machines/research/protolathe.dmi'
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_OPEN_CONTAINER
 
 	idle_power_usage = 30
@@ -70,12 +71,16 @@
 
 
 /obj/machinery/r_n_d/protolathe/on_update_icon()
+	ClearOverlays()
 	if(panel_open)
-		icon_state = "protolathe_t"
-	else if(busy)
-		icon_state = "protolathe_n"
-	else
-		icon_state = "protolathe"
+		AddOverlays("[icon_state]_panel")
+	if(is_powered())
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
+	if(busy)
+		AddOverlays("[icon_state]_working")
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
+		AddOverlays("[icon_state]_lights_working")
 
 /obj/machinery/r_n_d/protolathe/state_transition(singleton/machine_construction/default/new_state)
 	. = ..()
@@ -91,31 +96,31 @@
 		return SPAN_NOTICE("\The [src] is busy. Please wait for completion of previous operation.")
 	return ..()
 
-/obj/machinery/r_n_d/protolathe/attackby(obj/item/O as obj, mob/user as mob)
+/obj/machinery/r_n_d/protolathe/use_tool(obj/item/O, mob/living/user, list/click_params)
 	if(busy)
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for completion of previous operation."))
-		return 1
-	if(component_attackby(O, user))
 		return TRUE
+	if((. = ..()))
+		return
 	if(O.is_open_container())
-		return 0
+		return FALSE
 	if(panel_open)
 		to_chat(user, SPAN_NOTICE("You can't load \the [src] while it's opened."))
-		return 1
+		return TRUE
 	if(!linked_console)
 		to_chat(user, SPAN_NOTICE("\The [src] must be linked to an R&D console first!"))
-		return 1
+		return TRUE
 	if(is_robot_module(O))
-		return 0
+		return FALSE
 	if(!istype(O, /obj/item/stack/material))
 		to_chat(user, SPAN_NOTICE("You cannot insert this item into \the [src]!"))
-		return 0
+		return TRUE
 	if(inoperable())
-		return 1
+		return TRUE
 
 	if(TotalMaterials() + SHEET_MATERIAL_AMOUNT > max_material_storage)
 		to_chat(user, SPAN_NOTICE("\The [src]'s material bin is full. Please remove material before adding more."))
-		return 1
+		return TRUE
 
 	var/obj/item/stack/material/stack = O
 
@@ -123,9 +128,9 @@
 
 	var/image/I = image(icon, "protolathe_stack")
 	I.color = stack.material.icon_colour
-	overlays += I
+	AddOverlays(I)
 	spawn(10)
-		overlays -= I
+		CutOverlays(I)
 
 	busy = 1
 	use_power_oneoff(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))
@@ -135,6 +140,7 @@
 			materials[stack.material.name] += amount * SHEET_MATERIAL_AMOUNT
 	busy = 0
 	updateUsrDialog()
+	return TRUE
 
 /obj/machinery/r_n_d/protolathe/proc/addToQueue(datum/design/D)
 	queue += D

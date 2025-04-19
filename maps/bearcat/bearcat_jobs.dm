@@ -1,7 +1,7 @@
 /datum/map/bearcat
 	allowed_jobs = list(/datum/job/captain, /datum/job/chief_engineer, /datum/job/doctor, /datum/job/hop, /datum/job/cyborg, /datum/job/assistant, /datum/job/engineer)
 	species_to_job_whitelist = list(
-		/datum/species/vox = list(/datum/job/assistant)
+		/singleton/species/vox = list(/datum/job/assistant)
 	)
 
 /datum/job/captain
@@ -23,7 +23,7 @@
 		return
 	GLOB.using_map.station_short = ship
 	GLOB.using_map.station_name = "FTV [ship]"
-	var/obj/effect/overmap/visitable/ship/bearcat/B = locate() in world
+	var/obj/overmap/visitable/ship/bearcat/B = locate() in world
 	if(B)
 		B.SetName(GLOB.using_map.station_name)
 	command_announcement.Announce("Attention all hands on [GLOB.using_map.station_name]! Thank you for your attention.", "Ship re-christened")
@@ -149,7 +149,7 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 	pda_type = /obj/item/modular_computer/pda/cargo
-	l_hand = /obj/item/material/clipboard
+	l_hand = /obj/item/material/folder/clipboard
 
 /singleton/hierarchy/outfit/job/bearcat/hand
 	name = BEARCAT_OUTFIT_JOB_NAME("Deck Hand")

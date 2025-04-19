@@ -34,6 +34,7 @@
 
 
 /mob/living/carbon/brain/handle_environment(datum/gas_mixture/environment)
+	..()
 	if(!environment)
 		return
 	var/environment_heat_capacity = environment.heat_capacity()
@@ -189,7 +190,6 @@
 			if (!( machine.check_eye(src) ))
 				reset_view(null)
 		else
-			if(client && !client.adminobs)
-				reset_view(null)
+			reset_view(null)
 
 	return 1

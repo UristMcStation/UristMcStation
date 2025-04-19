@@ -24,11 +24,11 @@
 	///The beam will qdel if it's longer than this many tiles.
 	var/max_distance = 0
 	///the objects placed in the elements list
-	var/beam_type = /obj/effect/ebeam
+	var/beam_type = /obj/ebeam
 	///This is used as the visual_contents of beams, so you can apply one effect to this and the whole beam will look like that. never gets deleted on redrawing.
-	var/obj/effect/ebeam/visuals
+	var/obj/ebeam/visuals
 
-/datum/beam/New(beam_origin,beam_target,beam_icon='icons/effects/beam.dmi',beam_icon_state="b_beam",time=INFINITY,maxdistance=INFINITY,btype = /obj/effect/ebeam)
+/datum/beam/New(beam_origin,beam_target,beam_icon='icons/effects/beam.dmi',beam_icon_state="b_beam",time=INFINITY,maxdistance=INFINITY,btype = /obj/ebeam)
 	origin = beam_origin
 	target = beam_target
 	max_distance = maxdistance
@@ -47,10 +47,12 @@
 	visuals.icon_state = icon_state
 	Draw()
 	//Register for movement events
-	GLOB.moved_event.register(origin, src, .proc/redrawing)
-	GLOB.moved_event.register(target, src, .proc/redrawing)
-	GLOB.destroyed_event.register(origin, src, .proc/redrawing)
-	GLOB.destroyed_event.register(target, src, .proc/redrawing)
+	if(ismovable(origin))
+		GLOB.moved_event.register(origin, src, PROC_REF(redrawing))
+	if(ismovable(target))
+		GLOB.moved_event.register(target, src, PROC_REF(redrawing))
+	GLOB.destroyed_event.register(origin, src, PROC_REF(redrawing))
+	GLOB.destroyed_event.register(target, src, PROC_REF(redrawing))
 
 /**
  * Triggered by events set up when the beam is set up. If it's still sane to create a beam, it removes the old beam, creates a new one. Otherwise it kills the beam.
@@ -63,17 +65,17 @@
 /datum/beam/proc/redrawing(atom/movable/mover, atom/oldloc, new_loc)
 	if(!QDELETED(origin) && !QDELETED(target) && get_dist(origin,target)<max_distance && origin.z == target.z)
 		QDEL_NULL_LIST(elements)
-		invoke_async(src, .proc/Draw)
+		invoke_async(src, PROC_REF(Draw))
 	else
 		qdel(src)
 
 /datum/beam/Destroy()
 	QDEL_NULL_LIST(elements)
 	QDEL_NULL(visuals)
-	GLOB.moved_event.unregister(origin, src, .proc/redrawing)
-	GLOB.moved_event.unregister(target, src, .proc/redrawing)
-	GLOB.destroyed_event.unregister(origin, src, .proc/redrawing)
-	GLOB.destroyed_event.unregister(target, src, .proc/redrawing)
+	GLOB.moved_event.unregister(origin, src, PROC_REF(redrawing))
+	GLOB.moved_event.unregister(target, src, PROC_REF(redrawing))
+	GLOB.destroyed_event.unregister(origin, src, PROC_REF(redrawing))
+	GLOB.destroyed_event.unregister(target, src, PROC_REF(redrawing))
 	target = null
 	origin = null
 	return ..()
@@ -94,7 +96,7 @@
 	for(N in 0 to length-1 step 32)//-1 as we want < not <=, but we want the speed of X in Y to Z and step X
 		if(QDELETED(src))
 			break
-		var/obj/effect/ebeam/X = new beam_type(origin_turf)
+		var/obj/ebeam/X = new beam_type(origin_turf)
 		X.owner = src
 		elements += X
 
@@ -105,7 +107,7 @@
 			II.DrawBox(null,1,(length-N),32,32)//in the future if you want to improve this, remove the drawbox and instead use a 513 filter to cut away at the final object's icon
 			X.icon = II
 		else
-			X.vis_contents += visuals
+			X.add_vis_contents(visuals)
 		X.SetTransform(rotation = Angle)
 
 		//Calculate pixel offsets (If necessary)
@@ -120,7 +122,7 @@
 		else
 			Pixel_y = round(cos(Angle)+32*cos(Angle)*(N+16)/32)
 
-		//Position the effect so the beam is one continous line
+		//Position the effect so the beam is one continuous line
 		var/a
 		if(abs(Pixel_x)>32)
 			a = Pixel_x > 0 ? round(Pixel_x/32) : Ceilm(Pixel_x/32, 1)
@@ -135,19 +137,24 @@
 		X.pixel_y = Pixel_y
 		CHECK_TICK
 
-/obj/effect/ebeam
+/obj/ebeam
 	mouse_opacity = MOUSE_OPACITY_UNCLICKABLE
 	anchored = TRUE
 	var/datum/beam/owner
 
-/obj/effect/ebeam/Destroy()
+/obj/ebeam/Destroy()
 	owner = null
 	return ..()
 
-/obj/effect/ebeam/singularity_pull()
+/obj/ebeam/singularity_pull()
 	return
-/obj/effect/ebeam/singularity_act()
+/obj/ebeam/singularity_act()
 	return
+
+//Equivalent to /obj/ebeam, except it also adds an emissive layer
+/obj/ebeam/emissive/on_update_icon()
+	var/mutable_appearance/emissive_overlay = emissive_appearance(icon, icon_state, src)
+	AddOverlays(emissive_overlay)
 
 /**
  * This is what you use to start a beam. Example: origin.Beam(target, args). **Store the return of this proc if you don't set maxdist or time, you need it to delete the beam.**
@@ -161,7 +168,7 @@
  * - maxdistance: how far the beam will go before stopping itself. Used mainly for two things: preventing lag if the beam may go in that direction and setting a range to abilities that use beams.
  * - beam_type: The type of your custom beam. This is for adding other wacky stuff for your beam only. Most likely, you won't (and shouldn't) change it.
  */
-/atom/proc/Beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time=INFINITY,maxdistance=INFINITY,beam_type=/obj/effect/ebeam)
+/atom/proc/Beam(atom/BeamTarget,icon_state="b_beam",icon='icons/effects/beam.dmi',time=INFINITY,maxdistance=INFINITY,beam_type=/obj/ebeam)
 	var/datum/beam/newbeam = new(src,BeamTarget,icon,icon_state,time,maxdistance,beam_type)
-	invoke_async(newbeam, /datum/beam/.proc/Start)
+	invoke_async(newbeam, TYPE_PROC_REF(/datum/beam, Start))
 	return newbeam

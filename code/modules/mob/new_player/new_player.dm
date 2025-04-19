@@ -1,6 +1,12 @@
-//This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:33
-
 /mob/new_player
+	universal_speak = TRUE
+	invisibility = INVISIBILITY_ABSTRACT
+	density = FALSE
+	stat = DEAD
+	movement_handlers = list()
+	anchored = TRUE	//  don't get pushed around
+	virtual_mob = null // Hear no evil, speak no evil
+
 	var/ready = 0
 	var/respawned_time = 0
 	var/spawning = 0//Referenced when you want to delete the new_player later on in the code.
@@ -8,25 +14,21 @@
 	var/totalPlayersReady = 0
 	var/datum/browser/panel
 	var/show_invalid_jobs = 0
-	universal_speak = TRUE
-
-	invisibility = 101
-
-	density = FALSE
-	stat = DEAD
-
-	movement_handlers = list()
-	anchored = TRUE	//  don't get pushed around
-
-	virtual_mob = null // Hear no evil, speak no evil
 
 
-/mob/new_player/New()
-	..()
+/mob/new_player/Destroy()
+	QDEL_NULL(panel)
+	return ..()
+
+
+/mob/new_player/Initialize(mapload)
+	. = ..()
 	verbs += /mob/proc/toggle_antag_pool
 
 
 /mob/new_player/proc/new_player_panel(force)
+	if (!client)
+		return
 	if (!force && !SScharacter_setup.initialized)
 		return
 	var/list/output = list()
@@ -45,10 +47,26 @@
 	if (GAME_STATE > RUNLEVEL_LOBBY)
 		output += "<a href='byond://?src=\ref[src];manifest=1'>Manifest</a>"
 	output += "<a href='byond://?src=\ref[src];show_preferences=1'>Character Setup</a>"
+	if(config.maximum_queued_characters > 1)
+		output += "<a href='byond://?src=\ref[src];switch_prefs_list=1;refresh=1'>[client.prefs.use_slot_priority_list ? "Multiple Characters" : "Single Character"]</a>"
 	output += "<hr>"
 	output += "<b>Playing As</b><br>"
-	output += "<a href='byond://?src=\ref[client.prefs];load=1;details=1'>[client.prefs.real_name || "(Random)"]</a><br>"
-	output += client.prefs.job_high ? "[client.prefs.job_high]" : null
+	if(client.prefs.use_slot_priority_list && GAME_STATE <= RUNLEVEL_LOBBY)
+		for(var/i = 1 to length(client.prefs.slot_priority_list))
+			var/datum/preferences_slot/pref = client.prefs.slot_priority_list[i]
+			if(istype(pref))
+				output += "<a href='byond://?src=\ref[src];show_preferences_loaded=[pref.slot]'>[client.prefs.slot_names?[client.prefs.get_slot_key(pref.slot)] || "(Random)"]</a>"
+				if(length(client.prefs.slot_priority_list) != 1)
+					output += "<a href='byond://?src=\ref[client.prefs];removeslot=[i];refresh=1;refreshslots=1'>x</a>"
+				if(i != 1)
+					output += "<a href='byond://?src=\ref[client.prefs];moveslotup=[i];refresh=1;refreshslots=1'>&uarr;</a>"
+				if(i != length(client.prefs.slot_priority_list))
+					output += "<a href='byond://?src=\ref[client.prefs];moveslotdown=[i];refresh=1;refreshslots=1'>&darr;</a>"
+				output += "<br>"
+		output += "<a href='byond://?src=\ref[client.prefs];order_prefs=1'>Reorder</a><br>"
+	else
+		output += "<a href='byond://?src=\ref[client.prefs];load=1;details=1'>[client.prefs.real_name || "(Random)"]</a><br>"
+		output += client.prefs.job_high ? "[client.prefs.job_high]" : null
 	output += "<hr>"
 	output += "<a href='byond://?src=\ref[src];observe=1'>Join As Observer</a>"
 	if (GAME_STATE > RUNLEVEL_LOBBY)
@@ -63,7 +81,6 @@
 	panel.set_content(output.Join())
 	panel.open()
 
-
 /mob/new_player/Stat()
 	. = ..()
 
@@ -74,8 +91,8 @@
 			stat("Game Mode:", PUBLIC_GAME_MODE)
 		var/extra_antags = list2params(additional_antag_types)
 		stat("Added Antagonists:", extra_antags ? extra_antags : "None")
-		stat("Initial Continue Vote:", "[round(config.vote_autotransfer_initial / 600, 1)] minutes")
-		stat("Additional Vote Every:", "[round(config.vote_autotransfer_interval / 600, 1)] minutes")
+		stat("Initial Continue Vote:", "[config.vote_autotransfer_initial] minutes")
+		stat("Additional Vote Every:", "[config.vote_autotransfer_interval] minutes")
 
 		if(GAME_STATE <= RUNLEVEL_LOBBY)
 			stat("Time To Start:", "[round(SSticker.pregame_timeleft/10)][SSticker.round_progressing ? "" : " (DELAYED)"]")
@@ -86,14 +103,19 @@
 				var/highjob
 				if (player.client)
 					var/show_ready = player.client.get_preference_value(/datum/client_preference/show_ready) == GLOB.PREF_SHOW
-					if (player.client.prefs?.job_high)
-						highjob = " as [player.client.prefs.job_high]"
+					var/datum/preferences/prefs = player.client.prefs
+					if(player.client.prefs.use_slot_priority_list && length(player.client.prefs.slot_priority_list))
+						var/datum/preferences_slot/slot = player.client.prefs.slot_priority_list[1]
+						if(slot.job_high)
+							highjob = "as [slot.job_high]"
+					else if (prefs.job_high)
+						highjob = " as [prefs.job_high]"
 					if (!player.is_stealthed())
 						var/can_see_hidden = check_rights(R_INVESTIGATE, 0)
 						var/datum/game_mode/mode = SSticker.pick_mode(SSticker.master_mode)
 						var/list/readied_antag_roles = list()
 						if (mode && can_see_hidden)
-							for (var/role in player.client.prefs.be_special_role)
+							for (var/role in prefs.be_special_role)
 								if (role in mode.antag_tags)
 									readied_antag_roles += role
 
@@ -102,14 +124,22 @@
 				totalPlayers++
 				if(player.ready)totalPlayersReady++
 		else
-			stat("Next Continue Vote:", "[max(round(transfer_controller.time_till_transfer_vote() / 600, 1), 0)] minutes")
+			stat("Next Continue Vote:", "[SSroundend.vote_cache] minutes")
 
 /mob/new_player/Topic(href, href_list) // This is a full override; does not call parent.
 	if (usr != src)
 		return TOPIC_NOACTION
 	if (!client)
 		return TOPIC_NOACTION
+	if (href_list["switch_prefs_list"] && config.maximum_queued_characters > 1)
+		client.prefs.use_slot_priority_list = !client.prefs.use_slot_priority_list
+		client.prefs.save_preferences()
+		client.prefs.close_load_dialog()
 	if (href_list["show_preferences"])
+		client.prefs.open_setup_window(src)
+		return 1
+	if (href_list["show_preferences_loaded"])
+		client.prefs.load_character(text2num(href_list["show_preferences_loaded"]))
 		client.prefs.open_setup_window(src)
 		return 1
 	if (href_list["show_wiki"])
@@ -183,13 +213,17 @@
 	if(href_list["manifest"])
 		ViewManifest()
 
+	if (href_list["invalid_jobs"])
+		show_invalid_jobs = !show_invalid_jobs
+		LateChoices()
+
 	if(href_list["SelectedJob"])
 		var/datum/job/job = SSjobs.get_by_title(href_list["SelectedJob"])
 
 		if(!SSjobs.check_general_join_blockers(src, job))
 			return FALSE
 
-		var/datum/species/S = all_species[client.prefs.species]
+		var/singleton/species/S = GLOB.species_by_name[client.prefs.species]
 		if(!check_species_allowed(S))
 			return 0
 
@@ -233,6 +267,11 @@
 	if(!job || !job.is_available(client))
 		to_chat(src, alert("[job.title] is not available. Please try another."))
 		return 0
+
+	if (!check_occupation_set(job))
+		var/choice = alert("You do not have [job.title] set as your occupation, are you sure you want to join as this role?", "Occupation Mismatch", "Yes", "No")
+		if (choice != "Yes")
+			return FALSE
 
 	SSjobs.assign_role(src, job.title, 1)
 
@@ -307,44 +346,126 @@
 	dat += "Choose from the following open/valid positions:<br>"
 	dat += "<a href='byond://?src=\ref[src];invalid_jobs=1'>[show_invalid_jobs ? "Hide":"Show"] unavailable jobs.</a><br>"
 	dat += "<table>"
-	dat += "<tr><td colspan = 3><b>[GLOB.using_map.station_name]:</b></td></tr>"
+	dat += "<tr><td align = 'center' colspan = 3><b>[GLOB.using_map.station_name]:</b></td></tr>"
 
+	var/list/categorizedJobs = list(
+		"Command" =         list(jobs = list(), dep = COM, color = "#aac1ee"),
+		"Command Support" = list(jobs = list(), dep = SPT, color = "#aac1ee"),
+		"Engineering" =     list(jobs = list(), dep = ENG, color = "#ffd699"),
+		"Security" =        list(jobs = list(), dep = SEC, color = "#ff9999"),
+		"Miscellaneous" =   list(jobs = list(), dep = CIV, color = "#ffffff", colBreak = 1),
+		"Synthetics" =      list(jobs = list(), dep = MSC, color = "#ccffcc"),
+		"Service" =         list(jobs = list(), dep = SRV, color = "#cccccc"),
+		"Medical" =         list(jobs = list(), dep = MED, color = "#99ffe6"),
+		"Research" =        list(jobs = list(), dep = SCI, color = "#e6b3e6", colBreak = 1),
+		"Supply" =          list(jobs = list(), dep = SUP, color = "#ead4ae"),
+		"Exploration" =     list(jobs = list(), dep = EXP, color = "#ffd699"),
+		"ERROR" =           list(jobs = list(), color = "#ffffff", colBreak = 1)
+	)
 	// TORCH JOBS
 	var/list/job_summaries
 	var/list/hidden_reasons = list()
+	var/catcheck
 	for(var/datum/job/job in SSjobs.primary_job_datums)
 		var/summary = job.get_join_link(client, "byond://?src=\ref[src];SelectedJob=[job.title]", show_invalid_jobs)
+		if(job.department_flag)
+			catcheck |= job.department_flag
 		if(summary && summary != "")
-			LAZYADD(job_summaries, summary)
+			for(var/category in categorizedJobs)
+				var/list/jobs = list()
+
+				if(job.department_flag & categorizedJobs[category]["dep"])
+					LAZYADD(jobs, job)
+
+				if(category == "ERROR")
+					if(!job.department_flag)
+						LAZYADD(jobs, job)
+						continue
+
+					var/check = FALSE
+					for(var/categ in categorizedJobs)
+						if(job in categorizedJobs[categ]["jobs"])
+							check = TRUE
+							continue
+					if(!check)
+						LAZYADD(jobs, job)
+
+				if(length(jobs))
+					categorizedJobs[category]["jobs"] += jobs
 		else
 			for(var/raisin in job.get_unavailable_reasons(client))
 				hidden_reasons[raisin] = TRUE
 
-	if(LAZYLEN(job_summaries))
-		dat += job_summaries
-	else
-		dat += "<tr><td>No available positions.</td></tr>"
+	dat += "<tr><td valign='top'>"
+	for(var/jobcat in categorizedJobs)
+
+		if(categorizedJobs[jobcat]["colBreak"])
+			dat += "</td><td valign='top'>"
+
+		if((length(categorizedJobs[jobcat]["jobs"]) < 1) && (jobcat == "ERROR"))
+			continue
+
+		var/flag = categorizedJobs[jobcat]["dep"]
+		if(!flag)
+			log_admin("[jobcat] NO CATEGORY FLAG.")
+			message_staff("[jobcat] NO CATEGORY FLAG.")
+			continue
+		else if(!(catcheck & flag))
+			continue
+
+		var/color = categorizedJobs[jobcat]["color"]
+		dat += "<fieldset style='width: 270px; border: 2px solid [color]; display: inline'>"
+		dat += "<legend align='center' style='color: [color]'>[jobcat]</legend>"
+		dat += "<table align = 'center'>"
+		if(length(categorizedJobs[jobcat]["jobs"]) < 1)
+			dat += "<tr><td></td><td align = 'center'><i>No available positions.</i><br></td></tr>"
+			dat += "</table>"
+			dat += "</fieldset><br>"
+			continue
+		for(var/datum/job/prof in categorizedJobs[jobcat]["jobs"])
+			if(jobcat == "Command")
+				if(istype(prof, /datum/job/captain))
+					dat += prof.get_join_link(client, "byond://?src=\ref[src];SelectedJob=[prof.title]", show_invalid_jobs, TRUE)
+				else
+					dat += prof.get_join_link(client, "byond://?src=\ref[src];SelectedJob=[prof.title]", show_invalid_jobs)
+			else if(prof.department_flag & COM)
+				dat += prof.get_join_link(client, "byond://?src=\ref[src];SelectedJob=[prof.title]", show_invalid_jobs, TRUE)
+			else
+				dat += prof.get_join_link(client, "byond://?src=\ref[src];SelectedJob=[prof.title]", show_invalid_jobs)
+		dat += "</table>"
+		dat += "</fieldset><br>"
+	dat += "</td></tr></table>"
 	// END TORCH JOBS
 
 	// SUBMAP JOBS
-	for(var/thing in SSmapping.submaps)
-		var/datum/submap/submap = thing
-		if(submap && submap.available())
-			dat += "<tr><td colspan = 3><b>[submap.name] ([submap.archetype.descriptor]):</b></td></tr>"
-			job_summaries = list()
-			for(var/otherthing in submap.jobs)
-				var/datum/job/job = submap.jobs[otherthing]
-				var/summary = job.get_join_link(client, "byond://?src=\ref[submap];joining=\ref[src];join_as=[otherthing]", show_invalid_jobs)
-				if(summary && summary != "")
-					LAZYADD(job_summaries, summary)
-				else
-					for(var/raisin in job.get_unavailable_reasons(client))
-						hidden_reasons[raisin] = TRUE
+	if(SSmapping.submaps)
+		dat += "<table><tr><td>"
+		for(var/thing in SSmapping.submaps)
+			var/datum/submap/submap = thing
+			if(submap && submap.available())
+				var/color = "ffffff"
+				dat += "<fieldset style='border: 2px solid [color]; display: inline'>"
+				dat += "<legend align='center' style='color: [color]'><b>[submap.name] ([submap.archetype.descriptor])</b></legend>"
+				dat += "<table align = 'center'>"
+				job_summaries = list()
+				for(var/otherthing in submap.jobs)
+					var/datum/job/job = submap.jobs[otherthing]
+					var/summary = job.get_join_link(client, "byond://?src=\ref[submap];joining=\ref[src];join_as=[otherthing]", show_invalid_jobs)
+					if(summary && summary != "")
+						LAZYADD(job_summaries, summary)
+					else
+						for(var/raisin in job.get_unavailable_reasons(client))
+							hidden_reasons[raisin] = TRUE
 
-			if(LAZYLEN(job_summaries))
-				dat += job_summaries
-			else
-				dat += "No available positions."
+				if(LAZYLEN(job_summaries))
+					dat += job_summaries
+					dat += "</table>"
+					dat += "</fieldset><br>"
+				else
+					dat += "<tr><td></td><td align = 'center'><i>No available positions.</i></td></tr>"
+					dat += "</table>"
+					dat += "</fieldset><br>"
+		dat += "</td></tr></table>"
 	// END SUBMAP JOBS
 
 	dat += "</table></center>"
@@ -355,7 +476,9 @@
 		additional_dat += "<br>"
 		dat = additional_dat + dat
 	dat = header + dat
-	show_browser(src, jointext(dat, null), "window=latechoices;size=450x640;can_close=1")
+	var/datum/browser/popup = new(src, "latechoices", "Choose Profession", 950, 900)
+	popup.set_content(jointext(dat, null))
+	popup.open(0) // 0 is passed to open so that it doesn't use the onclose() proc
 
 /mob/new_player/proc/create_character(turf/spawn_turf)
 	spawning = 1
@@ -363,9 +486,9 @@
 
 	var/mob/living/carbon/human/new_character
 
-	var/datum/species/chosen_species
+	var/singleton/species/chosen_species
 	if(client.prefs.species)
-		chosen_species = all_species[client.prefs.species]
+		chosen_species = GLOB.species_by_name[client.prefs.species]
 
 	if(!spawn_turf)
 		var/datum/job/job = SSjobs.get_by_title(mind.assigned_role)
@@ -439,7 +562,7 @@
 	close_browser(src, "window=latechoices") //closes late choices window
 	panel.close()
 
-/mob/new_player/proc/check_species_allowed(datum/species/S, show_alert=1)
+/mob/new_player/proc/check_species_allowed(singleton/species/S, show_alert=1)
 	if(!S.is_available_for_join() && !has_admin_rights())
 		if(show_alert)
 			to_chat(src, alert("Your current species, [client.prefs.species], is not available for play."))
@@ -451,9 +574,10 @@
 	return 1
 
 /mob/new_player/get_species()
-	var/datum/species/chosen_species
-	if(client.prefs.species)
-		chosen_species = all_species[client.prefs.species]
+	var/singleton/species/chosen_species
+	var/datum/preferences/prefs = client.prefs
+	if(prefs.species)
+		chosen_species = GLOB.species_by_name[prefs.species]
 
 	if(!chosen_species || !check_species_allowed(chosen_species, 0))
 		return SPECIES_HUMAN
@@ -495,3 +619,18 @@
 	var/singleton/audio/track/track = GLOB.using_map.get_lobby_track(GLOB.using_map.lobby_track.type)
 	sound_to(src, track.get_sound())
 	to_chat(src, track.get_info())
+
+/mob/new_player/proc/check_occupation_set(datum/job/job)
+	if (!job)
+		return FALSE
+
+	if (job.title == client.prefs.job_high)
+		return TRUE
+
+	if (job.title in client.prefs.job_medium)
+		return TRUE
+
+	if (job.title in client.prefs.job_low)
+		return TRUE
+
+	return FALSE

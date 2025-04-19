@@ -1,12 +1,12 @@
 /*/datum/exoplanet_theme
 	var/name = "Nothing Special"
 
-/datum/exoplanet_theme/proc/before_map_generation(obj/effect/overmap/visitable/exoplanet/E)
+/datum/exoplanet_theme/proc/before_map_generation(obj/overmap/visitable/exoplanet/E)
 
 /datum/exoplanet_theme/mountains
 	name = "Mountains"
 
-/datum/exoplanet_theme/mountains/before_map_generation(obj/effect/overmap/visitable/exoplanet/E)
+/datum/exoplanet_theme/mountains/before_map_generation(obj/overmap/visitable/exoplanet/E)
 	for(var/zlevel in E.map_z)
 		new /datum/random_map/automata/cave_system/mountains(null,1,1,zlevel,E.maxx,E.maxy,0,1,1, E.planetary_area, pick(E.rock_colors))
 

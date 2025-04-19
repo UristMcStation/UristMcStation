@@ -24,16 +24,18 @@
 		/datum/mil_rank/fleet/o2,
 		/datum/mil_rank/civ/contractor
 	)
-	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
-	                    SKILL_MEDICAL     = SKILL_EXPERT,
-	                    SKILL_ANATOMY     = SKILL_EXPERT,
-	                    SKILL_CHEMISTRY   = SKILL_BASIC,
-						SKILL_DEVICES     = SKILL_ADEPT)
+	skill_points = 26
+	min_skill = list( // 41 points
+		SKILL_BUREAUCRACY = SKILL_BASIC, // 1 point
+		SKILL_MEDICAL = SKILL_EXPERIENCED, // 16 points
+		SKILL_ANATOMY = SKILL_EXPERIENCED, // 16 points
+		SKILL_CHEMISTRY = SKILL_BASIC, // 4 points
+		SKILL_DEVICES = SKILL_TRAINED // 4 points
+	)
 
 	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
 	                    SKILL_ANATOMY     = SKILL_MAX,
 	                    SKILL_CHEMISTRY   = SKILL_MAX)
-	skill_points = 20
 
 	access = list(
 		access_medical, access_morgue, access_virology, access_maint_tunnels, access_emergency_storage,
@@ -67,16 +69,18 @@
 		/datum/mil_rank/fleet/o1,
 		/datum/mil_rank/civ/contractor
 	)
-	min_skill = list(   SKILL_BUREAUCRACY = SKILL_BASIC,
-	                    SKILL_MEDICAL     = SKILL_EXPERT,
-	                    SKILL_ANATOMY     = SKILL_EXPERT,
-	                    SKILL_CHEMISTRY   = SKILL_BASIC,
-						SKILL_DEVICES     = SKILL_ADEPT)
+	skill_points = 22
+	min_skill = list( // 41 points
+		SKILL_BUREAUCRACY = SKILL_BASIC, // 1 point
+		SKILL_MEDICAL = SKILL_EXPERIENCED, // 16 points
+		SKILL_ANATOMY = SKILL_EXPERIENCED, // 16 points
+		SKILL_CHEMISTRY = SKILL_BASIC, // 4 points
+		SKILL_DEVICES = SKILL_TRAINED // 4 points
+	)
 
 	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
 	                    SKILL_ANATOMY     = SKILL_MAX,
 	                    SKILL_CHEMISTRY   = SKILL_MAX)
-	skill_points = 16
 
 	access = list(
 		access_medical, access_morgue, access_virology, access_maint_tunnels, access_emergency_storage,
@@ -114,9 +118,12 @@
 		/datum/mil_rank/fleet/e6,
 		/datum/mil_rank/civ/contractor
 	)
-	min_skill = list(   SKILL_EVA     = SKILL_BASIC,
-	                    SKILL_MEDICAL = SKILL_BASIC,
-	                    SKILL_ANATOMY = SKILL_BASIC)
+	skill_points = 28
+	min_skill = list( // 9 points
+		SKILL_EVA = SKILL_BASIC, // 1 point
+		SKILL_MEDICAL = SKILL_BASIC, // 4 points
+		SKILL_ANATOMY = SKILL_BASIC // 4 points
+	)
 
 	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
 	                    SKILL_CHEMISTRY   = SKILL_MAX)
@@ -130,7 +137,6 @@
 
 	software_on_spawn = list(/datum/computer_file/program/suit_sensors,
 							 /datum/computer_file/program/camera_monitor)
-	skill_points = 22
 
 /datum/job/medical_trainee
 	title = "Trainee Medical Technician"
@@ -155,13 +161,13 @@
 		/datum/mil_rank/fleet/e2
 	)
 
-	skill_points = 4
-	no_skill_buffs = TRUE
-
-	min_skill = list(   SKILL_EVA     = SKILL_ADEPT,
-	                    SKILL_HAULING = SKILL_ADEPT,
-	                    SKILL_MEDICAL = SKILL_EXPERT,
-	                    SKILL_ANATOMY = SKILL_BASIC)
+	skill_points = 10
+	min_skill = list( // 24 points
+		SKILL_EVA = SKILL_TRAINED, // 2 points
+		SKILL_HAULING = SKILL_TRAINED, // 2 points
+		SKILL_MEDICAL = SKILL_EXPERIENCED, // 16 points
+		SKILL_ANATOMY = SKILL_BASIC // 4 points
+	)
 
 	max_skill = list(   SKILL_MEDICAL     = SKILL_MAX,
 	                    SKILL_ANATOMY     = SKILL_MAX,
@@ -186,7 +192,7 @@
 	department_flag = MED
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "medical personnel, the Corporate Liaison, and the Chief Medical Officer"
+	supervisors = "medical personnel, and the Chief Medical Officer"
 	selection_color = "#013d3b"
 	economic_power = 4
 	minimum_character_age = list(SPECIES_HUMAN = 25)
@@ -198,13 +204,15 @@
 	outfit_type = /singleton/hierarchy/outfit/job/torch/crew/medical/contractor/chemist
 	allowed_branches = list(/datum/mil_branch/civilian)
 	allowed_ranks = list(/datum/mil_rank/civ/contractor)
-	min_skill = list(   SKILL_MEDICAL   = SKILL_BASIC,
-	                    SKILL_CHEMISTRY = SKILL_ADEPT)
+	skill_points = 21
+	min_skill = list( // 12 points
+		SKILL_MEDICAL = SKILL_BASIC, // 4 points
+		SKILL_CHEMISTRY = SKILL_TRAINED // 8 points
+	)
 
 	max_skill = list(   SKILL_MEDICAL     = SKILL_BASIC,
 						SKILL_ANATOMY	  = SKILL_BASIC,
 	                    SKILL_CHEMISTRY   = SKILL_MAX)
-	skill_points = 16
 
 	access = list(
 		access_medical, access_maint_tunnels, access_emergency_storage,
@@ -228,9 +236,7 @@
 	alt_titles = list(
 		"Psychiatrist",
 		"Psychologist",
-		"Psionic Counselor",
 		"Mentalist"
-
 	)
 
 	allowed_branches = list(
@@ -241,12 +247,13 @@
 		/datum/mil_rank/civ/contractor,
 		/datum/mil_rank/fleet/o1,
 		/datum/mil_rank/ec/o1)
-	min_skill = list(
-		SKILL_BUREAUCRACY = SKILL_BASIC,
-		SKILL_MEDICAL     = SKILL_BASIC
+	min_skill = list( // 6 points
+		SKILL_BUREAUCRACY = SKILL_TRAINED, // 2 points
+		SKILL_MEDICAL = SKILL_BASIC // 4 points
 	)
 	max_skill = list(
-		SKILL_MEDICAL     = SKILL_MAX
+		SKILL_MEDICAL = SKILL_TRAINED,
+		SKILL_ANATOMY = SKILL_TRAINED
 	)
 	access = list(
 		access_medical, access_psychiatrist,
@@ -260,9 +267,7 @@
 	give_psionic_implant_on_join = FALSE
 
 /datum/job/psychiatrist/equip(mob/living/carbon/human/H)
-	if(H.mind?.role_alt_title == "Psionic Counselor")
-		psi_faculties = list("[PSI_REDACTION]" = PSI_RANK_OPERANT)
-	if(H.mind?.role_alt_title == "Mentalist")
+	if (H.mind?.role_alt_title == "Mentalist")
 		psi_faculties = list("[PSI_COERCION]" = PSI_RANK_OPERANT)
 	return ..()
 

@@ -21,11 +21,11 @@
 	waypoint_offsite = "nav_cargo_start"
 	waypoint_station = "nav_cargo_station"
 
-/obj/effect/shuttle_landmark/supply/centcom
+/obj/shuttle_landmark/supply/centcom
 	name = "Centcom"
 	landmark_tag = "nav_cargo_start"
 
-/obj/effect/shuttle_landmark/supply/station
+/obj/shuttle_landmark/supply/station
 	name = "Hangar"
 	landmark_tag = "nav_cargo_station"
 	base_area = /area/logistics/loading
@@ -42,12 +42,12 @@
 	waypoint_offsite = "nav_merchant_out"
 	dock_target = "merchant_ship_dock"
 
-/obj/effect/shuttle_landmark/merchant/start
+/obj/shuttle_landmark/merchant/start
 	name = "Merchant Base"
 	landmark_tag = "nav_merchant_start"
 	docking_controller = "merchant_station_dock"
 
-/obj/effect/shuttle_landmark/merchant/out
+/obj/shuttle_landmark/merchant/out
 	name = "Docking Bay"
 	landmark_tag = "nav_merchant_out"
 	docking_controller = "lounge_dock"

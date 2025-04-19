@@ -29,7 +29,7 @@
 	icon_state = "paperflower"
 	slot_flags = SLOT_MASK
 
-/obj/item/clothing/mask/flower/attackby(obj/item/I, mob/user as mob)
+/obj/item/clothing/mask/flower/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/scissors))
 		var/obj/item/clothing/head/urist/paperflower/F = new /obj/item/clothing/head/urist/paperflower
 		user.remove_from_mob(src)
@@ -101,7 +101,7 @@
 	slot_flags = SLOT_MASK
 	flags_inv = HIDEFACE
 
-/obj/item/clothing/mask/urist/bandana/leather/attackby(obj/item/I, mob/user as mob)
+/obj/item/clothing/mask/urist/bandana/leather/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/stack/material/glass))
 		var/obj/item/stack/material/glass/G = I
 		G.use(1)

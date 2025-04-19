@@ -1,4 +1,4 @@
-/datum/species/alium
+/singleton/species/alium
 	name = SPECIES_ALIEN
 	name_plural = "Humanoids"
 	description = "Some alien humanoid species, unknown to humanity. How exciting."
@@ -10,6 +10,7 @@
 	icobase = 'icons/mob/human_races/species/humanoid/body.dmi'
 	deform = 'icons/mob/human_races/species/humanoid/body.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
+	preview_icon = null
 	appearance_flags = SPECIES_APPEARANCE_HAS_SKIN_COLOR
 	limb_blend = ICON_MULTIPLY
 
@@ -27,7 +28,7 @@
 		/singleton/emote/exertion/biological/pant
 	)*/
 
-/datum/species/alium/New()
+/singleton/species/alium/New()
 	//Coloring
 	blood_color = RANDOM_RGB
 	flesh_color = RANDOM_RGB
@@ -95,10 +96,10 @@
 
 	..()
 
-/datum/species/alium/get_bodytype(mob/living/carbon/human/H)
+/singleton/species/alium/get_bodytype(mob/living/carbon/human/H)
 	return SPECIES_HUMAN
 
-/datum/species/alium/proc/adapt_to_atmosphere(datum/gas_mixture/atmosphere)
+/singleton/species/alium/proc/adapt_to_atmosphere(datum/gas_mixture/atmosphere)
 	var/temp_comfort_shift = atmosphere.temperature - body_temperature
 
 	cold_level_1 += temp_comfort_shift
@@ -137,7 +138,7 @@
 /obj/structure/aliumizer
 	name = "alien monolith"
 	desc = "Your true form is calling. Use this to become an alien humanoid."
-	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon = 'icons/obj/xenoarchaeology_finds.dmi'
 	icon_state = "ano51"
 	anchored = TRUE
 

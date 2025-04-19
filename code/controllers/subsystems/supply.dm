@@ -26,6 +26,8 @@ SUBSYSTEM_DEF(supply)
 		"manifest" = "From exported manifests",
 		"crate" = "From exported crates",
 		"gep" = "From uploaded good explorer points",
+		"anomaly" = "From scanned and categorized anomalies",
+		"animal" = "From captured exotic alien fauna",
 		"total" = "Total" // If you're adding additional point sources, add it here in a new line. Don't forget to put a comma after the old last line.
 	)
 	//virus dishes uniqueness
@@ -53,13 +55,13 @@ SUBSYSTEM_DEF(supply)
 
 	//Build master supply list
 	var/singleton/hierarchy/supply_pack/root = GET_SINGLETON(/singleton/hierarchy/supply_pack)
-	for(var/singleton/hierarchy/supply_pack/sp in root.children)
+	for (var/singleton/hierarchy/supply_pack/sp in root.children)
 		if(sp.is_category())
 			for(var/singleton/hierarchy/supply_pack/spc in sp.get_descendents())
 				spc.setup()
 				master_supply_list += spc
 
-	for(var/material/mat in SSmaterials.materials)
+	for (var/material/mat in SSmaterials.materials)
 		if(mat.sale_price > 0)
 			point_source_descriptions[mat.display_name] = "From exported [mat.display_name]"
 
@@ -94,21 +96,23 @@ SUBSYSTEM_DEF(supply)
 
 	//To stop things being sent to centcomm which should not be sent to centcomm. Recursively checks for these types.
 /datum/controller/subsystem/supply/proc/forbidden_atoms_check(atom/A)
-	if(istype(A,/mob/living))
-		return 1
-	if(istype(A,/obj/item/disk/nuclear))
-		return 1
-	if(istype(A,/obj/machinery/nuclearbomb))
-		return 1
-	if(istype(A,/obj/machinery/tele_beacon))
-		return 1
+	if (istype(A, /mob/living))
+		var/mob/living/mob = A
+		if (istype(mob, /mob/living/simple_animal/hostile/human) || mob.mind)
+			return TRUE
+	if (istype(A, /obj/item/disk/nuclear))
+		return TRUE
+	if (istype(A, /obj/machinery/nuclearbomb))
+		return TRUE
+	if (istype(A, /obj/machinery/tele_beacon))
+		return TRUE
 	if(istype(A,/obj/machinery/power/supermatter))
 		return 1
 
 	for(var/i=1, i<=length(A.contents), i++)
 		var/atom/B = A.contents[i]
 		if(.(B))
-			return 1
+			return TRUE
 
 /datum/controller/subsystem/supply/proc/sell()
 	var/list/material_count = list()
@@ -178,9 +182,72 @@ SUBSYSTEM_DEF(supply)
 					// Must sell ore detector disks in crates
 					if(istype(A, /obj/item/disk/survey))
 						var/obj/item/disk/survey/D = A
-						add_points_from_source(round(D.Value() * 0.005), "gep")
+						add_points_from_source(round(D.Value() * 0.05), "gep")
 						qdel(D)
 						continue
+
+					// Sell artefacts (in anomaly cages)
+					if (istype(AM, /obj/machinery/anomaly_container))
+						var/obj/machinery/anomaly_container/AC = AM
+						var/points_per_anomaly = 10
+						callHook("sell_anomalycage", list(AC, subarea))
+						if (AC.contained)
+							var/obj/machinery/artifact/C = AC.contained
+							var/list/my_effects = list()
+							if (C.my_effect)
+								var/datum/artifact_effect/eone = C.my_effect
+								my_effects += eone
+							if (C.secondary_effect)
+								var/datum/artifact_effect/etwo = C.secondary_effect
+								my_effects += etwo
+							//Different effects and trigger combos give different rewards
+
+							if (AC.attached_paper) //Needs to have a scan sheet of the anomaly to the container.
+								if (istype(AC.attached_paper, /obj/item/paper/anomaly_scan))
+									var/obj/item/paper/anomaly_scan/P = AC.attached_paper
+									if (!P.is_copy)
+										for (var/datum/artifact_effect/E in my_effects)
+											switch (E.effect_type)
+												if (EFFECT_UNKNOWN, EFFECT_PSIONIC)
+													points_per_anomaly += 10
+												if (EFFECT_ENERGY, EFFECT_ELECTRO)
+													points_per_anomaly += 20
+												if (EFFECT_ORGANIC, EFFECT_SYNTH)
+													points_per_anomaly += 30
+												if (EFFECT_BLUESPACE, EFFECT_PARTICLE)
+													points_per_anomaly += 40
+												else
+													points_per_anomaly += 10
+													//In case there's ever a broken artifact, it's still worth SOMETHING
+											switch (E.trigger.trigger_type)
+												if (TRIGGER_SIMPLE)
+													points_per_anomaly += 5
+												if (TRIGGER_COMPLEX)
+													points_per_anomaly += 10
+												else
+													points_per_anomaly += 2
+
+										add_points_from_source(points_per_anomaly, "anomaly")
+										continue
+
+					//Only for animals in stasis cages.
+					if (istype(AM, /obj/machinery/stasis_cage))
+						var/obj/machinery/stasis_cage/SC = AM
+						var/points_per_animal = 10
+						callHook("sell_animal", list(SC, subarea))
+						if (SC.contained)
+							var/mob/living/simple_animal/CA = SC.contained
+							if (istype(CA, /mob/living/simple_animal/hostile/human))
+								continue
+							if (istype(CA, /mob/living/simple_animal/hostile))
+								points_per_animal *= 2
+							if (istype(CA, /mob/living/simple_animal/hostile/retaliate/beast))
+								points_per_animal *= 2
+							if (CA.stat != DEAD) //Alive gives more.
+								points_per_animal *= 2
+
+							qdel(SC.contained)
+							add_points_from_source(points_per_animal, "animal")
 
 					//Sell anything else that isn't unique or needs special handling
 					if(GLOB.using_map.using_new_cargo)
@@ -265,8 +332,8 @@ SUBSYSTEM_DEF(supply)
 			info +="[length(shoppinglist)] PACKAGES IN THIS SHIPMENT<br>"
 			info +="CONTENTS:<br><ul>"
 
-			slip = new /obj/item/paper/manifest(A, JOINTEXT(info))
-			slip.is_copy = 0
+			slip = new /obj/item/paper/manifest(A, jointext(info, null))
+			slip.is_copy = FALSE
 
 		//spawn the stuff, finish generating the manifest while you're at it
 		if(SP.access)
@@ -296,19 +363,20 @@ SUBSYSTEM_DEF(supply)
 
 /datum/supply_order
 	var/ordernum
+	var/timestamp
 	var/singleton/hierarchy/supply_pack/object = null
 	var/orderedby = null
 	var/comment = null
 	var/reason = null
 	var/orderedrank = null //used for supply console printing
 
-/datum/controller/subsystem/supply/proc/make_trade(obj/object, var/count = 1)
+/datum/controller/subsystem/supply/proc/make_trade(obj/object, count = 1)
 	. = find_item_value(object, count)
 	if(.)
 		sold_items[object.type] += count
 	return .
 
-/datum/controller/subsystem/supply/proc/find_item_value(obj/object, var/count = 1, var/use_reinf_material = FALSE) //here we get the value of the items being traded
+/datum/controller/subsystem/supply/proc/find_item_value(obj/object, count = 1, use_reinf_material = FALSE) //here we get the value of the items being traded
 	if(!object)
 		return 0
 
@@ -340,7 +408,7 @@ SUBSYSTEM_DEF(supply)
 		sell_value = sell_value*(1 - src.price_modifier)**amount_sold	//A = P(1 + r/n)^nt		--Current price, factoring multiple previous compounded sales
 	return calculate_multiple_sales(sell_value, count, sell_modifier)
 
-/datum/controller/subsystem/supply/proc/calculate_multiple_sales(value, var/count, var/sell_modifier = 1)
+/datum/controller/subsystem/supply/proc/calculate_multiple_sales(value, count, sell_modifier = 1)
 	if(!value || !count)
 		return 0
 	var/newPrice = value * sell_modifier

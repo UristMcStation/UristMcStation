@@ -3,26 +3,26 @@
 /turf/space,
 /area/space)
 "ab" = (
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /turf/simulated/wall/titanium,
 /area/noctis/reactorch)
 "ac" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/noctis/hangar)
 "ad" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "danger"
 	},
 /turf/simulated/floor/plating,
 /area/space)
 "ae" = (
-/obj/effect/paint/green_grey,
+/obj/paint/green_grey,
 /turf/simulated/wall/titanium,
 /area/noctis/afth)
 "af" = (
-/obj/effect/paint/green_grey,
+/obj/paint/green_grey,
 /turf/simulated/wall/titanium,
 /area/noctis/hangar)
 "ag" = (
@@ -30,7 +30,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "ah" = (
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /turf/simulated/wall/titanium,
 /area/noctis/hards)
 "ai" = (
@@ -39,17 +39,17 @@
 /area/space)
 "aj" = (
 /obj/structure/table/standard,
-/obj/item/scalpel,
+/obj/item/scalpel/basic,
 /obj/item/hemostat,
-/obj/effect/floor_decal/borderfloorwhite{
+/obj/floor_decal/borderfloorwhite{
 	dir = 9;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/corner/paleblue/border{
+/obj/floor_decal/corner/paleblue/border{
 	dir = 9;
 	icon_state = "bordercolor"
 	},
-/obj/effect/floor_decal/corner/blue/bordercorner{
+/obj/floor_decal/corner/blue/bordercorner{
 	dir = 1;
 	icon_state = "bordercolorcorner"
 	},
@@ -61,11 +61,11 @@
 /turf/simulated/floor/reinforced,
 /area/space)
 "al" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/noctis/apm)
 "am" = (
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /turf/simulated/wall/titanium,
 /area/noctis/battery)
 "an" = (
@@ -99,7 +99,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/connect)
 "ar" = (
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /turf/simulated/wall/titanium,
 /area/noctis/afth)
 "as" = (
@@ -120,7 +120,7 @@
 /turf/simulated/floor/reinforced,
 /area/noctis/hangar)
 "av" = (
-/obj/effect/paint/green_grey,
+/obj/paint/green_grey,
 /turf/simulated/wall/titanium,
 /area/noctis/brdgst)
 "aw" = (
@@ -129,7 +129,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/hards)
 "ax" = (
-/obj/effect/paint/green_grey,
+/obj/paint/green_grey,
 /turf/simulated/wall/titanium,
 /area/noctis/apm)
 "ay" = (
@@ -159,7 +159,7 @@
 /area/noctis/hards)
 "aB" = (
 /obj/structure/ladder/up,
-/obj/effect/fluid_mapped,
+/obj/fluid_mapped,
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "aC" = (
@@ -261,7 +261,7 @@
 	icon_state = "rwindow"
 	},
 /obj/structure/table/standard,
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -269,7 +269,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/hangar)
 "aL" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "danger"
 	},
@@ -285,7 +285,7 @@
 /turf/space,
 /area/space)
 "aN" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "danger"
 	},
@@ -297,7 +297,7 @@
 /area/noctis/hangar)
 "aO" = (
 /obj/machinery/floodlight,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "aP" = (
@@ -313,15 +313,15 @@
 /turf/simulated/floor/plating,
 /area/noctis/apm)
 "aQ" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "aR" = (
-/obj/effect/paint/green_grey,
+/obj/paint/green_grey,
 /turf/simulated/wall/titanium,
 /area/noctis/fm)
 "aS" = (
-/obj/effect/paint/green_grey,
+/obj/paint/green_grey,
 /turf/simulated/wall/titanium,
 /area/noctis/fairlock)
 "aT" = (
@@ -353,7 +353,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/apm)
 "aW" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9;
 	icon_state = "intact"
@@ -361,11 +361,11 @@
 /turf/simulated/wall/titanium,
 /area/noctis/hards)
 "aX" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/noctis/hards)
 "aY" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 9;
 	icon_state = "borderfloor_white"
 	},
@@ -375,7 +375,7 @@
 /obj/item/tank/oxygen_scba,
 /obj/item/tank/oxygen_scba,
 /obj/item/extinguisher/mini,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/light/small/red{
 	dir = 1;
 	icon_state = "firelight1"
@@ -392,8 +392,8 @@
 /area/space)
 "ba" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/catwalk_plated,
-/obj/effect/floor_decal/rust,
+/obj/catwalk_plated,
+/obj/floor_decal/rust,
 /turf/simulated/floor/plating,
 /area/noctis/hards)
 "bb" = (
@@ -401,7 +401,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/apm)
 "bc" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1;
 	icon_state = "borderfloor_white"
 	},
@@ -418,7 +418,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
 "bd" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1;
 	icon_state = "borderfloor_white"
 	},
@@ -443,7 +443,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
 "be" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4;
 	icon_state = "intact"
@@ -452,7 +452,7 @@
 /turf/simulated/wall/titanium,
 /area/noctis/hards)
 "bf" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1;
 	icon_state = "borderfloor_white"
 	},
@@ -472,7 +472,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
 "bg" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 5;
 	icon_state = "borderfloor_white"
 	},
@@ -529,7 +529,7 @@
 	d2 = 0;
 	icon_state = "16-0"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
 	dir = 4;
 	icon_state = "up-scrubbers"
@@ -546,7 +546,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10;
 	icon_state = "intact-scrubbers"
@@ -600,7 +600,7 @@
 	icon_state = "rwindow"
 	},
 /obj/structure/table/standard,
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -608,14 +608,14 @@
 /turf/simulated/floor/tiled,
 /area/noctis/hangar)
 "bq" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "danger"
 	},
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "br" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "danger"
 	},
@@ -635,14 +635,14 @@
 /turf/simulated/floor/plating,
 /area/noctis/brdgst)
 "bv" = (
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 9;
 	icon_state = "borderfloor_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/noctis/brdgst)
 "bw" = (
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 1;
 	icon_state = "borderfloor_white"
 	},
@@ -662,14 +662,14 @@
 	icon_state = "apc0";
 	req_access = list("ACCESS_NOCTIS")
 	},
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 1;
 	icon_state = "borderfloor_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/noctis/brdgst)
 "by" = (
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /turf/simulated/wall/titanium,
 /area/noctis/brdgst)
 "bz" = (
@@ -677,7 +677,7 @@
 	dir = 6;
 	icon_state = "intact"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/plating,
 /area/noctis/apm)
 "bA" = (
@@ -696,7 +696,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/fm)
 "bC" = (
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /turf/simulated/wall/titanium,
 /area/noctis/fairlock)
 "bD" = (
@@ -711,14 +711,14 @@
 	dir = 1;
 	icon_state = "map"
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1;
 	icon_state = "techfloor_edges"
 	},
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
 "bF" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1;
 	icon_state = "techfloor_edges"
 	},
@@ -737,7 +737,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/cable/blue{
 	d1 = 2;
 	d2 = 8;
@@ -812,7 +812,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/hards)
 "bO" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
 	icon_state = "intact"
@@ -825,7 +825,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
 "bP" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 8;
 	icon_state = "borderfloorcorner_white"
 	},
@@ -845,7 +845,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
 "bQ" = (
-/obj/effect/floor_decal/borderfloor/corner,
+/obj/floor_decal/borderfloor/corner,
 /obj/structure/cable/blue{
 	d1 = 1;
 	d2 = 8;
@@ -862,7 +862,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
 "bR" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	icon_state = "map_vent_out"
@@ -870,7 +870,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
 "bS" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 6;
 	icon_state = "borderfloor_white"
 	},
@@ -888,7 +888,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/battery)
 "bU" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/structure/cable/yellow{
 	d2 = 4;
 	icon_state = "0-4"
@@ -970,7 +970,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/rust/mono/high{
+/obj/floor_decal/rust/mono/high{
 	color = "#b95a00"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -984,7 +984,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/afth)
 "bZ" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 9;
 	icon_state = "borderfloor_white"
 	},
@@ -993,7 +993,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10;
 	icon_state = "intact-scrubbers"
@@ -1005,7 +1005,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "ca" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 5;
 	icon_state = "borderfloor_white"
 	},
@@ -1044,7 +1044,7 @@
 	dir = 8;
 	icon_state = "computer"
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -1059,7 +1059,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/lounge)
 "ce" = (
-/obj/effect/shuttle_landmark/nav_noctis/raptor_transit,
+/obj/shuttle_landmark/nav_noctis/raptor_transit,
 /turf/space,
 /area/space)
 "cf" = (
@@ -1088,14 +1088,14 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 5;
 	icon_state = "borderfloor_white"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/noctis/brdgst)
 "ci" = (
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 10;
 	icon_state = "borderfloor_white"
 	},
@@ -1119,7 +1119,7 @@
 /turf/simulated/wall/uranium,
 /area/noctis/reactorch)
 "cl" = (
-/obj/effect/floor_decal/borderfloorblack,
+/obj/floor_decal/borderfloorblack,
 /obj/structure/table/standard/flipped/s,
 /turf/simulated/floor/tiled/dark,
 /area/noctis/brdgst)
@@ -1151,7 +1151,7 @@
 	dir = 4;
 	icon_state = "map_vent"
 	},
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/machinery/light/small/d_green{
 	dir = 8;
 	icon_state = "bulb_map"
@@ -1160,11 +1160,11 @@
 /area/noctis/fairlock)
 "cq" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
 "cr" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1;
 	icon_state = "techfloor_edges"
 	},
@@ -1179,15 +1179,15 @@
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
 "cs" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/r_wall,
 /area/noctis/combust)
 "ct" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 10;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /obj/structure/cable/blue{
 	d1 = 1;
 	d2 = 2;
@@ -1198,7 +1198,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/hards)
 "cu" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 6;
 	icon_state = "borderfloor_white"
 	},
@@ -1225,7 +1225,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "cy" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
@@ -1244,7 +1244,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "cz" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -1276,7 +1276,7 @@
 /area/noctis/exteriorl)
 "cC" = (
 /obj/machinery/door/window/southright,
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -1287,19 +1287,19 @@
 	dir = 4;
 	icon_state = "rwindow"
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 6;
 	icon_state = "borderfloor_white"
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/hangar)
 "cE" = (
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /turf/simulated/wall,
 /area/noctis/raptor)
 "cF" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/silver,
+/obj/wallframe_spawn/reinforced/titanium,
+/obj/paint/silver,
 /turf/simulated/floor/plating,
 /area/noctis/raptor)
 "cG" = (
@@ -1320,7 +1320,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "cI" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 10;
 	icon_state = "borderfloor_white"
 	},
@@ -1328,7 +1328,7 @@
 	dir = 4;
 	icon_state = "intact"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/access_button/airlock_interior{
 	master_tag = "pirate_ap_controller";
 	pixel_x = -24;
@@ -1341,18 +1341,18 @@
 	dir = 4;
 	icon_state = "map_vent_out"
 	},
-/obj/effect/floor_decal/borderfloorblack,
+/obj/floor_decal/borderfloorblack,
 /obj/machinery/light/small/red,
 /obj/structure/table/standard/flipped/s,
 /turf/simulated/floor/tiled/dark,
 /area/noctis/brdgst)
 "cK" = (
-/obj/effect/fluid_mapped,
+/obj/fluid_mapped,
 /mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "cL" = (
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /turf/simulated/wall/titanium,
 /area/noctis/lounge)
 "cM" = (
@@ -1371,7 +1371,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/fm)
 "cO" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/machinery/light/small/d_green{
 	dir = 8;
 	icon_state = "bulb_map"
@@ -1395,8 +1395,8 @@
 /turf/space,
 /area/noctis/exteriorl)
 "cQ" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
-/obj/effect/paint/black,
+/obj/wallframe_spawn/reinforced_phoron,
+/obj/paint/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
 	icon_state = "intact-scrubbers"
@@ -1415,7 +1415,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/exteriorl)
 "cS" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /obj/structure/sign/warning/fire,
 /turf/simulated/wall/titanium,
 /area/noctis/combust)
@@ -1447,7 +1447,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/combust)
 "cW" = (
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /turf/simulated/wall/titanium,
 /area/noctis/combust)
 "cX" = (
@@ -1455,7 +1455,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "cY" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
@@ -1472,7 +1472,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "cZ" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -1483,8 +1483,8 @@
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "da" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/green_grey,
+/obj/wallframe_spawn/reinforced/titanium,
+/obj/paint/green_grey,
 /obj/machinery/door/blast/shutters{
 	id_tag = "p_con_obs"
 	},
@@ -1492,11 +1492,11 @@
 /area/noctis/connect)
 "db" = (
 /obj/machinery/power/rad_collector,
-/obj/effect/fluid_mapped,
+/obj/fluid_mapped,
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "dc" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 8;
 	icon_state = "borderfloorcorner_white"
 	},
@@ -1539,7 +1539,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/noctis/raptor)
 "di" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 9;
 	icon_state = "borderfloor_white"
 	},
@@ -1559,7 +1559,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "dj" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 5;
 	icon_state = "borderfloor_white"
 	},
@@ -1584,7 +1584,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/fm)
 "dl" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 10;
 	icon_state = "techfloor_edges"
 	},
@@ -1603,7 +1603,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/fairlock)
 "dm" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4;
@@ -1616,7 +1616,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/fairlock)
 "dn" = (
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
 	id_tag = "pirate_fp_controller";
@@ -1639,12 +1639,12 @@
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
 "do" = (
-/obj/effect/floor_decal/rust,
-/obj/effect/fluid_mapped,
+/obj/floor_decal/rust,
+/obj/fluid_mapped,
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "dp" = (
-/obj/effect/floor_decal/industrial/warning/fulltile,
+/obj/floor_decal/industrial/warning/fulltile,
 /obj/machinery/power/rad_collector,
 /obj/structure/cable/yellow{
 	d2 = 8;
@@ -1658,7 +1658,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/effect/floor_decal/industrial/warning/fulltile,
+/obj/floor_decal/industrial/warning/fulltile,
 /obj/structure/cable/yellow,
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
@@ -1668,11 +1668,11 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "ds" = (
-/obj/effect/floor_decal/borderfloorgrey/corner,
+/obj/floor_decal/borderfloorgrey/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10;
 	icon_state = "intact"
@@ -1687,7 +1687,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
 "dt" = (
-/obj/effect/paint/red,
+/obj/paint/red,
 /turf/simulated/wall/titanium,
 /area/noctis/combust)
 "du" = (
@@ -1695,11 +1695,11 @@
 	dir = 10;
 	icon_state = "intact"
 	},
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 9;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 9;
 	icon_state = "danger"
 	},
@@ -1710,18 +1710,18 @@
 	dir = 8;
 	icon_state = "map_vent_in"
 	},
-/obj/effect/floor_decal/industrial/outline/red,
+/obj/floor_decal/industrial/outline/red,
 /turf/simulated/floor/reinforced/airless,
 /area/noctis/combust)
 "dw" = (
 /turf/simulated/floor/reinforced/airless,
 /area/noctis/combust)
 "dx" = (
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 1;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "danger"
 	},
@@ -1732,7 +1732,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/effect/floor_decal/industrial/warning/fulltile,
+/obj/floor_decal/industrial/warning/fulltile,
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "dz" = (
@@ -1752,8 +1752,8 @@
 	icon_state = "rwindow"
 	},
 /obj/structure/closet/crate/paper_refill,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/rust,
 /obj/machinery/light/small/red{
 	dir = 1;
 	icon_state = "firelight1"
@@ -1769,7 +1769,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "dC" = (
-/obj/effect/floor_decal/industrial/warning/fulltile,
+/obj/floor_decal/industrial/warning/fulltile,
 /obj/machinery/power/rad_collector,
 /obj/structure/cable/yellow{
 	d2 = 4;
@@ -1782,7 +1782,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "dD" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
@@ -1807,7 +1807,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "dE" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -1835,7 +1835,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "dG" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1;
 	icon_state = "borderfloor_white"
 	},
@@ -1854,7 +1854,7 @@
 	dir = 1;
 	icon_state = "comfychair_preview"
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1;
 	icon_state = "borderfloor_white"
 	},
@@ -1873,7 +1873,7 @@
 	dir = 1;
 	icon_state = "comfychair_preview"
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1;
 	icon_state = "borderfloor_white"
 	},
@@ -1885,13 +1885,13 @@
 	dir = 6;
 	icon_state = "intact-scrubbers"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/connect)
 "dJ" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1;
 	icon_state = "borderfloor_white"
 	},
@@ -1919,7 +1919,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/hangar)
 "dL" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
@@ -1931,7 +1931,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled,
 /area/noctis/hangar)
 "dM" = (
@@ -1979,7 +1979,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/raptor)
 "dR" = (
-/obj/effect/fluid_mapped,
+/obj/fluid_mapped,
 /obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 4;
@@ -1996,8 +1996,8 @@
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "dT" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/silver,
+/obj/wallframe_spawn/reinforced/titanium,
+/obj/paint/silver,
 /turf/simulated/floor/plating,
 /area/noctis/lounge)
 "dU" = (
@@ -2022,7 +2022,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/lounge)
 "dW" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /obj/item/reagent_containers/food/snacks/fish,
 /obj/item/reagent_containers/food/snacks/fish,
 /obj/item/reagent_containers/food/snacks/fish,
@@ -2038,14 +2038,14 @@
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/lounge)
 "dY" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "dZ" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -2127,7 +2127,7 @@
 /turf/simulated/floor/plating,
 /area/space)
 "ee" = (
-/obj/effect/floor_decal/borderfloorgrey{
+/obj/floor_decal/borderfloorgrey{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -2150,16 +2150,16 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
 "ef" = (
-/obj/effect/floor_decal/corner/grey/mono,
+/obj/floor_decal/corner/grey/mono,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/fairlock)
 "eg" = (
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 5;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 5;
 	icon_state = "danger"
 	},
@@ -2171,7 +2171,7 @@
 	icon_state = "map_injector";
 	use_power = 1
 	},
-/obj/effect/floor_decal/industrial/outline/blue,
+/obj/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/reinforced/airless,
 /area/noctis/combust)
 "ei" = (
@@ -2179,18 +2179,18 @@
 	dir = 4;
 	icon_state = "intact"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /obj/machinery/igniter{
 	id_tag = "p_ign"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/noctis/combust)
 "ej" = (
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "danger"
 	},
@@ -2207,8 +2207,8 @@
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "el" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
-/obj/effect/paint/black,
+/obj/wallframe_spawn/reinforced_phoron,
+/obj/paint/black,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4;
 	icon_state = "intact"
@@ -2247,9 +2247,9 @@
 	dir = 4;
 	icon_state = "rwindow"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/solar_assembly,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10;
 	icon_state = "intact"
@@ -2269,7 +2269,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/afth)
 "er" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
@@ -2286,7 +2286,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "es" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -2305,7 +2305,7 @@
 	dir = 4;
 	icon_state = "map_vent"
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1;
 	icon_state = "techfloor_edges"
 	},
@@ -2316,7 +2316,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
 "eu" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
@@ -2324,7 +2324,7 @@
 "ev" = (
 /obj/machinery/atmospherics/valve/shutoff/supply,
 /obj/machinery/atmospherics/valve/shutoff/scrubbers,
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /turf/simulated/floor/plating,
 /area/noctis/connect)
 "ew" = (
@@ -2357,7 +2357,7 @@
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
 "ex" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
@@ -2423,7 +2423,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/raptor)
 "eD" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "danger"
 	},
@@ -2448,7 +2448,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "eF" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 9;
 	icon_state = "borderfloor_white"
 	},
@@ -2460,14 +2460,14 @@
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "eG" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 1;
 	icon_state = "borderfloor_white"
 	},
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "eH" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 1;
 	icon_state = "borderfloorcorner_white"
 	},
@@ -2593,7 +2593,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
 "eO" = (
-/obj/effect/floor_decal/borderfloorgrey{
+/obj/floor_decal/borderfloorgrey{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -2638,7 +2638,7 @@
 /turf/space,
 /area/space)
 "eS" = (
-/obj/effect/floor_decal/corner/grey/mono,
+/obj/floor_decal/corner/grey/mono,
 /obj/structure/table/rack,
 /obj/item/tank/nitrogen,
 /obj/item/tank/oxygen,
@@ -2650,11 +2650,11 @@
 	dir = 6;
 	icon_state = "intact-scrubbers"
 	},
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "danger"
 	},
@@ -2669,8 +2669,8 @@
 /turf/simulated/floor/plating,
 /area/noctis/apm)
 "eV" = (
-/obj/effect/wallframe_spawn/reinforced_phoron,
-/obj/effect/paint/black,
+/obj/wallframe_spawn/reinforced_phoron,
+/obj/paint/black,
 /obj/machinery/door/blast/regular{
 	dir = 8;
 	icon_state = "pdoor1";
@@ -2739,7 +2739,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/combust)
 "fa" = (
-/obj/effect/floor_decal/industrial/hatch/red,
+/obj/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
 /area/space)
 "fb" = (
@@ -2747,7 +2747,7 @@
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/afth)
 "fc" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -2764,7 +2764,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "fe" = (
@@ -2784,11 +2784,11 @@
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "fg" = (
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "danger"
 	},
@@ -2804,7 +2804,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/exteriorl)
 "fi" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
@@ -2829,7 +2829,7 @@
 /turf/space,
 /area/space)
 "fk" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/structure/cable/blue{
 	d2 = 8;
 	icon_state = "0-8"
@@ -2854,7 +2854,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/hangar)
 "fm" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
@@ -2877,11 +2877,11 @@
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "fo" = (
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /turf/simulated/wall/titanium,
 /area/noctis/hangar)
 "fp" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "danger"
 	},
@@ -2918,11 +2918,11 @@
 /area/noctis/raptor)
 "fs" = (
 /obj/structure/shuttle/engine/heater,
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /turf/simulated/wall,
 /area/noctis/raptor)
 "ft" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6;
 	icon_state = "intact"
@@ -2930,7 +2930,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/raptor)
 "fu" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "danger"
 	},
@@ -2955,7 +2955,7 @@
 	dir = 8;
 	icon_state = "map_valve0"
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/noctis/exteriorl)
 "fx" = (
@@ -2976,7 +2976,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/lounge)
 "fy" = (
-/obj/effect/spawner/bomb_simulator{
+/obj/spawner/bomb_simulator{
 	ex_range = 9;
 	severity = EX_ACT_HEAVY
 	},
@@ -2996,18 +2996,18 @@
 	icon_state = "intact"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "danger"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/noctis/combust)
 "fB" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
@@ -3044,7 +3044,7 @@
 /turf/space,
 /area/space)
 "fG" = (
-/obj/effect/fluid_mapped,
+/obj/fluid_mapped,
 /obj/structure/cable/yellow{
 	d2 = 4;
 	icon_state = "0-4"
@@ -3054,11 +3054,11 @@
 	icon_state = "apc0";
 	req_access = list("ACCESS_NOCTIS")
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "fH" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -3101,8 +3101,8 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/effect/fluid_mapped,
-/obj/effect/floor_decal/rust,
+/obj/fluid_mapped,
+/obj/floor_decal/rust,
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "fK" = (
@@ -3214,7 +3214,7 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/fairlock)
 "fQ" = (
-/obj/effect/floor_decal/borderfloorgrey{
+/obj/floor_decal/borderfloorgrey{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -3243,7 +3243,7 @@
 /turf/space,
 /area/space)
 "fT" = (
-/obj/effect/floor_decal/corner/grey/mono,
+/obj/floor_decal/corner/grey/mono,
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/simulated/floor/tiled/monotile,
 /area/noctis/fairlock)
@@ -3307,11 +3307,11 @@
 	dir = 5;
 	icon_state = "intact-scrubbers"
 	},
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "danger"
 	},
@@ -3470,11 +3470,11 @@
 	dir = 9;
 	icon_state = "intact"
 	},
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 10;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 10;
 	icon_state = "danger"
 	},
@@ -3571,7 +3571,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/effect/spawner/bomb_simulator{
+/obj/spawner/bomb_simulator{
 	ex_range = 9;
 	severity = EX_ACT_HEAVY
 	},
@@ -3606,7 +3606,7 @@
 	dir = 1;
 	icon_state = "railing0-1"
 	},
-/obj/effect/spawner/bomb_simulator{
+/obj/spawner/bomb_simulator{
 	ex_range = 9;
 	severity = EX_ACT_HEAVY
 	},
@@ -3622,7 +3622,7 @@
 /turf/simulated/floor/plating,
 /area/space)
 "gD" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/secure/boobytrapped/weapon{
 	req_access = list("ACCESS_NOCTIS")
 	},
@@ -3631,12 +3631,12 @@
 	dir = 4;
 	icon_state = "rwindow"
 	},
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /obj/item/ammo_magazine/pistol,
 /turf/simulated/floor/tiled/steel_ridged,
 /area/noctis/combust)
 "gE" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 10;
 	icon_state = "borderfloor_white"
 	},
@@ -3650,19 +3650,19 @@
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "gF" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 6;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/noctis/afth)
 "gG" = (
-/obj/effect/paint/green_grey,
+/obj/paint/green_grey,
 /turf/simulated/wall/titanium,
 /area/noctis/connect)
 "gH" = (
-/obj/effect/floor_decal/borderfloor/corner{
+/obj/floor_decal/borderfloor/corner{
 	dir = 1;
 	icon_state = "borderfloorcorner_white"
 	},
@@ -3712,7 +3712,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "gK" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "danger"
 	},
@@ -3721,11 +3721,11 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "gL" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/power/terminal{
 	dir = 4;
 	icon_state = "term"
@@ -3741,7 +3741,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/raptor)
 "gM" = (
-/obj/effect/catwalk_plated,
+/obj/catwalk_plated,
 /obj/machinery/power/smes/buildable/outpost_substation,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -3755,7 +3755,7 @@
 /turf/simulated/floor/reinforced,
 /area/noctis/raptor)
 "gO" = (
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /obj/machinery/atmospherics/valve/digital,
 /obj/machinery/access_button/airlock_exterior{
 	frequency = 1380;
@@ -3780,7 +3780,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "gQ" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
@@ -3839,7 +3839,7 @@
 /area/noctis/lounge)
 "gT" = (
 /obj/structure/table/standard,
-/obj/effect/floor_decal/borderfloor/corner,
+/obj/floor_decal/borderfloor/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
 	icon_state = "intact-scrubbers"
@@ -3861,7 +3861,7 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/condiment/small/saltshaker,
 /obj/item/reagent_containers/food/condiment/small/peppermill,
-/obj/item/material/kitchen/utensil/fork,
+/obj/item/material/utensil/fork,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4;
@@ -3881,7 +3881,7 @@
 	icon_state = "intact"
 	},
 /obj/machinery/meter,
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/noctis/exteriorl)
 "gW" = (
@@ -3889,7 +3889,7 @@
 	dir = 8;
 	icon_state = "chair_preview"
 	},
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 6;
 	icon_state = "borderfloor_white"
 	},
@@ -3918,7 +3918,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/fm)
 "gY" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 9;
 	icon_state = "techfloor_edges"
 	},
@@ -3929,7 +3929,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/fairlock)
 "gZ" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1;
 	icon_state = "techfloor_edges"
 	},
@@ -3940,7 +3940,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/fairlock)
 "ha" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 5;
 	icon_state = "techfloor_edges"
 	},
@@ -3955,7 +3955,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/fairlock)
 "hb" = (
-/obj/effect/floor_decal/borderfloorgrey/corner{
+/obj/floor_decal/borderfloorgrey/corner{
 	dir = 4;
 	icon_state = "borderfloorcorner_white"
 	},
@@ -3992,7 +3992,7 @@
 	throwforce = 20
 	},
 /obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/steel/fifty,
 /obj/machinery/light/small/red,
 /obj/structure/window/reinforced{
@@ -4012,7 +4012,7 @@
 "hf" = (
 /obj/structure/table/standard,
 /obj/item/defibrillator/loaded,
-/obj/effect/floor_decal/corner/red/mono,
+/obj/floor_decal/corner/red/mono,
 /turf/simulated/floor/tiled/white/monotile,
 /area/noctis/medbay)
 "hg" = (
@@ -4026,7 +4026,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 6;
 	icon_state = "borderfloor_white"
 	},
@@ -4044,12 +4044,12 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/noctis/medbay)
 "hi" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/silver,
+/obj/wallframe_spawn/reinforced/titanium,
+/obj/paint/silver,
 /turf/simulated/floor/plating,
 /area/noctis/medbay)
 "hj" = (
-/obj/effect/paint/green_grey,
+/obj/paint/green_grey,
 /turf/simulated/wall/titanium,
 /area/noctis/medbay)
 "hk" = (
@@ -4064,7 +4064,7 @@
 	dir = 4;
 	icon_state = "flood00"
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "hm" = (
@@ -4087,12 +4087,12 @@
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "ho" = (
-/obj/effect/floor_decal/borderfloorblack,
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/borderfloorblack,
+/obj/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced/airless,
 /area/noctis/combust)
 "hp" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "danger"
 	},
@@ -4122,7 +4122,7 @@
 /turf/simulated/floor/reinforced,
 /area/noctis/hangar)
 "ht" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "danger"
 	},
@@ -4138,14 +4138,14 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/landmark/corpse/noctiscaptain{
+/obj/landmark/corpse/noctiscaptain{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "hv" = (
 /obj/structure/table/standard,
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 10;
 	icon_state = "borderfloor_white"
 	},
@@ -4160,18 +4160,18 @@
 	pixel_y = -22;
 	req_access = list("ACCESS_NOCTIS")
 	},
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/bar_alc,
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "hx" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "hy" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/structure/bed/chair/couch/left/brown{
 	dir = 1;
 	icon_state = "couch_left"
@@ -4179,7 +4179,7 @@
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "hz" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 6;
 	icon_state = "borderfloor_white"
 	},
@@ -4205,7 +4205,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/fairlock)
 "hC" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/noctis/disposal)
 "hD" = (
@@ -4219,7 +4219,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/disposal)
 "hF" = (
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /turf/simulated/wall/titanium,
 /area/noctis/cryo)
 "hG" = (
@@ -4306,7 +4306,7 @@
 	pixel_x = -24;
 	req_access = list("ACCESS_NOCTIS")
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /obj/structure/closet/crate/secure{
 	req_access = list("ACCESS_NOCTIS")
 	},
@@ -4324,14 +4324,14 @@
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "hP" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	dir = 4;
 	icon_state = "dangercorner"
 	},
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "hQ" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "danger"
 	},
@@ -4343,7 +4343,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "hR" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "danger"
 	},
@@ -4356,14 +4356,14 @@
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "hS" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "danger"
 	},
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "hT" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+/obj/floor_decal/industrial/warning/corner{
 	dir = 8;
 	icon_state = "dangercorner"
 	},
@@ -4417,7 +4417,7 @@
 	dir = 4;
 	icon_state = "railing0-1"
 	},
-/obj/effect/spawner/bomb_simulator{
+/obj/spawner/bomb_simulator{
 	ex_range = 9;
 	severity = EX_ACT_HEAVY
 	},
@@ -4425,7 +4425,7 @@
 /area/space)
 "hY" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1;
 	icon_state = "techfloor_edges"
 	},
@@ -4437,7 +4437,7 @@
 	dir = 8;
 	icon_state = "map_vent"
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 1;
 	icon_state = "techfloor_edges"
 	},
@@ -4455,7 +4455,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/disposal)
 "ic" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "danger"
 	},
@@ -4473,7 +4473,7 @@
 "id" = (
 /obj/machinery/cryopod{
 	dir = 2;
-	icon_state = "body_scanner_0"
+	icon_state = "cryopod"
 	},
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
@@ -4528,8 +4528,8 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/noctis/cryo)
 "ih" = (
-/obj/effect/floor_decal/borderfloorwhite,
-/obj/effect/floor_decal/corner/paleblue/border,
+/obj/floor_decal/borderfloorwhite,
+/obj/floor_decal/corner/paleblue/border,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
@@ -4546,8 +4546,8 @@
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
 "ii" = (
-/obj/effect/floor_decal/borderfloorwhite,
-/obj/effect/floor_decal/corner/paleblue/border,
+/obj/floor_decal/borderfloorwhite,
+/obj/floor_decal/corner/paleblue/border,
 /obj/machinery/light/coldtint,
 /obj/structure/cable/blue{
 	d1 = 4;
@@ -4562,11 +4562,11 @@
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
 "ij" = (
-/obj/effect/floor_decal/borderfloorwhite/corner{
+/obj/floor_decal/borderfloorwhite/corner{
 	dir = 8;
 	icon_state = "borderfloorcorner_white"
 	},
-/obj/effect/floor_decal/corner/blue/bordercorner{
+/obj/floor_decal/corner/blue/bordercorner{
 	dir = 8;
 	icon_state = "bordercolorcorner"
 	},
@@ -4600,7 +4600,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/shuttle_landmark/nav_noctis/raptor,
+/obj/shuttle_landmark/nav_noctis/raptor,
 /turf/simulated/floor/reinforced,
 /area/noctis/raptor)
 "in" = (
@@ -4783,7 +4783,7 @@
 /area/noctis/fm)
 "iA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/floor_decal/techfloor,
+/obj/floor_decal/techfloor,
 /mob/living/simple_animal/hostile/carp,
 /turf/simulated/floor/plating,
 /area/noctis/fairlock)
@@ -4794,11 +4794,11 @@
 /area/space)
 "iE" = (
 /obj/machinery/shipweapons/beam/lightlaser,
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/space)
 "iF" = (
-/obj/effect/decal/remains,
+/obj/decal/remains,
 /turf/simulated/floor/plating,
 /area/noctis/reactorch)
 "iG" = (
@@ -4814,10 +4814,10 @@
 	dir = 4;
 	icon_state = "map_connector"
 	},
-/obj/effect/floor_decal/industrial/outline/blue,
+/obj/floor_decal/industrial/outline/blue,
 /obj/structure/table/standard,
 /obj/random/maintenance/clean,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/light/small/red{
 	dir = 8;
 	icon_state = "firelight1"
@@ -4825,8 +4825,8 @@
 /turf/simulated/floor/plating,
 /area/noctis/apm)
 "iI" = (
-/obj/effect/landmark/scorcher,
-/obj/effect/floor_decal/techfloor,
+/obj/landmark/scorcher,
+/obj/floor_decal/techfloor,
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
 	icon_state = "map_injector";
@@ -4839,7 +4839,7 @@
 	dir = 1;
 	id_tag = "piratedisposal"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "warning"
 	},
@@ -4863,7 +4863,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/cryo)
 "iM" = (
-/obj/effect/floor_decal/borderfloorwhite{
+/obj/floor_decal/borderfloorwhite{
 	dir = 9;
 	icon_state = "borderfloor_white"
 	},
@@ -4875,11 +4875,11 @@
 /obj/item/tank/oxygen_emergency{
 	starting_pressure = list()
 	},
-/obj/effect/submap_landmark/spawnpoint/crewmember,
+/obj/submap_landmark/spawnpoint/crewmember,
 /turf/simulated/floor/tiled/white,
 /area/noctis/cryo)
 "iN" = (
-/obj/effect/floor_decal/borderfloorwhite{
+/obj/floor_decal/borderfloorwhite{
 	dir = 1;
 	icon_state = "borderfloor_white"
 	},
@@ -4899,7 +4899,7 @@
 /turf/simulated/floor/tiled/white,
 /area/noctis/cryo)
 "iO" = (
-/obj/effect/floor_decal/borderfloorwhite{
+/obj/floor_decal/borderfloorwhite{
 	dir = 5;
 	icon_state = "borderfloor_white"
 	},
@@ -4927,15 +4927,15 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/noctis/medbay)
 "iR" = (
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /turf/simulated/wall/titanium,
 /area/noctis/medbay)
 "iS" = (
-/obj/effect/floor_decal/borderfloorwhite{
+/obj/floor_decal/borderfloorwhite{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/corner/paleblue/border{
+/obj/floor_decal/corner/paleblue/border{
 	dir = 8;
 	icon_state = "bordercolor"
 	},
@@ -4949,23 +4949,22 @@
 /area/noctis/medbay)
 "iT" = (
 /obj/machinery/sleeper{
-	dir = 8;
-	icon_state = "sleeper_0"
+	dir = 8
 	},
-/obj/effect/floor_decal/corner/paleblue/full,
+/obj/floor_decal/corner/paleblue/full,
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
 "iU" = (
-/obj/effect/paint/green_grey,
+/obj/paint/green_grey,
 /turf/simulated/wall/titanium,
 /area/noctis/equips)
 "iV" = (
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /turf/simulated/wall/titanium,
 /area/noctis/equips)
 "iW" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/silver,
+/obj/wallframe_spawn/reinforced/titanium,
+/obj/paint/silver,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/blue{
 	d1 = 1;
@@ -4980,14 +4979,14 @@
 /turf/simulated/floor/plating,
 /area/noctis/equips)
 "iY" = (
-/obj/effect/wallframe_spawn/reinforced/titanium,
-/obj/effect/paint/silver,
+/obj/wallframe_spawn/reinforced/titanium,
+/obj/paint/silver,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating,
 /area/noctis/equips)
 "ja" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/plating,
 /area/noctis/disposal)
 "jb" = (
@@ -4998,7 +4997,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/disposal)
 "jc" = (
-/obj/effect/floor_decal/borderfloorwhite{
+/obj/floor_decal/borderfloorwhite{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
@@ -5028,7 +5027,7 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/noctis/cryo)
 "je" = (
-/obj/effect/floor_decal/borderfloorwhite{
+/obj/floor_decal/borderfloorwhite{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -5045,19 +5044,19 @@
 /turf/simulated/floor/tiled/white,
 /area/noctis/cryo)
 "jf" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 8;
 	icon_state = "danger"
 	},
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "jg" = (
-/obj/effect/floor_decal/borderfloorwhite{
+/obj/floor_decal/borderfloorwhite{
 	dir = 1;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/corner/paleblue/border{
+/obj/floor_decal/corner/paleblue/border{
 	dir = 1;
 	icon_state = "bordercolor"
 	},
@@ -5066,15 +5065,15 @@
 /turf/simulated/floor/tiled/white,
 /area/noctis/medbay)
 "jh" = (
-/obj/effect/floor_decal/borderfloorwhite{
+/obj/floor_decal/borderfloorwhite{
 	dir = 5;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/corner/paleblue/border{
+/obj/floor_decal/corner/paleblue/border{
 	dir = 5;
 	icon_state = "bordercolor"
 	},
-/obj/effect/floor_decal/corner/blue/bordercorner{
+/obj/floor_decal/corner/blue/bordercorner{
 	dir = 4;
 	icon_state = "bordercolorcorner"
 	},
@@ -5085,11 +5084,11 @@
 /turf/simulated/floor/tiled/white/monotile,
 /area/noctis/medbay)
 "jj" = (
-/obj/effect/floor_decal/borderfloorwhite{
+/obj/floor_decal/borderfloorwhite{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/corner/paleblue/border{
+/obj/floor_decal/corner/paleblue/border{
 	dir = 8;
 	icon_state = "bordercolor"
 	},
@@ -5116,7 +5115,7 @@
 	dir = 4;
 	icon_state = "intact"
 	},
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 8;
 	icon_state = "techfloor_edges"
 	},
@@ -5144,11 +5143,11 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/equips)
 "jp" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 4;
 	icon_state = "danger"
 	},
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "jq" = (
@@ -5204,24 +5203,24 @@
 /turf/simulated/floor/plating,
 /area/noctis/disposal)
 "jx" = (
-/obj/effect/floor_decal/borderfloorwhite{
+/obj/floor_decal/borderfloorwhite{
 	dir = 10;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/submap_landmark/spawnpoint/hijacker,
+/obj/submap_landmark/spawnpoint/hijacker,
 /turf/simulated/floor/tiled/white,
 /area/noctis/cryo)
 "jy" = (
-/obj/effect/floor_decal/borderfloorwhite,
+/obj/floor_decal/borderfloorwhite,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	icon_state = "map_vent_out"
 	},
-/obj/effect/submap_landmark/spawnpoint/hijacker,
+/obj/submap_landmark/spawnpoint/hijacker,
 /turf/simulated/floor/tiled/white,
 /area/noctis/cryo)
 "jz" = (
-/obj/effect/floor_decal/borderfloorwhite{
+/obj/floor_decal/borderfloorwhite{
 	dir = 6;
 	icon_state = "borderfloor_white"
 	},
@@ -5231,18 +5230,18 @@
 	pixel_x = 24;
 	req_access = list("ACCESS_NOCTIS")
 	},
-/obj/effect/submap_landmark/spawnpoint/crewmember,
+/obj/submap_landmark/spawnpoint/crewmember,
 /turf/simulated/floor/tiled/white,
 /area/noctis/cryo)
 "jA" = (
 /obj/structure/table/standard,
 /obj/item/retractor,
 /obj/item/circular_saw,
-/obj/effect/floor_decal/borderfloorwhite{
+/obj/floor_decal/borderfloorwhite{
 	dir = 8;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/corner/paleblue/border{
+/obj/floor_decal/corner/paleblue/border{
 	dir = 8;
 	icon_state = "bordercolor"
 	},
@@ -5259,11 +5258,11 @@
 /obj/item/organ/internal/heart,
 /obj/item/organ/internal/kidneys,
 /obj/item/organ/internal/lungs,
-/obj/effect/floor_decal/borderfloorwhite{
+/obj/floor_decal/borderfloorwhite{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/corner/paleblue/border{
+/obj/floor_decal/corner/paleblue/border{
 	dir = 4;
 	icon_state = "bordercolor"
 	},
@@ -5276,11 +5275,11 @@
 /area/noctis/medbay)
 "jD" = (
 /obj/item/gun/energy/plasmacutter,
-/obj/effect/floor_decal/corner_techfloor_grid{
+/obj/floor_decal/corner_techfloor_grid{
 	dir = 1;
 	icon_state = "corner_techfloor_grid"
 	},
-/obj/effect/floor_decal/techfloor/corner{
+/obj/floor_decal/techfloor/corner{
 	dir = 1;
 	icon_state = "techfloor_corners"
 	},
@@ -5334,11 +5333,11 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/equips)
 "jJ" = (
-/obj/effect/paint/green_grey,
+/obj/paint/green_grey,
 /turf/simulated/wall/titanium,
 /area/noctis/disposal)
 "jK" = (
-/obj/effect/paint/green_grey,
+/obj/paint/green_grey,
 /obj/structure/disposaloutlet,
 /obj/structure/disposalpipe/trunk{
 	dir = 1;
@@ -5347,13 +5346,13 @@
 /turf/simulated/wall/titanium,
 /area/noctis/disposal)
 "jL" = (
-/obj/effect/paint/green_grey,
+/obj/paint/green_grey,
 /turf/simulated/wall/titanium,
 /area/noctis/cryo)
 "jM" = (
 /obj/machinery/cryopod{
 	dir = 1;
-	icon_state = "body_scanner_0"
+	icon_state = "cryopod"
 	},
 /turf/simulated/floor/tiled/white/monotile,
 /area/noctis/cryo)
@@ -5376,7 +5375,7 @@
 	icon_state = "map_tvalvem0";
 	initialize_directions = 11
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/plating,
 /area/noctis/apm)
 "jP" = (
@@ -5393,18 +5392,18 @@
 /turf/simulated/floor/plating,
 /area/noctis/combust)
 "jR" = (
-/obj/effect/floor_decal/borderfloorblack{
+/obj/floor_decal/borderfloorblack{
 	dir = 6;
 	icon_state = "borderfloor_white"
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 6;
 	icon_state = "danger"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/noctis/combust)
 "jS" = (
-/obj/effect/floor_decal/borderfloor{
+/obj/floor_decal/borderfloor{
 	dir = 4;
 	icon_state = "borderfloor_white"
 	},
@@ -5419,11 +5418,11 @@
 /turf/simulated/floor/tiled,
 /area/noctis/lounge)
 "jT" = (
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "danger"
 	},
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
@@ -5433,17 +5432,17 @@
 	dir = 5;
 	icon_state = "intact-supply"
 	},
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/techmaint,
 /area/noctis/equips)
 "jV" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
 /obj/structure/closet/crate,
 /obj/random/tool,
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 "jW" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
@@ -5466,7 +5465,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/fairlock)
 "jY" = (
-/obj/effect/floor_decal/techfloor{
+/obj/floor_decal/techfloor{
 	dir = 6;
 	icon_state = "techfloor_edges"
 	},
@@ -5482,7 +5481,7 @@
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/noctis/fairlock)
 "jZ" = (
-/obj/effect/paint/silver,
+/obj/paint/silver,
 /obj/structure/fuel_port,
 /turf/simulated/wall,
 /area/noctis/raptor)
@@ -5535,7 +5534,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/disposal)
 "yX" = (
-/obj/effect/shuttle_landmark/automatic,
+/obj/shuttle_landmark/automatic,
 /turf/space,
 /area/space)
 "AB" = (
@@ -5547,11 +5546,11 @@
 /turf/simulated/floor/plating,
 /area/noctis/apm)
 "CM" = (
-/obj/effect/floor_decal/industrial/warning,
+/obj/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/space)
 "ED" = (
-/obj/effect/step_trigger/thrower{
+/obj/step_trigger/thrower{
 	affect_ghosts = 1;
 	direction = 4;
 	name = "thrower_throwdownside";
@@ -5562,7 +5561,7 @@
 /turf/space/transit/north,
 /area/space)
 "GB" = (
-/obj/effect/step_trigger/teleporter/random{
+/obj/step_trigger/teleporter/random{
 	affect_ghosts = 1;
 	name = "escapeshuttle_leave";
 	teleport_x = 25;
@@ -5575,7 +5574,7 @@
 /turf/space/transit/north,
 /area/space)
 "GM" = (
-/obj/effect/paint/black,
+/obj/paint/black,
 /turf/simulated/wall/titanium,
 /area/space)
 "JD" = (
@@ -5594,7 +5593,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/disposal)
 "So" = (
-/obj/effect/floor_decal/borderfloor,
+/obj/floor_decal/borderfloor,
 /obj/structure/cable/blue{
 	d1 = 4;
 	d2 = 8;
@@ -5607,7 +5606,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/warning{
+/obj/floor_decal/industrial/warning{
 	dir = 1;
 	icon_state = "warning"
 	},
@@ -5631,7 +5630,7 @@
 	icon_state = "1-8"
 	},
 /obj/structure/ladder/up,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/noctis/hangar)
 

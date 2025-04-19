@@ -26,7 +26,7 @@
 
 	var/turf/T = get_turf(true_holder)
 
-	var/datum/effect/effect/system/smoke_spread/chill_mist/funfog = new()
+	var/datum/effect/smoke_spread/chill_mist/funfog = new()
 	funfog.set_up(5, 0, T)
 	funfog.start()
 	return

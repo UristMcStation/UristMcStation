@@ -1,5 +1,5 @@
 /obj/machinery/mining
-	icon = 'icons/obj/mining_drill.dmi'
+	icon = 'icons/obj/machines/mining/mining_drill.dmi'
 	anchored = FALSE
 	use_power = POWER_USE_OFF //The drill takes power directly from a cell.
 	density = TRUE
@@ -183,11 +183,19 @@
 	return TRUE
 
 /obj/machinery/mining/drill/on_update_icon()
+	ClearOverlays()
+	if(panel_open)
+		AddOverlays("mining_drill_panel")
 	if(need_player_check)
-		icon_state = "mining_drill_error"
+		AddOverlays(emissive_appearance(icon, "mining_drill_lights_error"))
+		AddOverlays("mining_drill_lights_error")
+		icon_state = "mining_drill_braced"
 	else if(active)
+		icon_state = "mining_drill_braced"
+		AddOverlays("mining_drill_active")
 		var/status = clamp(round( (length(contents) / capacity) * 4 ), 0, 3)
-		icon_state = "mining_drill_active[status]"
+		AddOverlays(emissive_appearance(icon, "mining_drill_lights_[status]"))
+		AddOverlays("mining_drill_lights_[status]")
 	else if(supported)
 		icon_state = "mining_drill_braced"
 	else
@@ -255,7 +263,7 @@
 	name = "mining drill brace"
 	desc = "A machinery brace for an industrial drill. It looks easily two feet thick."
 	icon_state = "mining_brace"
-	obj_flags = OBJ_FLAG_ROTATABLE
+	obj_flags = OBJ_FLAG_ROTATABLE | OBJ_FLAG_ANCHORABLE
 	interact_offline = 1
 
 	machine_name = "mining drill brace"
@@ -268,26 +276,20 @@
 		return SPAN_NOTICE("You can't work with the brace of a running drill!")
 	return ..()
 
-/obj/machinery/mining/brace/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/mining/brace/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(connected && connected.active)
 		to_chat(user, SPAN_NOTICE("You can't work with the brace of a running drill!"))
 		return TRUE
-	if(component_attackby(W, user))
-		return TRUE
-	if(isWrench(W))
 
-		if(istype(get_turf(src), /turf/space))
-			to_chat(user, SPAN_NOTICE("You can't anchor something to empty space. Idiot."))
-			return
+	return ..()
 
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
-		to_chat(user, SPAN_NOTICE("You [anchored ? "un" : ""]anchor the brace."))
+/obj/machinery/mining/brace/post_anchor_change()
+	if (anchored)
+		connect()
+	else
+		disconnect()
 
-		anchored = !anchored
-		if(anchored)
-			connect()
-		else
-			disconnect()
+	..()
 
 /obj/machinery/mining/brace/proc/connect()
 

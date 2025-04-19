@@ -50,11 +50,11 @@
 	damage = 0
 	randpixel = 0
 	no_attack_log = TRUE
-	muzzle_type = /obj/effect/projectile/blood
-	tracer_type = /obj/effect/projectile/blood
-	impact_type = /obj/effect/projectile/blood
+	muzzle_type = /obj/projectile/blood
+	tracer_type = /obj/projectile/blood
+	impact_type = /obj/projectile/blood
 
-/obj/item/projectile/beam/blood_effect/Bump(atom/a, forced=0)
+/obj/item/projectile/beam/blood_effect/Bump(atom/a, called)
 	if(a == original)
 		on_impact(a)
 		qdel(src)
@@ -62,5 +62,5 @@
 	return 0
 
 
-/obj/effect/projectile/blood
+/obj/projectile/blood
 	icon_state = "blood"

@@ -2,7 +2,7 @@
 
 /obj/machinery/computer/prisoner
 	name = "prisoner management console"
-	icon = 'icons/obj/computer.dmi'
+	icon = 'icons/obj/machines/computer.dmi'
 	icon_keyboard = "security_key"
 	icon_screen = "explosive"
 	light_color = "#a91515"
@@ -29,7 +29,7 @@
 	var/dat
 	dat += "<B>Prisoner Implant Manager System</B><BR>"
 	if(screen == 0)
-		dat += "<HR><A href='?src=\ref[src];lock=1'>Unlock Console</A>"
+		dat += "<HR><A href='byond://?src=\ref[src];lock=1'>Unlock Console</A>"
 	else if(screen == 1)
 		dat += "<HR>Chemical Implants<BR>"
 		var/turf/Tr = null
@@ -38,9 +38,9 @@
 			if((Tr) && !AreConnectedZLevels(Tr.z, src.z))	continue // Out of range
 			if(!C.implanted) continue
 			dat += "[C.imp_in.name] | Remaining Units: [C.reagents.total_volume] | Inject: "
-			dat += "<A href='?src=\ref[src];inject1=\ref[C]'>([SPAN_COLOR("red", "(1)")])</A>"
-			dat += "<A href='?src=\ref[src];inject5=\ref[C]'>([SPAN_COLOR("red", "(5))")]</A>"
-			dat += "<A href='?src=\ref[src];inject10=\ref[C]'>([SPAN_COLOR("red", "(10)")])</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];inject1=\ref[C]'>([SPAN_COLOR("red", "(1)")])</A>"
+			dat += "<A href='byond://?src=\ref[src];inject5=\ref[C]'>([SPAN_COLOR("red", "(5))")]</A>"
+			dat += "<A href='byond://?src=\ref[src];inject10=\ref[C]'>([SPAN_COLOR("red", "(10)")])</A><BR>"
 			dat += "********************************<BR>"
 		dat += "<HR>Tracking Implants<BR>"
 		for(var/obj/item/implant/tracking/T in world)
@@ -55,9 +55,9 @@
 			if(T.malfunction)
 				loc_display = pick(teleportlocs)
 			dat += "ID: [T.id] | Location: [loc_display]<BR>"
-			dat += "<A href='?src=\ref[src];warn=\ref[T]'>([SPAN_COLOR("red", "<i>Message Holder</i>")])</A> |<BR>"
+			dat += "<A href='byond://?src=\ref[src];warn=\ref[T]'>([SPAN_COLOR("red", "<i>Message Holder</i>")])</A> |<BR>"
 			dat += "********************************<BR>"
-		dat += "<HR><A href='?src=\ref[src];lock=1'>Lock Console</A>"
+		dat += "<HR><A href='byond://?src=\ref[src];lock=1'>Lock Console</A>"
 
 	show_browser(user, dat, "window=computer;size=400x500")
 	onclose(user, "computer")
@@ -73,7 +73,7 @@
 /obj/machinery/computer/prisoner/Topic(href, href_list)
 	if(..())
 		return
-	if((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+	if((usr.contents.Find(src) || (in_range(src, usr) && isturf(loc))) || (istype(usr, /mob/living/silicon)))
 		usr.set_machine(src)
 
 		if(href_list["inject1"])

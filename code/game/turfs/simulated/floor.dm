@@ -21,6 +21,10 @@
 	var/singleton/flooring/flooring
 	var/mineral = DEFAULT_WALL_MATERIAL
 
+	// Initialization modifiers for mapping
+	/// Boolean (Default `FALSE`) - If set, the tile will not have atmosphere on init.
+	var/map_airless = FALSE
+
 	thermal_conductivity = 0.040
 	heat_capacity = 10000
 	var/lava = 0
@@ -39,6 +43,10 @@
 	return (A.level == ATOM_LEVEL_UNDER_TILE && !is_plating()) || ..()
 
 /turf/simulated/floor/New(newloc, floortype)
+	var/area/area = get_area(src)
+	if (map_airless || area?.turfs_airless)
+		initial_gas = null
+		temperature = TCMB
 	..(newloc)
 	if(!floortype && initial_flooring)
 		floortype = initial_flooring
@@ -48,6 +56,15 @@
 /turf/simulated/floor/proc/set_flooring(singleton/flooring/newflooring)
 	make_plating(defer_icon_update = 1)
 	flooring = newflooring
+
+	var/check_z_flags
+	if(flooring)
+		check_z_flags = flooring.z_flags
+
+	if(check_z_flags & ZM_MIMIC_BELOW)
+		enable_zmimic(check_z_flags)
+
+
 	update_icon(1)
 	levelupdate()
 
@@ -55,10 +72,13 @@
 //This proc auto corrects the grass tiles' siding.
 /turf/simulated/floor/proc/make_plating(place_product, defer_icon_update)
 
-	overlays.Cut()
+	ClearOverlays()
 
-	for(var/obj/effect/decal/writing/W in src)
+	for(var/obj/decal/writing/W in src)
 		qdel(W)
+
+	disable_zmimic()
+	z_flags = initial(z_flags)
 
 	SetName(base_name)
 	desc = base_desc
@@ -112,4 +132,4 @@
 	if(turf_fire)
 		turf_fire.AddPower(power)
 		return
-	new /obj/effect/turf_fire(src, power, fire_colour)
+	new /obj/turf_fire(src, power, fire_colour)

@@ -9,7 +9,7 @@
 
 	category = /datum/shuttle/autodock/overmap
 
-/datum/shuttle/autodock/overmap/New(_name, obj/effect/shuttle_landmark/start_waypoint)
+/datum/shuttle/autodock/overmap/New(_name, obj/shuttle_landmark/start_waypoint)
 	..(_name, start_waypoint)
 	refresh_fuel_ports_list()
 
@@ -46,16 +46,16 @@
 	var/distance_mod = get_dist(waypoint_sector(current_location),waypoint_sector(next_location))
 	return move_time * (1 + distance_mod)
 
-/datum/shuttle/autodock/overmap/proc/set_destination(obj/effect/shuttle_landmark/A)
+/datum/shuttle/autodock/overmap/proc/set_destination(obj/shuttle_landmark/A)
 	if(A != current_location)
 		next_location = A
 		move_time = initial(move_time) * (1 + get_dist(waypoint_sector(current_location),waypoint_sector(next_location)))
 
 /datum/shuttle/autodock/overmap/proc/get_possible_destinations()
 	var/list/res = list()
-	for (var/obj/effect/overmap/visitable/S in range(get_turf(waypoint_sector(current_location)), range))
+	for (var/obj/overmap/visitable/S in range(get_turf(waypoint_sector(current_location)), range))
 		var/list/waypoints = S.get_waypoints(name)
-		for(var/obj/effect/shuttle_landmark/LZ in waypoints)
+		for(var/obj/shuttle_landmark/LZ in waypoints)
 			if(LZ.is_valid(src))
 				res["[waypoints[LZ]] - [LZ.name]"] = LZ
 	return res
@@ -134,23 +134,40 @@
 	else
 		icon_state = icon_closed
 
-/obj/structure/fuel_port/attackby(obj/item/W as obj, mob/user as mob)
-	if(isCrowbar(W))
-		if(opened)
-			to_chat(user, "<span class='notice'>You tightly shut \the [src] door.</span>")
-			playsound(src.loc, 'sound/effects/locker_close.ogg', 25, 0, -3)
-			opened = 0
-		else
-			to_chat(user, "<span class='notice'>You open up \the [src] door.</span>")
-			playsound(src.loc, 'sound/effects/locker_open.ogg', 15, 1, -3)
-			opened = 1
-	else if(istype(W,/obj/item/tank))
-		if(!opened)
-			to_chat(user, "<span class='warning'>\The [src] door is still closed!</span>")
-			return
-		if(length(contents) == 0)
-			user.unEquip(W, src)
-	update_icon()
+
+/obj/structure/fuel_port/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Crowbar - Toggle open
+	if (isCrowbar(tool))
+		opened = !opened
+		playsound(src, opened ? 'sound/effects/locker_open.ogg' : 'sound/effects/locker_close.ogg', 50, TRUE)
+		update_icon()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] [opened ? "opens" : "closes"] \the [src] with \a [tool]."),
+			SPAN_NOTICE("You [opened ? "open" : "close"] \the [src] with \the [tool].")
+		)
+		return TRUE
+
+	// Tank - Insert tank
+	if (istype(tool, /obj/item/tank))
+		if (!opened)
+			USE_FEEDBACK_FAILURE("\The [src] needs to be opened before you can insert \the [tool].")
+			return TRUE
+		var/obj/item/tank/tank = locate() in src
+		if (tank)
+			USE_FEEDBACK_FAILURE("\The [src] already has \a [tank] installed.")
+			return TRUE
+		if (!user.unEquip(tool, src))
+			FEEDBACK_UNEQUIP_FAILURE(user, tool)
+			return TRUE
+		update_icon()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] inserts \a [tool] in \the [src]."),
+			SPAN_NOTICE("You insert \the [tool] in \the [src].")
+		)
+		return TRUE
+
+	return ..()
+
 
 /obj/structure/fuel_port/attack_robot(mob/user)
 	if (Adjacent(user))

@@ -7,7 +7,7 @@
 	var/using_new_cargo = FALSE //for nerva //this var inits the stuff related to the contract system, the new trading system, and other misc things including the endround station profit report.
 	var/new_cargo_inflation = 1 //used to calculate how much points are now (original point value multiplied by this number). this needs balancing
 	var/list/contracts = list() //the current active contracts
-	var/obj/effect/overmap/visitable/ship/combat/overmap_ship = null //this is for space combat, it is the overmap object used by the main map
+	var/obj/overmap/visitable/ship/combat/overmap_ship = null //this is for space combat, it is the overmap object used by the main map
 	var/completed_contracts = 0 //this and destroyed_ships are used for endround stats
 	var/contract_money = 0 //likewise
 	var/destroyed_ships = 0

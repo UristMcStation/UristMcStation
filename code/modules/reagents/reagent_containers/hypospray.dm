@@ -5,7 +5,7 @@
 /obj/item/reagent_containers/hypospray //obsolete, use hypospray/vial for the actual hypospray item
 	name = "hypospray"
 	desc = "The DeForest Medical Corporation, a subsidiary of Zeng-Hu Pharmaceuticals, hypospray is a sterile, air-needle autoinjector for rapid administration of drugs to patients."
-	icon = 'icons/obj/syringe.dmi'
+	icon = 'icons/obj/tools/syringe.dmi'
 	item_state = "hypo"
 	icon_state = "hypo"
 	origin_tech = list(TECH_MATERIAL = 4, TECH_BIO = 5)
@@ -28,16 +28,24 @@
 	var/time = (1 SECONDS) / 1.9
 	var/single_use = TRUE // autoinjectors are not refillable (overriden for hypospray)
 
-/obj/item/reagent_containers/hypospray/attack(mob/living/M, mob/user)
-	if(!reagents.total_volume)
+/obj/item/reagent_containers/hypospray/proc/inject_body_bag(obj/structure/closet/body_bag/bag, mob/user)
+	if(bag.opened)
+		to_chat(user, SPAN_NOTICE("\The [bag] is open."))
+		return TRUE
+	if (!reagents.total_volume)
 		to_chat(user, SPAN_WARNING("[src] is empty."))
-		return
-	if (!istype(M))
-		return
+		return FALSE
+	if(!bag.contains_body)
+		to_chat(user, SPAN_NOTICE("\The [bag] is empty."))
+		return TRUE
+	var/mob/living/L = locate() in bag
+	if(L)
+		return inject_mob(L, user)
 
+/obj/item/reagent_containers/hypospray/proc/inject_mob(mob/living/M, mob/user)
 	var/allow = M.can_inject(user, check_zone(user.zone_sel.selecting))
-	if(!allow)
-		return
+	if (!allow)
+		return TRUE
 
 	if (allow == INJECTION_PORT)
 		if(M != user)
@@ -45,7 +53,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("You begin hunting for an injection port on your suit."))
 		if(!do_after(user, INJECTION_PORT_DELAY, M, do_flags = DO_MEDICAL))
-			return
+			return TRUE
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(M)
@@ -53,10 +61,11 @@
 	if(user != M && !M.incapacitated() && time) // you're injecting someone else who is concious, so apply the device's intrisic delay
 		to_chat(user, SPAN_WARNING("\The [user] is trying to inject \the [M] with \the [name]."))
 		if(!do_after(user, time, M, do_flags = DO_MEDICAL))
-			return
+			return TRUE
 
 	if(single_use && reagents.total_volume <= 0) // currently only applies to autoinjectors
 		atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER // Prevents autoinjectors to be refilled.
+		update_icon()
 
 	to_chat(user, SPAN_NOTICE("You inject [M] with [src]."))
 	if(ishuman(M))
@@ -73,8 +82,17 @@
 		if (should_admin_log)
 			admin_inject_log(user, M, src, contained, trans)
 		to_chat(user, SPAN_NOTICE("[trans] units injected. [reagents.total_volume] units remaining in \the [src]."))
+	return TRUE
 
-	return
+/obj/item/reagent_containers/hypospray/use_before(target, mob/user)
+	if(istype(target, /obj/structure/closet/body_bag))
+		return inject_body_bag(target, user)
+	if (istype(target, /mob/living))
+		if (!reagents.total_volume)
+			to_chat(user, SPAN_WARNING("[src] is empty."))
+			return FALSE
+		return inject_mob(target, user)
+	return FALSE
 
 /obj/item/reagent_containers/hypospray/vial
 	name = "hypospray"
@@ -86,6 +104,7 @@
 	volume = 0
 	time = 7
 	single_use = FALSE
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
 
 /obj/item/reagent_containers/hypospray/vial/New()
 	..()
@@ -115,13 +134,14 @@
 		return
 	return ..()
 
-/obj/item/reagent_containers/hypospray/vial/attackby(obj/item/W, mob/user)
+/obj/item/reagent_containers/hypospray/vial/use_tool(obj/item/W, mob/living/user, list/click_params)
 	var/usermessage = ""
 	if(istype(W, /obj/item/reagent_containers/glass/beaker/vial))
 		if(!do_after(user, 1 SECOND, src, DO_PUBLIC_UNIQUE) || !(W in user))
-			return 0
+			return TRUE
 		if(!user.unEquip(W, src))
-			return
+			FEEDBACK_UNEQUIP_FAILURE(user, W)
+			return TRUE
 		if(loaded_vial)
 			remove_vial(user, "swap")
 			usermessage = "You load \the [W] into \the [src] as you remove the old one."
@@ -136,12 +156,13 @@
 		user.visible_message(SPAN_NOTICE("[user] has loaded [W] into \the [src]."),SPAN_NOTICE("[usermessage]"))
 		update_icon()
 		playsound(src.loc, 'sound/weapons/empty.ogg', 50, 1)
-		return
-	..()
+		return TRUE
+	return ..()
 
-/obj/item/reagent_containers/hypospray/vial/afterattack(obj/target, mob/user, proximity) // hyposprays can be dumped into, why not out? uses standard_pour_into helper checks.
-	if(!proximity)
-		return
+/obj/item/reagent_containers/hypospray/vial/use_after(obj/target, mob/living/user, click_parameters) // // hyposprays can be dumped into, why not out? uses standard_pour_into helper checks. Hyposprays can also inject through bags
+	if (istype(target, /obj/structure/closet/body_bag))
+		return ..()
+
 	if (!reagents.total_volume && istype(target, /obj/item/reagent_containers/glass))
 		var/good_target = is_type_in_list(target, list(
 			/obj/item/reagent_containers/glass/beaker,
@@ -151,14 +172,16 @@
 			return
 		if (!target.is_open_container())
 			to_chat(user, SPAN_ITALIC("\The [target] is closed."))
-			return
+			return TRUE
 		if (!target.reagents?.total_volume)
 			to_chat(user, SPAN_ITALIC("\The [target] is empty."))
-			return
+			return TRUE
 		var/trans = target.reagents.trans_to_obj(src, amount_per_transfer_from_this)
 		to_chat(user, SPAN_NOTICE("You fill \the [src] with [trans] units of the solution."))
-		return
-	standard_pour_into(user, target)
+		return TRUE
+	else
+		standard_pour_into(user, target)
+		return TRUE
 
 /obj/item/reagent_containers/hypospray/autoinjector
 	name = "autoinjector"
@@ -182,15 +205,11 @@
 	update_icon()
 	return
 
-/obj/item/reagent_containers/hypospray/autoinjector/attack(mob/M as mob, mob/user as mob)
-	..()
-	update_icon()
-
 /obj/item/reagent_containers/hypospray/autoinjector/on_reagent_change()
 	update_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(reagents.total_volume > 0)
 		icon_state = "[initial(icon_state)]1"
 	else
@@ -201,7 +220,7 @@
 			overlay_color = reagents.get_color()
 		else
 			overlay_color = COLOR_GRAY
-	overlays += overlay_image(icon, "injector_band", overlay_color, RESET_COLOR)
+	AddOverlays(overlay_image(icon, "injector_band", overlay_color, RESET_COLOR))
 
 /obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
 	. = ..(user)

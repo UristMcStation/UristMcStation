@@ -45,5 +45,8 @@
 	path = /obj/item/weldingtool/largetank
 	hidden = TRUE
 
+/datum/fabricator_recipe/tool/designator
+	path = /obj/item/device/drone_designator
+
 /datum/fabricator_recipe/tool/orescanner
 	path = /obj/item/device/scanner/mining

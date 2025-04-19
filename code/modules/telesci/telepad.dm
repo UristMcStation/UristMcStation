@@ -58,7 +58,7 @@
 /obj/item/device/telepad_beacon
 	name = "telepad beacon"
 	desc = "Use to warp in a cargo telepad."
-	icon = 'icons/obj/radio.dmi'
+	icon = 'icons/obj/machines/beacon.dmi'
 	icon_state = "beacon"
 	item_state = "signaler"
 	origin_tech = "bluespace=3"
@@ -126,7 +126,7 @@
 /obj/item/rcs/emag_act(remaining_charges, mob/user)
 	if(!emagged)
 		emagged = TRUE
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+		var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 		s.set_up(5, 1, src)
 		s.start()
 		to_chat(user, "<span class = 'caution'> You emag the RCS. Click on it to toggle between modes.</span>")

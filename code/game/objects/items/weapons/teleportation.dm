@@ -10,8 +10,8 @@
 /obj/item/locator
 	name = "locator"
 	desc = "Used to track those with locater implants."
-	icon = 'icons/obj/locator.dmi'
-	icon_state = "locator"
+	icon = 'icons/obj/tools/pinpointer.dmi'
+	icon_state = "pinoff"
 	var/temp = null
 	var/frequency = 1451
 	var/broadcasting = null
@@ -38,7 +38,7 @@ Frequency:
 <A href='byond://?src=\ref[src];freq=2'>+</A>
 <A href='byond://?src=\ref[src];freq=10'>+</A><BR>
 
-<A href='?src=\ref[src];refresh=1'>Refresh</A>"}
+<A href='byond://?src=\ref[src];refresh=1'>Refresh</A>"}
 	show_browser(user, dat, "window=radio")
 	onclose(user, "radio")
 	return
@@ -51,7 +51,7 @@ Frequency:
 	if(!current_location||current_location.z==2)//If turf was not found or they're on z level 2.
 		to_chat(usr, "The [src] is malfunctioning.")
 		return
-	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))))
+	if ((usr.contents.Find(src) || (in_range(src, usr) && isturf(loc))))
 		usr.set_machine(src)
 		if (href_list["refresh"])
 			src.temp = "<B>Persistent Signal Locator</B><HR>"
@@ -111,7 +111,7 @@ Frequency:
 			else
 				if (href_list["temp"])
 					src.temp = null
-		if (istype(src.loc, /mob))
+		if (ismob(loc))
 			attack_self(src.loc)
 		else
 			for(var/mob/M in viewers(1, src))

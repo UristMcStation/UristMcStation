@@ -3,7 +3,7 @@
 	augment_slots = AUGMENT_CHEST
 	icon_state = "muscule"
 	desc = "Each activation of this augment provides a strong painkilling effect for around thirty seconds, but will be followed by a powerful comedown. Excessive short-term use may cause brain damage."
-	augment_flags = AUGMENT_BIOLOGICAL
+	augment_flags = AUGMENT_BIOLOGICAL | AUGMENT_SCANNABLE
 	origin_tech = list(TECH_DATA = 4, TECH_BIO = 4)
 	var/ticks_remaining = 0
 
@@ -37,9 +37,12 @@
 		if (!ticks_remaining) // ...but comes at a price. Brief short term benefit for a long-term comedown
 			to_chat(owner, SPAN_WARNING("You abruptly feel intensely exhausted as sensation returns."))
 			owner.drowsyness = max(owner.drowsyness, 15)
-			owner.confused = max(owner.confused, 15)
+			owner.set_confused(15)
 			owner.slurring = max(owner.slurring, 30)
 			owner.chem_effects[CE_PAINKILLER] = 0
 			owner.stamina = 0
 			if(MOVING_QUICKLY(owner))
 				owner.set_moving_slowly()
+
+/obj/item/organ/internal/augment/active/nerve_dampeners/hidden
+	augment_flags = AUGMENT_BIOLOGICAL

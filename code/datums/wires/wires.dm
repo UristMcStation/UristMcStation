@@ -110,16 +110,18 @@ var/global/list/wireColours = list("red", "blue", "green", "darkred", "orange", 
 		html += "<tr>"
 		html += "<td[row_options1]>[SPAN_COLOR(colour, "&#9724;")][capitalize(colour)]</td>"
 		html += "<td[row_options2]>"
-		html += "<A href='?src=\ref[src];action=1;cut=[colour]'>[IsColourCut(colour) ? "Mend" :  "Cut"]</A>"
-		html += " <A href='?src=\ref[src];action=1;pulse=[colour]'>Pulse</A>"
-		html += " <A href='?src=\ref[src];action=1;attach=[colour]'>[IsAttached(colour) ? "Detach" : "Attach"] Signaller</A></td></tr>"
+		html += "<A href='byond://?src=\ref[src];action=1;cut=[colour]'>[IsColourCut(colour) ? "Mend" :  "Cut"]</A>"
+		html += " <A href='byond://?src=\ref[src];action=1;pulse=[colour]'>Pulse</A>"
+		html += " <A href='byond://?src=\ref[src];action=1;attach=[colour]'>[IsAttached(colour) ? "Detach" : "Attach"] Signaller</A>"
+		var/label = "Examine"
+		html += " <A href='byond://?src=\ref[src];action=1;examine=[colour]'>[label]</A></td></tr>"
 	html += "</table>"
 	html += "</div>"
 
 	if (random)
 		html += "<i>\The [holder] appears to have tamper-resistant electronics installed.</i><br><br>" //maybe this could be more generic?
 
-	return html
+	return jointext(html, null)
 
 /datum/wires/Topic(href, href_list)
 	..()
@@ -139,13 +141,21 @@ var/global/list/wireColours = list("red", "blue", "green", "darkred", "orange", 
 			if(href_list["cut"]) // Toggles the cut/mend status
 				if(isWirecutter(I) || isWirecutter(offhand_item))
 					var/colour = href_list["cut"]
-					CutWireColour(colour)
+					var/message = ""
+					if (CutWireColour(colour))
+						message = SPAN_NOTICE("You mend the [colour] wire.")
+					else
+						message = SPAN_NOTICE("You cut the [colour] wire.")
+					to_chat(usr, message)
+					playsound(usr.loc, "sound/items/Wirecutter.ogg", 20)
 				else
 					to_chat(L, SPAN_CLASS("error", "You need wirecutters!"))
 			else if(href_list["pulse"])
 				if(isMultitool(I) || isMultitool(offhand_item))
 					var/colour = href_list["pulse"]
 					PulseColour(colour)
+					to_chat(usr, SPAN_NOTICE("You pulse the [colour] wire."))
+					playsound(usr.loc, "sound/effects/pop.ogg", 20)
 				else
 					to_chat(L, SPAN_CLASS("error", "You need a multitool!"))
 			else if(href_list["attach"])

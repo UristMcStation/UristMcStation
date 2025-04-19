@@ -1,4 +1,4 @@
-/datum/chemical_reaction/pilk
+/singleton/reaction/pilk
 	name = "Pilk"
 	result = /datum/reagent/drink/pilk
 	required_reagents = list(/datum/reagent/drink/milk = 1, /datum/reagent/drink/space_cola = 1)
@@ -18,11 +18,11 @@
 	glass_desc = "A glass of pilk, an unholy combination of milk and cola. There's a special place in hell for people who mix this drink."
 	glass_special = list(DRINK_FIZZ)
 
-/datum/reagent/drink/pilk/affect_ingest(mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/drink/pilk/affect_ingest(mob/living/carbon/M, alien, removed)
 	..()
 	M.adjustBrainLoss(0.1)
 
-/datum/chemical_reaction/napalk
+/singleton/reaction/napalk
 	name = "Napalk"
 	result = /datum/reagent/drink/napalk
 	required_reagents = list(/datum/reagent/drink/pilk = 1, /datum/reagent/napalm = 1)
@@ -40,12 +40,12 @@
 	glass_desc = "A glass of napalk, a combination of napalm and pilk. What compells you to drink this?"
 	glass_special = list(DRINK_VAPOR)
 
-/datum/reagent/drink/napalk/affect_ingest(mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/drink/napalk/affect_ingest(mob/living/carbon/M, alien, removed)
 	..()
 	M.adjustToxLoss(0.5)
 	M.adjustBrainLoss(0.2)
 
-/datum/chemical_reaction/spacelube // Restores Space Lube from Bay Merge.
+/singleton/reaction/spacelube // Restores Space Lube from Bay Merge.
 	name = "Space Lube"
 	result = /datum/reagent/lube
 	required_reagents = list(/datum/reagent/water = 1, /datum/reagent/silicon = 1, /datum/reagent/acetone = 1)
@@ -61,8 +61,17 @@
 	value = 0.6
 	should_admin_log = TRUE // So we can see who's spraying the hallways.
 
-/datum/reagent/lube/touch_turf(var/turf/simulated/T)
+/datum/reagent/lube/touch_turf(turf/simulated/T)
 	if(!istype(T))
 		return
 	if(volume >= 1)
 		T.wet_floor(80) // Restored original wet floor value.
+
+/datum/reagent/ethanol/uristhomebrew
+	name = "Urists Moonshine"
+	description = "Pure 100% distilled plump helmet ethanol"
+	taste_description = "liquid fire, plump helmets"
+	color = "#b31978"
+	strength = 5 // STRIKE THE MEDBAY!
+	glass_name = "urist's"
+	glass_desc = "It smells like pure grain alcohol, and has small clumps of plump helmet floating in it."

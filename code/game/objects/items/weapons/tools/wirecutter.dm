@@ -1,7 +1,7 @@
 /obj/item/wirecutters
 	name = "wirecutters"
 	desc = "A special pair of pliers with cutting edges. Various brackets and manipulators built into the handle allow it to repair severed wiring."
-	icon = 'icons/obj/tools.dmi'
+	icon = 'icons/obj/tools/wirecutter.dmi'
 	icon_state = "cutters_preview"
 	item_state = "cutters"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
@@ -26,18 +26,17 @@
 	if(build_from_parts)
 		icon_state = "cutters_handle"
 		color = pick(valid_colours)
-		overlays += overlay_image(icon, "[hardware_icon]", flags=RESET_COLOR)
+		AddOverlays(overlay_image(icon, "[hardware_icon]", flags=RESET_COLOR))
 	. = ..()
 
-/obj/item/wirecutters/attack(mob/living/carbon/C as mob, mob/user as mob)
-	if(istype(C) && user.a_intent == I_HELP && (C.handcuffed) && (istype(C.handcuffed, /obj/item/handcuffs/cable)))
+/obj/item/wirecutters/use_after(mob/living/carbon/C as mob, mob/user as mob)
+	. = FALSE
+	if (istype(C) && (C.handcuffed) && (istype(C.handcuffed, /obj/item/handcuffs/cable)))
 		usr.visible_message("\The [usr] cuts \the [C]'s restraints with \the [src]!",\
 		"You cut \the [C]'s restraints with \the [src]!",\
 		"You hear cable being cut.")
 		C.handcuffed = null
-		if(C.buckled && C.buckled.buckle_require_restraints)
+		if (C.buckled && C.buckled.buckle_require_restraints)
 			C.buckled.unbuckle_mob()
 		C.update_inv_handcuffed()
-		return
-	else
-		..()
+		return TRUE

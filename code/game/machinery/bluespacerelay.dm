@@ -1,7 +1,7 @@
 /obj/machinery/bluespacerelay
-	name = "Emergency Bluespace Relay"
+	name = "emergency bluespace relay"
 	desc = "This sends messages through bluespace! Wow!"
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/machines/telecomms.dmi'
 	icon_state = "bspacerelay"
 	anchored = TRUE
 	density = TRUE
@@ -11,8 +11,26 @@
 	machine_name = "emergency bluespace relay"
 	machine_desc = "Used to instantly send messages across vast distances. An emergency relay is required to directly contact Expeditionary Command through crisis channels."
 
+
+/obj/machinery/bluespacerelay/Initialize()
+	. = ..()
+	update_icon()
+
+
+/obj/machinery/bluespacerelay/operable()
+	return !inoperable(MACHINE_STAT_EMPED)
+
+
 /obj/machinery/bluespacerelay/on_update_icon()
-	if(inoperable())
-		icon_state = "[initial(icon_state)]_off"
-	else
-		icon_state = initial(icon_state)
+	ClearOverlays()
+	if(operable())
+		AddOverlays(list(
+			"bspacerelay_on",
+			emissive_appearance(icon, "bspacerelay_on")
+		))
+	if(panel_open)
+		AddOverlays("bspacerelay_panel")
+
+
+/obj/machinery/bluespacerelay/Process()
+	update_icon()

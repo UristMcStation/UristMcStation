@@ -9,13 +9,13 @@
 //	fuel_consumption = 1.2
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/nav_abandoned_colony/morninglight
+/obj/shuttle_landmark/nav_abandoned_colony/morninglight
 	name = "Morning Light Hangar"
 	landmark_tag = "nav_morninglight"
 	base_area = /area/planet/abandoned_colony
 	base_turf = /turf/simulated/floor/reinforced
 
-/obj/effect/shuttle_landmark/nav_abandoned_colony/morninglight_transit
+/obj/shuttle_landmark/nav_abandoned_colony/morninglight_transit
 	name = "In transit"
 	landmark_tag = "nav_morninglight_transit"
 
@@ -23,7 +23,7 @@
 	name = "ICS Morning Light control console"
 	shuttle_tag = "ICS Morning Light"
 
-/obj/effect/overmap/visitable/ship/landable/morninglight
+/obj/overmap/visitable/ship/landable/morninglight
 	name = "ICS Morning Light"
 	shuttle = "ICS Morning Light"
 	fore_dir = EAST

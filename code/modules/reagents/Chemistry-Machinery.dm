@@ -15,8 +15,8 @@
 	density = TRUE
 	obj_flags = OBJ_FLAG_ANCHORABLE
 	anchored = TRUE
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "mixer0"
+	icon = 'icons/obj/machines/medical/mixer.dmi'
+	icon_state = "mixer"
 	layer = BELOW_OBJ_LAYER
 	idle_power_usage = 20
 	clicksound = "button"
@@ -47,6 +47,21 @@
 	create_reagents(reagent_limit)
 	..()
 
+/obj/machinery/chem_master/on_update_icon()
+	ClearOverlays()
+	if(panel_open)
+		AddOverlays("[icon_state]_panel")
+	if(is_powered())
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
+	if((beaker) || (loaded_pill_bottle))
+		if(!is_powered())
+			AddOverlays("[icon_state]_working_nopower")
+		else
+			AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
+			AddOverlays("[icon_state]_lights_working")
+			AddOverlays("[icon_state]_working")
+
 /obj/machinery/chem_master/ex_act(severity)
 	switch(severity)
 		if(EX_ACT_DEVASTATING)
@@ -57,32 +72,31 @@
 				qdel(src)
 				return
 
-/obj/machinery/chem_master/attackby(obj/item/B as obj, mob/user as mob)
-
-	if(istype(B, /obj/item/reagent_containers/glass))
-
+/obj/machinery/chem_master/use_tool(obj/item/B, mob/living/user, list/click_params)
+	if(istype(B, /obj/item/reagent_containers/glass) || istype(B, /obj/item/reagent_containers/ivbag))
 		if(beaker)
-			to_chat(user, "A beaker is already loaded into the machine.")
-			return
+			to_chat(user, "A container is already loaded into the machine.")
+			return TRUE
 		if(!user.unEquip(B, src))
-			return
+			return TRUE
 		beaker = B
-		to_chat(user, "You add the beaker to the machine!")
-		icon_state = "mixer1"
+		to_chat(user, SPAN_NOTICE("You add \the [B] to \the [src]!"))
 		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
+		update_icon()
+		return TRUE
 
-	else if(istype(B, /obj/item/storage/pill_bottle))
-
+	if (istype(B, /obj/item/storage/pill_bottle))
 		if(loaded_pill_bottle)
-			to_chat(user, "A pill bottle is already loaded into the machine.")
-			return
+			to_chat(user, "A pill bottle is already loaded into \the [src].")
+			return TRUE
 		if(!user.unEquip(B, src))
-			return
+			return TRUE
 		loaded_pill_bottle = B
-		to_chat(user, "You add the pill bottle into the dispenser slot!")
+		to_chat(user, SPAN_NOTICE("You add \the [B] into \the [src]'s dispenser slot!"))
+		update_icon()
+		return TRUE
 
-	else
-		return ..()
+	return ..()
 
 /obj/machinery/chem_master/proc/eject_beaker(mob/user)
 	if(!beaker)
@@ -91,7 +105,7 @@
 	user.put_in_hands(B)
 	beaker = null
 	reagents.clear_reagents()
-	icon_state = "mixer0"
+	update_icon()
 	atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 
 /obj/machinery/chem_master/proc/get_remaining_volume()
@@ -100,8 +114,8 @@
 /obj/machinery/chem_master/AltClick(mob/user)
 	if(CanDefaultInteract(user))
 		eject_beaker(user)
-	else
-		..()
+		return TRUE
+	return ..()
 
 /obj/machinery/chem_master/Topic(href, href_list, state)
 	if(..())
@@ -268,7 +282,7 @@
 		. += "<br><b>Species of Origin:</b> [B.data["species"]]<br><b>Blood Type:</b> [B.data["blood_type"]]<br><b>DNA Hash:</b> [B.data["blood_DNA"]]"
 	else
 		. += "<br>[reagent.description]"
-	. = JOINTEXT(.)
+	. = jointext(., null)
 
 /obj/machinery/chem_master/proc/create_bottle(mob/user)
 	var/bottle_name = reagents.total_volume ? reagents.get_master_reagent_name() : "glass"
@@ -290,9 +304,9 @@
 		spawn()
 			has_sprites += user.client
 			for(var/i = 1 to MAX_PILL_SPRITE)
-				send_rsc(usr, icon('icons/obj/chemical.dmi', "pill" + num2text(i)), "pill[i].png")
+				send_rsc(usr, icon('icons/obj/pills.dmi', "pill" + num2text(i)), "pill[i].png")
 			for(var/sprite in BOTTLE_SPRITES)
-				send_rsc(usr, icon('icons/obj/chemical.dmi', sprite), "[sprite].png")
+				send_rsc(usr, icon('icons/obj/chemical_storage.dmi', sprite), "[sprite].png")
 
 	var/data = list()
 	if (analyzed_reagent)

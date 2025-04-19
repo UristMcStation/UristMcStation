@@ -13,7 +13,7 @@ GLOBAL_LIST_EMPTY(wfc_deepmaint_zlevels_by_instance)
 	requires_power = FALSE
 
 
-/area/map_template/deepmaint_wfc/proc/RegisterDeepmaintZlevel(var/delay = 10)
+/area/map_template/deepmaint_wfc/proc/RegisterDeepmaintZlevel(delay = 10)
 	set waitfor = FALSE
 	sleep(delay)
 
@@ -23,7 +23,7 @@ GLOBAL_LIST_EMPTY(wfc_deepmaint_zlevels_by_instance)
 	return
 
 
-/area/map_template/deepmaint_wfc/New(var/atom/loc)
+/area/map_template/deepmaint_wfc/New(atom/loc)
 	. = ..(loc)
 
 	RegisterDeepmaintZlevel()

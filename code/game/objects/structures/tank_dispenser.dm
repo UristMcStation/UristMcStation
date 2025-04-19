@@ -1,11 +1,12 @@
 /obj/structure/dispenser
 	name = "tank storage unit"
 	desc = "A simple yet bulky storage device for gas tanks. Has room for up to ten oxygen tanks, and ten phoron tanks."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/structures/tank_dispenser.dmi'
 	icon_state = "dispenser"
 	density = TRUE
 	anchored = TRUE
 	w_class = ITEM_SIZE_NO_CONTAINER
+	obj_flags = OBJ_FLAG_ANCHORABLE
 	var/oxygentanks = 10
 	var/phorontanks = 10
 	var/list/oxytanks = list()	//sorry for the similar var names
@@ -23,13 +24,13 @@
 	update_icon()
 
 /obj/structure/dispenser/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	switch(oxygentanks)
-		if(1 to 3)	overlays += "oxygen-[oxygentanks]"
-		if(4 to INFINITY) overlays += "oxygen-4"
+		if(1 to 3)	AddOverlays("oxygen-[oxygentanks]")
+		if(4 to INFINITY) AddOverlays("oxygen-4")
 	switch(phorontanks)
-		if(1 to 4)	overlays += "phoron-[phorontanks]"
-		if(5 to INFINITY) overlays += "phoron-5"
+		if(1 to 4)	AddOverlays("phoron-[phorontanks]")
+		if(5 to INFINITY) AddOverlays("phoron-5")
 
 /obj/structure/dispenser/attack_ai(mob/user as mob)
 	if(user.Adjacent(src))
@@ -39,48 +40,54 @@
 /obj/structure/dispenser/attack_hand(mob/user as mob)
 	user.set_machine(src)
 	var/dat = "[src]<br><br>"
-	dat += "Oxygen tanks: [oxygentanks] - [oxygentanks ? "<A href='?src=\ref[src];oxygen=1'>Dispense</A>" : "empty"]<br>"
-	dat += "Phoron tanks: [phorontanks] - [phorontanks ? "<A href='?src=\ref[src];phoron=1'>Dispense</A>" : "empty"]"
+	dat += "Oxygen tanks: [oxygentanks] - [oxygentanks ? "<A href='byond://?src=\ref[src];oxygen=1'>Dispense</A>" : "empty"]<br>"
+	dat += "Phoron tanks: [phorontanks] - [phorontanks ? "<A href='byond://?src=\ref[src];phoron=1'>Dispense</A>" : "empty"]"
 	show_browser(user, dat, "window=dispenser")
 	onclose(user, "dispenser")
 	return
 
 
-/obj/structure/dispenser/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/tank/oxygen) || istype(I, /obj/item/tank/air) || istype(I, /obj/item/tank/anesthetic))
-		if(oxygentanks < 10)
-			if(!user.unEquip(I, src))
-				return
-			oxytanks.Add(I)
+/obj/structure/dispenser/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Tank - Insert tank
+	if (istype(tool, /obj/item/tank))
+		// Oxygen Tanks
+		if (is_type_in_list(tool, list(/obj/item/tank/oxygen, /obj/item/tank/air, /obj/item/tank/anesthetic)))
+			if (oxygentanks >= 10)
+				USE_FEEDBACK_FAILURE("\The [src]'s oxygen tank rack is full.")
+				return TRUE
+			if (!user.unEquip(tool, src))
+				FEEDBACK_UNEQUIP_FAILURE(user, tool)
+				return TRUE
+			oxytanks += tool
 			oxygentanks++
-			to_chat(user, SPAN_NOTICE("You put [I] in [src]."))
-			if(oxygentanks < 5)
-				update_icon()
-		else
-			to_chat(user, SPAN_NOTICE("[src] is full."))
-		updateUsrDialog()
-		return
-	if(istype(I, /obj/item/tank/phoron))
-		if(phorontanks < 10)
-			if(!user.unEquip(I, src))
-				return
-			platanks.Add(I)
+			update_icon()
+			user.visible_message(
+				SPAN_NOTICE("\The [user] adds \a [tool] to \the [src]'s oxygen rack."),
+				SPAN_NOTICE("You add \the [tool] to \the [src]'s oxygen rack.")
+			)
+			return TRUE
+		// Phoron Tanks
+		if (istype(tool, /obj/item/tank/phoron))
+			if (phorontanks >= 10)
+				USE_FEEDBACK_FAILURE("\The [src]'s phoron tank rack is full.")
+				return TRUE
+			if (!user.unEquip(tool, src))
+				FEEDBACK_UNEQUIP_FAILURE(user, tool)
+				return TRUE
+			platanks += tool
 			phorontanks++
-			to_chat(user, SPAN_NOTICE("You put [I] in [src]."))
-			if(oxygentanks < 6)
-				update_icon()
-		else
-			to_chat(user, SPAN_NOTICE("[src] is full."))
-		updateUsrDialog()
-		return
-	if(isWrench(I))
-		if(anchored)
-			to_chat(user, SPAN_NOTICE("You lean down and unwrench [src]."))
-			anchored = FALSE
-		else
-			to_chat(user, SPAN_NOTICE("You wrench [src] into place."))
-			anchored = TRUE
-		return
+			update_icon()
+			user.visible_message(
+				SPAN_NOTICE("\The [user] adds \a [tool] to \the [src]'s phoron rack."),
+				SPAN_NOTICE("You add \the [tool] to \the [src]'s phoron rack.")
+			)
+			return TRUE
+		// Other tanks
+		USE_FEEDBACK_FAILURE("\The [tool] doesn't fit in any of \the [src]'s racks.")
+		return TRUE
+
+	return ..()
+
 
 /obj/structure/dispenser/Topic(href, href_list)
 	if(usr.stat || usr.restrained())

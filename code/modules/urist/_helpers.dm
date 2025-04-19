@@ -9,7 +9,7 @@
 
 //checks if a given text's characters are allowed hexadecimal values, null on failure
 
-/proc/ishex(String, var/Start = 1, var/End = 0)
+/proc/ishex(String, Start = 1, End = 0)
 	if(!(istext(String)))
 		return
 
@@ -79,14 +79,14 @@
 	return rgbcolors
 
 //takes a list of rgb colors and picks out a color; 1 for Red, 2 for Green, etc.
-/proc/GetColorFromRGB(list/L, var/Color = 1)
+/proc/GetColorFromRGB(list/L, Color = 1)
 	if (!L)
 		return
 	var/colorvalue = L[Color]
 	return colorvalue
 
 //weightless, 2 color Average blend with adjustable min/max values (low/high respectively).
-/proc/SimpleOneColorMix(color1 = 0, var/color2 = 0, var/low = 0, var/high = 255, var/ignorezeros)
+/proc/SimpleOneColorMix(color1 = 0, color2 = 0, low = 0, high = 255, ignorezeros)
 
 	if((!(isnum(color1))) || (!(isnum(color2))))
 		return
@@ -114,7 +114,7 @@
 //as above, but handles 2 RGB color lists and the min/max are for lightness; defaults to unbound, so can be black to white)
 //assumes it's just RGB, not RGBA, for RGBA use MixColors with alpha as weights or whatever
 
-/proc/SimpleRGBMix(list/ColorsA, var/list/ColorsB, var/low = 0, var/high = 765) //3*255
+/proc/SimpleRGBMix(list/ColorsA, list/ColorsB, low = 0, high = 765) //3*255
 	if((!ColorsA) || (!ColorsB) || (!(length(ColorsA) == length(ColorsB))))
 		return
 	var/results[3]
@@ -325,7 +325,7 @@
 
 //Interface for using DrawBox() to draw 1 pixel on a coordinate.
 //Returns the same icon specifed in the argument, but with the pixel drawn
-/proc/DrawPixel(icon/I,var/colour,var/drawX,var/drawY)
+/proc/DrawPixel(icon/I,colour, drawX, drawY)
 	if(!I)
 		return 0
 	var/Iwidth = I.Width()
@@ -338,7 +338,7 @@
 	return I
 
 //Interface for easy drawing of one pixel on an atom.
-/atom/proc/DrawPixelOn(colour, var/drawX, var/drawY)
+/atom/proc/DrawPixelOn(colour, drawX, drawY)
 	var/icon/I = new(icon)
 	var/icon/J = DrawPixel(I, colour, drawX, drawY)
 	if(J) //Only set the icon if it succeeded, the icon without the pixel is 1000x better than a black square.
@@ -359,22 +359,17 @@
 	M.Translate(1,-6)
 	src.transform = M
 
-/proc/get_light_amt(turf/T, var/ignore_red = 0)
-	// Stolen from diona/life.dm since it was needed in various places. Ignore_red parameter for extra spoopy.
-	var/light_amount = 0
-	var/atom/movable/lighting_overlay/L = locate(/atom/movable/lighting_overlay) in T
+/proc/get_light_amt(turf/T)
+	// Stolen from diona/life.dm since it was needed in various places.
+	var/light_amount = 0.5 // default
 
-	if(L)
-		if(ignore_red)
-			light_amount = L.lum_g + L.lum_b
-		else
-			light_amount = L.lum_r + L.lum_g + L.lum_b //hardcapped so it's not abused by having a ton of flashlights
-	else
-		light_amount =  10
+	if(!istype(T))
+		return light_amount
 
+	light_amount = T.get_lumcount()
 	return light_amount
 
-/proc/shadow_check(turf/T, var/max_light = 2, var/or_equal = 0)
+/proc/shadow_check(turf/T, max_light = 0.1, or_equal = FALSE)
 	//True if light below max_light threshold, false otherwise
 	var/light_amt = get_light_amt(T)
 	if(or_equal)
@@ -387,15 +382,15 @@
 
 //for throwing things from one turf to another
 
-/proc/launch_atom(var/projectile_type, var/turf/start_turf, var/turf/target_turf)
+/proc/launch_atom(projectile_type, turf/start_turf, turf/target_turf)
 	if(ispath(projectile_type))
 		var/atom/movable/projectile = new projectile_type(start_turf)
 		if(istype(projectile, /obj/item/projectile))
 			var/obj/item/projectile/P = projectile
 			P.launch(target_turf) //projectiles have their own special proc
 
-		else if(istype(projectile, /obj/effect/meteor))
-			var/obj/effect/meteor/M = projectile
+		else if(istype(projectile, /obj/meteor))
+			var/obj/meteor/M = projectile
 			M.dest = target_turf
 			spawn(0)
 				walk_towards(M, M.dest, 3) //meteors do their own thing too

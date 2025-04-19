@@ -61,9 +61,9 @@
 /turf/unsimulated/beach/sand,
 /area/mobius_rift)
 "r" = (
-/obj/effect/mobius_rift/portals_setup,
-/obj/effect/overmap/visitable/sector/mobius_rift,
-/obj/effect/shuttle_landmark/automatic,
+/obj/mobius_rift/portals_setup,
+/obj/overmap/visitable/sector/mobius_rift,
+/obj/shuttle_landmark/automatic,
 /turf/unsimulated/beach/sand,
 /area/mobius_rift)
 "O" = (
@@ -74,7 +74,7 @@
 /turf/simulated/floor/cult,
 /area/mobius_rift)
 "Q" = (
-/obj/structure/fountain,
+/obj/structure/fountain/strange/urist,
 /turf/simulated/floor/cult,
 /area/mobius_rift)
 "W" = (

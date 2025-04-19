@@ -17,8 +17,8 @@
 #define DEEPMAINT_YEET_POS(POS, REP, SIZE, SPACING) (POS + REP * (SIZE + SPACING))
 #define DEEPMAINT_RELATIVE_POS(POS, SIZE, SPACING) (POS % (SIZE + SPACING))
 
-/proc/generate_wfc_map(var/rules_json = "deepmaint.json")
-	call("ss13_wfc.dll", "from_ruleset")(rules_json)
+/proc/generate_wfc_map(rules_json = "deepmaint.json")
+	call_ext("ss13_wfc.dll", "from_ruleset")(rules_json)
 
 	if(!fexists("genmap.json"))
 		log_debug("Deepmaint - failed to generate in the DLL.")
@@ -27,7 +27,7 @@
 	return TRUE
 
 
-/proc/generate_from_wfc_file(var/mapname = "genmap.json", var/overwrite_all = FALSE, var/zlevel = 1, var/xvariants = DEEPMAINT_VARIANT_REPEATS_X, var/yvariants = DEEPMAINT_VARIANT_REPEATS_Y)
+/proc/generate_from_wfc_file(mapname = "genmap.json", overwrite_all = FALSE, zlevel = 1, xvariants = DEEPMAINT_VARIANT_REPEATS_X, yvariants = DEEPMAINT_VARIANT_REPEATS_Y)
 	if(!fexists(mapname))
 		log_debug("Deepmaint - Could not find map file: [mapname]")
 		return
@@ -96,10 +96,9 @@
 	return TRUE
 
 
-/proc/generate_wfc_map_full(var/rules_json = "deepmaint.json", var/overwrite_all = FALSE, var/zlevel = 1)
+/proc/generate_wfc_map_full(rules_json = "deepmaint.json", overwrite_all = FALSE, zlevel = 1)
 	var/mapname = "genmap.json"
 	var/status = TRUE // abusing short-circuiting
 	status = status && generate_wfc_map(rules_json)
 	status = status && generate_from_wfc_file(mapname, overwrite_all = FALSE, zlevel = zlevel)
 	return status
-

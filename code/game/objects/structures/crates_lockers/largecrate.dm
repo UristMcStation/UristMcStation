@@ -5,6 +5,8 @@
 	icon_state = "densecrate"
 	density = TRUE
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE
+	health_max = 100
+	health_min_damage = 4
 
 /obj/structure/largecrate/Initialize()
 	. = ..()
@@ -14,21 +16,31 @@
 		I.forceMove(src)
 
 /obj/structure/largecrate/attack_hand(mob/user as mob)
+	if (user.a_intent == I_HURT)
+		return ..()
 	to_chat(user, SPAN_NOTICE("You need a crowbar to pry this open!"))
-	return
 
-/obj/structure/largecrate/attackby(obj/item/W as obj, mob/user as mob)
-	if(isCrowbar(W))
-		new /obj/item/stack/material/wood(src)
-		var/turf/T = get_turf(src)
-		for(var/atom/movable/AM in contents)
-			if(AM.simulated) AM.forceMove(T)
-		user.visible_message(SPAN_NOTICE("[user] pries \the [src] open."), \
-							 SPAN_NOTICE("You pry open \the [src]."), \
-							 SPAN_NOTICE("You hear splitting wood."))
-		qdel(src)
-	else
-		return attack_hand(user)
+/obj/structure/largecrate/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Crowbar - Open crate
+	if (isCrowbar(tool))
+		var/obj/item/stack/material/wood/A = new(loc)
+		transfer_fingerprints_to(A)
+		dump_contents()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] pries \the [src] open with \a [tool]."),
+			SPAN_NOTICE("You pry \the [src] open with \the [tool]."),
+			SPAN_ITALIC("You hear splitting wood.")
+		)
+		qdel_self()
+		return TRUE
+
+	return ..()
+
+/obj/structure/largecrate/on_death()
+	var/obj/item/stack/material/wood/A = new(loc)
+	transfer_fingerprints_to(A)
+	dump_contents()
+	qdel_self()
 
 /obj/structure/largecrate/mule
 	name = "MULE crate"

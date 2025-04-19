@@ -1,6 +1,6 @@
 /obj/machinery/pager
 	name = "departmental pager button"
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/structures/buttons.dmi'
 	icon_state = "doorbell"
 	desc = "A button used to request the presence of anyone in the department."
 	anchored = TRUE
@@ -16,8 +16,8 @@
 		var/area/A = get_area(src)
 		location = A.name
 
-/obj/machinery/pager/attackby(obj/item/W, mob/user as mob)
-	return attack_hand(user)
+/obj/machinery/pager/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	return attack_hand(user) || ..()
 
 /obj/machinery/pager/interface_interact(mob/living/user)
 	if(!CanInteract(user, GLOB.default_state))
@@ -36,7 +36,7 @@
 	if(world.time < last_paged + 5 SECONDS)
 		return
 	last_paged = world.time
-	var/paged = MS.send_to_department(department,"Department page to <b>[location]</b> received. <a href='?src=\ref[src];ack=1'>Take</a>", "*page*")
+	var/paged = MS.send_to_department(department,"Department page to <b>[location]</b> received. <a href='byond://?src=\ref[src];ack=1'>Take</a>", "*page*")
 	acknowledged = 0
 	if(paged)
 		playsound(src, 'sound/machines/ping.ogg', 60)

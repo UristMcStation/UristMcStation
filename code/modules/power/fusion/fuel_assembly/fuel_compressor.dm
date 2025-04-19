@@ -5,19 +5,27 @@
 
 /obj/machinery/fusion_fuel_compressor
 	name = "fuel compressor"
-	icon = 'icons/obj/machines/power/fusion.dmi'
-	icon_state = "fuel_compressor1"
+	icon = 'icons/obj/machines/power/fusion_fuel_compressor.dmi'
+	icon_state = "fuel_compressor"
 	density = TRUE
 	anchored = TRUE
 	layer = 4
 	construct_state = /singleton/machine_construction/default/panel_closed
+
+/obj/machinery/fusion_fuel_compressor/on_update_icon()
+	ClearOverlays()
+	if(panel_open)
+		AddOverlays("[icon_state]_panel")
+	if(is_powered())
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
 
 /obj/machinery/fusion_fuel_compressor/MouseDrop_T(atom/movable/target, mob/user)
 	if(user.incapacitated() || !user.Adjacent(src))
 		return
 	return do_fuel_compression(target, user)
 
-/obj/machinery/fusion_fuel_compressor/attackby(obj/item/thing, mob/user)
+/obj/machinery/fusion_fuel_compressor/use_tool(obj/item/thing, mob/living/user, list/click_params)
 	return do_fuel_compression(thing, user) || ..()
 
 /obj/machinery/fusion_fuel_compressor/proc/do_fuel_compression(obj/item/thing, mob/user)

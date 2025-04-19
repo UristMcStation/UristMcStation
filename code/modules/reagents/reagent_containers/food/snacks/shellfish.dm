@@ -2,7 +2,7 @@
 	abstract_type = /obj/item/shellfish
 	name = "shellfish"
 	desc = "You shouldn't be seeing this."
-	icon = 'icons/obj/food_shellfish.dmi'
+	icon = 'icons/obj/food/food_shellfish.dmi'
 	icon_state = "clam"
 	w_class = ITEM_SIZE_SMALL
 	throwforce = 0
@@ -13,7 +13,7 @@
 	var/snack_path
 
 
-/obj/item/shellfish/attackby(obj/item/item, mob/living/user)
+/obj/item/shellfish/use_tool(obj/item/item, mob/living/user, list/click_params)
 	if (!item.sharp)
 		return ..()
 	to_chat(user, SPAN_NOTICE("You start to pry open \the [src]."))
@@ -80,7 +80,7 @@
 	abstract_type = /obj/item/reagent_containers/food/snacks/shellfish
 	name = "raw shellfish"
 	desc = "You shouldn't be seeing this."
-	icon = 'icons/obj/food_shellfish.dmi'
+	icon = 'icons/obj/food/food_shellfish.dmi'
 	icon_state = "clam_open"
 	filling_color = "#f6db93"
 	bitesize = 4
@@ -158,7 +158,7 @@
 	abstract_type = /obj/item/shell
 	name = "shell"
 	desc = "An empty shell."
-	icon = 'icons/obj/food_shellfish.dmi'
+	icon = 'icons/obj/food/food_shellfish.dmi'
 	icon_state = "clam_empty"
 	w_class = ITEM_SIZE_TINY
 	throw_speed = 4

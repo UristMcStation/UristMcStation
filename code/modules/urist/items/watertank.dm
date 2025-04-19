@@ -47,9 +47,17 @@
 		M.u_equip(noz)
 	return
 
+/obj/item/reagent_containers/glass/mister/proc/get_nozholder()
+	// localized port of the old get() helper; recursive parent search
+	while(loc)
+		if(istype(loc, /mob))
+			return loc
+		loc = loc.loc
+	return null
+
 /obj/item/watertank/Destroy()
-	if (noz)
-		var/M = get(noz, /mob)
+	if(noz)
+		var/mob/M = noz.get_nozholder()
 		remove_noz(M)
 	..()
 	return
