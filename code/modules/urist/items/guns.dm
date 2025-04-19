@@ -173,6 +173,11 @@ the sprite and make my own projectile -Glloyd*/
 	ammo_type = /obj/item/ammo_casing/rifle
 	mag_type = MAGAZINE
 
+/obj/item/ammo_magazine/box/rifle
+	caliber = CALIBER_RIFLE
+	ammo_type = /obj/item/ammo_casing/rifle
+	mag_type = MAGAZINE
+
 /obj/item/gun/projectile/automatic/l6_saw/m60
 	item_icons = DEF_URIST_INHANDS
 	name = "M60 Machinegun"
