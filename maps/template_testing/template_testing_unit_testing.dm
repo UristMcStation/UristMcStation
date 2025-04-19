@@ -46,5 +46,7 @@
 		/area/map_template/skipjack_station,
 		/area/map_template/syndicate_mothership,
 		/area/map_template/merc_spawn,
-		/area/map_template/ninja_dojo
+		/area/map_template/ninja_dojo,
+		/area/map_template/transshipment,
+		/area/map_template/crashed_shuttle
 	)
