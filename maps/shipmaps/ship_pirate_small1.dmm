@@ -288,10 +288,6 @@
 	icon_state = "tube_map";
 	dir = 8
 	},
-/obj/machinery/cryopod{
-	icon_state = "cryopod";
-	dir = 2
-	},
 /obj/structure/cryofeed/inertpod{
 	icon_state = "broken_cryo";
 	dir = 2
@@ -2155,10 +2151,6 @@
 /turf/simulated/floor/tiled/monotile,
 /area/boarding_ship)
 "gh" = (
-/obj/machinery/cryopod{
-	icon_state = "cryopod";
-	dir = 2
-	},
 /obj/structure/cryofeed/inertpod{
 	icon_state = "broken_cryo";
 	dir = 2
