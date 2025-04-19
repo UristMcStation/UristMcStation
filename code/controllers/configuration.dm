@@ -257,13 +257,13 @@
 	var/static/no_click_cooldown = FALSE
 
 	/// Modifier for ticks between moves while running
-	var/static/run_delay = 2
+	var/static/run_delay = 2.5
 
 	/// Modifier for ticks between moves while walking
-	var/static/walk_delay = 4
+	var/static/walk_delay = 5
 
 	/// Modifier for ticks between moves while creeping
-	var/static/creep_delay = 6
+	var/static/creep_delay = 7.5
 
 	/// Modifier for base stamina cost while sprinting
 	var/static/minimum_sprint_cost = 0.8
