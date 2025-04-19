@@ -46,7 +46,7 @@
 	r_hand = /obj/item/gun/projectile/automatic/a22
 	r_pocket = /obj/item/tank/oxygen_emergency
 	l_pocket = /obj/item/ammo_magazine/rifle/a22
-	suit_store = /obj/item/gun/projectile/colt/a7
+	suit_store = /obj/item/gun/projectile/pistol/colt/a7
 
 	id_slot = slot_wear_id
 	id_types = list(/obj/item/card/id/syndicate/station_access)
@@ -255,7 +255,7 @@
 	l_pocket = /obj/item/ammo_magazine/pistol/ppsh
 	r_hand = /obj/item/ammo_magazine/pistol/ppsh
 	l_hand = /obj/item/ammo_magazine/pistol/tt33
-	belt = /obj/item/gun/projectile/tt33
+	belt = /obj/item/gun/projectile/pistol/tt33
 
 /singleton/hierarchy/outfit/wwii/sovietofficer/pre_equip(mob/living/carbon/human/H)
 	if(prob(50))
@@ -331,7 +331,7 @@
 	r_hand = /obj/item/gun/projectile/automatic/a22
 	r_pocket = /obj/item/device/radio
 	l_pocket = /obj/item/ammo_magazine/rifle/a22
-	suit_store = /obj/item/gun/projectile/colt/a7
+	suit_store = /obj/item/gun/projectile/pistol/colt/a7
 	id_slot = slot_wear_id
 	id_types = list(/obj/item/card/id/terran/marine)
 
@@ -343,7 +343,7 @@
 	head = /obj/item/clothing/head/helmet/space/void/terran_marine
 	back = /obj/item/storage/backpack/security
 	backpack_contents = list(/obj/item/ammo_magazine/pistol/a7 = 1, /obj/item/storage/firstaid/combat = 1,
-		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/rifle/a22 = 2, /obj/item/plastique = 1, /obj/item/gun/projectile/colt/a7 = 1)
+		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/rifle/a22 = 2, /obj/item/plastique = 1, /obj/item/gun/projectile/pistol/colt/a7 = 1)
 	r_hand = /obj/item/gun/projectile/automatic/a22
 	r_pocket = /obj/item/device/radio
 	l_pocket = /obj/item/ammo_magazine/rifle/a22
@@ -360,7 +360,7 @@
 	r_hand = /obj/item/gun/projectile/automatic/asmg
 	r_pocket = /obj/item/device/radio
 	l_pocket = /obj/item/ammo_magazine/a9mm
-	suit_store = /obj/item/gun/projectile/colt/a7
+	suit_store = /obj/item/gun/projectile/pistol/colt/a7
 
 /singleton/hierarchy/outfit/terranmarine/ground
 	name = "Terran Marine - Ground Assault"
@@ -373,7 +373,7 @@
 	r_hand = /obj/item/gun/projectile/automatic/a22
 	r_pocket = /obj/item/device/radio
 	l_pocket = /obj/item/ammo_magazine/rifle/a22
-	suit_store = /obj/item/gun/projectile/colt/a7
+	suit_store = /obj/item/gun/projectile/pistol/colt/a7
 
 /singleton/hierarchy/outfit/terranmarine/groundspace
 	name = "Terran Marine - Ground Assault EVA"
@@ -383,7 +383,7 @@
 	head = /obj/item/clothing/head/helmet/space/void/anfor/terran
 	back = /obj/item/storage/backpack/security
 	backpack_contents = list(/obj/item/ammo_magazine/pistol/a7 = 1, /obj/item/storage/firstaid/combat = 1,
-		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/rifle/military/a18 = 2, /obj/item/plastique = 1, /obj/item/gun/projectile/colt/a7 = 1)
+		/obj/item/device/flashlight = 1, /obj/item/ammo_magazine/rifle/military/a18 = 2, /obj/item/plastique = 1, /obj/item/gun/projectile/pistol/colt/a7 = 1)
 	r_hand = /obj/item/gun/projectile/a18
 	r_pocket = /obj/item/device/radio
 	l_pocket = /obj/item/ammo_magazine/rifle/military/a18
@@ -400,7 +400,7 @@
 	r_hand = /obj/item/gun/projectile/automatic/asmg
 	r_pocket = /obj/item/device/radio
 	l_pocket = /obj/item/ammo_magazine/a9mm
-	suit_store = /obj/item/gun/projectile/colt/a7
+	suit_store = /obj/item/gun/projectile/pistol/colt/a7
 
 //new pirates
 

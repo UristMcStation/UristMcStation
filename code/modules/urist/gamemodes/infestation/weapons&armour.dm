@@ -394,10 +394,12 @@
 	w_class = 3
 	force = 10
 	caliber = CALIBER_PISTOL_SMALL
-	origin_tech = "combat=6;materials=1;syndicate=4"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ESOTERIC = 4)
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a9mm
+	allowed_magazines = /obj/item/ammo_magazine/a9mm
+	ammo_type = /obj/item/ammo_casing/pistol/small
 	one_hand_penalty = 1
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 
@@ -420,7 +422,7 @@
 	icon_state = "ASMGmag"
 	mag_type = MAGAZINE
 	caliber = CALIBER_PISTOL_SMALL
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/pistol/small
 	max_ammo = 40
@@ -442,11 +444,14 @@
 	one_hand_penalty = 3
 	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
 
-/obj/item/gun/projectile/colt/a7
+/obj/item/gun/projectile/pistol/colt/a7
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper A7 pistol"
 	desc = "A slightly modified version of the classic Colt M1911, the standard sidearm for ANFOR and Terran Marines. It holds 8 rounds."
 	magazine_type = /obj/item/ammo_magazine/pistol/a7
+	allowed_magazines = /obj/item/ammo_magazine/pistol/a7
+	ammo_type = /obj/item/ammo_casing/pistol
+	slot_flags = SLOT_BELT | SLOT_HOLSTER | SLOT_POCKET
 	icon_state = "ANFOR-pistol"
 	icon = 'icons/urist/items/guns.dmi'
 	load_method = MAGAZINE
@@ -475,17 +480,17 @@
 	wielded_item_state = "ANFOR-sniper-wielded"
 	icon_state = "ANFOR-sniper"
 	item_state = "ANFOR-sniper"
-	w_class = 5
+	w_class = ITEM_SIZE_HUGE
 	one_hand_penalty = 6
 	force = 10
 	slot_flags = SLOT_BACK
-	caliber = "13.2x108mm"
+	caliber = CALIBER_ANTIMATERIAL
 	handle_casings = HOLD_CASINGS
-//	load_method = SINGLE_CASING
+	load_method = SINGLE_CASING | MAGAZINE
 	max_shells = 5
 	ammo_type = /obj/item/ammo_casing/a132x108mm
-//	accuracy = -1
-//	jam_chance = 5
+	allowed_magazines = /obj/item/ammo_magazine/a132x108mm
+	magazine_type = /obj/item/ammo_magazine/a132x108mm
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 
 
@@ -495,7 +500,7 @@
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
-	caliber = "13.2x108mm"
+	caliber = CALIBER_ANTIMATERIAL
 	projectile_type = /obj/item/projectile/bullet/rifle/shell
 	matter = list(DEFAULT_WALL_MATERIAL = 1250)
 
@@ -507,17 +512,18 @@
 	penetrating = 2
 	armor_penetration = 50
 
-/obj/item/ammo_magazine/a132x108mm
-	name = "A50 magazine (13.2x108mm)"
+/obj/item/ammo_magazine/a132x108mm // this is a hacky way of getting it to work, but fuck it - Y
+	name = "A50 magazine"
 	mag_type = MAGAZINE
 	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "ANFOR-snipermag"
-	caliber = "13.2x108mm"
+	caliber = CALIBER_ANTIMATERIAL
 	max_ammo = 5
 	multiple_sprites = 1
 	ammo_type = /obj/item/ammo_casing/a132x108mm
 
-/obj/item/ammo_magazine/a132x108mm/stripper
-	name = "stripper clip (13.2x108mm)"
-	icon_state = "stripper" //change
-	mag_type = SPEEDLOADER
+/obj/item/ammo_magazine/a127x54mm/empty
+	name = "A50 magazine"
+	icon_state = "ANFOR-snipermag-empty"
+	icon = 'icons/urist/items/guns.dmi'
+	initial_ammo = 0
