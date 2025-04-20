@@ -463,7 +463,7 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "[initial(icon_state)]"
 
 /obj/item/gun/projectile/manualcycle/attack_self(mob/user as mob)
-	playsound(src.loc, 'sound/weapons/guns/interaction/rifle_load.ogg', 50, 1)
+	playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)
 	bolt_open = !bolt_open
 	if(bolt_open)
 		if(chambered)
