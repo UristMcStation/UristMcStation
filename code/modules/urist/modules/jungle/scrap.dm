@@ -97,7 +97,7 @@
 		var/num = rand(base_min,base_max)
 		for(var/i=1 to num)
 			var/image/I = image(parts_icon,pick(icon_states(parts_icon)))
-			overlays |= randomize_image(I)
+			AddOverlays(randomize_image(I))
 
 	underlays.Cut()
 	for(var/obj/O in loot.contents)

@@ -109,7 +109,7 @@
 		var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
 		/*if(hair_style.do_colouration && islist(h_col) && length(h_col) >= 3)
 			hair_s.Blend(rgb(h_col[1], h_col[2], h_col[3]), ICON_ADD)*/
-		res.overlays |= hair_s
+		res.AddOverlays(hair_s)
 
 /mob/living/simple_animal/passive/npc/proc/f_style(image/res2)
 	//give them some facial hair
@@ -119,7 +119,7 @@
 		var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 		/*if(facial_hair_style.do_colouration)
 			facial_s.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), ICON_ADD)*/
-		res2.overlays |= facial_s
+		res2.AddOverlays(facial_s)
 
 /mob/living/simple_animal/passive/npc/proc/update_interact_icon()
 	src.dir = SOUTH
