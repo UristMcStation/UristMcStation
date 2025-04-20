@@ -8,7 +8,7 @@
 	set waitfor = 0
 	var/mob/living/carbon/human/H = new(a)
 	H.ckey = user.ckey
-	H.change_appearance(APPEARANCE_GENDER|APPEARANCE_SKIN|APPEARANCE_ALL_HAIR|APPEARANCE_EYES|APPEARANCE_PRONOUNS)
+	H.change_appearance(APPEARANCE_BASIC)
 
 	var/obj/item/implant/translator/natural/I = new()
 	I.implant_in_mob(H, BP_HEAD)
@@ -93,7 +93,7 @@
 	name = "Familiar"
 	desc = "A friend! Or are they a pet? They can transform into animals, and take some particular traits from said creatures."
 	spiel = "This form of yours is weak in comparison to your transformed form, but that certainly won't pose a problem, considering the fact that you have an alternative. Whatever it is you can turn into, use its powers wisely and serve your Master as well as possible!"
-	equipment = list(/obj/item/clothing/head/bandana/familiarband = slot_head,
+	equipment = list(/obj/item/clothing/head/familiarband = slot_head,
 					/obj/item/clothing/under/familiargarb = slot_w_uniform)
 
 /datum/spellbound_type/servant/familiar/modify_servant(list/equipment, mob/living/carbon/human/H)
@@ -212,7 +212,7 @@
 		S.spell_flags |= NO_SOMATIC
 		S.cast_delay = 0
 
-/obj/effect/cleanable/spellbound
+/obj/cleanable/spellbound
 	name = "strange rune"
 	desc = "some sort of runic symbol drawn in... crayon?"
 	icon = 'icons/obj/rune.dmi'
@@ -220,11 +220,11 @@
 	var/datum/spellbound_type/stype
 	var/last_called = 0
 
-/obj/effect/cleanable/spellbound/New(loc, spell_type)
+/obj/cleanable/spellbound/New(loc, spell_type)
 	stype = new spell_type()
 	return ..(loc)
 
-/obj/effect/cleanable/spellbound/attack_hand(mob/user)
+/obj/cleanable/spellbound/attack_hand(mob/user)
 	if(last_called > world.time )
 		return
 	to_chat(user, "<span class='notice'>You call out to the spectral plane for assistance!</span>")
@@ -232,21 +232,21 @@
 	var/datum/ghosttrap/G = get_ghost_trap("wizard familiar")
 	for(var/mob/observer/ghost/ghost in GLOB.player_list)
 		if(G.assess_candidate(ghost,null,FALSE))
-			to_chat(ghost,"[SPAN_NOTICE("<b>A wizard is requesting a Spell-Bound Servant!</b>")] (<a href='?src=\ref[src];master=\ref[user]'>Join</a>)")
+			to_chat(ghost,"[SPAN_NOTICE("<b>A wizard is requesting a Spell-Bound Servant!</b>")] (<a href='byond://?src=\ref[src];master=\ref[user]'>Join</a>)")
 
-/obj/effect/cleanable/spellbound/CanUseTopic(mob)
+/obj/cleanable/spellbound/CanUseTopic(mob)
 	if(isliving(mob))
 		return STATUS_CLOSE
 	return STATUS_INTERACTIVE
 
-/obj/effect/cleanable/spellbound/OnTopic(mob/user, href_list, state)
+/obj/cleanable/spellbound/OnTopic(mob/user, href_list, state)
 	if(href_list["master"] && !QDELETED(src))
 		var/mob/master = locate(href_list["master"])
 		stype.spawn_servant(get_turf(src),master,user)
 		qdel(src)
 	return TOPIC_HANDLED
 
-/obj/effect/cleanable/spellbound/Destroy()
+/obj/cleanable/spellbound/Destroy()
 	qdel(stype)
 	stype = null
 	return ..()
@@ -280,7 +280,7 @@
 	onclose(user,"summoning")
 
 /obj/item/summoning_stone/proc/use_type(type, mob/user)
-	new /obj/effect/cleanable/spellbound(get_turf(src),type)
+	new /obj/cleanable/spellbound(get_turf(src),type)
 	show_browser(user, null, "window=summoning")
 	qdel(src)
 

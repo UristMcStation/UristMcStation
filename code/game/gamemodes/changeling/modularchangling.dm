@@ -256,7 +256,7 @@ var/global/list/datum/power/changeling/powerinstances = list()
 
 					if(!ownsthis)
 					{
-						body += "<a href='?src=\ref[src];P="+power+"'>Evolve</a>"
+						body += "<a href='byond://?src=\ref[src];P="+power+"'>Evolve</a>"
 					}
 
 					body += "</td><td align='center'>";
@@ -447,7 +447,7 @@ var/global/list/datum/power/changeling/powerinstances = list()
 		if(!istype(M))
 			return
 		purchasePower(M, href_list["P"])
-		call(/datum/changeling/proc/EvolutionMenu)()
+		call(src, PROC_REF(EvolutionMenu))()
 
 
 
@@ -466,8 +466,8 @@ var/global/list/datum/power/changeling/powerinstances = list()
 			break
 
 
-	if(Thepower == null)
-		to_chat(M.current, "This is awkward.  Changeling power purchase failed, please report this bug to a coder!")
+	if(isnull(Thepower))
+		CRASH("This is awkward.  Changeling power purchase failed, please report this bug to a coder!")
 		return
 
 	if(Thepower in purchasedpowers)

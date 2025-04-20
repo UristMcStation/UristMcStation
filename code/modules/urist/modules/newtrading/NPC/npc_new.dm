@@ -9,7 +9,7 @@
 	my_species = new species_type()
 	create_base_icon()
 
-	var/datum/species/S = all_species[my_species.name]
+	var/singleton/species/S = GLOB.species_by_name[my_species.name]
 	var/singleton/cultural_info/culture/C = SSculture.get_culture(S.default_cultural_info[TAG_CULTURE])
 	if(istype(C))
 		real_name = C.get_random_name(gender)
@@ -31,8 +31,8 @@
 	h_style(res)
 	f_style(res2)
 
-	overlays += res
-	overlays += res2
+	AddOverlays(res)
+	AddOverlays(res2)
 
 	equip_gear()
 
@@ -88,8 +88,8 @@
 
 //repository/images/proc/overlay_image(var/icon, var/icon_state, var/alpha, var/appearance_flags, var/color, var/dir, var/plane = FLOAT_PLANE, var/layer = FLOAT_LAYER)
 /mob/living/simple_animal/passive/npc/var/list/overlay_images = list()
-/mob/living/simple_animal/passive/npc/proc/sprite_equip(obj/item/I, var/slot)
-	overlays += I.get_mob_overlay(src, slot)
+/mob/living/simple_animal/passive/npc/proc/sprite_equip(obj/item/I, slot)
+	AddOverlays(I.get_mob_overlay(src, slot))
 	overlay_images += I.get_mob_overlay(src, slot)
 
 /mob/living/simple_animal/passive/npc/proc/h_style(image/res)
@@ -109,7 +109,7 @@
 		var/icon/hair_s = new/icon("icon" = hair_style.icon, "icon_state" = "[hair_style.icon_state]_s")
 		/*if(hair_style.do_colouration && islist(h_col) && length(h_col) >= 3)
 			hair_s.Blend(rgb(h_col[1], h_col[2], h_col[3]), ICON_ADD)*/
-		res.overlays |= hair_s
+		res.AddOverlays(hair_s)
 
 /mob/living/simple_animal/passive/npc/proc/f_style(image/res2)
 	//give them some facial hair
@@ -119,7 +119,7 @@
 		var/icon/facial_s = new/icon("icon" = facial_hair_style.icon, "icon_state" = "[facial_hair_style.icon_state]_s")
 		/*if(facial_hair_style.do_colouration)
 			facial_s.Blend(rgb(owner.r_facial, owner.g_facial, owner.b_facial), ICON_ADD)*/
-		res2.overlays |= facial_s
+		res2.AddOverlays(facial_s)
 
 /mob/living/simple_animal/passive/npc/proc/update_interact_icon()
 	src.dir = SOUTH

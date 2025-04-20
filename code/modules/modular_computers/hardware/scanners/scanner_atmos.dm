@@ -42,7 +42,7 @@
 	else
 		to_chat(user, "<hr>[driver.data_buffer]<hr>")
 
-/obj/item/stock_parts/computer/scanner/atmos/proc/scan_data(mob/user, atom/target, proximity = TRUE, var/legacy = FALSE)
+/obj/item/stock_parts/computer/scanner/atmos/proc/scan_data(mob/user, atom/target, proximity = TRUE, legacy = FALSE)
 	if(!can_use_scanner(user, target, proximity))
 		return 0
 	var/air_contents = target.return_air()

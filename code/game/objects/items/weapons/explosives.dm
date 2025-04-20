@@ -2,7 +2,7 @@
 	name = "plastic explosives"
 	desc = "Used to put holes in specific areas without too much extra hole."
 	gender = PLURAL
-	icon = 'icons/obj/assemblies.dmi'
+	icon = 'icons/obj/assemblies/assemblies.dmi'
 	icon_state = "plastic-explosive0"
 	item_state = "plasticx"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
@@ -16,7 +16,7 @@
 
 /obj/item/plastique/New()
 	wires = new(src)
-	image_overlay = image('icons/obj/assemblies.dmi', "plastic-explosive2")
+	image_overlay = image('icons/obj/assemblies/assemblies.dmi', "plastic-explosive2")
 	..()
 
 /obj/item/plastique/Destroy()
@@ -24,34 +24,40 @@
 	wires = null
 	return ..()
 
-/obj/item/plastique/attackby(obj/item/I, mob/user)
+/obj/item/plastique/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(isScrewdriver(I))
 		open_panel = !open_panel
 		to_chat(user, SPAN_NOTICE("You [open_panel ? "open" : "close"] the wire panel."))
-	else if(isWirecutter(I) || isMultitool(I) || istype(I, /obj/item/device/assembly/signaler ))
+		return TRUE
+	if (isWirecutter(I) || isMultitool(I) || istype(I, /obj/item/device/assembly/signaler ))
 		wires.Interact(user)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/plastique/attack_self(mob/user as mob)
 	var/newtime = input(usr, "Please set the timer.", "Timer", 10) as num
-	if(user.get_active_hand() == src)
+	if (newtime < 10)
+		to_chat(user, SPAN_WARNING("You cannot set the timer to be less than 10 seconds."))
+		return
+
+	if (user.get_active_hand() == src)
 		newtime = clamp(newtime, 10, 60000)
 		timer = newtime
 		to_chat(user, "Timer set for [timer] seconds.")
 
-/obj/item/plastique/afterattack(atom/movable/target, mob/user, flag)
-	if (!flag)
-		return
-	if (ismob(target) || istype(target, /turf/unsimulated) || istype(target, /turf/simulated/shuttle) || istype(target, /obj/item/storage) || istype(target, /obj/item/clothing/accessory/storage) || istype(target, /obj/item/clothing/under))
-		return
-	to_chat(user, "Planting explosives...")
-	user.do_attack_animation(target)
+/obj/item/plastique/use_after(atom/clicked, mob/living/user, click_parameters)
+	if (ismob(clicked) || istype(clicked, /turf/unsimulated) || istype(clicked, /turf/simulated/shuttle) || istype(clicked, /obj/item/clothing/accessory/storage) || istype(clicked, /obj/item/clothing/under))
+		return FALSE
 
-	if(do_after(user, 5 SECONDS, target, DO_DEFAULT | DO_USER_UNIQUE_ACT) && in_range(user, target))
+	to_chat(user, "Planting explosives...")
+	user.do_attack_animation(clicked)
+
+	if(do_after(user, 5 SECONDS, clicked, DO_DEFAULT | DO_USER_UNIQUE_ACT) && in_range(user, clicked))
 		if(!user.unequip_item())
-			return
-		src.target = target
+			FEEDBACK_UNEQUIP_FAILURE(user, src)
+			return TRUE
+		target = clicked
 		forceMove(null)
 
 		if (ismob(target))
@@ -60,11 +66,12 @@
 			log_game("[key_name(user)] planted [src.name] on [key_name(target)] with [timer] second fuse")
 
 		else
-			log_and_message_admins("planted \a [src] with a [timer] second fuse on \the [target].")
+			log_and_message_admins("planted \a [src] with a [timer] second fuse on \the [target].", user)
 
-		target.overlays += image_overlay
+		target.AddOverlays(image_overlay)
 		to_chat(user, "Bomb has been planted. Timer counting down from [timer].")
 		run_timer()
+	return TRUE
 
 /obj/item/plastique/proc/explode(location)
 	if(!target)
@@ -83,10 +90,10 @@
 		else
 			target.ex_act(EX_ACT_DEVASTATING)
 	if(target)
-		target.overlays -= image_overlay
+		target.CutOverlays(image_overlay)
 	qdel(src)
 
-/obj/item/plastique/proc/run_timer() //Basically exists so the C4 will beep when running. Better idea than putting sleeps in attackby.
+/obj/item/plastique/proc/run_timer()
 	set waitfor = 0
 	var/T = timer
 	while(T > 0)
@@ -97,6 +104,3 @@
 			playsound(loc, 'sound/items/timer.ogg', 50)
 		T--
 	explode(get_turf(target))
-
-/obj/item/plastique/attack(mob/M as mob, mob/user as mob, def_zone)
-	return

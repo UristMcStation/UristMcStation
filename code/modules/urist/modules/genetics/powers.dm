@@ -31,7 +31,7 @@
 
 /datum/dna/gene/basic/stealth
 
-/datum/dna/gene/basic/stealth/can_activate(mob/M, var/flags)
+/datum/dna/gene/basic/stealth/can_activate(mob/M, flags)
 	// Can only activate one of these at a time.
 	if(is_type_in_list(/datum/dna/gene/basic/stealth,M.active_genes))
 		testing("Cannot activate [type]: /datum/dna/gene/basic/stealth in M.active_genes.")
@@ -56,8 +56,8 @@
 
 	if(isturf(M.loc))
 		var/turf/T = M.loc
-		if(shadow_check(T, 2, 1))
-			M.alpha = 0
+		if(shadow_check(T, 0.1, 1))
+			M.alpha = 1
 		else
 			M.alpha = round(255 * 0.80)
 	else
@@ -84,13 +84,13 @@
 /datum/dna/gene/basic/grant_spell
 	var/spell/spelltype //TODO: might need to convert it to a list later
 
-/datum/dna/gene/basic/grant_spell/activate(mob/M, var/connected, var/flags)
+/datum/dna/gene/basic/grant_spell/activate(mob/M, connected, flags)
 	..()
 	M.add_spell(src.spelltype, "genetic_spell_ready")
 	return 1
 
 
-/datum/dna/gene/basic/grant_spell/deactivate(mob/M, var/connected, var/flags)
+/datum/dna/gene/basic/grant_spell/deactivate(mob/M, connected, flags)
 	..()
 	M.remove_spell(src.spelltype)
 	return 1
@@ -98,12 +98,12 @@
 /datum/dna/gene/basic/grant_verb
 	var/verbtype
 
-/datum/dna/gene/basic/grant_verb/activate(mob/M, var/connected, var/flags)
+/datum/dna/gene/basic/grant_verb/activate(mob/M, connected, flags)
 	..()
 	M.verbs += verbtype
 	return 1
 
-/datum/dna/gene/basic/grant_verb/deactivate(mob/M, var/connected, var/flags)
+/datum/dna/gene/basic/grant_verb/deactivate(mob/M, connected, flags)
 	..()
 	M.verbs -= verbtype
 
@@ -159,11 +159,11 @@
 
 	//playsound(usr.loc, 'bamf.ogg', 50, 0)
 
-	new/obj/effects/self_deleting(C.loc, icon('icons/effects/genetics.dmi', "cryokinesis"))
+	new/obj/urist_intangible/effects/self_deleting(C.loc, icon('icons/effects/genetics.dmi', "cryokinesis"))
 
 	return
 
-/obj/effects/self_deleting
+/obj/urist_intangible/effects/self_deleting
 	density = FALSE
 	opacity = 0
 	anchored = TRUE
@@ -171,7 +171,7 @@
 	desc = ""
 	//layer = 15
 
-/obj/effects/self_deleting/New(atom/location, var/icon/I, var/duration = 20, var/oname = "something")
+/obj/urist_intangible/effects/self_deleting/New(atom/location, icon/I, duration = 20, oname = "something")
 	..()
 	src.name = oname
 	loc=location
@@ -215,7 +215,7 @@
 	var/list/possible_targets = list()
 
 	for(var/atom/movable/O in view_or_range(range, user, selection_type))
-		if(is_type_in_list(O,types_allowed) && !istype(O.loc, /mob)) // No eating things inside of you or another person, that's just creepy
+		if(is_type_in_list(O,types_allowed) && !ismob(O.loc)) // No eating things inside of you or another person, that's just creepy
 			possible_targets += O
 
 	targets += input("Choose the target of your hunger.", "Targeting") as anything in possible_targets
@@ -326,11 +326,11 @@
 	spell_flags = INCLUDEUSER
 
 /spell/targeted/leap/cast(list/targets)
-	if (istype(usr.loc,/mob))
+	if (ismob(usr.loc))
 		to_chat(usr, "<span class='warning'> You can't jump right now!</span>")
 		return
 
-	if (istype(usr.loc,/turf))
+	if (isturf(usr.loc))
 		usr.visible_message("<span class='danger'>[usr.name] takes a huge leap!</span>")
 		playsound(usr.loc, 'sound/weapons/thudswoosh.ogg', 50, 1)
 		var/prevLayer = usr.layer
@@ -350,7 +350,7 @@
 
 		usr.layer = prevLayer
 
-	if (istype(usr.loc,/obj))
+	if (isobj(usr.loc))
 		var/obj/container = usr.loc
 		to_chat(usr, "<span class='warning'> You leap and slam your head against the inside of [container]! Ouch!</span>")
 		usr.paralysis += 3

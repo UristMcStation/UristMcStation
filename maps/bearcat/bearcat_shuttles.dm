@@ -30,35 +30,35 @@
 
 //In case multiple shuttles can dock at a location,
 //subtypes can be used to hold the shuttle-specific data
-/obj/effect/shuttle_landmark/docking_arm_starboard
+/obj/shuttle_landmark/docking_arm_starboard
 	name = "Bearcat Starboard-side Docking Arm"
 	docking_controller = "bearcat_starboard_dock"
 
-/obj/effect/shuttle_landmark/docking_arm_starboard/pod
+/obj/shuttle_landmark/docking_arm_starboard/pod
 	landmark_tag = "nav_bearcat_starboard_dock_pod"
 
-/obj/effect/shuttle_landmark/docking_arm_port
+/obj/shuttle_landmark/docking_arm_port
 	name = "Bearcat Port-side Docking Arm"
 	docking_controller = "bearcat_dock_port"
 
-/obj/effect/shuttle_landmark/docking_arm_port/shuttle
+/obj/shuttle_landmark/docking_arm_port/shuttle
 	landmark_tag = "nav_bearcat_port_dock_shuttle"
 
-/obj/effect/shuttle_landmark/lift/top
+/obj/shuttle_landmark/lift/top
 	name = "Top Deck"
 	landmark_tag = "nav_bearcat_lift_top"
 	flags = SLANDMARK_FLAG_AUTOSET
 
-/obj/effect/shuttle_landmark/lift/bottom
+/obj/shuttle_landmark/lift/bottom
 	name = "Lower Deck"
 	landmark_tag = "nav_bearcat_lift_bottom"
 	base_area = /area/ship/scrap/cargo/lower
 	base_turf = /turf/simulated/floor
 
-/obj/effect/shuttle_landmark/below_deck_bow
+/obj/shuttle_landmark/below_deck_bow
 	name = "Near CSV Bearcat Bow"
 	landmark_tag = "nav_bearcat_below_bow"
 
-/obj/effect/shuttle_landmark/below_deck_starboardastern
+/obj/shuttle_landmark/below_deck_starboardastern
 	name = "Near CSV Bearcat Starboard Astern"
 	landmark_tag = "nav_bearcat_below_starboardastern"

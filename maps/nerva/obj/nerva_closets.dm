@@ -37,9 +37,9 @@
 		/obj/item/device/flash,
 		/obj/item/device/megaphone,
 		/obj/item/storage/box/ids,
-		/obj/item/material/clipboard,
+		/obj/item/material/folder/clipboard,
 		/obj/item/device/holowarrant,
-		/obj/item/folder/blue,
+		/obj/item/material/folder/blue,
 		/obj/item/flame/lighter/zippo/vanity/black,
 		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/command, /obj/item/storage/backpack/satchel/com)),
 		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/dufflebag/com, /obj/item/storage/backpack/messenger/com))
@@ -81,9 +81,9 @@
 		/obj/item/storage/box/radiokeys,
 		/obj/item/storage/box/large/ids,
 		/obj/item/storage/box/PDAs,
-		/obj/item/material/clipboard,
+		/obj/item/material/folder/clipboard,
 		/obj/item/device/holowarrant,
-		/obj/item/folder/blue,
+		/obj/item/material/folder/blue,
 		/obj/item/storage/box/imprinting
 	)
 
@@ -114,7 +114,7 @@
 		/obj/item/storage/box/large/ids,
 		/obj/item/storage/box/PDAs,
 		/obj/item/storage/box/headset,
-		/obj/item/material/clipboard,
+		/obj/item/material/folder/clipboard,
 		/obj/item/clothing/under/urist/nerva/soregular,
 		/obj/item/clothing/head/urist/beret/nervaso,
 		/obj/item/gun/energy/gun/small/secure,
@@ -178,7 +178,7 @@
 		/obj/item/storage/belt/security,
 		/obj/item/device/flash,
 		/obj/item/melee/baton/loaded,
-		/obj/item/gunbox,
+		/obj/item/selection/siderm,
 		/obj/item/clothing/accessory/storage/holster/thigh,
 		/obj/item/melee/telebaton,
 		/obj/item/reagent_containers/spray/pepper,
@@ -207,8 +207,8 @@
 		/obj/item/device/radio/headset/nervananotrasen,
 		/obj/item/device/radio/headset/nervananotrasen/alt,
 		/obj/item/clothing/mask/gas,
-		/obj/item/material/clipboard,
-		/obj/item/folder,
+		/obj/item/material/folder/clipboard,
+		/obj/item/material/folder,
 		/obj/item/device/taperecorder,
 		/obj/item/device/tape/random = 3,
 		/obj/item/device/camera,
@@ -219,7 +219,7 @@
 		/obj/item/clothing/glasses/meson,
 		/obj/item/device/radio,
 		/obj/item/device/flashlight/lantern,
-		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/toxins, /obj/item/storage/backpack/satchel/tox)),
+		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/corpsci, /obj/item/storage/backpack/satchel/corpsci)),
 		new /datum/atom_creator/simple(/obj/item/storage/backpack/dufflebag, 50)
 		)
 
@@ -252,7 +252,7 @@
 		/obj/item/device/radio/headset/heads/nerva_senior/alt,
 		/obj/item/clothing/mask/gas,
 		/obj/item/device/flash,
-		/obj/item/material/clipboard,
+		/obj/item/material/folder/clipboard,
 		/obj/item/clothing/suit/storage/toggle/labcoat/science/nanotrasen,
 		/obj/item/storage/backpack/satchel/leather,
 		/obj/item/storage/lockbox/nanotrasen_account

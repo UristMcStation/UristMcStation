@@ -78,12 +78,11 @@
 	name = "\improper Derelict Atmospherics"
 	icon_state = "atmos"
 
-/obj/effect/overmap/visitable/sector/russianderelict
+/obj/overmap/visitable/sector/russianderelict
 	name = "\proper Kosmonaut Station 13"
 	desc = "Sensors detect an orbital station with an unusual profile and no life signs."
 	icon_state = "object"
 	assigned_contracts = list(/datum/contract/russianderelict)
-	known = FALSE
 
 /datum/map_template/ruin/away_site/russianderelict
 	name = "Russian derelict"
@@ -93,17 +92,17 @@
 	spawn_cost = 1
 	area_usage_test_exempted_root_areas = list(/area/russianderelict)
 
-/obj/effect/shuttle_landmark/automatic/nav_russian_derelict/nav1
+/obj/shuttle_landmark/automatic/nav_russian_derelict/nav1
 	name = "Derelict Landing Zone #1"
 	landmark_tag = "nav_russian_derelict_1"
 	flags = SLANDMARK_FLAG_AUTOSET
 
-/obj/effect/shuttle_landmark/automatic/nav_russian_derelict/nav2
+/obj/shuttle_landmark/automatic/nav_russian_derelict/nav2
 	name = "Derelict Landing Zone #2"
 	landmark_tag = "nav_russian_derelict_2"
 	flags = SLANDMARK_FLAG_AUTOSET
 
-/obj/effect/shuttle_landmark/automatic/nav_russian_derelict/nav3
+/obj/shuttle_landmark/automatic/nav_russian_derelict/nav3
 	name = "Derelict Landing Zone #3"
 	landmark_tag = "nav_russian_derelict_3"
 	flags = SLANDMARK_FLAG_AUTOSET
@@ -212,12 +211,12 @@
 /obj/structure/oldturret
 	name = "broken turret"
 	desc = "An obsolete model of turret, long non-functional."
-	icon = 'icons/obj/turrets.dmi'
+	icon = 'icons/obj/machines/turrets.dmi'
 	icon_state = "turretCover"
 
 /obj/random/single/russiancola
 	name = "randomly spawned russian cola"
-	icon = 'icons/obj/drinks.dmi'
+	icon = 'icons/obj/food/drinks/cans.dmi'
 	icon_state = "art_bru"
 
 /obj/item/gun/projectile/automatic/spaceak/empty
@@ -238,7 +237,7 @@
 
 /obj/structure/sign/russianplaque
 	name = "commemorative plaque"
-	icon = 'icons/obj/decals.dmi'
+	icon = 'icons/obj/structures/decals.dmi'
 	icon_state = "lightplaque"
 	desc = "космическая-станция-13\nфорпост класса разработчика\nстанция сдана 30.12.2322\nво славу тружеников третьего советского союза"
 
@@ -255,7 +254,7 @@
 
 //russian SS13 sign from the old derelict - the red cyrillic one
 
-/obj/effect/floor_decal/urist/russian
+/obj/floor_decal/urist/russian
 	icon_state = "derelict1"
 
 //contract

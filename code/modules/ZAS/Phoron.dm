@@ -51,11 +51,11 @@ var/global/image/contamination_overlay = image('icons/effects/contamination.dmi'
 	//Do a contamination overlay? Temporary measure to keep contamination less deadly than it was.
 	if(!contaminated)
 		contaminated = 1
-		overlays += contamination_overlay
+		AddOverlays(contamination_overlay)
 
 /obj/item/proc/decontaminate()
 	contaminated = 0
-	overlays -= contamination_overlay
+	CutOverlays(contamination_overlay)
 
 /mob/proc/contaminate()
 
@@ -148,7 +148,7 @@ var/global/image/contamination_overlay = image('icons/effects/contamination.dmi'
 	if(vsc.plc.PHORONGUARD_ONLY)
 		return 1
 
-	return BIT_TEST_ALL(coverage, UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS)
+	return HAS_FLAGS(coverage, UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS)
 
 /mob/living/carbon/human/proc/suit_contamination()
 	//Runs over the things that can be contaminated and does so.

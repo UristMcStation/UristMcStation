@@ -1,7 +1,7 @@
 /obj/item/device/taperecorder
 	name = "universal recorder"
 	desc = "A device that can record to cassette tapes, and play them. It automatically translates the content in playback."
-	icon = 'icons/obj/tape_recorder.dmi'
+	icon = 'icons/obj/tools/tape_recorder.dmi'
 	icon_state = "taperecorder"
 	item_state = "analyzer"
 	w_class = ITEM_SIZE_SMALL
@@ -43,23 +43,33 @@
 	return ..()
 
 
-/obj/item/device/taperecorder/attackby(obj/item/I, mob/user, params)
-	if(isScrewdriver(I))
+/obj/item/device/taperecorder/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Screwdriver - Toggle maintenance cover
+	if (isScrewdriver(tool))
 		maintenance = !maintenance
-		to_chat(user, SPAN_NOTICE("You [maintenance ? "open" : "secure"] the lid."))
-		return
-	if(istype(I, /obj/item/device/tape))
-		if(mytape)
-			to_chat(user, SPAN_NOTICE("There's already a tape inside."))
-			return
-		if(!user.unEquip(I))
-			return
-		I.forceMove(src)
-		mytape = I
-		to_chat(user, SPAN_NOTICE("You insert [I] into [src]."))
+		user.visible_message(
+			SPAN_NOTICE("\The [user] [maintenance ? "opens" : "closes"] \a [src]'s lid with \a [tool]."),
+			SPAN_NOTICE("You [maintenance ? "open" : "close"] \the [src]'s lid with \the [tool].")
+		)
+		return TRUE
+
+	// Tape - Insert tape
+	if (istype(tool, /obj/item/device/tape))
+		if (mytape)
+			USE_FEEDBACK_FAILURE("\The [src] already has \a [mytape] inside.")
+			return TRUE
+		if (!user.unEquip(tool, src))
+			FEEDBACK_UNEQUIP_FAILURE(user, tool)
+			return TRUE
+		mytape = tool
 		update_icon()
-		return
-	..()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] inserts \a [tool] into \a [src]."),
+			SPAN_NOTICE("You insert \the [tool] into \the [src].")
+		)
+		return TRUE
+
+	return ..()
 
 
 /obj/item/device/taperecorder/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
@@ -102,14 +112,18 @@
 		to_chat(user, SPAN_NOTICE("The wires are exposed."))
 
 /obj/item/device/taperecorder/hear_talk(mob/living/M as mob, msg, verb="says", datum/language/speaking=null)
+	var/speaker = null
 	if(mytape && recording)
-
+		if (istype(M, /mob/living/carbon/human))
+			speaker = M.GetVoice()
+		else
+			speaker = M.name
 		if(speaking)
 			if(!speaking.machine_understands)
 				msg = speaking.scramble(msg)
-			mytape.record_speech("[M.name] [speaking.format_message_plain(msg, verb)]")
+			mytape.record_speech("[speaker] [speaking.format_message_plain(msg, verb)]")
 		else
-			mytape.record_speech("[M.name] [verb], \"[msg]\"")
+			mytape.record_speech("[speaker] [verb], \"[msg]\"")
 
 
 /obj/item/device/taperecorder/see_emote(mob/M as mob, text, emote_type)
@@ -146,7 +160,7 @@
 		var/mob/M = loc
 		to_chat(M, SPAN_DANGER("\The [src] explodes!"))
 	if(T)
-		T.hotspot_expose(700,125)
+		T.hotspot_expose(700)
 		explosion(T, 1, EX_ACT_LIGHT)
 	qdel(src)
 	return
@@ -361,7 +375,7 @@
 	usr.put_in_hands(P)
 	playsound(src, "sound/machines/dotprinter.ogg", 30)
 	canprint = 0
-	sleep(300)
+	sleep(150)
 	canprint = 1
 
 
@@ -390,26 +404,26 @@
 
 /obj/item/device/tape
 	name = "tape"
-	desc = "A magnetic tape that can hold up to ten minutes of content."
-	icon = 'icons/obj/tape_recorder.dmi'
+	desc = "A magnetic tape that can hold up to twenty minutes of content."
+	icon = 'icons/obj/tools/tape_recorder.dmi'
 	icon_state = "tape_white"
 	item_state = "analyzer"
 	w_class = ITEM_SIZE_TINY
 	matter = list(MATERIAL_PLASTIC=20, MATERIAL_STEEL=5, MATERIAL_GLASS=5)
 	force = 1
 	throwforce = 0
-	var/max_capacity = 600
+	var/max_capacity = 1200
 	var/used_capacity = 0
-	var/list/storedinfo = new/list()
-	var/list/timestamp = new/list()
+	var/list/storedinfo = list()
+	var/list/timestamp = list()
 	var/ruined = 0
 	var/doctored = 0
 
 
 /obj/item/device/tape/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(ruined && max_capacity)
-		overlays += "ribbonoverlay"
+		AddOverlays("ribbonoverlay")
 
 
 /obj/item/device/tape/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
@@ -443,35 +457,59 @@
 	storedinfo += "*\[[time2text(used_capacity*10,"mm:ss")]\] [text]"
 
 
-/obj/item/device/tape/attackby(obj/item/I, mob/user, params)
-	if(user.incapacitated())
-		return
-	if(ruined && isScrewdriver(I))
-		if(!max_capacity)
-			to_chat(user, SPAN_NOTICE("There is no tape left inside."))
-			return
-		to_chat(user, SPAN_NOTICE("You start winding the tape back in..."))
-		if(do_after(user, 12 SECONDS, src, DO_REPAIR_CONSTRUCT))
-			to_chat(user, SPAN_NOTICE("You wound the tape back in."))
-			fix()
-		return
-	else if(istype(I, /obj/item/pen))
-		if(loc == user)
-			var/new_name = input(user, "What would you like to label the tape?", "Tape labeling") as null|text
-			if(isnull(new_name)) return
-			new_name = sanitizeSafe(new_name)
-			if(new_name)
-				SetName("tape - '[new_name]'")
-				to_chat(user, SPAN_NOTICE("You label the tape '[new_name]'."))
-			else
-				SetName("tape")
-				to_chat(user, SPAN_NOTICE("You scratch off the label."))
-		return
-	else if(isWirecutter(I))
+/obj/item/device/tape/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Magnetic Tape - Join tape
+	if (istype(tool, /obj/item/device/tape/loose))
+		join(user, tool)
+		return TRUE
+
+	// Pen - Label tape
+	if (istype(tool, /obj/item/pen))
+		var/input = input(user, "What would you like to label the tape?", "[initial(name)] - Label") as null|text
+		input = sanitizeSafe(input, MAX_NAME_LEN)
+		if (!input || !user.use_sanity_check(src, tool))
+			return TRUE
+		SetName("[initial(name)] - '[input]'")
+		user.visible_message(
+			SPAN_NOTICE("\The [user] labels \a [src] with \a [tool]."),
+			SPAN_NOTICE("You label \the [src] with \the [tool].")
+		)
+		return TRUE
+
+	// Screwdriver - Fix tape
+	if (isScrewdriver(tool))
+		if (!max_capacity)
+			USE_FEEDBACK_FAILURE("\The [src] has no tape to wind.")
+			return TRUE
+		if (!ruined)
+			USE_FEEDBACK_FAILURE("\The [src]'s tape doesn't need re-winding.")
+			return TRUE
+		user.visible_message(
+			SPAN_NOTICE("\The [user] starts winding \a [src]'s tape back in with \a [tool]."),
+			SPAN_NOTICE("You start winding \the [src]'s tape back in with \the [tool].")
+		)
+		if (!do_after(user, 12 SECONDS, src, DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+			return TRUE
+		if (!max_capacity)
+			USE_FEEDBACK_FAILURE("\The [src] has no tape to wind.")
+			return TRUE
+		if (!ruined)
+			USE_FEEDBACK_FAILURE("\The [src]'s tape doesn't need re-winding.")
+			return TRUE
+		fix()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] winds \a [src]'s tape back in with \a [tool]."),
+			SPAN_NOTICE("You wind \the [src]'s tape back in with \the [tool].")
+		)
+		return TRUE
+
+	// Wirecutter - Cut tape
+	if (isWirecutter(tool))
 		cut(user)
-	else if(istype(I, /obj/item/device/tape/loose))
-		join(user, I)
-	..()
+		return TRUE
+
+	return ..()
+
 
 /obj/item/device/tape/proc/cut(mob/user)
 	if(!LAZYLEN(timestamp))
@@ -480,7 +518,7 @@
 	var/list/output = list("<center>")
 	for(var/i=1, i < length(timestamp), i++)
 		var/time = "\[[time2text(timestamp[i]*10,"mm:ss")]\]"
-		output += "[time]<br><a href='?src=\ref[src];cut_after=[i]'>-----CUT------</a><br>"
+		output += "[time]<br><a href='byond://?src=\ref[src];cut_after=[i]'>-----CUT------</a><br>"
 	output += "</center>"
 
 	var/datum/browser/popup = new(user, "tape_cutting", "Cutting tape", 170, 600)
@@ -536,7 +574,7 @@
 /obj/item/device/tape/loose
 	name = "magnetic tape"
 	desc = "Quantum-enriched self-repairing nanotape, used for magnetic storage of information."
-	icon = 'icons/obj/tape_recorder.dmi'
+	icon = 'icons/obj/tools/tape_recorder.dmi'
 	icon_state = "magtape"
 	ruined = 1
 

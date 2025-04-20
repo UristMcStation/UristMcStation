@@ -61,7 +61,7 @@ length to avoid portals or something i guess?? Not that they're counted right no
 
 
 /proc/AStar(start, end, adjacent, dist, max_nodes, max_node_depth = 30, min_target_dist = 0, min_node_dist, id, datum/exclude)
-	var/PriorityQueue/open = new /PriorityQueue (/proc/PathWeightCompare)
+	var/PriorityQueue/open = new /PriorityQueue (GLOBAL_PROC_REF(PathWeightCompare))
 	var/list/closed = list()
 	var/list/path
 	var/list/path_node_by_position = list()
@@ -73,7 +73,7 @@ length to avoid portals or something i guess?? Not that they're counted right no
 		var/PathNode/current = open.Dequeue()
 		closed.Add(current.position)
 		if(current.position == end || call(current.position, dist)(end) <= min_target_dist)
-			path = new /list(current.nodes_traversed + 1)
+			path = new (current.nodes_traversed + 1)
 			path[length(path)] = current.position
 			var/index = length(path) - 1
 			while(current.previous_node)

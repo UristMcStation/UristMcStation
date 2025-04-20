@@ -1555,7 +1555,7 @@
 /turf/simulated/floor,
 /area/derelict/bridge)
 "dX" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/simulated/floor/plating/airless,
 /area/space)
 "dY" = (
@@ -1734,7 +1734,7 @@
 /turf/simulated/floor,
 /area/derelict/bridge)
 "ev" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/space,
 /area/space)
 "ew" = (
@@ -1751,7 +1751,7 @@
 /obj/item/material/shard,
 /obj/structure/grille{
 	density = 0;
-	icon_state = "brokengrille"
+	icon_state = "broken"
 	},
 /obj/item/remains/human{
 	desc = "This guy seemed to have died in terrible way! Half his remains are dust.";
@@ -1765,7 +1765,7 @@
 /turf/simulated/floor/plating,
 /area/derelict/singularity_engine)
 "ez" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/simulated/floor/plating,
 /area/derelict/singularity_engine)
 "eA" = (
@@ -2230,7 +2230,7 @@
 "fR" = (
 /obj/structure/grille{
 	density = 0;
-	icon_state = "brokengrille"
+	icon_state = "broken"
 	},
 /turf/simulated/floor/plating,
 /area/derelict/singularity_engine)
@@ -2292,7 +2292,7 @@
 "gc" = (
 /obj/structure/grille{
 	density = 0;
-	icon_state = "brokengrille"
+	icon_state = "broken"
 	},
 /turf/simulated/floor/plating/airless,
 /area/derelict/singularity_engine)
@@ -2393,7 +2393,7 @@
 /obj/item/material/shard,
 /obj/structure/grille{
 	density = 0;
-	icon_state = "brokengrille"
+	icon_state = "broken"
 	},
 /turf/simulated/floor/plating/airless,
 /area/derelict/medical)
@@ -3029,7 +3029,7 @@
 /turf/simulated/floor/airless,
 /area/space)
 "in" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -3038,7 +3038,7 @@
 /turf/simulated/floor/plating/airless,
 /area/space)
 "io" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -3569,7 +3569,7 @@
 /turf/simulated/floor/plating/airless,
 /area/derelict/hallway/primary)
 "jN" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -3904,7 +3904,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/bridge/ai_upload)
 "kH" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/simulated/floor/plating/airless,
 /area/derelict/hallway/secondary)
 "kI" = (
@@ -4137,7 +4137,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/teleporter)
 "lm" = (
-/obj/effect/template_loader/space,
+/obj/urist_intangible/trigger/template_loader/space,
 /turf/space,
 /area/space)
 "ln" = (

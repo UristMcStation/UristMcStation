@@ -64,7 +64,7 @@
 	icon = 'icons/urist/vehicles/uristvehicles.dmi'
 	icon_state = "alien"
 	//initial_icon = "alien"
-	wreckage_path = /obj/effect/decal/mecha_wreckage/smallfighter
+	wreckage_path = /obj/decal/mecha_wreckage/smallfighter
 	health_max = 320
 
 /*/mob/living/exosuit/premade/hoverpod/fighter/small/alien/New()
@@ -93,7 +93,7 @@
 	projectile_type = /obj/item/projectile/beam/scom/alien6
 
 
-/obj/effect/decal/mecha_wreckage/smallfighter
+/obj/decal/mecha_wreckage/smallfighter
 	name = "fighter wreckage"
 	icon = 'icons/urist/vehicles/uristvehicles.dmi'
 	icon_state = "fighter-broken"
@@ -104,7 +104,7 @@
 	icon = 'icons/urist/vehicles/uristvehicles.dmi'
 	icon_state = "fighter"
 	//initial_icon = "fighter"
-	wreckage_path = /obj/effect/decal/mecha_wreckage/smallfighter
+	wreckage_path = /obj/decal/mecha_wreckage/smallfighter
 
 /mob/living/exosuit/premade/hoverpod/fighter/large
 	bound_width = 64
@@ -119,7 +119,7 @@
 	icon = 'icons/urist/vehicles/64x64vehicles.dmi'
 	icon_state = "bigfighter"
 	//initial_icon = "bigfighter"
-	wreckage_path = /obj/effect/decal/mecha_wreckage/bigfighter
+	wreckage_path = /obj/decal/mecha_wreckage/bigfighter
 
 /mob/living/exosuit/premade/hoverpod/fighter/large/human/Initialize()
 	if(!legs)
@@ -137,7 +137,7 @@
 	install_system(new /obj/item/mech_equipment/light(src), HARDPOINT_RIGHT_SHOULDER)
 	install_system(new /obj/item/mech_equipment/shields(src), HARDPOINT_BACK)
 
-/obj/effect/decal/mecha_wreckage/bigfighter
+/obj/decal/mecha_wreckage/bigfighter
 	name = "large fighter wreckage"
 	icon = 'icons/urist/vehicles/64x64vehicles.dmi'
 	icon_state = "bigfighter-broken"
@@ -199,7 +199,7 @@
 	//equip_cooldown = 60
 
 /obj/item/missile/heavy
-	icon = 'icons/obj/grenade.dmi'
+	icon = 'icons/obj/weapons/grenade.dmi'
 	icon_state = "missile"
 	throwforce = 15
 
@@ -228,7 +228,7 @@
 	..()
 	visible_message("<span class='danger'>The [src.name] explodes!</span>")
 	explosion(src.loc, 0, 0, 2)
-	new /obj/effect/decal/mecha_wreckage/smallfighter(src.loc)
+	new /obj/decal/mecha_wreckage/smallfighter(src.loc)
 	qdel(src)
 	return
 

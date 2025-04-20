@@ -4,36 +4,32 @@
 	icon_state = "fireaxe"
 	anchored = TRUE
 	density = FALSE
+	health_max = 30
+	health_min_damage = 15
+	damage_hitsound = 'sound/effects/Glasshit.ogg'
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 
-	var/damage_threshold = 15
 	var/open
 	var/unlocked
-	var/shattered
 	var/obj/item/material/twohanded/fireaxe/fireaxe
 
-/obj/structure/fireaxecabinet/attack_generic(mob/user, damage, attack_verb, wallbreaker)
-	attack_animation(user)
-	playsound(user, 'sound/effects/Glasshit.ogg', 50, 1)
-	visible_message(SPAN_DANGER("[user] [attack_verb] \the [src]!"))
-	if(damage_threshold > damage)
-		to_chat(user, SPAN_DANGER("Your strike is deflected by the reinforced glass!"))
-		return
-	if(shattered)
-		return
-	shattered = 1
-	unlocked = 1
-	open = 1
-	playsound(user, 'sound/effects/Glassbr3.ogg', 100, 1)
+/obj/structure/fireaxecabinet/on_death()
+	playsound(src, 'sound/effects/Glassbr3.ogg', 50, TRUE)
+	open = TRUE
+	unlocked = TRUE
+	update_icon()
+
+/obj/structure/fireaxecabinet/on_revive()
 	update_icon()
 
 /obj/structure/fireaxecabinet/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(fireaxe)
-		overlays += image(icon, "fireaxe_item")
-	if(shattered)
-		overlays += image(icon, "fireaxe_window_broken")
+		AddOverlays(image(icon, "fireaxe_item"))
+	if(health_dead())
+		AddOverlays(image(icon, "fireaxe_window_broken"))
 	else if(!open)
-		overlays += image(icon, "fireaxe_window")
+		AddOverlays(image(icon, "fireaxe_window"))
 
 /obj/structure/fireaxecabinet/New()
 	..()
@@ -43,7 +39,9 @@
 /obj/structure/fireaxecabinet/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
-	toggle_lock(user)
+	playsound(src, 'sound/machines/lockreset.ogg', 50, TRUE)
+	unlocked = !unlocked
+	update_icon()
 
 /obj/structure/fireaxecabinet/attack_hand(mob/user)
 	if(!unlocked)
@@ -77,60 +75,80 @@
 		fireaxe = null
 	return ..()
 
-/obj/structure/fireaxecabinet/attackby(obj/item/O, mob/user)
 
-	if(isMultitool(O))
-		toggle_lock(user)
-		return
+/obj/structure/fireaxecabinet/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Fireaxe - Place inside
+	if (istype(tool, /obj/item/material/twohanded/fireaxe))
+		if (!open)
+			USE_FEEDBACK_FAILURE("\The [src] is closed.")
+			return TRUE
+		if (fireaxe)
+			USE_FEEDBACK_FAILURE("\The [src] already has \a [fireaxe] inside.")
+			return TRUE
+		if (!user.unEquip(tool, src))
+			FEEDBACK_UNEQUIP_FAILURE(user, tool)
+			return TRUE
+		fireaxe = tool
+		update_icon()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] places \a [tool] into \the [src]."),
+			SPAN_NOTICE("You place \the [tool] into \the [src].")
+		)
+		return TRUE
 
-	if(istype(O, /obj/item/material/twohanded/fireaxe))
-		if(open)
-			if(fireaxe)
-				to_chat(user, SPAN_WARNING("There is already \a [fireaxe] inside \the [src]."))
-			else if(user.unEquip(O))
-				O.forceMove(src)
-				fireaxe = O
-				to_chat(user, SPAN_NOTICE("You place \the [fireaxe] into \the [src]."))
-				update_icon()
-			return
+	// Material Stack - Repair damage
+	if (istype(tool, /obj/item/stack/material))
+		var/obj/item/stack/material/stack = tool
+		if (stack.material.name != MATERIAL_GLASS)
+			return ..()
+		if (!health_dead() && !health_damaged())
+			USE_FEEDBACK_FAILURE("\The [src] doesn't need repair.")
+			return TRUE
+		if (!stack.reinf_material)
+			USE_FEEDBACK_FAILURE("\The [src] can only be repaired with reinforced glass.")
+			return TRUE
+		if (!stack.use(1))
+			USE_FEEDBACK_STACK_NOT_ENOUGH(stack, 1, "to repair \the [src].")
+			return TRUE
+		user.visible_message(
+			SPAN_NOTICE("\The [user] repairs \the [src]'s damage with [stack.get_vague_name(FALSE)]."),
+			SPAN_NOTICE("You repair \the [src]'s damage with [stack.get_exact_name(1)].")
+		)
+		revive_health()
+		return TRUE
 
-	if(O.force)
-		user.setClickCooldown(10)
-		attack_generic(user, O.force, "bashes")
-		return
+	// Multitool - Toggle manual lock
+	if (isMultitool(tool))
+		if (open)
+			USE_FEEDBACK_FAILURE("\The [src] must be closed before you can lock it.")
+			return TRUE
+		if (health_dead())
+			USE_FEEDBACK_FAILURE("\The [src] is shattered and the lock doesn't function.")
+			return TRUE
+		user.visible_message(
+			SPAN_NOTICE("\The [user] begins toggling \the [src]'s maglock with \a [tool]."),
+			SPAN_NOTICE("You begin [unlocked ? "locking" : "unlocking"] \the [src]'s maglock with \the [tool].")
+		)
+		if (!do_after(user, (tool.toolspeed * 2) SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
+			return TRUE
+		playsound(src, 'sound/machines/lockreset.ogg', 50, TRUE)
+		unlocked = !unlocked
+		update_icon()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] [unlocked ? "unlocks" : "locks"] \the [src]'s maglock with \a [tool]."),
+			SPAN_NOTICE("You [unlocked ? "unlock" : "lock"] \the [src]'s maglock with \the [tool].")
+		)
+		return TRUE
 
 	return ..()
 
+
 /obj/structure/fireaxecabinet/proc/toggle_open(mob/user)
-	if(shattered)
+	if(health_dead())
 		open = 1
 		unlocked = 1
 	else
 		user.setClickCooldown(10)
 		open = !open
 		to_chat(user, SPAN_NOTICE("You [open ? "open" : "close"] \the [src]."))
-	update_icon()
-
-/obj/structure/fireaxecabinet/proc/toggle_lock(mob/user)
-
-
-	if(open)
-		return
-
-	if(shattered)
-		open = 1
-		unlocked = 1
-	else
-		user.setClickCooldown(10)
-		to_chat(user, SPAN_NOTICE("You begin [unlocked ? "enabling" : "disabling"] \the [src]'s maglock."))
-
-		if(!do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
-			return
-
-		if(shattered) return
-
-		unlocked = !unlocked
-		playsound(user, 'sound/machines/lockreset.ogg', 50, 1)
-		to_chat(user, SPAN_NOTICE("You [unlocked ? "disable" : "enable"] the maglock."))
-
 	update_icon()

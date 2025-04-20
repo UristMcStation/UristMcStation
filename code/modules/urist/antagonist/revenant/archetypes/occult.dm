@@ -9,10 +9,10 @@
 // SPOOPS: Cultify atoms, ghosts, uncontrollable summons
 */
 
-/obj/effect/rune/revenant
+/obj/rune/revenant
 
 
-/obj/effect/rune/revenant/attack_hand(var/mob/living/user)
+/obj/rune/revenant/attack_hand(mob/living/user)
 	if(istype(user.wear_mask, /obj/item/clothing/mask/muzzle) || user.silent)
 		to_chat(user, "You are unable to speak the words of the rune.")
 		return
@@ -24,7 +24,7 @@
 	return
 
 
-/obj/effect/rune/revenant/ward
+/obj/rune/revenant/ward
 	strokes = 8
 
 	// these are set 'properly' at runtime
@@ -33,7 +33,7 @@
 	var/active = FALSE
 
 
-/obj/effect/rune/revenant/ward/proc/IsExpired()
+/obj/rune/revenant/ward/proc/IsExpired()
 	var/check_time = world.time
 	var/timedelta = (check_time - src.activated_at)
 	var/lifespan = (src.lifespan || 0)
@@ -44,7 +44,7 @@
 	return FALSE
 
 
-/obj/effect/rune/revenant/ward/proc/Activate()
+/obj/rune/revenant/ward/proc/Activate()
 	src.active = TRUE
 	src.activated_at = world.time
 	src.lifespan = rand(10, 20) MINUTES
@@ -52,13 +52,13 @@
 	return TRUE
 
 
-/obj/effect/rune/revenant/ward/proc/Deactivate()
+/obj/rune/revenant/ward/proc/Deactivate()
 	src.active = FALSE
 	src.visible_message(SPAN_NOTICE("The [src.name]'s glow fades slowly..."))
 	return TRUE
 
 
-/obj/effect/rune/revenant/ward/cast(var/mob/living/user)
+/obj/rune/revenant/ward/cast(mob/living/user)
 	if(!istype(user))
 		return
 
@@ -76,7 +76,7 @@
 	return
 
 
-/obj/effect/rune/revenant/ward/proc/register_ward(var/datum/bluespace_revenant/revenant)
+/obj/rune/revenant/ward/proc/register_ward(datum/bluespace_revenant/revenant)
 	// Add a weakref to a rune to a tracker so that we can track their count and grant Suppression for each over time.
 
 	if(!istype(revenant))
@@ -119,17 +119,17 @@
 		to_chat(src, SPAN_WARNING("You need more space to draw a rune here."))
 		return
 
-	if(locate(/obj/effect/rune) in T)
+	if(locate(/obj/rune) in T)
 		to_chat(src, SPAN_WARNING("There's already a rune here.")) // Don't cross the runes
 		return
 
 	if(do_after(src, 10))
 		src.remove_blood_simple(5)
 
-		if(locate(/obj/effect/rune) in T)
+		if(locate(/obj/rune) in T)
 			return
 
-		var/obj/effect/rune/revenant/ward/R = new(T, get_rune_color(), get_blood_name())
+		var/obj/rune/revenant/ward/R = new(T, get_rune_color(), get_blood_name())
 
 		// Randomize appearance
 		R.strokes = rand(1, 10)
@@ -158,7 +158,7 @@
 	activate_message = "<span class='notice'>You remember an intricate pattern that will slow your Distortion growth for a while when drawn on the floor in blood. This scales for each active rune.</span>"
 
 
-/datum/bluespace_revenant/proc/ProcessRuneWards(var/ticks = 1)
+/datum/bluespace_revenant/proc/ProcessRuneWards(ticks = 1)
 	if(isnull(src.trackers))
 		src.trackers = list()
 
@@ -178,7 +178,7 @@
 	var/list/new_wards_list = list()
 
 	for(var/weakref/ward_ref in wards_list)
-		var/obj/effect/rune/revenant/ward/ward = ward_ref.resolve()
+		var/obj/rune/revenant/ward/ward = ward_ref.resolve()
 
 		if(!istype(ward))
 			continue
@@ -209,7 +209,7 @@
 	return effective_suppression_total
 
 
-/datum/power/revenant/bs_hunger/rune_wards/Activate(var/datum/mind/M)
+/datum/power/revenant/bs_hunger/rune_wards/Activate(datum/mind/M)
 	. = ..(M)
 
 	if(!.)
@@ -236,7 +236,7 @@
 	name = "DISTORTION: Cultify"
 
 
-/datum/power/revenant/distortion/cultify/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/cultify/Apply(atom/A, datum/bluespace_revenant/revenant)
 	var/mob/M = A
 	var/turf/T = A
 
@@ -250,7 +250,7 @@
 
 
 
-/proc/bsrevenant_veiltear_helper(var/atom/A, var/datum/bluespace_revenant/revenant, var/list/mobselection_override = null, var/faction_override = null)
+/proc/bsrevenant_veiltear_helper(atom/A, datum/bluespace_revenant/revenant, list/mobselection_override = null, faction_override = null)
 	if(!istype(A))
 		return
 
@@ -261,7 +261,7 @@
 	if(!istype(T))
 		return
 
-	var/obj/effect/gateway/preexisting = locate() in T
+	var/obj/gateway/preexisting = locate() in T
 	if(preexisting)
 		return FALSE
 
@@ -271,7 +271,7 @@
 	var/previous_time = revenant.trackers["last veil tear time"]
 	var/current_time = world.time
 
-	var/obj/effect/gateway/hole = new(T)
+	var/obj/gateway/hole = new(T)
 	hole.density = FALSE
 
 	QDEL_IN(hole, 30 SECONDS)
@@ -285,7 +285,7 @@
 		spawn(rand(15, 25 SECONDS))
 			var/list/possible_spawns = mobselection_override
 
-			if(!istype(possible_spawns) || !(possible_spawns?.len))
+			if(!istype(possible_spawns) || !length(possible_spawns))
 				possible_spawns = list(
 					/mob/living/simple_animal/hostile/urist/imp,
 					/mob/living/simple_animal/hostile/scarybat/cult,
@@ -314,7 +314,7 @@
 	distortion_threshold = 36000 // 30 mins
 
 
-/datum/power/revenant/distortion/veil_tear/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/veil_tear/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -389,7 +389,7 @@
 	name = "DISTORTION - Sigils"
 
 
-/datum/power/revenant/distortion/sigilspam/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/sigilspam/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -399,7 +399,7 @@
 
 	var/runeicon = rand(1, 10)
 	var/duration = rand(30 SECONDS, 90 SECONDS)
-	var/obj/effect/temporary/fakerune = new(T, duration, 'icons/obj/rune.dmi', "[runeicon]")
+	var/obj/temporary/fakerune = new(T, duration, 'icons/obj/rune.dmi', "[runeicon]")
 
 	if(istype(fakerune))
 		fakerune.layer = BELOW_DOOR_LAYER
@@ -422,7 +422,7 @@
 	distortion_threshold = 24000 // 20 mins
 
 
-/datum/power/revenant/distortion/haunters/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/haunters/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -430,7 +430,7 @@
 	if(!istype(T))
 		return
 
-	var/obj/effect/haunter/chaser/classic/spoop = new(T)
+	var/obj/urist_intangible/haunter/chaser/classic/spoop = new(T)
 
 	if(istype(spoop))
 		return TRUE

@@ -1,6 +1,7 @@
 /obj/machinery/door/airlock/multi_tile/marine
 	name = "Airlock"
 	icon = 'icons/urist/structures&machinery/doors/Door2x1marine.dmi'
+	icon_state = "original"
 	assembly_type = /obj/structure/door_assembly/multi_tile
 	bound_height = 64
 	bound_width = 64 //changed in New(), meant to stop geometry from breaking
@@ -73,14 +74,14 @@
 	show_browser(user, dat, "window=autolathe")
 	onclose(user, "autolathe")
 
-/obj/machinery/scom/scomscience/attackby(obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/scom/scomscience/use_tool(obj/item/O, mob/living/user, list/click_params)
 	if (busy)
 		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
-		return
+		return TRUE
 
 	if(!science_capable)
 		to_chat(user, "<span class='notice'>\The [src] is not designed for deconstruction!.</span>")
-		return
+		return TRUE
 
 	if(O.scomtechlvl > scomtechlvl)
 		scomtechlvl = O.scomtechlvl
@@ -106,6 +107,8 @@
 	qdel(O)
 
 	updateUsrDialog()
+
+	return ..()
 
 /obj/machinery/scom/scomscience/attack_hand(mob/user as mob)
 	user.set_machine(src)
@@ -185,7 +188,7 @@
 	show_category = "Vehicles"
 	restricted_category = "Vehicles"
 	science_capable = 0
-	icon = 'icons/obj/machines/drone_fab.dmi'
+	icon = 'icons/obj/machines/fabricators/drone_fab.dmi'
 	icon_state = "drone_fab_idle"
 	animation_state = "h_lathe_leave"
 
@@ -297,7 +300,8 @@
 		return
 
 /obj/machinery/scom/teleporter1
-	icon_state = "tele1"
+	icon = 'icons/obj/portals.dmi'
+	icon_state = "portal"
 	name = "teleporter"
 	anchored = TRUE
 	density = TRUE
@@ -332,7 +336,7 @@
 		if(isturf(src.loc))
 			var/turf/destination = src.loc
 			A.forceMove(destination)
-			var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
+			var/datum/effect/spark_spread/sparks = new /datum/effect/spark_spread()
 			sparks.set_up(2, 1, src)
 			sparks.start()
 

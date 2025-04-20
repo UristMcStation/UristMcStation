@@ -1,24 +1,24 @@
-GLOBAL_LIST_INIT(possible_chassis, list(
-		"Drone" = "drone",
-		"Cat" = "cat",
-		"Mouse" = "mouse",
-		"Monkey" = "monkey",
-		"Rabbit" = "rabbit",
-		"Mushroom" = "mushroom",
-		"Corgi" = "corgi",
-		"Crow" = "crow",
-		"Humanoid" = "humanoid"
-		))
+GLOBAL_LIST_AS(possible_chassis, list(
+	"Drone" = "drone",
+	"Cat" = "cat",
+	"Mouse" = "mouse",
+	"Monkey" = "monkey",
+	"Rabbit" = "rabbit",
+	"Mushroom" = "mushroom",
+	"Corgi" = "corgi",
+	"Crow" = "crow",
+	"Humanoid" = "humanoid"
+))
 
-GLOBAL_LIST_INIT(possible_say_verbs, list(
-		"Robotic" = list("states","declares","queries"),
-		"Natural" = list("says","yells","asks"),
-		"Beep" = list("beeps","beeps loudly","boops"),
-		"Chirp" = list("chirps","chirrups","cheeps"),
-		"Feline" = list("purrs","yowls","meows"),
-		"Canine" = list("yaps", "barks", "woofs"),
-		"Corvid" = list("caws", "caws loudly", "whistles")
-		))
+GLOBAL_LIST_AS(possible_say_verbs, list(
+	"Robotic" = list("states", "declares", "queries"),
+	"Natural" = list("says", "yells", "asks"),
+	"Beep" = list("beeps", "beeps loudly" ,"boops"),
+	"Chirp" = list("chirps", "chirrups", "cheeps"),
+	"Feline" = list("purrs", "yowls", "meows"),
+	"Canine" = list("yaps", "barks", "woofs"),
+	"Corvid" = list("caws", "caws loudly", "whistles")
+))
 
 /mob/living/silicon/pai
 	name = "pAI"
@@ -66,14 +66,6 @@ GLOBAL_LIST_INIT(possible_say_verbs, list(
 	var/secHUD = 0			// Toggles whether the Security HUD is active or not
 	var/medHUD = 0			// Toggles whether the Medical  HUD is active or not
 
-	var/medical_cannotfind = 0
-	var/datum/data/record/medicalActive1		// Datacore record declarations for record software
-	var/datum/data/record/medicalActive2
-
-	var/security_cannotfind = 0
-	var/datum/data/record/securityActive1		// Could probably just combine all these into one
-	var/datum/data/record/securityActive2
-
 	var/obj/machinery/door/hackdoor		// The airlock being hacked
 	var/hackprogress = 0				// Possible values: 0 - 1000, >= 1000 means the hack is complete and will be reset upon next check
 	var/hack_aborted = 0
@@ -81,32 +73,41 @@ GLOBAL_LIST_INIT(possible_say_verbs, list(
 	var/translator_on = 0 // keeps track of the translator module
 
 
-	var/flashlight_max_bright = 0.5 //brightness of light when on, must be no greater than 1.
-	var/flashlight_inner_range = 1 //inner range of light when on, can be negative
-	var/flashlight_outer_range = 3 //outer range of light when on, can be negative
+	var/flashlight_power = 0.5 //brightness of light when on, must be no greater than 1.
+	var/flashlight_range = 3 //outer range of light when on, can be negative
 	var/light_on = FALSE
+	light_wedge = LIGHT_OMNI
 
 	hud_type = /datum/hud/pai
 
-/mob/living/silicon/pai/New(obj/item/device/paicard)
-	status_flags |= NO_ANTAG
-	card = paicard
-
-	//As a human made device, we'll understand sol common without the need of the translator
-	add_language(LANGUAGE_GALCOM, 1)
-	verbs -= /mob/living/verb/ghost
-
-	..()
-
-	if(card)
-		if(!card.radio)
-			card.radio = new /obj/item/device/radio(card)
-		silicon_radio = card.radio
 
 /mob/living/silicon/pai/Destroy()
 	card = null
-	silicon_radio = null // Because this radio actually belongs to another instance we simply null
+	silicon_radio = null
+	return ..()
+
+
+/mob/living/silicon/pai/Initialize(mapload, obj/item/device/paicard)
 	. = ..()
+	status_flags |= NO_ANTAG
+	add_language(LANGUAGE_GALCOM, TRUE)
+	verbs -= /mob/living/verb/ghost
+	software = default_pai_software.Copy()
+	card = paicard
+	if (card)
+		//Radio is inside us, but needs to match waht the card says correct type is
+		CreateRadio()
+	else
+		CRASH("PAI was created without card - This may be an error or require special handling")
+
+
+/mob/living/silicon/pai/proc/CreateRadio()
+	if (card)
+		if (ispath(card.radio))
+			silicon_radio = new card.radio(src)
+	else
+		silicon_radio = new /obj/item/device/radio(src)
+
 
 // this function shows the information about being silenced as a pAI in the Status panel
 /mob/living/silicon/pai/proc/show_silenced()
@@ -140,7 +141,7 @@ GLOBAL_LIST_INIT(possible_say_verbs, list(
 	silence_time = world.timeofday + 120 * 10		// Silence for 2 minutes
 	to_chat(src, SPAN_COLOR("green", "<b>Communication circuit overload. Shutting down and reloading communication circuits - speech and messaging functionality will be unavailable until the reboot is complete.</b>"))
 	if(prob(20))
-		var/turf/T = get_turf_or_move(loc)
+		var/turf/T = get_turf(loc)
 		for (var/mob/M in viewers(T))
 			M.show_message(SPAN_WARNING("A shower of sparks spray from [src]'s inner workings."), 3, SPAN_WARNING("You hear and smell the ozone hiss of electrical sparks being expelled violently."), 2)
 		return death(0)
@@ -187,7 +188,7 @@ GLOBAL_LIST_INIT(possible_say_verbs, list(
 	if(istype(card.loc,/obj/item/rig_module) || istype(card.loc,/obj/item/integrated_circuit/manipulation/ai))
 		to_chat(src, "There is no room to unfold inside \the [card.loc]. You're good and stuck.")
 		return 0
-	else if(istype(card.loc,/mob))
+	else if(ismob(card.loc))
 		var/mob/holder = card.loc
 		if(ishuman(holder))
 			var/mob/living/carbon/human/H = holder
@@ -225,9 +226,14 @@ GLOBAL_LIST_INIT(possible_say_verbs, list(
 		return
 	last_special = world.time + 100
 
+	//Turn off light, we're not a flashlight (unless we remain deployed)
+	if (light_on)
+		toggle_integrated_light()
+
 	// Move us into the card and move the card to the ground.
 	stop_pulling()
 	resting = FALSE
+	anchored = FALSE
 
 	// If we are being held, handle removing our holder from their inv.
 	var/obj/item/holder/H = loc
@@ -282,13 +288,14 @@ GLOBAL_LIST_INIT(possible_say_verbs, list(
 /mob/living/silicon/pai/use_tool(obj/item/tool, mob/user, list/click_params)
 	// ID Card - Set pAI access
 	var/obj/item/card/id/id = tool.GetIdCard()
+	var/datum/pronouns/pronouns = user.choose_from_pronouns()
 	if (istype(id))
 		var/id_name = GET_ID_NAME(id, tool)
 		var/list/new_access = id.GetAccess()
 		idcard.access = new_access
 		user.visible_message(
-			SPAN_NOTICE("\The [user] scans \a [tool] over \the [src], updating \his access."),
-			SPAN_NOTICE("You scan [id_name] over \the [src], updating \his access.")
+			SPAN_NOTICE("\The [user] scans \a [tool] over \the [src], updating [pronouns.his] access."),
+			SPAN_NOTICE("You scan [id_name] over \the [src], updating [pronouns.his] access.")
 		)
 		return TRUE
 
@@ -330,7 +337,16 @@ GLOBAL_LIST_INIT(possible_say_verbs, list(
 
 /mob/living/silicon/pai/proc/toggle_integrated_light()
 	if(!light_on)
-		set_light(flashlight_max_bright, flashlight_inner_range, flashlight_outer_range, 2)
+		if (light_wedge == LIGHT_OMNI)
+			light_wedge = LIGHT_VERY_WIDE
+			flashlight_power = 1
+			flashlight_range = 4
+		else
+			light_wedge = LIGHT_OMNI
+			flashlight_power = initial(flashlight_power)
+			flashlight_range = initial(flashlight_range)
+
+		set_light(flashlight_range, flashlight_power)
 		to_chat(src, SPAN_NOTICE("You enable your integrated light."))
 		light_on = TRUE
 	else

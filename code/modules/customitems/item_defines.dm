@@ -25,7 +25,7 @@
 	stampoverlay.pixel_x = rand(-2, 2)
 	stampoverlay.pixel_y = rand(-3, 2)
 	stampoverlay.icon_state = "paper_stamp-rd"
-	overlays += stampoverlay
+	AddOverlays(stampoverlay)
 
 	update_icon()
 
@@ -98,7 +98,7 @@
 ////////// Usable Items //////////
 //////////////////////////////////
 
-/obj/item/folder/blue/fluff/matthew_riebhardt //Matthew Riebhardt - ZekeSulastin
+/obj/item/material/folder/blue/fluff/matthew_riebhardt //Matthew Riebhardt - ZekeSulastin
 	name = "academic journal"
 	desc = "An academic journal, seemingly pertaining to medical genetics. This issue is for the second quarter of 2557. Paper flags demarcate some articles the owner finds interesting."
 	icon = 'icons/obj/custom_items.dmi'
@@ -106,7 +106,7 @@
 
 /////////////////////// Serveris: Officer's Notebook ////////////////////
 
-/obj/item/folder/blue/fluff/officer_notebook
+/obj/item/material/folder/blue/fluff/officer_notebook
 	name = "Officer's Notebook"
 	desc = "A simple, spiral bound notebook. A holographic crescent moon is printed on the cover, as well as 'S. Seto' beneath it. Numerous paper flags divide the pages, titled everything from incident reports to personal notes."
 	icon = 'icons/obj/custom_items.dmi'
@@ -435,7 +435,7 @@
 	if(!reagents.total_volume)
 		to_chat(user, "\red \The [src] is empty.")
 		return
-	if (!( istype(M, /mob) ))
+	if (!ismob(M))
 		return
 	if (reagents.total_volume)
 		if (M == user && user.ckey == "nerezza") //Make sure this is being used by the right person, for the right reason (self injection)

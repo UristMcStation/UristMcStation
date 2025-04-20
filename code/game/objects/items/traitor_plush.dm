@@ -12,9 +12,6 @@
 	. = ..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 10)
 
-/obj/item/reagent_containers/food/snacks/dehydrated_carp/attack(mob/M, mob/user, def_zone)
-	return
-
 /obj/item/reagent_containers/food/snacks/dehydrated_carp/attack_self(mob/user)
 	if (user.a_intent == I_HELP)
 		user.visible_message(SPAN_NOTICE("\The [user] hugs [src]!"), SPAN_NOTICE("You hug [src]!"))
@@ -28,7 +25,7 @@
 /obj/item/reagent_containers/food/snacks/dehydrated_carp/on_reagent_change()
 	if (reagents.has_reagent(/datum/reagent/water))
 		visible_message(SPAN_WARNING("\The [src] begins to shake as the liquid touches it."))
-		addtimer(new Callback(src, .proc/expand), 5 SECONDS)
+		addtimer(new Callback(src, PROC_REF(expand)), 5 SECONDS)
 
 /obj/item/reagent_containers/food/snacks/dehydrated_carp/proc/expand()
 	visible_message(SPAN_WARNING("\The [src] rapidly expands into a living space carp!"))
@@ -73,7 +70,7 @@
 	if (!phrase)
 		return
 	if (findtext(sanitize_phrase(msg), phrase))
-		addtimer(new Callback(src, .proc/activate), 5 SECONDS)
+		addtimer(new Callback(src, PROC_REF(activate)), 5 SECONDS)
 		audible_message(SPAN_DANGER("\The [src] begins to beep ominously, letting out a loud '[last_words]'!"))
 		playsound(loc, 'sound/weapons/armbomb.ogg', 75, 1, -3)
 
@@ -82,7 +79,7 @@
 	return replace_characters(phrase, replacechars)
 
 /obj/item/plushbomb/proc/activate()
-	explosion(src.loc, 3, EX_ACT_LIGHT)
+	explosion(src.loc, 3, EX_ACT_HEAVY)
 	qdel(src)
 
 /obj/item/plushbomb/get_antag_info()

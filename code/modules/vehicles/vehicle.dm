@@ -11,7 +11,7 @@
 	density = TRUE
 	anchored = TRUE
 	animate_movement=1
-	light_outer_range = 3
+	light_range = 3
 
 	can_buckle = 1
 	buckle_movable = 1
@@ -154,9 +154,10 @@
 	return
 
 /obj/vehicle/emp_act(severity)
+	SHOULD_CALL_PARENT(FALSE) //idk if this one should ignore it, don't really care rn.
 	var/was_on = on
 	stat |= MACHINE_STAT_EMPED
-	var/obj/effect/overlay/pulse2 = new /obj/effect/overlay(loc)
+	var/obj/overlay/pulse2 = new /obj/overlay(loc)
 	pulse2.icon = 'icons/effects/effects.dmi'
 	pulse2.icon_state = "empdisable"
 	pulse2.SetName("emp sparks")
@@ -171,6 +172,7 @@
 		stat &= ~MACHINE_STAT_EMPED
 		if(was_on)
 			turn_on()
+
 
 /obj/vehicle/attack_ai(mob/user as mob)
 	return
@@ -226,8 +228,8 @@
 
 	unload()
 
-	new /obj/effect/gibspawner/robot(Tsec)
-	new /obj/effect/decal/cleanable/blood/oil(src.loc)
+	new /obj/gibspawner/robot(Tsec)
+	new /obj/decal/cleanable/blood/oil(src.loc)
 
 	qdel(src)
 
@@ -251,7 +253,7 @@
 		turn_on()
 		return
 
-/obj/vehicle/proc/insert_cell(obj/item/cell/C, var/mob/living/carbon/human/H)
+/obj/vehicle/proc/insert_cell(obj/item/cell/C, mob/living/carbon/human/H)
 	if(cell)
 		return
 	if(!istype(C))
@@ -317,7 +319,7 @@
 	return 1
 
 
-/obj/vehicle/proc/unload(mob/user, var/direction)
+/obj/vehicle/proc/unload(mob/user, direction)
 	if(!load)
 		return
 
@@ -374,7 +376,7 @@
 /obj/vehicle/proc/update_stats()
 	return
 
-/obj/vehicle/attack_generic(mob/user, var/damage, var/attack_message)
+/obj/vehicle/attack_generic(mob/user, damage, attack_message)
 	if(!damage)
 		return
 	visible_message("<span class='danger'>\The [user] [attack_message] the \the [src]!</span>")
@@ -383,5 +385,5 @@
 		user.do_attack_animation(src)
 	adjust_health(-damage)
 	if(prob(10))
-		new /obj/effect/decal/cleanable/blood/oil(src.loc)
+		new /obj/decal/cleanable/blood/oil(src.loc)
 	return 1

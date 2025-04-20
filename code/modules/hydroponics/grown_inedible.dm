@@ -5,7 +5,7 @@
 /obj/item/bananapeel
 	name = "banana peel"
 	desc = "A peel from a banana."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/flora/hydroponics_products.dmi'
 	icon_state = "banana_peel"
 	item_state = "banana_peel"
 	w_class = ITEM_SIZE_SMALL
@@ -24,8 +24,7 @@
 	var/carve_time = 5 SECONDS
 	var/result_type = null
 
-/obj/item/carvable/attackby(obj/item/W, mob/user)
-	..()
+/obj/item/carvable/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if (result_type && is_type_in_list(W, allow_tool_types))
 		user.visible_message(
 			SPAN_ITALIC("\The [user] starts to carve \the [src] with \a [W]."),
@@ -34,7 +33,7 @@
 		)
 		if (!do_after(user, carve_time, src, DO_PUBLIC_UNIQUE))
 			to_chat(user, SPAN_ITALIC("You stop carving \the [src]."))
-			return
+			return TRUE
 		var/result = new result_type()
 		user.put_in_hands(result)
 		user.visible_message(
@@ -42,6 +41,9 @@
 			range = 5
 		)
 		qdel(src)
+		return TRUE
+
+	return ..()
 
 /obj/item/carvable/corncob
 	name = "corn cob"
@@ -79,7 +81,7 @@
 	throw_range = 20
 
 
-/obj/item/hollowpineapple/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/hollowpineapple/use_tool(obj/item/W, mob/living/user, list/click_params)
 	..()
 	if(istype(W, /obj/item/circular_saw) || istype(W, /obj/item/material/hatchet) || istype(W, /obj/item/material/knife/kitchen) || istype(W, /obj/item/material/knife) || istype(W, /obj/item/material/knife/ritual))
 		to_chat(user, "<span class='notice'>You use [W] to carve the pineapple into a mug!</span>")
@@ -98,7 +100,7 @@
 	throw_range = 20
 
 
-/obj/item/hollowcoconut/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/hollowcoconut/use_tool(obj/item/W, mob/living/user, list/click_params)
 	..()
 	if(istype(W, /obj/item/circular_saw) || istype(W, /obj/item/material/hatchet) || istype(W, /obj/item/material/knife/kitchen) || istype(W, /obj/item/material/knife) || istype(W, /obj/item/material/knife/ritual))
 		to_chat(user, "<span class='notice'>You use [W] to carve the coconut shell into a mug!</span>")

@@ -188,9 +188,9 @@
 	name = "bloodtomato"
 	seed_name = "blood tomato"
 	display_name = "blood tomato plant"
-	mutants = list("killer")
+	mutants = list("killertomato")
 	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/blood = list(1,5))
-	splat_type = /obj/effect/decal/cleanable/blood/splatter
+	splat_type = /obj/decal/cleanable/blood/splatter
 
 /datum/seed/tomato/blood/New()
 	..()
@@ -346,7 +346,7 @@
 	display_name = "chanterelle cluster"
 	mutants = list("reishi","amanita","plumphelmet")
 	chems = list(/datum/reagent/nutriment = list(1,25))
-	splat_type = /obj/effect/vine
+	splat_type = /obj/vine
 	kitchen_tag = "mushroom"
 
 /datum/seed/mushroom/New()
@@ -649,7 +649,8 @@
 	name = "peanut"
 	seed_name = "peanut"
 	display_name = "peanut plant"
-	chems = list(/datum/reagent/nutriment = list(1,10))
+	chems = list(/datum/reagent/nutriment/groundpeanuts = list(3,5))
+	kitchen_tag = "peanut"
 
 /datum/seed/peanuts/New()
 	..()
@@ -777,7 +778,7 @@
 	name = "potato"
 	seed_name = "potato"
 	display_name = "potato plant"
-	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/drink/juice/potato = list(10,10))
+	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/drink/juice/potato = list(3,6))
 	kitchen_tag = "potato"
 
 /datum/seed/potato/New()
@@ -796,7 +797,7 @@
 	name = "garlic"
 	seed_name = "garlic"
 	display_name = "garlic plant"
-	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/drink/juice/garlic = list(10,10))
+	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/drink/juice/garlic = list(3,6))
 	kitchen_tag = "garlic"
 
 /datum/seed/garlic/New()
@@ -814,7 +815,7 @@
 	name = "onion"
 	seed_name = "onion"
 	display_name = "onion plant"
-	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/drink/juice/onion = list(10,10))
+	chems = list(/datum/reagent/nutriment = list(1,10), /datum/reagent/drink/juice/onion = list(3,6))
 	kitchen_tag = "onion"
 
 /datum/seed/onion/New()
@@ -1580,7 +1581,7 @@
 	name = "hrukhza"
 	seed_name = "hrukhza flower"
 	display_name = "hrukhza flower"
-	chems = list(/datum/reagent/drink/alien/unathijuice = list(10,10), /datum/reagent/nutriment = list(5,5))
+	chems = list(/datum/reagent/drink/unathijuice = list(10,10), /datum/reagent/nutriment = list(5,5))
 
 /datum/seed/hrukhza/New()
 	..()
@@ -1602,7 +1603,7 @@
 	seed_noun = SEED_NOUN_SPORES
 	display_name = "o'krri cluster"
 	chems = list(/datum/reagent/nutriment = list(1,25), /datum/reagent/drugs/psilocybin = list(1,3))
-	splat_type = /obj/effect/vine
+	splat_type = /obj/vine
 	kitchen_tag = "mushroom"
 
 /datum/seed/okrri/New()
@@ -1621,7 +1622,7 @@
 
 /datum/seed/ximikoa
 	name = "ximikoa"
-	seed_name = "ximi'koa stalks"
+	seed_name = "ximi'koa"
 	display_name = "ximi'koa patch"
 	chems = list(/datum/reagent/nutriment = list(1,2), /datum/reagent/sugar = list(4,5))
 	fruit_size = ITEM_SIZE_TINY
@@ -1643,7 +1644,7 @@
 	name = "qokkloa"
 	seed_name = "qokk'loa moss"
 	display_name = "qokk'loa moss"
-	chems = list(/datum/reagent/drugs/hextro = list(1,25), /datum/reagent/ethanol/alien/qokkloa = list(10,10) )
+	chems = list(/datum/reagent/drugs/hextro = list(1,25), /datum/reagent/ethanol/qokkloa = list(10,10) )
 
 /datum/seed/qokkloa/New()
 	..()
@@ -1838,3 +1839,41 @@
 	set_trait(TRAIT_IDEAL_LIGHT,5)
 	set_trait(TRAIT_PRODUCT_COLOUR,"#ef5f32")
 	set_trait(TRAIT_PLANT_COLOUR,"#ef5f32")
+
+/datum/seed/almond
+	name = "almond"
+	seed_name = "almond"
+	display_name = "almond plant"
+	chems = list(/datum/reagent/nutriment/almondmeal = list(4,7))
+	kitchen_tag = "almond"
+
+/datum/seed/almond/New()
+	..()
+	set_trait(TRAIT_HARVEST_REPEAT,1)
+	set_trait(TRAIT_MATURATION,6)
+	set_trait(TRAIT_PRODUCTION,6)
+	set_trait(TRAIT_YIELD,6)
+	set_trait(TRAIT_POTENCY,10)
+	set_trait(TRAIT_PRODUCT_ICON,"nuts")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#eddcc8")
+	set_trait(TRAIT_PLANT_ICON,"bush2")
+	set_trait(TRAIT_IDEAL_LIGHT, 6)
+
+/datum/seed/maneater
+	name = "maneater"
+	seed_name = "maneater"
+	seed_noun = SEED_NOUN_PITS
+	display_name = "bulbous pod"
+	can_self_harvest = TRUE
+	product_type = /mob/living/simple_animal/hostile/man_eater
+
+/datum/seed/maneater/New()
+	..()
+	set_trait(TRAIT_IMMUTABLE,1)
+	set_trait(TRAIT_ENDURANCE,10)
+	set_trait(TRAIT_MATURATION,5)
+	set_trait(TRAIT_YIELD,1)
+	set_trait(TRAIT_PRODUCT_COLOUR,"#40641a")
+	set_trait(TRAIT_PLANT_COLOUR,"#579712")
+	set_trait(TRAIT_PLANT_ICON,"alien4")
+	set_trait(TRAIT_HARVEST_REPEAT,1)

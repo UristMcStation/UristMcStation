@@ -25,7 +25,7 @@
 
 
 //a more persistent variant of the shadow wight with a different soundset
-/obj/effect/haunter
+/obj/urist_intangible/haunter
 	name = "wight"
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost-narsie"
@@ -34,11 +34,11 @@
 	var/disappear_chance = 1
 
 
-/obj/effect/haunter/proc/GetNextPos()
+/obj/urist_intangible/haunter/proc/GetNextPos()
 	return get_turf(pick(orange(1,src)))
 
 
-/obj/effect/haunter/proc/AffectOverlappedMob(mob/M)
+/obj/urist_intangible/haunter/proc/AffectOverlappedMob(mob/M)
 	if(!M)
 		return
 
@@ -48,16 +48,16 @@
 	return TRUE
 
 
-/obj/effect/haunter/Initialize()
+/obj/urist_intangible/haunter/Initialize()
 	. = ..()
 	START_PROCESSING(SSobj, src)
 
 
-/obj/effect/haunter/Destroy()
+/obj/urist_intangible/haunter/Destroy()
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/effect/haunter/Process()
+/obj/urist_intangible/haunter/Process()
 	if(src.loc)
 		var/turf/next_pos = src.GetNextPos()
 		src.dir = get_dir(src.loc, next_pos)
@@ -83,7 +83,7 @@
 // Unused by the base class, but factored out for common behavior in independent subclasses
 */
 
-/obj/effect/haunter/proc/ChaseMobTarget(mob/M, var/prob_random = 10, var/min_dist = 1)
+/obj/urist_intangible/haunter/proc/ChaseMobTarget(mob/M, prob_random = 10, min_dist = 1)
 	// factored out to reuse across different chasey types
 	var/turf/next_pos = null
 	var/clamped_odds = clamp(prob_random, 0, 100)
@@ -105,7 +105,7 @@
 	return next_pos
 
 
-/obj/effect/haunter/proc/StoreMobTarget(mob/M)
+/obj/urist_intangible/haunter/proc/StoreMobTarget(mob/M)
 	// factored out to reuse across different chasey types
 	var/weakref/mob_ref = null
 
@@ -115,7 +115,7 @@
 	return mob_ref
 
 
-/obj/effect/haunter/proc/GetMobTarget(weakref/mob_ref)
+/obj/urist_intangible/haunter/proc/GetMobTarget(weakref/mob_ref)
 	// factored out to reuse across different chasey types
 	if(isnull(mob_ref))
 		return
@@ -131,13 +131,13 @@
 */
 
 // Basic, classic Haunter
-/obj/effect/haunter/classic
+/obj/urist_intangible/haunter/classic
 	// A simple alias to make spawning easier and insulate from changes in the base class
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost-narsie"
 
 
-/obj/effect/haunter/chaser
+/obj/urist_intangible/haunter/chaser
 	// will follow the last touched mob around
 	var/weakref/mob_target = null
 
@@ -145,7 +145,7 @@
 	var/prob_random_chase = 1
 
 
-/obj/effect/haunter/chaser/AffectOverlappedMob(mob/M)
+/obj/urist_intangible/haunter/chaser/AffectOverlappedMob(mob/M)
 	if(!M)
 		return
 
@@ -161,19 +161,19 @@
 	return
 
 
-/obj/effect/haunter/chaser/GetNextPos()
+/obj/urist_intangible/haunter/chaser/GetNextPos()
 	var/turf/next_pos = null
 	var/mob/M = GetMobTarget(src.mob_target)
 	next_pos = src.ChaseMobTarget(M, src.prob_random_chase)
 	return next_pos
 
 
-/obj/effect/haunter/chaser/classic
+/obj/urist_intangible/haunter/chaser/classic
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost-narsie"
 
 
-/obj/effect/haunter/chaser/uristmonster
+/obj/urist_intangible/haunter/chaser/uristmonster
 	icon = 'icons/uristmob/monsters.dmi'
 	icon_state = "oozer"
 
@@ -181,7 +181,7 @@
 	alpha = 200
 
 
-/obj/effect/haunter/chaser/uristmonster/New()
+/obj/urist_intangible/haunter/chaser/uristmonster/New()
 	. = ..()
 
 	src.icon_state = pick(

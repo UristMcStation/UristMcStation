@@ -1,5 +1,6 @@
 var/global/list/mob_hat_cache = list()
 /proc/get_hat_icon(obj/item/hat, offset_x = 0, offset_y = 0)
+	RETURN_TYPE(/image)
 	var/t_state = hat.icon_state
 	if(hat.item_state_slots && hat.item_state_slots[slot_head_str])
 		t_state = hat.item_state_slots[slot_head_str]
@@ -35,9 +36,9 @@ var/global/list/mob_hat_cache = list()
 	lawupdate = FALSE
 	density = TRUE
 	req_access = list(access_engine, access_robotics)
-	integrated_light_max_bright = 0.5
+	integrated_light_power = 0.5
 	local_transmit = 1
-	possession_candidate = 1
+	possession_candidate = TRUE
 
 	can_pull_size = ITEM_SIZE_NORMAL
 	can_pull_mobs = MOB_PULL_SMALLER
@@ -86,13 +87,13 @@ var/global/list/mob_hat_cache = list()
 	if (lock_to_current_z)
 		z_locked = get_z(src)
 
-	GLOB.moved_event.register(src, src, /mob/living/silicon/robot/drone/proc/on_moved)
+	GLOB.moved_event.register(src, src, PROC_REF(on_moved))
 
 /mob/living/silicon/robot/drone/Destroy()
 	if(hat)
 		hat.dropInto(loc)
 		hat = null
-	GLOB.moved_event.unregister(src, src, /mob/living/silicon/robot/drone/proc/on_moved)
+	GLOB.moved_event.unregister(src, src, PROC_REF(on_moved))
 	. = ..()
 
 /mob/living/silicon/robot/drone/proc/on_moved(atom/movable/am, turf/old_loc, turf/new_loc)
@@ -166,19 +167,20 @@ var/global/list/mob_hat_cache = list()
 
 /mob/living/silicon/robot/drone/on_update_icon()
 
-	overlays.Cut()
+	ClearOverlays()
 	if(stat == 0)
 		if(controlling_ai)
-			overlays += "eyes-[icon_state]-ai"
+			AddOverlays("eyes-[icon_state]-ai")
 		else if(emagged)
-			overlays += "eyes-[icon_state]-emag"
+			AddOverlays("eyes-[icon_state]-emag")
 		else
-			overlays += "eyes-[icon_state]"
+			AddOverlays("eyes-[icon_state]")
 	else
-		overlays -= "eyes"
+		CutOverlays("eyes")
 
 	if(hat) // Let the drones wear hats.
-		overlays |= get_hat_icon(hat, hat_x_offset, hat_y_offset)
+		var/hat_icon = get_hat_icon(hat, hat_x_offset, hat_y_offset)
+		AddOverlays(hat_icon)
 
 /mob/living/silicon/robot/drone/choose_icon()
 	return
@@ -285,7 +287,8 @@ var/global/list/mob_hat_cache = list()
 	clear_inherent_laws()
 	QDEL_NULL(laws)
 	laws = new /datum/ai_laws/syndicate_override
-	set_zeroth_law("Only [user.real_name] and people \he designates as being such are operatives.")
+	var/datum/pronouns/pronouns = user.choose_from_pronouns()
+	set_zeroth_law("Only [user.real_name] and people [pronouns.he] designates as being such are operatives.")
 
 	if(!controlling_ai)
 		to_chat(src, "<b>Obey these laws:</b>")

@@ -1,6 +1,6 @@
 /obj/item/fuel_assembly
 	name = "fuel rod assembly"
-	icon = 'icons/obj/machines/power/fusion.dmi'
+	icon = 'icons/obj/fusion_fuel_assembly.dmi'
 	icon_state = "fuel_assembly"
 	layer = 4
 
@@ -45,18 +45,18 @@
 		SetName("[fuel_type] fuel rod assembly")
 		desc = "A fuel rod for a fusion reactor. This one is made from [fuel_type]."
 
-	icon_state = "blank"
+	icon_state = "fuel_assembly"
 	var/image/I = image(icon, "fuel_assembly")
 	I.color = fuel_colour
-	overlays += list(I, image(icon, "fuel_assembly_bracket"))
+	AddOverlays(list(I, image(icon, "fuel_assembly_bracket")))
 	rod_quantities[fuel_type] = initial_amount
 
 /obj/item/fuel_assembly/Process()
 	if(!radioactivity)
 		return PROCESS_KILL
 
-	if(istype(loc, /turf))
-		SSradiation.radiate(src, max(1,Ceil(radioactivity/15)))
+	if(isturf(loc))
+		SSradiation.radiate(src, max(1,ceil(radioactivity/15)))
 
 /obj/item/fuel_assembly/Destroy()
 	STOP_PROCESSING(SSobj, src)

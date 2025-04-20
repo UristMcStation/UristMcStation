@@ -4,7 +4,7 @@
 //legacy crystal
 /obj/machinery/crystal
 	name = "Crystal"
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/crystals.dmi'
 	icon_state = "crystal"
 
 
@@ -17,7 +17,7 @@
 /obj/structure/research_crystal
 	name = "glowing crystal"
 	desc = "A spiky, glowing, crystal. Some parts of it appear to be flaking and could be cut off."
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/crystals.dmi'
 	icon_state = "crystal"
 	anchored = TRUE
 	density = TRUE
@@ -64,7 +64,7 @@
 /obj/item/research_crystal
 	name = "crystal shard"
 	desc = "A glowing shard from a crystal, it seems to hum while you hold it."
-	icon = 'icons/obj/shards.dmi'
+	icon = 'icons/obj/materials/shards.dmi'
 	icon_state = "shardlarge"
 	origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 3, TECH_ELECTROMAGNETIC = 7)
 

@@ -1,6 +1,6 @@
-GLOBAL_VAR_INIT(total_runtimes, 0)
-GLOBAL_VAR_INIT(total_runtimes_skipped, 0)
-GLOBAL_VAR_INIT(actual_error_file_line, new/regex("^%% (.*?),(.*?) %% "))
+GLOBAL_VAR_AS(total_runtimes, 0)
+GLOBAL_VAR_AS(total_runtimes_skipped, 0)
+GLOBAL_TYPED_AS(actual_error_file_line, /regex, regex("^%% (.*?),(.*?) %% "))
 
 #ifdef DEBUG
 /world/Error(exception/E)
@@ -21,7 +21,7 @@ GLOBAL_VAR_INIT(actual_error_file_line, new/regex("^%% (.*?),(.*?) %% "))
 	var/eline = E.line
 
 	var/regex/actual_error_file_line = GLOB.actual_error_file_line
-	if(actual_error_file_line.Find_char(E.name))
+	if(actual_error_file_line?.Find_char(E.name))
 		efile = actual_error_file_line.group[1]
 		eline = actual_error_file_line.group[2]
 		E.name = replacetext_char(E.name, actual_error_file_line, "")
@@ -30,7 +30,7 @@ GLOBAL_VAR_INIT(actual_error_file_line, new/regex("^%% (.*?),(.*?) %% "))
 	var/last_seen = error_last_seen[erroruid]
 	var/cooldown = error_cooldown[erroruid] || 0
 
-	if(last_seen == null)
+	if(isnull(last_seen))
 		error_last_seen[erroruid] = world.time
 		last_seen = world.time
 

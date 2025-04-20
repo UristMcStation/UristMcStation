@@ -5,7 +5,7 @@
 // So this cannot be abused for other uses, we make it two-handed and inable to have its storage looked into.
 /obj/item/storage/laundry_basket
 	name = "laundry basket"
-	icon = 'icons/obj/janitor.dmi'
+	icon = 'icons/obj/janitor_tools.dmi'
 	icon_state = "laundry-empty"
 	item_state = "laundry"
 	desc = "The peak of thousands of years of laundry evolution."
@@ -14,10 +14,8 @@
 	max_w_class = ITEM_SIZE_HUGE
 	max_storage_space = DEFAULT_BACKPACK_STORAGE //20 for clothes + a bit of additional space for non-clothing items that were worn on body
 	storage_slots = 14
-	use_to_pickup = 1
-	allow_quick_empty = 1
-	allow_quick_gather = 1
-	collection_mode = 1
+	allow_quick_empty = TRUE
+	allow_quick_gather = TRUE
 	var/linked
 
 
@@ -79,7 +77,8 @@
 	icon = 'icons/obj/weapons/other.dmi'
 	icon_state = "offhand"
 	name = "second hand"
-	use_to_pickup = 0
+	allow_quick_gather = FALSE
+	quick_gather_single = TRUE
 
 /obj/item/storage/laundry_basket/offhand/dropped(mob/user as mob)
 	..()

@@ -15,8 +15,10 @@
 /datum/progressbar/private/Destroy()
 	if (client && bar)
 		client.images -= bar
-	qdel(bar)
-	. = ..()
+	actor = null
+	bar = null
+	client = null
+	return ..()
 
 /datum/progressbar/private/New(mob/actor, max_progress, atom/actee, display_on_actor = FALSE)
 	actee = actee || actor
@@ -57,9 +59,11 @@
 
 /datum/progressbar/public/Destroy()
 	if (actor && bar)
-		actor.vis_contents -= bar
+		actor.remove_vis_contents(bar)
+	actor = null
+	actee = null
 	qdel(bar)
-	. = ..()
+	return ..()
 
 /datum/progressbar/public/New(atom/movable/actor, max_progress, atom/movable/actee, display_on_actor = FALSE)
 	actee = actee || actor
@@ -75,7 +79,7 @@
 	bar.icon_state = "pub_prog_bar_0"
 	calculate_position()
 	bar.layer = ABOVE_HUMAN_LAYER
-	actor.vis_contents += bar
+	actor.add_vis_contents(bar)
 
 /datum/progressbar/public/update(progress)
 	if (!actor || !actee)

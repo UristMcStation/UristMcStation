@@ -4,7 +4,7 @@
 /obj/item/cell/alien
 	name = "alien device"
 	desc = "It hums with power."
-	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon = 'icons/obj/xenoarchaeology_finds.dmi'
 	icon_state = "unknown1"
 	maxcharge = 5000
 	origin_tech = list(TECH_POWER = 7)
@@ -21,12 +21,12 @@
 /obj/machinery/power/apc/alien
 	name = "alien device"
 	desc = "It's affixed to the floor, with a thick wire going into it."
-	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon = 'icons/obj/xenoarchaeology_finds.dmi'
 	icon_state = "ano10"
 	update_state = 0 //Don't pixelshift us on wall
 	cell_type = /obj/item/cell/alien
 	autoname = 0
-	
+
 /obj/machinery/power/apc/alien/on_update_icon()
 	check_updates()
 	if(update_state & APC_UPDATE_ALLGOOD)
@@ -60,7 +60,7 @@
 /obj/item/light/alien/Initialize()
 	. = ..()
 	if(!random_light_color)
-		random_light_color = get_random_colour(FALSE, 100, 255)
+		random_light_color = get_random_colour(255)
 	b_colour = random_light_color
 	color = random_light_color
 
@@ -74,5 +74,5 @@
 	var/material/A = SSmaterials.get_material_by_name(MATERIAL_ALIENALLOY)
 	if(A)
 		door_color = A.icon_colour
-	stripe_color = get_random_colour(FALSE, 0, 255)
+	stripe_color = get_random_colour(0, 255)
 	update_icon()

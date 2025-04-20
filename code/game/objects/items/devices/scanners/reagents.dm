@@ -1,7 +1,7 @@
 /obj/item/device/scanner/reagent
 	name = "reagent scanner"
 	desc = "A hand-held reagent scanner which identifies chemical agents."
-	icon = 'icons/obj/spectrometer.dmi'
+	icon = 'icons/obj/tools/spectrometer.dmi'
 	icon_state = "spectrometer"
 	item_state = "analyzer"
 
@@ -18,6 +18,7 @@
 	user.show_message(SPAN_NOTICE(scan_data))
 
 /proc/reagent_scan_results(obj/O, details = 0)
+	RETURN_TYPE(/list)
 	if(isnull(O.reagents))
 		return list("No significant chemical agents found in [O].")
 	if(length(O.reagents.reagent_list) == 0)
@@ -29,7 +30,7 @@
 
 /obj/item/device/scanner/reagent/adv
 	name = "advanced reagent scanner"
-	icon = 'icons/obj/spectrometer_advanced.dmi'
+	icon = 'icons/obj/tools/spectrometer_advanced.dmi'
 	icon_state = "adv_spectrometer"
 	details = 1
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)

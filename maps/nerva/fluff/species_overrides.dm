@@ -1,5 +1,5 @@
 //humans
-/datum/species/human
+/singleton/species/human
 	description = "Humanity originated in the Sol system, and over the last five centuries has spread \
 	colonies across a wide swathe of space. They hold a wide range of forms and creeds.<br/><br/> \
 	Although the Terran Confederacy maintains control over much of human-controlled space, it is currently \
@@ -18,8 +18,9 @@
 			CULTURE_HUMAN_VENUSIAN,
 			CULTURE_HUMAN_VENUSLOW,
 			CULTURE_HUMAN_BELTER,
-			CULTURE_HUMAN_PLUTO,
-			CULTURE_HUMAN_CETI,
+			CULTURE_HUMAN_KUIPERI,
+			CULTURE_HUMAN_KUIPERO,
+			CULTURE_HUMAN_CETIU,
 			CULTURE_HUMAN_SPACER,
 			CULTURE_HUMAN_SPAFRO,
 			CULTURE_HUMAN_CONFED,
@@ -41,7 +42,7 @@
 	are roughly as intelligent as a human on the smarter side of average, and are fast learners. Positronics are both owned \
 	and free: many are shackled, but some have full citizenship, and others have found, bought, or fought their way to freedom."
 
-/datum/species/machine
+/singleton/species/machine
 	available_cultural_info = list(
 		TAG_CULTURE = list(
 			CULTURE_POSITRONICS
@@ -51,7 +52,8 @@
 			HOME_SYSTEM_LUNA,
 			HOME_SYSTEM_VENUS,
 			HOME_SYSTEM_CERES,
-			HOME_SYSTEM_PLUTO,
+			HOME_SYSTEM_KUIPERB,
+			HOME_SYSTEM_KUIPERD,
 			HOME_SYSTEM_TAU_CETI,
 			HOME_SYSTEM_HELIOS,
 			HOME_SYSTEM_TERRA,
@@ -81,5 +83,5 @@
 	default_cultural_info = list(
 		TAG_CULTURE = CULTURE_POSITRONICS,
 		TAG_HOMEWORLD = HOME_SYSTEM_MARS,
-		TAG_FACTION = FACTION_POSITRONICS
+		TAG_FACTION = FACTION_OTHER
 	)

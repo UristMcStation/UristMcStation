@@ -1,4 +1,4 @@
-/datum/species/vox
+/singleton/species/vox
 	name = SPECIES_VOX
 	name_plural = SPECIES_VOX
 	icobase =         'icons/mob/human_races/species/vox/body.dmi'
@@ -7,6 +7,7 @@
 	damage_overlays = 'icons/mob/human_races/species/vox/damage_overlay.dmi'
 	damage_mask =     'icons/mob/human_races/species/vox/damage_mask.dmi'
 	blood_mask =      'icons/mob/human_races/species/vox/blood_mask.dmi'
+	preview_icon = 'icons/mob/human_races/species/vox/preview.dmi'
 
 	unarmed_types = list(
 		/datum/unarmed_attack/stomp,
@@ -78,6 +79,7 @@
 		)
 
 	genders = list(NEUTER)
+	pronouns = list(PRONOUNS_THEY_THEM, PRONOUNS_IT_ITS)
 	descriptors = list(
 		/datum/mob_descriptor/height = -1,
 		/datum/mob_descriptor/build = 1,
@@ -124,7 +126,7 @@
 
 	traits = list(/singleton/trait/general/nonpermeable_skin = TRAIT_LEVEL_EXISTS)
 
-/datum/species/vox/equip_survival_gear(mob/living/carbon/human/H)
+/singleton/species/vox/equip_survival_gear(mob/living/carbon/human/H)
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vox(H), slot_wear_mask)
 
 	if(istype(H.get_equipped_item(slot_back), /obj/item/storage/backpack))
@@ -136,17 +138,14 @@
 		H.equip_to_slot_or_del(new /obj/item/storage/box/vox(H), slot_r_hand)
 		H.set_internals(H.back)
 
-/datum/species/vox/disfigure_msg(mob/living/carbon/human/H)
+/singleton/species/vox/disfigure_msg(mob/living/carbon/human/H)
 	var/datum/pronouns/P = H.choose_from_pronouns()
 	return "[SPAN_DANGER("[P.His] beak-segments are cracked and chipped! [P.He] [P.is] not even recognizable.")]\n"
-
-/datum/species/vox/skills_from_age(age)
-	. = 8
 
 /obj/item/vox_changer
 	name = "mouldy mirror"
 	desc = "Something seems strange about this old, dirty mirror. Your reflection doesn't look like you remember it."
-	icon = 'icons/obj/watercloset.dmi'
+	icon = 'icons/obj/structures/mirror.dmi'
 	icon_state = "mirror_broke"
 	color = "#bcd4a9"
 	anchored = TRUE
@@ -158,7 +157,7 @@
 		return
 	if (allowed_role && user.mind?.special_role != allowed_role)
 		return
-	if (user.species.name == SPECIES_VOX || !is_alien_whitelisted(user, all_species[SPECIES_VOX]))
+	if (user.species.name == SPECIES_VOX || !is_alien_whitelisted(user, GLOB.species_by_name[SPECIES_VOX]))
 		return
 	var/data = input(user, "Become Vox?", "Become Vox") as null | anything in list("No", "Yes")
 	if (isnull(data) || data == "No")

@@ -16,22 +16,12 @@
 				if(Sp_HOLDVAR)
 					statpanel(S.panel,"[S.holder_var_type] [S.holder_var_amount]",S.connected_button)
 
-//A fix for when a spell is created before a mob is created
-/mob/Login()
-	. = ..()
-	if(mind)
-		if(!mind.learned_spells)
-			mind.learned_spells = list()
-		if(ability_master && ability_master.spell_objects)
-			for(var/obj/screen/ability/spell/screen in ability_master.spell_objects)
-				var/spell/S = screen.spell
-				mind.learned_spells |= S
 
 /proc/restore_spells(mob/H)
 	if(H.mind && H.mind.learned_spells)
 		var/list/spells = list()
 		for(var/spell/spell_to_remove in H.mind.learned_spells) //remove all the spells from other people.
-			if(istype(spell_to_remove.holder,/mob))
+			if(ismob(spell_to_remove.holder))
 				var/mob/M = spell_to_remove.holder
 				spells += spell_to_remove
 				M.remove_spell(spell_to_remove)

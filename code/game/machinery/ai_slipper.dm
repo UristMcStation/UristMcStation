@@ -20,11 +20,11 @@
 
 /obj/machinery/ai_slipper/on_update_icon()
 	if (stat & MACHINE_STAT_NOPOWER || stat & MACHINE_STAT_EMPED)
-		overlays += "prox_timing"
+		AddOverlays("prox_timing")
 	else
-		overlays = null
+		ClearOverlays()
 
-/obj/machinery/ai_slipper/proc/setState(enabled, var/uses)
+/obj/machinery/ai_slipper/proc/setState(enabled, uses)
 	src.disabled = disabled
 	src.uses = uses
 	src.power_change()
@@ -77,7 +77,7 @@
 /obj/machinery/ai_slipper/OnTopic(user, href_list)
 	if (href_list["toggleUse"])
 		if(!(cooldown_on || disabled))
-			new /obj/effect/effect/foam(src.loc)
+			new /obj/effect/foam(src.loc)
 			src.uses--
 			cooldown_on = 1
 			cooldown_time = world.timeofday + 100

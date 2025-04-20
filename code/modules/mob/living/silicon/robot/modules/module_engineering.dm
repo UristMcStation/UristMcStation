@@ -29,7 +29,6 @@
 	)
 	no_slip = 1
 	equipment = list(
-		/obj/item/device/flash,
 		/obj/item/borg/sight/meson,
 		/obj/item/extinguisher,
 		/obj/item/weldingtool/hugetank,
@@ -70,14 +69,24 @@
 		/datum/matter_synth/plasteel = 20000,
 		/datum/matter_synth/wire =     50
 	)
-	emag = /obj/item/melee/baton/robot/electrified_arm
-	skills = list(
-		SKILL_ATMOS        = SKILL_PROF,
-		SKILL_ENGINES      = SKILL_PROF,
-		SKILL_CONSTRUCTION = SKILL_PROF,
-		SKILL_ELECTRICAL   = SKILL_PROF,
-		SKILL_COMPUTER     = SKILL_EXPERT
+	emag_gear = list(
+		/obj/item/melee/baton/robot/electrified_arm,
+		/obj/item/device/flash,
+		/obj/item/rcd/borg,
+		/obj/item/flamethrower/full/loaded,
+		/obj/item/shield_diffuser,
+		/obj/item/gun/launcher/grenade/foam
 	)
+
+	skills = list(
+		SKILL_ATMOS        = SKILL_MASTER,
+		SKILL_ENGINES      = SKILL_MASTER,
+		SKILL_CONSTRUCTION = SKILL_MASTER,
+		SKILL_ELECTRICAL   = SKILL_MASTER,
+		SKILL_COMPUTER     = SKILL_EXPERIENCED
+	)
+
+	var/flamethrower_recharge_modifier = 8
 
 /obj/item/robot_module/engineering/finalize_synths()
 
@@ -123,6 +132,20 @@
 	PL.synths = list(plasteel)
 
 /obj/item/robot_module/engineering/respawn_consumable(mob/living/silicon/robot/R, amount)
-	var/obj/item/device/lightreplacer/LR = locate() in equipment
-	LR.Charge(R, amount)
 	..()
+	var/obj/item/device/lightreplacer/LR = locate() in equipment
+	if (LR)
+		LR.Charge(R, amount)
+
+	if (R.emagged)
+		var/obj/item/flamethrower/full/loaded/flamethrower = locate() in equipment
+		if (flamethrower)
+			flamethrower.beaker.reagents.add_reagent(/datum/reagent/napalm, flamethrower_recharge_modifier * amount)
+
+		var/obj/item/shield_diffuser/diff = locate() in equipment
+		if (diff)
+			diff.cell.charge += amount
+
+		var/obj/item/gun/launcher/grenade/foam/foam = locate() in equipment
+		if (foam?.max_grenades > length(foam?.grenades))
+			foam.grenades += new /obj/item/grenade/chem_grenade/metalfoam(src)

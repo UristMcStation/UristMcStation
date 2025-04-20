@@ -29,17 +29,17 @@
 
 		var/image/img = new(I.icon, I.icon_state)
 		img.pixel_y = 5
-		overlays += img
+		AddOverlays(img)
 		sleep(200)
-		overlays.Cut()
+		ClearOverlays()
 		img.color = "#c28566"
-		overlays += img
+		AddOverlays(img)
 		sleep(200)
-		overlays.Cut()
+		ClearOverlays()
 		img.color = "#a34719"
-		overlays += img
+		AddOverlays(img)
 		sleep(50)
-		overlays.Cut()
+		ClearOverlays()
 
 		on = FALSE
 		icon_state = "grill_off"

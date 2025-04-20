@@ -5,8 +5,8 @@
 	var/list/access = list()              // The job's default access tokens
 	var/list/software_on_spawn = list()   // Defines the software files that spawn on tablets and labtops
 	var/department_flag = 0
-	var/total_positions = 0               // How many players can be this job
-	var/spawn_positions = 0               // How many players can spawn in as this job
+	var/total_positions = 0               // How many players can be this job. Set to -1 for unlimited.
+	var/spawn_positions = 0               // How many players can spawn in as this job. Set to -1 for unlimited.
 	var/current_positions = 0             // How many players have this job
 	var/availablity_chance = 100          // Percentage chance job is available each round
 
@@ -37,8 +37,7 @@
 
 	var/min_skill = list()				  //Minimum skills allowed for the job. List should contain skill (as in /singleton/hierarchy/skill path), with values which are numbers.
 	var/max_skill = list()				  //Maximum skills allowed for the job.
-	var/skill_points = 16				  //The number of unassigned skill points the job comes with (on top of the minimum skills).
-	var/no_skill_buffs = FALSE			  //Whether skills can be buffed by age/species modifiers.
+	var/skill_points = 22				  //The number of unassigned skill points the job comes with (on top of the minimum skills).
 	var/available_by_default = TRUE
 
 	var/list/possible_goals
@@ -56,6 +55,8 @@
 	var/required_language
 
 	var/faction = MOB_FACTION_CREW
+	var/email_domain
+	var/allow_custom_email
 
 /datum/job/New()
 
@@ -195,10 +196,10 @@
 	return (supplied_title == desired_title) || (H.mind && H.mind.role_alt_title == desired_title)
 
 /datum/job/proc/is_restricted(datum/preferences/prefs, feedback)
-	var/datum/species/S
+	var/singleton/species/S
 
 	if (!is_species_whitelist_allowed(prefs.client, use_species_whitelist))
-		S = all_species[use_species_whitelist]
+		S = GLOB.species_by_name[use_species_whitelist]
 		to_chat(feedback, SPAN_CLASS("boldannounce", "\An [S] species whitelist is required for [title]."))
 		return TRUE
 
@@ -210,7 +211,7 @@
 		to_chat(feedback, SPAN_CLASS("boldannounce", "Wrong rank for [title]. Valid ranks in [prefs.branches[title]] are: [get_ranks(prefs.branches[title])]."))
 		return TRUE
 
-	S = all_species[prefs.species]
+	S = GLOB.species_by_name[prefs.species]
 	if(!is_species_allowed(S))
 		to_chat(feedback, SPAN_CLASS("boldannounce", "Restricted species, [S], for [title]."))
 		return TRUE
@@ -245,7 +246,7 @@
 			active++
 	return active
 
-/datum/job/proc/is_species_allowed(datum/species/S)
+/datum/job/proc/is_species_allowed(singleton/species/S)
 	if(GLOB.using_map.is_species_job_restricted(S, src))
 		return FALSE
 	// We also make sure that there is at least one valid branch-rank combo for the species.
@@ -262,7 +263,7 @@
 	return is_species_whitelisted(C.mob, use_species_whitelist)
 
 // Don't use if the map doesn't use branches but jobs do.
-/datum/job/proc/get_branch_rank(datum/species/S)
+/datum/job/proc/get_branch_rank(singleton/species/S)
 	. = species_branch_rank_cache_[S]
 	if(.)
 		return
@@ -380,7 +381,7 @@
 		reasons["Your rank choice does not allow it."] = TRUE
 	if (!is_species_whitelist_allowed(caller))
 		reasons["You do not have the required [use_species_whitelist] species whitelist."] = TRUE
-	var/datum/species/S = all_species[caller.prefs.species]
+	var/singleton/species/S = GLOB.species_by_name[caller.prefs.species]
 	if(S)
 		if(!is_species_allowed(S))
 			reasons["Your species choice does not allow it."] = TRUE
@@ -412,7 +413,7 @@
 
 /datum/job/proc/get_roundstart_spawnpoint()
 	var/list/loc_list = list()
-	for(var/obj/effect/landmark/start/sloc in landmarks_list)
+	for(var/obj/landmark/start/sloc in landmarks_list)
 		if(sloc.name != title)	continue
 		if(locate(/mob/living) in sloc.loc)	continue
 		loc_list += sloc

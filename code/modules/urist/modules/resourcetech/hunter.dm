@@ -29,16 +29,16 @@
 			update_icon()
 
 /obj/machinery/smartfridge/tanningrack/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(inoperable())
 		icon_state = icon_off
 	else
 		icon_state = icon_on
 	for(var/datum/stored_items/I in item_records)
 		if(length(I.instances))
-			overlays += "drying_rack_filled"
+			AddOverlays("drying_rack_filled")
 			if(!inoperable())
-				overlays += "drying_rack_drying"
+				AddOverlays("drying_rack_drying")
 
 /obj/machinery/smartfridge/tanningrack/proc/dry()
 	for(var/datum/stored_items/I in item_records)
@@ -60,7 +60,7 @@
 //hide
 
 /obj/item/stack/hide //the old hide stuff is garbage and makes no sense. why did bay make them materials? we will never know, and I don't want the potential of hairless hide barricades because fucking hell Zuhayr.
-	icon = 'icons/obj/items.dmi' //so then, to make things make sense, we're making new things. But we're keeping the steps mostly the same.
+	icon = 'icons/obj/materials/hides.dmi' //so then, to make things make sense, we're making new things. But we're keeping the steps mostly the same.
 
 /obj/item/stack/hide/animalhide
 	name = "animal hide"

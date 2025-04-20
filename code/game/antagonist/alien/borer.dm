@@ -1,4 +1,4 @@
-GLOBAL_DATUM_INIT(borers, /datum/antagonist/xenos/borer, new)
+GLOBAL_TYPED_NEW(borers, /datum/antagonist/xenos/borer)
 
 /datum/antagonist/xenos/borer
 	id = MODE_BORER
@@ -23,7 +23,7 @@ GLOBAL_DATUM_INIT(borers, /datum/antagonist/xenos/borer, new)
 	spawn_announcement_delay = 5000
 
 /datum/antagonist/borer/get_extra_panel_options(datum/mind/player)
-	return "<a href='?src=\ref[src];move_to_spawn=\ref[player.current]'>\[put in host\]</a>"
+	return "<a href='byond://?src=\ref[src];move_to_spawn=\ref[player.current]'>\[put in host\]</a>"
 
 /datum/antagonist/borer/create_objectives(datum/mind/player)
 	if(!..())

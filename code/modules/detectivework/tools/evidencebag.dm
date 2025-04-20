@@ -3,7 +3,7 @@
 /obj/item/evidencebag
 	name = "evidence bag"
 	desc = "An empty evidence bag."
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/bags.dmi'
 	icon_state = "evidenceobj"
 	item_state = ""
 	w_class = ITEM_SIZE_SMALL
@@ -97,4 +97,4 @@
 /obj/item/evidencebag/examine(mob/user)
 	. = ..()
 	if (stored_item)
-		user.examinate(stored_item)
+		examinate(user, stored_item)

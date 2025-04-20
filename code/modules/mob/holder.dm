@@ -4,7 +4,7 @@ var/global/list/holder_mob_icon_cache = list()
 /obj/item/holder
 	name = "holder"
 	desc = "You shouldn't ever see this."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/ash.dmi'
 	slot_flags = SLOT_HEAD | SLOT_HOLSTER
 
 	sprite_sheets = list(
@@ -50,7 +50,7 @@ var/global/list/holder_mob_icon_cache = list()
 		for(var/mob/M in contents)
 			unregister_all_movement(last_holder, M)
 
-	if(istype(loc,/turf) || !(length(contents)))
+	if(isturf(loc) || !(length(contents)))
 		for(var/mob/M in contents)
 			var/atom/movable/mob_container = M
 			mob_container.dropInto(loc)
@@ -91,28 +91,26 @@ var/global/list/holder_mob_icon_cache = list()
 	for(var/mob/M in contents)
 		M.show_inv(usr)
 
-/obj/item/holder/attack(mob/target, mob/user)
+/obj/item/holder/use_before(mob/target, mob/user)
+	. = FALSE
 	// Devour on click on self with holder
-	if(target == user && istype(user,/mob/living/carbon))
+	if (target == user && istype(user,/mob/living/carbon))
 		var/mob/living/carbon/M = user
-
-		for(var/mob/victim in src.contents)
+		for (var/mob/victim in src.contents)
 			M.devour(victim)
-
 		update_state()
-
-	..()
+		return TRUE
 
 /obj/item/holder/proc/sync(mob/living/M)
 	dir = 2
-	overlays.Cut()
+	ClearOverlays()
 	icon = M.icon
 	icon_state = M.icon_state
 	item_state = M.item_state
 	color = M.color
 	name = M.name
 	desc = M.desc
-	overlays |= M.overlays
+	CopyOverlays(M)
 	var/mob/living/carbon/human/H = loc
 	last_holder = H
 	if (M.pulledby)
@@ -147,9 +145,27 @@ var/global/list/holder_mob_icon_cache = list()
 	origin_tech = list(TECH_BIO = 3, TECH_ENGINEERING = 4)
 	item_state = "poppy"
 
-/obj/item/holder/attackby(obj/item/W as obj, mob/user as mob)
-	for(var/mob/M in src.contents)
-		M.attackby(W,user)
+
+/obj/item/holder/use_grab(obj/item/grab/grab, list/click_params)
+	// Handled by `use_tool()`
+	return FALSE
+
+
+/obj/item/holder/use_weapon(obj/item/weapon, mob/living/user, list/click_params)
+	SHOULD_CALL_PARENT(FALSE)
+
+	// Handled by `use_tool()`
+	return FALSE
+
+
+/obj/item/holder/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	SHOULD_CALL_PARENT(FALSE)
+
+	. = FALSE
+	for (var/mob/held in contents)
+		if (tool.resolve_attackby(held, user, click_params))
+			. = TRUE
+
 
 //Mob procs and vars for scooping up
 /mob/living/var/holder_type
@@ -176,6 +192,14 @@ var/global/list/holder_mob_icon_cache = list()
 		if(!grabber.put_in_hands(H))
 			to_chat(grabber, SPAN_WARNING("Your hands are full!"))
 			return
+		var/mob/living/carbon/human/human = src
+		if (ishuman(human))
+			var/obj/item/clothing/backpack = human.get_equipped_item(slot_back)
+			if ((human.species.name in PRIMITIVE_SPECIES) && backpack != null)
+				var/datum/pronouns/pronouns = human.choose_from_pronouns()
+				FEEDBACK_FAILURE(grabber, "\The [backpack] on \the [src]'s back makes [pronouns.him] too bulky to be picked up!")
+				return
+
 
 		to_chat(grabber, SPAN_NOTICE("You scoop up \the [src]!"))
 		to_chat(src, SPAN_NOTICE("\The [grabber] scoops you up!"))

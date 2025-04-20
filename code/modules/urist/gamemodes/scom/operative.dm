@@ -3,7 +3,7 @@
 #define RANK_COMMAND 3
 #define RANK_SUPPORT 4
 
-GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
+GLOBAL_TYPED_NEW(scommies, /datum/antagonist/scom)
 
 /proc/isscom(mob/player)
 	if(!GLOB.scommies || !player.mind)
@@ -44,7 +44,7 @@ GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 
 	welcome_text = "<span class='danger'>Welcome to the S-COM project... Congratulations! If you are reading this, then the time has come for you to drop your death commando armor, Syndicate assault squad hardsuit, Terran Republic marine gear or other and work with your most hated foes to fight a threat that will likely destroy us all! Ahead of you is a life of training, fighting supernatural and alien threats, and protecting the galaxy and all within it! Because we worry about our soldiers, we feel it needed to warn you of threats you will likely face. You will be fighting unknown threats that we have no information on, known alien lifeforms, and in the event of a Council corporation splitting off, subduing any possible leaks in the  project. It will not be an easy task, and many of you will likely die.</span>"
 
-/datum/antagonist/scom/update_antag_mob(datum/mind/player, var/preserve_appearance = 1, var/rank)
+/datum/antagonist/scom/update_antag_mob(datum/mind/player, preserve_appearance = 1, rank)
 	..()
 	if(rank)
 		var/scom_rank = ""
@@ -65,7 +65,7 @@ GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 
 	return
 
-/datum/antagonist/scom/equip(mob/living/carbon/human/M, var/rank = RANK_SOLDIER, var/team = 0)
+/datum/antagonist/scom/equip(mob/living/carbon/human/M, rank = RANK_SOLDIER, team = 0)
 
 	. = ..()
 
@@ -78,7 +78,7 @@ GLOBAL_DATUM_INIT(scommies, /datum/antagonist/scom, new)
 			M.equip_to_slot_or_del(new /obj/item/clothing/under/rank/scientist(M), slot_w_uniform)
 			M.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(M), slot_shoes)
 			M.equip_to_slot_or_del(new /obj/item/modular_computer/pda/science(M), slot_belt)
-			M.equip_to_slot_or_del(new /obj/item/storage/backpack/toxins(M), slot_back)
+			M.equip_to_slot_or_del(new /obj/item/storage/backpack/corpsci(M), slot_back)
 			M.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/toggle/labcoat/science(M), slot_wear_suit)
 			create_id("S-COM Researcher", M)
 

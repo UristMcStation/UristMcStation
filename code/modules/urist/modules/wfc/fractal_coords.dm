@@ -81,7 +81,7 @@
 # define TWOD_FRACTCOORDS_REGEX regex(@"(\d+)/(\d+),(\d+),(\d+)")
 
 
-/proc/fractal_parents_twod_numerical(var/x, var/y, var/z, var/h = 0, var/sf = 3)
+/proc/fractal_parents_twod_numerical(x, y, z, h = 0, sf = 3)
 	ASSERT(!(isnull(sf)))
 	ASSERT(!(sf == 0))
 
@@ -94,7 +94,7 @@
 	return outstr
 
 
-/proc/fractal_parents_str(var/dimstring, var/sf = 3, var/threeD = FALSE)
+/proc/fractal_parents_str(dimstring, sf = 3, threeD = FALSE)
 	ASSERT(!(isnull(sf)))
 	ASSERT(!(sf == 0))
 
@@ -106,7 +106,7 @@
 
 	var/list/groups = matcher.group
 
-	ASSERT(groups.len == 4)
+	ASSERT(length(groups) == 4)
 
 	var/in_h = text2num(groups[1])
 	var/in_x = text2num(groups[2])
@@ -122,7 +122,7 @@
 	return outstr
 
 
-/proc/fractal_children_str(var/dimstring, var/sf = 3)
+/proc/fractal_children_str(dimstring, sf = 3)
 	//ASSERT(!(isnull(sf)))
 	ASSERT(!(sf == 0))
 
@@ -134,7 +134,7 @@
 
 	var/list/groups = matcher.group
 
-	ASSERT(groups.len == 4)
+	ASSERT(length(groups) == 4)
 
 	var/in_h = text2num(groups[1])
 	var/in_x = text2num(groups[2])

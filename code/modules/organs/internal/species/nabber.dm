@@ -53,14 +53,14 @@
 		else
 			to_chat(owner, SPAN_NOTICE("Your protective lenses retract out of the way."))
 			innate_flash_protection = FLASH_PROTECTION_VULNERABLE
-			addtimer(new Callback(src, .proc/remove_shield), 1 SECONDS)
+			addtimer(new Callback(src, PROC_REF(remove_shield)), 1 SECONDS)
 			owner.update_icons()
 		refresh_action_button()
 
 /obj/item/organ/internal/eyes/insectoid/nabber/proc/remove_shield()
 	owner.clear_fullscreen("eyeshield")
 
-/obj/item/organ/internal/eyes/nabber/New(mob/living/carbon/holder)
+/obj/item/organ/internal/eyes/nabber/Initialize()
 	. = ..()
 	if(dna)
 		color = rgb(dna.GetUIValue(DNA_UI_EYES_R), dna.GetUIValue(DNA_UI_EYES_G), dna.GetUIValue(DNA_UI_EYES_B))
@@ -168,6 +168,7 @@
 	var/lowblood_tally = 0
 	name = "distributed nervous system"
 	parent_organ = BP_CHEST
+	can_use_mmi = FALSE
 
 /obj/item/organ/internal/brain/insectoid/nabber/Process()
 	if(!owner || !owner.should_have_organ(BP_HEART))
@@ -192,12 +193,12 @@
 			if(prob(15))
 				to_chat(owner, SPAN_WARNING("You're almost unable to move!"))
 				if(!owner.pulling_punches)
-					var/datum/species/nabber/nab = species
+					var/singleton/species/nabber/nab = species
 					nab.arm_swap(owner, TRUE)
 		if(-(INFINITY) to BLOOD_VOLUME_SURVIVE)
 			lowblood_tally = 10
 			if(prob(30) && !owner.pulling_punches)
-				var/datum/species/nabber/nab = species
+				var/singleton/species/nabber/nab = species
 				nab.arm_swap(owner, TRUE)
 			if(prob(10))
 				to_chat(owner, SPAN_WARNING("Your body is barely functioning and is starting to shut down."))

@@ -39,7 +39,7 @@
 		/obj/item/taperoll/research,
 		/obj/item/material/hatchet/machete/deluxe,
 		/obj/item/storage/belt/holster/machete,
-		/obj/item/device/spaceflare,
+		/obj/item/shuttle_beacon,
 		/obj/item/clothing/accessory/storage/webbing_large,
 		/obj/item/device/taperecorder,
 		/obj/item/device/scanner/gas,
@@ -52,7 +52,9 @@
 		/obj/item/clothing/accessory/buddy_tag,
 		/obj/item/storage/firstaid/light,
 		/obj/item/storage/backpack/dufflebag,
-		/obj/item/device/flashlight/flare
+		/obj/item/device/flashlight/flare,
+		/obj/item/crowbar/prybar,
+		/obj/item/extinguisher/mini
 	)
 
 /obj/structure/closet/secure_closet/explorer
@@ -66,7 +68,7 @@
 		/obj/item/device/gps,
 		/obj/item/taperoll/research,
 		/obj/item/storage/belt/holster/machete,
-		/obj/item/device/spaceflare,
+		/obj/item/shuttle_beacon,
 		/obj/item/clothing/accessory/storage/webbing_large,
 		/obj/item/device/scanner/gas,
 		/obj/item/device/radio/headset/exploration,
@@ -77,7 +79,9 @@
 		/obj/item/material/knife/folding/swiss/explorer,
 		/obj/item/device/camera,
 		/obj/item/storage/backpack/dufflebag,
-		/obj/item/device/flashlight/flare
+		/obj/item/device/flashlight/flare,
+		/obj/item/crowbar/prybar,
+		/obj/item/extinguisher/mini
 	)
 
 /obj/structure/closet/secure_closet/pilot
@@ -90,7 +94,7 @@
 		/obj/item/device/radio,
 		/obj/item/device/gps,
 		/obj/item/storage/belt/utility/full,
-		/obj/item/device/spaceflare,
+		/obj/item/shuttle_beacon,
 		/obj/item/clothing/accessory/storage/webbing_large,
 		/obj/item/device/scanner/gas,
 		/obj/item/device/radio/headset/headset_pilot,
@@ -98,9 +102,7 @@
 		/obj/item/device/binoculars,
 		/obj/item/clothing/gloves/thick,
 		/obj/item/clothing/suit/storage/hazardvest/blue,
-		/obj/item/clothing/head/helmet/solgov/pilot,
-		/obj/item/clothing/head/helmet/solgov/pilot/fleet,
-		/obj/item/clothing/head/helmet/nt/pilot,
+		/obj/item/selection/pilot_helmet,
 		/obj/item/storage/firstaid/light,
 		/obj/item/material/knife/folding/swiss/explorer,
 		/obj/item/storage/backpack/dufflebag,

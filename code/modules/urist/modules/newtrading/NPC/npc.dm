@@ -28,7 +28,7 @@
 	ai_holder = /datum/ai_holder/simple_animal/passive/nowandering
 
 //	unsuitable_atoms_damage = 15
-//	corpse = /obj/effect/landmark/mobcorpse/pirate
+//	corpse = /obj/landmark/mobcorpse/pirate
 	var/weapon1 = /obj/item/melee/energy/sword/pirate
 
 	var/list/speech_triggers = list()
@@ -94,8 +94,8 @@
 	var/randomize_quantity = 1
 	var/inflate_value = 0 //only use this with randomize_value = 0, otherwise it will have no effect
 
-	var/species_type = /datum/species/human
-	var/datum/species/my_species
+	var/species_type = /singleton/species/human
+	var/singleton/species/my_species
 //	var/language_override = 0
 
 /datum/ai_holder/simple_animal/passive/nowandering
@@ -157,5 +157,5 @@
 	M.Translate(1,-6)
 	src.transform = M
 
-/mob/living/simple_animal/passive/npc/say(var/message, var/language = LANGUAGE_GALCOM)
+/mob/living/simple_animal/passive/npc/say(message, language = LANGUAGE_GALCOM)
 	..(message, language)

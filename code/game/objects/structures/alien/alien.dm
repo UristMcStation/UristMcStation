@@ -48,12 +48,13 @@
 /obj/structure/alien/attack_generic()
 	attack_hand(usr)
 
-/obj/structure/alien/attackby(obj/item/W, var/mob/user)
-	health = max(0, health - W.force)
-	playsound(loc, 'sound/effects/attackblob.ogg', 100, 1)
-	healthcheck()
-	..()
-	return
+/obj/structure/alien/use_weapon(obj/item/W, mob/user, click_params)
+	if(W.force)
+		health = max(0, health - W.force)
+		playsound(loc, 'sound/effects/attackblob.ogg', 100, 1)
+		healthcheck()
+		return TRUE
+	return ..()
 
 /obj/structure/alien/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group) return 0

@@ -12,6 +12,8 @@
 	var/targetselected = 0
 
 	switch(alert("Proc owned by something?",, "Yes", "No", "Cancel"))
+		if("Cancel")
+			return
 		if("Yes")
 			targetselected=1
 			switch(input("Proc owned by...", "Owner", null) as null|anything in list("Obj", "Mob", "Area or Turf", "Client"))
@@ -28,11 +30,6 @@
 			if(!target)
 				to_chat(usr, "Proc call cancelled.")
 				return
-		if("Cancel")
-			return
-		if("No")
-			; // do nothing
-
 	callproc_targetpicked(targetselected, target)
 
 // right click verb
@@ -141,9 +138,10 @@
 				current = input("Enter number for [length(arguments)+1]\th argument") as null|num
 				if(isnull(current)) return CANCEL
 
-			if("type")
-				current = input("Select type for [length(arguments)+1]\th argument") as null|anything in typesof(/obj, /mob, /area, /turf)
-				if(isnull(current)) return CANCEL
+			if ("type")
+				current = select_subpath(within_scope = /datum)
+				if (isnull(current))
+					return CANCEL
 
 			if("obj reference")
 				current = input("Select object for [length(arguments)+1]\th argument") as null|obj in world
@@ -171,21 +169,13 @@
 				current = get_area(M)
 				if(!current)
 					switch(alert("\The [M] appears to not have an area; do you want to pass null instead?",, "Yes", "Cancel"))
-						if("Yes")
-							; // do nothing
 						if("Cancel")
 							return CANCEL
-			if ("path")
-				current = text2path(input("Enter path for [length(arguments)+1]\th argument") as null|text)
-				if (isnull(current))
-					return CANCEL
 
 			if("marked datum")
 				current = C.holder.marked_datum()
 				if(!current)
 					switch(alert("You do not currently have a marked datum; do you want to pass null instead?",, "Yes", "Cancel"))
-						if("Yes")
-							; // do nothing
 						if("Cancel")
 							return CANCEL
 
@@ -229,13 +219,13 @@
 		if(!target)
 			to_chat(usr, "Your callproc target no longer exists.")
 			return
-		log_and_message_admins("called \the [target]'s [procname]() with [LAZYLEN(arguments) ? "the arguments [list2params(arguments)]" : "no arguments"].", C, location = get_turf(target))
+		log_and_message_admins("called \the [target]'s [procname]() with [LAZYLEN(arguments) ? "the arguments [list2params(arguments)]" : "no arguments"].", user = C, location = get_turf(target))
 		if(LAZYLEN(arguments))
 			returnval = call(target, procname)(arglist(arguments))
 		else
 			returnval = call(target, procname)()
 	else
-		log_and_message_admins("called [procname]() with [LAZYLEN(arguments)? "the arguments [list2params(arguments)]" : "no arguments"].", C, location = get_turf(target))
+		log_and_message_admins("called [procname]() with [LAZYLEN(arguments)? "the arguments [list2params(arguments)]" : "no arguments"].", user = C, location = get_turf(target))
 
 		var/P = text2path("/proc/[procname]")
 		returnval = call(P)(arglist(arguments))

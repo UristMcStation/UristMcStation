@@ -36,7 +36,7 @@ Icons for uristturfs from Nienhaus, Glloyd and Lord Slowpoke*/
 
 /turf/simulated/floor/beach/pool/New()
 	..()
-	overlays += image("icon"='icons/urist/turf/uristturf.dmi',"icon_state"="water2","layer"=MOB_LAYER+0.1)
+	AddOverlays(image("icon"='icons/urist/turf/uristturf.dmi',"icon_state"="water2","layer"=MOB_LAYER+0.1))
 
 /turf/simulated/floor/plating/airless
 	initial_gas = null
@@ -142,20 +142,24 @@ transit/east is the same thing now AFAIK
 	icon_state="catwalk[dirs]"
 
 
-/turf/simulated/floor/plating/airless/catwalk/attackby(obj/item/C as obj, mob/user as mob)
+/turf/simulated/floor/plating/airless/catwalk/use_tool(obj/item/C, mob/living/user, list/click_params)
 	if(!C || !user)
-		return 0
+		return TRUE
+
 	if(isScrewdriver(C))
 		ReplaceWithLattice()
 		playsound(src, 'sound/items/Screwdriver.ogg', 80, 1)
-		return
+		return TRUE
 
 	if(isCoil(C))
 		var/obj/item/stack/cable_coil/coil = C
 		coil.PlaceCableOnTurf(src, user)
+		return TRUE
+
+	return ..()
 
 /turf/simulated/floor/plating/airless/catwalk/is_catwalk()
-	return 1
+	return TRUE
 
 //moon turfs for nien
 
@@ -283,11 +287,11 @@ transit/east is the same thing now AFAIK
 	icon = 'icons/urist/turf/floorsplus.dmi'
 	icon_state = "innermiddle"
 
-/turf/simulated/floor/fixed/destroyedroad/attackby(obj/item/C, var/mob/user)
+/turf/simulated/floor/fixed/destroyedroad/use_tool(obj/item/C, mob/user, click_params)
+	SHOULD_CALL_PARENT(FALSE)
 	if(isCrowbar(C))
 		to_chat(user, "<span class='notice'>There aren't any openings big enough to pry it away...</span>")
-		return
-	return ..()
+		return TRUE
 
 /turf/simulated/floor/fixed/destroyedroad/ex_act(severity)
 	return
@@ -295,10 +299,8 @@ transit/east is the same thing now AFAIK
 //		ChangeTurf(get_base_turf_by_area(src))
 
 /turf/simulated/floor/fixed/destroyedroad/planet
-	light_max_bright = 0.4
-	light_inner_range = 0.1
-	light_outer_range = 1.5
-	light_falloff_curve = 0.5
+	light_power = 0.4
+	light_range = 1.5
 
 /turf/simulated/floor/fixed/destroyedroad/planet/Initialize()
 	light_color = SSskybox.background_color
@@ -313,3 +315,20 @@ transit/east is the same thing now AFAIK
 
 /turf/simulated/wall/r_wall/hull/dark
 	color = "#3b494d"
+
+//restoring airless turfs purged from bay
+
+/turf/simulated/floor/greengrid/airless
+	map_airless = TRUE
+
+/turf/simulated/floor/bluegrid/airless
+	map_airless = TRUE
+
+/turf/simulated/floor/tiled/airless
+	map_airless = TRUE
+
+/turf/simulated/floor/tiled/dark/airless
+	map_airless = TRUE
+
+/turf/simulated/floor/tiled/white/airless
+	map_airless = TRUE

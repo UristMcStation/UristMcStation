@@ -297,7 +297,7 @@ var/global/const/RADIO_CHEM_VENT = "radio_chemvent"
 #define JAMMER_SYNTHETIC 2
 
 // These are exposed to players, by name.
-GLOBAL_LIST_INIT(all_selectable_radio_filters, list(
+GLOBAL_LIST_AS(all_selectable_radio_filters, list(
 	RADIO_DEFAULT,
 	RADIO_TO_AIRALARM,
 	RADIO_FROM_AIRALARM,

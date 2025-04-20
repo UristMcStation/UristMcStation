@@ -42,7 +42,7 @@
 				food.reagents.trans_to(S, food.reagents.total_volume)
 			S.color = "#ffad33"
 			S.icon = frying.icon
-			S.overlays = I.overlays
+			S.SetOverlays(I.overlays)
 			S.icon_state = frying.icon_state
 			S.name = "deep fried [frying.name]"
 			S.desc = I.desc

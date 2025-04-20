@@ -182,7 +182,7 @@
 	br = /turf/deepmaint/wall
 
 
-/proc/state2prefab_deepmaint(var/state, var/my_varkey)
+/proc/state2prefab_deepmaint(state, my_varkey)
 	var/turf_type = null
 
 	switch(state)

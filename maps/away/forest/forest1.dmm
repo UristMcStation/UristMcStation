@@ -10,8 +10,8 @@
 /obj/structure/cable/blue{
 	icon_state = "8-9"
 	},
-/obj/effect/spider/stickyweb,
-/obj/effect/decal/cleanable/filth,
+/obj/spider/stickyweb,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor,
 /area/planet/forest/cave/kitchen)
 "ab" = (
@@ -40,7 +40,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/planet/forest/cave/dorms)
 "af" = (
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor,
 /area/planet/forest/cave/dorms)
 "ag" = (
@@ -53,7 +53,7 @@
 /obj/structure/cable/blue{
 	icon_state = "2-5"
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "ah" = (
@@ -230,7 +230,7 @@
 /turf/simulated/floor/wood/mahogany,
 /area/planet/forest/cave/hall)
 "aP" = (
-/obj/effect/wingrille_spawn/reinforced/full,
+/obj/wingrille_spawn/reinforced/full,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "aQ" = (
@@ -239,7 +239,7 @@
 "aR" = (
 /obj/machinery/disposal,
 /obj/structure/disposalpipe/trunk,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5;
 	icon_state = "corner_white"
 	},
@@ -248,7 +248,7 @@
 "aS" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/surgery,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -256,7 +256,7 @@
 "aT" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/adv,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5;
 	icon_state = "corner_white"
 	},
@@ -266,7 +266,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5;
 	icon_state = "corner_white"
 	},
@@ -283,7 +283,7 @@
 /obj/structure/table/standard,
 /obj/item/tank/anesthetic,
 /obj/item/clothing/mask/breath/anesthetic,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5;
 	icon_state = "corner_white"
 	},
@@ -291,7 +291,7 @@
 /area/planet/forest/cave/med)
 "aW" = (
 /obj/machinery/atmospherics/unary/cryo_cell,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5;
 	icon_state = "corner_white"
 	},
@@ -302,10 +302,10 @@
 	dir = 2;
 	icon_state = "freezer"
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5;
 	icon_state = "corner_white"
 	},
@@ -385,7 +385,7 @@
 /area/planet/forest/cave/hall)
 "bm" = (
 /obj/structure/table/woodentable/ebony,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /obj/structure/salvageable/personal,
 /turf/simulated/floor,
 /area/planet/forest/cave/hall)
@@ -454,7 +454,7 @@
 "bt" = (
 /obj/structure/window/basic,
 /obj/machinery/optable,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
@@ -486,7 +486,7 @@
 	dir = 4;
 	icon_state = "map"
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -503,7 +503,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
 "bB" = (
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /obj/item/cell/high,
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
@@ -588,12 +588,12 @@
 /turf/simulated/floor/wood/mahogany,
 /area/planet/forest/cave/hall)
 "bP" = (
-/obj/effect/wingrille_spawn/reinforced/full,
+/obj/wingrille_spawn/reinforced/full,
 /obj/random/trash,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "bQ" = (
-/obj/effect/floor_decal/rust/mono/medium,
+/obj/floor_decal/rust/mono/medium,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "bR" = (
@@ -618,7 +618,7 @@
 /obj/random/medical,
 /obj/random/medical,
 /obj/random/medical,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /obj/item/reagent_containers/spray/cleaner,
@@ -650,7 +650,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
 /mob/living/simple_animal/hostile/giant_spider,
@@ -671,7 +671,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
 "cc" = (
@@ -792,8 +792,8 @@
 	pixel_x = -22;
 	pixel_y = 0
 	},
-/obj/effect/floor_decal/rust/mono/medium,
-/obj/effect/decal/cleanable/filth,
+/obj/floor_decal/rust/mono/medium,
+/obj/decal/cleanable/filth,
 /obj/structure/closet/secure_closet/security,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
@@ -805,7 +805,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
 /obj/machinery/alarm{
@@ -839,11 +839,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/med)
 "cA" = (
-/obj/effect/floor_decal/rust/mono/medium,
+/obj/floor_decal/rust/mono/medium,
 /obj/structure/cable/blue{
 	icon_state = "6-9"
 	},
@@ -854,7 +854,7 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -872,13 +872,13 @@
 	dir = 1;
 	icon_state = "map_vent_out"
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
 "cF" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -904,7 +904,7 @@
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
 "cK" = (
-/obj/effect/floor_decal/rust/mono/high,
+/obj/floor_decal/rust/mono/high,
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
 "cL" = (
@@ -948,11 +948,11 @@
 /area/planet/forest/cave/hall)
 "cR" = (
 /obj/structure/bed/chair/office/dark,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "cS" = (
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /obj/structure/table/woodentable_reinforced,
 /obj/structure/salvageable/radio,
 /turf/simulated/floor,
@@ -966,10 +966,10 @@
 /area/planet/forest/cave/hall)
 "cU" = (
 /obj/machinery/chem_master,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 9
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 10
 	},
 /turf/simulated/floor,
@@ -980,14 +980,14 @@
 /obj/item/reagent_containers/glass/beaker/large{
 	pixel_y = 7
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/med)
 "cW" = (
 /obj/machinery/chemical_dispenser/full,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -997,17 +997,17 @@
 	req_access = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/med)
 "cY" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 10
 	},
 /obj/structure/cable/blue{
 	icon_state = "4-10"
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /obj/machinery/light_switch{
 	pixel_x = 0;
 	pixel_y = -27
@@ -1021,10 +1021,10 @@
 	pixel_x = 24
 	},
 /obj/structure/closet/secure_closet/medical2,
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 6
 	},
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 10
 	},
 /obj/structure/cable/blue{
@@ -1175,7 +1175,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/rust/mono/medium,
+/obj/floor_decal/rust/mono/medium,
 /obj/random/maintenance,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
@@ -1212,7 +1212,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "dt" = (
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "du" = (
@@ -1227,7 +1227,7 @@
 	req_access = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/med)
 "dw" = (
@@ -1300,7 +1300,7 @@
 	pixel_x = -22;
 	pixel_y = 0
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/wood/mahogany,
 /area/planet/forest/cave/hall)
 "dF" = (
@@ -1316,12 +1316,12 @@
 /area/planet/forest/cave/hall)
 "dG" = (
 /obj/structure/grille/broken,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "dH" = (
 /obj/random/trash,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /obj/structure/cable/blue{
 	icon_state = "6-9"
 	},
@@ -1350,8 +1350,8 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/spider/stickyweb,
-/obj/effect/floor_decal/corner/red/border{
+/obj/spider/stickyweb,
+/obj/floor_decal/corner/red/border{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1364,8 +1364,8 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/floor_decal/rust,
-/obj/effect/floor_decal/corner/red/border{
+/obj/floor_decal/rust,
+/obj/floor_decal/corner/red/border{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1378,7 +1378,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/floor_decal/corner/red/border{
+/obj/floor_decal/corner/red/border{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
@@ -1388,7 +1388,7 @@
 	dir = 4
 	},
 /obj/random/trash,
-/obj/effect/floor_decal/corner/red/border{
+/obj/floor_decal/corner/red/border{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -1397,7 +1397,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "dN" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
 /obj/structure/disposalpipe/segment{
@@ -1410,7 +1410,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "dO" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
 /obj/structure/disposalpipe/segment{
@@ -1432,11 +1432,11 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "dQ" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
 /obj/structure/disposalpipe/segment{
@@ -1446,11 +1446,11 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "dR" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
 /obj/structure/disposalpipe/segment{
@@ -1464,7 +1464,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "dS" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
 /obj/structure/disposalpipe/segment{
@@ -1478,7 +1478,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "dT" = (
-/obj/effect/floor_decal/corner/paleblue{
+/obj/floor_decal/corner/paleblue{
 	dir = 5
 	},
 /obj/structure/disposalpipe/segment{
@@ -1518,7 +1518,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "dX" = (
-/obj/effect/floor_decal/corner/gold/border{
+/obj/floor_decal/corner/gold/border{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1605,7 +1605,7 @@
 	icon_state = "map-scrubbers"
 	},
 /obj/random/trash,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "ek" = (
@@ -1615,7 +1615,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-10"
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1668,7 +1668,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1679,14 +1679,14 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "er" = (
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1697,7 +1697,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor,
 /area/planet/forest/cave/hall)
 "et" = (
@@ -1707,7 +1707,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-9"
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1717,7 +1717,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1767,7 +1767,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/rust/mono/high,
+/obj/floor_decal/rust/mono/high,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "eA" = (
@@ -1800,7 +1800,7 @@
 	dir = 1;
 	icon_state = "map-scrubbers"
 	},
-/obj/effect/floor_decal/corner/gold/border{
+/obj/floor_decal/corner/gold/border{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -1986,7 +1986,7 @@
 /obj/random/accessory,
 /obj/random/action_figure,
 /obj/random/clothing,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor,
 /area/planet/forest/cave/dorms)
 "eS" = (
@@ -1994,12 +1994,12 @@
 /obj/random/accessory,
 /obj/random/contraband,
 /obj/random/clothing,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/wood/mahogany,
 /area/planet/forest/cave/dorms)
 "eT" = (
-/obj/effect/floor_decal/rust,
-/obj/effect/spider/stickyweb,
+/obj/floor_decal/rust,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/dorms)
 "eU" = (
@@ -2011,15 +2011,15 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/dorms)
 "eV" = (
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/wall,
 /area/planet/forest/cave/dorms)
 "eW" = (
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "eX" = (
@@ -2074,7 +2074,7 @@
 /obj/structure/cable/blue{
 	icon_state = "9-10"
 	},
-/obj/effect/floor_decal/corner/gold/border{
+/obj/floor_decal/corner/gold/border{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2124,7 +2124,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6;
 	icon_state = "intact-scrubbers"
@@ -2139,7 +2139,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/wood/mahogany,
 /area/planet/forest/cave/dorms)
 "fo" = (
@@ -2154,7 +2154,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/dorms)
 "fp" = (
@@ -2168,7 +2168,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/dorms)
 "fq" = (
@@ -2205,7 +2205,7 @@
 	dir = 1;
 	luminosity = 2
 	},
-/obj/effect/floor_decal/rust/mono/medium,
+/obj/floor_decal/rust/mono/medium,
 /turf/simulated/floor,
 /area/planet/forest/cave/dorms)
 "fv" = (
@@ -2215,11 +2215,11 @@
 /area/planet/forest/cave/dorms)
 "fw" = (
 /obj/random/maintenance,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor,
 /area/planet/forest/cave/hall)
 "fx" = (
-/obj/effect/floor_decal/rust/mono/high,
+/obj/floor_decal/rust/mono/high,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "fy" = (
@@ -2236,10 +2236,10 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/gold/border{
+/obj/floor_decal/corner/gold/border{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "fB" = (
@@ -2286,7 +2286,7 @@
 /area/planet/forest/cave/engie)
 "fJ" = (
 /obj/random/trash,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/carpet/blue2,
 /area/planet/forest/cave/dorms)
 "fK" = (
@@ -2297,8 +2297,8 @@
 	dir = 1;
 	icon_state = "map_scrubber_on"
 	},
-/obj/effect/spider/stickyweb,
-/obj/effect/decal/cleanable/filth,
+/obj/spider/stickyweb,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/carpet/blue2,
 /area/planet/forest/cave/dorms)
 "fM" = (
@@ -2310,7 +2310,7 @@
 /obj/structure/cable/blue{
 	icon_state = "0-5"
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/wood/mahogany,
 /area/planet/forest/cave/dorms)
 "fN" = (
@@ -2333,8 +2333,8 @@
 	dir = 4;
 	icon_state = "map_scrubber_on"
 	},
-/obj/effect/floor_decal/rust/mono/medium,
-/obj/effect/decal/cleanable/filth,
+/obj/floor_decal/rust/mono/medium,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor,
 /area/planet/forest/cave/dorms)
 "fQ" = (
@@ -2405,10 +2405,10 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/purple/border{
+/obj/floor_decal/corner/purple/border{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor,
 /area/planet/forest/cave/hall)
 "gb" = (
@@ -2434,13 +2434,13 @@
 /area/planet/forest/cave/dorms)
 "gg" = (
 /obj/structure/bed/padded,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /obj/item/bedsheet/orange,
 /turf/simulated/floor/wood/mahogany,
 /area/planet/forest/cave/dorms)
 "gh" = (
 /obj/structure/bed/padded,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /obj/item/bedsheet/orange,
 /obj/item/bedsheet/orange,
 /turf/simulated/floor/wood/mahogany,
@@ -2453,14 +2453,14 @@
 	pixel_y = 0
 	},
 /obj/random/trash,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/dorms)
 "gj" = (
 /obj/structure/cable/blue{
 	icon_state = "1-10"
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/dorms)
 "gk" = (
@@ -2496,7 +2496,7 @@
 /obj/random/action_figure,
 /obj/random/clothing,
 /obj/random/hat,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
@@ -2514,7 +2514,7 @@
 /obj/structure/cable/blue{
 	icon_state = "1-10"
 	},
-/obj/effect/floor_decal/rust/mono/medium,
+/obj/floor_decal/rust/mono/medium,
 /obj/item/paper,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
@@ -2556,7 +2556,7 @@
 /obj/structure/cable/blue{
 	icon_state = "6-9"
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "gu" = (
@@ -2569,7 +2569,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/floor_decal/corner/purple/border{
+/obj/floor_decal/corner/purple/border{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2579,31 +2579,31 @@
 /turf/simulated/wall/r_wall,
 /area/planet/forest/cave/lab)
 "gx" = (
-/obj/effect/floor_decal/corner/purple/three_quarters{
+/obj/floor_decal/corner/purple/three_quarters{
 	dir = 8;
 	icon_state = "corner_white_three_quarters"
 	},
 /obj/item/crowbar/nanotrasen,
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "gy" = (
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/scientist,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor,
 /area/planet/forest/cave/lab)
 "gz" = (
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "gA" = (
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/scientist,
@@ -2615,7 +2615,7 @@
 	name = "north bump";
 	pixel_y = 24
 	},
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 1
 	},
 /obj/structure/cable/blue{
@@ -2624,14 +2624,14 @@
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "gC" = (
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 1
 	},
 /obj/structure/salvageable/machine_os,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "gD" = (
-/obj/effect/floor_decal/corner/purple/three_quarters{
+/obj/floor_decal/corner/purple/three_quarters{
 	dir = 1;
 	icon_state = "corner_white_three_quarters"
 	},
@@ -2661,7 +2661,7 @@
 /obj/machinery/photocopier/faxmachine{
 	department = "???"
 	},
-/obj/effect/decal/cleanable/cobweb{
+/obj/decal/cleanable/cobweb{
 	dir = 8;
 	icon_state = "cobweb1"
 	},
@@ -2690,7 +2690,7 @@
 /obj/structure/cable/blue{
 	icon_state = "5-6"
 	},
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/dorms)
 "gJ" = (
@@ -2699,7 +2699,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/dorms)
 "gK" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "gL" = (
@@ -2712,7 +2712,7 @@
 	icon_state = "2-5"
 	},
 /obj/item/stool/bar/padded,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "gN" = (
@@ -2723,13 +2723,13 @@
 	icon_state = "2-5"
 	},
 /obj/item/stool/bar/padded,
-/obj/effect/spider/stickyweb,
-/obj/effect/decal/cleanable/filth,
+/obj/spider/stickyweb,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "gO" = (
-/obj/effect/decal/cleanable/filth,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "gP" = (
@@ -2747,7 +2747,7 @@
 	icon_state = "2-9"
 	},
 /obj/item/stool/bar/padded,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "gR" = (
@@ -2780,7 +2780,7 @@
 	icon_state = "2-9"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/effect/floor_decal/corner/purple/border{
+/obj/floor_decal/corner/purple/border{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2818,7 +2818,7 @@
 	icon_state = "intact-supply"
 	},
 /obj/item/remains/human,
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
 	icon_state = "intact-scrubbers"
@@ -2829,7 +2829,7 @@
 /obj/structure/cable/blue{
 	icon_state = "4-8"
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
@@ -2850,7 +2850,7 @@
 	dir = 1;
 	icon_state = "map-scrubbers"
 	},
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor,
 /area/planet/forest/cave/lab)
 "gY" = (
@@ -2890,7 +2890,7 @@
 /turf/simulated/floor,
 /area/planet/forest/cave/lab)
 "hb" = (
-/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/floor_decal/corner/purple/diagonal,
 /obj/machinery/door/airlock/research{
 	name = "Research Director";
 	req_access = list("ACCESS_RESEARCH_DIRECTOR");
@@ -2956,7 +2956,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "hh" = (
@@ -2968,7 +2968,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "hi" = (
@@ -3031,7 +3031,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor,
 /area/planet/forest/cave/hall)
 "hm" = (
@@ -3056,7 +3056,7 @@
 /obj/structure/cable/blue{
 	dir = 8
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "hn" = (
@@ -3258,7 +3258,7 @@
 	icon_state = "1-2"
 	},
 /obj/random/trash,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "hz" = (
@@ -3274,7 +3274,7 @@
 	icon_state = "1-10"
 	},
 /obj/random/trash,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "hA" = (
@@ -3288,8 +3288,8 @@
 /obj/structure/cable/blue{
 	icon_state = "1-10"
 	},
-/obj/effect/decal/cleanable/filth,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4;
 	icon_state = "intact-scrubbers"
@@ -3359,10 +3359,10 @@
 /obj/structure/cable/blue{
 	icon_state = "1-5"
 	},
-/obj/effect/floor_decal/corner/purple/border{
+/obj/floor_decal/corner/purple/border{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9;
 	icon_state = "intact-scrubbers"
@@ -3370,13 +3370,13 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "hF" = (
-/obj/effect/floor_decal/corner/purple/three_quarters,
+/obj/floor_decal/corner/purple/three_quarters,
 /obj/item/remains/human,
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "hG" = (
-/obj/effect/floor_decal/corner/purple/half,
+/obj/floor_decal/corner/purple/half,
 /obj/machinery/alarm{
 	dir = 1;
 	icon_state = "alarm0";
@@ -3386,7 +3386,7 @@
 	pixel_x = -7;
 	pixel_y = -27
 	},
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	icon_state = "map_vent_out"
@@ -3397,16 +3397,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/item/remains/xeno,
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor,
 /area/planet/forest/cave/lab)
 "hI" = (
-/obj/effect/floor_decal/corner/purple/half,
-/obj/effect/decal/cleanable/blood,
+/obj/floor_decal/corner/purple/half,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "hJ" = (
-/obj/effect/floor_decal/corner/purple/half,
+/obj/floor_decal/corner/purple/half,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1;
 	icon_state = "map_scrubber_on"
@@ -3415,7 +3415,7 @@
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "hK" = (
-/obj/effect/floor_decal/corner/purple/half,
+/obj/floor_decal/corner/purple/half,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "hL" = (
@@ -3424,7 +3424,7 @@
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "hM" = (
-/obj/effect/floor_decal/corner/purple/three_quarters{
+/obj/floor_decal/corner/purple/three_quarters{
 	dir = 4;
 	icon_state = "corner_white_three_quarters"
 	},
@@ -3524,11 +3524,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "hW" = (
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor,
 /area/planet/forest/cave/hall)
 "hX" = (
@@ -3544,7 +3544,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "hZ" = (
-/obj/effect/floor_decal/rust/mono/medium,
+/obj/floor_decal/rust/mono/medium,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "ia" = (
@@ -3552,14 +3552,14 @@
 /obj/structure/cable/blue{
 	icon_state = "4-9"
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "ib" = (
 /obj/structure/cable/blue{
 	icon_state = "5-8"
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "ic" = (
@@ -3567,19 +3567,19 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "id" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/floor_decal/corner/purple/border{
+/obj/floor_decal/corner/purple/border{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "ie" = (
-/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/floor_decal/corner/purple/diagonal,
 /obj/machinery/door/airlock/research{
 	name = "Research and Development Lab"
 	},
@@ -3588,7 +3588,7 @@
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "if" = (
-/obj/effect/floor_decal/corner/purple/diagonal,
+/obj/floor_decal/corner/purple/diagonal,
 /obj/machinery/door/airlock/research{
 	name = "Genetics"
 	},
@@ -3600,7 +3600,7 @@
 /turf/simulated/wall/r_wall,
 /area/planet/forest/cave/lobby)
 "ih" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "ii" = (
@@ -3608,7 +3608,7 @@
 /obj/item/material/shard{
 	icon_state = "small"
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "ij" = (
@@ -3626,7 +3626,7 @@
 /area/planet/forest/cave/lobby)
 "il" = (
 /obj/structure/grille/broken,
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "im" = (
@@ -3654,12 +3654,12 @@
 /area/planet/forest/cave/kitchen)
 "iq" = (
 /obj/random/trash,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "ir" = (
 /obj/random/maintenance,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "is" = (
@@ -3672,19 +3672,19 @@
 /area/planet/forest/cave/kitchen)
 "it" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "iu" = (
 /obj/structure/flora/pottedplant/stoutbush,
-/obj/effect/floor_decal/corner/purple/three_quarters{
+/obj/floor_decal/corner/purple/three_quarters{
 	dir = 8;
 	icon_state = "corner_white_three_quarters"
 	},
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "iv" = (
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 1
 	},
 /obj/machinery/light_switch{
@@ -3697,14 +3697,14 @@
 /obj/structure/table/standard,
 /obj/item/stack/material/phoron/ten,
 /obj/item/stack/material/steel/fifty,
-/obj/effect/floor_decal/corner/purple/three_quarters{
+/obj/floor_decal/corner/purple/three_quarters{
 	dir = 1;
 	icon_state = "corner_white_three_quarters"
 	},
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "ix" = (
-/obj/effect/floor_decal/corner/purple/three_quarters{
+/obj/floor_decal/corner/purple/three_quarters{
 	dir = 8;
 	icon_state = "corner_white_three_quarters"
 	},
@@ -3714,10 +3714,10 @@
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "iy" = (
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /obj/machinery/light_switch{
 	pixel_x = 0;
 	pixel_y = 24
@@ -3740,7 +3740,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "iA" = (
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 1
 	},
 /obj/random/junk,
@@ -3772,7 +3772,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "iF" = (
@@ -3781,7 +3781,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "iG" = (
@@ -3830,7 +3830,7 @@
 /obj/item/material/shard{
 	icon_state = "medium"
 	},
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "iM" = (
@@ -3885,7 +3885,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "iR" = (
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "iS" = (
@@ -3922,7 +3922,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "iX" = (
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
@@ -3930,7 +3930,7 @@
 /area/planet/forest/cave/hall)
 "iY" = (
 /obj/machinery/r_n_d/server/core,
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -3943,13 +3943,13 @@
 /obj/structure/table/standard,
 /obj/item/stack/material/glass/fifty,
 /obj/item/stack/material/uranium/ten,
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "jb" = (
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 8
 	},
 /obj/structure/salvageable/machine,
@@ -3958,27 +3958,27 @@
 "jc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor,
 /area/planet/forest/cave/lab)
 "jd" = (
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "je" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor,
 /area/planet/forest/cave/lab)
 "jf" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "jg" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "jh" = (
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -4013,7 +4013,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/random/trash,
-/obj/effect/floor_decal/rust/mono/high,
+/obj/floor_decal/rust/mono/high,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "jo" = (
@@ -4032,8 +4032,8 @@
 /turf/simulated/floor,
 /area/planet/forest/cave/lobby)
 "jr" = (
-/obj/effect/floor_decal/rust/mono/high,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust/mono/high,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "jt" = (
@@ -4094,7 +4094,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "jB" = (
-/obj/effect/wingrille_spawn/reinforced/full,
+/obj/wingrille_spawn/reinforced/full,
 /obj/machinery/door/blast/regular{
 	dir = 8;
 	id_tag = "containment";
@@ -4107,7 +4107,7 @@
 /obj/item/paper_bin,
 /obj/item/pen/blue,
 /obj/item/pen/blue,
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 8
 	},
 /obj/item/treasure/tape,
@@ -4128,14 +4128,14 @@
 /area/planet/forest/cave/lab)
 "jF" = (
 /obj/machinery/r_n_d/circuit_imprinter,
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 4
 	},
 /obj/item/treasure/tape,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "jG" = (
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 8
 	},
 /obj/structure/kitchenspike,
@@ -4149,7 +4149,7 @@
 	dir = 1;
 	icon_state = "map_scrubber_on"
 	},
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor,
 /area/planet/forest/cave/lab)
 "jI" = (
@@ -4157,7 +4157,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor,
 /area/planet/forest/cave/lab)
 "jJ" = (
@@ -4165,11 +4165,11 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "jK" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
@@ -4210,7 +4210,7 @@
 /area/planet/forest/cave/lobby)
 "jR" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "jS" = (
@@ -4246,13 +4246,13 @@
 /turf/simulated/floor,
 /area/planet/forest/cave/kitchen)
 "jV" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /obj/item/clothing/head/fedora,
 /obj/item/remains/human,
 /turf/simulated/floor/tiled/freezer,
 /area/planet/forest/cave/kitchen)
 "jW" = (
-/obj/effect/floor_decal/rust,
+/obj/floor_decal/rust,
 /turf/simulated/floor,
 /area/planet/forest/cave/kitchen)
 "jX" = (
@@ -4273,7 +4273,7 @@
 /area/planet/forest/cave/kitchen)
 "ka" = (
 /obj/structure/table/standard,
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 8
 	},
 /obj/structure/salvageable/personal,
@@ -4297,7 +4297,7 @@
 /area/planet/forest/cave/lab)
 "kd" = (
 /obj/machinery/r_n_d/destructive_analyzer,
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -4339,7 +4339,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "kk" = (
@@ -4365,7 +4365,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "km" = (
-/obj/effect/floor_decal/ntlogo{
+/obj/floor_decal/ntlogo{
 	dir = 1;
 	icon_state = "ntlogo"
 	},
@@ -4374,7 +4374,7 @@
 /turf/simulated/floor,
 /area/planet/forest/cave/lobby)
 "kn" = (
-/obj/effect/floor_decal/ntlogo{
+/obj/floor_decal/ntlogo{
 	dir = 8;
 	icon_state = "ntlogo"
 	},
@@ -4405,7 +4405,7 @@
 	dir = 4;
 	icon_state = "intact-scrubbers"
 	},
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
@@ -4449,7 +4449,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/kitchen)
 "kw" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/fridge,
 /obj/item/shellfish/clam,
 /obj/item/shellfish/clam,
 /obj/item/shellfish/clam,
@@ -4468,13 +4468,12 @@
 /area/planet/forest/cave/kitchen)
 "kz" = (
 /obj/structure/table/standard,
-/obj/machinery/reagent_temperature/cooler,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/kitchen)
 "kA" = (
 /obj/structure/table/standard,
 /obj/machinery/computer/rdconsole/old,
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
@@ -4488,7 +4487,7 @@
 /area/planet/forest/cave/lab)
 "kC" = (
 /obj/machinery/r_n_d/protolathe,
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -4512,7 +4511,7 @@
 /turf/simulated/floor,
 /area/planet/forest/cave/lobby)
 "kG" = (
-/obj/effect/floor_decal/rust/mono/medium,
+/obj/floor_decal/rust/mono/medium,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "kH" = (
@@ -4520,12 +4519,12 @@
 /turf/simulated/floor,
 /area/planet/forest/cave/lobby)
 "kI" = (
-/obj/effect/floor_decal/ntlogo,
-/obj/effect/decal/cleanable/filth,
+/obj/floor_decal/ntlogo,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "kJ" = (
-/obj/effect/floor_decal/ntlogo{
+/obj/floor_decal/ntlogo{
 	dir = 4;
 	icon_state = "ntlogo"
 	},
@@ -4568,7 +4567,7 @@
 /area/planet/forest/cave/kitchen)
 "kP" = (
 /obj/machinery/light/small,
-/obj/structure/closet/secure_closet/freezer/meat,
+/obj/structure/closet/fridge/meat,
 /obj/item/shellfish/crab,
 /obj/item/shellfish/crab,
 /obj/item/shellfish/crab,
@@ -4602,15 +4601,15 @@
 /area/planet/forest/cave/kitchen)
 "kU" = (
 /obj/structure/flora/pottedplant/stoutbush,
-/obj/effect/floor_decal/corner/purple/three_quarters,
-/obj/effect/decal/cleanable/cobweb{
+/obj/floor_decal/corner/purple/three_quarters,
+/obj/decal/cleanable/cobweb{
 	dir = 4;
 	icon_state = "cobweb1"
 	},
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "kV" = (
-/obj/effect/floor_decal/corner/purple/half,
+/obj/floor_decal/corner/purple/half,
 /obj/machinery/alarm{
 	dir = 1;
 	icon_state = "alarm0";
@@ -4623,13 +4622,13 @@
 	density = 0;
 	pixel_y = -32
 	},
-/obj/effect/floor_decal/corner/purple/half,
+/obj/floor_decal/corner/purple/half,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "kX" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker/large,
-/obj/effect/floor_decal/corner/purple/three_quarters{
+/obj/floor_decal/corner/purple/three_quarters{
 	dir = 4;
 	icon_state = "corner_white_three_quarters"
 	},
@@ -4643,7 +4642,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "kZ" = (
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "la" = (
@@ -4654,7 +4653,7 @@
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "lb" = (
-/obj/effect/floor_decal/rust/mono/high,
+/obj/floor_decal/rust/mono/high,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/lobby)
 "lc" = (
@@ -4710,7 +4709,7 @@
 /turf/simulated/floor,
 /area/planet/forest/cave)
 "ln" = (
-/obj/effect/overmap/visitable/sector/planetoid/caraway_forest,
+/obj/overmap/visitable/sector/planetoid/caraway_forest,
 /turf/simulated/floor/asteroid/planet,
 /area/planet/forest/cave)
 "lo" = (
@@ -4718,7 +4717,7 @@
 /turf/simulated/floor,
 /area/planet/forest/cave)
 "lp" = (
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /obj/machinery/door/unpowered/simple/wood,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
@@ -4869,7 +4868,7 @@
 /turf/simulated/floor/asteroid/planet,
 /area/planet/forest/cave)
 "xI" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /obj/structure/salvageable/computer,
 /turf/simulated/floor,
 /area/planet/forest/cave/lab)
@@ -4920,7 +4919,7 @@
 /turf/simulated/floor/asteroid/planet,
 /area/planet/forest/cave)
 "FE" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /obj/structure/salvageable/server,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
@@ -4936,7 +4935,7 @@
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
 "Mm" = (
-/obj/effect/floor_decal/corner/purple/three_quarters{
+/obj/floor_decal/corner/purple/three_quarters{
 	dir = 4;
 	icon_state = "corner_white_three_quarters"
 	},
@@ -4952,18 +4951,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
 "NZ" = (
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 4
 	},
 /obj/item/remains/xeno,
 /turf/simulated/floor/tiled/white,
 /area/planet/forest/cave/lab)
 "Oy" = (
-/obj/effect/decal/remains,
+/obj/decal/remains,
 /turf/simulated/floor/asteroid/planet,
 /area/planet/forest/cave)
 "OB" = (
-/obj/effect/spider/stickyweb,
+/obj/spider/stickyweb,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/dorms)
 "PL" = (
@@ -4971,12 +4970,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/planet/forest/cave/engie)
 "Qr" = (
-/obj/effect/decal/cleanable/filth,
+/obj/decal/cleanable/filth,
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/simulated/floor/tiled,
 /area/planet/forest/cave/hall)
 "Sz" = (
-/obj/effect/floor_decal/corner/purple/three_quarters{
+/obj/floor_decal/corner/purple/three_quarters{
 	dir = 1;
 	icon_state = "corner_white_three_quarters"
 	},
@@ -4988,7 +4987,7 @@
 /turf/simulated/floor/asteroid/planet,
 /area/planet/forest/cave)
 "Tu" = (
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 1
 	},
 /obj/structure/largecrate/animal/chick,
@@ -5000,7 +4999,7 @@
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
 "Vj" = (
-/obj/effect/floor_decal/corner/purple/half{
+/obj/floor_decal/corner/purple/half{
 	dir = 1
 	},
 /obj/structure/salvageable/bliss,
@@ -5012,7 +5011,7 @@
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)
 "VZ" = (
-/obj/effect/floor_decal/rust/mono/high,
+/obj/floor_decal/rust/mono/high,
 /obj/structure/salvageable/autolathe,
 /turf/simulated/floor,
 /area/planet/forest/cave/engie)

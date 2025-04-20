@@ -136,7 +136,7 @@
 	},
 /area/derelict/ship)
 "at" = (
-/obj/item/scalpel,
+/obj/item/scalpel/basic,
 /turf/simulated/shuttle/floor{
 	icon_state = "floor3"
 	},
@@ -771,7 +771,7 @@
 /obj/structure/lattice,
 /obj/structure/grille{
 	density = 0;
-	icon_state = "brokengrille"
+	icon_state = "broken"
 	},
 /turf/space,
 /area/space)
@@ -926,7 +926,7 @@
 "cA" = (
 /obj/structure/grille{
 	density = 0;
-	icon_state = "brokengrille"
+	icon_state = "broken"
 	},
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
@@ -962,7 +962,7 @@
 /turf/space,
 /area/space)
 "cG" = (
-/obj/item/folder/yellow,
+/obj/item/material/folder/yellow,
 /turf/simulated/floor/airless,
 /area/tcommsat/chamber/abandoned)
 "cH" = (
@@ -1129,7 +1129,7 @@
 	},
 /obj/structure/grille{
 	density = 0;
-	icon_state = "brokengrille"
+	icon_state = "broken"
 	},
 /turf/simulated/floor/plating/airless,
 /area/space)
@@ -1272,11 +1272,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "dC" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /obj/item/material/shard{
 	icon_state = "medium"
 	},
@@ -1324,8 +1324,8 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "dI" = (
-/obj/effect/decal/cleanable/blood,
-/obj/item/scalpel{
+/obj/decal/cleanable/blood,
+/obj/item/scalpel/basic{
 	pixel_y = 12
 	},
 /turf/simulated/floor/plating,
@@ -1373,11 +1373,11 @@
 /turf/simulated/floor/plating,
 /area/space)
 "dP" = (
-/obj/effect/decal/cleanable/blood/oil,
+/obj/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "dQ" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /obj/structure/bed/chair,
 /obj/item/clothing/under/rank/centcom_officer,
 /obj/item/handcuffs,
@@ -1411,7 +1411,7 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "dW" = (
-/obj/effect/decal/cleanable/blood,
+/obj/decal/cleanable/blood,
 /obj/item/device/assembly/signaler,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
@@ -1467,7 +1467,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "ef" = (
@@ -1501,7 +1501,7 @@
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "ek" = (
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /turf/simulated/floor/plating,
 /area/tcommsat/chamber/abandoned)
 "el" = (
@@ -1524,7 +1524,7 @@
 /area/space)
 "eo" = (
 /obj/structure/lattice,
-/obj/item/stack/rods,
+/obj/item/stack/material/rods,
 /obj/item/material/shard{
 	icon_state = "medium"
 	},
@@ -1547,12 +1547,12 @@
 "eq" = (
 /obj/structure/grille{
 	density = 0;
-	icon_state = "brokengrille"
+	icon_state = "broken"
 	},
 /turf/space,
 /area/space)
 "er" = (
-/obj/effect/template_loader/space,
+/obj/urist_intangible/trigger/template_loader/space,
 /turf/space,
 /area/space)
 "es" = (
@@ -1674,7 +1674,7 @@
 "eR" = (
 /obj/structure/grille{
 	density = 0;
-	icon_state = "brokengrille"
+	icon_state = "broken"
 	},
 /turf/simulated/floor/plating/airless,
 /area/AIsattele)
@@ -1703,7 +1703,7 @@
 "eX" = (
 /obj/structure/grille{
 	density = 0;
-	icon_state = "brokengrille"
+	icon_state = "broken"
 	},
 /turf/space,
 /area/AIsattele)

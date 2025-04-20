@@ -26,6 +26,11 @@
 		We understand the depressed, alcoholic cowboy in you. That's why we also smoke Jericho.;\
 		Professionals. Better cigarettes for better people. Yes, better people.\
 	"}
+	antag_slogans = {"\
+		With your lungs full of smoke, you’ll share the experience of countless Gaian civilians!;\
+		Smoke your troubles away. Is being a citizen of Sol worth all this trouble?;\
+		We kill you, you buy! It's the SCG way!\
+	"}
 	prices = list(
 		/obj/item/storage/chewables/tobacco = 40,
 		/obj/item/storage/chewables/tobacco2 = 50,
@@ -49,8 +54,8 @@
 		/obj/item/storage/fancy/smokable/trident_mint = 85,
 		/obj/item/storage/fancy/smokable/trident_fruit = 85,
 		/obj/item/storage/fancy/smokable/urist/carp = 95,
-		/obj/item/storage/box/matches = 2,
-		/obj/item/flame/lighter/random = 5,
+		/obj/item/storage/fancy/matches/matchbox = 5,
+		/obj/item/storage/fancy/matches/matchbook = 2,		/obj/item/flame/lighter/random = 5,
 		/obj/item/clothing/mask/smokable/ecig/simple = 50,
 		/obj/item/clothing/mask/smokable/ecig/util = 100,
 		/obj/item/clothing/mask/smokable/ecig/deluxe = 250,
@@ -84,7 +89,8 @@
 		/obj/item/storage/fancy/smokable/trident_mint = 2,
 		/obj/item/storage/fancy/smokable/trident_fruit = 2,
 		/obj/item/storage/fancy/smokable/urist/carp = 2,
-		/obj/item/storage/box/matches = 10,
+		/obj/item/storage/fancy/matches/matchbox = 5,
+		/obj/item/storage/fancy/matches/matchbook = 5,
 		/obj/item/flame/lighter/random = 4,
 		/obj/item/storage/chewables/tobacco = 2,
 		/obj/item/storage/chewables/tobacco2 = 2,
@@ -111,4 +117,15 @@
 		/obj/item/storage/fancy/smokable/cigar = 5,
 		/obj/item/storage/fancy/smokable/killthroat = 5,
 		/obj/item/storage/fancy/smokable/urist/devil = 5
+	)
+	rare_products = list(
+		/obj/item/storage/box/syndie_kit/cigarette = 50,
+		/obj/item/storage/box/syndie_kit/syringegun = 40,
+		/obj/item/clothing/mask/chameleon/voice = 20
+	)
+	antag = list(
+		/obj/item/grenade/smokebomb = 1,
+		/obj/item/storage/box/syndie_kit/cigarette = 0,
+		/obj/item/storage/box/syndie_kit/syringegun = 0,
+		/obj/item/clothing/mask/chameleon/voice = 0
 	)

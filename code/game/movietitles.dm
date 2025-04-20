@@ -24,7 +24,7 @@ GLOBAL_LIST(end_titles)
 
 		if(mob.get_preference_value(/datum/client_preference/play_lobby_music) == GLOB.PREF_YES)
 			sound_to(mob, sound(null, channel = GLOB.lobby_sound_channel))
-			if(GLOB.end_credits_song == null)
+			if(isnull(GLOB.end_credits_song))
 				var/title_song = pick('sound/music/THUNDERDOME.ogg', 'sound/music/europa/Chronox_-_03_-_In_Orbit.ogg', 'sound/music/europa/asfarasitgets.ogg')
 				sound_to(mob, sound(title_song, wait = 0, volume = 40, channel = GLOB.lobby_sound_channel))
 			else if(get_preference_value(/datum/client_preference/play_admin_midis) == GLOB.PREF_YES)
@@ -91,6 +91,7 @@ GLOBAL_LIST(end_titles)
 	return ..()
 
 /proc/generate_titles()
+	RETURN_TYPE(/list)
 	var/list/titles = list()
 	var/list/cast = list()
 	var/list/chunk = list()
@@ -118,7 +119,7 @@ GLOBAL_LIST(end_titles)
 			continue
 		if(H.is_species(SPECIES_MONKEY) && findtext(H.real_name,"[lowertext(H.species.name)]")) //no monki
 			continue
-		if(H.last_ckey == null) //don't mention these losers (prespawned corpses mostly)
+		if(isnull(H.last_ckey)) //don't mention these losers (prespawned corpses mostly)
 			continue
 		if(!length(cast) && !chunksize)
 			chunk += "CAST:"
@@ -159,14 +160,14 @@ GLOBAL_LIST(end_titles)
 	var/list/corpses = list()
 	var/list/monkies = list()
 	for(var/mob/living/carbon/human/H in GLOB.dead_mobs)
-		if(H.last_ckey == null) //no prespawned corpses
+		if(isnull(H.last_ckey)) //no prespawned corpses
 			continue
 		if(H.is_species(SPECIES_MONKEY) && findtext(H.real_name,"[lowertext(H.species.name)]"))
 			monkies[H.species.name] += 1
 		else if(H.real_name)
 			corpses += H.real_name
 	for(var/spec in monkies)
-		var/datum/species/S = all_species[spec]
+		var/singleton/species/S = GLOB.species_by_name[spec]
 		corpses += "[monkies[spec]] [lowertext(monkies[spec] > 1 ? S.name_plural : S.name)]"
 	if(length(corpses))
 		titles += "<center>BASED ON REAL EVENTS<br>In memory of [english_list(corpses)].</center>"
@@ -205,6 +206,6 @@ GLOBAL_LIST(end_titles)
 						(This disclaimer sponsored by Carcinoma - Carcinogens are our Business!(TM)).",
 						"No animals were harmed in the making of this motion picture except for those listed previously as dead. Do not try this at home.")
 	titles += "<hr>"
-	titles += "<center><span style='font-size:6pt;'>[JOINTEXT(disclaimer)]</span></center>"
+	titles += "<center><span style='font-size:6pt;'>[jointext(disclaimer, null)]</span></center>"
 
 	return titles

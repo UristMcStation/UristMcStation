@@ -176,7 +176,7 @@
 	query.Execute()
 	while(query.NextRow())
 		ban_id = query.item[1]
-		ban_number++;
+		ban_number++
 
 	if(ban_number == 0)
 		to_chat(usr, SPAN_WARNING("Database update failed due to no bans fitting the search criteria. If this is not a legacy ban you should contact the database admin."))
@@ -271,7 +271,7 @@
 	query.Execute()
 	while(query.NextRow())
 		pckey = query.item[1]
-		ban_number++;
+		ban_number++
 
 	if(ban_number == 0)
 		to_chat(usr, SPAN_WARNING("Database update failed due to a ban id not being present in the database."))
@@ -325,7 +325,7 @@
 
 	output += "<td width='65%' align='center' bgcolor='#f9f9f9'>"
 
-	output += "<form method='GET' action='?src=\ref[src]'><b>Add custom ban:</b> (ONLY use this if you can't ban through any other method)"
+	output += "<form method='GET' action='byond://?src=\ref[src]'><b>Add custom ban:</b> (ONLY use this if you can't ban through any other method)"
 	output += "<input type='hidden' name='src' value='\ref[src]'>"
 	output += "<table width='100%'><tr>"
 	output += "<td width='50%' align='right'><b>Ban type:</b><select name='dbbanaddtype'>"
@@ -361,7 +361,7 @@
 	output += "</tr>"
 	output += "</table>"
 
-	output += "<form method='GET' action='?src=\ref[src]'><table width='60%'><tr><td colspan='2' align='left'><b>Search:</b>"
+	output += "<form method='GET' action='byond://?src=\ref[src]'><table width='60%'><tr><td colspan='2' align='left'><b>Search:</b>"
 	output += "<input type='hidden' name='src' value='\ref[src]'></td></tr>"
 	output += "<tr><td width='50%' align='right'><b>Ckey:</b> <input type='text' name='dbsearchckey' value='[playerckey]'></td>"
 	output += "<td width='50%' align='right'><b>Admin ckey:</b> <input type='text' name='dbsearchadmin' value='[adminckey]'></td></tr>"

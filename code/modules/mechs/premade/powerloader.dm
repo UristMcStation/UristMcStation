@@ -55,7 +55,8 @@
 	name = "firefighting exosuit"
 	desc = "A mix and match of industrial parts designed to withstand fires."
 
-/mob/living/exosuit/premade/firefighter/New()
+
+/mob/living/exosuit/premade/firefighter/Initialize(mapload)
 	if(!arms)
 		arms = new /obj/item/mech_component/manipulators/powerloader(src)
 		arms.color = "#385b3c"
@@ -69,20 +70,16 @@
 		body = new /obj/item/mech_component/chassis/heavy(src)
 		body.color = "#385b3c"
 
-	..()
+	. = ..()
 
 	material = SSmaterials.get_material_by_name(MATERIAL_OSMIUM_CARBIDE_PLASTEEL)
+
 
 /mob/living/exosuit/premade/firefighter/spawn_mech_equipment()
 	..()
 	install_system(new /obj/item/mech_equipment/drill/steel(src), HARDPOINT_LEFT_HAND)
 	install_system(new /obj/item/mech_equipment/mounted_system/extinguisher(src), HARDPOINT_RIGHT_HAND)
 	install_system(new /obj/item/mech_equipment/atmos_shields(src), HARDPOINT_BACK)
-
-/obj/item/mech_component/sensors/firefighter/prebuild()
-	..()
-	software = new(src)
-	software.installed_software = list(MECH_SOFTWARE_UTILITY, MECH_SOFTWARE_ENGINEERING)
 
 /mob/living/exosuit/premade/powerloader/old
 	name = "weathered power loader"

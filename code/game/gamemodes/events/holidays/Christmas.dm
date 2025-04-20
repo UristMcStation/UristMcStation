@@ -1,6 +1,6 @@
 /obj/item/toy/xmas_cracker
 	name = "xmas cracker"
-	icon = 'icons/obj/christmas.dmi'
+	icon = 'icons/obj/gifts.dmi'
 	icon_state = "cracker"
 	desc = "Directions for use: Requires two people, one to pull each end."
 	var/cracked = 0
@@ -8,8 +8,9 @@
 /obj/item/toy/xmas_cracker/New()
 	..()
 
-/obj/item/toy/xmas_cracker/attack(mob/target, mob/user)
-	if( !cracked && istype(target,/mob/living/carbon/human) && (target.stat == CONSCIOUS) && !target.get_active_hand() )
+/obj/item/toy/xmas_cracker/use_before(mob/target, mob/user)
+	. = FALSE
+	if (!cracked && istype(target,/mob/living/carbon/human) && (target.stat == CONSCIOUS) && !target.get_active_hand() )
 		target.visible_message(SPAN_NOTICE("[user] and [target] pop \an [src]! *pop*"), SPAN_NOTICE("You pull \an [src] with [target]! *pop*"), SPAN_NOTICE("You hear a *pop*."))
 		var/obj/item/paper/Joke = new /obj/item/paper(user.loc)
 		Joke.SetName("[pick("awful","terrible","unfunny")] joke")
@@ -32,8 +33,7 @@
 		other_half.icon_state = "cracker2"
 		target.put_in_active_hand(other_half)
 		playsound(user, 'sound/effects/snap.ogg', 50, 1)
-		return 1
-	return ..()
+		return TRUE
 
 /obj/item/clothing/head/festive
 	name = "festive paper hat"

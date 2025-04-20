@@ -165,7 +165,7 @@
 		row3.Add(get_turf(get_step(row3[i - 1], dir)))
 
 
-/obj/structure/emplacement/machinegun/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/emplacement/machinegun/use_tool(obj/item/W, mob/living/user, list/click_params)
 	var/obj/item/machinegunammo/Ammo = W
 	if(istype(W, /obj/item/wrench))
 		if(anchored)
@@ -199,7 +199,7 @@
 	else
 		return ..()
 
-/obj/structure/emplacement/laser/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/emplacement/laser/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/wrench))
 		if(anchored)
 			user.visible_message("<span class='notice'> \The [user] starts to unbolt \the [src] from the plating...</span>")

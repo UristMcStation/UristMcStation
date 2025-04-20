@@ -40,15 +40,17 @@
 /mob/living/simple_animal/construct/cultify()
 	return
 
-/mob/living/simple_animal/construct/New()
-	..()
-	name = text("[initial(name)] ([random_id(/mob/living/simple_animal/construct, 1000, 9999)])")
+
+/mob/living/simple_animal/construct/Initialize()
+	. = ..()
+	SetName("[initial(name)] ([random_id(/mob/living/simple_animal/construct, 1000, 9999)])")
 	real_name = name
 	add_language(LANGUAGE_CULT)
 	add_language(LANGUAGE_CULT_GLOBAL)
 	for(var/spell in construct_spells)
 		add_spell(new spell, "const_spell_ready")
 	update_icon()
+
 
 /mob/living/simple_animal/construct/death(gibbed, deathmessage, show_dead_message)
 	new /obj/item/ectoplasm (src.loc)
@@ -57,7 +59,7 @@
 	qdel(src)
 
 /mob/living/simple_animal/construct/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	..()
 	add_glow()
 
@@ -73,7 +75,7 @@
 	name = "ectoplasm"
 	desc = "Spooky."
 	gender = PLURAL
-	icon = 'icons/obj/wizard.dmi'
+	icon = 'icons/obj/cult.dmi'
 	icon_state = "ectoplasm"
 
 /////////////////Juggernaut///////////////
@@ -202,15 +204,15 @@
 	attack_verb = list("rammed")
 	force = 5
 
-/obj/item/natural_weapon/cult_builder/attack(mob/living/M, mob/living/user)
-	if(istype(M, /mob/living/simple_animal/construct))
-		if(M.health < M.maxHealth)
+/obj/item/natural_weapon/cult_builder/use_before(mob/living/M, mob/living/user)
+	. = FALSE
+	if (istype(M, /mob/living/simple_animal/construct))
+		if (M.health < M.maxHealth)
 			M.adjustBruteLoss(-5)
 			user.visible_message(SPAN_NOTICE("\The [user] mends some of \the [M]'s wounds."))
 		else
 			to_chat(user, SPAN_NOTICE("\The [M] is undamaged."))
-		return
-	return ..()
+		return TRUE
 
 /////////////////////////////Behemoth/////////////////////////
 
@@ -276,8 +278,8 @@
 	var/image/eye_glow = image(icon,"glow-[icon_state]")
 	eye_glow.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	eye_glow.layer = EYE_GLOW_LAYER
-	overlays += eye_glow
-	set_light(-2, 0.1, 1.5, l_color = "#ffffff")
+	AddOverlays(eye_glow)
+	set_light(1.5, -2, l_color = "#ffffff")
 
 	z_flags |= ZMM_MANGLE_PLANES
 ////////////////HUD//////////////////////

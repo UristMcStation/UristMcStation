@@ -1,5 +1,9 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
+#define IS_SUBTYPE(child_type, parent_type) (child_type != parent_type && istype(child_type, parent_type))
+
+#define IS_SUBPATH(child_path, parent_path) (child_path != parent_path && ispath(child_path, parent_path))
+
 /proc/is_on_same_plane_or_station(z1, z2)
 	if(z1 == z2)
 		return 1
@@ -26,19 +30,14 @@
 					return TRUE
 	return FALSE
 
-/proc/get_area(O)
-	var/turf/loc = get_turf(O)
-	if(loc)
-		var/area/res = loc.loc
-		.= res
-
 /proc/get_area_name(N) //get area by its name
+	RETURN_TYPE(/area)
 	for(var/area/A in world)
 		if(A.name == N)
 			return A
-	return 0
 
-/proc/get_area_master(const/O)
+/proc/get_area_master(O)
+	RETURN_TYPE(/area)
 	var/area/A = get_area(O)
 	if (isarea(A))
 		return A
@@ -52,6 +51,7 @@
 // Like view but bypasses luminosity check
 
 /proc/hear(range, atom/source)
+	RETURN_TYPE(/list)
 
 	var/lum = source.luminosity
 	source.luminosity = 6
@@ -83,9 +83,10 @@
 	return level in GLOB.using_map.escape_levels
 
 /proc/circlerange(center=usr,radius=3)
+	RETURN_TYPE(/list)
 
 	var/turf/centerturf = get_turf(center)
-	var/list/turfs = new/list()
+	var/list/turfs = list()
 	var/rsq = radius * (radius+0.5)
 
 	for(var/atom/T in range(radius, centerturf))
@@ -98,9 +99,10 @@
 	return turfs
 
 /proc/circleview(center=usr,radius=3)
+	RETURN_TYPE(/list)
 
 	var/turf/centerturf = get_turf(center)
-	var/list/atoms = new/list()
+	var/list/atoms = list()
 	var/rsq = radius * (radius+0.5)
 
 	for(var/atom/A in view(radius, centerturf))
@@ -113,6 +115,7 @@
 	return atoms
 
 /proc/trange(rad = 0, turf/centre = null) //alternative to range (ONLY processes turfs and thus less intensive)
+	RETURN_TYPE(/list)
 	if(!centre)
 		return
 
@@ -128,7 +131,14 @@
 
 	return dist
 
+/proc/get_bearing(atom/source, atom/destination)
+	var/bearing = round(90 - Atan2(destination.x - source.x, destination.y - source.y),5)
+	if(bearing < 0)
+		bearing += 360
+	return bearing
+
 /proc/circlerangeturfs(center=usr,radius=3)
+	RETURN_TYPE(/list)
 	var/turf/centerturf = get_turf(center)
 	. = list()
 	if(!centerturf)
@@ -143,9 +153,10 @@
 			. += T
 
 /proc/circleviewturfs(center=usr,radius=3)		//Is there even a diffrence between this proc and circlerangeturfs()?
+	RETURN_TYPE(/list)
 
 	var/turf/centerturf = get_turf(center)
-	var/list/turfs = new/list()
+	var/list/turfs = list()
 	var/rsq = radius * (radius+0.5)
 
 	for(var/turf/T in view(radius, centerturf))
@@ -164,6 +175,7 @@
 // being unable to hear people due to being in a box within a bag.
 
 /proc/recursive_content_check(atom/O,  list/L = list(), recursion_limit = 3, client_check = 1, sight_check = 1, include_mobs = 1, include_objects = 1)
+	RETURN_TYPE(/list)
 
 	if(!recursion_limit)
 		return L
@@ -192,6 +204,7 @@
 // Returns a list of mobs and/or objects in range of R from source. Used in radio and say code.
 
 /proc/get_mobs_or_objects_in_view(R, atom/source, include_mobs = 1, include_objects = 1)
+	RETURN_TYPE(/list)
 
 	var/turf/T = get_turf(source)
 	var/list/hear = list()
@@ -217,6 +230,7 @@
 
 
 /proc/get_mobs_in_radio_ranges(list/obj/item/device/radio/radios)
+	RETURN_TYPE(/list)
 
 	set background = 1
 
@@ -252,7 +266,8 @@
 
 /proc/get_mobs_and_objs_in_view_fast(turf/T, range, list/mobs, list/objs, checkghosts = null)
 
-	var/list/hear = dview(range,T,INVISIBILITY_MAXIMUM)
+	var/list/hear = list()
+	DVIEW(hear, range, T, INVISIBILITY_MAXIMUM)
 	var/list/hearturfs = list()
 
 	for(var/atom/movable/AM in hear)
@@ -321,6 +336,7 @@
 		return 0
 
 /proc/get_cardinal_step_away(atom/start, atom/finish) //returns the position of a step from start away from finish, in one of the cardinal directions
+	RETURN_TYPE(/turf)
 	//returns only NORTH, SOUTH, EAST, or WEST
 	var/dx = finish.x - start.x
 	var/dy = finish.y - start.y
@@ -336,6 +352,7 @@
 			return get_step(start, EAST)
 
 /proc/get_mob_by_key(key)
+	RETURN_TYPE(/mob)
 	for(var/mob/M in SSmobs.mob_list)
 		if(M.ckey == lowertext(key))
 			return M
@@ -344,6 +361,7 @@
 
 // Will return a list of active candidates. It increases the buffer 5 times until it finds a candidate which is active within the buffer.
 /proc/get_active_candidates(buffer = 1)
+	RETURN_TYPE(/list)
 
 	var/list/candidates = list() //List of candidate KEYS to assume control of the new larva ~Carn
 	var/i = 0
@@ -370,6 +388,7 @@
 	return candidates
 
 /proc/ScreenText(obj/O, maptext="", screen_loc="CENTER-7,CENTER-7", maptext_height=480, maptext_width=480)
+	RETURN_TYPE(/obj/screen)
 	if(!isobj(O))	O = new /obj/screen/text()
 	O.maptext = maptext
 	O.maptext_height = maptext_height
@@ -405,7 +424,7 @@
 	var/dest_y
 
 /datum/projectile_data/New(src_x, src_y, time, distance, \
-						   var/power_x, var/power_y, var/dest_x, var/dest_y)
+						   power_x, power_y, dest_x, dest_y)
 	src.src_x = src_x
 	src.src_y = src_y
 	src.time = time
@@ -416,6 +435,7 @@
 	src.dest_y = dest_y
 
 /proc/projectile_trajectory(src_x, src_y, rotation, angle, power)
+	RETURN_TYPE(/datum/projectile_data)
 
 	// returns the destination (Vx,y) that a projectile shot at [src_x], [src_y], with an angle of [angle],
 	// rotated at [rotation] and with the power of [power]
@@ -427,28 +447,29 @@
 
 	var/distance = time * power_x
 
-	var/dest_x = src_x + distance*sin(rotation);
-	var/dest_y = src_y + distance*cos(rotation);
+	var/dest_x = src_x + distance*sin(rotation)
+	var/dest_y = src_y + distance*cos(rotation)
 
 	return new /datum/projectile_data(src_x, src_y, time, distance, power_x, power_y, dest_x, dest_y)
 
-/proc/GetRedPart(const/hexa)
+/proc/GetRedPart(hexa)
 	return hex2num(copytext(hexa,2,4))
 
-/proc/GetGreenPart(const/hexa)
+/proc/GetGreenPart(hexa)
 	return hex2num(copytext(hexa,4,6))
 
-/proc/GetBluePart(const/hexa)
+/proc/GetBluePart(hexa)
 	return hex2num(copytext(hexa,6,8))
 
-/proc/GetHexColors(const/hexa)
+/proc/GetHexColors(hexa)
+	RETURN_TYPE(/list)
 	return list(
 			GetRedPart(hexa),
 			GetGreenPart(hexa),
 			GetBluePart(hexa)
 		)
 
-/proc/MixColors(const/list/colors)
+/proc/MixColors(list/colors)
 	var/list/reds = list()
 	var/list/blues = list()
 	var/list/greens = list()
@@ -498,8 +519,8 @@
 * around us, then checks the difference.
 */
 /proc/getOPressureDifferential(turf/loc)
-	var/minp=16777216;
-	var/maxp=0;
+	var/minp=16777216
+	var/maxp=0
 	for(var/dir in GLOB.cardinal)
 		var/turf/simulated/T=get_turf(get_step(loc,dir))
 		var/cp=0
@@ -520,7 +541,8 @@
 	return ((temp + T0C))
 
 /proc/getCardinalAirInfo(turf/loc, list/stats=list("temperature"))
-	var/list/temps = new/list(4)
+	RETURN_TYPE(/list)
+	var/list/temps = new(4)
 	for(var/dir in GLOB.cardinal)
 		var/direction
 		switch(dir)
@@ -533,7 +555,7 @@
 			if(WEST)
 				direction = 4
 		var/turf/simulated/T=get_turf(get_step(loc,dir))
-		var/list/rstats = new /list(length(stats))
+		var/list/rstats = new(length(stats))
 		if(T && istype(T) && T.zone)
 			var/datum/gas_mixture/environment = T.return_air()
 			for(var/i=1;i<=length(stats);i++)
@@ -543,7 +565,7 @@
 					rstats[i] = environment.vars[stats[i]]
 		else if(istype(T, /turf/simulated))
 			rstats = null // Exclude zone (wall, door, etc).
-		else if(istype(T, /turf))
+		else if(isturf(T))
 			// Should still work.  (/turf/return_air())
 			var/datum/gas_mixture/environment = T.return_air()
 			for(var/i=1;i<=length(stats);i++)
@@ -570,6 +592,7 @@
 	# endif
 
 /proc/getviewsize(view)
+	RETURN_TYPE(/list)
 	var/viewX
 	var/viewY
 	if(isnum(view))

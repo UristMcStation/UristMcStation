@@ -2,7 +2,6 @@
 
 	// Text shown when becoming this antagonist.
 	var/list/restricted_jobs = 		list()   // Jobs that cannot be this antagonist at roundstart (depending on config)
-	var/list/protected_jobs = 		list()   // As above.
 	var/list/blacklisted_jobs =		list(/datum/job/submap)   // Jobs that can NEVER be this antagonist
 
 	// Strings.
@@ -98,8 +97,6 @@
 	get_starting_locations()
 	if(!role_text_plural)
 		role_text_plural = role_text
-	if(config.protect_roles_from_antagonist)
-		restricted_jobs |= protected_jobs
 	if(antaghud_indicator)
 		if(!GLOB.hud_icon_reference)
 			GLOB.hud_icon_reference = list()
@@ -218,7 +215,7 @@
 //so that they do not occupy regular job slots. All other antag roles should be spawned after jobs are
 //assigned, so that job restrictions can be respected.
 /datum/antagonist/proc/attempt_spawn(spawn_target = null)
-	if(spawn_target == null)
+	if(isnull(spawn_target))
 		spawn_target = initial_spawn_target
 
 	// Update our boundaries.

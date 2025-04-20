@@ -1,8 +1,10 @@
 /obj/item/clothing
 	name = "clothing"
 	siemens_coefficient = 0.9
-	var/flash_protection = FLASH_PROTECTION_NONE	// Sets the item's level of flash protection.
-	var/tint = TINT_NONE							// Sets the item's level of visual impairment tint.
+	/// Sets the item's level of flash protection.
+	var/flash_protection = FLASH_PROTECTION_NONE
+	/// Sets the item's level of visual impairment tint.
+	var/tint = TINT_NONE
 	var/list/species_restricted = list(
 		"exclude",
 		SPECIES_NABBER
@@ -15,8 +17,27 @@
 	var/ironed_state = WRINKLES_DEFAULT
 	var/smell_state = SMELL_DEFAULT
 	var/volume_multiplier = 1
+	var/hud_type
+	var/vision_flags = 0
+	/// special vision states, such as seeing darkness, seeing mobs through walls, etc
+	var/darkness_view = 0
+	var/see_invisible = -1
+	var/light_protection = 0
+	/// if the clothing should be disrupted by EMP
+	var/electric = FALSE
+	/// used by goggles and HUDs
+	var/toggleable = FALSE
+	var/active = TRUE
+	var/activation_sound
+	/// set this if you want a sound on deactivation
+	var/deactivation_sound
+	/// set these in initialize if you want messages other than about the optical matrix
+	var/toggle_on_message
+	var/toggle_off_message
+	var/off_state = null
 
-	var/move_trail = /obj/effect/decal/cleanable/blood/tracks/footprints // if this item covers the feet, the footprints it should leave
+	/// if this item covers the feet, the footprints it should leave
+	var/move_trail = /obj/decal/cleanable/blood/tracks/footprints
 
 
 /obj/item/clothing/Initialize()
@@ -25,6 +46,8 @@
 	accessories = list()
 	for (var/path in init_accessories)
 		attach_accessory(null, new path (src))
+	if(toggleable)
+		set_extension(src, /datum/extension/base_icon_state, icon_state)
 
 
 /obj/item/clothing/Destroy()
@@ -64,11 +87,11 @@
 		if(blood_DNA && user_human.species.blood_mask)
 			var/image/bloodsies = overlay_image(user_human.species.blood_mask, blood_overlay_type, blood_color, RESET_COLOR)
 			bloodsies.appearance_flags |= NO_CLIENT_COLOR
-			ret.overlays	+= bloodsies
+			ret.AddOverlays(bloodsies)
 
 	if(length(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
-			ret.overlays |= A.get_mob_overlay(user_mob, slot)
+			ret.AddOverlays(A.get_mob_overlay(user_mob, slot))
 	return ret
 
 
@@ -156,7 +179,7 @@
 		if (length(display))
 			. += " with [english_list(display)] attached"
 		if (length(visible) > length(display))
-			. += ". <a href='?src=\ref[src];list_ungabunga=1'>\[See accessories\]</a>"
+			. += ". <a href='byond://?src=\ref[src];list_ungabunga=1'>\[See accessories\]</a>"
 
 /obj/item/clothing/proc/get_visible_accessories()
 	var/list/result = list()
@@ -181,20 +204,22 @@
 	. = ..()
 	var/datum/extension/armor/ablative/armor_datum = get_extension(src, /datum/extension/armor/ablative)
 	if(istype(armor_datum) && LAZYLEN(armor_datum.get_visible_damage()))
-		to_chat(user, SPAN_WARNING("It has some <a href='?src=\ref[src];list_armor_damage=1'>damage</a>."))
+		to_chat(user, SPAN_WARNING("It has some <a href='byond://?src=\ref[src];list_armor_damage=1'>damage</a>."))
 
 /obj/item/clothing/CanUseTopic(user)
 	if(user in view(get_turf(src)))
 		return STATUS_INTERACTIVE
 
 /obj/item/clothing/OnTopic(user, list/href_list, datum/topic_state/state)
+	. = ..()
+
 	if(href_list["list_ungabunga"])
 		var/list/visible = get_visible_accessories()
 		if (length(visible))
 			var/list/display = list()
 			for (var/obj/item/clothing/accessory/A in visible)
 				if (!(A.accessory_flags & ACCESSORY_HIDDEN))
-					display += "[icon2html(A, user)] \a [A]"
+					display += "[icon2html(A, user)] \a [A]<a href='byond://?src=\ref[A];examine=1'>\[?\]</a>"
 			to_chat(user, "Attached to \the [src] are [english_list(display)].")
 		return TOPIC_HANDLED
 	if(href_list["list_armor_damage"])
@@ -204,6 +229,24 @@
 		for(var/key in damages)
 			to_chat(user, "<li><b>[capitalize(damages[key])]</b> damage to the <b>[key]</b> armor.")
 		return TOPIC_HANDLED
+
+/obj/item/clothing/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	SHOULD_CALL_PARENT(TRUE)
+	if (attempt_attach_accessory(tool, user))
+		return TRUE
+	if (attempt_store_item(tool, user))
+		return TRUE
+	return ..()
+
+/obj/item/clothing/transfer_blood(mob/living/carbon/human/target, target_zone)
+	. = ..()
+	if (.)
+		update_clothing_icon()
+
+/obj/item/clothing/add_blood_custom(source_blood_color = COLOR_BLOOD_HUMAN, amount = 3, list/source_blood_DNA = list())
+	. = ..()
+	if (amount)
+		update_clothing_icon()
 
 ///////////////////////////////////////////////////////////////////////
 // Ears: headsets, earmuffs and tiny objects
@@ -223,6 +266,7 @@
 /obj/item/clothing/ears/earmuffs
 	name = "earmuffs"
 	desc = "Protects your hearing from loud noises, and quiet ones as well."
+	icon = 'icons/obj/headphones.dmi'
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
@@ -252,10 +296,6 @@ BLIND     // can't see anything
 	w_class = ITEM_SIZE_SMALL
 	body_parts_covered = EYES
 	slot_flags = SLOT_EYES
-	var/vision_flags = 0
-	var/darkness_view = 0//Base human is 2
-	var/see_invisible = -1
-	var/light_protection = 0
 	sprite_sheets = list(
 		SPECIES_VOX = 'icons/mob/species/vox/onmob_eyes_vox.dmi',
 		SPECIES_UNATHI = 'icons/mob/species/unathi/onmob_eyes_unathi.dmi',
@@ -269,10 +309,87 @@ BLIND     // can't see anything
 	else
 		return icon_state
 
-/obj/item/clothing/glasses/update_clothing_icon()
+/obj/item/clothing/on_update_icon()
+	if (toggleable)
+		if (active)
+			var/datum/extension/base_icon_state/BIS = get_extension(src, /datum/extension/base_icon_state)
+			icon_state = BIS.base_icon_state
+		else
+			icon_state = off_state
+	else
+		icon_state = initial(icon_state)
+
+/obj/item/clothing/update_clothing_icon()
 	if (ismob(src.loc))
 		var/mob/M = src.loc
 		M.update_inv_glasses()
+
+/obj/item/clothing/proc/activate(mob/user)
+	if (toggleable && !active)
+		active = TRUE
+		flash_protection = initial(flash_protection)
+		tint = initial(tint)
+		if (user)
+			user.update_inv_glasses()
+			user.update_action_buttons()
+			if (activation_sound)
+				sound_to(user, activation_sound)
+			if (toggle_on_message)
+				to_chat(user, SPAN_NOTICE(toggle_on_message))
+			else
+				to_chat(user, "You activate the optical matrix on \the [src].")
+
+		update_icon()
+		update_clothing_icon()
+		update_vision()
+
+/obj/item/clothing/proc/deactivate(mob/user, manual = TRUE)
+	if (toggleable && active)
+		active = FALSE
+		if (user)
+			if (manual)
+				if (toggle_off_message)
+					to_chat(user, toggle_off_message)
+				else
+					to_chat(user, "You deactivate the optical matrix on \the [src].")
+				if (deactivation_sound)
+					sound_to(user, deactivation_sound)
+			user.update_inv_glasses()
+			user.update_action_buttons()
+
+		flash_protection = FLASH_PROTECTION_NONE
+		tint = TINT_NONE
+		update_icon()
+		update_clothing_icon()
+		update_vision()
+
+/obj/item/clothing/emp_act(severity)
+	if (electric && active)
+		if (istype(loc, /mob/living/carbon/human))
+			var/mob/living/carbon/human/M = loc
+			if (M.glasses != src)
+				to_chat(M, SPAN_DANGER("\The [name] malfunction[gender != PLURAL ? "s":""], releasing a small spark."))
+			else
+				M.eye_blind = 2
+				M.eye_blurry = 4
+				to_chat(M, SPAN_DANGER("\The [name] malfunction[gender != PLURAL ? "s":""], blinding you!"))
+				// Don't cure being nearsighted
+				if (!(M.disabilities & NEARSIGHTED))
+					M.disabilities |= NEARSIGHTED
+					spawn(100)
+						M.disabilities &= ~NEARSIGHTED
+			if (toggleable)
+				deactivate(M, FALSE)
+	..()
+
+/obj/item/clothing/inherit_custom_item_data(datum/custom_item/citem)
+	. = ..()
+	if (toggleable)
+		if (citem.additional_data["icon_on"])
+			set_icon_state(citem.additional_data["icon_on"])
+		if (citem.additional_data["icon_off"])
+			off_state = citem.additional_data["icon_off"]
+
 
 ///////////////////////////////////////////////////////////////////////
 //Gloves
@@ -325,18 +442,17 @@ BLIND     // can't see anything
 /obj/item/clothing/gloves/proc/Touch(atom/A, proximity)
 	return 0 // return 1 to cancel attack_hand()
 
-/obj/item/clothing/gloves/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/wirecutters) || istype(W, /obj/item/scalpel))
+/obj/item/clothing/gloves/use_tool(obj/item/W, mob/living/user, list/click_params)
+	if (isWirecutter(W) || istype(W, /obj/item/scalpel))
 		if (clipped)
 			to_chat(user, SPAN_NOTICE("\The [src] have already been modified!"))
 			update_icon()
-			return
-
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+			return TRUE
+		playsound(loc, 'sound/items/Wirecutter.ogg', 100, TRUE)
 		user.visible_message(SPAN_WARNING("\The [user] modifies \the [src] with \the [W]."),SPAN_WARNING("You modify \the [src] with \the [W]."))
-
 		cut_fingertops() // apply change, so relevant xenos can wear these
-		return
+		return TRUE
+	return ..()
 
 // Applies "clipped" and removes relevant restricted species from the list,
 // making them wearable by the specified species, does nothing if already cut
@@ -351,10 +467,10 @@ BLIND     // can't see anything
 		species_restricted -= SPECIES_UNATHI
 	return
 
-/obj/item/clothing/gloves/mob_can_equip(mob/user)
+/obj/item/clothing/gloves/mob_can_equip(mob/user, slot)
 	var/mob/living/carbon/human/H = user
 
-	if(istype(H.gloves, /obj/item/clothing/ring))
+	if(istype(H.gloves, /obj/item/clothing/ring) && slot == slot_gloves)
 		ring = H.gloves
 		if(!ring.undergloves)
 			to_chat(user, "You are unable to wear \the [src] as \the [H.gloves] are in the way.")
@@ -411,8 +527,10 @@ BLIND     // can't see anything
 	var/image/light_overlay_image
 	var/light_overlay = "helmet_light"
 	var/light_applied
+	var/head_light_range = 4
 	var/brightness_on
 	var/on = 0
+	var/protects_against_weather = FALSE
 
 
 /obj/item/clothing/head/equipped(mob/user, slot)
@@ -422,7 +540,7 @@ BLIND     // can't see anything
 /obj/item/clothing/head/get_mob_overlay(mob/user_mob, slot)
 	var/image/ret = ..()
 	if(light_overlay_image)
-		ret.overlays -= light_overlay_image
+		ret.CutOverlays(light_overlay_image)
 	if(on && slot == slot_head_str)
 		if(!light_overlay_image)
 			if(ishuman(user_mob))
@@ -436,7 +554,7 @@ BLIND     // can't see anything
 					light_overlay_image = user_human.species.get_offset_overlay_image(FALSE, 'icons/mob/light_overlays.dmi', "[light_overlay]", color, slot)
 			else
 				light_overlay_image = overlay_image('icons/mob/light_overlays.dmi', "[light_overlay]", null, RESET_COLOR)
-		ret.overlays |= light_overlay_image
+		ret.AddOverlays(light_overlay_image)
 	return ret
 
 /obj/item/clothing/head/attack_self(mob/user)
@@ -452,7 +570,7 @@ BLIND     // can't see anything
 
 /obj/item/clothing/head/proc/update_flashlight(mob/user = null)
 	if(on && !light_applied)
-		set_light(brightness_on, 1, 3)
+		set_light(head_light_range, brightness_on, angle = LIGHT_WIDE)
 		light_applied = 1
 	else if(!on && light_applied)
 		set_light(0)
@@ -495,15 +613,20 @@ BLIND     // can't see anything
 		to_chat(user, SPAN_NOTICE("You crawl under \the [src]."))
 	return 1
 
+
+/proc/get_obj_light_overlay(state)
+	var/static/list/cache = list()
+	var/image/entry = cache["[state]_icon"]
+	if (!entry)
+		entry = image('icons/obj/light_overlays.dmi', null, state)
+		cache["[state]_icon"] = entry
+	return entry
+
+
 /obj/item/clothing/head/on_update_icon(mob/user)
-
-	overlays.Cut()
-	if(on)
-		// Generate object icon.
-		if(!light_overlay_cache["[light_overlay]_icon"])
-			light_overlay_cache["[light_overlay]_icon"] = image("icon" = 'icons/obj/light_overlays.dmi', "icon_state" = "[light_overlay]")
-		overlays |= light_overlay_cache["[light_overlay]_icon"]
-
+	ClearOverlays()
+	if (on && light_overlay)
+		AddOverlays(get_obj_light_overlay(light_overlay))
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		H.update_inv_head()
@@ -645,13 +768,16 @@ BLIND     // can't see anything
 	..()
 
 
-/obj/item/clothing/shoes/attackby(obj/item/item, mob/living/user)
+/obj/item/clothing/shoes/use_tool(obj/item/item, mob/living/user, list/click_params)
 	if (istype(item, /obj/item/handcuffs))
 		add_cuffs(item, user)
+		return TRUE
 	else if (istype(item, /obj/item/clothing/shoes/magboots))
 		user.equip_to_slot_if_possible(item, slot_shoes)
-	else
-		add_hidden(item, user)
+		return TRUE
+	else if(add_hidden(item, user))
+		return TRUE
+	return ..()
 
 
 /obj/item/clothing/shoes/proc/add_cuffs(obj/item/handcuffs/cuffs, mob/user)
@@ -695,22 +821,24 @@ BLIND     // can't see anything
 /obj/item/clothing/shoes/proc/add_hidden(obj/item/I, mob/user)
 	if (!can_add_hidden_item)
 		to_chat(user, SPAN_WARNING("\The [src] can't hold anything."))
-		return
+		return TRUE
 	if (hidden_item)
 		to_chat(user, SPAN_WARNING("\The [src] already holds \an [hidden_item]."))
-		return
+		return TRUE
 	if (!(I.item_flags & ITEM_FLAG_CAN_HIDE_IN_SHOES) || (I.slot_flags & SLOT_DENYPOCKET))
 		to_chat(user, SPAN_WARNING("\The [src] can't hold the [I]."))
-		return
+		return TRUE
 	if (I.w_class > hidden_item_max_w_class)
 		to_chat(user, SPAN_WARNING("\The [I] is too large to fit in the [src]."))
-		return
+		return TRUE
 	if (do_after(user, 1 SECONDS, src, DO_DEFAULT | DO_BOTH_UNIQUE_ACT))
 		if(!user.unEquip(I, src))
-			return
+			FEEDBACK_UNEQUIP_FAILURE(user, I)
+			return TRUE
 		user.visible_message(SPAN_ITALIC("\The [user] shoves \the [I] into \the [src]."), range = 1)
 		verbs |= /obj/item/clothing/shoes/proc/remove_hidden
 		hidden_item = I
+		return TRUE
 
 /obj/item/clothing/shoes/proc/remove_hidden(mob/user)
 	set name = "Remove Shoe Item"
@@ -766,7 +894,7 @@ BLIND     // can't see anything
 	)
 	slot_flags = SLOT_OCLOTHING
 	item_flags = ITEM_FLAG_WASHER_ALLOWED
-	blood_overlay_type = "suit"
+	blood_overlay_type = "suitblood"
 	siemens_coefficient = 0.9
 	w_class = ITEM_SIZE_NORMAL
 
@@ -777,6 +905,7 @@ BLIND     // can't see anything
 		SPECIES_RESOMI = 'icons/mob/species/resomi/suit.dmi'
 
 	)
+	var/protects_against_weather = FALSE
 
 /obj/item/clothing/suit/update_clothing_icon()
 	if (ismob(src.loc))
@@ -839,8 +968,8 @@ BLIND     // can't see anything
 	var/worn_state = null
 	//Whether the clothing item has gender-specific states when worn.
 	var/gender_icons = 0
-	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY,ACCESSORY_SLOT_HOLSTER,ACCESSORY_SLOT_ARMBAND,ACCESSORY_SLOT_RANK,ACCESSORY_SLOT_DEPT,ACCESSORY_SLOT_DECOR,ACCESSORY_SLOT_MEDAL,ACCESSORY_SLOT_INSIGNIA)
-	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY,ACCESSORY_SLOT_HOLSTER,ACCESSORY_SLOT_ARMBAND,ACCESSORY_SLOT_RANK,ACCESSORY_SLOT_DEPT)
+	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY,ACCESSORY_SLOT_HOLSTER,ACCESSORY_SLOT_ARMBAND,ACCESSORY_SLOT_RANK,ACCESSORY_SLOT_FLASH,ACCESSORY_SLOT_DECOR,ACCESSORY_SLOT_MEDAL,ACCESSORY_SLOT_INSIGNIA)
+	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY,ACCESSORY_SLOT_HOLSTER,ACCESSORY_SLOT_ARMBAND,ACCESSORY_SLOT_RANK,ACCESSORY_SLOT_FLASH)
 
 /obj/item/clothing/under/New()
 	..()
@@ -983,16 +1112,17 @@ BLIND     // can't see anything
 		return
 	sensor_mode = SUIT_SENSOR_MODES[switchMode]
 
+	var/datum/pronouns/pronouns = user.choose_from_pronouns()
 	if (src.loc == user)
 		switch(sensor_mode)
 			if(SUIT_SENSOR_OFF)
-				user.visible_message("[user] adjusts the tracking sensor on \his [src.name].", "You disable your suit's remote sensing equipment.")
+				user.visible_message("[user] adjusts the tracking sensor on [pronouns.his] [src.name].", "You disable your suit's remote sensing equipment.")
 			if(SUIT_SENSOR_BINARY)
-				user.visible_message("[user] adjusts the tracking sensor on \his [src.name].", "Your suit will now report whether you are live or dead.")
+				user.visible_message("[user] adjusts the tracking sensor on [pronouns.his] [src.name].", "Your suit will now report whether you are live or dead.")
 			if(SUIT_SENSOR_VITAL)
-				user.visible_message("[user] adjusts the tracking sensor on \his [src.name].", "Your suit will now report your vital lifesigns.")
+				user.visible_message("[user] adjusts the tracking sensor on [pronouns.his] [src.name].", "Your suit will now report your vital lifesigns.")
 			if(SUIT_SENSOR_TRACKING)
-				user.visible_message("[user] adjusts the tracking sensor on \his [src.name].", "Your suit will now report your vital lifesigns as well as your coordinate position.")
+				user.visible_message("[user] adjusts the tracking sensor on [pronouns.his] [src.name].", "Your suit will now report your vital lifesigns as well as your coordinate position.")
 
 	else if (ismob(src.loc))
 		if(sensor_mode == SUIT_SENSOR_OFF)
@@ -1075,6 +1205,8 @@ BLIND     // can't see anything
 /obj/item/clothing/under/AltClick(mob/user)
 	if(CanPhysicallyInteract(user))
 		set_sensors(user)
+		return TRUE
+	return FALSE
 
 ///////////////////////////////////////////////////////////////////////
 //Rings

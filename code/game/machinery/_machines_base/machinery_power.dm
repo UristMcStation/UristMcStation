@@ -23,7 +23,7 @@ This is /obj/machinery level code to properly manage power usage from the area.
 	//	return 1
 
 	if(!check_area)
-		check_area = loc.loc		// make sure it's in an area
+		check_area = get_area(src)	// make sure it's in an area
 	if(!check_area || !isarea(check_area))
 		return FALSE					// if not, then not powered
 	if(chan == POWER_CHAN)
@@ -89,13 +89,13 @@ This is /obj/machinery level code to properly manage power usage from the area.
 // Do not do power stuff in New/Initialize until after ..()
 /obj/machinery/Initialize()
 	REPORT_POWER_CONSUMPTION_CHANGE(0, get_power_usage())
-	GLOB.moved_event.register(src, src, .proc/update_power_on_move)
+	GLOB.moved_event.register(src, src, PROC_REF(update_power_on_move))
 	power_init_complete = TRUE
 	. = ..()
 
 // Or in Destroy at all, but especially after the ..().
 /obj/machinery/Destroy()
-	GLOB.moved_event.unregister(src, src, .proc/update_power_on_move)
+	GLOB.moved_event.unregister(src, src, PROC_REF(update_power_on_move))
 	REPORT_POWER_CONSUMPTION_CHANGE(get_power_usage(), 0)
 	. = ..()
 

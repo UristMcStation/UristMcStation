@@ -38,6 +38,7 @@
 	#include "../away/scavver_gantry/scavver_gantry.dm"
 	#include "../away/voxship/voxship.dm"
 	#include "../away/yacht/yacht.dm"
+	#include "../away/abandoned_hotel/abandoned_hotel.dm"
 
 	#ifndef DEBUG_GENERATE_WORTHS
 	#define using_map_DATUM /datum/map/away_sites_testing

@@ -4,7 +4,7 @@
 
 /obj/item/device/soulstone
 	name = "soul stone shard"
-	icon = 'icons/obj/wizard.dmi'
+	icon = 'icons/obj/cult.dmi'
 	icon_state = "soulstone"
 	item_state = "electronic"
 	desc = "A strange, ridged chunk of some glassy red material. Achingly cold to the touch."
@@ -65,40 +65,67 @@
 		icon_state = "soulstone"//TODO: cracked sprite
 		SetName("cracked soulstone")
 
-/obj/item/device/soulstone/attackby(obj/item/I, mob/user)
-	..()
-	if (owner_flag != SOULSTONE_OWNER_PURE && istype(I, /obj/item/nullrod))
-		to_chat(user, SPAN_NOTICE("You cleanse \the [src] of taint, purging its shackles to its creator.."))
-		owner_flag = SOULSTONE_OWNER_PURE
-		return
-	if(I.force >= 5)
-		if(full != SOULSTONE_CRACKED)
-			user.visible_message(
-				SPAN_WARNING("\The [user] hits \the [src] with \the [I], and it breaks.[shade.client ? " You hear a terrible scream!" : ""]"),
-				SPAN_WARNING("You hit \the [src] with \the [I], and it cracks.[shade.client ? " You hear a terrible scream!" : ""]"),
-				shade.client ? "You hear a scream." : null
-			)
-			playsound(loc, 'sound/effects/Glasshit.ogg', 75)
-			set_full(SOULSTONE_CRACKED)
-		else
-			user.visible_message(SPAN_DANGER("\The [user] shatters \the [src] with \the [I]!"))
-			shatter()
 
-/obj/item/device/soulstone/attack(mob/living/simple_animal/M, mob/user)
-	if(M == shade)
+/obj/item/device/soulstone/use_weapon(obj/item/weapon, mob/user, list/click_params)
+	if (weapon.force < 5)
+		return ..()
+
+	if (full == SOULSTONE_CRACKED)
+		user.visible_message(
+			SPAN_WARNING("\The [user] shatters \a [src] with \a [weapon]!"),
+			SPAN_DANGER("You shatter \the [src] with \the [weapon]!")
+		)
+		shatter()
+		return TRUE
+
+	playsound(src, 'sound/effects/Glasshit.ogg', 75, TRUE)
+	set_full(SOULSTONE_CRACKED)
+	var/scream = ""
+	if (shade?.client)
+		scream = "You hear a terrible scream!"
+	user.visible_message(
+		SPAN_WARNING("\The [user] hits \a [src] with \a [weapon], and it cracks. [scream]"),
+		SPAN_WARNING("You hit \the [src] with \the [weapon], and it cracks. [scream]")
+	)
+	return TRUE
+
+
+/obj/item/device/soulstone/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Null Rod - Purify stone
+	if (istype(tool, /obj/item/nullrod))
+		if (owner_flag == SOULSTONE_OWNER_PURE)
+			USE_FEEDBACK_FAILURE("\The [src] is already pure.")
+			return TRUE
+		owner_flag = SOULSTONE_OWNER_PURE
+		user.visible_message(
+			SPAN_NOTICE("\The [user] waves \a [tool] over \a [src]."),
+			SPAN_NOTICE("You cleanse \the [src] of taint with \the [tool], purging its shackles to its creator...")
+		)
+		return TRUE
+
+	return ..()
+
+
+/obj/item/device/soulstone/use_before(mob/living/simple_animal/M, mob/user)
+	. = FALSE
+	if (!istype(M))
+		return FALSE
+
+	if (M == shade)
 		to_chat(user, SPAN_NOTICE("You recapture \the [M]."))
 		M.forceMove(src)
-		return
-	if(full == SOULSTONE_ESSENCE)
+		return TRUE
+	if (full == SOULSTONE_ESSENCE)
 		to_chat(user, SPAN_NOTICE("\The [src] is already full."))
-		return
-	if(M.stat != DEAD && !M.is_asystole())
+		return TRUE
+	if (M.stat != DEAD && !M.is_asystole())
 		to_chat(user, SPAN_NOTICE("Kill or maim the victim first."))
-		return
-	for(var/obj/item/W in M)
+		return TRUE
+	for (var/obj/item/W in M)
 		M.drop_from_inventory(W)
 	M.dust()
 	set_full(SOULSTONE_ESSENCE)
+	return TRUE
 
 /obj/item/device/soulstone/attack_self(mob/user)
 	if(full != SOULSTONE_ESSENCE) // No essence - no shade
@@ -127,7 +154,7 @@
 
 /obj/structure/constructshell
 	name = "empty shell"
-	icon = 'icons/obj/wizard.dmi'
+	icon = 'icons/obj/cult.dmi'
 	icon_state = "construct"
 	desc = "A wicked machine used by those skilled in magical arts. It is inactive."
 
@@ -135,36 +162,61 @@
 	icon_state = "construct-cult"
 	desc = "This eerie contraption looks like it would come alive if supplied with a missing ingredient."
 
-/obj/structure/constructshell/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/device/soulstone))
-		var/obj/item/device/soulstone/S = I
-		if(!S.shade.client)
-			to_chat(user, SPAN_NOTICE("\The [I] has essence, but no soul. Activate it in your hand to find a soul for it first."))
-			return
-		if(S.shade.loc != S)
-			to_chat(user, SPAN_NOTICE("Recapture the shade back into \the [I] first."))
-			return
-		var/construct = alert(user, "Please choose which type of construct you wish to create.",,"Artificer", "Wraith", "Juggernaut")
-		var/ctype
-		switch(construct)
-			if("Artificer")
-				ctype = /mob/living/simple_animal/construct/builder
-			if("Wraith")
-				ctype = /mob/living/simple_animal/construct/wraith
-			if("Juggernaut")
-				ctype = /mob/living/simple_animal/construct/armoured
-		var/mob/living/simple_animal/construct/C = new ctype(get_turf(src))
-		C.key = S.shade.key
-		//C.cancel_camera()
-		transfer_languages(user, C, RESTRICTED | HIVEMIND)
-		if (S.owner_flag == SOULSTONE_OWNER_CULT)
-			GLOB.cult.add_antagonist(C.mind)
+
+/obj/structure/constructshell/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Soul Stone - Create construct
+	if (istype(tool, /obj/item/device/soulstone))
+		var/obj/item/device/soulstone/soulstone = tool
+		if (!soulstone.shade)
+			USE_FEEDBACK_FAILURE("\The [soulstone] has no essence.")
+			return TRUE
+		if (!soulstone.shade.client)
+			USE_FEEDBACK_FAILURE("\The [soulstone] has essence, but no soul. Activate it in your hand to find a soul for it first.")
+			return TRUE
+		if (soulstone.shade.loc != soulstone)
+			USE_FEEDBACK_FAILURE("\The [soulstone]'s shade must be within the stone to use it with \the [src].")
+			return TRUE
+		if (!user.canUnEquip(tool))
+			FEEDBACK_UNEQUIP_FAILURE(user, tool)
+			return TRUE
+		var/input = input(user, "Please choose which type of construct you wish to create.", "[src] Construct Selection") as null|anything in list("Artificer", "Juggernaut", "Wraith")
+		if (!input || !user.use_sanity_check(src, tool, SANITY_CHECK_DEFAULT | SANITY_CHECK_TOOL_UNEQUIP))
+			return TRUE
+		if (!soulstone.shade)
+			USE_FEEDBACK_FAILURE("\The [soulstone] has no essence.")
+			return TRUE
+		if (!soulstone.shade.client)
+			USE_FEEDBACK_FAILURE("\The [soulstone] has essence, but no soul. Activate it in your hand to find a soul for it first.")
+			return TRUE
+		if (soulstone.shade.loc != soulstone)
+			USE_FEEDBACK_FAILURE("\The [soulstone]'s shade must be within the stone to use it with \the [src].")
+			return TRUE
+		var/construct_type
+		switch (input)
+			if ("Artificer")
+				construct_type = /mob/living/simple_animal/construct/builder
+			if ("Wraith")
+				construct_type = /mob/living/simple_animal/construct/wraith
+			if ("Juggernaut")
+				construct_type = /mob/living/simple_animal/construct/armoured
+		var/mob/living/simple_animal/construct/construct = new construct_type(loc)
+		user.visible_message(
+			SPAN_WARNING("\The [user] presses \a [tool] against \the [src]. It twists and warps into the shape of \a [initial(construct.name)]!"),
+			SPAN_WARNING("You press \the [tool] against \the [src], summoning forth a loyal [initial(construct.name)]!")
+		)
+		construct.key = soulstone.shade.key
+		transfer_languages(user, construct, RESTRICTED | HIVEMIND)
+		if (soulstone.owner_flag == SOULSTONE_OWNER_CULT)
+			GLOB.cult.add_antagonist(construct.mind)
 		else
-			// Only cult constructs get cult languages
-			C.remove_language(LANGUAGE_CULT)
-			C.remove_language(LANGUAGE_CULT_GLOBAL)
-		qdel(S)
-		qdel(src)
+			construct.remove_language(LANGUAGE_CULT)
+			construct.remove_language(LANGUAGE_CULT_GLOBAL)
+		qdel(soulstone)
+		qdel_self()
+		return TRUE
+
+	return ..()
+
 
 #undef SOULSTONE_CRACKED
 #undef SOULSTONE_EMPTY

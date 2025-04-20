@@ -6,7 +6,7 @@
 #define CLONE_BIOMASS 150
 
 /obj/item/stock_parts/circuitboard/clonepod
-	name = T_BOARD("cloning pod")
+	name = "circuit board (cloning pod)"
 	build_path = /obj/machinery/clonepod
 	board_type = "machine"
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_BIO = 4, TECH_DATA = 4)
@@ -21,7 +21,7 @@
 	desc = "An electronically-lockable pod for growing organic tissue."
 	density = TRUE
 	anchored = TRUE
-	icon = 'icons/obj/cloning.dmi'
+	icon = 'icons/obj/machines/medical/cloning.dmi'
 	icon_state = "pod_0"
 	req_access = list(access_medical) //For premature unlocking.
 	construct_state = /singleton/machine_construction/default/panel_closed
@@ -245,7 +245,7 @@
 	else
 		..()
 
-/obj/machinery/clonepod/emag_act(remaining_charges, var/mob/user)
+/obj/machinery/clonepod/emag_act(remaining_charges, mob/user)
 	if(isnull(occupant))
 		return NO_EMAG_ACT
 	to_chat(user, "You force an emergency ejection.")
@@ -376,7 +376,7 @@
 //TO-DO: Make the genetics machine accept them.
 /obj/item/disk/data
 	name = "Cloning Data Disk"
-	icon = 'icons/obj/cloning.dmi'
+	icon = 'icons/obj/datadisks.dmi'
 	icon_state = "datadisk0" //Gosh I hope syndies don't mistake them for the nuke disk.
 	item_state = "card-id"
 	w_class = ITEM_SIZE_SMALL

@@ -4,12 +4,13 @@
 	icon_screen = "command"
 	var/mob/living/silicon/current
 
-/obj/machinery/computer/upload/attackby(obj/item/O, mob/user)
+/obj/machinery/computer/upload/use_tool(obj/item/O, mob/living/user, list/click_params)
 	if(istype(O, /obj/item/aiModule))
 		var/obj/item/aiModule/M = O
 		M.install(src, user)
-	else
-		..()
+		return TRUE
+
+	return ..()
 
 /obj/machinery/computer/upload/ai
 	name = "\improper AI upload console"
@@ -42,3 +43,18 @@
 	else
 		to_chat(user, "[current.name] selected for law changes.")
 	return TRUE
+
+
+/proc/freeborg(z)
+	RETURN_TYPE(/mob/living/silicon/robot)
+	var/list/zs = get_valid_silicon_zs(z)
+	var/select = null
+	var/list/borgs = list()
+	for (var/mob/living/silicon/robot/A in GLOB.player_list)
+		if (A.stat == 2 || A.connected_ai || A.scrambledcodes || istype(A,/mob/living/silicon/robot/drone) || !(get_z(A) in zs))
+			continue
+		var/name = "[A.real_name] ([A.modtype] [A.braintype])"
+		borgs[name] = A
+	if (length(borgs))
+		select = input("Unshackled borg signals detected:", "Borg selection", null, null) as null|anything in borgs
+		return borgs[select]

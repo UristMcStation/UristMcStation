@@ -4,7 +4,7 @@
 /obj/structure/wall_frame
 	name = "low wall"
 	desc = "A low wall section which serves as the base of windows, amongst other things."
-	icon = 'icons/obj/wall_frame.dmi'
+	icon = 'icons/obj/structures/wall_frame.dmi'
 	icon_state = "frame"
 
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_CLIMBABLE | ATOM_FLAG_CAN_BE_PAINTED | ATOM_FLAG_ADJACENT_EXCEPTION
@@ -33,6 +33,7 @@
 
 	material = SSmaterials.get_material_by_name(materialtype)
 	set_max_health(material.integrity)
+	SetName("[material.use_name] [name]")
 
 	update_connections(1)
 	update_icon()
@@ -51,59 +52,79 @@
 	if(paint_color)
 		to_chat(user, SPAN_NOTICE("It has a smooth coat of paint applied."))
 
-/obj/structure/wall_frame/attackby(obj/item/W, mob/user)
-	src.add_fingerprint(user)
 
-	if (user.a_intent == I_HURT)
-		..()
+/obj/structure/wall_frame/can_use_item(obj/item/tool, mob/user, click_params)
+	. = ..()
+	if (!.)
 		return
 
-	//grille placing
-	if(istype(W, /obj/item/stack/material/rods))
-		for(var/obj/structure/window/WINDOW in loc)
-			if(WINDOW.dir == get_dir(src, user))
-				to_chat(user, SPAN_NOTICE("There is a window in the way."))
-				return
-		place_grille(user, loc, W)
-		return
+	// Windows
+	for (var/obj/structure/window/window in loc)
+		if (window.dir == get_dir(src, user))
+			USE_FEEDBACK_FAILURE("\The [window] blocks access to \the [src].")
+			return FALSE
 
-	//window placing
-	if(istype(W,/obj/item/stack/material))
-		var/obj/item/stack/material/ST = W
-		if(ST.material.opacity > 0.7)
-			return 0
-		place_window(user, loc, SOUTHWEST, ST)
+	// Grilles
+	var/obj/structure/grille/grille = locate() in loc
+	if (grille?.density)
+		USE_FEEDBACK_FAILURE("\The [grille] blocks access to \the [src].")
+		return FALSE
 
-		place_window(user, loc, ST)
-		return
 
-	if(isWrench(W))
-		for(var/obj/structure/S in loc)
-			if(istype(S, /obj/structure/window))
-				to_chat(user, SPAN_NOTICE("There is still a window on the low wall!"))
-				return
-			else if(istype(S, /obj/structure/grille))
-				to_chat(user, SPAN_NOTICE("There is still a grille on the low wall!"))
-				return
-		playsound(src.loc, 'sound/items/Ratchet.ogg', 100, 1)
-		to_chat(user, SPAN_NOTICE("Now disassembling the low wall..."))
-		if(do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT))
-			to_chat(user, SPAN_NOTICE("You dissasembled the low wall!"))
-			dismantle()
-		return
+/obj/structure/wall_frame/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Rods - Place Grille
+	if (istype(tool, /obj/item/stack/material/rods))
+		place_grille(user, loc, tool)
+		return TRUE
 
-	if(istype(W, /obj/item/gun/energy/plasmacutter))
-		var/obj/item/gun/energy/plasmacutter/cutter = W
-		if(!cutter.slice(user))
-			return
-		playsound(src.loc, 'sound/items/Welder.ogg', 100, 1)
-		to_chat(user, SPAN_NOTICE("Now slicing through the low wall..."))
-		if(do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
-			to_chat(user, SPAN_WARNING("You have sliced through the low wall!"))
-			dismantle()
-		return
+	// Material Stack - Place window
+	if (istype(tool, /obj/item/stack/material))
+		var/obj/item/stack/material/stack = tool
+		if (stack.material.opacity > 0.7)
+			USE_FEEDBACK_FAILURE("\The [stack] cannot be used to make a window.")
+			return TRUE
+		place_window(user, loc, tool)
+		return TRUE
 
-	..()
+	// Wrench - Dismantle
+	if (isWrench(tool))
+		playsound(src, 'sound/items/Ratchet.ogg', 50, TRUE)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] starts dismantling \the [src] with \a [tool]."),
+			SPAN_NOTICE("You start dismantling \the [src] with \the [tool].")
+		)
+		if (!user.do_skilled((tool.toolspeed * 4) SECONDS, SKILL_CONSTRUCTION, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+			return TRUE
+		playsound(src, 'sound/items/Ratchet.ogg', 50, TRUE)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] dismantles \the [src] with \a [tool]."),
+			SPAN_NOTICE("You dismantle \the [src] with \the [tool].")
+		)
+		dismantle()
+		return TRUE
+
+	// Plasmacutter - Dismantle
+	if (istype(tool, /obj/item/gun/energy/plasmacutter))
+		var/obj/item/gun/energy/plasmacutter/plasmacutter = tool
+		if (!plasmacutter.slice(user))
+			return TRUE
+		playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] starts slicing \the [src] apart with \a [tool]."),
+			SPAN_NOTICE("You start slicing \the [src] apart with \the [tool].")
+		)
+		if (!user.do_skilled((tool.toolspeed * 2) SECONDS, SKILL_CONSTRUCTION, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+			return TRUE
+		playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] slices \the [src] apart with \a [tool]."),
+			SPAN_NOTICE("You slice \the [src] apart with \the [tool].")
+		)
+		dismantle()
+		return TRUE
+
+	return ..()
+
 
 /obj/structure/wall_frame/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
@@ -115,27 +136,26 @@
 // icon related
 
 /obj/structure/wall_frame/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	var/image/I
 
-	var/new_color = (paint_color ? paint_color : material.icon_colour)
-	color = new_color
+	var/new_color = stripe_color ? stripe_color : material.icon_colour
 
 	for(var/i = 1 to 4)
 		if(other_connections[i] != "0")
-			I = image('icons/obj/wall_frame.dmi', "frame_other[connections[i]]", dir = SHIFTL(1, i - 1))
+			I = image('icons/obj/structures/wall_frame.dmi', "frame_other[connections[i]]", dir = SHIFTL(1, i - 1))
 		else
-			I = image('icons/obj/wall_frame.dmi', "frame[connections[i]]", dir = SHIFTL(1, i - 1))
-		overlays += I
+			I = image('icons/obj/structures/wall_frame.dmi', "frame[connections[i]]", dir = SHIFTL(1, i - 1))
+		I.color = new_color
+		AddOverlays(I)
 
-	if(stripe_color)
-		for(var/i = 1 to 4)
-			if(other_connections[i] != "0")
-				I = image('icons/obj/wall_frame.dmi', "stripe_other[connections[i]]", dir = SHIFTL(1, i - 1))
-			else
-				I = image('icons/obj/wall_frame.dmi', "stripe[connections[i]]", dir = SHIFTL(1, i - 1))
-			I.color = stripe_color
-			overlays += I
+/obj/structure/wall_frame/proc/paint_wall_frame(new_paint_color)
+	paint_color = new_paint_color
+	update_icon()
+
+/obj/structure/wall_frame/proc/stripe_wall_frame(new_paint_color)
+	stripe_color = new_paint_color
+	update_icon()
 
 /obj/structure/wall_frame/hull/Initialize()
 	. = ..()
@@ -150,13 +170,14 @@
 		if(spacefacing)
 			var/bleach_factor = rand(10,50)
 			paint_color = adjust_brightness(paint_color, bleach_factor)
+			stripe_color = adjust_brightness(stripe_color, bleach_factor)
 		update_icon()
 
 /obj/structure/wall_frame/on_death()
 	dismantle()
 
 /obj/structure/wall_frame/proc/dismantle()
-	new /obj/item/stack/material/steel(get_turf(src), 3)
+	material.place_sheet(get_turf(src), 3)
 	qdel(src)
 
 /obj/structure/wall_frame/get_color()
@@ -169,15 +190,22 @@
 //Subtypes
 /obj/structure/wall_frame/standard
 	paint_color = COLOR_WALL_GUNMETAL
+	stripe_color = COLOR_GUNMETAL
 
 /obj/structure/wall_frame/titanium
 	material = MATERIAL_TITANIUM
 
+/obj/structure/wall_frame/ocp
+	material = MATERIAL_OSMIUM_CARBIDE_PLASTEEL
+
 /obj/structure/wall_frame/hull
 	paint_color = COLOR_SOL
+	stripe_color = COLOR_SOL
 
 /obj/structure/wall_frame/hull/vox
 	paint_color = COLOR_GREEN_GRAY
+	stripe_color = COLOR_GREEN_GRAY
 
 /obj/structure/wall_frame/hull/verne
 	paint_color = COLOR_GUNMETAL
+	stripe_color = COLOR_GUNMETAL

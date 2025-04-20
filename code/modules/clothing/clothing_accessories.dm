@@ -33,14 +33,6 @@
 						return FALSE
 	return TRUE
 
-
-/obj/item/clothing/attackby(obj/item/I, mob/user)
-	if (attempt_attach_accessory(I, user))
-		return
-	if (attempt_store_item(I, user))
-		return
-	..()
-
 /obj/item/clothing/attack_hand(mob/user)
 	//only forward to the attached accessory if the clothing is equipped (not in a storage)
 	if(length(accessories) && src.loc == user)
@@ -73,7 +65,7 @@
 	. = ..()
 	for(var/obj/item/clothing/accessory/A in accessories)
 		if (!(A.accessory_flags & ACCESSORY_HIDDEN))
-			to_chat(user, "[icon2html(A, user)] \A [A] is attached to it.")
+			to_chat(user, "[icon2html(A, user)] \A [A] is attached to it.[istype(A, /obj/item/clothing/accessory/wristwatch) ? "  <a href='byond://?src=\ref[A];check_watch=1'>\[Check Watch\]</a>" : ""]")
 	switch(ironed_state)
 		if(WRINKLES_WRINKLY)
 			to_chat(user, SPAN_BAD("It's wrinkly."))
@@ -105,7 +97,8 @@
 		src.verbs |= /obj/item/clothing/proc/remove_all_accessories
 	update_accessory_slowdown()
 	update_clothing_icon()
-	GLOB.destroyed_event.register(A, src, .proc/accessory_deleted)
+	update_vision()
+	GLOB.destroyed_event.register(A, src, PROC_REF(accessory_deleted))
 
 /obj/item/clothing/proc/accessory_deleted(obj/item/clothing/accessory/A)
 	remove_accessory(null, A)
@@ -118,7 +111,8 @@
 	accessories -= A
 	update_accessory_slowdown()
 	update_clothing_icon()
-	GLOB.destroyed_event.unregister(A, src, .proc/accessory_deleted)
+	update_vision()
+	GLOB.destroyed_event.unregister(A, src, PROC_REF(accessory_deleted))
 
 
 /obj/item/clothing/proc/attempt_attach_accessory(obj/item/I, mob/user)
@@ -177,8 +171,9 @@
 	for(var/obj/item/clothing/accessory/ass in accessories)
 		if (ass.accessory_flags & ACCESSORY_REMOVABLE)
 			removables |= ass
-	if(length(accessories) > 1)
-		A = input("Select an accessory to remove from [src]") as null|anything in removables
+
+	if(length(removables) > 1)
+		A = show_radial_menu(usr, usr, make_item_radial_menu_choices(removables), radius = 42, tooltips = TRUE)
 	else
 		A = accessories[1]
 	src.remove_accessory(usr,A)

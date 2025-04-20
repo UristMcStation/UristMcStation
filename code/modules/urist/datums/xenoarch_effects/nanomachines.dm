@@ -25,7 +25,7 @@
 		playsound(holder, activation_sound, 50)
 		if (send_message)
 			holder.visible_message(SPAN_DANGER("\The [holder] [pick(activation_messages)]"))
-		new /obj/effect/gateway/artifact/fabricator/king(get_turf(holder))
+		new /obj/gateway/artifact/fabricator/king(get_turf(holder))
 		qdel(holder)
 
 //Helper procs - cultify() but with robots
@@ -51,24 +51,24 @@
 	if (!istype(T?.flooring, /singleton/flooring/reinforced/circuit/red))
 		set_flooring(GET_SINGLETON(/singleton/flooring/reinforced/circuit/red))
 
-/obj/effect/gateway/artifact/fabricator/proc/unregister_mob(mob/M)
+/obj/gateway/artifact/fabricator/proc/unregister_mob(mob/M)
 	GLOB.destroyed_event.unregister(M, src)
 	GLOB.death_event.unregister(M, src)
 	mobs -= M
 
-/obj/effect/gateway/artifact/fabricator/proc/register_mob(mob/M)
+/obj/gateway/artifact/fabricator/proc/register_mob(mob/M)
 	mobs += M
 	GLOB.destroyed_event.register(M, src, .proc/unregister_mob)
 	GLOB.death_event.register(M, src, .proc/unregister_mob)
 
-/obj/effect/gateway/artifact/fabricator
+/obj/gateway/artifact/fabricator
 	name = "strange machine"
 	desc = "Its circuitry spans into the floor beneath it."
 	icon = 'icons/urist/obj/hivefabs.dmi'
 	icon_state = "hivefab"
 	pixel_x = 0
 	pixel_y = 0
-	light_outer_range = 2
+	light_range = 2
 	light_color = COLOR_SABER_RED
 	density = TRUE
 	anchored = TRUE
@@ -87,23 +87,23 @@
 	var/active = TRUE
 	var/list/mobs = list()
 	var/maximum_mob_count = 2
-	var/obj/effect/gateway/artifact/fabricator/king/fabtracker
+	var/obj/gateway/artifact/fabricator/king/fabtracker
 
-/obj/effect/gateway/artifact/fabricator/Initialize(turf/T, obj/O)
+/obj/gateway/artifact/fabricator/Initialize(turf/T, obj/O)
 	. = ..()
 	addtimer(new Callback(src, .proc/increment), rand(15, 30) SECONDS, TIMER_UNIQUE | TIMER_LOOP)
 
-/obj/effect/gateway/artifact/fabricator/Process()
+/obj/gateway/artifact/fabricator/Process()
 	if(active == FALSE)
 		icon_state = "[icon_state]_d"
 
-/obj/effect/gateway/artifact/fabricator/on_death()
+/obj/gateway/artifact/fabricator/on_death()
 	visible_message(SPAN_DANGER("[src] blows apart!"))
-	new /obj/effect/decal/cleanable/blood/gibs/robot (src.loc)
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+	new /obj/decal/cleanable/blood/gibs/robot (src.loc)
+	var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 	s.set_up(3, 1, src)
 	s.start()
-	for(var/obj/effect/gateway/artifact/fabricator/king/A in world)
+	for(var/obj/gateway/artifact/fabricator/king/A in world)
 		A.fabs -= 1
 
 	for (var/mob/M in mobs)
@@ -111,7 +111,7 @@
 
 	qdel(src)
 
-/obj/effect/gateway/artifact/fabricator/proc/increment()
+/obj/gateway/artifact/fabricator/proc/increment()
 	if(active)
 		if (length(mobs) < maximum_mob_count)
 			var/mob/living/simple_animal/hostile/hivebot/B = pickweight(spawnable)
@@ -134,7 +134,7 @@
 			if (!istype(wall, /turf/simulated/wall/alium))
 				wall.mechanize()
 
-/obj/effect/gateway/artifact/fabricator/king
+/obj/gateway/artifact/fabricator/king
 	name = "large strange machine"
 	icon_state = "kingfab"
 	spawnable = list(
@@ -148,15 +148,15 @@
 	var/fabs = 0
 	var/mechradius = 2
 
-/obj/effect/gateway/artifact/fabricator/king/increment()
+/obj/gateway/artifact/fabricator/king/increment()
 	..()
-	var/obj/effect/gateway/artifact/fabricator/king/A = src
+	var/obj/gateway/artifact/fabricator/king/A = src
 	for(var/turf/simulated/s in range(mechradius, src))
 		if(istype(s, /turf/simulated/floor))
 			var/turf/simulated/floor/b = s
 			if(istype(b.flooring, /singleton/flooring/reinforced/circuit/red) && rand(1,1000) == 7)
 				if (A.fabs < 5 && !s.turf_is_crowded())
-					var/obj/effect/gateway/artifact/fabricator/fab = new(b)
+					var/obj/gateway/artifact/fabricator/fab = new(b)
 					to_chat(fab, SPAN_WARNING("A machine emerges from the circuitry!"))
 					A.fabs += 1
 			else if (rand(1,5) == 3)
@@ -165,7 +165,7 @@
 			s.mechanize()
 	mechradius += 0.2
 
-/obj/effect/gateway/artifact/fabricator/king/on_death()
+/obj/gateway/artifact/fabricator/king/on_death()
 	for (var/mob/M in mobs)
 		unregister_mob(M)
 
@@ -175,6 +175,6 @@
 	fabs = null
 	visible_message(SPAN_DANGER("[src] explodes!"))
 	explosion(src.loc, 8, EX_ACT_HEAVY, 0, turf_breaker = TRUE)
-	for(var/obj/effect/gateway/artifact/fabricator/madefabs in world)
+	for(var/obj/gateway/artifact/fabricator/madefabs in world)
 		madefabs.active = FALSE
 	qdel(src)

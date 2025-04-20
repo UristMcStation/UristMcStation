@@ -24,7 +24,7 @@ var/global/const/HALF_PI = 1.5707963268
 
 /// True if number is a number that is not nan or an infinity.
 /proc/isfinite(number)
-	return isnum(number) && number == number && number != POSITIVE_INFINITY && number != NEGATIVE_INFINITY
+	return isnum(number) && !isnan(number) && !isinf(number)
 
 
 /**

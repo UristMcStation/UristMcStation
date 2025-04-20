@@ -47,20 +47,20 @@
 
 /datum/stack_recipe/fork
 	title = "fork"
-	result_type = /obj/item/material/kitchen/utensil/fork/plastic
+	result_type = /obj/item/material/utensil/fork/plastic
 	on_floor = 1
 	send_material_data = 1
 
 /datum/stack_recipe/knife
 	title = "table knife"
-	result_type = /obj/item/material/knife/table
+	result_type = /obj/item/material/utensil/knife
 	on_floor = 1
 	difficulty = 2
 	send_material_data = 1
 
 /datum/stack_recipe/spoon
 	title = "spoon"
-	result_type = /obj/item/material/kitchen/utensil/spoon/plastic
+	result_type = /obj/item/material/utensil/spoon/plastic
 	on_floor = 1
 	send_material_data = 1
 
@@ -271,7 +271,7 @@
 
 /datum/stack_recipe/clipboard
 	title = "clipboard"
-	result_type = /obj/item/material/clipboard
+	result_type = /obj/item/material/folder/clipboard
 	req_amount = 5
 	send_material_data = 1
 
@@ -344,3 +344,9 @@
 	difficulty = 1
 	time = 15
 
+/datum/stack_recipe/woodenstaff
+	title = "staff"
+	result_type = /obj/item/cane/staff
+	req_amount = 5
+	difficulty = 0
+	time = 25

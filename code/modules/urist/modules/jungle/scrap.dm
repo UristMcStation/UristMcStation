@@ -93,11 +93,11 @@
 /obj/structure/scrap/on_update_icon()
 	var/rebuild_base = 0
 	if(rebuild_base)
-		overlays.Cut()
+		ClearOverlays()
 		var/num = rand(base_min,base_max)
 		for(var/i=1 to num)
 			var/image/I = image(parts_icon,pick(icon_states(parts_icon)))
-			overlays |= randomize_image(I)
+			AddOverlays(randomize_image(I))
 
 	underlays.Cut()
 	for(var/obj/O in loot.contents)
@@ -112,17 +112,17 @@
 /obj/structure/scrap/MouseDrop(obj/over_object)
 	..(over_object)
 
-/obj/structure/scrap/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/shovel))
+/obj/structure/scrap/use_tool(obj/item/I, mob/living/user, list/click_params)
+	if(istype(I,/obj/item/shovel))
 		var/list/ways = list("pokes around", "digs through", "rummages through", "goes through","picks through")
 		visible_message("<span class='notice'>\The [user] [pick(ways)] \the [src].</span>")
 		shuffle_loot()
 		if(!(length(loot.contents) || length(contents) > 1))
 			to_chat(user, "<span class='notice'>There doesn't seem to be anything of interest left in \the [src]...</span>")
 
-	if(istype(W,/obj/item/weldingtool))
+	if(istype(I,/obj/item/weldingtool))
 		if(!(length(loot.contents) || length(contents) > 1))
-			var/obj/item/weldingtool/WT = W
+			var/obj/item/weldingtool/WT = I
 			if (WT.remove_fuel(0,user))
 				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 				user.visible_message("[user.name] starts to disassemble the scrap pile.", \

@@ -105,7 +105,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	if(sploded == 2 && declared == 0)
 		declare_completion()
 	else if(sploded == 1 && declared == 0)
-		for(var/obj/effect/landmark/scom/bomb/B in landmarks_list)
+		for(var/obj/landmark/scom/bomb/B in landmarks_list)
 			B.incomprehensibleprocname()
 			sploded = 0
 			spawn(600) //we do this 3 times, all bomb delays should be lower or equal to this
@@ -182,7 +182,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 					sleep(50)
 					sploded = 2
 
-/obj/effect/landmark/scom/bomb
+/obj/landmark/scom/bomb
 	icon_state = "grabbed1"
 	invisibility = 101
 	var/bombdelay = 0
@@ -191,7 +191,7 @@ var/global/SCOMplayerC = 0 //ugly rename, but AFAIK playerC is a local var of di
 	var/dmg_hvy = 2
 	var/dmg_lgt = 3
 
-/obj/effect/landmark/scom/bomb/proc/incomprehensibleprocname()
+/obj/landmark/scom/bomb/proc/incomprehensibleprocname()
 	spawn(bombdelay)
 		explosion(src.loc, dmg_dev, dmg_hvy, dmg_lgt, 0, 0)
 

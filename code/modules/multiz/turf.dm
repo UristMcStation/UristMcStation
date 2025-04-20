@@ -34,6 +34,10 @@
 
 	z_flags = ZM_MIMIC_DEFAULTS | ZM_MIMIC_OVERWRITE | ZM_MIMIC_NO_AO | ZM_ALLOW_ATMOS
 
+/turf/simulated/open/Initialize()
+	. = ..()
+	set_extension(src, /datum/extension/support_lattice)
+
 /turf/simulated/open/update_dirt()
 	return 0
 
@@ -63,44 +67,16 @@
 /turf/simulated/open/is_open()
 	return TRUE
 
-/turf/simulated/open/attackby(obj/item/C, mob/user)
-	if (istype(C, /obj/item/stack/material/rods))
-		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
-		if(L)
-			return L.attackby(C, user)
-		var/obj/item/stack/material/rods/R = C
-		if (R.use(1))
-			to_chat(user, SPAN_NOTICE("You lay down the support lattice."))
-			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
-			new /obj/structure/lattice(locate(src.x, src.y, src.z), R.material.name)
-		return
+/turf/simulated/open/use_tool(obj/item/C, mob/living/user, list/click_params)
+	var/datum/extension/support_lattice/sl = get_extension(src, /datum/extension/support_lattice)
+	if (sl.try_construct(C, user))
+		return TRUE
 
-	if (istype(C, /obj/item/stack/tile))
-		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
-		if(L)
-			var/obj/item/stack/tile/floor/S = C
-			if (!S.use(1))
-				return
-			qdel(L)
-			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
-			ChangeTurf(/turf/simulated/floor/plating, keep_air = TRUE)
-			return
-		else
-			to_chat(user, SPAN_WARNING("The plating is going to need some support."))
-
-	//To lay cable.
-	if(isCoil(C))
-		var/obj/item/stack/cable_coil/coil = C
-		coil.PlaceCableOnTurf(src, user)
-		return
-
-	for(var/atom/movable/M in below)
-		if(M.movable_flags & MOVABLE_FLAG_Z_INTERACT)
-			return M.attackby(C, user)
+	return ..()
 
 /turf/simulated/open/attack_hand(mob/user)
 	for(var/atom/movable/M in below)
-		if(M.movable_flags & MOVABLE_FLAG_Z_INTERACT)
+		if (HAS_FLAGS(M.movable_flags, MOVABLE_FLAG_Z_INTERACT))
 			return M.attack_hand(user)
 
 //Most things use is_plating to test if there is a cover tile on top (like regular floors)

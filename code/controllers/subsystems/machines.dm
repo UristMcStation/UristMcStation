@@ -39,7 +39,6 @@ SUBSYSTEM_DEF(machines)
 	init_order = SS_INIT_MACHINES
 	priority = SS_PRIORITY_MACHINERY
 	flags = SS_KEEP_TIMING
-	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
 	var/static/current_step = SSMACHINES_PIPENETS
 	var/static/cost_pipenets = 0
 	var/static/cost_machinery = 0
@@ -66,7 +65,9 @@ SUBSYSTEM_DEF(machines)
 
 /datum/controller/subsystem/machines/fire(resumed, no_mc_tick)
 	var/timer
-	if (!resumed || current_step == SSMACHINES_PIPENETS)
+	if (!resumed)
+		current_step = SSMACHINES_PIPENETS
+	if (current_step == SSMACHINES_PIPENETS)
 		timer = world.tick_usage
 		process_pipenets(resumed, no_mc_tick)
 		cost_pipenets = MC_AVERAGE(cost_pipenets, (world.tick_usage - timer) * world.tick_lag)
@@ -179,8 +180,16 @@ SUBSYSTEM_DEF(machines)
 				machine.is_processing = null
 			processing -= machine
 			continue
-		if (machine.ProcessAll(wait) == PROCESS_KILL)
-			processing -= machine
+
+		if(machine.processing_flags & MACHINERY_PROCESS_COMPONENTS)
+			for(var/thing in machine.processing_parts)
+				var/obj/item/stock_parts/part = thing
+				if(part.machine_process(machine) == PROCESS_KILL)
+					part.stop_processing()
+
+		if((machine.processing_flags & MACHINERY_PROCESS_SELF) && machine.Process(wait) == PROCESS_KILL)
+			STOP_PROCESSING_MACHINE(machine, MACHINERY_PROCESS_SELF)
+
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)

@@ -20,7 +20,7 @@
 	possible_trading_items = list(/obj/item/stock_parts                 = TRADER_SUBTYPES_ONLY,
 								/obj/item/stack/cable_coil              = TRADER_SUBTYPES_ONLY,
 								/obj/item/stack/cable_coil/cyborg       = TRADER_BLACKLIST,
-								/obj/item/stack/cable_coil/random       = TRADER_BLACKLIST,
+								/obj/random/single/color/cable_coil      = TRADER_BLACKLIST,
 								/obj/item/stack/cable_coil/cut          = TRADER_BLACKLIST,
 								/obj/item/cell                          = TRADER_SUBTYPES_ONLY,
 								/obj/item/cell/slime                    = TRADER_BLACKLIST,

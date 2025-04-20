@@ -1,9 +1,10 @@
 GLOBAL_VAR(planet_repopulation_disabled)
 
-/obj/effect/overmap/visitable/sector/exoplanet
+/obj/overmap/visitable/sector/exoplanet
 	name = "exoplanet"
 	icon_state = "globe"
-	in_space = FALSE
+	sector_flags = OVERMAP_SECTOR_KNOWN
+	sensor_visibility = 60
 	is_planet = TRUE
 	var/area/planetary_area
 	var/list/seeds = list()
@@ -11,19 +12,27 @@ GLOBAL_VAR(planet_repopulation_disabled)
 	var/list/megafauna_types = list() 	// possibble types of megafauna to spawn
 	var/list/animals = list()
 	var/max_animal_count
-	var/datum/gas_mixture/atmosphere
 	var/list/breathgas = list()	//list of gases animals/plants require to survive
 	var/badgas					//id of gas that is toxic to life here
 
-	var/lightlevel = 0 //This default makes turfs not generate light. Adjust to have exoplanents be lit.
-	var/night = TRUE
-	var/daycycle //How often do we change day and night
-	var/daycolumn = 0 //Which column's light needs to be updated next?
-	var/daycycle_column_delay = 10 SECONDS
+
+	//DAY/NIGHT CYCLE
+	var/daycycle_range = list(25 MINUTES, 45 MINUTES)
+	var/daycycle = 0//How often do we change day and night, at first list, to determine min and max day length
+	var/sun_process_interval = 1.5 MINUTES //How often we update planetary sunlight
+	var/sun_last_process = null // world.time
+
+	/// 0 means midnight, 1 means noon.
+	var/sun_position = 0
+	/// This a multiplier used to apply to the brightness of ambient lighting.  0.3 means 30% of the brightness of the sun.
+	var/sun_brightness_modifier = 0.5
+
+	/// Sun control
+	var/ambient_group_index
 
 	var/maxx
 	var/maxy
-	var/landmark_type = /obj/effect/shuttle_landmark/automatic
+	var/landmark_type = /obj/shuttle_landmark/automatic
 
 	var/list/rock_colors = list(COLOR_ASTEROID_ROCK)
 	var/list/plant_colors = list("RANDOM")
@@ -62,20 +71,13 @@ GLOBAL_VAR(planet_repopulation_disabled)
 	var/list/spawned_features
 
 	//Either a type or a list of types and weights. You must include all types if it's a list
-	var/list/habitability_distribution = list(
-		HABITABILITY_IDEAL = 10,
-		HABITABILITY_OKAY = 40,
-		HABITABILITY_BAD = 50
-	)
-	var/habitability_class
+	var/habitability_weight = HABITABILITY_TYPICAL
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/generate_habitability()
-	if (isnum(habitability_distribution))
-		habitability_class = habitability_distribution
-	else
-		habitability_class = pickweight_index(habitability_distribution)
+	///What weather state to use for this planet initially. If null, will not initialize any weather system. Must be a typepath rather than an instance.
+	var/singleton/state/weather/initial_weather_state = /singleton/state/weather/calm
+	var/list/banned_weather_conditions
 
-/obj/effect/overmap/visitable/sector/exoplanet/New(nloc, max_x, max_y)
+/obj/overmap/visitable/sector/exoplanet/New(nloc, max_x, max_y)
 	if (!GLOB.using_map.use_overmap)
 		return
 
@@ -114,15 +116,14 @@ GLOBAL_VAR(planet_repopulation_disabled)
 		possible_features += new ruin
 	..()
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/build_level()
-	generate_habitability()
+/obj/overmap/visitable/sector/exoplanet/proc/build_level()
 	generate_atmosphere()
 	for (var/datum/exoplanet_theme/T in themes)
 		T.adjust_atmosphere(src)
-	if (atmosphere)
+	if (exterior_atmosphere)
 		//Set up gases for living things
 		if (!length(breathgas))
-			var/list/goodgases = gas_data.gases.Copy()
+			var/list/goodgases = exterior_atmosphere.gas.Copy()
 			var/gasnum = min(rand(1,3), length(goodgases))
 			for (var/i = 1 to gasnum)
 				var/gas = pick(goodgases)
@@ -130,7 +131,7 @@ GLOBAL_VAR(planet_repopulation_disabled)
 				goodgases -= gas
 		if (!badgas)
 			var/list/badgases = gas_data.gases.Copy()
-			badgases -= atmosphere.gas
+			badgases -= exterior_atmosphere.gas
 			badgas = pick(badgases)
 	generate_flora()
 	generate_map()
@@ -141,10 +142,12 @@ GLOBAL_VAR(planet_repopulation_disabled)
 	update_biome()
 	generate_daycycle()
 	generate_planet_image()
+	if(ispath(initial_weather_state))
+		generate_weather()
 	START_PROCESSING(SSobj, src)
 
 //attempt at more consistent history generation for xenoarch finds.
-/obj/effect/overmap/visitable/sector/exoplanet/proc/get_engravings()
+/obj/overmap/visitable/sector/exoplanet/proc/get_engravings()
 	if (!length(actors))
 		actors += pick("alien humanoid","an amorphic blob","a short, hairy being","a rodent-like creature","a robot","a primate","a reptilian alien","an unidentifiable object","a statue","a starship","unusual devices","a structure")
 		actors += pick("alien humanoids","amorphic blobs","short, hairy beings","rodent-like creatures","robots","primates","reptilian aliens")
@@ -157,7 +160,8 @@ GLOBAL_VAR(planet_repopulation_disabled)
 	engravings += "."
 	return engravings
 
-/obj/effect/overmap/visitable/sector/exoplanet/Process(wait, tick)
+/obj/overmap/visitable/sector/exoplanet/Process(wait, tick)
+	. = ..()
 	if (length(animals) < 0.5*max_animal_count && !repopulating)
 		repopulating = TRUE
 		max_animal_count = round(max_animal_count * 0.5)
@@ -166,39 +170,93 @@ GLOBAL_VAR(planet_repopulation_disabled)
 		if (repopulating && !GLOB.planet_repopulation_disabled)
 			handle_repopulation()
 
-		if (!atmosphere)
-			continue
+	if(sun_last_process <= (world.time - sun_process_interval))
+		update_sun()
 
-		var/zone/Z
-		for (var/i = 1 to maxx)
-			var/turf/simulated/T = locate(i, 2, zlevel)
-			if (istype(T) && T.zone && length(T.zone.contents) > (maxx*maxy*0.25)) //if it's a zone quarter of zlevel, good enough odds it's planetary main one
-				Z = T.zone
-				break
-		if (Z && !length(Z.fire_tiles) && !atmosphere.compare(Z.air)) //let fire die out first if there is one
-			var/datum/gas_mixture/daddy = new() //make a fake 'planet' zone gas
-			daddy.copy_from(atmosphere)
-			daddy.group_multiplier = Z.air.group_multiplier
-			Z.air.equalize(daddy)
+/obj/overmap/visitable/sector/exoplanet/proc/generate_daycycle()
+	daycycle = rand(daycycle_range[1], daycycle_range[2])
+	update_sun()
 
-	if (daycycle)
-		if (tick % round(daycycle / wait) == 0)
-			night = !night
-			daycolumn = 1
-		if (daycolumn && tick % round(daycycle_column_delay / wait) == 0)
-			update_daynight()
+///Setup the initial weather state for the planet. Doesn't apply it to our z levels however.
+/obj/overmap/visitable/sector/exoplanet/proc/generate_weather()
+	if(ispath(initial_weather_state))
+		initial_weather_state = GET_SINGLETON(initial_weather_state)
+	//Set weather firs time around
+	SSweather.setup_weather_system(map_z[1], initial_weather_state, banned_weather_conditions)
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/update_daynight()
-	var/light = 0.1
-	if (!night)
-		light = lightlevel
-	for (var/turf/simulated/floor/exoplanet/T in block(locate(daycolumn,1,min(map_z)),locate(daycolumn,maxy,max(map_z))))
-		T.set_light(light, 0.1, 2)
-	daycolumn++
-	if (daycolumn > maxx)
-		daycolumn = 0
+// This changes the position of the sun on the planet.
+/obj/overmap/visitable/sector/exoplanet/proc/update_sun()
+	if(sun_last_process == world.time) //For now, calling it several times in same frame is not valid. Add a parameter to ignore this if weather is added
+		return
+	sun_last_process = world.time
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
+	var/time_of_day = (world.time % daycycle) / daycycle //0 to 1 range.
+
+	var/distance_from_noon = abs(time_of_day - 0.5)
+	sun_position = distance_from_noon / 0.5 // -1 to 1 range
+	sun_position = abs(sun_position - 1)
+
+	var/low_brightness = null
+	var/high_brightness = null
+
+	var/low_color = null
+	var/high_color = null
+	var/min = 0
+	var/max = 0
+
+	//Now, each planet type may want to do its own thing for light, if so move most of this code into its own function and override it.
+	switch(sun_position)
+		if(0 to 0.40) // Night
+			low_brightness = 0.01
+			low_color = "#000066"
+
+			high_brightness = 0.2
+			high_color = "#66004d"
+			min = 0
+			max = 0.4
+
+		if(0.40 to 0.50) // Twilight
+			low_brightness = 0.2
+			low_color = "#66004d"
+
+			high_brightness = 0.5
+			high_color = "#cc3300"
+			min = 0.40
+			max = 0.50
+
+		if(0.50 to 0.70) // Sunrise/set
+			low_brightness = 0.5
+			low_color = "#cc3300"
+
+			high_brightness = 0.8
+			high_color = "#ff9933"
+			min = 0.50
+			max = 0.70
+
+		if(0.70 to 1.00) // Noon
+			low_brightness = 0.8
+			low_color = "#dddddd"
+
+			high_brightness = 1.0
+			high_color = "#ffffff"
+			min = 0.70
+			max = 1.0
+
+	//var/interpolate_weight = (abs(min - sun_position)) * 4 Cit interpolation, not sure
+	var/interpolate_weight = (sun_position - min) / (max - min)
+
+	var/new_brightness = (Interpolate(low_brightness, high_brightness, interpolate_weight) ) * sun_brightness_modifier
+
+	//We do a gradient instead of linear interpolation because linear interpolations of colours are unintuitive
+	var/new_color = UNLINT(gradient(low_color, high_color, space = COLORSPACE_HSV, index=interpolate_weight))
+
+	if (!ambient_group_index)
+		ambient_group_index = SSambient_lighting.create_group(new_color, new_brightness)
+	else if (ambient_group_index > 0)
+		SSambient_lighting.groups[ambient_group_index]?.set_color(new_color, new_brightness)
+
+
+/obj/overmap/visitable/sector/exoplanet/proc/generate_map()
 	var/list/grasscolors = plant_colors.Copy()
 	grasscolors -= "RANDOM"
 	if (length(grasscolors))
@@ -221,36 +279,27 @@ GLOBAL_VAR(planet_repopulation_disabled)
 			else
 				new map_type(null,1,1,zlevel,maxx,maxy,0,1,1,planetary_area)
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/generate_features()
+/obj/overmap/visitable/sector/exoplanet/proc/generate_features()
 	spawned_features = seedRuins(map_z, features_budget, possible_features, /area/exoplanet, maxx, maxy)
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/update_biome()
+/obj/overmap/visitable/sector/exoplanet/proc/update_biome()
 	for (var/datum/seed/S in seeds)
 		adapt_seed(S)
 
 	for (var/mob/living/simple_animal/A in animals)
 		adapt_animal(A)
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/generate_daycycle()
-	if (lightlevel)
-		night = FALSE //we start with a day if we have light.
-
-		//When you set daycycle ensure that the minimum is larger than [maxx * daycycle_column_delay].
-		//Otherwise the right side of the exoplanet can get stuck in a forever day.
-		daycycle = rand(10 MINUTES, 40 MINUTES)
-
-/obj/effect/landmark/exoplanet_spawn/Initialize()
+/obj/landmark/exoplanet_spawn/Initialize()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/effect/landmark/exoplanet_spawn/LateInitialize()
-	. = ..()
-	var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+/obj/landmark/exoplanet_spawn/LateInitialize(mapload)
+	var/obj/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 	if (istype(E))
 		do_spawn(E)
 
 //Tries to generate num landmarks, but avoids repeats.
-/obj/effect/overmap/visitable/sector/exoplanet/proc/generate_landing(num = 1)
+/obj/overmap/visitable/sector/exoplanet/proc/generate_landing(num = 1)
 	var/places = list()
 	var/attempts = 30*num
 	var/new_type = landmark_type
@@ -270,7 +319,7 @@ GLOBAL_VAR(planet_repopulation_disabled)
 				if (check_collision(T.loc, block_to_check)) //While we have lots of patience, ensure landability
 					valid = FALSE
 			else //Running out of patience, but would rather not clear ruins, so switch to clearing landmarks and bypass landability check
-				new_type = /obj/effect/shuttle_landmark/automatic/clearing
+				new_type = /obj/shuttle_landmark/automatic/clearing
 
 			if (!valid)
 				continue
@@ -279,18 +328,18 @@ GLOBAL_VAR(planet_repopulation_disabled)
 		places += T
 		new new_type(T)
 
-/obj/effect/overmap/visitable/sector/exoplanet/get_scan_data(mob/user)
+/obj/overmap/visitable/sector/exoplanet/get_scan_data(mob/user)
 	. = ..()
-	var/list/extra_data = list("<br>")
-	if (atmosphere)
+	var/list/extra_data = list()
+	if (exterior_atmosphere)
 		var/list/gases = list()
-		for (var/g in atmosphere.gas)
-			if (atmosphere.gas[g] > atmosphere.total_moles * 0.05)
+		for (var/g in exterior_atmosphere.gas)
+			if (exterior_atmosphere.gas[g] > exterior_atmosphere.total_moles * 0.05)
 				gases += gas_data.name[g]
 		extra_data += "Atmosphere composition: [english_list(gases)]"
 		var/inaccuracy = rand(8,12)/10
-		extra_data += "Atmosphere pressure [atmosphere.return_pressure()*inaccuracy] kPa, temperature [atmosphere.temperature*inaccuracy] K"
-		extra_data += "<br>"
+		extra_data += "Atmosphere pressure [exterior_atmosphere.return_pressure()*inaccuracy] kPa, temperature [exterior_atmosphere.temperature*inaccuracy] K"
+		extra_data += ""
 
 	if (length(seeds))
 		extra_data += "Xenoflora detected"
@@ -300,18 +349,19 @@ GLOBAL_VAR(planet_repopulation_disabled)
 
 	if (LAZYLEN(spawned_features))
 		var/ruin_num = 0
+		var/inaccuracy = rand(-2,2)
 		for (var/datum/map_template/ruin/exoplanet/R in spawned_features)
 			if (!(R.ruin_tags & RUIN_NATURAL))
 				ruin_num++
 		if (ruin_num)
-			extra_data += "<br>[ruin_num] possible artificial structure\s detected."
+			extra_data += "<br>Approximately [max(1, ruin_num+inaccuracy)] possible artificial structure\s detected."
 
 	for (var/datum/exoplanet_theme/T in themes)
 		if (T.get_sensor_data())
 			extra_data += T.get_sensor_data()
 	. += jointext(extra_data, "<br>")
 
-/obj/effect/overmap/visitable/sector/exoplanet/proc/get_surface_color()
+/obj/overmap/visitable/sector/exoplanet/proc/get_surface_color()
 	return surface_color
 
 /area/exoplanet

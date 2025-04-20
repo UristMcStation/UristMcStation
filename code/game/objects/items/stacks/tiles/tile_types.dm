@@ -14,6 +14,7 @@
 	randpixel = 7
 	w_class = ITEM_SIZE_NORMAL
 	max_amount = 100
+	icon_state = "tile"
 	icon = 'icons/obj/tiles.dmi'
 
 	force = 1
@@ -23,14 +24,14 @@
 	item_flags = 0
 	obj_flags = 0
 
-/obj/item/stack/tile/attackby(obj/item/I as obj, var/mob/user as mob)
-	if(is_sharp(I) && throwforce < 20)
-		to_chat(user, "<span class = 'notice'>You begin to sharpen \the [src] with \the [I].</span>")
+/obj/item/stack/tile/use_tool(obj/item/I as obj, mob/user as mob, click_params)
+	if(is_sharp(I) && throwforce < 10)
+		to_chat(user, SPAN_NOTICE("You begin to sharpen \the [src] with \the [I]."))
 		if(do_after(user, 30, src))
-			to_chat(user, "<span class = 'notice'>You sharpen \the [src]'s edges to a sharp point.</span>")
-			throwforce = 20
-			return
-	..()
+			to_chat(user, SPAN_NOTICE("You sharpen \the [src]'s edges to a sharp point."))
+			throwforce = 10
+		return TRUE
+	return ..()
 
 /obj/item/stack/tile/verb/place_above()
 	set name = "Place Tile Above"
@@ -45,7 +46,7 @@
 		return
 
 	if(locate(/obj/structure/lattice, target))
-		target.attackby(src, src.loc)
+		target.use_tool(src, src.loc)
 		to_chat(usr, "<span class='notice'>You slide \the [src] into the lattice above.</span>")
 		playsound(usr, 'sound/weapons/Genhit.ogg', 50, 1)
 	else
@@ -141,21 +142,21 @@
 /obj/item/stack/tile/mono
 	name = "steel mono tile"
 	singular_name = "steel mono tile"
-	icon_state = "tile"
+	icon_state = "tile_mono"
 	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 
 /obj/item/stack/tile/mono/dark
 	name = "dark mono tile"
 	singular_name = "dark mono tile"
-	icon_state = "fr_tile"
+	icon_state = "fr_tile_mono"
 	matter = list(MATERIAL_STEEL = 450)
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 
 /obj/item/stack/tile/mono/white
 	name = "white mono tile"
 	singular_name = "white mono tile"
-	icon_state = "tile_white"
+	icon_state = "tile_white_mono"
 	matter = list(MATERIAL_PLASTIC = 450)
 
 /obj/item/stack/tile/grid
@@ -341,6 +342,16 @@
 	build_type = /obj/item/stack/tile/carpetred
 
 /obj/item/stack/tile/carpetred/fifty
+	amount = 50
+
+/obj/item/stack/tile/carpetblack
+	name = "black carpet"
+	desc = "A piece of black carpet."
+	singular_name = "black carpet"
+	icon_state = "tile_carpetblack"
+	build_type = /obj/item/stack/tile/carpetblack
+
+/obj/item/stack/tile/carpetblack/fifty
 	amount = 50
 
 /obj/item/stack/tile/pool

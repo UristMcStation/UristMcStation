@@ -18,8 +18,7 @@ var/global/list/wfc_prefab_repo = list()
 	var/turf/br
 
 
-/wfc_prefab/New(var/repo_key = null)
+/wfc_prefab/New(repo_key = null)
 	var/_repokey = repo_key || src.repo_key
 	if(_repokey)
 		wfc_prefab_repo[_repokey] = src
-

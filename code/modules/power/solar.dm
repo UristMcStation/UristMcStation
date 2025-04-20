@@ -5,7 +5,7 @@ var/global/solar_gen_rate = 1500
 /obj/machinery/power/solar
 	name = "solar panel"
 	desc = "A solar electrical generator."
-	icon = 'icons/obj/power.dmi'
+	icon = 'icons/obj/machines/power/solar_panels.dmi'
 	icon_state = "sp_base"
 	anchored = TRUE
 	density = TRUE
@@ -62,11 +62,11 @@ var/global/solar_gen_rate = 1500
 
 
 
-/obj/machinery/power/solar/attackby(obj/item/W, mob/user)
+/obj/machinery/power/solar/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(isCrowbar(W))
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		user.visible_message(SPAN_NOTICE("[user] begins to take the glass off the solar panel."))
-		if(do_after(user, 5 SECONDS, src, DO_REPAIR_CONSTRUCT))
+		if(do_after(user, (W.toolspeed * 5) SECONDS, src, DO_REPAIR_CONSTRUCT))
 			var/obj/item/solar_assembly/S = locate() in src
 			if(S)
 				S.dropInto(loc)
@@ -76,15 +76,15 @@ var/global/solar_gen_rate = 1500
 			qdel(src)
 		return TRUE
 
-	. = ..()
+	return ..()
 
 /obj/machinery/power/solar/on_update_icon()
 	..()
-	overlays.Cut()
+	ClearOverlays()
 	if(MACHINE_IS_BROKEN(src))
-		overlays += image('icons/obj/power.dmi', icon_state = "solar_panel-b", layer = ABOVE_HUMAN_LAYER)
+		AddOverlays(image('icons/obj/machines/power/solar_panels.dmi', icon_state = "solar_panel-b", layer = ABOVE_HUMAN_LAYER))
 	else
-		overlays += image('icons/obj/power.dmi', icon_state = "solar_panel", layer = ABOVE_HUMAN_LAYER)
+		AddOverlays(image('icons/obj/machines/power/solar_panels.dmi', icon_state = "solar_panel", layer = ABOVE_HUMAN_LAYER))
 		src.set_dir(angle2dir(adir))
 	return
 
@@ -122,7 +122,7 @@ var/global/solar_gen_rate = 1500
 
 /obj/machinery/power/solar/set_broken(new_state)
 	. = ..()
-	if(. && new_state && !health_dead)
+	if(. && new_state && !health_dead())
 		kill_health()
 
 /obj/machinery/power/solar/on_death()
@@ -173,7 +173,7 @@ var/global/solar_gen_rate = 1500
 	// On planets, we take fewer steps because the light is mostly up
 	// Also, many planets barely have any spots with enough clear space around
 	if(GLOB.using_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/E = map_sectors["[z]"]
+		var/obj/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
 		if(istype(E) && E.is_planet)
 			steps = 5
 
@@ -201,7 +201,7 @@ var/global/solar_gen_rate = 1500
 /obj/item/solar_assembly
 	name = "solar panel assembly"
 	desc = "A solar panel assembly kit, allows constructions of a solar panel, or with a tracking circuit board, a solar tracker."
-	icon = 'icons/obj/power.dmi'
+	icon = 'icons/obj/machines/power/solar_panels.dmi'
 	icon_state = "sp_base"
 	item_state = "electropack"
 	w_class = ITEM_SIZE_HUGE // Pretty big!
@@ -221,52 +221,50 @@ var/global/solar_gen_rate = 1500
 		glass_type = null
 
 
-/obj/item/solar_assembly/attackby(obj/item/W, mob/user)
-
+/obj/item/solar_assembly/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(!anchored && isturf(loc))
 		if(isWrench(W))
 			anchored = TRUE
 			pixel_x = 0
 			pixel_y = 0
 			pixel_z = 0
-			user.visible_message(SPAN_NOTICE("[user] wrenches the solar assembly into place."))
+			user.visible_message(SPAN_NOTICE("\The [user] wrenches \the [src] into place."))
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
-			return 1
+			return TRUE
 	else
 		if(isWrench(W))
 			anchored = FALSE
-			user.visible_message(SPAN_NOTICE("[user] unwrenches the solar assembly from it's place."))
+			user.visible_message(SPAN_NOTICE("\The [user] unwrenches \the [src] from it's place."))
 			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
-			return 1
+			return TRUE
 
 		if(istype(W, /obj/item/stack/material) && W.get_material_name() == MATERIAL_GLASS)
 			var/obj/item/stack/material/S = W
 			if(S.use(2))
 				glass_type = W.type
 				playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-				user.visible_message(SPAN_NOTICE("[user] places the glass on the solar assembly."))
+				user.visible_message(SPAN_NOTICE("\The [user] places the glass on \the [src]."))
 				if(tracker)
 					new /obj/machinery/power/tracker(get_turf(src), src)
 				else
 					new /obj/machinery/power/solar(get_turf(src), src)
 			else
 				to_chat(user, SPAN_WARNING("You need two sheets of glass to put them into a solar panel."))
-				return
-			return 1
+			return TRUE
 
 	if(!tracker)
 		if(istype(W, /obj/item/tracker_electronics))
 			tracker = 1
 			qdel(W)
-			user.visible_message(SPAN_NOTICE("[user] inserts the electronics into the solar assembly."))
-			return 1
+			user.visible_message(SPAN_NOTICE("\The [user] inserts the electronics into \the [src]."))
+			return TRUE
 	else
 		if(isCrowbar(W))
-			new /obj/item/tracker_electronics(src.loc)
+			new /obj/item/tracker_electronics(loc)
 			tracker = 0
-			user.visible_message(SPAN_NOTICE("[user] takes out the electronics from the solar assembly."))
-			return 1
-	..()
+			user.visible_message(SPAN_NOTICE("\The [user] takes out the electronics from \the [src]."))
+			return TRUE
+	return ..()
 
 //
 // Solar Control Computer
@@ -275,8 +273,8 @@ var/global/solar_gen_rate = 1500
 /obj/machinery/power/solar_control
 	name = "solar panel control"
 	desc = "A controller for solar panel arrays."
-	icon = 'icons/obj/computer.dmi'
-	icon_state = "solar"
+	icon = 'icons/obj/machines/computer.dmi'
+	icon_state = "computer"
 	anchored = TRUE
 	density = TRUE
 	use_power = POWER_USE_IDLE
@@ -357,16 +355,16 @@ var/global/solar_gen_rate = 1500
 /obj/machinery/power/solar_control/on_update_icon()
 	if(MACHINE_IS_BROKEN(src))
 		icon_state = "broken"
-		overlays.Cut()
+		ClearOverlays()
 		return
 	if(!is_powered())
-		icon_state = "c_unpowered"
-		overlays.Cut()
+		icon_state = "computer"
+		ClearOverlays()
 		return
 	icon_state = "solar"
-	overlays.Cut()
+	ClearOverlays()
 	if(cdir > -1)
-		overlays += image('icons/obj/computer.dmi', "solcon-o", ABOVE_OBJ_LAYER, angle2dir(cdir))
+		AddOverlays(image('icons/obj/machines/computer.dmi', "solcon-o", angle2dir(cdir)))
 	return
 
 /obj/machinery/power/solar_control/interface_interact(mob/user)
@@ -381,21 +379,21 @@ var/global/solar_gen_rate = 1500
 	t += "<B>[SPAN_CLASS("highlight", "Tracking:")]</B><div class='statusDisplay'>"
 	switch(track)
 		if(0)
-			t += "[SPAN_CLASS("linkOn", "Off")] <A href='?src=\ref[src];track=1'>Timed</A> <A href='?src=\ref[src];track=2'>Auto</A><BR>"
+			t += "[SPAN_CLASS("linkOn", "Off")] <A href='byond://?src=\ref[src];track=1'>Timed</A> <A href='byond://?src=\ref[src];track=2'>Auto</A><BR>"
 		if(1)
-			t += "<A href='?src=\ref[src];track=0'>Off</A> [SPAN_CLASS("linkOn", "Timed")] <A href='?src=\ref[src];track=2'>Auto</A><BR>"
+			t += "<A href='byond://?src=\ref[src];track=0'>Off</A> [SPAN_CLASS("linkOn", "Timed")] <A href='byond://?src=\ref[src];track=2'>Auto</A><BR>"
 		if(2)
-			t += "<A href='?src=\ref[src];track=0'>Off</A> <A href='?src=\ref[src];track=1'>Timed</A> [SPAN_CLASS("linkOn", "Auto")]<BR>"
+			t += "<A href='byond://?src=\ref[src];track=0'>Off</A> <A href='byond://?src=\ref[src];track=1'>Timed</A> [SPAN_CLASS("linkOn", "Auto")]<BR>"
 
 	t += "Tracking Rate: [rate_control(src,"tdir","[trackrate] deg/h ([trackrate<0 ? "CCW" : "CW"])",1,30,180)]</div><BR>"
 
 	t += "<B>[SPAN_CLASS("highlight", "Connected devices:")]</B><div class='statusDisplay'>"
 
-	t += "<A href='?src=\ref[src];search_connected=1'>Search for devices</A><BR>"
+	t += "<A href='byond://?src=\ref[src];search_connected=1'>Search for devices</A><BR>"
 	t += "Solar panels : [length(connected_panels)] connected<BR>"
 	t += "Solar tracker : [connected_tracker ? SPAN_GOOD("Found") : SPAN_BAD("Not found")]</div><BR>"
 
-	t += "<A href='?src=\ref[src];close=1'>Close</A>"
+	t += "<A href='byond://?src=\ref[src];close=1'>Close</A>"
 
 	var/datum/browser/popup = new(user, "solar", name)
 	popup.set_content(t)
@@ -431,14 +429,14 @@ var/global/solar_gen_rate = 1500
 
 	if(href_list["rate control"])
 		if(href_list["cdir"])
-			src.cdir = dd_range(0,359,(360+src.cdir+text2num(href_list["cdir"]))%360)
+			src.cdir = clamp((360+src.cdir+text2num(href_list["cdir"]))%360, 0, 359)
 			src.targetdir = src.cdir
 			if(track == 2) //manual update, so losing auto-tracking
 				track = 0
 			spawn(1)
 				set_panels(cdir)
 		if(href_list["tdir"])
-			src.trackrate = dd_range(-7200,7200,src.trackrate+text2num(href_list["tdir"]))
+			src.trackrate = clamp(src.trackrate+text2num(href_list["tdir"]), -7200, 7200)
 			if(src.trackrate) nexttime = world.time + 36000/abs(trackrate)
 
 	if(href_list["track"])
@@ -502,7 +500,7 @@ var/global/solar_gen_rate = 1500
 	info = "<h1>Welcome</h1><p>At greencorps we love the environment, and space. With this package you are able to help mother nature and produce energy without any usage of fossil fuel or phoron! Singularity energy is dangerous while solar energy is safe, which is why it's better. Now here is how you setup your own solar array.</p><p>You can make a solar panel by wrenching the solar assembly onto a cable node. Adding a glass panel, reinforced or regular glass will do, will finish the construction of your solar panel. It is that easy!</p><p>Now after setting up 19 more of these solar panels you will want to create a solar tracker to keep track of our mother nature's gift, the sun. These are the same steps as before except you insert the tracker equipment circuit into the assembly before performing the final step of adding the glass. You now have a tracker! Now the last step is to add a computer to calculate the sun's movements and to send commands to the solar panels to change direction with the sun. Setting up the solar computer is the same as setting up any computer, so you should have no trouble in doing that. You do need to put a wire node under the computer, and the wire needs to be connected to the tracker.</p><p>Congratulations, you should have a working solar array. If you are having trouble, here are some tips. Make sure all solar equipment are on a cable node, even the computer. You can always deconstruct your creations if you make a mistake.</p><p>That's all to it, be safe, be green!</p>"
 
 /proc/rate_control(S, V, C, Min=1, Max=5, Limit=null) //How not to name vars
-	var/href = "<A href='?src=\ref[S];rate control=1;[V]"
+	var/href = "<A href='byond://?src=\ref[S];rate control=1;[V]"
 	var/rate = "[href]=-[Max]'>-</A>[href]=-[Min]'>-</A> [(C?C : 0)] [href]=[Min]'>+</A>[href]=[Max]'>+</A>"
 	if(Limit) return "[href]=-[Limit]'>-</A>"+rate+"[href]=[Limit]'>+</A>"
 	return rate

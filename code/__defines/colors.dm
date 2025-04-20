@@ -39,6 +39,8 @@
 #define COLOR_PURPLE_GRAY      "#a2819e"
 #define COLOR_BLUE_LIGHT       "#33ccff"
 #define COLOR_RED_LIGHT        "#ff3333"
+#define COLOR_GREEN_LIGHT      "#33ff33"
+#define COLOR_ORANGE_LIGHT     "#ffcc33"
 #define COLOR_BEIGE            "#ceb689"
 #define COLOR_BABY_BLUE        "#89cff0"
 #define COLOR_PALE_GREEN_GRAY  "#aed18b"
@@ -52,8 +54,8 @@
 #define COLOR_WHITE            "#ffffff"
 #define COLOR_GOLD             "#ffcc33"
 #define COLOR_CLOSET_GOLD      "#6d6133"
-#define COLOR_NT_RED           "#9d2300"
 #define COLOR_BOTTLE_GREEN     "#1f6b4f"
+#define COLOR_NT_RED           "#9d2300"
 #define COLOR_PALE_BTL_GREEN   "#57967f"
 #define COLOR_GUNMETAL         "#545c68"
 #define COLOR_WALL_GUNMETAL    "#353a42"
@@ -84,6 +86,16 @@
 #define COLOR_VOX			   "#244238"
 #define COLOR_HULL             "#436b8e"
 #define COLOR_DEEP_RED         "#a80707"
+
+#define CABLE_COLOR_RED "#800000"
+#define CABLE_COLOR_YELLOW "#ffbf00"
+#define CABLE_COLOR_GREEN "#008000"
+#define CABLE_COLOR_BLUE "#3366cc"
+#define CABLE_COLOR_ORANGE "#ff9900"
+#define CABLE_COLOR_CYAN "#5ca1cc"
+#define CABLE_COLOR_WHITE "#c0c0c0"
+#define CABLE_COLOR_BLACK "#333333"
+
 
 #define	PIPE_COLOR_GREY        "#808080"
 #define	PIPE_COLOR_RED         "#ff0000"
@@ -128,7 +140,7 @@
 #define WOOD_COLOR_YELLOW      "#e3994e"
 
 #define GLASS_COLOR            "#aaccff"
-#define GLASS_COLOR_PHORON     "#7c3a9a"
+#define GLASS_COLOR_BORON      "#899ebd"
 #define GLASS_COLOR_TINTED     "#222222"
 #define GLASS_COLOR_FROSTED    "#eeeeee"
 
@@ -220,5 +232,9 @@
 #define COLOR_MEDICAL_UNKNOWN_IMPLANT "#aa00ff"
 #define COLOR_MEDICAL_SCARRING "#aa9999"
 #define COLOR_MEDICAL_MISSING "#886666"
+
+//Weather for now
+#define COLOR_WATER "#99f5ff"
+#define COLOR_ICE   "#eef5ff"
 
 #define COLORED_SQUARE(COLOR) "<span style='font-face: fixedsys; font-size: 14px; background-color: [COLOR]; color: [COLOR]'>___</span>"

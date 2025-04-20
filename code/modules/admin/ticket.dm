@@ -10,18 +10,19 @@ var/global/list/ticket_panels = list()
 	var/id
 	var/opened_time
 	var/timeout = FALSE
+	var/last_message_time
 
 /datum/ticket/New(datum/client_lite/owner)
 	src.owner = owner
 	tickets |= src
 	id = length(tickets)
 	opened_time = world.time
-	addtimer(new Callback(src, .proc/timeoutcheck), 5 MINUTES, TIMER_STOPPABLE)
+	addtimer(new Callback(src, PROC_REF(timeoutcheck)), 5 MINUTES, TIMER_STOPPABLE)
 
 /datum/ticket/proc/timeoutcheck()
 	if(status == TICKET_OPEN)
 		message_staff(SPAN_DANGER("[owner.key_name(0)] has not received a reply to their initial ahelp after 5 minutes!"))
-		addtimer(new Callback(src, .proc/timeoutchecklast), 5 MINUTES, TIMER_STOPPABLE)
+		addtimer(new Callback(src, PROC_REF(timeoutchecklast)), 5 MINUTES, TIMER_STOPPABLE)
 
 
 /datum/ticket/proc/timeoutchecklast()
@@ -32,6 +33,9 @@ var/global/list/ticket_panels = list()
 
 /datum/ticket/proc/timeoutchecktaken()
 	if (status == TICKET_ASSIGNED)
+		if (is_active())
+			addtimer(new Callback(src, PROC_REF(timeoutchecktaken)), 30 MINUTES, TIMER_STOPPABLE)
+			return
 		for (var/datum/client_lite/C in assigned_admins)
 			to_chat(client_by_ckey(C.ckey), SPAN_NOTICE(SPAN_BOLD("Your ticket with [client_by_ckey(owner.ckey)] has timed out and auto-closed.")))
 		close(assigned_admins[1])
@@ -56,7 +60,7 @@ var/global/list/ticket_panels = list()
 		src.closed_by = closed_by
 		to_chat(client_by_ckey(src.owner.ckey), SPAN_NOTICE("<b>Your ticket has been closed by [closed_by.key].</b>"))
 		message_staff(SPAN_NOTICE("<b>[src.owner.key_name(0)]</b>'s ticket has been closed by <b>[closed_by.key]</b>."))
-		send2adminirc("[src.owner.key_name(0)]'s ticket has been closed by [closed_by.key].")
+		send_to_admin_discord(EXCOM_MSG_AHELP, "[src.owner.key_name(0)]'s ticket has been closed by [closed_by.key].")
 
 	update_ticket_panels()
 
@@ -76,11 +80,11 @@ var/global/list/ticket_panels = list()
 	src.status = TICKET_ASSIGNED
 
 	message_staff(SPAN_NOTICE("<b>[assigned_admin.key]</b> has assigned themself to <b>[src.owner.key_name(0)]'s</b> ticket."))
-	send2adminirc("[assigned_admin.key] has assigned themself to [src.owner.key_name(0)]'s ticket.")
+	send_to_admin_discord(EXCOM_MSG_AHELP, "[assigned_admin.key] has assigned themself to [src.owner.key_name(0)]'s ticket.")
 	to_chat(client_by_ckey(src.owner.ckey), SPAN_NOTICE("<b>[assigned_admin.key] has added themself to your ticket and should respond shortly. Thanks for your patience!</b>"))
 
 	update_ticket_panels()
-	addtimer(new Callback(src, .proc/timeoutchecktaken), 30 MINUTES, TIMER_STOPPABLE)
+	addtimer(new Callback(src, PROC_REF(timeoutchecktaken)), 30 MINUTES, TIMER_STOPPABLE)
 
 	return 1
 
@@ -97,6 +101,7 @@ var/global/list/ticket_panels = list()
 		. |= assigned_admin.key
 
 /proc/get_open_ticket_by_client(datum/client_lite/owner)
+	RETURN_TYPE(/datum/ticket)
 	for(var/datum/ticket/ticket in tickets)
 		if(ticket.owner.ckey == owner.ckey && (ticket.status == TICKET_OPEN || ticket.status == TICKET_ASSIGNED))
 			return ticket // there should only be one open ticket by a client at a time, so no need to keep looking
@@ -104,6 +109,9 @@ var/global/list/ticket_panels = list()
 /datum/ticket/proc/is_active()
 	if(status != TICKET_ASSIGNED)
 		return 0
+
+	if(world.time - last_message_time > 30 MINUTES)
+		return FALSE
 
 	for(var/datum/client_lite/admin in assigned_admins)
 		var/client/admin_client = client_by_ckey(admin.ckey)
@@ -172,7 +180,7 @@ var/global/list/ticket_panels = list()
 				var/ref_mob = ""
 				if(owner_client)
 					ref_mob = "\ref[owner_client.mob]"
-				ticket_dat += " - <A HREF='?_src_=holder;adminmoreinfo=[ref_mob]'>?</A> - <A HREF='?_src_=holder;adminplayeropts=[ref_mob]'>PP</A> - <A HREF='?_src_=vars;Vars=[ref_mob]'>VV</A> - <A HREF='?_src_=holder;narrateto=[ref_mob]'>DN</A>[owner_client ? "- [admin_jump_link(owner_client, src)]" : ""]"
+				ticket_dat += " - <A HREF='byond://?_src_=holder;adminmoreinfo=[ref_mob]'>?</A> - <A HREF='byond://?_src_=holder;adminplayeropts=[ref_mob]'>PP</A> - <A HREF='byond://?_src_=vars;Vars=[ref_mob]'>VV</A> - <A HREF='byond://?_src_=holder;narrateto=[ref_mob]'>DN</A>[owner_client ? "- [admin_jump_link(owner_client, src)]" : ""]"
 			if(open_ticket && open_ticket == ticket)
 				ticket_dat += "</i>"
 			ticket_dat += "</li>"

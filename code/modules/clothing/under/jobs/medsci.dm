@@ -184,6 +184,10 @@
 	name = "heliodor scrubs"
 	color = "#aad539"
 
+/obj/item/clothing/under/rank/medical/scrubs/lavender
+	name = "lavender scrubs"
+	color = "#bebbee"
+
 /obj/item/clothing/under/rank/psych
 	desc = "A basic white jumpsuit. It has turqouise markings that denote the wearer as a psychiatrist."
 	name = "psychiatrist's jumpsuit"
@@ -206,9 +210,9 @@
 /obj/item/clothing/under/rank/geneticist_new
 	desc = "It's made of a special fiber which provides minor protection against biohazards."
 	name = "geneticist's jumpsuit"
-	icon_state = "genetics_new"
+	icon_state = "geneticist_new"
 	item_state = "w_suit"
-	worn_state = "genetics_new"
+	worn_state = "geneticist_new"
 	permeability_coefficient = 0.50
 	armor = list(
 		bio = ARMOR_BIO_MINOR

@@ -16,14 +16,14 @@
 
 /obj/item/natural_weapon/bite
 	name = "teeth"
-	attack_verb = list("bitten")
+	attack_verb = list("bit")
 	hitsound = 'sound/weapons/bite.ogg'
 	force = 10
 	sharp = TRUE
 
 /obj/item/natural_weapon/bite/weak
 	force = 5
-	attack_verb = list("bitten", "nipped")
+	attack_verb = list("bit", "nipped")
 
 /obj/item/natural_weapon/bite/mouse
 	force = 1
@@ -42,6 +42,9 @@
 
 /obj/item/natural_weapon/claws/strong
 	force = 25
+
+/obj/item/natural_weapon/bite/immense
+	force = 30
 
 /obj/item/natural_weapon/claws/weak
 	force = 5
@@ -70,6 +73,9 @@
 	damtype = DAMAGE_BRUTE
 	edge = TRUE
 	show_in_message = TRUE
+
+/obj/item/natural_weapon/drone_slicer/construction
+	force = 18
 
 /obj/item/natural_weapon/beak
 	name = "beak"

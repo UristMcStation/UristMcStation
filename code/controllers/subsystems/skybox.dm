@@ -42,7 +42,7 @@ SUBSYSTEM_DEF(skybox)
 		dust.blend_mode = BLEND_ADD
 		var/mutable_appearance/space = new /mutable_appearance(/turf/space)
 		space.icon_state = "white"
-		space.overlays += dust
+		space.AddOverlays(dust)
 		space_appearance_cache[index] = space.appearance
 	background_color = RANDOM_RGB
 
@@ -51,7 +51,7 @@ SUBSYSTEM_DEF(skybox)
 	if (!skybox_cache["[z]"])
 		skybox_cache["[z]"] = generate_skybox(z)
 		if (GLOB.using_map.use_overmap)
-			var/obj/effect/overmap/visitable/O = map_sectors["[z]"]
+			var/obj/overmap/visitable/O = map_sectors["[z]"]
 			if (istype(O))
 				for (var/zlevel in O.map_z)
 					skybox_cache["[zlevel]"] = skybox_cache["[z]"]
@@ -63,26 +63,26 @@ SUBSYSTEM_DEF(skybox)
 	var/image/base = overlay_image(skybox_icon, background_icon, background_color)
 	if (use_stars)
 		var/image/stars = overlay_image(skybox_icon, star_state, flags = RESET_COLOR)
-		base.overlays += stars
-	res.overlays += base
+		base.AddOverlays(stars)
+	res.AddOverlays(base)
 	if (GLOB.using_map.use_overmap && use_overmap_details)
-		var/obj/effect/overmap/visitable/O = map_sectors["[z]"]
+		var/obj/overmap/visitable/O = map_sectors["[z]"]
 		if (istype(O))
 			var/image/overmap = image(skybox_icon)
-			overmap.overlays += O.generate_skybox()
-			for (var/obj/effect/overmap/visitable/other in O.loc)
+			overmap.AddOverlays(O.generate_skybox())
+			for (var/obj/overmap/visitable/other in O.loc)
 				if (other != O)
-					overmap.overlays += other.get_skybox_representation()
+					overmap.AddOverlays(other.get_skybox_representation())
 			overmap.appearance_flags |= RESET_COLOR
-			res.overlays += overmap
+			res.AddOverlays(overmap)
 	if(GLOB.using_map.has_skybox_image)
 		if(z in GLOB.using_map.player_levels)
 			var/image/map_background = GLOB.using_map.get_skybox_image()
-			res.overlays += map_background
+			res.AddOverlays(map_background)
 
 	for (var/datum/event/event as anything in SSevent.active_events)
 		if(event.has_skybox_image && event.isRunning && (z in event.affecting_z))
-			res.overlays += event.get_skybox_image()
+			res.AddOverlays(event.get_skybox_image())
 	return res
 
 

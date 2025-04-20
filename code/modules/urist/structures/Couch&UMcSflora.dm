@@ -10,7 +10,7 @@
 /obj/structure/bed/chair/couch/on_update_icon()
 	return
 
-/obj/structure/bed/chair/couch/New(newloc,var/newmaterial)
+/obj/structure/bed/chair/couch/New(newloc,newmaterial)
 //	..(newloc,"steel","black")
 
 	if(couchpart == 1)
@@ -29,9 +29,9 @@
 
 /obj/structure/bed/chair/couch/post_buckle_mob()
 	if(buckled_mob)
-		overlays += armrest
+		AddOverlays(armrest)
 	else
-		overlays -= armrest
+		CutOverlays(armrest)
 
 /obj/structure/bed/chair/couch/left
 	couchpart = 1
@@ -84,7 +84,7 @@
 	color = rgb(255,113,0)
 
 
-/obj/structure/bed/chair/couch/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/bed/chair/couch/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/wrench))
 		playsound(src.loc, 'sound/items/Ratchet.ogg', 50, 1)
 		new /obj/item/stack/material/steel(src.loc)
@@ -145,10 +145,11 @@
 	anchored = TRUE
 	layer = 9
 
-/obj/structure/flora/pottedplant/Nienplants/Glloydtree/attackby(obj/item/I, mob/user as mob)
+/obj/structure/flora/pottedplant/Nienplants/Glloydtree/use_tool(obj/item/I, mob/living/user, list/click_params)
+	SHOULD_CALL_PARENT(FALSE)
 	if(istype(I, /obj/item/carpentry/axe))
 		to_chat(user, "<span class='notice'>Your axe bounces off the tree! Holy shit, is it metal? Cheapass Nanotrasen corporate bastards.</span>")
-		return
+		return TRUE
 
 //Putting this here because of stupid flora code -Glloyd //back when i signed things. why did i do this? why am i writing comments now? probably cause i'm a little drunk. but this file hasn't been touched in ages, so fuck it.
 /obj/structure/flora/pottedplant/Nienplants/plant

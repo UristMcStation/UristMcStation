@@ -1,5 +1,5 @@
 /// To cut down on unneeded creation/deletion, these are global.
-GLOBAL_LIST_INIT(terminal_commands, init_subtypes(/datum/terminal_command))
+GLOBAL_LIST_AS(terminal_commands, init_subtypes(/datum/terminal_command))
 
 /datum/terminal_command
 	/// The name of the command. Used for display and also in syntax checking.
@@ -15,7 +15,7 @@ GLOBAL_LIST_INIT(terminal_commands, init_subtypes(/datum/terminal_command))
 	/// The skill which is checked
 	var/core_skill = SKILL_COMPUTER
 	/// How much skill the user needs to use this. This is not for critical failure effects at unskilled; those are handled globally.
-	var/skill_needed = SKILL_NONE
+	var/skill_needed = SKILL_UNSKILLED
 	/// Access needed, if any
 	var/req_access = list()
 

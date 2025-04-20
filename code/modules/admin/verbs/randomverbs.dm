@@ -127,6 +127,7 @@
 			"warning",
 			"danger",
 			"occult",
+			"legion",
 			"unsafe"
 		)
 	if (!style)
@@ -166,6 +167,7 @@
 			if ("warning") result = SPAN_WARNING(result)
 			if ("danger")  result = SPAN_DANGER(result)
 			if ("occult")  result = SPAN_OCCULT(result)
+			if ("legion")  result = SPAN_LEGION(result)
 		switch (size)
 			if ("small")  result = FONT_SMALL(result)
 			if ("large")  result = FONT_LARGE(result)
@@ -626,7 +628,7 @@ Ccomp's first proc.
 
 	switch(alert("Should this be announced to the general population?",,"Yes","No"))
 		if("Yes")
-			command_announcement.Announce(input, customname, new_sound = GLOB.using_map.command_report_sound, msg_sanitized = 1);
+			command_announcement.Announce(input, customname, new_sound = GLOB.using_map.command_report_sound, msg_sanitized = 1)
 		if("No")
 			minor_announcement.Announce(message = "New [GLOB.using_map.company_name] Update available at all communication consoles.")
 
@@ -701,9 +703,9 @@ Ccomp's first proc.
 	if(!check_rights(R_DEBUG|R_FUN))	return
 
 	var/heavy = input("Range of heavy pulse.", text("Input"))  as num|null
-	if(heavy == null) return
+	if(isnull(heavy)) return
 	var/light = input("Range of light pulse.", text("Input"))  as num|null
-	if(light == null) return
+	if(isnull(light)) return
 
 	if (heavy || light)
 
@@ -980,9 +982,9 @@ Ccomp's first proc.
 		range = rand(8, 13)
 		var/turf/T
 		if (connected == "Yes")
-			T = pick_area_turf_in_connected_z_levels(list(/proc/is_not_space_area), z_level = zlevel)
+			T = pick_area_turf_in_connected_z_levels(list(GLOBAL_PROC_REF(is_not_space_area)), z_level = zlevel)
 		else
-			T = pick_area_turf_in_single_z_level(list(/proc/is_not_space_area), z_level = zlevel)
+			T = pick_area_turf_in_single_z_level(list(GLOBAL_PROC_REF(is_not_space_area)), z_level = zlevel)
 		explosion(T, range, max_power, turf_breaker = break_turfs)
 		booms = booms - 1
 		sleep(delay SECONDS)
@@ -992,7 +994,7 @@ Ccomp's first proc.
 	set name = "Rename Ship"
 	set desc = "Rename a ship (Does not rename areas on the ship)"
 
-	var/obj/effect/overmap/visitable/ship/ship = input("What ship?", "Rename Ship") as null | anything in SSshuttle.ships
+	var/obj/overmap/visitable/ship/ship = input("What ship?", "Rename Ship") as null | anything in SSshuttle.ships
 	if (!ship)
 		return
 
@@ -1012,21 +1014,21 @@ Ccomp's first proc.
 			shuttle.name = name
 			break
 
-	for (var/obj/effect/shuttle_landmark/ship/S in landmarks_list)
+	for (var/obj/shuttle_landmark/ship/S in landmarks_list)
 		if (S.name == original_name)
 			S.shuttle_name = name
-		if (istype(S, /obj/effect/overmap/visitable/ship/landable))
-			var/obj/effect/overmap/visitable/ship/landable/SL = S
+		if (istype(S, /obj/overmap/visitable/ship/landable))
+			var/obj/overmap/visitable/ship/landable/SL = S
 			SL.landmark.landmark_tag = "ship_[name]"
 			SL.landmark.shuttle_name = name
 	//rename waypoints based on the origin ship name
-	for (var/obj/effect/overmap/visitable/ship/S in SSshuttle.ships)
+	for (var/obj/overmap/visitable/ship/S in SSshuttle.ships)
 		for (var/key in S.restricted_waypoints)
 			if (key == original_name)
 				S.add_landmark(S.restricted_waypoints[key][1], name)
 				S.remove_landmark(S.restricted_waypoints[key][1], original_name)
-				if (istype(S, /obj/effect/overmap/visitable/ship/landable))
-					var/obj/effect/overmap/visitable/ship/landable/SL = S
+				if (istype(S, /obj/overmap/visitable/ship/landable))
+					var/obj/overmap/visitable/ship/landable/SL = S
 					SL.landmark.landmark_tag = "ship_[name]"
 					SL.landmark.shuttle_name = name
 					SL.shuttle = name
@@ -1036,4 +1038,4 @@ Ccomp's first proc.
 			S.shuttle_tag = name
 			S.name = "[name] Control Console"
 
-	log_and_message_admins("renamed \the [original_name] ship to [name].", )
+	log_and_message_admins("renamed \the [original_name] ship to [name].")

@@ -20,6 +20,8 @@ Tiny, weak, and mostly harmless alone. dangerous in groups.
 	flash_vulnerability = 0 // We dont have eyes, why should we care about light?
 	bleed_colour = COLOR_VIOLET
 	color = COLOR_GRAY
+	min_gas = null
+	max_gas = null
 
 	ai_holder = /datum/ai_holder/simple_animal/melee/leech
 
@@ -27,7 +29,7 @@ Tiny, weak, and mostly harmless alone. dangerous in groups.
 	var/belly = 100
 
 /mob/living/simple_animal/hostile/leech/Initialize()
-	color = get_random_colour(0,75,190) // Our icon is greyscale, and can be painted just fine.  Uses same coloring range as flora.
+	color = get_random_colour(75, 190) // Our icon is greyscale, and can be painted just fine.  Uses same coloring range as flora.
 	. = ..()
 
 /datum/ai_holder/simple_animal/melee/leech/engage_target()
@@ -50,7 +52,7 @@ Tiny, weak, and mostly harmless alone. dangerous in groups.
 	if(!.)
 		return FALSE
 
-	if(target_mob)
+	if(ai_holder.target)
 		belly -= 3
 	else
 		belly -= 1
@@ -58,7 +60,7 @@ Tiny, weak, and mostly harmless alone. dangerous in groups.
 /obj/structure/leech_spawner
 	name = "rigus regzorfra" // Similar naming to exoplanet flora, but not quite.
 	desc = "Wait... Something is wrong about this one." // Someone is actually checking for pests, let's reward them.
-	icon = 'icons/obj/hydroponics_growing.dmi'
+	icon = 'icons/obj/flora/hydroponics_growing.dmi'
 	icon_state = "alien1-1" // Placeholder until initalize. If seen like this, something went wrong.
 	color = COLOR_GRAY
 	anchored = TRUE
@@ -67,7 +69,7 @@ Tiny, weak, and mostly harmless alone. dangerous in groups.
 
 /obj/structure/leech_spawner/Initialize()
 	icon_state = pick("alien[rand(1,4)]-dead") // Picks from the same pool of icons as xenoflora, but dead already.
-	color = get_random_colour(0,75,190) // Colors them as such, too.
+	color = get_random_colour(75, 190) // Colors them as such, too.
 	. = ..()
 	START_PROCESSING(SSobj, src)
 

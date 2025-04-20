@@ -60,23 +60,21 @@
 	name = "\improper abandoned corridor"
 	icon_state = "forest"
 
-/obj/effect/overmap/visitable/sector/planetoid/caraway_forest //FOR THE LOVE OF ALL THAT IS GOOD IN THE WORLD PLACE THIS ON THE LOWEST Z LEVEL SO IT SPAWNS ON THE OVERMAP INSTEAD OF WONDERING WHY IT DOESNT WORK FOR A WEEK!!!
+/obj/overmap/visitable/sector/planetoid/caraway_forest //FOR THE LOVE OF ALL THAT IS GOOD IN THE WORLD PLACE THIS ON THE LOWEST Z LEVEL SO IT SPAWNS ON THE OVERMAP INSTEAD OF WONDERING WHY IT DOESNT WORK FOR A WEEK!!!
 	name = "temperate planetoid"
 	desc = "Scanner report shows a derelict comm bouy in orbit; recovered data shows little info beyond a breathable atmosphere. Sensors pick up a degraded signal from an area in the northern hemisphere."
 	icon_state = "globe"
-	known = FALSE
-	in_space = FALSE
 	color = "#035e15"
 	initial_generic_waypoints = list(
 		"nav_caraway_forest_1",
 		"nav_caraway_forest_2"
 		)
 
-/obj/effect/shuttle_landmark/automatic/nav_caraway_forest/nav1
+/obj/shuttle_landmark/automatic/nav_caraway_forest/nav1
 	name = "Valley Landing Zone #1"
 	landmark_tag = "nav_caraway_forest_1"
 
-/obj/effect/shuttle_landmark/automatic/nav_caraway_forest/nav2
+/obj/shuttle_landmark/automatic/nav_caraway_forest/nav2
 	name = "Valley Landing Zone #2"
 	landmark_tag = "nav_caraway_forest_2"
 
@@ -98,7 +96,7 @@
 		new /datum/random_map/noise/ore(null, 1, 1, current_z, world.maxx, world.maxy)
 		GLOB.using_map.refresh_mining_turfs(current_z)
 
-/obj/effect/submap_landmark/joinable_submap/caraway_forest
+/obj/submap_landmark/joinable_submap/caraway_forest
 	name = "Boreal Forest"
 	archetype = /singleton/submap_archetype/caraway_forest
 

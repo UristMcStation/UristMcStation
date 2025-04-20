@@ -13,29 +13,29 @@
 	base.color = "#538224"
 
 	var/image/skybox_image = image('icons/skybox/planet.dmi', "")
-	skybox_image.overlays += base
+	skybox_image.AddOverlays(base)
 
 	var/image/water = image('icons/skybox/planet.dmi', "water")
 	water.color = "#1e160a"
 	water.appearance_flags = DEFAULT_APPEARANCE_FLAGS | PIXEL_SCALE
-	skybox_image.overlays += water
+	skybox_image.AddOverlays(water)
 
 	var/image/clouds = image('icons/skybox/planet.dmi', "weak_clouds")
 
-	clouds.overlays += image('icons/skybox/planet.dmi', "clouds")
+	clouds.AddOverlays(image('icons/skybox/planet.dmi', "clouds"))
 
 	clouds.color = COLOR_WHITE
-	skybox_image.overlays += clouds
+	skybox_image.AddOverlays(clouds)
 
 	var/image/atmo = image('icons/skybox/planet.dmi', "atmoring")
 	skybox_image.underlays += atmo
 
 	var/image/shadow = image('icons/skybox/planet.dmi', "shadow")
 	shadow.blend_mode = BLEND_MULTIPLY
-	skybox_image.overlays += shadow
+	skybox_image.AddOverlays(shadow)
 
 	var/image/light = image('icons/skybox/planet.dmi', "lightrim")
-	skybox_image.overlays += light
+	skybox_image.AddOverlays(light)
 
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)

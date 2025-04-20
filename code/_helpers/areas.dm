@@ -1,7 +1,8 @@
 /*
 	List generation helpers
 */
-/proc/get_filtered_areas(list/predicates = list(/proc/is_area_with_turf))
+/proc/get_filtered_areas(list/predicates = list(GLOBAL_PROC_REF(is_area_with_turf)))
+	RETURN_TYPE(/list)
 	. = list()
 	if(!predicates)
 		return
@@ -12,7 +13,8 @@
 			. += A
 
 /proc/get_area_turfs(area/A, list/predicates)
-	. = new/list()
+	RETURN_TYPE(/list)
+	. = list()
 	A = istype(A) ? A : locate(A)
 	if(!A)
 		return
@@ -21,7 +23,8 @@
 			. += T
 
 /proc/get_subarea_turfs(area/A, list/predicates)
-	. = new/list()
+	RETURN_TYPE(/list)
+	. = list()
 	A = istype(A) ? A.type : A
 	if(!ispath(A))
 		return
@@ -32,11 +35,13 @@
 				. += T
 
 /proc/group_areas_by_name(list/predicates)
+	RETURN_TYPE(/list)
 	. = list()
 	for(var/area/A in get_filtered_areas(predicates))
 		group_by(., A.name, A)
 
 /proc/group_areas_by_z_level(list/predicates)
+	RETURN_TYPE(/list)
 	. = list()
 	for(var/area/A in get_filtered_areas(predicates))
 		group_by(., pad_left(num2text(A.z), 3, "0"), A)
@@ -45,21 +50,25 @@
 	Pick helpers
 */
 /proc/pick_subarea_turf(areatype, list/predicates)
+	RETURN_TYPE(/turf)
 	var/list/turfs = get_subarea_turfs(areatype, predicates)
 	if(LAZYLEN(turfs))
 		return pick(turfs)
 
 /proc/pick_area_turf(areatype, list/predicates)
+	RETURN_TYPE(/turf)
 	var/list/turfs = get_area_turfs(areatype, predicates)
 	if(turfs && length(turfs))
 		return pick(turfs)
 
 /proc/pick_area(list/predicates)
+	RETURN_TYPE(/area)
 	var/list/areas = get_filtered_areas(predicates)
 	if(LAZYLEN(areas))
 		. = pick(areas)
 
 /proc/pick_area_and_turf(list/area_predicates, list/turf_predicates)
+	RETURN_TYPE(/turf)
 	var/list/areas = get_filtered_areas(area_predicates)
 	// We loop over all area candidates, until we finally get a valid turf or run out of areas
 	while(!. && length(areas))
@@ -67,15 +76,17 @@
 		. = pick_area_turf(A, turf_predicates)
 
 /proc/pick_area_turf_in_connected_z_levels(list/area_predicates, list/turf_predicates, z_level)
+	RETURN_TYPE(/turf)
 	area_predicates = area_predicates.Copy()
 
 	var/z_levels = GetConnectedZlevels(z_level)
-	area_predicates[/proc/area_belongs_to_zlevels] = z_levels
+	area_predicates[GLOBAL_PROC_REF(area_belongs_to_zlevels)] = z_levels
 	return pick_area_and_turf(area_predicates, turf_predicates)
 
 /proc/pick_area_turf_in_single_z_level(list/area_predicates, list/turf_predicates, z_level)
+	RETURN_TYPE(/turf)
 	area_predicates = area_predicates.Copy()
-	area_predicates[/proc/area_belongs_to_zlevels] = list(z_level)
+	area_predicates[GLOBAL_PROC_REF(area_belongs_to_zlevels)] = list(z_level)
 	return pick_area_and_turf(area_predicates, turf_predicates)
 
 /*
@@ -114,17 +125,37 @@
 /proc/is_coherent_area(area/A)
 	return !is_type_in_list(A, GLOB.using_map.area_coherency_test_exempt_areas)
 
-GLOBAL_LIST_INIT(is_station_but_not_space_or_shuttle_area, list(/proc/is_station_area, /proc/is_not_space_area, /proc/is_not_shuttle_area))
+GLOBAL_LIST_AS(is_station_but_not_space_or_shuttle_area, list(
+	GLOBAL_PROC_REF(is_station_area),
+	GLOBAL_PROC_REF(is_not_space_area),
+	GLOBAL_PROC_REF(is_not_shuttle_area)
+))
 
-GLOBAL_LIST_INIT(is_contact_but_not_space_or_shuttle_area, list(/proc/is_contact_area, /proc/is_not_space_area, /proc/is_not_shuttle_area))
+GLOBAL_LIST_AS(is_contact_but_not_space_or_shuttle_area, list(
+	GLOBAL_PROC_REF(is_contact_area),
+	GLOBAL_PROC_REF(is_not_space_area),
+	GLOBAL_PROC_REF(is_not_shuttle_area)
+))
 
-GLOBAL_LIST_INIT(is_player_but_not_space_or_shuttle_area, list(/proc/is_player_area, /proc/is_not_space_area, /proc/is_not_shuttle_area))
+GLOBAL_LIST_AS(is_player_but_not_space_or_shuttle_area, list(
+	GLOBAL_PROC_REF(is_player_area),
+	GLOBAL_PROC_REF(is_not_space_area),
+	GLOBAL_PROC_REF(is_not_shuttle_area)
+))
 
-GLOBAL_LIST_INIT(is_station_area, list(/proc/is_station_area))
+GLOBAL_LIST_AS(is_station_area, list(
+	GLOBAL_PROC_REF(is_station_area)
+))
 
-GLOBAL_LIST_INIT(is_station_and_maint_area, list(/proc/is_station_area, /proc/is_maint_area))
+GLOBAL_LIST_AS(is_station_and_maint_area, list(
+	GLOBAL_PROC_REF(is_station_area),
+	GLOBAL_PROC_REF(is_maint_area)
+))
 
-GLOBAL_LIST_INIT(is_station_but_not_maint_area, list(/proc/is_station_area, /proc/is_not_maint_area))
+GLOBAL_LIST_AS(is_station_but_not_maint_area, list(
+	GLOBAL_PROC_REF(is_station_area),
+	GLOBAL_PROC_REF(is_not_maint_area)
+))
 
 /*
 	Misc Helpers
@@ -134,3 +165,21 @@ GLOBAL_LIST_INIT(is_station_but_not_maint_area, list(/proc/is_station_area, /pro
 #define wizteleportlocs area_repository.get_areas_by_name(GLOB.is_station_area)
 #define maintlocs area_repository.get_areas_by_name(GLOB.is_station_and_maint_area)
 #define wizportallocs area_repository.get_areas_by_name(GLOB.is_station_but_not_space_or_shuttle_area)
+
+
+/// Gets a list of instances of area_type, or the type of area_type if an area
+/proc/get_area_instances(area/area_type, include_subtypes)
+	if (!ispath(area_type, /area))
+		if (!isarea(area_type))
+			crash_with("invalid area_type '[area_type]'")
+		area_type = area_type.type
+	var/list/area/instances = list()
+	if (include_subtypes)
+		for (var/area/area)
+			if (istype(area, area_type))
+				instances += area
+	else
+		for (var/area/area)
+			if (area.type == area_type)
+				instances += area
+	return instances

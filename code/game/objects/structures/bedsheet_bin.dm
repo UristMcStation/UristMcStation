@@ -20,16 +20,16 @@ LINEN BINS
 	pixel_y = 1
 	w_class = ITEM_SIZE_SMALL
 
-/obj/item/bedsheet/attackby(obj/item/I, mob/user)
-	if(is_sharp(I))
-		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up \the [src] with \a [I]."), SPAN_NOTICE("You begin cutting up \the [src] with \the [I]."))
-		if(do_after(user, 5 SECONDS, src, DO_REPAIR_CONSTRUCT))
+/obj/item/bedsheet/use_tool(obj/item/tool, mob/living/user, list/click_params)
+	if (is_sharp(tool))
+		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up \the [src] with \a [tool]."), SPAN_NOTICE("You begin cutting up \the [src] with \the [tool]."))
+		if (do_after(user, 5 SECONDS, src, DO_REPAIR_CONSTRUCT))
 			to_chat(user, SPAN_NOTICE("You cut \the [src] into pieces!"))
 			for(var/i in 1 to rand(2,5))
 				new /obj/item/reagent_containers/glass/rag(get_turf(src))
 			qdel(src)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/bedsheet/blue
 	icon_state = "sheetblue"
@@ -99,7 +99,7 @@ LINEN BINS
 /obj/structure/bedsheetbin
 	name = "linen bin"
 	desc = "A linen bin. It looks rather cosy."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/obj/structures/structures.dmi'
 	icon_state = "linenbin-full"
 	anchored = TRUE
 	var/amount = 20
@@ -120,24 +120,53 @@ LINEN BINS
 
 
 /obj/structure/bedsheetbin/on_update_icon()
-	switch(amount)
-		if(0)				icon_state = "linenbin-empty"
-		if(1 to amount / 2)	icon_state = "linenbin-half"
-		else				icon_state = "linenbin-full"
+	var/fullness = amount / initial(amount)
+	if (!fullness)
+		icon_state = "linenbin-empty"
+	else if (fullness < 0.5)
+		icon_state = "linenbin-half"
+	else
+		icon_state = "linenbin-full"
 
 
-/obj/structure/bedsheetbin/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/bedsheet))
-		if(!user.unEquip(I, src))
-			return
-		sheets.Add(I)
+/obj/structure/bedsheetbin/use_tool(obj/item/tool, mob/user, list/click_params)
+	SHOULD_CALL_PARENT(FALSE)
+
+	// Bed sheet - Add to bin
+	if (istype(tool, /obj/item/bedsheet))
+		if (!user.unEquip(tool, src))
+			FEEDBACK_UNEQUIP_FAILURE(user, tool)
+			return TRUE
+		sheets += tool
 		amount++
-		to_chat(user, SPAN_NOTICE("You put [I] in [src]."))
-	else if(amount && !hidden && I.w_class < ITEM_SIZE_HUGE)	//make sure there's sheets to hide it among, make sure nothing else is hidden in there.
-		if(!user.unEquip(I, src))
-			return
-		hidden = I
-		to_chat(user, SPAN_NOTICE("You hide [I] among the sheets."))
+		update_icon()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] adds \a [tool] to \the [src]."),
+			SPAN_NOTICE("You add \the [tool] to \the [src].")
+		)
+		return TRUE
+
+	// Anything else - Attempt to hide
+	if (!amount)
+		USE_FEEDBACK_FAILURE("\The [src] has no bedsheets to hide \the [tool] in.")
+		return TRUE
+	if (tool.w_class >= ITEM_SIZE_HUGE)
+		USE_FEEDBACK_FAILURE("\The [tool] is too large to hide in \the [src].")
+		return TRUE
+	if (hidden)
+		USE_FEEDBACK_FAILURE("There's already something hidden in \the [src].")
+		return TRUE
+	if (!user.unEquip(tool, src))
+		FEEDBACK_UNEQUIP_FAILURE(user, tool)
+		return TRUE
+	hidden = tool
+	user.visible_message(
+		SPAN_NOTICE("\The [user] stuffs \a [tool] into \the [src]'s sheets."),
+		SPAN_NOTICE("You hide \the [tool] among \the [src]'s sheets."),
+		3
+	)
+	return TRUE
+
 
 /obj/structure/bedsheetbin/attack_hand(mob/user)
 	var/obj/item/bedsheet/B = remove_sheet()

@@ -16,11 +16,13 @@
 
 	var/list/wizardy_spells = list()
 
-/mob/living/simple_animal/familiar/New()
-	..()
+
+/mob/living/simple_animal/familiar/Initialize(maplaod)
+	. = ..()
 	add_language(LANGUAGE_GALCOM)
 	for(var/spell in wizardy_spells)
 		src.add_spell(new spell, "const_spell_ready")
+
 
 /mob/living/simple_animal/familiar/carcinus
 	name = "carcinus"
@@ -67,8 +69,8 @@
 
 	wizardy_spells = list(/spell/aoe_turf/conjure/forcewall)
 
-/mob/living/simple_animal/familiar/pike/Allow_Spacemove(check_drift = 0)
-	return 1	//No drifting in space for space carp!	//original comments do not steal
+/mob/living/simple_animal/familiar/pike/Process_Spacemove(allow_movement)
+	return TRUE
 
 /mob/living/simple_animal/familiar/horror
 	name = "horror"
@@ -130,8 +132,11 @@
 		return FALSE
 	if(!icon_rest)
 		return
-	if(stat == UNCONSCIOUS || resting)
-		icon_state = icon_rest
+	if(stat != DEAD)
+		if(stat == UNCONSCIOUS || resting)
+			icon_state = icon_rest
+		else
+			icon_state = icon_living
 
 /mob/living/simple_animal/familiar/pet/mouse
 	name = "mouse"
@@ -156,11 +161,12 @@
 
 	wizardy_spells = list(/spell/aoe_turf/smoke)
 
-/mob/living/simple_animal/familiar/pet/mouse/New()
-	..()
 
+/mob/living/simple_animal/familiar/pet/mouse/Initialize(mapload)
+	. = ..()
 	verbs += /mob/living/proc/ventcrawl
 	verbs += /mob/living/proc/hide
+
 
 /mob/living/simple_animal/familiar/pet/cat
 	name = "black cat"

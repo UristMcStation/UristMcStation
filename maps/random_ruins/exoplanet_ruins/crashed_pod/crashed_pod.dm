@@ -1,4 +1,4 @@
-GLOBAL_LIST_INIT(crashed_pod_areas, new)
+GLOBAL_LIST_EMPTY(crashed_pod_areas)
 
 /datum/map_template/ruin/exoplanet/crashed_pod
 	name = "crashed survival pod"
@@ -9,7 +9,7 @@ GLOBAL_LIST_INIT(crashed_pod_areas, new)
 	player_cost = 4
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS | TEMPLATE_FLAG_NO_RUINS | TEMPLATE_FLAG_NO_RADS
 	ruin_tags = RUIN_HUMAN|RUIN_WRECK
-	spawn_weight = 0.33
+	spawn_weight = 0.25
 
 /area/map_template/crashed_pod
 	name = "\improper Crashed Survival Pod"
@@ -19,7 +19,7 @@ GLOBAL_LIST_INIT(crashed_pod_areas, new)
 	descriptor = "crashed survival pod"
 	crew_jobs = list(/datum/job/submap/pod)
 
-/datum/submap/crashed_pod/sync_cell(obj/effect/overmap/visitable/cell)
+/datum/submap/crashed_pod/sync_cell(obj/overmap/visitable/cell)
 	return
 
 /datum/job/submap/pod
@@ -40,15 +40,15 @@ GLOBAL_LIST_INIT(crashed_pod_areas, new)
 		leaving you stranded in your survival pod on a hostile exoplanet. Your pod's distress \
 		signal appear to be malfunctioning. All you can do now is survive, and hope for a passing ship..."
 
-/obj/effect/submap_landmark/spawnpoint/crashed_pod_survivor
+/obj/submap_landmark/spawnpoint/crashed_pod_survivor
 	name = "Stranded Survivor"
 
-/obj/effect/submap_landmark/joinable_submap/crashed_pod
+/obj/submap_landmark/joinable_submap/crashed_pod
 	name = "Crashed Survival Pod"
 	archetype = /singleton/submap_archetype/crashed_pod
 	submap_datum_type = /datum/submap/crashed_pod
 
-/obj/effect/submap_landmark/joinable_submap/crashed_pod/New()
+/obj/submap_landmark/joinable_submap/crashed_pod/New()
 	var/list/possible_ship_names = list(
 		"Hornet",		"Witchmoth",	"Planthopper",
 		"Mayfly",		"Locust",		"Cicada",

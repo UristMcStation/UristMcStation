@@ -3,7 +3,7 @@
 */
 
 
-/obj/effect/effect/smoke/chill_mist
+/obj/effect/smoke/chill_mist
 	name = "fog"
 	layer = ABOVE_HUMAN_LAYER
 	opacity = 0
@@ -11,7 +11,7 @@
 	time_to_live = 1500
 
 
-/obj/effect/effect/smoke/chill_mist/affect(var/mob/living/carbon/M)
+/obj/effect/smoke/chill_mist/affect(mob/living/carbon/M)
 	// This DELIBERATELY ignores normal smoke protection checks and has no clothes checks;
 	// it's supposed to be an unnaturally cold fog
 
@@ -30,14 +30,14 @@
 	return 1
 
 
-/obj/effect/effect/smoke/chill_mist/Move()
+/obj/effect/smoke/chill_mist/Move()
 	..()
 	for(var/mob/living/carbon/M in get_turf(src))
 		src.affect(M)
 
 
-/datum/effect/effect/system/smoke_spread/chill_mist
-	smoke_type = /obj/effect/effect/smoke/chill_mist
+/datum/effect/smoke_spread/chill_mist
+	smoke_type = /obj/effect/smoke/chill_mist
 
 
 /datum/power/revenant/distortion/fog_cold
@@ -51,7 +51,7 @@
 	name = "DISTORTION: Chill Fog"
 
 
-/datum/power/revenant/distortion/fog_cold/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/fog_cold/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -60,14 +60,14 @@
 		return
 
 	// There's a reason behind this varname and it's horrible. --scr
-	var/datum/effect/effect/system/smoke_spread/chill_mist/funfog = new()
+	var/datum/effect/smoke_spread/chill_mist/funfog = new()
 	funfog.set_up(5, 0, T)
 	funfog.start()
 
 	return TRUE
 
 
-/obj/effect/effect/smoke/spoopyfog
+/obj/effect/smoke/spoopyfog
 	name = "fog"
 	layer = ABOVE_HUMAN_LAYER
 	opacity = 0
@@ -75,8 +75,8 @@
 	time_to_live = 3000
 
 
-/datum/effect/effect/system/smoke_spread/spoopyfog
-	smoke_type = /obj/effect/effect/smoke/spoopyfog
+/datum/effect/smoke_spread/spoopyfog
+	smoke_type = /obj/effect/smoke/spoopyfog
 
 
 /datum/power/revenant/distortion/fog_plain
@@ -90,7 +90,7 @@
 	name = "DISTORTION: Fogweaver"
 
 
-/datum/power/revenant/distortion/fog_plain/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/fog_plain/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -99,7 +99,7 @@
 		return
 
 	// There's a reason behind this varname and it's horrible. --scr
-	var/datum/effect/effect/system/smoke_spread/spoopyfog/funfog = new()
+	var/datum/effect/smoke_spread/spoopyfog/funfog = new()
 	funfog.attach(T)
 	funfog.set_up(5, 0, T)
 	funfog.start()

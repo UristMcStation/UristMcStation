@@ -138,9 +138,9 @@
 	bounds = "64,32"
 	pixel_y = 10
 	var/on = 0
-	var/default_light_max_bright = 0.8
+	var/default_light_power = 0.8
 	var/default_light_inner_range = 1
-	var/default_light_outer_range = 4
+	var/default_light_range = 4
 	var/default_light_colour = "#ebf7fe"  //white blue
 	var/ads = list(			"ssl",
 							"ntbuilding",
@@ -164,12 +164,12 @@
 
 /obj/machinery/billboard/on_update_icon()
 	..()
-	overlays.Cut()
+	ClearOverlays()
 
 	if(!current_ad)
-		overlays += pick(ads)
+		AddOverlays(pick(ads))
 	else
-		overlays += current_ad
+		AddOverlays(current_ad)
 
 /obj/machinery/billboard/Initialize()
 	.=..()
@@ -183,15 +183,15 @@
 		update_use_power(POWER_USE_OFF)
 
 /obj/machinery/billboard/proc/update_brightness()
-	if(on && !light_max_bright)
+	if(on && !light_power)
 		update_use_power(POWER_USE_ACTIVE)
-		set_light(default_light_max_bright, default_light_inner_range, default_light_outer_range, l_color = default_light_colour)
+		set_light(default_light_power, default_light_inner_range, default_light_range, l_color = default_light_colour)
 	else
 		update_use_power(POWER_USE_OFF)
-		if(light_outer_range || light_max_bright)
+		if(light_range || light_power)
 			set_light(0)
 
-//	change_power_consumption((light_outer_range + light_max_bright) * 20, POWER_USE_ACTIVE)
+//	change_power_consumption((light_range + light_power) * 20, POWER_USE_ACTIVE)
 
 /obj/machinery/billboard/power_change()
 	..()

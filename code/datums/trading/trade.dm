@@ -62,18 +62,22 @@
 		add_to_pool(trading_items, possible_trading_items, force = 1)
 		add_to_pool(wanted_items, possible_wanted_items, force = 1)
 
-/datum/trader/proc/generate_pool(list/trading_pool)
-	. = list()
-	for(var/type in trading_pool)
-		var/status = trading_pool[type]
-		if(status & TRADER_THIS_TYPE)
-			. += type
-		if(status & TRADER_SUBTYPES_ONLY)
-			. += subtypesof(type)
-		if(status & TRADER_BLACKLIST)
-			. -= type
-		if(status & TRADER_BLACKLIST_SUB)
-			. -= subtypesof(type)
+
+/datum/trader/proc/generate_pool(list/pool)
+	var/list/result = list()
+	for (var/path in pool)
+		var/status = pool[path]
+		if (GET_FLAGS(status, TRADER_THIS_TYPE) && !is_abstract(path))
+			result += path
+		if (GET_FLAGS(status, TRADER_SUBTYPES_ONLY))
+			result += subtypesof_real(path)
+	for (var/path in result)
+		var/status = pool[path]
+		if (GET_FLAGS(status, TRADER_BLACKLIST))
+			result -= path
+		if (GET_FLAGS(status, TRADER_BLACKLIST_SUB))
+			result -= subtypesof(path)
+	return result
 
 
 //If this hits 0 then they decide to up and leave.
@@ -223,7 +227,7 @@
 
 /datum/trader/proc/trade_quantity(quantity, list/offers, num, turf/location)
 	for(var/offer in offers)
-		if(istype(offer, /mob))
+		if(ismob(offer))
 			var/text = mob_transfer_message
 			to_chat(offer, replacetext(text, "ORIGIN", origin))
 		qdel(offer)

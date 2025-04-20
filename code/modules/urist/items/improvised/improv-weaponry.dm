@@ -15,7 +15,7 @@
 	w_class = 3
 	attack_verb = list("hit", "bludgeoned", "whacked", "bonked")
 
-/obj/item/wirerod/attackby(obj/item/I, mob/user as mob)
+/obj/item/wirerod/use_tool(obj/item/I, mob/living/user, list/click_params)
 	..()
 	if(istype(I, /obj/item/shard))
 		var/obj/item/material/twohanded/spear/S = new /obj/item/material/twohanded/spear
@@ -52,7 +52,7 @@
 
 		qdel(src)
 
-/obj/item/handcuffs/cable/attackby(obj/item/I, mob/user as mob)
+/obj/item/handcuffs/cable/use_tool(obj/item/I, mob/living/user, list/click_params)
 	..()
 	if(istype(I, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = I
@@ -137,7 +137,7 @@
 							"<span class='danger'>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</span>")
 		return (BRUTELOSS)*/
 
-/obj/item/material/shard/attackby(obj/item/I, mob/user as mob)
+/obj/item/material/shard/use_tool(obj/item/I, mob/living/user, list/click_params)
 	..()
 	if(istype(I, /obj/item/bedsheet))
 		var/obj/item/shiv/S = new /obj/item/shiv
@@ -181,7 +181,7 @@
 	w_class = 3
 	item_icons = DEF_URIST_INHANDS
 
-/obj/item/baseballbat/attackby(obj/item/I, mob/user as mob)
+/obj/item/baseballbat/use_tool(obj/item/I, mob/living/user, list/click_params)
 	..()
 	if(istype(I, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = I
@@ -220,7 +220,7 @@
 							"<span class='danger'>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</span>")
 		return (BRUTELOSS)*/
 
-/obj/item/improvised/scissorknife/attackby(obj/item/I, mob/user as mob)
+/obj/item/improvised/scissorknife/use_tool(obj/item/I, mob/living/user, list/click_params)
 	..()
 	if((istype(I, /obj/item/improvised/scissorknife) && istype(src, I))) //If they're both scissor knives
 		var/obj/item/improvised/scissorsassembly/N = new src.parentassembly
@@ -274,8 +274,7 @@
 
 	qdel(src)
 
-/obj/item/improvised/mbrick/attackby(obj/item/W, mob/user as mob)
-	..()
+/obj/item/improvised/mbrick/use_tool(obj/item/W, mob/user, click_params)
 	if(istype(W, /obj/item/material/shard) || istype(W, /obj/item/improvised/scissorknife))
 		var/obj/item/improvised/mbrick/sharp/S = new /obj/item/improvised/mbrick/sharp
 
@@ -287,6 +286,9 @@
 		W.loc = S
 
 		qdel(src)
+		return TRUE
+
+	return ..()
 
 /obj/item/improvised/mbrick/sharp
 	name = "sharp Millwall brick"

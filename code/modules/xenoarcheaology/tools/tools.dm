@@ -1,7 +1,7 @@
 /obj/item/device/measuring_tape
 	name = "measuring tape"
 	desc = "A coiled metallic tape used to check dimensions and lengths."
-	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon = 'icons/obj/tools/xenoarcheology_tape.dmi'
 	icon_state = "measuring"
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(MATERIAL_STEEL = 100)
@@ -10,14 +10,14 @@
 /obj/item/storage/bag/fossils
 	name = "fossil satchel"
 	desc = "Transports delicate fossils in suspension so they don't break during transit."
-	icon = 'icons/obj/mining.dmi'
+	icon = 'icons/obj/mining_satchel.dmi'
 	icon_state = "satchel"
 	slot_flags = SLOT_BELT | SLOT_POCKET
 	w_class = ITEM_SIZE_NORMAL
 	storage_slots = 50
 	max_storage_space = 200
 	max_w_class = ITEM_SIZE_NORMAL
-	can_hold = list(/obj/item/fossil)
+	contents_allowed = list(/obj/item/fossil)
 
 /obj/item/storage/box/samplebags
 	name = "sample bag box"
@@ -33,7 +33,7 @@
 /obj/item/device/ano_scanner
 	name = "\improper Alden-Saraspova counter"
 	desc = "A device which aids in triangulation of exotic particles."
-	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon = 'icons/obj/tools/xenoarcheology_scanner.dmi'
 	icon_state = "alden"
 	item_state = "analyzer"
 	origin_tech = list(TECH_BLUESPACE = 3, TECH_MAGNET = 3)
@@ -89,7 +89,7 @@
 /obj/item/device/depth_scanner
 	name = "depth analysis scanner"
 	desc = "A device used to check spatial depth and density of rock outcroppings."
-	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon = 'icons/obj/tools/xenoarcheology_scanner.dmi'
 	icon_state = "depth"
 	item_state = "xenoarch_device"
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2, TECH_BLUESPACE = 2)
@@ -162,7 +162,7 @@
 	user.set_machine(src)
 	var/dat = "<b>Coordinates with positive matches</b><br>"
 
-	dat += "<A href='?src=\ref[src];clear=0'>== Clear all ==</a><br>"
+	dat += "<A href='byond://?src=\ref[src];clear=0'>== Clear all ==</a><br>"
 
 	if(current)
 		dat += "Time: [current.time]<br>"
@@ -170,12 +170,11 @@
 		dat += "Anomaly depth: [current.depth] cm<br>"
 		dat += "Anomaly size: [current.clearance] cm<br>"
 		dat += "Dissonance spread: [current.dissonance_spread]<br>"
-		var/index = responsive_carriers.Find(current.material)
-		if(index > 0 && index <= length(finds_as_strings))
-			dat += "Anomaly material: [finds_as_strings[index]]<br>"
+		if (GLOB.responsive_carriers_to_finds[current.material])
+			dat += "Anomaly material: [GLOB.responsive_carriers_to_finds[current.material]]<br>"
 		else
 			dat += "Anomaly material: Unknown<br>"
-		dat += "<A href='?src=\ref[src];clear=[current.record_index]'>clear entry</a><br>"
+		dat += "<A href='byond://?src=\ref[src];clear=[current.record_index]'>clear entry</a><br>"
 	else
 		dat += "Select an entry from the list<br>"
 		dat += "<br><br><br><br>"
@@ -183,12 +182,12 @@
 	if(length(positive_locations))
 		for(var/index = 1 to length(positive_locations))
 			var/datum/depth_scan/D = positive_locations[index]
-			dat += "<A href='?src=\ref[src];select=[index]'>[D.time], coords: [D.coords]</a><br>"
+			dat += "<A href='byond://?src=\ref[src];select=[index]'>[D.time], coords: [D.coords]</a><br>"
 	else
 		dat += "No entries recorded."
 
 	dat += "<hr>"
-	dat += "<a href='?src=\ref[src];close=1'>Close</a>"
+	dat += "<a href='byond://?src=\ref[src];close=1'>Close</a>"
 
 	var/datum/browser/popup = new(user, "depth_scanner", "Results", 300, 500)
 	popup.set_content(dat)

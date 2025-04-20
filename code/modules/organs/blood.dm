@@ -47,7 +47,7 @@
 	if(amt <= 0 || !istype(sprayloc))
 		return
 	var/spraydir = pick(GLOB.alldirs)
-	amt = Ceil(amt/BLOOD_SPRAY_DISTANCE)
+	amt = ceil(amt/BLOOD_SPRAY_DISTANCE)
 	var/bled = 0
 	spawn(0)
 		for(var/i = 1 to BLOOD_SPRAY_DISTANCE)
@@ -211,9 +211,10 @@
 	return data
 
 /proc/blood_splatter(target,datum/reagent/blood/source,large,spray_dir)
+	RETURN_TYPE(/obj/decal/cleanable/blood)
 
-	var/obj/effect/decal/cleanable/blood/B
-	var/decal_type = /obj/effect/decal/cleanable/blood/splatter
+	var/obj/decal/cleanable/blood/B
+	var/decal_type = /obj/decal/cleanable/blood/splatter
 	var/turf/T = get_turf(target)
 
 	if(istype(source,/mob/living/carbon))
@@ -225,11 +226,11 @@
 	// Are we dripping or splattering?
 	var/list/drips = list()
 	// Only a certain number of drips (or one large splatter) can be on a given turf.
-	for(var/obj/effect/decal/cleanable/blood/drip/drop in T)
+	for(var/obj/decal/cleanable/blood/drip/drop in T)
 		drips |= drop.drips
 		qdel(drop)
 	if(!large && length(drips) < 3)
-		decal_type = /obj/effect/decal/cleanable/blood/drip
+		decal_type = /obj/decal/cleanable/blood/drip
 
 	// Find a blood decal or create a new one.
 	if(T)
@@ -239,9 +240,9 @@
 	if(!B)
 		B = new decal_type(T)
 
-	var/obj/effect/decal/cleanable/blood/drip/drop = B
+	var/obj/decal/cleanable/blood/drip/drop = B
 	if(istype(drop) && drips && length(drips) && !large)
-		drop.overlays |= drips
+		drop.AddOverlays(drips)
 		drop.drips |= drips
 
 	// If there's no data to copy, call it quits here.
@@ -318,9 +319,6 @@
 /mob/living/carbon/human/proc/get_blood_oxygenation()
 	var/blood_volume = get_blood_circulation()
 	if(blood_carries_oxygen())
-		if(is_asystole()) // Heart is missing or isn't beating and we're not breathing (hardcrit)
-			return min(blood_volume, BLOOD_VOLUME_SURVIVE)
-
 		if(!need_breathe())
 			return blood_volume
 	else

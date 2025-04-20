@@ -71,13 +71,13 @@
 //	dock_target_station = "mining_elevator_surface"
 //	dock_target_offsite = "mining_elevator_underground"
 
-/obj/effect/shuttle_landmark/planet_elevator/mining/surface
+/obj/shuttle_landmark/planet_elevator/mining/surface
 	name = "Mining Surface"
 	landmark_tag = "mining_elevator_surface"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/outpost/mining_main/refinery
 
-/obj/effect/shuttle_landmark/planet_elevator/mining/underground
+/obj/shuttle_landmark/planet_elevator/mining/underground
 	name = "Mining Underground"
 	landmark_tag = "mining_elevator_underground"
 	base_turf = /turf/simulated/floor/plating
@@ -94,13 +94,13 @@
 //	dock_target_station = "research_elevator_surface"
 //	dock_target_offsite = "research_elevator_underground"
 
-/obj/effect/shuttle_landmark/planet_elevator/science/surface
+/obj/shuttle_landmark/planet_elevator/science/surface
 	name = "Science Surface"
 	landmark_tag = "science_elevator_surface"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/outpost/research/dock
 
-/obj/effect/shuttle_landmark/planet_elevator/science/underground
+/obj/shuttle_landmark/planet_elevator/science/underground
 	name = "Science Underground"
 	landmark_tag = "science_elevator_underground"
 	base_turf = /turf/simulated/floor/plating

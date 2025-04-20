@@ -1,6 +1,7 @@
-/datum/species/unathi/yeosa
+/singleton/species/unathi/yeosa
 	name = SPECIES_YEOSA
 	name_plural = SPECIES_YEOSA
+	preview_icon = 'icons/mob/human_races/species/unathi/yeosa_preview.dmi'
 
 	genders = list(MALE, FEMALE, PLURAL)
 
@@ -18,10 +19,6 @@
 	Their biology is heavily attuned to surviving Moghes' dangerous waters, including gills, fins, and a venomous bite."
 
 	spawn_flags = SPECIES_IS_WHITELISTED | SPECIES_CAN_JOIN
-
-/*	base_auras = list(
-		/obj/aura/regenerating/human/unathi/yeosa
-		)*/
 
 	additional_available_cultural_info = list(
 		TAG_CULTURE = list(
@@ -50,7 +47,7 @@
 	ingest_amount = 15
 
 
-/datum/species/unathi/yeosa/can_float(mob/living/carbon/human/H)
+/singleton/species/unathi/yeosa/can_float(mob/living/carbon/human/H)
 	if(!H.is_physically_disabled())
 		if(H.encumbrance() < 2)
 			return TRUE

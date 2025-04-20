@@ -11,7 +11,7 @@
 	w_class = ITEM_SIZE_HUGE //forbid putting something that emits loud sounds forever into a backpack
 	origin_tech = list(TECH_MAGNET = 2, TECH_COMBAT = 1)
 
-	var/jukebox/jukebox
+	var/datum/jukebox/jukebox
 	var/boombox_flags
 
 
@@ -64,7 +64,7 @@
 	to_chat(user, SPAN_ITALIC(message))
 
 
-/obj/item/boombox/attackby(obj/item/item, mob/user)
+/obj/item/boombox/use_tool(obj/item/item, mob/living/user, list/click_params)
 	set waitfor = FALSE
 	if(isScrewdriver(item))
 		var/item_loc = item.loc

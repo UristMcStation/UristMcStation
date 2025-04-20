@@ -10,13 +10,13 @@
 	range = 3
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/nav_noctis/raptor
+/obj/shuttle_landmark/nav_noctis/raptor
 	name = "Raptor Hangar"
 	landmark_tag = "nav_noctis_raptor"
 	base_area = /area/noctis/hangar
 	base_turf = /turf/simulated/floor/reinforced
 
-/obj/effect/shuttle_landmark/nav_noctis/raptor_transit
+/obj/shuttle_landmark/nav_noctis/raptor_transit
 	name = "In transit"
 	landmark_tag = "nav_noctis_transit"
 

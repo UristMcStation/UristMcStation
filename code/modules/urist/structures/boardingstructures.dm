@@ -3,7 +3,7 @@
 /obj/structure/boarding/shipportal //this is for returning from the map ships
 	name = "portal"
 	desc = "Looks unstable. Best to test it with the clown."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/portals.dmi'
 	icon_state = "portal"
 	var/block_pirate_teleport = TRUE
 	density = TRUE
@@ -29,7 +29,7 @@
 	return
 
 /obj/structure/boarding/shipportal/proc/teleport(atom/movable/M as mob|obj)
-	if(istype(M, /obj/effect)) //sparks don't teleport
+	if(istype(M, /obj/effect) || istype(M, /obj/sparks)) //sparks don't teleport
 		return
 	if(block_pirate_teleport && istype(M, /mob/living))
 		var/mob/living/H = M
@@ -43,7 +43,7 @@
 	do_teleport(M, locate(tele_x,tele_y,tele_z), 0)
 	to_chat(M, "<span class='warning'>You teleport back to the ship!</span>")
 
-/obj/effect/step_trigger/teleporter/urist/nerva
+/obj/step_trigger/teleporter/urist/nerva
 	teleport_x = 89
 	teleport_y = 90
 	teleport_z = 1
@@ -64,7 +64,7 @@
 	. = ..()
 
 /obj/structure/boarding/shipportal/shipside/teleport(atom/movable/M as mob|obj)
-	if(istype(M, /obj/effect)) //sparks don't teleport
+	if(istype(M, /obj/effect) || istype(M, /obj/sparks)) //sparks don't teleport
 		return
 	if(block_pirate_teleport && istype(M, /mob/living))
 		var/mob/living/H = M
@@ -79,8 +79,8 @@
 /obj/structure/boarding/self_destruct
 	var/triggered = FALSE
 	name = "self destruct mechanism"
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "bus"
+	icon = 'icons/obj/machines/computer.dmi'
+	icon_state = "aiupload"
 	anchored = TRUE
 	density = TRUE
 	var/shipid = null
@@ -106,7 +106,7 @@
 					to_chat(user, "<span class='warning'>You engage the self-desturct sequence. Better get the hell out of there.</span>")
 					triggered = TRUE
 					GLOB.global_announcer.autosay("<b>The self-destruct sequence on the attacking ship has been initiated. Evacuate all boarding parties immediately.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
-					for(var/obj/effect/landmark/scom/bomb/B in landmarks_list)
+					for(var/obj/landmark/scom/bomb/B in landmarks_list)
 						if(B.shipid == src.shipid)
 							B.incomprehensibleprocname() //i fucking hate myself. what was i trying to prove with this shit.
 
@@ -128,20 +128,20 @@
 /obj/structure/boarding/self_destruct/pirateship
 	shipid = "pirateship"
 
-/obj/effect/landmark/scom/bomb/boarding
+/obj/landmark/scom/bomb/boarding
 	var/delay_lower = 100
 	var/delay_upper = 600
 
-/obj/effect/landmark/scom/bomb/boarding/New()
+/obj/landmark/scom/bomb/boarding/New()
 	if(!bombdelay)
 		bombdelay = rand(delay_lower,delay_upper)
 
 	..()
 
-/obj/effect/landmark/scom/bomb/boarding/pirateship
+/obj/landmark/scom/bomb/boarding/pirateship
 	shipid = "pirateship"
 
-/obj/effect/landmark/scom/bomb/boarding/biglactship
+/obj/landmark/scom/bomb/boarding/biglactship
 	shipid = "biglactship"
 
 /obj/structure/boarding/self_destruct/station
@@ -163,13 +163,13 @@
 				else
 					triggered = TRUE
 					spawn(10 MINUTES)
-						for(var/obj/effect/landmark/scom/bomb/B in landmarks_list)
+						for(var/obj/landmark/scom/bomb/B in landmarks_list)
 							if(B.shipid == src.shipid)
 								B.incomprehensibleprocname() //i fucking hate myself. what was i trying to prove with this shit.
 
 
 
-					for(var/obj/effect/overmap/visitable/sector/station/S in SStrade_controller.overmap_stations)
+					for(var/obj/overmap/visitable/sector/station/S in SStrade_controller.overmap_stations)
 						if(src.z in S.map_z)
 							for(var/datum/contract/station_destroy/A in GLOB.using_map.contracts)
 								if(A.neg_faction == S.faction)
@@ -178,7 +178,7 @@
 /obj/structure/boarding/self_destruct/station/pirate
 	shipid = "pirate_station"
 
-/obj/effect/landmark/scom/bomb/boarding/pirate_station
+/obj/landmark/scom/bomb/boarding/pirate_station
 	shipid = "pirate_station"
 	delay_lower = 0
 	delay_upper = 100

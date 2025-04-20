@@ -93,7 +93,7 @@
 /obj/structure/transit_tube/New(loc)
 	..(loc)
 
-	if(tube_dirs == null)
+	if(isnull(tube_dirs))
 		init_dirs()
 
 
@@ -111,7 +111,7 @@
 	..(loc)
 
 /obj/structure/transit_tube/station/Bumped(mob/AM as mob|obj)
-	if(!pod_moving && icon_state == "open" && istype(AM, /mob))
+	if(!pod_moving && icon_state == "open" && ismob(AM))
 		for(var/obj/structure/transit_tube_pod/pod in loc)
 			if(length(pod.contents))
 				to_chat(AM, SPAN_NOTICE("The pod is already occupied."))
@@ -314,7 +314,7 @@
 					current_tube = tube
 					break
 
-			if(current_tube == null)
+			if(isnull(current_tube))
 				set_dir(next_dir)
 				Move(get_step(loc, dir)) // Allow collisions when leaving the tubes.
 				break
@@ -372,7 +372,7 @@
 //  the station, try to exit. If the direction matches one of the station's
 //  tube directions, launch the pod in that direction.
 /obj/structure/transit_tube_pod/relaymove(mob/mob, direction)
-	if(istype(mob, /mob) && mob.client)
+	if(ismob(mob) && mob.client)
 		// If the pod is not in a tube at all, you can get out at any time.
 		if(!(locate(/obj/structure/transit_tube) in loc))
 			var/turf/T = get_turf(src)
@@ -446,7 +446,7 @@
 	for(var/direction in tube_dir_list)
 		var/location = get_step(loc, direction)
 		for(var/obj/structure/transit_tube/tube in location)
-			if(tube.directions() == null && tube.icon_state == "auto")
+			if(isnull(tube.directions()) && tube.icon_state == "auto")
 				connected_auto += direction
 				break
 

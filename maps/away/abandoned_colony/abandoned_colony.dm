@@ -1,7 +1,7 @@
 #include "abandoned_colony_jobs.dm"
 #include "abandoned_colony_shuttle.dm"
 
-/obj/effect/submap_landmark/joinable_submap/abandoned_colony
+/obj/submap_landmark/joinable_submap/abandoned_colony
 	name = "ICS Morning Light"
 	archetype = /singleton/submap_archetype/abandoned_colony
 
@@ -18,12 +18,11 @@
 	luminosity = 0
 	lightswitch = 1
 
-/obj/effect/overmap/visitable/sector/planetoid/abandoned_colony
+/obj/overmap/visitable/sector/planetoid/abandoned_colony
 	name = "abandoned colony"
 	desc = "A former Terran Confederation colony, evacuated during the Galactic Crisis. It is now a 'Graveworld', one of the many broken monuments to the billions of dead and displaced across the galaxy. However, sensors are detecting signs of life on the surface."
 	icon_state = "globe"
 	color = "#7f8274"
-	known = FALSE
 	assigned_contracts = list(/datum/contract/shiphunt/graveworld_alien)
 	initial_generic_waypoints = list(
 		"nav_abandoned_colony_1",
@@ -33,18 +32,18 @@
 		"ICS Morning Light" = list("nav_morninglight")
 		)
 
-/obj/effect/overmap/visitable/abandoned_colony/Initialize() //make it spawn a lactera ship
+/obj/overmap/visitable/abandoned_colony/Initialize() //make it spawn a lactera ship
 	.=..()
 //	name = "[generate_planet_name()], \a [name]"
 	new /mob/living/simple_animal/hostile/overmapship/alien/small(get_turf(src))
 
-/obj/effect/shuttle_landmark/nav_abandoned_colony/nav1
+/obj/shuttle_landmark/nav_abandoned_colony/nav1
 	name = "Abandoned Hangar"
 	landmark_tag = "nav_abandoned_colony_1"
 	base_area = /area/planet/abandoned_colony
 	base_turf = /turf/simulated/floor/planet/dirt/city/clear
 
-/obj/effect/shuttle_landmark/nav_abandoned_colony/nav2
+/obj/shuttle_landmark/nav_abandoned_colony/nav2
 	name = "Parking Lot"
 	landmark_tag = "nav_abandoned_colony_2"
 	base_area = /area/planet/abandoned_colony

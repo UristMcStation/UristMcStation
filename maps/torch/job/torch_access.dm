@@ -153,6 +153,9 @@ var/global/const/access_o_mess = "ACCESS_TORCH_O_MESS"
 /datum/access/hos
 	desc = "Chief of Security"
 
+/datum/access/armory
+	desc = "Brig Chief"
+
 /datum/access/hop
 	desc = "Executive Officer"
 
@@ -194,6 +197,12 @@ var/global/const/access_torch_fax = "ACCESS_TORCH_FAX"
 
 /datum/access/ai_upload
 	desc = "Cyborg Upload"
+
+var/global/const/access_fabrication = "ACCESS_TORCH_FABRICATION"
+/datum/access/access_fabrication
+	id = access_fabrication
+	desc = "Fabrication"
+	region = ACCESS_REGION_RESEARCH
 
 /*************
 * NRV Petrov *

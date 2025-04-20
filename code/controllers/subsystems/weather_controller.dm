@@ -3,8 +3,8 @@
 /* fuck it, let's store that in a global until the controller wakes the fuck up for now */
 var/global/list/pending_weathers = list()
 
-SUBSYSTEM_DEF(weather)
-	name = "Weather"
+SUBSYSTEM_DEF(urist_weather)
+	name = "Urist Weather"
 	wait = 1 SECOND
 	var/weather_change_ticks = 50 //delays weather changes by N scheduler intervals
 	var/current_wcticks = 0
@@ -12,16 +12,16 @@ SUBSYSTEM_DEF(weather)
 	var/list/active_cache = list() //weathers with new objects to subsystem, EVEN STATIC
 	var/area_weather_change_prob = 100 //odds, per area, weather is changed
 
-/datum/controller/subsystem/weather/Initialize()
-	if(SSweather != src)
-		qdel(SSweather)
-		SSweather = src
+/datum/controller/subsystem/urist_weather/Initialize()
+	if(SSurist_weather != src)
+		qdel(SSurist_weather)
+		SSurist_weather = src
 	update_cache()
 	update_active()
 	//change_weather(1)
 	. = ..()
 
-/datum/controller/subsystem/weather/fire()
+/datum/controller/subsystem/urist_weather/fire()
 	update_cache()
 	update_active()
 	inflict_effects()
@@ -30,46 +30,46 @@ SUBSYSTEM_DEF(weather)
 		change_weather()
 		current_wcticks = 0
 
-/datum/controller/subsystem/weather/proc/update_cache()
+/datum/controller/subsystem/urist_weather/proc/update_cache()
 	if(length(pending_weathers)) //uh-oh, we have a backlog
 		for(var/WO in pending_weathers)
 			weather_cache += WO
 			pending_weathers -= WO //transfer from backlog
 	weather_cache = get_weather_objs() //prune dead/VVd safe references
 
-/datum/controller/subsystem/weather/proc/update_active()
+/datum/controller/subsystem/urist_weather/proc/update_active()
 	var/list/responsive = list()
 	for(var/i in active_cache)
-		if(istype(i, /obj/effect/weather))
-			var/obj/effect/weather/WO = i
+		if(istype(i, /obj/urist_intangible/weather))
+			var/obj/urist_intangible/weather/WO = i
 			if(WO.WActive()) //not active, not processed
 				responsive += WO
-		else if(istype(i, /turf))
-			var/obj/effect/weather/WTu = i
+		else if(isturf(i))
+			var/obj/urist_intangible/weather/WTu = i
 			if(WTu.WActive())
 				responsive += WTu
 	active_cache.Cut()
 	active_cache = responsive //process only 'tripped' weathers
 
-/datum/controller/subsystem/weather/proc/get_weather_objs()
+/datum/controller/subsystem/urist_weather/proc/get_weather_objs()
 	var/act_weathers = list()
 	for(var/i in weather_cache)
-		if(istype(i, /obj/effect/weather))
-			var/obj/effect/weather/WO = i
+		if(istype(i, /obj/urist_intangible/weather))
+			var/obj/urist_intangible/weather/WO = i
 			if(WO.weather_check_in()) //should be always true while object exists and should change
 				act_weathers += WO
-		else if(istype(i, /turf))
-			var/obj/effect/weather/WTu = i
+		else if(isturf(i))
+			var/obj/urist_intangible/weather/WTu = i
 			if(WTu.weather_check_in())
 				act_weathers += WTu
 	return act_weathers
 
 //handles changes; call with initial=1 to ensure every area is changed
-/datum/controller/subsystem/weather/proc/change_weather(initial = 0)
+/datum/controller/subsystem/urist_weather/proc/change_weather(initial = 0)
 	var/list/processed = list()
 	for(var/weather_handler in weather_cache)
-		if(istype(weather_handler, /obj/effect/weather))
-			var/obj/effect/weather/WO = weather_handler
+		if(istype(weather_handler, /obj/urist_intangible/weather))
+			var/obj/urist_intangible/weather/WO = weather_handler
 			var/area/WA = get_area(WO)
 			if(!(WA in processed))
 				processed += WA
@@ -96,7 +96,7 @@ SUBSYSTEM_DEF(weather)
 					log_game("Weathertype ([j]) received from [WA.name] by [WO.name] in [WO.loc] is path instead of instance!")
 					message_admins("Weathertype ([j]) received from [WA.name] by [WO.name] in [WO.loc] is path instead of instance!")
 			WO.update_weather_icon()
-		else if(istype(weather_handler, /turf))
+		else if(isturf(weather_handler))
 			var/turf/WTu = weather_handler
 			/* I didn't want to copypaste, but
 			BYOND sucks for duck typing -_- */
@@ -129,13 +129,13 @@ SUBSYSTEM_DEF(weather)
 		CHECK_TICK
 
 
-/datum/controller/subsystem/weather/proc/inflict_effects()
+/datum/controller/subsystem/urist_weather/proc/inflict_effects()
 	for(var/weatherhandler in active_cache)
-		if(istype(weatherhandler, /obj/effect/weather))
-			var/obj/effect/weather/WO = weatherhandler
+		if(istype(weatherhandler, /obj/urist_intangible/weather))
+			var/obj/urist_intangible/weather/WO = weatherhandler
 			if(!(WO.weather_safe) && WO.weather_check_in())
 				WO.inflictW()
-		else if(istype(weatherhandler, /turf))
+		else if(isturf(weatherhandler))
 			var/turf/WTu = weatherhandler
 			if(!(WTu.weather_safe) && WTu.weather_check_in())
 				WTu.inflictW()

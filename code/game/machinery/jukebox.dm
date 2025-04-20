@@ -1,7 +1,7 @@
 /obj/machinery/jukebox
 	name = "mediatronic jukebox"
 	desc = "An immense, standalone touchscreen on a swiveling base, equipped with phased array speakers. Embossed on one corner of the ultrathin bezel is the brand name, 'Leitmotif Enterprise Edition'."
-	icon = 'icons/obj/jukebox_new.dmi'
+	icon = 'icons/obj/machines/jukebox_new.dmi'
 	icon_state = "jukebox3"
 	anchored = TRUE
 	density = TRUE
@@ -10,8 +10,10 @@
 	active_power_usage = 100
 	clicksound = 'sound/machines/buttonbeep.ogg'
 	pixel_x = -8
+	obj_flags = OBJ_FLAG_ANCHORABLE
+	layer = ABOVE_WINDOW_LAYER
 
-	var/jukebox/jukebox
+	var/datum/jukebox/jukebox
 
 
 /obj/machinery/jukebox/Initialize()
@@ -27,14 +29,15 @@
 
 
 /obj/machinery/jukebox/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if (!anchored || inoperable())
 		icon_state = "[initial(icon_state)]-[MACHINE_IS_BROKEN(src) ? "broken" : "nopower"]"
 		return
 	icon_state = initial(icon_state)
 	if (!jukebox?.playing)
 		return
-	overlays += "[initial(icon_state)]-[emagged ? "emagged" : "running"]"
+	AddOverlays(emissive_appearance(icon, "[initial(icon_state)]-[emagged ? "emagged" : "running"]"))
+	AddOverlays("[initial(icon_state)]-[emagged ? "emagged" : "running"]")
 
 
 /obj/machinery/jukebox/powered()
@@ -72,6 +75,7 @@
 /obj/machinery/jukebox/old
 	name = "space jukebox"
 	desc = "A battered and hard-loved jukebox in some forgotten style, carefully restored to some semblance of working condition."
-	icon = 'icons/obj/jukebox.dmi'
+	icon = 'icons/obj/machines/jukebox.dmi'
 	icon_state = "jukebox2"
 	pixel_x = 0
+	layer = STRUCTURE_LAYER

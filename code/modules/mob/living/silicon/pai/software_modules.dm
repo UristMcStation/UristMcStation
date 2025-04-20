@@ -66,19 +66,21 @@
 				return FALSE
 			M = M.loc
 			count++
-		var/answer = input(M, "[P] is requesting a DNA sample from you. Will you allow it to confirm your identity?", "[P] Check DNA", "No") in list("Yes", "No")
+		var/answer = input(M, "\The [P] is requesting a DNA sample from you. Will you allow it to confirm your identity?", "[P] Check DNA", "No") in list("Yes", "No")
 		if (answer == "Yes")
-			var/turf/T = get_turf_or_move(P.loc)
+			var/turf/T = get_turf(P.loc)
+			var/datum/pronouns/pronouns = M.choose_from_pronouns()
 			for (var/mob/v in viewers(T))
-				v.show_message(SPAN_NOTICE("[M] presses \his thumb against [P]."), 3, SPAN_NOTICE("[P] makes a sharp clicking sound as it extracts DNA material from [M]."), 2)
+				v.show_message(SPAN_NOTICE("\The [M] presses [pronouns.his] thumb against \the [P]."), 3, SPAN_NOTICE("\The [P] makes a sharp clicking sound as it extracts DNA material from \the [M]."), 2)
 			var/datum/dna/dna = M.dna
-			to_chat(P, "<h3 style='font-color: red'>[M]'s UE string : [dna.unique_enzymes]</h3>")
+			to_chat(P, "<h3 style='font-color: red'>\The [M]'s UE string : [dna.unique_enzymes]</h3>")
 			if (dna.unique_enzymes == P.master_dna)
 				to_chat(P, "<b>DNA is a match to stored Master DNA.</b>")
 			else
 				to_chat(P, "<b>DNA does not match stored Master DNA.</b>")
 		else
-			to_chat(P, "[M] does not seem like \he is going to provide a DNA sample willingly.")
+			var/datum/pronouns/pronouns = M.choose_from_pronouns()
+			to_chat(P, "\The [M] does not seem like [pronouns.he] is going to provide a DNA sample willingly.")
 		return TRUE
 
 
@@ -91,31 +93,7 @@
 
 
 /datum/pai_software/radio_config/on_ui_interact(mob/living/silicon/pai/user, datum/nanoui/ui, force_open = TRUE)
-	var/data[0]
-	data["listening"] = user.silicon_radio.broadcasting
-	data["frequency"] = format_frequency(user.silicon_radio.frequency)
-	var/channels[0]
-	for (var/ch_name in user.silicon_radio.channels)
-		var/ch_stat = user.silicon_radio.channels[ch_name]
-		var/ch_dat[0]
-		ch_dat["name"] = ch_name
-		ch_dat["listening"] = !!(ch_stat & user.silicon_radio.FREQ_LISTENING)
-		channels[LIST_PRE_INC(channels)] = ch_dat
-	data["channels"] = channels
-	ui = SSnano.try_update_ui(user, user, id, ui, data, force_open)
-	if (!ui)
-		ui = new(user, user, id, "pai_radio.tmpl", "Radio Configuration", 300, 150)
-		ui.set_initial_data(data)
-		ui.open()
-
-
-/datum/pai_software/radio_config/Topic(href, href_list)
-	var/mob/living/silicon/pai/P = usr
-	if (!istype(P))
-		return
-	P.silicon_radio.Topic(href, href_list)
-	return TRUE
-
+	user.silicon_radio.ui_interact(user)
 
 /datum/pai_software/crew_manifest
 	name = "Crew Manifest"
@@ -171,11 +149,11 @@
 		P.hackdoor = null
 		return TRUE
 	else if (href_list["cable"])
-		var/turf/T = get_turf_or_move(P.loc)
+		var/turf/T = get_turf(P.loc)
 		P.hack_aborted = 0
 		P.cable = new (T)
 		P.visible_message(
-			SPAN_ITALIC("A port on [P] opens to reveal \a [P.cable], which promptly falls to the floor."),
+			SPAN_ITALIC("A port on \the [P] opens to reveal \a [P.cable], which promptly falls to the floor."),
 			SPAN_ITALIC("You open a port to reveal your [P.cable] and unspool it to the floor."),
 			SPAN_ITALIC("You hear the soft click something falling to the floor.")
 		)
@@ -183,7 +161,7 @@
 
 
 /mob/living/silicon/pai/proc/hackloop()
-	var/turf/T = get_turf_or_move(loc)
+	var/turf/T = get_turf(loc)
 	for (var/mob/living/silicon/ai/AI in GLOB.player_list)
 		if(T.loc)
 			to_chat(AI, SPAN_COLOR("red", "<b>Network Alert: Brute-force encryption crack in progress in [T.loc].</b>"))
@@ -221,7 +199,7 @@
 
 /datum/pai_software/atmosphere_sensor/on_ui_interact(mob/living/silicon/pai/user, datum/nanoui/ui, force_open = TRUE)
 	var/data[0]
-	var/turf/T = get_turf_or_move(user.loc)
+	var/turf/T = get_turf(user.loc)
 	if (!T)
 		data["reading"] = 0
 		data["pressure"] = 0

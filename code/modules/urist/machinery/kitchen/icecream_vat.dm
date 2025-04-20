@@ -45,7 +45,7 @@
 			if(I.reagents.total_volume > 29) I.reagents.remove_any(1)
 			I.reagents.add_reagent(/datum/reagent/nutriment/sprinkles,1)
 			var/image/sprinkles = image('icons/obj/kitchen.dmi', src, "sprinkles")
-			I.overlays += sprinkles
+			I.AddOverlays(sprinkles)
 			I.name += " with sprinkles"
 			I.desc += ". This also has sprinkles."
 		else
@@ -91,7 +91,7 @@
 		if(href_list["amount"])
 			var/id = href_list["remove"]
 			var/amount = text2num(href_list["amount"])
-			if(beaker == null)
+			if(isnull(beaker))
 				reagents.remove_reagent(id,amount)
 			else
 				if(validexchange(id))

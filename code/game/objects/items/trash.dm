@@ -16,11 +16,6 @@
 		age = trash_age
 	SSpersistence.track_value(src, /datum/persistent/filth/trash)
 
-
-/obj/item/trash/attack(mob/living/target, mob/living/user)
-	return
-
-
 /obj/item/trash/raisins
 	name = "\improper 4no raisins"
 	icon_state = "4no_raisins"
@@ -75,6 +70,8 @@
 	name = "snack bowl"
 	icon_state	= "snack_bowl"
 
+/obj/item/trash/snack_bowl/blue
+	icon_state	= "snack_bowl_blue"
 
 /obj/item/trash/pistachios
 	name = "pistachios pack"
@@ -250,3 +247,11 @@
 /obj/item/trash/usedplatter
 	name = "dirty platter"
 	icon_state = "usedplatter"
+
+/obj/item/trash/ramiken
+	name = "dirty ramiken"
+	icon_state = "ramiken"
+
+/obj/item/trash/pot
+	name = "empty pot"
+	icon_state = "pot_empty"

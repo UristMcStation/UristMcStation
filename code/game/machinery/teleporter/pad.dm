@@ -1,7 +1,7 @@
 /obj/machinery/tele_pad
 	name = "teleporter pad"
 	desc = "The teleporter pad handles all of the impossibly complex busywork required in instant matter transmission."
-	icon = 'icons/obj/teleporter.dmi'
+	icon = 'icons/obj/machines/teleporter.dmi'
 	icon_state = "pad"
 	density = TRUE
 	anchored = TRUE
@@ -13,6 +13,8 @@
 
 	///Has a high chance to teleport the user to a semi random location when TRUE.
 	var/interference = FALSE
+	///Chance (0 - 100%) to send a teleported object to The Interlude.
+	var/interlude_chance = 0
 
 /obj/machinery/tele_pad/Destroy()
 	if (computer)
@@ -24,7 +26,7 @@
 /obj/machinery/tele_pad/proc/clear_computer()
 	if (!computer)
 		return
-	GLOB.destroyed_event.unregister(computer, src, /obj/machinery/tele_pad/proc/lost_computer)
+	GLOB.destroyed_event.unregister(computer, src, PROC_REF(lost_computer))
 	computer = null
 
 
@@ -38,7 +40,7 @@
 		return
 	clear_computer()
 	computer = _computer
-	GLOB.destroyed_event.register(computer, src, /obj/machinery/tele_pad/proc/lost_computer)
+	GLOB.destroyed_event.register(computer, src, PROC_REF(lost_computer))
 
 
 /obj/machinery/tele_pad/Bumped(atom/movable/AM)
@@ -51,9 +53,16 @@
 	if (istype(computer.target, /obj/machinery/tele_beacon))
 		var/obj/machinery/tele_beacon = computer.target
 		tele_beacon.use_power_oneoff(1 KILOWATTS)
+
+	if (prob(interlude_chance))
+		GLOB.using_map.do_interlude_teleport(AM, T, rand(30, 120))
+		computer.set_timer()
+		return
+
 	if (interference && prob(75))
 		do_unstable_teleport_safe(AM)
-	do_teleport(AM, T)
+	else
+		do_teleport(AM, T)
 	computer.set_timer()
 
 
@@ -74,14 +83,18 @@
 
 
 /obj/machinery/tele_pad/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if (computer?.active)
 		update_use_power(POWER_USE_ACTIVE)
 		var/image/I = image(icon, src, "[initial(icon_state)]_active_overlay")
 		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		I.layer = ABOVE_LIGHTING_LAYER
-		overlays += I
-		set_light(0.4, 1.2, 4, 10)
+		AddOverlays(I)
+		set_light(4, 0.4)
+
+		if (interference && prob(20))
+			visible_message(SPAN_WARNING("The teleporter sparks ominously!"))
+			sparks(3, 1, loc)
 
 		if (interference && prob(20))
 			visible_message(SPAN_WARNING("The teleporter sparks ominously!"))
@@ -93,4 +106,4 @@
 			var/image/I = image(icon, src, "[initial(icon_state)]_idle_overlay")
 			I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 			I.layer = ABOVE_LIGHTING_LAYER
-			overlays += I
+			AddOverlays(I)

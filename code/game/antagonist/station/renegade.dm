@@ -1,10 +1,10 @@
-GLOBAL_DATUM_INIT(renegades, /datum/antagonist/renegade, new)
+GLOBAL_TYPED_NEW(renegades, /datum/antagonist/renegade)
 
 /datum/antagonist/renegade
 	role_text = "Renegade"
 	role_text_plural = "Renegades"
 	blacklisted_jobs = list(/datum/job/ai, /datum/job/submap)
-	restricted_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/captain, /datum/job/hop, /datum/job/hos, /datum/job/chief_engineer, /datum/job/rd, /datum/job/cmo)
+	restricted_jobs = list(/datum/job/officer, /datum/job/warden, /datum/job/captain, /datum/job/hop, /datum/job/hos, /datum/job/chief_engineer, /datum/job/rd, /datum/job/cmo, /datum/job/cyborg)
 	welcome_text = "Something's going to go wrong today, you can just feel it. You're paranoid, you've got a gun, and you're going to survive."
 	antag_text = {"\
 	<p>You are a <b>minor</b> antagonist! Make sure <b>you</b> survive the round at any cost.</p> \
@@ -21,7 +21,7 @@ GLOBAL_DATUM_INIT(renegades, /datum/antagonist/renegade, new)
 	initial_spawn_req = 1
 	initial_spawn_target = 3
 	antaghud_indicator = "hud_renegade"
-	skill_setter = /datum/antag_skill_setter/station
+	skill_setter = /datum/antag_skill_setter/station/renegade
 
 	var/list/spawn_guns = list(
 		/obj/item/gun/energy/retro,

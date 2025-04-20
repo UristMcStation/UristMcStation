@@ -5,13 +5,13 @@
 
 /obj/structure/closet/secure_closet/scientist/WillContain()
 	return list(
-		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/messenger/tox, /obj/item/storage/backpack/satchel/tox)),
+		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/messenger/corpsci, /obj/item/storage/backpack/satchel/corpsci)),
 		/obj/item/clothing/under/rank/scientist,
 		/obj/item/clothing/suit/storage/toggle/labcoat,
 		/obj/item/clothing/shoes/white,
 		/obj/item/device/radio/headset/headset_sci,
 		/obj/item/clothing/mask/gas,
-		/obj/item/material/clipboard
+		/obj/item/material/folder/clipboard
 	)
 
 /obj/structure/closet/secure_closet/xenobio
@@ -22,14 +22,14 @@
 
 /obj/structure/closet/secure_closet/xenobio/WillContain()
 	return list(
-		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/messenger/tox, /obj/item/storage/backpack/satchel/tox)),
+		new /datum/atom_creator/weighted(list(/obj/item/storage/backpack/messenger/corpsci, /obj/item/storage/backpack/corpsci)),
 		/obj/item/clothing/under/rank/scientist,
 		/obj/item/clothing/suit/storage/toggle/labcoat,
 		/obj/item/clothing/shoes/white,
 		/obj/item/device/radio/headset/headset_sci,
 		/obj/item/clothing/mask/gas,
 		/obj/item/clothing/gloves/latex,
-		/obj/item/material/clipboard,
+		/obj/item/material/folder/clipboard,
 		/obj/item/storage/belt/general
 	)
 
@@ -48,7 +48,7 @@
 		/obj/item/device/radio/headset/heads/rd,
 		/obj/item/clothing/mask/gas,
 		/obj/item/device/flash,
-		/obj/item/material/clipboard,
+		/obj/item/material/folder/clipboard,
 	)
 
 /obj/structure/closet/secure_closet/animal
@@ -63,5 +63,5 @@
 		/obj/item/storage/box/syringegun,
 		/obj/item/storage/box/syringes,
 		/obj/item/reagent_containers/glass/bottle/chloralhydrate,
-		/obj/item/reagent_containers/glass/bottle/stoxin
+		/obj/item/reagent_containers/glass/bottle/soporific
 	)

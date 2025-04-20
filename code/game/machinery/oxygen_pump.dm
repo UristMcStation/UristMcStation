@@ -3,7 +3,7 @@
 
 /obj/machinery/oxygen_pump
 	name = "emergency oxygen pump"
-	icon = 'icons/obj/walllocker.dmi'
+	icon = 'icons/obj/structures/walllocker.dmi'
 	desc = "A wall mounted oxygen pump with a retractable face mask that you can pull over your face in case of emergencies."
 	icon_state = "emerg"
 
@@ -26,29 +26,29 @@
 	..()
 	tank = new spawn_type (src)
 	contained = new mask_type (src)
-	GLOB.destroyed_event.register(tank, src, .proc/fix_deleted_tank)
-	GLOB.destroyed_event.register(contained, src, .proc/fix_deleted_mask)
+	GLOB.destroyed_event.register(tank, src, PROC_REF(fix_deleted_tank))
+	GLOB.destroyed_event.register(contained, src, PROC_REF(fix_deleted_mask))
 
 /obj/machinery/oxygen_pump/Destroy()
 	if(breather)
 		detach_mask(breather)
-	GLOB.destroyed_event.unregister(tank, src, .proc/fix_deleted_tank)
-	GLOB.destroyed_event.unregister(contained, src, .proc/fix_deleted_mask)
+	GLOB.destroyed_event.unregister(tank, src, PROC_REF(fix_deleted_tank))
+	GLOB.destroyed_event.unregister(contained, src, PROC_REF(fix_deleted_mask))
 	QDEL_NULL(tank)
 	QDEL_NULL(contained)
 	return ..()
 
 /// Handler for the pump's tank being deleted, for any reason.
 /obj/machinery/oxygen_pump/proc/fix_deleted_tank(obj/item/tank/_tank)
-	GLOB.destroyed_event.unregister(_tank, src, .proc/fix_deleted_tank)
+	GLOB.destroyed_event.unregister(_tank, src, PROC_REF(fix_deleted_tank))
 	tank = new spawn_type(src)
-	GLOB.destroyed_event.register(tank, src, .proc/fix_deleted_tank)
+	GLOB.destroyed_event.register(tank, src, PROC_REF(fix_deleted_tank))
 
 /// Handler for the pump's mask being deleted, for any reason.
 /obj/machinery/oxygen_pump/proc/fix_deleted_mask(obj/item/clothing/mask/breath/_mask)
-	GLOB.destroyed_event.unregister(_mask, src, .proc/fix_deleted_mask)
+	GLOB.destroyed_event.unregister(_mask, src, PROC_REF(fix_deleted_mask))
 	contained = new spawn_type(src)
-	GLOB.destroyed_event.register(contained, src, .proc/fix_deleted_mask)
+	GLOB.destroyed_event.register(contained, src, PROC_REF(fix_deleted_mask))
 
 /obj/machinery/oxygen_pump/MouseDrop(mob/living/carbon/human/target, src_location, over_location)
 	..()
@@ -88,7 +88,7 @@
 		if(tank)
 			tank.forceMove(C)
 		breather = C
-		GLOB.destroyed_event.register(breather, src, .proc/detach_mask)
+		GLOB.destroyed_event.register(breather, src, PROC_REF(detach_mask))
 
 /obj/machinery/oxygen_pump/proc/set_internals(mob/living/carbon/C)
 	if(C && istype(C))
@@ -106,7 +106,7 @@
 		visible_message(SPAN_NOTICE("\The [contained] rapidly retracts back into \the [src]!"))
 	if(breather.internals)
 		breather.internals.icon_state = "internal0"
-	GLOB.destroyed_event.unregister(breather, src, .proc/detach_mask)
+	GLOB.destroyed_event.unregister(breather, src, PROC_REF(detach_mask))
 	breather = null
 	update_use_power(POWER_USE_IDLE)
 
@@ -130,14 +130,14 @@
 		to_chat(user, SPAN_WARNING("There is no tank in \the [src]."))
 		return
 	if(GET_FLAGS(stat, MACHINE_STAT_MAINT))
-		to_chat(user, SPAN_WARNING("Please close \the maintenance hatch first."))
+		to_chat(user, SPAN_WARNING("Please close the maintenance hatch first."))
 		return
 	if(!Adjacent(target))
 		to_chat(user, SPAN_WARNING("Please stay close to \the [src]."))
 		return
 	//when there is a breather:
 	if(breather && target != breather)
-		to_chat(user, SPAN_WARNING("\The pump is already in use."))
+		to_chat(user, SPAN_WARNING("The pump is already in use."))
 		return
 	//Checking if breather is still valid
 	if(target == breather && target.wear_mask != contained)
@@ -145,7 +145,7 @@
 		return
 	return 1
 
-/obj/machinery/oxygen_pump/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/oxygen_pump/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(isScrewdriver(W))
 		toggle_stat(MACHINE_STAT_MAINT)
 		user.visible_message(
@@ -156,18 +156,24 @@
 			icon_state = icon_state_open
 		if(!stat)
 			icon_state = icon_state_closed
-		//TO-DO: Open icon
+		return TRUE
+
 	if(istype(W, /obj/item/tank) && (GET_FLAGS(stat, MACHINE_STAT_MAINT)))
 		if(tank)
 			to_chat(user, SPAN_WARNING("\The [src] already has a tank installed!"))
-		else
-			if(!user.unEquip(W, src))
-				return
-			tank = W
-			user.visible_message(SPAN_NOTICE("\The [user] installs \the [tank] into \the [src]."), SPAN_NOTICE("You install \the [tank] into \the [src]."))
-			src.add_fingerprint(user)
+			return TRUE
+
+		if(!user.unEquip(W, src))
+			return TRUE
+		tank = W
+		user.visible_message(SPAN_NOTICE("\The [user] installs \the [tank] into \the [src]."), SPAN_NOTICE("You install \the [tank] into \the [src]."))
+		return TRUE
+
 	if(istype(W, /obj/item/tank) && !stat)
-		to_chat(user, SPAN_WARNING("Please open the maintenance hatch first."))
+		to_chat(user, SPAN_WARNING("You need to open the maintenance hatch first."))
+		return TRUE
+
+	return ..()
 
 /obj/machinery/oxygen_pump/examine(mob/user)
 	. = ..()

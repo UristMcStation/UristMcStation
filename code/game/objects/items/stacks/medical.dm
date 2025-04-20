@@ -24,49 +24,47 @@
 	else
 		. = TRUE
 
-/obj/item/stack/medical/attack(mob/living/carbon/M, mob/user)
-
+/obj/item/stack/medical/use_after(mob/living/carbon/M, mob/user)
 	if (!istype(M))
-		to_chat(user, SPAN_WARNING("\The [src] cannot be applied to [M]!"))
-		return 1
+		return FALSE
 
-	if ( ! (istype(user, /mob/living/carbon/human) || \
+	if (!(istype(user, /mob/living/carbon/human) || \
 			istype(user, /mob/living/silicon)) )
 		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
-		return 1
+		return TRUE
 
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
 
-		if(!affecting)
+		if (!affecting)
 			to_chat(user, SPAN_WARNING("\The [M] is missing that body part!"))
-			return 1
+			return TRUE
 
-		if(!check_limb_state(user, affecting))
-			return 1
+		if (!check_limb_state(user, affecting))
+			return TRUE
 
-		if(affecting.organ_tag == BP_HEAD)
-			if(H.head && istype(H.head,/obj/item/clothing/head/helmet/space))
-				to_chat(user, SPAN_WARNING("You can't apply [src] through [H.head]!"))
-				return 1
+		if (affecting.organ_tag == BP_HEAD)
+			if (H.head && istype(H.head,/obj/item/clothing/head/helmet/space))
+				to_chat(user, SPAN_WARNING("You can't apply \the [src] through \the [H.head]!"))
+				return TRUE
 		else
-			if(H.wear_suit && istype(H.wear_suit,/obj/item/clothing/suit/space))
-				to_chat(user, SPAN_WARNING("You can't apply [src] through [H.wear_suit]!"))
-				return 1
+			if (H.wear_suit && istype(H.wear_suit,/obj/item/clothing/suit/space))
+				to_chat(user, SPAN_WARNING("You can't apply \the [src] through \the [H.wear_suit]!"))
+				return TRUE
 
 		H.UpdateDamageIcon()
 
 	else
-
 		M.heal_organ_damage((src.heal_brute/2), (src.heal_burn/2))
 		user.visible_message( \
-			SPAN_NOTICE("[M] has been applied with [src] by [user]."), \
-			SPAN_NOTICE("You apply \the [src] to [M].") \
+			SPAN_NOTICE("\The [M] has been applied with \the [src] by \the [user]."), \
+			SPAN_NOTICE("You apply \the [src] to \the [M].") \
 		)
 		use(1)
 
-	M.updatehealth()
+	M.updatehealth() //No return value here as this is a parent to all the medical stacks. Terminal return values after success in children.
+
 /obj/item/stack/medical/bruise_pack
 	name = "roll of gauze"
 	singular_name = "gauze length"
@@ -77,27 +75,27 @@
 	apply_sounds = list('sound/effects/rip1.ogg','sound/effects/rip2.ogg')
 	amount = 10
 
-/obj/item/stack/medical/bruise_pack/attack(mob/living/carbon/M, mob/user)
-	if(..())
-		return 1
+/obj/item/stack/medical/bruise_pack/use_after(mob/living/carbon/M, mob/user)
+	if (..())
+		return TRUE
 
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
 
-		if(affecting.is_bandaged())
+		if (affecting.is_bandaged())
 			to_chat(user, SPAN_WARNING("The wounds on [M]'s [affecting.name] have already been bandaged."))
-			return 1
+			return TRUE
 		else
 			user.visible_message(SPAN_NOTICE("\The [user] starts treating [M]'s [affecting.name]."), \
 					             SPAN_NOTICE("You start treating [M]'s [affecting.name]."))
 			var/used = 0
 			for (var/datum/wound/W in affecting.wounds)
-				if(W.bandaged)
+				if (W.bandaged)
 					continue
-				if(used == amount)
+				if (used == amount)
 					break
-				if(!do_after(user, W.damage / 5, M, DO_MEDICAL))
+				if (!do_after(user, W.damage / 5, M, DO_MEDICAL))
 					break
 
 				if (W.current_stage <= W.max_bleeding_stage)
@@ -116,13 +114,14 @@
 				playsound(src, pick(apply_sounds), 25)
 				used++
 			affecting.update_damages()
-			if(used == amount)
-				if(affecting.is_bandaged())
+			if (used == amount)
+				if (affecting.is_bandaged())
 					to_chat(user, SPAN_WARNING("\The [src] is used up."))
 				else
 					to_chat(user, SPAN_WARNING("\The [src] is used up, but there are more wounds to treat on \the [affecting.name]."))
 			use(used)
 			H.update_bandages(1)
+		return TRUE
 
 /obj/item/stack/medical/ointment
 	name = "ointment"
@@ -135,28 +134,29 @@
 	animal_heal = 4
 	apply_sounds = list('sound/effects/ointment.ogg')
 
-/obj/item/stack/medical/ointment/attack(mob/living/carbon/M, mob/user)
-	if(..())
-		return 1
+/obj/item/stack/medical/ointment/use_after(mob/living/carbon/M, mob/user)
+	if (..())
+		return TRUE
 
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
 
-		if(affecting.is_salved())
+		if (affecting.is_salved())
 			to_chat(user, SPAN_WARNING("The wounds on [M]'s [affecting.name] have already been salved."))
-			return 1
+			return TRUE
 		else
 			user.visible_message(SPAN_NOTICE("\The [user] starts salving wounds on [M]'s [affecting.name]."), \
 					             SPAN_NOTICE("You start salving the wounds on [M]'s [affecting.name].") )
 			playsound(src, pick(apply_sounds), 25)
-			if(!do_after(user, 1 SECOND, M, DO_MEDICAL))
-				return 1
+			if (!do_after(user, 1 SECOND, M, DO_MEDICAL))
+				return TRUE
 			user.visible_message(SPAN_NOTICE("[user] salved wounds on [M]'s [affecting.name]."), \
 			                         SPAN_NOTICE("You salved wounds on [M]'s [affecting.name].") )
 			use(1)
 			affecting.salve()
 			affecting.disinfect()
+		return TRUE
 
 /obj/item/stack/medical/advanced/bruise_pack
 	name = "advanced trauma kit"
@@ -169,16 +169,20 @@
 	apply_sounds = list('sound/effects/rip1.ogg','sound/effects/rip2.ogg','sound/effects/tape.ogg')
 	amount = 10
 
-/obj/item/stack/medical/advanced/bruise_pack/attack(mob/living/carbon/M, mob/user)
-	if(..())
-		return 1
+/obj/item/stack/medical/advanced/bruise_pack/use_after(mob/living/carbon/M, mob/user)
+	if (..())
+		return TRUE
+
+	var/turf/T = get_turf(M)
+	if (locate(/obj/machinery/optable, T) && user.a_intent == I_HELP)
+		return FALSE
 
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
-		if(affecting.is_bandaged() && affecting.is_disinfected())
+		if (affecting.is_bandaged() && affecting.is_disinfected())
 			to_chat(user, SPAN_WARNING("The wounds on [M]'s [affecting.name] have already been treated."))
-			return 1
+			return TRUE
 		else
 			user.visible_message(SPAN_NOTICE("\The [user] starts treating [M]'s [affecting.name]."), \
 					             SPAN_NOTICE("You start treating [M]'s [affecting.name].") )
@@ -186,9 +190,9 @@
 			for (var/datum/wound/W in affecting.wounds)
 				if (W.bandaged && W.disinfected)
 					continue
-				if(used == amount)
+				if (used == amount)
 					break
-				if(!do_after(user, W.damage / 5, M, DO_MEDICAL))
+				if (!do_after(user, W.damage / 5, M, DO_MEDICAL))
 					break
 				if (W.current_stage <= W.max_bleeding_stage)
 					user.visible_message(SPAN_NOTICE("\The [user] cleans \a [W.desc] on [M]'s [affecting.name] and seals the edges with bioglue."), \
@@ -207,13 +211,14 @@
 				if (M.stat == UNCONSCIOUS && prob(25))
 					to_chat(M, SPAN_NOTICE(SPAN_BOLD("... [pick("feels better", "hurts less")] ...")))
 			affecting.update_damages()
-			if(used == amount)
-				if(affecting.is_bandaged())
+			if (used == amount)
+				if (affecting.is_bandaged())
 					to_chat(user, SPAN_WARNING("\The [src] is used up."))
 				else
 					to_chat(user, SPAN_WARNING("\The [src] is used up, but there are more wounds to treat on \the [affecting.name]."))
 			use(used)
 			H.update_bandages(1)
+		return TRUE
 
 /obj/item/stack/medical/advanced/ointment
 	name = "advanced burn kit"
@@ -226,23 +231,23 @@
 	apply_sounds = list('sound/effects/ointment.ogg')
 
 
-/obj/item/stack/medical/advanced/ointment/attack(mob/living/carbon/M, mob/user)
-	if(..())
-		return 1
+/obj/item/stack/medical/advanced/ointment/use_after(mob/living/carbon/M, mob/user)
+	if (..())
+		return TRUE
 
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
 
-		if(affecting.is_salved())
+		if (affecting.is_salved())
 			to_chat(user, SPAN_WARNING("The wounds on [M]'s [affecting.name] have already been salved."))
-			return 1
+			return TRUE
 		else
 			user.visible_message(SPAN_NOTICE("\The [user] starts salving wounds on [M]'s [affecting.name]."), \
 					             SPAN_NOTICE("You start salving the wounds on [M]'s [affecting.name].") )
 			playsound(src, pick(apply_sounds), 25)
 			if(!do_after(user, 1 SECOND, M, DO_MEDICAL))
-				return 1
+				return TRUE
 			user.visible_message( 	SPAN_NOTICE("[user] covers wounds on [M]'s [affecting.name] with regenerative membrane."), \
 									SPAN_NOTICE("You cover wounds on [M]'s [affecting.name] with regenerative membrane.") )
 			affecting.heal_damage(0,heal_burn)
@@ -251,6 +256,7 @@
 			affecting.disinfect()
 			if (M.stat == UNCONSCIOUS && prob(25))
 				to_chat(M, SPAN_NOTICE(SPAN_BOLD("... [pick("feels better", "hurts less")] ...")))
+		return TRUE
 
 /obj/item/stack/medical/splint
 	name = "medical splints"
@@ -263,45 +269,45 @@
 	can_treat_robots = TRUE
 	var/list/splintable_organs = list(BP_L_ARM, BP_R_ARM, BP_L_LEG, BP_R_LEG, BP_L_HAND, BP_R_HAND, BP_L_FOOT, BP_R_FOOT)	//List of organs you can splint, natch.
 
-/obj/item/stack/medical/splint/attack(mob/living/carbon/M, mob/user)
-	if(..())
-		return 1
+/obj/item/stack/medical/splint/use_after(mob/living/carbon/M, mob/user)
+	if (..())
+		return TRUE
 
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting) //nullchecked by ..()
 		var/limb = affecting.name
-		if(!(affecting.organ_tag in splintable_organs))
+		if (!(affecting.organ_tag in splintable_organs))
 			to_chat(user, SPAN_DANGER("You can't use \the [src] to apply a splint there!"))
-			return
-		if(affecting.splinted)
+			return TRUE
+		if (affecting.splinted)
 			to_chat(user, SPAN_DANGER("[M]'s [limb] is already splinted!"))
-			return
+			return TRUE
 		if (M != user)
 			user.visible_message(SPAN_DANGER("[user] starts to apply \the [src] to [M]'s [limb]."), SPAN_DANGER("You start to apply \the [src] to [M]'s [limb]."), SPAN_DANGER("You hear something being wrapped."))
 		else
-			if(( !user.hand && (affecting.organ_tag in list(BP_R_ARM, BP_R_HAND)) || \
+			if ((!user.hand && (affecting.organ_tag in list(BP_R_ARM, BP_R_HAND)) || \
 				user.hand && (affecting.organ_tag in list(BP_L_ARM, BP_L_HAND)) ))
 				to_chat(user, SPAN_DANGER("You can't apply a splint to the arm you're using!"))
-				return
+				return TRUE
 			user.visible_message(SPAN_DANGER("[user] starts to apply \the [src] to their [limb]."), SPAN_DANGER("You start to apply \the [src] to your [limb]."), SPAN_DANGER("You hear something being wrapped."))
 		if(do_after(user, 50, M))
 			if(M == user && prob(75))
 				user.visible_message(SPAN_DANGER("\The [user] fumbles [src]."), SPAN_DANGER("You fumble [src]."), SPAN_DANGER("You hear something being wrapped."))
-				return
+				return TRUE
 			var/obj/item/stack/medical/splint/S = split(1, TRUE)
-			if(S)
-				if(affecting.apply_splint(S))
+			if (S)
+				if (affecting.apply_splint(S))
 					M.verbs += /mob/living/carbon/human/proc/remove_splints
 					S.forceMove(affecting)
 					if (M != user)
 						user.visible_message(SPAN_DANGER("\The [user] finishes applying [src] to [M]'s [limb]."), SPAN_DANGER("You finish applying \the [src] to [M]'s [limb]."), SPAN_DANGER("You hear something being wrapped."))
 					else
 						user.visible_message(SPAN_DANGER("\The [user] successfully applies [src] to their [limb]."), SPAN_DANGER("You successfully apply \the [src] to your [limb]."), SPAN_DANGER("You hear something being wrapped."))
-					return
+					return TRUE
 				S.dropInto(src.loc) //didn't get applied, so just drop it
 			user.visible_message(SPAN_DANGER("\The [user] fails to apply [src]."), SPAN_DANGER("You fail to apply [src]."), SPAN_DANGER("You hear something being wrapped."))
-		return
+		return TRUE
 
 /obj/item/stack/medical/splint/ghetto
 	name = "makeshift splints"
@@ -326,6 +332,8 @@
 	amount = 25
 	max_amount = 25
 
+
+//What gets made by chemistry. For people with crystal organs, it's better than crystallising agent. For those without, it's a bit of a gamble.
 /obj/item/stack/medical/resin/handmade
 	name = "resin globules"
 	desc = "A lump of slick, shiny resin. Used to repair damage to crystalline bodyparts."
@@ -334,29 +342,51 @@
 	heal_brute = 5
 	heal_burn =  5
 
+
 /obj/item/stack/medical/resin/check_limb_state(mob/user, obj/item/organ/external/limb)
 	if(!BP_IS_ROBOTIC(limb) && !BP_IS_CRYSTAL(limb))
 		to_chat(user, SPAN_WARNING("You cannot use \the [src] to treat an organic limb."))
 		return FALSE
 	return TRUE
 
-/obj/item/stack/medical/resin/attack(mob/living/carbon/M, mob/user)
-	. = ..()
-	if(!. && ishuman(M))
+
+/obj/item/stack/medical/resin/use_after(mob/living/carbon/M, mob/user)
+	if (..())
+		return TRUE
+
+	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/external/affecting = H.get_organ(user.zone_sel.selecting)
-		if((affecting.brute_dam + affecting.burn_dam) <= 0)
+		if ((affecting.brute_dam + affecting.burn_dam) <= 0)
 			to_chat(user, SPAN_WARNING("\The [M]'s [affecting.name] is undamaged."))
-			return 1
+			return TRUE
 		user.visible_message(
-			SPAN_NOTICE("\The [user] starts patching fractures on \the [M]'s [affecting.name]."), \
-			SPAN_NOTICE("You start patching fractures on \the [M]'s [affecting.name].") )
+			SPAN_NOTICE("\The [user] starts patching damage on \the [M]'s [affecting.name]."), \
+			SPAN_NOTICE("You start patching damage on \the [M]'s [affecting.name].") )
 		playsound(src, pick(apply_sounds), 25)
-		if(!do_after(user, 1 SECOND, M, DO_MEDICAL))
-			to_chat(user, SPAN_NOTICE("You must stand still to patch fractures."))
-			return 1
+		if (!do_after(user, 2 SECOND, M, DO_MEDICAL))
+			to_chat(user, SPAN_NOTICE("You must stand still to patch damage."))
+			return TRUE
 		user.visible_message( \
-			SPAN_NOTICE("\The [user] patches the fractures on \the [M]'s [affecting.name] with resin."), \
-			SPAN_NOTICE("You patch fractures on \the [M]'s [affecting.name] with resin."))
-		affecting.heal_damage(heal_brute, heal_burn, robo_repair = TRUE)
+			SPAN_NOTICE("\The [user] patches the damage on \the [M]'s [affecting.name] with resin."), \
+			SPAN_NOTICE("You patch damage on \the [M]'s [affecting.name] with resin."))
 		use(1)
+		if (BP_IS_CRYSTAL(affecting))
+			if(prob(75))
+				to_chat(M, SPAN_NOTICE("Fresh crystals seem to form over your [affecting.name]."))
+			affecting.heal_damage(rand(heal_brute - 2, heal_brute + 4), rand(heal_burn - 2, heal_burn + 4), robo_repair = TRUE)
+			return TRUE
+		if (BP_IS_BRITTLE(affecting))
+			if (!prob(user.get_skill_value(SKILL_DEVICES) * 20)) //80% to 0% chance, depending on skill, for your brittle organ to hurt and then heal.
+				to_chat(H, SPAN_DANGER("Crystals are forming around your [affecting.name], damaging internal integrity!"))
+				for (var/i = 1 to rand(1,3))
+					new /obj/item/material/shard(get_turf(affecting), MATERIAL_STEEL)
+				affecting.take_external_damage(rand(20,40), 0)
+			if(prob(30))
+				if (!M.isSynthetic())
+					M.emote("scream")
+					M.Weaken(2)
+				affecting.status |= ORGAN_BRITTLE // 30% chance to brittle your limb/organ, and if you're organic, you get weakened.
+		affecting.heal_damage(heal_brute, heal_burn, robo_repair = TRUE)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		return TRUE

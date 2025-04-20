@@ -9,14 +9,27 @@ on:
     branches:
       - master
       - baymerge-testing
+  workflow_dispatch: # allows this workflow to be manually triggered
 env:
-  BYOND_MAJOR: "514"
-  BYOND_MINOR: "1589"
-  SPACEMAN_DMM_VERSION: suite-1.7.2
+  BYOND_MAJOR: "515"
+  BYOND_MINOR: "1647"
+  SPACEMAN_DMM_VERSION: suite-1.9
 
 jobs:
+  PreFlight:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
+      - name: paths-filter
+        uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36
+        id: filter
+        with:
+          filters: .github/workflow-config/preflight-filters.yml
+    outputs:
+      dm: ${{ steps.filter.outputs.dm }}
   DreamChecker:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: Setup Cache
@@ -42,7 +55,7 @@ jobs:
           chmod +x send.sh
           ./send.sh failure $WEBHOOK_URL
   Code:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - name: Setup Cache
@@ -68,7 +81,7 @@ jobs:
           chmod +x send.sh
           ./send.sh failure $WEBHOOK_URL
   Maps:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: DreamChecker
     strategy:
       matrix:
@@ -98,7 +111,7 @@ jobs:
           chmod +x send.sh
           ./send.sh failure $WEBHOOK_URL
   AwayMaps:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: DreamChecker
     strategy:
       fail-fast: false
@@ -129,7 +142,7 @@ jobs:
           chmod +x send.sh
           ./send.sh failure $WEBHOOK_URL
   Templates:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: DreamChecker
     strategy:
       fail-fast: false

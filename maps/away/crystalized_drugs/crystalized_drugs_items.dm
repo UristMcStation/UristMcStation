@@ -1,24 +1,24 @@
-/obj/effect/paint/machine_gray
+/obj/paint/machine_gray
 	color = "#4d5968"
 
-/obj/effect/paint/nt_red
+/obj/paint/nt_red
 	color = COLOR_NT_RED
 
-/obj/effect/floor_decal/borderfloorbeige
+/obj/floor_decal/borderfloorbeige
 	name = "border floor"
 	icon_state = "borderfloor_white"
 	color = COLOR_BEIGE
 
-/obj/effect/floor_decal/borderfloorbeige/corner
+/obj/floor_decal/borderfloorbeige/corner
 	icon_state = "borderfloorcorner_white"
 
-/obj/effect/floor_decal/borderfloorbeige/corner2
+/obj/floor_decal/borderfloorbeige/corner2
 	icon_state = "borderfloorcorner2_white"
 
-/obj/effect/floor_decal/borderfloorbeige/full
+/obj/floor_decal/borderfloorbeige/full
 	icon_state = "borderfloorfull_white"
 
-/obj/effect/floor_decal/borderfloorbeige/cee
+/obj/floor_decal/borderfloorbeige/cee
 	icon_state = "borderfloorcee_white"
 
 var/global/const/access_drug_smuggler = "ACCESS_DRUG_SMUGGLER"
@@ -88,8 +88,8 @@ var/global/const/access_drug_smuggler = "ACCESS_DRUG_SMUGGLER"
 /obj/random/ammo_magazine_smug
 	name = "Random Ammo Magazine"
 	desc = "This is smuggler's random ammo magazine."
-	icon = 'icons/obj/ammo.dmi'
-	icon_state = "magnum"
+	icon = 'icons/obj/weapons/ammo.dmi'
+	icon_state = "spdloader_small"
 
 /obj/random/ammo_magazine_smug/spawn_choices()
 	return list(

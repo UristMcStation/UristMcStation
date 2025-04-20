@@ -8,7 +8,7 @@
 	bone_amount = 0
 
 	use_me = 0 //Can't use the me verb, it's a freaking immobile brain
-	icon = 'icons/obj/surgery.dmi'
+	icon = 'icons/obj/organs.dmi'
 	icon_state = "brain-prosthetic"
 	silicon_subsystems = list(
 		/datum/nano_module/law_manager
@@ -20,13 +20,15 @@
 	var/list/owner_channels = list()
 	var/list/law_channels = list()
 
-/mob/living/silicon/sil_brainmob/New()
+
+/mob/living/silicon/sil_brainmob/Initialize(mapload)
 	reagents = new/datum/reagents(1000, src)
 	if(istype(loc, /obj/item/organ/internal/posibrain))
 		container = loc
 	add_language(LANGUAGE_ROBOT_GLOBAL)
 	add_language(LANGUAGE_EAL)
-	..()
+	. = ..()
+
 
 /mob/living/silicon/sil_brainmob/Destroy()
 	if(key)				//If there is a mob connected to this thing. Have to check key twice to avoid false death reporting.
@@ -36,7 +38,7 @@
 	return ..()
 
 /mob/living/silicon/sil_brainmob/UpdateLyingBuckledAndVerbStatus()
-	if(container && istype(container, /obj/item/organ/internal/posibrain) && istype(container.loc, /turf))
+	if(container && istype(container, /obj/item/organ/internal/posibrain) && isturf(container.loc))
 		use_me = 1
 
 /mob/living/silicon/sil_brainmob/isSynthetic()

@@ -1,12 +1,11 @@
 /obj/machinery/portable_atmospherics/cracker
 	name = "molecular cracking unit"
 	desc = "An integrated catalytic water cracking system used to break H2O down into H and O. An advanced molecular extractor also allows it to isolate liquid deuterium from seawater."
-	icon = 'icons/obj/machines/cracker.dmi'
+	icon = 'icons/obj/machines/mining/cracker.dmi'
 	icon_state = "cracker"
 	construct_state = /singleton/machine_construction/default/panel_closed
 	density = TRUE
 	anchored = TRUE
-	waterproof = TRUE
 	volume = 5000
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 100
@@ -20,7 +19,12 @@
 	var/deuterium_generation_amount = 1
 
 /obj/machinery/portable_atmospherics/cracker/on_update_icon()
-	icon_state = (use_power == POWER_USE_ACTIVE) ? "cracker_on" : "cracker"
+	ClearOverlays()
+	if(panel_open)
+		AddOverlays("[icon_state]_panel")
+	if(use_power == POWER_USE_ACTIVE)
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
 
 /obj/machinery/portable_atmospherics/cracker/interface_interact(mob/user)
 	if(use_power == POWER_USE_IDLE)
@@ -31,19 +35,20 @@
 	update_icon()
 	return TRUE
 
-/obj/machinery/portable_atmospherics/cracker/attackby(obj/item/thing, mob/user)
+/obj/machinery/portable_atmospherics/cracker/use_tool(obj/item/thing, mob/living/user, list/click_params)
 	// remove deuterium as a reagent
 	if(thing.is_open_container() && thing.reagents)
 		if(!reagent_buffer[MATERIAL_DEUTERIUM] || reagent_buffer[MATERIAL_DEUTERIUM] <= 0)
 			to_chat(user, SPAN_WARNING("There is no deuterium stored in \the [src]."))
-			return
+			return TRUE
 		var/transfer_amt = min(thing.reagents.maximum_volume, reagent_buffer[MATERIAL_DEUTERIUM])
 		thing.reagents.add_reagent(MATERIAL_DEUTERIUM, transfer_amt)
 		thing.update_icon()
 		reagent_buffer[MATERIAL_DEUTERIUM] -= transfer_amt
 		user.visible_message(SPAN_NOTICE("\The [user] siphons [transfer_amt] unit\s of deuterium from \the [src] into \the [thing]."))
-		return
-	. = ..()
+		return TRUE
+
+	return ..()
 
 /obj/machinery/portable_atmospherics/cracker/power_change()
 	. = ..()
@@ -65,7 +70,7 @@
 	// Produce materials.
 	var/turf/T = get_turf(src)
 	if(istype(T))
-		var/obj/effect/fluid/F = T.return_fluid()
+		var/obj/fluid/F = T.return_fluid()
 		if(istype(F))
 
 			// Drink more water!

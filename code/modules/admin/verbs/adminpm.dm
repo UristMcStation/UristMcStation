@@ -105,11 +105,11 @@
 		recieve_message = "[SPAN_CLASS("pm", "[SPAN_CLASS("howto", "<b>-- Click the [recieve_pm_type]'s name to reply --</b>")]")]\n"
 		if(C.adminhelped)
 			to_chat(C, recieve_message)
-			C.adminhelped = 0
+			C.adminhelped = FALSE
 
 	var/sender_message = "[create_text_tag("pm_out_alt", "PM", src)] to [SPAN_CLASS("name", get_options_bar(C, holder ? 1 : 0, holder ? 1 : 0, 1))]"
 	if(holder)
-		sender_message += " (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>)"
+		sender_message += " (<a href='byond://?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='byond://?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>)"
 		sender_message += ": [SPAN_CLASS("message linkify", generate_ahelp_key_words(mob, msg))]"
 	else
 		sender_message += ": [SPAN_CLASS("message linkify", msg)]"
@@ -118,7 +118,7 @@
 
 	var/receiver_message = create_text_tag("pm_in", "", C) + " <b>\[[recieve_pm_type] PM\]</b> [SPAN_CLASS("name", get_options_bar(src, C.holder ? 1 : 0, C.holder ? 1 : 0, 1))]"
 	if(C.holder)
-		receiver_message += " (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>)"
+		receiver_message += " (<a href='byond://?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='byond://?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>)"
 		receiver_message += ": [SPAN_CLASS("message linkify", generate_ahelp_key_words(C.mob, msg))]"
 	else
 		receiver_message += ": [SPAN_CLASS("message linkify", msg)]"
@@ -131,8 +131,9 @@
 		sound_to(C, 'sound/effects/adminhelp.ogg')
 
 	log_admin("PM: [key_name(src)]->[key_name(C)]: [msg]")
-	adminmsg2adminirc(src, C, html_decode(msg))
+	send_to_admin_discord(EXCOM_MSG_AHELP, "PM: [key_name(src, highlight_special_characters = FALSE)]->[key_name(C, highlight_special_characters = FALSE)]:[html_decode(msg)]")
 
+	ticket.last_message_time = world.time
 	ticket.msgs += new /datum/ticket_msg(src.ckey, C.ckey, msg)
 	update_ticket_panels()
 
@@ -142,7 +143,7 @@
 		if(X == C || X == src)
 			continue
 		if(X.key != key && X.key != C.key && (X.holder.rights & R_ADMIN|R_MOD|R_MENTOR))
-			to_chat(X, "[SPAN_CLASS("pm", "[SPAN_CLASS("other", create_text_tag("pm_other", "PM:", X) + " [SPAN_CLASS("name", key_name(src, X, 0, ticket))] to [SPAN_CLASS("name", key_name(C, X, 0, ticket))] (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>): [SPAN_CLASS("message linkify", msg)]")]")]")
+			to_chat(X, "[SPAN_CLASS("pm", "[SPAN_CLASS("other", create_text_tag("pm_other", "PM:", X) + " [SPAN_CLASS("name", key_name(src, X, 0, ticket))] to [SPAN_CLASS("name", key_name(C, X, 0, ticket))] (<a href='byond://?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='byond://?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>): [SPAN_CLASS("message linkify", msg)]")]")]")
 
 /client/proc/cmd_admin_irc_pm(sender)
 	if(prefs.muted & MUTE_ADMINHELP)
@@ -160,7 +161,7 @@
 //		to_chat(src, SPAN_NOTICE("[msg]"))
 //		return
 
-	adminmsg2adminirc(src, sender, html_decode(msg))
+	send_to_admin_discord(EXCOM_MSG_AHELP, "PM: [key_name(src, highlight_special_characters = FALSE)]->DISC-[sender]:[html_decode(msg)]")
 	msg = sanitize(msg)
 	log_admin("PM: [key_name(src)]->IRC-[sender]: [msg]")
 	admin_pm_repository.store_pm(src, "IRC-[sender]", msg)

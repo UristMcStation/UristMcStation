@@ -14,7 +14,7 @@
 	release_force = 5
 	combustion = 1
 	var/obj/item/grenade/chambered
-	var/list/grenades = new/list()
+	var/list/grenades = list()
 	var/max_grenades = 5 //holds this + one in the chamber
 	var/whitelisted_grenades = list(
 		/obj/item/grenade/frag/shell)
@@ -75,11 +75,15 @@
 /obj/item/gun/launcher/grenade/attack_self(mob/user)
 	pump(user)
 
-/obj/item/gun/launcher/grenade/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/grenade)))
-		load(I, user)
-	else
-		..()
+
+/obj/item/gun/launcher/grenade/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Grenade - Load ammo
+	if (istype(tool, /obj/item/grenade))
+		load(tool, user)
+		return TRUE
+
+	return ..()
+
 
 /obj/item/gun/launcher/grenade/attack_hand(mob/user)
 	if(user.get_inactive_hand() == src)
@@ -94,7 +98,7 @@
 	return chambered
 
 /obj/item/gun/launcher/grenade/handle_post_fire(mob/user)
-	log_and_message_admins("fired a grenade ([chambered.name]) from a grenade launcher.")
+	log_and_message_admins("fired a grenade ([chambered.name]) from a grenade launcher.", user)
 
 	chambered = null
 	..()
@@ -155,3 +159,11 @@
 		chambered = null
 	else
 		to_chat(user, SPAN_WARNING("\The [src] is empty."))
+
+
+/obj/item/gun/launcher/grenade/foam/Initialize()
+	. = ..()
+
+	chambered = new /obj/item/grenade/chem_grenade/metalfoam(src)
+	for (var/i in 1 to max_grenades)
+		grenades += new /obj/item/grenade/chem_grenade/metalfoam(src)

@@ -1,31 +1,37 @@
 //i know this isn't machinery. Shut up.
 
-/obj/item/reagent_containers/food/snacks/bun/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/snacks/bun/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/customizable/burger/S = new(get_turf(user))
-		S.attackby(W,user)
+		S.use_tool(W,user,click_params)
 		qdel(src)
 	..()
 
-/obj/item/reagent_containers/food/snacks/sliceable/flatdough/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/snacks/sliceable/flatdough/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/customizable/pizza/S = new(get_turf(user))
-		S.attackby(W,user)
+		S.use_tool(W,user,click_params)
 		qdel(src)
 	..()
 
-/obj/item/reagent_containers/food/snacks/boiledspagetti/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/snacks/boiledspagetti/use_tool(obj/item/W, mob/living/user, list/click_params)
 
 	if(istype(W,/obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/customizable/pasta/S = new(get_turf(user))
-		S.attackby(W,user)
+		S.use_tool(W,user,click_params)
 		qdel(src)
+		return TRUE
 
-/obj/item/trash/plate/attackby(obj/item/W as obj, mob/user as mob)
+	return ..()
+
+/obj/item/trash/plate/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/customizable/fullycustom/S = new(get_turf(user))
-		S.attackby(W,user)
+		S.use_tool(W,user,click_params)
 		qdel(src)
+		return TRUE
+
+	return ..()
 
 /obj/item/trash/bowl
 	name = "bowl"
@@ -33,11 +39,11 @@
 	icon = 'icons/urist/kitchen.dmi'
 	icon_state = "soup"
 
-/obj/item/trash/bowl/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/trash/bowl/use_tool(obj/item/W, mob/living/user, list/click_params)
 
 	if(istype(W,/obj/item/material/shard) || istype(W,/obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/customizable/soup/S = new(get_turf(user))
-		S.attackby(W,user)
+		S.use_tool(W,user,click_params)
 		qdel(src)
 	..()
 
@@ -298,7 +304,7 @@
 	baseicon = "burger"
 	basename = "burger"
 
-/obj/item/reagent_containers/food/snacks/customizable/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/snacks/customizable/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(length(src.contents) > ingredient_limit)
 		to_chat(user, "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>")
 		return
@@ -317,7 +323,7 @@
 	var/fullname = "" //We need to build this from the contents of the var.
 	var/i = 0
 
-	overlays.Cut()
+	ClearOverlays()
 
 	for(var/obj/item/reagent_containers/food/snacks/O in ingredients)
 
@@ -335,7 +341,7 @@
 				I.color = O.filling_color
 				I.pixel_x = pick(list(-1,0,1))
 				I.pixel_y = (i*2)+1
-				overlays += I
+				AddOverlays(I)
 			else
 				var/list/internalcolors //holds a rgb value of the current overlay
 				if(src.filling_color)
@@ -353,19 +359,19 @@
 					internalcolors = SimpleRGBMix(internalcolors, externalcolors, 90, 700, 1)//no painfully black/white foods
 					src.filling_color = rgb(internalcolors[1], internalcolors[2], internalcolors[3])
 				I.color = src.filling_color
-			overlays += I
+			AddOverlays(I)
 		else
 			var/image/F = new(O.icon, O.icon_state)
 			F.pixel_x = pick(list(-1,0,1))
 			F.pixel_y = pick(list(-1,0,1))
-			overlays += F
-			overlays += O.overlays
+			AddOverlays(F)
+			AddOverlays(O.overlays)
 
 	if(top)
 		var/image/T = new(src.icon, "[baseicon]_top")
 		T.pixel_x = pick(list(-1,0,1))
 		T.pixel_y = (length(ingredients) * 2)+1
-		overlays += T
+		AddOverlays(T)
 
 	name = lowertext("[fullname] [basename]")
 	if(length(name) > 80) name = "[pick(list("absurd","colossal","enormous","ridiculous","massive","oversized","cardiac-arresting","pipe-clogging","edible but sickening","sickening","gargantuan","mega","belly-burster","chest-burster"))] [basename]"
@@ -485,7 +491,7 @@
 	top = 0
 	boozetype = /datum/reagent/ethanol/ale
 
-/obj/item/reagent_containers/food/drinks/bottle/customizable/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/food/drinks/bottle/customizable/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(length(src.contents) > ingredient_limit)
 		to_chat(user, "<span class='warning'>If you put anything else in or on [src] it's going to make a mess.</span>")
 		return
@@ -504,7 +510,7 @@
 	var/fullname = "" //We need to build this from the contents of the var.
 	var/i = 0
 
-	overlays.Cut()
+	ClearOverlays()
 
 	for(var/obj/item/reagent_containers/food/snacks/O in ingredients)
 
@@ -534,13 +540,13 @@
 				internalcolors = SimpleRGBMix(internalcolors, externalcolors, 90, 700, 1)//no painfully black/white foods
 				src.filling_color = rgb(internalcolors[1], internalcolors[2], internalcolors[3])
 			I.color = src.filling_color
-			overlays += I
+			AddOverlays(I)
 		else
 			var/image/F = new(O.icon, O.icon_state)
 			F.pixel_x = pick(list(-1,0,1))
 			F.pixel_y = pick(list(-1,0,1))
-			overlays += F
-			overlays += O.overlays
+			AddOverlays(F)
+			AddOverlays(O.overlays)
 
 	name = lowertext("[fullname] [basename]")
 	if(length(name) > 80) name = "incomprehensible mixture [basename]"

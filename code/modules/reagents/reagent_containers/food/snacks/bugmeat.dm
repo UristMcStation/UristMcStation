@@ -1,13 +1,14 @@
 /obj/item/storage/fancy/bugmeat
 	name = "box of insect protein"
 	desc = "What a horrible idea. Who funded this?"
-	icon = 'icons/obj/food_bugmeat.dmi'
+	icon = 'icons/obj/food/food_bugmeat.dmi'
 	icon_state = "box"
+	open_sound = 'sound/effects/storage/box.ogg'
 	storage_slots = 6
 	max_w_class = ITEM_SIZE_SMALL
 	w_class = ITEM_SIZE_NORMAL
-	key_type = /obj/item/reagent_containers/food/snacks/rawcutlet/bugmeat
-	can_hold = list(
+	key_type = list(/obj/item/reagent_containers/food/snacks/rawcutlet/bugmeat)
+	contents_allowed = list(
 		/obj/item/reagent_containers/food/snacks/rawcutlet/bugmeat,
 		/obj/item/reagent_containers/food/snacks/cutlet/bugmeat
 	)
@@ -26,7 +27,7 @@
 /obj/item/reagent_containers/food/snacks/rawcutlet/bugmeat
 	name = "raw insect protein"
 	desc = "A small mass of extruded bug stuff."
-	icon = 'icons/obj/food_bugmeat.dmi'
+	icon = 'icons/obj/food/food_bugmeat.dmi'
 	icon_state = "rawcutlet"
 	filling_color = "#7bc578"
 	slice_path = /obj/item/reagent_containers/food/snacks/rawbacon/bugmeat
@@ -39,7 +40,7 @@
 /obj/item/reagent_containers/food/snacks/cutlet/bugmeat
 	name = "insect protein"
 	desc = "A small mass of cooked extruded bug stuff."
-	icon = 'icons/obj/food_bugmeat.dmi'
+	icon = 'icons/obj/food/food_bugmeat.dmi'
 	icon_state = "cutlet"
 	filling_color = "#858040"
 	slice_path = /obj/item/reagent_containers/food/snacks/bacon/bugmeat
@@ -52,7 +53,7 @@
 /obj/item/reagent_containers/food/snacks/rawbacon/bugmeat
 	name = "raw sliced insect protein"
 	desc = "A small mass of extruded bug stuff, lovingly cut thin."
-	icon = 'icons/obj/food_bugmeat.dmi'
+	icon = 'icons/obj/food/food_bugmeat.dmi'
 	icon_state = "rawbacon"
 	filling_color = "#7bc578"
 	bitesize = 1
@@ -63,7 +64,7 @@
 /obj/item/reagent_containers/food/snacks/bacon/bugmeat
 	name = "sliced insect protein"
 	desc = "A small mass of cooked extruded bug stuff, lovingly cut thin."
-	icon = 'icons/obj/food_bugmeat.dmi'
+	icon = 'icons/obj/food/food_bugmeat.dmi'
 	icon_state = "bacon"
 	filling_color = "#858040"
 	bitesize = 2
@@ -91,26 +92,3 @@
 	containertype = /obj/item/storage/backpack/dufflebag
 	containername = "insect protein dufflebag"
 	cost = 20
-
-
-/obj/structure/closet/secure_closet/freezer/meat/bugmeat/WillContain()
-	return list(
-		/obj/item/storage/fancy/bugmeat = 3
-	)
-
-
-/obj/structure/closet/secure_closet/freezer/fridge/bugmeat/WillContain()
-	return list(
-		/obj/item/reagent_containers/food/drinks/milk = 2,
-		/obj/item/reagent_containers/food/drinks/soymilk = 2,
-		/obj/item/storage/fancy/egg_box/full = 1
-	)
-
-
-/obj/structure/closet/secure_closet/freezer/kitchen/bugmeat/WillContain()
-	return list(
-		/obj/item/reagent_containers/food/condiment/salt = 1,
-		/obj/item/reagent_containers/food/condiment/flour = 3,
-		/obj/item/reagent_containers/food/condiment/sugar = 1,
-		/obj/item/reagent_containers/glass/bottle/dye/polychromic = 4
-	)

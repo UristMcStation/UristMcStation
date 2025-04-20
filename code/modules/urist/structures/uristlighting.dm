@@ -16,7 +16,7 @@
 /obj/item/light/bulb/red/maintenance
 	name = "light bulb (maintenance)"
 	desc = "A replacement light bulb. This one has a red filter and is designed for usage in Maintenance."
-	b_outer_range = 6
+	b_range = 6
 	b_colour = "#b12525"
 
 //cold, blue tint; feedback was good on putting it in Medbay
@@ -88,7 +88,7 @@
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "wolfflight"
 	item_state = "lamp"
-	flashlight_max_bright = 0.5
+	flashlight_power = 0.5
 	light_color = "#e09d37"
 	w_class = 4
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
@@ -114,14 +114,14 @@
 	..()
 
 //experiment - object-based sunlight.
-/obj/effect/sun
+/obj/urist_intangible/sun
 	name = "sun"
 	desc = "You really shouldn't be seeing this."
 	invisibility = 101
 	anchored = TRUE
 	light_color = "#fcfcb6"
-	light_max_bright = 1
-	light_outer_range = 127
+	light_power = 1
+	light_range = 127
 
 /obj/machinery/light/chromatic
 	name = "chromatic light"
@@ -144,7 +144,7 @@
 
 /obj/item/storage/box/lights/incandescent
 	name = "box of replacement incandescent lights"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/boxes.dmi'
 	icon_state = "lighttube"
 	startswith = list(/obj/item/light/tube/tinted/warmtint = 7,
 					/obj/item/light/tube/tinted/coldtint = 7,

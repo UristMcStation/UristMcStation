@@ -1,4 +1,4 @@
-/mob/living/simple_animal/passive/npc/hear_say(message, var/verb = "says", var/datum/language/language = null, var/alt_name = "",var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
+/mob/living/simple_animal/passive/npc/hear_say(message, verb = "says", datum/language/language = null, alt_name = "",italics = 0, mob/speaker = null, sound/speech_sound, sound_vol)
 	if(length(speech_triggers))
 		if(speaker in view(7, src))
 			for(var/datum/npc_speech_trigger/T in speech_triggers)

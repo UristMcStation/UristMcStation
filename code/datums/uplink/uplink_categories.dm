@@ -40,13 +40,16 @@
 	name = "Medical & Food"
 
 /datum/uplink_category/hardsuit_modules
-	name = "Hardsuit Modules"
+	name = "RIG Hardsuit Modules"
 
 /datum/uplink_category/services
 	name = "Jamming & Announcements"
 
 /datum/uplink_category/badassery
 	name = "Badassery"
+
+/datum/uplink_category/structures_and_vehicles
+	name = "Structures & Vehicles"
 
 /datum/uplink_category/telecrystals
 	name = "Telecrystal Materialization"

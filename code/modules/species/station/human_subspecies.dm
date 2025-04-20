@@ -1,4 +1,4 @@
-/datum/species/human/gravworlder
+/singleton/species/human/gravworlder
 	name = SPECIES_GRAVWORLDER
 	name_plural = "Grav-Adapted Humans"
 	description = "Heavier and stronger than a baseline human, gravity-adapted people have \
@@ -25,13 +25,13 @@
 
 	appearance_flags = SPECIES_APPEARANCE_HAS_HAIR_COLOR | SPECIES_APPEARANCE_HAS_SKIN_TONE_GRAV | SPECIES_APPEARANCE_HAS_LIPS | SPECIES_APPEARANCE_HAS_UNDERWEAR | SPECIES_APPEARANCE_HAS_EYE_COLOR
 
-/datum/species/human/gravworlder/can_float(mob/living/carbon/human/H)
+/singleton/species/human/gravworlder/can_float(mob/living/carbon/human/H)
 	. = ..()
 	if(.)
 		if(H.encumbrance() < 1)
 			return TRUE //Hard for them to swim
 
-/datum/species/human/spacer
+/singleton/species/human/spacer
 	name = SPECIES_SPACER
 	name_plural = "Space-Adapted Humans"
 	description = "Lithe and frail, these sickly folk were engineered for work in environments that \
@@ -62,21 +62,19 @@
 	warning_low_pressure = WARNING_LOW_PRESSURE * 0.8            // Low pressure warning.
 	hazard_low_pressure = HAZARD_LOW_PRESSURE * 0.8              // Dangerously low pressure.
 
-/datum/species/human/vatgrown
+/singleton/species/human/vatgrown
 	name = SPECIES_VATGROWN
 	name_plural = "Vat-Grown Humans"
-	description = "With cloning on the forefront of human scientific advancement, mass production \
-	of bodies is a very real and rather ethically grey industry. Although slavery, indentured servitude \
-	and flash-cloning are all illegal in SCG space, there still exists a margin for those legitimate \
-	corporations able to take up contracts for growing and raising vat-grown humans to populate new \
-	colonies or installations. Many vat-grown humans come from one of these projects, making up the \
-	majority of those referred to as the nonborn - those with singular names and an identifier, such as \
-	ID-John, BQ1-Bob or Thomas-582 - while others, bearing more human-sounding names, are created for \
-	and raised as members of regular human families. Still others are the lab-created designer progeny \
-	of the SCG's rich elite.<br/><br/>Vat-grown humans tend to be paler than baseline, though those \
-	with darker skin better display the dull, greenish hue resulting from their artificial growth. \
-	Vat-grown humans have no appendix and fewer inherited genetic disabilities but have a weakened \
-	metabolism."
+	description = "With cloning technology having become commercially viable in the late 21st century, \
+	vat-grown humans have become commonplace throughout human space. Some vat-grown humans trace their \
+	origins to colonization projects - prior to the advent of mainstream bluespace travel, cloning was \
+	often used alongside sleeper ships to populate distant new colonies and installations. While modern \
+	spaceflight has made these colonization practices less necessary, they still persist in some parts of \
+	human space. Most vat-grown humans today come from families who could not or chose not to have children \
+	naturally, however. This is an expensive process, and most families that can afford it are well-off. \
+	<br/><br/>Vat-grown humans tend to be paler than baseline, though those with darker skin better display \
+	the dull, greenish hue resulting from their artificial growth. Vat-grown humans have no appendix and \
+	fewer inherited genetic disabilities but have a weakened metabolism."
 	icobase =     'icons/mob/human_races/species/human/subspecies/vatgrown_body.dmi'
 	preview_icon= 'icons/mob/human_races/species/human/subspecies/vatgrown_preview.dmi'
 
@@ -98,7 +96,7 @@
 		TAG_CULTURE = CULTURE_HUMAN_VATGROWN
 	)
 
-/datum/species/human/tritonian
+/singleton/species/human/tritonian
 	name = SPECIES_TRITONIAN
 	name_plural = "Tritonians"
 	description = "Of all human gene-adapts, the Tritonian genotype is probably the most wildly divergent from \
@@ -140,21 +138,21 @@
 
 	appearance_flags = SPECIES_APPEARANCE_HAS_HAIR_COLOR | SPECIES_APPEARANCE_HAS_SKIN_TONE_TRITON | SPECIES_APPEARANCE_HAS_LIPS | SPECIES_APPEARANCE_HAS_UNDERWEAR | SPECIES_APPEARANCE_HAS_EYE_COLOR
 
-/datum/species/human/tritonian/can_float(mob/living/carbon/human/H)
+/singleton/species/human/tritonian/can_float(mob/living/carbon/human/H)
 	if(!H.is_physically_disabled())
 		if(H.encumbrance() < 2)
 			return TRUE
 	return FALSE
 
-/datum/species/human/mule
+/singleton/species/human/mule
 	name = SPECIES_MULE
 	name_plural = "Mules"
-	description = "There are a huge number of 'uncurated' genetic lines in human space, many of which fall under the \
-	general header of baseline humanity. One recently discovered genotype is remarkable for both being deeply feral, \
-	in the sense that it still has many of the inherited diseases and weaknesses that plagued pre-expansion humanity, \
-	and for a strange affinity for psionic operancy. The Mules, as they are called, are born on the very edges of \
-	civilization, and are physically diminutive and unimposing, with scrawny, often deformed bodies. Their physiology \
-	rejects prosthetics and synthetic organs, and their lifespans are short, but their raw psionic potential is unmatched."
+	description = "Psionics are a relatively new phenomenon, theorized to be linked to long-term exposure to deep, \
+	uninhabited space. Sometimes, rarely, spacers and frontier colonists inhabiting the very fringes of civilization \
+	develop a strange affinity for psionic operancy. Derogatorily known as \"mules\", these individuals are often \
+	frail and prone to physical illness. Their physiology rejects prosthetics and synthetic organs, and their lifespans \
+	are short, but their raw psionic potential is unmatched."
+	preview_icon= 'icons/mob/human_races/species/human/subspecies/mule_preview.dmi'
 
 	spawn_flags =   SPECIES_CAN_JOIN | SPECIES_NO_FBP_CONSTRUCTION | SPECIES_NO_FBP_CHARGEN | SPECIES_NO_ROBOTIC_INTERNAL_ORGANS
 	brute_mod =     1.25
@@ -167,7 +165,7 @@
 	min_age =       18
 	max_age =       45
 
-/datum/species/human/mule/handle_post_spawn(mob/living/carbon/human/H)
+/singleton/species/human/mule/handle_post_spawn(mob/living/carbon/human/H)
 	if(!H.psi)
 		H.psi = new(H)
 		var/list/faculties = list("[PSI_COERCION]", "[PSI_REDACTION]", "[PSI_ENERGISTICS]", "[PSI_PSYCHOKINESIS]")

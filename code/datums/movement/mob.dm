@@ -78,53 +78,61 @@
 		return MOVEMENT_PROCEED
 	return (MOVEMENT_PROCEED|MOVEMENT_HANDLED)
 
+/datum/movement_handler/mob/space
+	var/allow_move
+
 // Space movement
 /datum/movement_handler/mob/space/DoMove(direction, mob/mover)
-	if(!mob.check_solid_ground())
-		var/allowmove = mob.Allow_Spacemove(0)
-		if(!allowmove)
+	if(!mob.has_gravity())
+		if(!allow_move)
 			return MOVEMENT_HANDLED
-		else if(allowmove == -1 && mob.handle_spaceslipping()) //Check to see if we slipped
+		if(!mob.space_do_move(allow_move, direction))
 			return MOVEMENT_HANDLED
-		else
-			mob.inertia_dir = 0 //If not then we can reset inertia and move
 
 /datum/movement_handler/mob/space/MayMove(mob/mover, is_external)
 	if(IS_NOT_SELF(mover) && is_external)
 		return MOVEMENT_PROCEED
 
-	if(!mob.check_solid_ground())
-		if(!mob.Allow_Spacemove(0))
+	if(!mob.has_gravity())
+		allow_move = mob.Process_Spacemove(TRUE)
+		if(!allow_move)
 			return MOVEMENT_STOP
+
 	return MOVEMENT_PROCEED
 
 // Buckle movement
 /datum/movement_handler/mob/buckle_relay/DoMove(direction, mover)
-	// TODO: Datumlize buckle-handling
+	if (!mob.pulledby && !mob.buckled)
+		return
+	if (isturf(mob.loc))
+		var/turf/turf = mob.loc
+		if (!turf.has_gravity())
+			DoFeedback(SPAN_WARNING("You need gravity to move!"))
+			return
 	if(istype(mob.buckled, /obj/vehicle))
 		//drunk driving
-		if(mob.confused && prob(20)) //vehicles tend to keep moving in the same direction
+		if(mob.is_confused() && prob(20)) //vehicles tend to keep moving in the same direction
 			direction = turn(direction, pick(90, -90))
 		mob.buckled.relaymove(mob, direction)
 		return MOVEMENT_HANDLED
-
-	if(mob.pulledby || mob.buckled) // Wheelchair driving!
-		if(istype(mob.loc, /turf/space))
-			return // No wheelchair driving in space
-		if(istype(mob.pulledby, /obj/structure/bed/chair/wheelchair))
-			. = MOVEMENT_HANDLED
-			mob.pulledby.DoMove(direction, mob)
-		else if(istype(mob.buckled, /obj/structure/bed/chair/wheelchair))
-			. = MOVEMENT_HANDLED
-			if(ishuman(mob))
-				var/mob/living/carbon/human/driver = mob
-				var/obj/item/organ/external/l_hand = driver.get_organ(BP_L_HAND)
-				var/obj/item/organ/external/r_hand = driver.get_organ(BP_R_HAND)
-				if((!l_hand || l_hand.is_stump()) && (!r_hand || r_hand.is_stump()))
-					return // No hands to drive your chair? Tough luck!
-			//drunk wheelchair driving
-			direction = mob.AdjustMovementDirection(direction)
-			mob.buckled.DoMove(direction, mob)
+	if (istype(mob.pulledby, /obj/structure/bed/chair/wheelchair))
+		. = MOVEMENT_HANDLED
+		mob.pulledby.DoMove(direction, mob)
+		return
+	if (istype(mob.buckled, /obj/structure/bed/chair/wheelchair))
+		. = MOVEMENT_HANDLED
+		if(ishuman(mob))
+			var/mob/living/carbon/human/driver = mob
+			if (!isnull(driver.l_hand) && !isnull(driver.r_hand))
+				DoFeedback(SPAN_WARNING("You need at least one free hand to move!"))
+				return
+			var/obj/item/organ/external/l_hand = driver.get_organ(BP_L_HAND)
+			var/obj/item/organ/external/r_hand = driver.get_organ(BP_R_HAND)
+			if (!l_hand && !r_hand || l_hand?.is_stump() && r_hand?.is_stump())
+				DoFeedback(SPAN_WARNING("You need at least one free hand to move!"))
+				return
+		direction = mob.AdjustMovementDirection(direction)
+		mob.buckled.DoMove(direction, mob)
 
 /datum/movement_handler/mob/buckle_relay/MayMove(mover)
 	if(mob.buckled)
@@ -157,7 +165,7 @@
 		return MOVEMENT_HANDLED
 
 /datum/movement_handler/mob/stop_effect/MayMove()
-	for(var/obj/effect/stop/S in mob.loc)
+	for(var/obj/stop/S in mob.loc)
 		if(S.victim == mob)
 			return MOVEMENT_STOP
 	return MOVEMENT_PROCEED
@@ -270,7 +278,7 @@
 /datum/movement_handler/mob/movement/MayMove(mob/mover)
 	return IS_SELF(mover) &&  mob.moving ? MOVEMENT_STOP : MOVEMENT_PROCEED
 
-/datum/movement_handler/mob/movement/proc/HandleGrabs(direction, var/old_turf)
+/datum/movement_handler/mob/movement/proc/HandleGrabs(direction, old_turf)
 	. = 0
 	// TODO: Look into making grabs use movement events instead, this is a mess.
 	for (var/obj/item/grab/G in mob)
@@ -278,7 +286,7 @@
 			return
 		. = max(., G.grab_slowdown())
 		var/list/L = mob.ret_grab()
-		if(istype(L, /list))
+		if(islist(L))
 			if(length(L) == 2)
 				L -= mob
 				var/mob/M = L[1]
@@ -308,7 +316,7 @@
 
 /mob/proc/AdjustMovementDirection(direction)
 	. = direction
-	if(!confused)
+	if(!is_confused())
 		return
 
 	var/stability = MOVING_DELIBERATELY(src) ? 75 : 25

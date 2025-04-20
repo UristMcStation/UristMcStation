@@ -39,20 +39,22 @@
 		/obj/item/device/suit_cooling_unit,
 		/obj/item/cell
 	)
+	max_w_class = ITEM_SIZE_SMALL
+	slots = 3 STORAGE_FREEFORM
 
 /obj/item/clothing/gloves/rig/light
 	name = "gloves"
 	species_restricted = list(SPECIES_HUMAN,SPECIES_IPC,SPECIES_RESOMI)
 
 /obj/item/clothing/shoes/magboots/rig/light
-	name = "shoes"
+	name = "boots"
 	species_restricted = list(SPECIES_HUMAN,SPECIES_IPC,SPECIES_RESOMI)
 	sprite_sheets = list(
 		SPECIES_RESOMI = 'icons/mob/species/resomi/shoes.dmi'
 	)
 
 /obj/item/clothing/head/helmet/space/rig/light
-	name = "hood"
+	name = "helmet"
 	species_restricted = list(SPECIES_HUMAN,SPECIES_IPC,SPECIES_RESOMI)
 	sprite_sheets = list(
 		SPECIES_RESOMI = 'icons/mob/species/resomi/helmet.dmi'
@@ -131,7 +133,7 @@
 		/obj/item/rig_module/vision,
 		/obj/item/rig_module/voice,
 		/obj/item/rig_module/fabricator/energy_net,
-		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/chem_dispenser/ninja,
 		/obj/item/rig_module/grenade_launcher/ninja,
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/power_sink,
@@ -238,6 +240,7 @@
 		/obj/item/rig_module/datajack,
 		/obj/item/rig_module/self_destruct,
 		/obj/item/rig_module/mounted/ballistic/minigun,
+		/obj/item/rig_module/mounted/power_fist,
 		/obj/item/rig_module/cooling_unit,
 		/obj/item/rig_module/maneuvering_jets
 		)

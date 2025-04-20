@@ -2,7 +2,7 @@
 	name = "handcuffs"
 	desc = "Use this to keep prisoners in line."
 	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/obj/tools/handcuffs.dmi'
 	icon_state = "handcuff"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT
@@ -14,7 +14,7 @@
 	matter = list(MATERIAL_STEEL = 500)
 	var/elastic
 	var/dispenser = 0
-	var/breakouttime = 1200 //Deciseconds = 120s = 2 minutes
+	breakout_time = 120 SECONDS
 	var/cuff_sound = 'sound/weapons/handcuffs.ogg'
 	var/cuff_type = "handcuffs"
 	sprite_sheets = list(SPECIES_RESOMI = 'icons/mob/species/resomi/handcuffs.dmi')
@@ -26,32 +26,31 @@
 		return "legcuff1"
 	return ..()
 
-/obj/item/handcuffs/attack(mob/living/carbon/C, mob/living/user)
-
-	if(!user.IsAdvancedToolUser())
-		return
+/obj/item/handcuffs/use_before(mob/living/carbon/C, mob/living/user)
+	. = FALSE
+	if (!user.IsAdvancedToolUser())
+		return FALSE
 
 	if ((MUTATION_CLUMSY in user.mutations) && prob(50))
 		to_chat(user, SPAN_WARNING("Uh ... how do those things work?!"))
 		place_handcuffs(user, user)
-		return
+		return TRUE
 
 	// only carbons can be handcuffed
-	if(istype(C))
-		if(!C.handcuffed)
+	if (istype(C))
+		if (!C.handcuffed)
 			if (C == user)
 				place_handcuffs(user, user)
-				return
+				return TRUE
 
 			//check for an aggressive grab (or robutts)
-			if(C.has_danger_grab(user))
+			if (C.has_danger_grab(user))
 				place_handcuffs(C, user)
 			else
 				to_chat(user, SPAN_DANGER("You need to have a firm grip on [C] before you can put \the [src] on!"))
 		else
 			to_chat(user, SPAN_WARNING("\The [C] is already handcuffed!"))
-	else
-		..()
+		return TRUE
 
 /obj/item/handcuffs/proc/can_place(mob/target, mob/user)
 	if(user == target || istype(user, /mob/living/silicon/robot) || istype(user, /mob/living/bot))
@@ -105,30 +104,40 @@
 var/global/last_chew = 0
 /mob/living/carbon/human/RestrainedClickOn(atom/A)
 	if (A != src) return ..()
-	if (last_chew + 26 > world.time) return
+	if (last_chew + 26 > world.time)
+		to_chat(src, SPAN_WARNING("You need a break from chewing your own hand off, the pain is too much!"))
+		return
 
 	var/mob/living/carbon/human/H = A
 	if (!H.handcuffed) return
-	if (H.a_intent != I_HURT) return
-	if (H.zone_sel.selecting != BP_MOUTH) return
-	if (H.wear_mask) return
-	if (istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket)) return
+	if (H.a_intent != I_HURT)
+		to_chat(src, SPAN_WARNING("You consider chewing your hands out of the restraints, but choose not to harm yourself."))
+		return
+	if (H.zone_sel.selecting != BP_MOUTH)
+		to_chat(src, SPAN_WARNING("You need to target your mouth to start chewing through your restraints!"))
+		return
+	if (istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
+		to_chat(src, SPAN_WARNING("Try as you might, you cannot chew through \the [H.wear_suit.name]."))
+		return
+	if (H.wear_mask)
+		to_chat(src, SPAN_WARNING("Your mouth is covered, you cannot chew through your restraints!"))
+		return
 
 	var/obj/item/organ/external/O = H.organs_by_name[(H.hand ? BP_L_HAND : BP_R_HAND)]
 	if (!O) return
 
-	H.visible_message(SPAN_WARNING("\The [H] chews on \his [O.name]!"), SPAN_WARNING("You chew on your [O.name]!"))
+	var/datum/pronouns/pronouns = H.choose_from_pronouns()
+	H.visible_message(SPAN_DANGER("\The [H] chews on [pronouns.his] [O.name]!"), SPAN_DANGER("You chew on your [O.name]!"))
 	admin_attacker_log(H, "chewed on their [O.name]!")
 
 	O.take_external_damage(3,0, DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE ,"teeth marks")
-
 	last_chew = world.time
 
 /obj/item/handcuffs/cable
 	name = "cable restraints"
 	desc = "Looks like some cables tied together. Could be used to tie something up."
 	icon_state = "cuff_white"
-	breakouttime = 300 //Deciseconds = 30s
+	breakout_time = 30 SECONDS
 	cuff_sound = 'sound/weapons/cablecuff.ogg'
 	cuff_type = "cable restraints"
 	elastic = 1
@@ -167,6 +176,6 @@ var/global/last_chew = 0
 	icon_state = "tape_cross"
 	item_state = null
 	icon = 'icons/obj/bureaucracy.dmi'
-	breakouttime = 200
+	breakout_time = 20 SECONDS
 	cuff_type = "duct tape"
 	health_max = 50

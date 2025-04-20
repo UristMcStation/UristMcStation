@@ -7,7 +7,7 @@
 	Returns
 	standard 0 if fail
 */
-/mob/living/proc/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone = null, damage_flags = EMPTY_BITFIELD, used_weapon, armor_pen, silent = FALSE)
+/mob/living/proc/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone = null, damage_flags = FLAGS_OFF, used_weapon, armor_pen, silent = FALSE)
 	if(!damage)
 		return FALSE
 
@@ -17,6 +17,14 @@
 	damage_flags = after_armor[3] // args modifications in case of parent calls
 	if(!damage)
 		return FALSE
+
+	switch (damagetype)
+		if (DAMAGE_EMP, DAMAGE_FIRE)
+			return FALSE // These damages are handled separately by existing legacy code
+		if (DAMAGE_BIO)
+			damagetype = DAMAGE_TOXIN
+		if (DAMAGE_EXPLODE, DAMAGE_PSIONIC)
+			damagetype = DAMAGE_BRUTE
 
 	switch(damagetype)
 		if (DAMAGE_BRUTE)
@@ -31,12 +39,14 @@
 			adjustOxyLoss(damage)
 		if (DAMAGE_GENETIC)
 			adjustCloneLoss(damage)
-		if (DAMAGE_PAIN)
+		if (DAMAGE_STUN, DAMAGE_PAIN)
 			adjustHalLoss(damage)
 		if (DAMAGE_SHOCK)
 			electrocute_act(damage, used_weapon, 1, def_zone)
 		if (DAMAGE_RADIATION)
 			apply_radiation(damage)
+		if (DAMAGE_BRAIN)
+			adjustBrainLoss(damage)
 
 	updatehealth()
 	return TRUE

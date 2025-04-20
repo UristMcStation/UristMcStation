@@ -23,11 +23,12 @@ var/global/req_console_information = list()
 var/global/list/obj/machinery/requests_console/allConsoles = list()
 
 /obj/machinery/requests_console
-	name = "Requests Console"
+	name = "requests console"
 	desc = "A console intended to send requests to different departments."
 	anchored = TRUE
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machines/terminals.dmi'
 	icon_state = "req_comp0"
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 	var/department = "Unknown" //The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/list/message_log = list() //List of all messages
 	var/departmentType = 0 		//Bitflag. Zero is reply-only. Map currently uses raw numbers instead of defines.
@@ -47,10 +48,10 @@ var/global/list/obj/machinery/requests_console/allConsoles = list()
 	var/announceAuth = 0 //Will be set to 1 when you authenticate yourself for announcements
 	var/msgVerified = "" //Will contain the name of the person who varified it
 	var/msgStamped = "" //If a message is stamped, this will contain the stamp name
-	var/message = "";
-	var/recipient = ""; //the department which will be receiving the message
-	var/priority = -1 ; //Priority of the message being sent
-	light_outer_range = 0
+	var/message = ""
+	var/recipient = "" //the department which will be receiving the message
+	var/priority = -1 //Priority of the message being sent
+	light_range = 0
 	var/datum/announcement/announcement = new
 
 /obj/machinery/requests_console/on_update_icon()
@@ -67,7 +68,7 @@ var/global/list/obj/machinery/requests_console/allConsoles = list()
 	announcement.title = "[department] announcement"
 	announcement.newscast = 1
 
-	name = "[department] Requests Console"
+	name = "[department] requests console"
 	allConsoles += src
 	if (departmentType & RC_ASSIST)
 		req_console_assistance |= department
@@ -188,31 +189,9 @@ var/global/list/obj/machinery/requests_console/allConsoles = list()
 		silent = !silent
 		return TOPIC_REFRESH
 
-					//err... hacking code, which has no reason for existing... but anyway... it was once supposed to unlock priority 3 messanging on that console (EXTREME priority...), but the code for that was removed.
-/obj/machinery/requests_console/attackby(obj/item/O as obj, mob/user as mob)
-	/*
-	if (istype(O, /obj/item/crowbar))
-		if(open)
-			open = 0
-			icon_state="req_comp0"
-		else
-			open = 1
-			if(hackState == 0)
-				icon_state="req_comp_open"
-			else if(hackState == 1)
-				icon_state="req_comp_rewired"
-	if (istype(O, /obj/item/screwdriver))
-		if(open)
-			if(hackState == 0)
-				hackState = 1
-				icon_state="req_comp_rewired"
-			else if(hackState == 1)
-				hackState = 0
-				icon_state="req_comp_open"
-		else
-			to_chat(user, "You can't do much with that.") */
-	if (istype(O, /obj/item/card/id))
-		if(inoperable() || GET_FLAGS(stat, MACHINE_STAT_MAINT)) return
+/obj/machinery/requests_console/use_tool(obj/item/O, mob/living/user, list/click_params)
+	if (isid(O))
+		if(inoperable() || GET_FLAGS(stat, MACHINE_STAT_MAINT)) return FALSE
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/card/id/T = O
 			msgVerified = text(SPAN_COLOR("green", "<b>Verified by [T.registered_name] ([T.assignment])</b>"))
@@ -226,13 +205,17 @@ var/global/list/obj/machinery/requests_console/allConsoles = list()
 				reset_message()
 				to_chat(user, SPAN_WARNING("You are not authorized to send announcements."))
 			SSnano.update_uis(src)
+		return TRUE
+
 	if (istype(O, /obj/item/stamp))
-		if(inoperable() || GET_FLAGS(stat, MACHINE_STAT_MAINT)) return
+		if(inoperable() || GET_FLAGS(stat, MACHINE_STAT_MAINT)) return FALSE
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/stamp/T = O
 			msgStamped = text(SPAN_COLOR("blue", "<b>Stamped with the [T.name]</b>"))
 			SSnano.update_uis(src)
-	return
+		return TRUE
+
+	return ..()
 
 /obj/machinery/requests_console/proc/reset_message(mainmenu = 0)
 	message = ""

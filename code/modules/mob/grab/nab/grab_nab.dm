@@ -34,15 +34,16 @@
 
 	affecting.visible_message(SPAN_DANGER("[assailant] begins crushing [affecting]!"))
 	G.attacking = 1
-	if(do_after(assailant, action_cooldown - 1, affecting, DO_DEFAULT | DO_USER_UNIQUE_ACT | DO_PUBLIC_PROGRESS))
+	if(do_after(assailant, action_cooldown - 1, affecting, DO_DEFAULT | DO_USER_UNIQUE_ACT | DO_PUBLIC_PROGRESS) && assailant.use_sanity_check(affecting, G))
 		G.attacking = 0
 		G.action_used()
 		crush(G, crush_damage)
-		return 1
+		return TRUE
 	else
-		G.attacking = 0
+		if (G) // In case the grab was deleted during the timer
+			G.attacking = 0
 		affecting.visible_message(SPAN_NOTICE("[assailant] stops crushing [affecting]!"))
-		return 0
+		return TRUE
 
 /datum/grab/nab/on_hit_harm(obj/item/grab/G)
 	var/mob/living/carbon/human/affecting = G.affecting
@@ -53,15 +54,16 @@
 	affecting.visible_message(SPAN_DANGER("[assailant] begins chewing on [affecting]!"))
 	G.attacking = 1
 
-	if(do_after(assailant, action_cooldown - 1, affecting, DO_DEFAULT | DO_USER_UNIQUE_ACT | DO_PUBLIC_PROGRESS))
+	if(do_after(assailant, action_cooldown - 1, affecting, DO_DEFAULT | DO_USER_UNIQUE_ACT | DO_PUBLIC_PROGRESS) && assailant.use_sanity_check(affecting, G))
 		G.attacking = 0
 		G.action_used()
 		masticate(G, masticate_damage)
-		return 1
+		return TRUE
 	else
-		G.attacking = 0
+		if (G) // In case the grab was deleted during the timer
+			G.attacking = 0
 		affecting.visible_message(SPAN_NOTICE("[assailant] stops chewing on [affecting]."))
-		return 0
+		return TRUE
 
 // This causes the assailant to crush the affecting mob. There is a chance that the crush will cause the
 // forelimb spikes to dig into the affecting mob, doing extra damage and likely causing them to bleed.

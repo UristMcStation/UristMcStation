@@ -4,7 +4,7 @@
 #include "../../torch/items/clothing/solgov-accessory.dm"
 #include "../../torch/items/clothing/solgov-head.dm"
 
-/obj/effect/submap_landmark/joinable_submap/noctis
+/obj/submap_landmark/joinable_submap/noctis
 	name = "UXO Noctis"
 	archetype = /singleton/submap_archetype/derelict/noctis
 
@@ -25,7 +25,7 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/raptor)
 	area_coherency_test_exempt_areas = list(/area/noctis/exteriorl)
 
-/obj/effect/overmap/visitable/ship/noctis
+/obj/overmap/visitable/ship/noctis
 	classification = "exploration corvette"
 	color = "#666666"
 	vessel_mass = 4000
@@ -35,7 +35,7 @@
 		"Raptor" = list("nav_noctis_raptor")
 	)
 
-/obj/effect/overmap/visitable/ship/noctis/New()
+/obj/overmap/visitable/ship/noctis/New()
 	name = "UXO [pick("Khan's Blade", "Liberator", "Serpentine", "Arachnophobia","Sailor's Delight","NULL")]"
 	for(var/area/noctis/A)
 		A.name = "\improper [name] - [A.name]"
@@ -44,21 +44,21 @@
 	name = "[name], \an [classification]"
 	..()
 
-/obj/effect/floor_decal/borderfloorgrey
+/obj/floor_decal/borderfloorgrey
 	name = "border floor"
 	icon_state = "borderfloor_white"
 	color = "#8d8c8c"
 
-/obj/effect/floor_decal/borderfloorgrey/corner
+/obj/floor_decal/borderfloorgrey/corner
 	icon_state = "borderfloorcorner_white"
 
-/obj/effect/floor_decal/borderfloorgrey/corner2
+/obj/floor_decal/borderfloorgrey/corner2
 	icon_state = "borderfloorcorner2_white"
 
-/obj/effect/floor_decal/borderfloorgrey/full
+/obj/floor_decal/borderfloorgrey/full
 	icon_state = "borderfloorfull_white"
 
-/obj/effect/floor_decal/borderfloorgrey/cee
+/obj/floor_decal/borderfloorgrey/cee
 	icon_state = "borderfloorcee_white"
 
 /singleton/prefab/ic_assembly/bluespace_radio
@@ -106,7 +106,7 @@
 	)
 
 //corpses
-/obj/effect/landmark/corpse/noctiscaptain
+/obj/landmark/corpse/noctiscaptain
 	hair_styles_per_species = list(SPECIES_HUMAN = list("Buzzcut 2"))
 	facial_styles_per_species = list(SPECIES_HUMAN = list("5 O'clock Shadow"))
 	corpse_outfits = list(/singleton/hierarchy/outfit/freightercap)

@@ -15,6 +15,8 @@
 		//Chemicals in the body
 		handle_chemicals_in_body()
 
+		handle_allergy()
+
 		//Random events (vomiting etc)
 		handle_random_events()
 
@@ -27,6 +29,3 @@
 		handle_viruses()
 
 		. = 1
-
-		if(!client && (!mind || ghosted) && species)
-			species.handle_npc(src)

@@ -41,15 +41,8 @@
 	autolinkers = list("exploration")
 
 // Suit cyclers and storage
-/obj/machinery/suit_cycler/exploration
-	name = "Exploration suit cycler"
-	model_text = "Exploration"
-	req_access = list(access_explorer)
-	available_modifications = list(/singleton/item_modifier/space_suit/explorer)
-	species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI)
-
 /obj/machinery/suit_storage_unit/explorer
-	name = "Exploration Voidsuit Storage Unit"
+	name = "exploration voidsuit storage unit"
 	suit = /obj/item/clothing/suit/space/void/exploration
 	helmet = /obj/item/clothing/head/helmet/space/void/exploration
 	boots = /obj/item/clothing/shoes/magboots
@@ -59,7 +52,7 @@
 	islocked = 1
 
 /obj/machinery/suit_storage_unit/pilot
-	name = "Pilot Voidsuit Storage Unit"
+	name = "pilot voidsuit storage unit"
 	suit = /obj/item/clothing/suit/space/void/pilot
 	helmet = /obj/item/clothing/head/helmet/space/void/pilot
 	boots = /obj/item/clothing/shoes/magboots
@@ -69,7 +62,7 @@
 	islocked = 1
 
 /obj/machinery/suit_storage_unit/command
-	name = "Command Voidsuit Storage Unit"
+	name = "command voidsuit storage unit"
 	suit = /obj/item/clothing/suit/space/void/command
 	helmet = /obj/item/clothing/head/helmet/space/void/command
 	boots = /obj/item/clothing/shoes/magboots
@@ -77,6 +70,50 @@
 	mask = /obj/item/clothing/mask/breath
 	req_access = list(access_bridge, access_keycard_auth)
 	islocked = 1
+
+/obj/machinery/suit_cycler/torch
+	name = "suit cycler unit"
+	req_access = list(access_bridge)
+	available_modifications = list(
+		/singleton/item_modifier/space_suit/sol/atmos,
+		/singleton/item_modifier/space_suit/sol/command,
+		/singleton/item_modifier/space_suit/sol/engineering,
+		/singleton/item_modifier/space_suit/sol/explorer,
+		/singleton/item_modifier/space_suit/sol/hazard,
+		/singleton/item_modifier/space_suit/sol/medical,
+		/singleton/item_modifier/space_suit/mining,
+		/singleton/item_modifier/space_suit/sol/pilot,
+		/singleton/item_modifier/space_suit/science,
+		/singleton/item_modifier/space_suit/security/alt
+	)
+	species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI)
+
+/obj/machinery/suit_cycler/exploration
+	name = "exploration suit cycler"
+	model_text = "Exploration"
+	req_access = list(access_explorer)
+	available_modifications = list(/singleton/item_modifier/space_suit/sol/explorer)
+	species = list(SPECIES_HUMAN,SPECIES_SKRELL,SPECIES_UNATHI)
+
+/obj/machinery/suit_cycler/command
+	name = "command suit cycler"
+	model_text = "Command"
+	req_access = list(access_bridge)
+	available_modifications = list(/singleton/item_modifier/space_suit/sol/command)
+	species = list(SPECIES_HUMAN,SPECIES_SKRELL)
+
+/obj/machinery/suit_cycler/engineering/alt
+	available_modifications = list(
+		/singleton/item_modifier/space_suit/sol/engineering,
+		/singleton/item_modifier/space_suit/sol/atmos,
+		/singleton/item_modifier/space_suit/sol/hazard
+	)
+
+/obj/machinery/suit_cycler/medical/alt
+	available_modifications = list(/singleton/item_modifier/space_suit/sol/medical)
+
+/obj/machinery/suit_cycler/pilot/alt
+	available_modifications = list(/singleton/item_modifier/space_suit/sol/pilot)
 
 // Vending machines & dispensers
 /obj/machinery/vending/security

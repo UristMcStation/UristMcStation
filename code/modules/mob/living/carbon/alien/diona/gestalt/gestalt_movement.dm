@@ -2,7 +2,7 @@
 	if(nymphs[user]) step(src, direction) // ANARCHY! DEMOCRACY! ANARCHY! DEMOCRACY!
 
 // Naaaa na na na na naa naa https://www.youtube.com/watch?v=iMH49ieL4es
-/obj/structure/diona_gestalt/Bump(atom/movable/AM, yes) // what a useful argname, thanks oldcoders
+/obj/structure/diona_gestalt/Bump(atom/movable/AM, called)
 	. = ..()
 	if(AM && can_roll_up_atom(AM) && AM.Adjacent(src))
 		var/turf/stepping = AM.loc
@@ -39,10 +39,10 @@
 		return FALSE
 	if(valid_things_to_roll_up[thing.type])
 		return TRUE
-	if(istype(thing, /obj))
+	if(isobj(thing))
 		var/obj/rolling_up = thing
 		return rolling_up.w_class <= get_max_item_rollup_size()
-	if(istype(thing, /mob))
+	if(ismob(thing))
 		var/mob/rolling_up = thing
 		return rolling_up.mob_size <= get_max_mob_rollup_size()
 

@@ -1,6 +1,7 @@
 /obj/item/latexballon
 	name = "latex glove"
 	desc = "A latex glove, usually used as a balloon."
+	icon = 'icons/obj/toy.dmi'
 	icon_state = "latexballon"
 	item_state = "lgloves"
 	force = 0
@@ -43,6 +44,7 @@
 		burst()
 	return
 
-/obj/item/latexballon/attackby(obj/item/W as obj, mob/user as mob)
-	if (W.can_puncture())
+/obj/item/latexballon/use_tool(obj/item/item, mob/living/user, list/click_params)
+	if (item.can_puncture())
 		burst()
+	return ..()

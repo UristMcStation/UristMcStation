@@ -18,7 +18,7 @@
 	if(damage)
 		last_afraid = world.time
 
-/mob/living/simple_animal/passive/npc/hit_with_weapon(obj/item/O, mob/living/user, effective_force, var/hit_zone)
+/mob/living/simple_animal/passive/npc/hit_with_weapon(obj/item/O, mob/living/user, effective_force, hit_zone)
 	. = ..()
 
 	for(var/mob/living/simple_animal/hostile/H in viewers (src, null)) //any allied mobs nearby will attack you. //come back to this

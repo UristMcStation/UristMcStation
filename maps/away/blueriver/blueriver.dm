@@ -1,9 +1,9 @@
 //quality code theft
 #include "blueriver_areas.dm"
-/obj/effect/overmap/visitable/sector/planetoid/arcticplanet
+/obj/overmap/visitable/sector/planetoid/arcticplanet
 	name = "arctic planetoid"
 	desc = "Sensor array detects an arctic planet with a small vessel on the planet's surface. Scans further indicate strange energy emissions from below the planet's surface."
-	in_space = FALSE
+	sector_flags = FLAGS_OFF
 	icon_state = "globe"
 	initial_generic_waypoints = list(
 		"nav_blueriv_1",
@@ -12,7 +12,7 @@
 		"nav_blueriv_antag"
 	)
 
-///obj/effect/overmap/visitable/sector/arcticplanet/New(nloc, max_x, max_y)
+///obj/overmap/visitable/sector/arcticplanet/New(nloc, max_x, max_y)
 //	name = "[generate_planet_name()], \a [name]"
 //	..()
 
@@ -112,22 +112,22 @@
 	health = 80
 	can_escape = FALSE
 
-/obj/effect/shuttle_landmark/nav_blueriv/nav1
+/obj/shuttle_landmark/nav_blueriv/nav1
 	name = "Arctic Planet Landing Point #1"
 	landmark_tag = "nav_blueriv_1"
 	base_area = /area/bluespaceriver/ground
 
-/obj/effect/shuttle_landmark/nav_blueriv/nav2
+/obj/shuttle_landmark/nav_blueriv/nav2
 	name = "Arctic Planet Landing Point #2"
 	landmark_tag = "nav_blueriv_2"
 	base_area = /area/bluespaceriver/ground
 
-/obj/effect/shuttle_landmark/nav_blueriv/nav3
+/obj/shuttle_landmark/nav_blueriv/nav3
 	name = "Arctic Planet Landing Point #3"
 	landmark_tag = "nav_blueriv_3"
 	base_area = /area/bluespaceriver/ground
 
-/obj/effect/shuttle_landmark/nav_blueriv/nav4
+/obj/shuttle_landmark/nav_blueriv/nav4
 	name = "Arctic Planet Navpoint #4"
 	landmark_tag = "nav_blueriv_antag"
 	base_area = /area/bluespaceriver/ground
@@ -135,19 +135,19 @@
 /turf/simulated/floor/away/blueriver/alienfloor
 	name = "glowing floor"
 	desc = "The floor glows without any apparent reason."
-	icon = 'riverturfs.dmi'
+	icon = 'maps/away/blueriver/riverturfs.dmi'
 	icon_state = "floor"
 	temperature = 233
 
 /turf/simulated/floor/away/blueriver/alienfloor/Initialize()
 	.=..()
 
-	set_light(0.7, 1, 5, l_color = "#0066ff")
+	set_light(5, 0.7, l_color = "#0066ff")
 
 /turf/unsimulated/wall/away/blueriver/livingwall
 	name = "alien wall"
 	desc = "You feel a sense of dread from just looking at this wall. Its surface seems to be constantly moving, as if it were breathing."
-	icon = 'riverturfs.dmi'
+	icon = 'maps/away/blueriver/riverturfs.dmi'
 	icon_state = "evilwall_1"
 	opacity = 1
 	density = TRUE
@@ -162,8 +162,8 @@
 /turf/unsimulated/wall/supermatter/no_spread
 	name = "weird liquid"
 	desc = "The viscous liquid glows and moves as if it were alive."
-	icon='blueriver.dmi'
-	icon_state = "bluespacecrystal1"
+	icon = 'icons/turf/space.dmi'
+	icon_state = "bluespace"
 	layer = SUPERMATTER_WALL_LAYER
 	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	opacity = 0
@@ -173,16 +173,16 @@
 	.=..()
 
 	icon_state = "bluespacecrystal[rand(1,3)]"
-	set_light(0.7, 1, 5, l_color = "#0066ff")
+	set_light(5, 1, l_color = "#0066ff")
 
 /turf/unsimulated/wall/supermatter/no_spread/Process()
 	return PROCESS_KILL
 
 /turf/unsimulated/wall/supermatter/no_spread/attack_ghost(mob/user as mob)
-	user.examinate(src)
+	examinate(user, src)
 
 /turf/unsimulated/wall/supermatter/no_spread/attack_ai(mob/user as mob)
-	return user.examinate(src)
+	return examinate(user, src)
 
 /turf/unsimulated/wall/supermatter/no_spread/attack_hand(mob/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] reaches out and touches \the [src]... And then blinks out of existance.</span>",\
@@ -193,7 +193,8 @@
 
 	Consume(user)
 
-/turf/unsimulated/wall/supermatter/no_spread/attackby(obj/item/W as obj, mob/living/user as mob)
+/turf/unsimulated/wall/supermatter/no_spread/use_tool(obj/item/W, mob/living/user, list/click_params)
+	SHOULD_CALL_PARENT(FALSE)
 	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
 		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
 		"<span class=\"warning\">Everything suddenly goes silent.</span>")
@@ -216,7 +217,7 @@
 
 	Consume(AM)
 
-/turf/unsimulated/wall/supermatter/no_spread/proc/Consume(var/atom/A)
+/turf/unsimulated/wall/supermatter/no_spread/proc/Consume(atom/A)
 	if(isobserver(A))
 		return
 	if(!A.simulated)
@@ -226,21 +227,11 @@
 
 /obj/structure/deity
 	icon = 'icons/obj/cult.dmi'
-	icon_state = "tomealtar"
+	icon_state = "churchaltar"
 	health_max = 10
 	density = TRUE
 	anchored = TRUE
 
-/obj/structure/deity/attackby(obj/item/W as obj, mob/user as mob)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(src)
-	playsound(get_turf(src), 'sound/effects/Glasshit.ogg', 50, 1)
-	user.visible_message(
-		SPAN_DANGER("[user] hits \the [src] with \the [W]!"),
-		SPAN_DANGER("You hit \the [src] with \the [W]!"),
-		SPAN_DANGER("You hear something breaking!")
-		)
-	damage_health(W.force, W.damtype)
 
 /obj/structure/deity/on_death()
 	visible_message(SPAN_DANGER("\The [src] crumbles!"))

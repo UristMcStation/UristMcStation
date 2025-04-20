@@ -11,7 +11,10 @@
 				continue
 
 			var/turf/T = pick_n_take(spots)
-			new/mob/living/simple_animal/hostile/rogue_drone(T)
+			if (severity > EVENT_LEVEL_MUNDANE && prob(10))
+				new/mob/living/simple_animal/hostile/rogue_drone/big(T)
+			else
+				new/mob/living/simple_animal/hostile/rogue_drone(T)
 
 /datum/event/rogue_maint_drones/announce()
 	var/stealth_chance = 70 - 20*severity
@@ -28,13 +31,20 @@
 	command_announcement.Announce("A maintenance drone [naming] has been detected. Caution is advised when entering maintenance tunnels.", "Drone Behaviour Control", zlevels = affecting_z)
 
 /datum/event/rogue_maint_drones/proc/get_infestation_turfs()
-	var/area/location = pick_area(list(/proc/is_not_space_area, /proc/is_station_area, /proc/is_maint_area))
+	var/area/location = pick_area(list(
+		GLOBAL_PROC_REF(is_not_space_area),
+		GLOBAL_PROC_REF(is_station_area),
+		GLOBAL_PROC_REF(is_maint_area)
+	))
 	if(!location)
 		log_debug("Drone infestation failed to find a viable area. Aborting.")
 		kill(TRUE)
 		return
 
-	var/list/dron_turfs = get_area_turfs(location, list(/proc/not_turf_contains_dense_objects, /proc/IsTurfAtmosSafe))
+	var/list/dron_turfs = get_area_turfs(location, list(
+		GLOBAL_PROC_REF(not_turf_contains_dense_objects),
+		GLOBAL_PROC_REF(IsTurfAtmosSafe)
+	))
 	if(!length(dron_turfs))
 		log_debug("Drone infestation failed to find viable turfs in \the [location].")
 		kill(TRUE)

@@ -1,4 +1,4 @@
-GLOBAL_LIST_INIT(mimic_protected, list(
+GLOBAL_LIST_AS(mimic_protected, list(
 	/obj/machinery,
 	/obj/structure/table,
 	/obj/structure/cable,
@@ -62,12 +62,13 @@ GLOBAL_LIST_INIT(mimic_protected, list(
 		return . - M.creator.resolve()
 
 
-/mob/living/simple_animal/hostile/mimic/New(newloc, obj/o, mob/living/creator)
-	..()
+/mob/living/simple_animal/hostile/mimic/Initialize(mapload, obj/o, mob/living/creator)
+	. = ..()
 	if(o)
 		if(ispath(o))
-			o = new o(newloc)
+			o = new o(loc)
 		CopyObject(o,creator)
+
 
 /mob/living/simple_animal/hostile/mimic/proc/CopyObject(obj/O, mob/living/creator)
 

@@ -48,7 +48,7 @@ var/global/list/ai_verbs_default = list(
 	anchored = TRUE // -- TLE
 	density = TRUE
 	status_flags = CANSTUN|CANPARALYSE|CANPUSH
-	shouldnt_see = list(/obj/effect/rune)
+	shouldnt_see = list(/obj/rune)
 	maxHealth = 200
 	var/list/network = list("Exodus")
 	var/obj/machinery/camera/camera = null
@@ -105,6 +105,8 @@ var/global/list/ai_verbs_default = list(
 	var/default_ai_icon = /singleton/ai_icon/blue
 	var/static/list/custom_ai_icons_by_ckey_and_name
 
+	idcard = /obj/item/card/id/synthetic/ai
+
 /mob/living/silicon/ai/proc/add_ai_verbs()
 	src.verbs |= ai_verbs_default
 	src.verbs -= /mob/living/verb/ghost
@@ -113,11 +115,12 @@ var/global/list/ai_verbs_default = list(
 	src.verbs -= ai_verbs_default
 	src.verbs += /mob/living/verb/ghost
 
-/mob/living/silicon/ai/New(loc, datum/ai_laws/L, obj/item/device/mmi/B, safety = 0)
+
+/mob/living/silicon/ai/Initialize(mapload, datum/ai_laws/L, obj/item/device/mmi/B, safety = FALSE)
 	announcement = new()
 	announcement.title = "A.I. Announcement"
 	announcement.announcement_type = "A.I. Announcement"
-	announcement.newscast = 1
+	announcement.newscast = TRUE
 
 	var/list/possibleNames = GLOB.ai_names
 
@@ -131,7 +134,7 @@ var/global/list/ai_verbs_default = list(
 
 	fully_replace_character_name(pickedName)
 	anchored = TRUE
-	set_density(1)
+	set_density(TRUE)
 
 	holo_icon = getHologramIcon(icon('icons/mob/hologram.dmi',"Face"))
 	holo_icon_longrange = getHologramIcon(icon('icons/mob/hologram.dmi',"Face"), hologram_color = HOLOPAD_LONG_RANGE)
@@ -143,23 +146,23 @@ var/global/list/ai_verbs_default = list(
 
 	additional_law_channels["Holopad"] = ":h"
 
-	if (istype(loc, /turf))
+	if (isturf(loc))
 		add_ai_verbs(src)
 
 	//Languages
-	add_language(LANGUAGE_ROBOT_GLOBAL, 1)
-	add_language(LANGUAGE_EAL, 1)
-	add_language(LANGUAGE_GALCOM, 1)
-	add_language(LANGUAGE_HUMAN_ARABIC, 1)
-	add_language(LANGUAGE_HUMAN_CHINESE, 1)
-	add_language(LANGUAGE_HUMAN_IBERIAN, 1)
-	add_language(LANGUAGE_HUMAN_INDIAN, 1)
-	add_language(LANGUAGE_HUMAN_RUSSIAN, 1)
-	add_language(LANGUAGE_HUMAN_SELENIAN, 1)
-	add_language(LANGUAGE_UNATHI_SINTA, 1)
-	add_language(LANGUAGE_SKRELLIAN, 1)
-	add_language(LANGUAGE_SPACER, 1)
-	add_language(LANGUAGE_SIGN, 0)
+	add_language(LANGUAGE_ROBOT_GLOBAL, TRUE)
+	add_language(LANGUAGE_EAL, TRUE)
+	add_language(LANGUAGE_GALCOM, TRUE)
+	add_language(LANGUAGE_HUMAN_ARABIC, TRUE)
+	add_language(LANGUAGE_HUMAN_CHINESE, TRUE)
+	add_language(LANGUAGE_HUMAN_IBERIAN, TRUE)
+	add_language(LANGUAGE_HUMAN_INDIAN, TRUE)
+	add_language(LANGUAGE_HUMAN_RUSSIAN, TRUE)
+	add_language(LANGUAGE_HUMAN_SELENIAN, TRUE)
+	add_language(LANGUAGE_UNATHI_SINTA, TRUE)
+	add_language(LANGUAGE_SKRELLIAN, TRUE)
+	add_language(LANGUAGE_SPACER, TRUE)
+	add_language(LANGUAGE_SIGN, FALSE)
 	add_language(LANGUAGE_SPACER, 1)
 	add_language(LANGUAGE_UNATHI_YEOSA, 1)
 	add_language(LANGUAGE_RESOMI, 1)
@@ -186,7 +189,7 @@ var/global/list/ai_verbs_default = list(
 	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
 
 	ai_list += src
-	..()
+	. = ..()
 	if(GLOB.using_map.name == "Nerva")	//A little hacky, but avoids any hard references
 		var/obj/item/device/radio/headset/R = silicon_radio
 		for(var/obj/item/device/encryptionkey/heads/ai_integrated/key in R.encryption_keys)
@@ -419,7 +422,7 @@ var/global/list/ai_verbs_default = list(
 		camera = A
 	..()
 	if(istype(A,/obj/machinery/camera))
-		if(camera_light_on)	A.set_light(0.5, 0.1, AI_CAMERA_LUMINOSITY)
+		if(camera_light_on)	A.set_light(AI_CAMERA_LUMINOSITY, 0.5)
 		else				A.set_light(0)
 
 
@@ -590,7 +593,7 @@ var/global/list/ai_verbs_default = list(
 				src.camera.set_light(0)
 				if(!camera.light_disabled)
 					src.camera = camera
-					src.camera.set_light(0.5, 0.1, AI_CAMERA_LUMINOSITY)
+					src.camera.set_light(AI_CAMERA_LUMINOSITY, 0.5)
 				else
 					src.camera = null
 			else if(isnull(camera))
@@ -600,7 +603,7 @@ var/global/list/ai_verbs_default = list(
 			var/obj/machinery/camera/camera = near_range_camera(src.eyeobj)
 			if(camera && !camera.light_disabled)
 				src.camera = camera
-				src.camera.set_light(0.5, 0.1, AI_CAMERA_LUMINOSITY)
+				src.camera.set_light(AI_CAMERA_LUMINOSITY, 0.5)
 		camera_light_on = world.timeofday + 1 * 20 // Update the light every 2 seconds.
 
 
@@ -627,6 +630,7 @@ var/global/list/ai_verbs_default = list(
 		return
 
 	return ..()
+
 
 /mob/living/silicon/ai/proc/control_integrated_radio()
 	set name = "Radio Settings"
@@ -676,7 +680,7 @@ var/global/list/ai_verbs_default = list(
 	return 0
 
 /mob/living/silicon/ai/proc/is_in_chassis()
-	return istype(loc, /turf)
+	return isturf(loc)
 
 /mob/living/silicon/ai/proc/multitool_mode()
 	set name = "Toggle Multitool Mode"
@@ -699,13 +703,13 @@ var/global/list/ai_verbs_default = list(
 	icon = selected_sprite.icon
 	if(stat == DEAD)
 		icon_state = selected_sprite.dead_icon
-		set_light(0.7, 0.1, 1, 2, selected_sprite.dead_light)
+		set_light(1, 0.7, selected_sprite.dead_light)
 	else if(!has_power())
 		icon_state = selected_sprite.nopower_icon
-		set_light(0.4, 0.1, 1, 2, selected_sprite.nopower_light)
+		set_light(1, 0.4, selected_sprite.nopower_light)
 	else
 		icon_state = selected_sprite.alive_icon
-		set_light(0.4, 0.1, 1, 2, selected_sprite.alive_light)
+		set_light(1, 0.4, selected_sprite.alive_light)
 
 // Pass lying down or getting up to our pet human, if we're in a rig.
 /mob/living/silicon/ai/lay_down()

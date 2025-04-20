@@ -25,13 +25,13 @@
 	icon_state = "uglymine" //should probably ask olly or nien for a better sprite
 
 /obj/item/mine/attack_self(mob/user as mob)
-	var/obj/effect/mine/frag/M = new /obj/effect/mine/frag(user.loc)
-	M.overlays += image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1)
+	var/obj/structure/mine/frag/M = new /obj/structure/mine/frag(user.loc)
+	M.AddOverlays(image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1))
 	user.visible_message("<span class='warning'>[user] arms the mine! Be careful not to step on it!</span>","<span_class='warning'>You arm the mine and lay it on the floor. Be careful not to step on it!</span>")
 	qdel(src)
 	user.regenerate_icons()
 	spawn(35)
-		M.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1)
+		M.CutOverlays(image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1))
 
 /obj/item/storage/box/large/mines
 	name = "box of frag mines (WARNING)"
@@ -39,7 +39,25 @@
 	icon_state = "flashbang"
 	startswith = list(/obj/item/mine/frag = 3)
 
-/obj/effect/mine/proc/explode2(obj)
+/obj/structure/mine/frag
+	name = "Frag Mine"
+
+
+/obj/structure/mine/frag/activate()
+	// full override because bay mines are too HE for us.
+	set waitfor = 0
+
+	var/turf/O = get_turf(src)
+	if(!O) return
+
+	activated = TRUE
+	visible_message(
+		SPAN_DANGER("\The [src] explodes!"),
+		SPAN_DANGER("You hear an explosion!")
+	)
+
+	explosion(O, 2, EX_ACT_LIGHT)
+
 	//vars stolen for fragification
 	var/fragment_type = /obj/item/projectile/bullet/pellet/fragment
 	var/num_fragments = 62  //total number of fragments produced by the grenade
@@ -47,11 +65,6 @@
 	var/spread_range = 7 //leave as is, for some reason setting this higher makes the spread pattern have gaps close to the epicenter
 
 	//blatant copypaste from frags, but those are a whole different type so vOv
-	set waitfor = 0
-
-	var/turf/O = get_turf(src)
-	if(!O) return
-
 	var/list/target_turfs = getcircle(O, spread_range)
 	var/fragments_per_projectile = round(num_fragments/length(target_turfs))
 
@@ -73,13 +86,10 @@
 			else
 				P.attack_mob(M, 0, 60) //otherwise, allow a decent amount of fragments to pass
 
-	qdel(src)
+	qdel_self()
+	return
 
-/obj/effect/mine/frag
-	name = "Frag Mine"
-	triggerproc = "explode2"
-
-/obj/effect/mine/frag/attack_hand(mob/user as mob)
+/obj/structure/mine/frag/attack_hand(mob/user as mob)
 	user.visible_message("<span class='warning'>[user] starts to disarm the mine!</span>","<span class='warning'>You start to disarm the mine. Just stay very still.</span>")
 	if (do_after(user, 30, src))
 		user.visible_message("<span class='warning'>[user] disarms the mine!</span>","<span class='warning'>You disarm the mine. It's safe to pick up now!</span>")
@@ -89,13 +99,13 @@
 /obj/structure/assaultshieldgen
 	name = "shield generator"
 	desc = "The shield generator for the station. Protect it with your life. Repair it with a welding torch."
-	icon = 'icons/obj/power.dmi'
-	icon_state = "bbox_on"
+	icon = 'icons/obj/machines/power/breakerbox.dmi'
+	icon_state = "bbox"
 	health_max = 300
 	anchored = TRUE
 	density = TRUE
 
-/obj/structure/assaultshieldgen/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/assaultshieldgen/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/weldingtool))
 		var/obj/item/weldingtool/WT = W
 		if (WT.remove_fuel(0,user))

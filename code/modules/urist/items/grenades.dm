@@ -183,8 +183,8 @@
 	icon = 'icons/urist/items/tgitems.dmi'
 	icon_state = "syndicate"
 	item_state = "flashbang"
-	origin_tech = "materials=3;magnets=4;syndicate=4"
+	origin_tech = list(TECH_MATERIAL = 3, TECH_MAGNET = 4, TECH_ESOTERIC = 4)
 
 /obj/item/grenade/syndieminibomb/detonate()
-	explosion(src.loc, 1, 2, 4, 4)
+	explosion(src.loc, 7, EX_ACT_DEVASTATING)
 	qdel(src)

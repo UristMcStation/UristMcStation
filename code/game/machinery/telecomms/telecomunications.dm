@@ -38,6 +38,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	var/listening_levels = null	// null = auto set in Initialize() - these are the z levels that the machine is listening to.
 	var/overloaded_for = 0
 	var/outage_probability = 75			// Probability of failing during a ionospheric storm
+	var/datum/sound_token/sound_token
 
 
 /obj/machinery/telecomms/proc/relay_information(datum/signal/signal, filter, copysig, amount = 20)
@@ -123,7 +124,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/telecomms/LateInitialize()
+/obj/machinery/telecomms/LateInitialize(mapload)
 	//Set the listening_levels if there's none.
 	if(!listening_levels)
 		//Defaults to our Z level!
@@ -138,14 +139,15 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 		else
 			for(var/obj/machinery/telecomms/T in telecomms_list)
 				add_link(T)
-	. = ..()
 	update_power()
+	update_icon()
 
 /obj/machinery/telecomms/Destroy()
 	telecomms_list -= src
 	for(var/obj/machinery/telecomms/comm in telecomms_list)
 		comm.links -= src
 	links = list()
+	QDEL_NULL(sound_token)
 	..()
 
 // Used in auto linking
@@ -159,10 +161,14 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 					links |= T
 
 /obj/machinery/telecomms/on_update_icon()
+	ClearOverlays()
+
+	if(panel_open)
+		AddOverlays("[icon_state]_panel")
+
 	if(on && !overloaded_for)
-		icon_state = initial(icon_state)
-	else
-		icon_state = "[initial(icon_state)]_off"
+		AddOverlays("[icon_state]_lights_working")
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_working"))
 
 /obj/machinery/telecomms/Move()
 	. = ..()
@@ -173,6 +179,11 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 	. = ..(newloc)
 	listening_levels = GetConnectedZlevels(z)
 	update_power()
+
+/obj/machinery/telecomms/power_change()
+	. = ..()
+	if (!sound_token && !GET_FLAGS(stat, MACHINE_STAT_NOPOWER))
+		sound_token = GLOB.sound_player.PlayLoopingSound(src, "\ref[src]", "sound/ambience/ambiservers.ogg", 4, 5, 1)
 
 /obj/machinery/telecomms/proc/update_power()
 	if(toggled)
@@ -198,6 +209,9 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 	if(traffic > 0)
 		traffic -= netspeed
+
+	if(sound_token && GET_FLAGS(stat, MACHINE_STAT_NOPOWER))
+		QDEL_NULL(sound_token)
 
 /obj/machinery/telecomms/emp_act(severity)
 	if(prob(100/severity))
@@ -263,8 +277,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 */
 
 /obj/machinery/telecomms/receiver
-	name = "Subspace Receiver"
-	icon = 'icons/obj/stationobjs.dmi'
+	name = "subspace receiver"
+	icon = 'icons/obj/machines/telecomms.dmi'
 	icon_state = "broadcast receiver"
 	desc = "This machine has a dish-like shape and green lights. It is designed to detect and process subspace radio activity."
 	density = TRUE
@@ -322,8 +336,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 */
 
 /obj/machinery/telecomms/hub
-	name = "Telecommunication Hub"
-	icon = 'icons/obj/stationobjs.dmi'
+	name = "telecommunication hub"
+	icon = 'icons/obj/machines/telecomms.dmi'
 	icon_state = "hub"
 	desc = "A mighty piece of hardware used to send/receive massive amounts of data."
 	density = TRUE
@@ -358,8 +372,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 */
 
 /obj/machinery/telecomms/bus
-	name = "Bus Mainframe"
-	icon = 'icons/obj/stationobjs.dmi'
+	name = "bus mainframe"
+	icon = 'icons/obj/machines/telecomms.dmi'
 	icon_state = "bus"
 	desc = "A mighty piece of hardware used to send massive amounts of data quickly."
 	density = TRUE
@@ -412,8 +426,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 */
 
 /obj/machinery/telecomms/processor
-	name = "Processor Unit"
-	icon = 'icons/obj/stationobjs.dmi'
+	name = "processor unit"
+	icon = 'icons/obj/machines/telecomms.dmi'
 	icon_state = "processor"
 	desc = "This machine is used to process large quantities of information."
 	density = TRUE
@@ -452,8 +466,8 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 
 /obj/machinery/telecomms/server
-	name = "Telecommunication Server"
-	icon = 'icons/obj/stationobjs.dmi'
+	name = "telecommunication server"
+	icon = 'icons/obj/machines/telecomms.dmi'
 	icon_state = "comm_server"
 	desc = "A machine used to store data and network statistics."
 	density = TRUE
@@ -604,7 +618,7 @@ var/global/list/obj/machinery/telecomms/telecomms_list = list()
 
 /obj/machinery/telecomms/relay
 	name = "Telecommunication Relay"
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/machines/telecomms.dmi'
 	icon_state = "relay"
 	desc = "A mighty piece of hardware used to send massive amounts of data far away."
 	density = TRUE

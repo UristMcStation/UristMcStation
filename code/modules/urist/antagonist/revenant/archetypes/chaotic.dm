@@ -19,7 +19,7 @@
 			return
 
 		var/list/new_flavors = revenant.select_flavors()
-		new_flavors[new_flavors.len] = BSR_FLAVOR_CHAOTIC
+		new_flavors[length(new_flavors)] = BSR_FLAVOR_CHAOTIC
 
 		var/list/new_powers = revenant.select_powers(new_flavors)
 		new_powers.Add(GLOB.revenant_powerinstances[/datum/power/revenant/bs_power/chaotic_reroll])
@@ -39,7 +39,7 @@
 	distortion_threshold = 12000 // 10 mins
 
 
-/datum/power/revenant/bs_power/chaotic_reroll/Activate(var/datum/mind/M)
+/datum/power/revenant/bs_power/chaotic_reroll/Activate(datum/mind/M)
 	. = ..(M)
 
 	if(!.)

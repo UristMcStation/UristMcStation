@@ -1,5 +1,5 @@
 /obj/machinery/door/airlock/lift
-	name = "Elevator Door"
+	name = "elevator door"
 	desc = "Ding."
 	opacity = 0
 	autoclose = FALSE
@@ -12,7 +12,7 @@
 	deny_file = 'icons/obj/doors/elevator/lights_deny.dmi'
 	lights_file = 'icons/obj/doors/elevator/lights_green.dmi'
 
-	paintable = AIRLOCK_PAINTABLE_WINDOW
+	paintable = MATERIAL_PAINTABLE_WINDOW
 
 	var/datum/turbolift/lift
 	var/datum/turbolift_floor/floor

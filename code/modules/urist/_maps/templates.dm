@@ -26,25 +26,17 @@ var/global/list/datum/map_template/ship/ship_templates = list()
 		ship_templates[T.name] = T
 		SSmapping.map_templates[T.name] = T
 
-/obj/effect/template_loader
+/obj/urist_intangible/trigger/template_loader
 	name = "random ruin"
 	icon = 'icons/obj/weapons/other.dmi'
 	icon_state = "syndballoon"
 	invisibility = 101
 	var/gamemode = 0
 
-/obj/effect/template_loader/New()
-	..()
-	GLOB.trigger_landmarks += src
-
-/obj/effect/template_loader/Destroy()
-	GLOB.trigger_landmarks -= src
-	return ..()
-
-/obj/effect/template_loader/proc/Load()
+/obj/urist_intangible/trigger/template_loader/proc/Load()
 	return
 
-/obj/effect/template_loader/space/Load(list/potentialRuins = space_ruins_templates, datum/map_template/template = null)
+/obj/urist_intangible/trigger/template_loader/space/Load(list/potentialRuins = space_ruins_templates, datum/map_template/template = null)
 	var/list/possible_ruins = list()
 	for(var/A in potentialRuins)
 		var/datum/map_template/T = potentialRuins[A]
@@ -59,7 +51,7 @@ var/global/list/datum/map_template/ship/ship_templates = list()
 //	template.loaded++
 	QDEL_IN(src,0)
 
-/obj/effect/template_loader/planet/Load(list/potentialRuins = planet_templates, datum/map_template/template = null)
+/obj/urist_intangible/trigger/template_loader/planet/Load(list/potentialRuins = planet_templates, datum/map_template/template = null)
 	var/list/possible_ruins = list()
 	for(var/A in potentialRuins)
 		var/datum/map_template/T = potentialRuins[A]
@@ -76,7 +68,7 @@ var/global/list/datum/map_template/ship/ship_templates = list()
 //	report_progress(Ruins loaded.")
 	QDEL_IN(src,0)
 
-/obj/effect/template_loader/underground/Load(list/potentialRuins = underground_templates, datum/map_template/template = null)
+/obj/urist_intangible/trigger/template_loader/underground/Load(list/potentialRuins = underground_templates, datum/map_template/template = null)
 	var/list/possible_ruins = list()
 	for(var/A in potentialRuins)
 		var/datum/map_template/T = potentialRuins[A]
@@ -91,11 +83,11 @@ var/global/list/datum/map_template/ship/ship_templates = list()
 //	template.loaded++
 	QDEL_IN(src,0)
 
-/obj/effect/template_loader/gamemode
+/obj/urist_intangible/trigger/template_loader/gamemode
 	var/mapfile = null
 	invisibility = 101
 
-/obj/effect/template_loader/gamemode/Load(list/potentialRuins = map_templates, datum/map_template/template = null)
+/obj/urist_intangible/trigger/template_loader/gamemode/Load(list/potentialRuins = map_templates, datum/map_template/template = null)
 
 	for(var/A in potentialRuins)
 		var/datum/map_template/T = potentialRuins[A]
@@ -108,16 +100,16 @@ var/global/list/datum/map_template/ship/ship_templates = list()
 
 	QDEL_IN(src,0)
 
-/obj/effect/template_loader/gamemode/assault
+/obj/urist_intangible/trigger/template_loader/gamemode/assault
 	var/maptype = 0
 	gamemode = "assault"
 
-/obj/effect/template_loader/ships
+/obj/urist_intangible/trigger/template_loader/ships
 	var/mapfile = null
 	var/mob/living/simple_animal/hostile/overmapship/home_ship = null //what ship are we connected to
 	gamemode = "ships" //this is dumb, but i don't want to rewrite it
 
-/obj/effect/template_loader/ships/Load(list/potentialRuins = ship_templates, datum/map_template/ship/template = null)
+/obj/urist_intangible/trigger/template_loader/ships/Load(list/potentialRuins = ship_templates, datum/map_template/ship/template = null)
 
 	for(var/A in potentialRuins)
 		var/datum/map_template/ship/T = potentialRuins[A]
@@ -132,11 +124,11 @@ var/global/list/datum/map_template/ship/ship_templates = list()
 		QDEL_IN(src,0)
 
 /* MATRIXCOMMENT
-/obj/effect/template_loader/matrix/Initialize()
+/obj/urist_intangible/trigger/template_loader/matrix/Initialize()
 	GLOB.SSmatrix.init_matrix_memory(src)
 	. = ..()
 
-/obj/effect/template_loader/matrix/Load(security_rating = LOW_SEC, datum/map_template/template = null)
+/obj/urist_intangible/trigger/template_loader/matrix/Load(security_rating = LOW_SEC, datum/map_template/template = null)
 	switch(security_rating)
 		if(LOW_SEC)
 			template = safepick(low_matrix_templates)
@@ -149,9 +141,9 @@ var/global/list/datum/map_template/ship/ship_templates = list()
 	return template.load(get_turf(src),centered = TRUE)
 */
 
-/obj/effect/template_loader/volcanic
+/obj/urist_intangible/trigger/template_loader/volcanic
 
-/obj/effect/template_loader/housing
+/obj/urist_intangible/trigger/template_loader/housing
 
 /datum/map_template/ship
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS | TEMPLATE_FLAG_ALLOW_DUPLICATES

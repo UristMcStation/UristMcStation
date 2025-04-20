@@ -46,7 +46,7 @@
 	var/image/I = new(icon = 'icons/obj/vehicles.dmi', icon_state = "cargo_engine_overlay")
 	I.plane = plane
 	I.layer = layer
-	overlays += I
+	AddOverlays(I)
 	turn_off()	//so engine verbs are correctly set
 
 /obj/vehicle/train/cargo/engine/Move(turf/destination)
@@ -65,14 +65,14 @@
 
 	return ..()
 
-/obj/vehicle/train/cargo/trolley/attackby(obj/item/W as obj, mob/user as mob)
+/obj/vehicle/train/cargo/trolley/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(open && isWirecutter(W))
 		passenger_allowed = !passenger_allowed
 		user.visible_message("<span class='notice'>[user] [passenger_allowed ? "cuts" : "mends"] a cable in [src].</span>","<span class='notice'>You [passenger_allowed ? "cut" : "mend"] the load limiter cable.</span>")
 	else
 		..()
 
-/obj/vehicle/train/cargo/engine/attackby(obj/item/W as obj, mob/user as mob)
+/obj/vehicle/train/cargo/engine/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/key/cargo_train))
 		if(!key)
 			if(!user.unEquip(W, src))
@@ -95,10 +95,10 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/vehicle/train/cargo/trolley/insert_cell(obj/item/cell/C, var/mob/living/carbon/human/H)
+/obj/vehicle/train/cargo/trolley/insert_cell(obj/item/cell/C, mob/living/carbon/human/H)
 	return
 
-/obj/vehicle/train/cargo/engine/insert_cell(obj/item/cell/C, var/mob/living/carbon/human/H)
+/obj/vehicle/train/cargo/engine/insert_cell(obj/item/cell/C, mob/living/carbon/human/H)
 	..()
 	update_stats()
 
@@ -308,20 +308,20 @@
 		C.plane = plane
 		C.layer = VEHICLE_LOAD_LAYER
 
-		overlays += C
+		AddOverlays(C)
 
 		//we can set these back now since we have already cloned the icon into the overlay
 		C.pixel_x = initial(C.pixel_x)
 		C.pixel_y = initial(C.pixel_y)
 		C.reset_plane_and_layer()
 
-/obj/vehicle/train/cargo/trolley/unload(mob/user, var/direction)
+/obj/vehicle/train/cargo/trolley/unload(mob/user, direction)
 	if(istype(load, /datum/vehicle_dummy_load))
 		var/datum/vehicle_dummy_load/dummy_load = load
 		load = dummy_load.actual_load
 		dummy_load.actual_load = null
 		qdel(dummy_load)
-		overlays.Cut()
+		ClearOverlays()
 	..()
 
 //-------------------------------------------
@@ -355,7 +355,7 @@
 // more engines increases this limit by car_limit per
 // engine.
 //-------------------------------------------------------
-/obj/vehicle/train/cargo/engine/update_car(train_length, var/active_engines)
+/obj/vehicle/train/cargo/engine/update_car(train_length, active_engines)
 	src.train_length = train_length
 	src.active_engines = active_engines
 
@@ -368,7 +368,7 @@
 		move_delay += config.run_delay 														//base reference speed
 		move_delay *= 1.1																	//makes cargo trains 10% slower than running when not overweight
 
-/obj/vehicle/train/cargo/trolley/update_car(train_length, var/active_engines)
+/obj/vehicle/train/cargo/trolley/update_car(train_length, active_engines)
 	src.train_length = train_length
 	src.active_engines = active_engines
 

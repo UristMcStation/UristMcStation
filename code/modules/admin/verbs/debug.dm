@@ -5,7 +5,7 @@
 		return
 	var/turf/T = mob.loc
 
-	if (!( istype(T, /turf) ))
+	if (!( isturf(T) ))
 		return
 
 	var/datum/gas_mixture/env = T.return_air()
@@ -71,7 +71,7 @@
 		if(confirm != "Yes")
 			return 0
 	var/obj/item/device/paicard/card = new(T)
-	var/mob/living/silicon/pai/pai = new(card)
+	var/mob/living/silicon/pai/pai = new(card, card)
 	pai.SetName(sanitizeSafe(input(choice, "Enter your pAI name:", "pAI Name", "Personal AI") as text))
 	pai.real_name = pai.name
 	pai.key = choice.key
@@ -131,7 +131,7 @@
 			id.icon_state = "gold"
 			id.access = get_all_accesses()
 		else
-			id = new/obj/item/card/id(M);
+			id = new/obj/item/card/id(M)
 			id.icon_state = "gold"
 			id.access = get_all_accesses()
 			id.registered_name = H.real_name
@@ -158,6 +158,8 @@
 	log_and_message_admins("assumed direct control of [M].")
 	var/mob/adminmob = src.mob
 	M.ckey = src.ckey
+	M.teleop = null
+	adminmob.teleop = null
 	if(isghost(adminmob))
 		qdel(adminmob)
 
@@ -254,7 +256,7 @@
 	for(var/areatype in areas_without_camera)
 		log_debug("* [areatype]")
 
-/client/proc/cmd_admin_dress(var/mob/living/carbon/human/H in GLOB.human_mobs)
+/client/proc/cmd_admin_dress(mob/living/carbon/human/H in GLOB.human_mobs)
 	set category = "Fun"
 	set name = "Select equipment"
 
@@ -398,9 +400,9 @@
 
 	if(!H)	return
 
-	var/dat = display_medical_data(H.get_raw_medical_data(), SKILL_MAX)
+	var/dat = display_medical_data(H.get_raw_medical_data(mutations = TRUE), SKILL_MAX)
 
-	dat += text("<BR><A href='?src=\ref[];mach_close=scanconsole'>Close</A>", usr)
+	dat += text("<BR><A href='byond://?src=\ref[];mach_close=scanconsole'>Close</A>", usr)
 	show_browser(usr, dat, "window=scanconsole;size=430x600")
 
 /client/proc/cmd_analyse_health_context(mob/living/carbon/human/H as mob in GLOB.human_mobs)
@@ -412,7 +414,7 @@
 	if(!ishuman(H))	return
 	cmd_analyse_health(H)
 
-/obj/effect/debugmarker
+/obj/debugmarker
 	icon = 'icons/effects/lighting_overlay.dmi'
 	icon_state = "transparent"
 	layer = HOLOMAP_LAYER
@@ -453,7 +455,7 @@
 	GLOB.planet_repopulation_disabled = !GLOB.planet_repopulation_disabled
 	log_and_message_admins("toggled planet mob repopulating [GLOB.planet_repopulation_disabled ? "OFF" : "ON"].")
 
-/client/proc/spawn_exoplanet(exoplanet_type as anything in subtypesof(/obj/effect/overmap/visitable/sector/exoplanet))
+/client/proc/spawn_exoplanet(exoplanet_type as anything in subtypesof(/obj/overmap/visitable/sector/exoplanet))
 	set category = "Debug"
 	set name = "Create Exoplanet"
 
@@ -479,10 +481,10 @@
 	if (last_chance == "Cancel")
 		return
 
-	var/obj/effect/overmap/visitable/sector/exoplanet/new_planet = new exoplanet_type(null, world.maxx, world.maxy)
+	var/obj/overmap/visitable/sector/exoplanet/new_planet = new exoplanet_type(null, world.maxx, world.maxy)
 	new_planet.features_budget = budget
 	new_planet.themes = list(new theme)
-	new_planet.lightlevel = rand(5, 10)/10
+	new_planet.sun_brightness_modifier = Frand(0.1, 0.6)
 
 	log_and_message_admins("is spawning [new_planet] at [new_planet.start_x],[new_planet.start_y], containing Z [english_list(new_planet.map_z)]")
 	new_planet.build_level()

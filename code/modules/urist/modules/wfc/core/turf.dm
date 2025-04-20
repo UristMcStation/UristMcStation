@@ -16,7 +16,7 @@
 /turf/procgen/wfc
 
 
-/proc/WfcChangeTurf(var/turf/trg, var/new_type)
+/proc/WfcChangeTurf(turf/trg, new_type)
 	// This cannot be an isturf() because that only works on instances, not paths!
 	if(!ispath(new_type, /turf))
 		return

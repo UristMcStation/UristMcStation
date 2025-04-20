@@ -11,7 +11,7 @@
 	var/list/linkedweapons = list() //put the weapons in here on their init
 	var/shipid = null
 	var/target = null
-	var/obj/effect/overmap/visitable/ship/combat/homeship
+	var/obj/overmap/visitable/ship/combat/homeship
 	var/fallback_connect = FALSE
 
 /*
@@ -49,7 +49,7 @@
 /obj/machinery/computer/combatcomputer/New()
 	. = ..()
 	if(!shipid)	//New computers being built won't have an ID
-		for(var/obj/effect/overmap/visitable/ship/combat/C in GLOB.overmap_ships)
+		for(var/obj/overmap/visitable/ship/combat/C in GLOB.overmap_ships)
 			if(src.z in C.map_z)	//See if our loc is within an overmap z level
 				var/found = FALSE
 				for(var/obj/machinery/computer/combatcomputer/CC in SSmachines.machinery)
@@ -79,7 +79,7 @@
 				S.linkedcomputer = src
 				linkedweapons += S
 
-		for(var/obj/effect/overmap/visitable/ship/combat/C in GLOB.overmap_ships)
+		for(var/obj/overmap/visitable/ship/combat/C in GLOB.overmap_ships)
 			if(C.shipid == src.shipid)
 				homeship = C
 
@@ -96,7 +96,7 @@
 		return
 	else ui_interact(user)
 
-/obj/machinery/computer/combatcomputer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/combatcomputer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 	var/data[0]
 	var/list/weapons[0]
 	var/list/targetcomponents[0]
@@ -163,8 +163,8 @@
 		data["targetmaxhealth"] = OM.maxHealth
 		data["targetmaxshield"] = maxshields
 
-	else if(target && istype(target, /obj/effect/overmap/visitable/ship/combat))
-		var/obj/effect/overmap/visitable/ship/combat/OM = target
+	else if(target && istype(target, /obj/overmap/visitable/ship/combat))
+		var/obj/overmap/visitable/ship/combat/OM = target
 		data["status"] = 2
 		data["targetname"] = OM.ship_name
 		data["classification"] = OM.classification
@@ -178,7 +178,7 @@
 		var/list/nearby_contacts[0]
 		data["status"] = 3
 
-		for(var/obj/effect/overmap/visitable/ship/combat/OM in homeship.contacts)
+		for(var/obj/overmap/visitable/ship/combat/OM in homeship.contacts)
 			nearby_contacts.Add(list(list(
 			"name" = OM.ship_name,
 			"classification" = OM.classification,
@@ -243,7 +243,7 @@
 				C.targeted = FALSE
 
 	if(href_list["intercept"])
-		var/obj/effect/overmap/visitable/ship/combat/OM = locate(href_list["intercept"])
+		var/obj/overmap/visitable/ship/combat/OM = locate(href_list["intercept"])
 		if(!OM.crossed && !OM.incombat && OM.canfight)
 			homeship.intercept(OM)
 		else

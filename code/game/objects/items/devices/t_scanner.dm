@@ -3,7 +3,7 @@
 /obj/item/device/t_scanner
 	name = "\improper T-ray scanner"
 	desc = "A terahertz-ray emitter and scanner, capable of penetrating conventional hull materials."
-	icon = 'icons/obj/t_ray_scanner.dmi'
+	icon = 'icons/obj/tools/t_ray_scanner.dmi'
 	icon_state = "t-ray0"
 	slot_flags = SLOT_BELT
 	w_class = ITEM_SIZE_SMALL
@@ -22,9 +22,9 @@
 	var/static/list/overlay_cache = list() //cache recent overlays
 
 /obj/item/device/t_scanner/Destroy()
-	. = ..()
-	if(on)
+	if (on)
 		set_active(FALSE)
+	return ..()
 
 /obj/item/device/t_scanner/on_update_icon()
 	icon_state = "t-ray[on]"
@@ -102,7 +102,7 @@
 		if(istype(scanned, /obj/machinery/atmospherics/pipe))
 			var/obj/machinery/atmospherics/pipe/P = scanned
 			I.color = P.pipe_color
-			I.overlays += P.overlays
+			I.CopyOverlays(P)
 			I.underlays += P.underlays
 
 		if(ismob(scanned))
@@ -114,7 +114,7 @@
 					I.icon_state = "phaseout"
 			var/mob/M = scanned
 			I.color = M.color
-			I.overlays += M.overlays
+			I.CopyOverlays(M)
 			I.underlays += M.underlays
 
 		I.alpha = 128

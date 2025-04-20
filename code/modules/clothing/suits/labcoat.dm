@@ -2,7 +2,7 @@
 	name = "labcoat"
 	desc = "A suit that protects against minor chemical spills."
 	icon_state = "labcoat"
-	blood_overlay_type = "coat"
+	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/device/scanner/gas,/obj/item/stack/medical,/obj/item/reagent_containers/dropper,/obj/item/reagent_containers/syringe,/obj/item/reagent_containers/hypospray,/obj/item/device/scanner/health,/obj/item/device/flashlight/pen,/obj/item/reagent_containers/glass/bottle,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/pill,/obj/item/storage/pill_bottle,/obj/item/paper)
 	armor = list(
@@ -113,7 +113,7 @@
 
 
 /obj/item/clothing/suit/storage/toggle/labcoat/science/bishop
-	name = "Bishop labcoat"
+	name = "\improper Bishop labcoat"
 	desc = "A labcoat themed after the prosthetics provided by Bishop Cybernetics."
 	icon_state = "labcoat_bish"
 

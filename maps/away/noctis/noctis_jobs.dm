@@ -7,7 +7,7 @@
 			The last job you did with your team was taking over this small exploration ship for the purposes of refitting it for combat, \
 			however, your shift is long past due and nobody seems to have woken you up."
 
-/datum/job/submap/noctis_crew/New(datum/submap/_owner, var/abstract_job = FALSE)
+/datum/job/submap/noctis_crew/New(datum/submap/_owner, abstract_job = FALSE)
 	if(prob(90))
 		title = "Exploration Crewmember"
 		total_positions = 3
@@ -16,10 +16,10 @@
 				It appears, however, that your ship has been raided while you were in cryosleep, leaving it as a half functional mess floating through space."
 	..()
 
-/obj/effect/submap_landmark/spawnpoint/hijacker
+/obj/submap_landmark/spawnpoint/hijacker
 	name = "Hijacker"
 
-/obj/effect/submap_landmark/spawnpoint/crewmember
+/obj/submap_landmark/spawnpoint/crewmember
 	name = "Exploration Crewmember"
 
 /singleton/hierarchy/outfit/job/pirate_hijacker

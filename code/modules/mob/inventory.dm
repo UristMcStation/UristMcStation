@@ -4,7 +4,7 @@
 	var/obj/item/in_slot = get_equipped_item(slot)
 	if (istype(in_slot))
 		if (istype(in_hand))
-			in_slot.attackby(in_hand, src)
+			in_slot.use_tool(in_hand, src)
 		else
 			in_slot.attack_hand(src)
 	else
@@ -39,6 +39,7 @@
 			return
 		I.equip_delay_after(src, slot, equip_flags)
 	equip_to_slot(I, slot, equip_flags & TRYEQUIP_REDRAW)
+	I.post_equip_item(src, slot, equip_flags)
 	return TRUE
 
 
@@ -62,7 +63,7 @@
 
 
 /// Place I into the first slot it fits in the order of slots_by_priority, returning the slot or falsy.
-/mob/proc/equip_to_appropriate_slot(obj/item/I, skip_storage)
+/mob/proc/equip_to_appropriate_slot(obj/item/I, skip_storage, skip_timer)
 	var/static/list/slots_by_priority = list(
 		slot_back, slot_wear_id, slot_w_uniform, slot_wear_suit,
 		slot_wear_mask, slot_head, slot_shoes, slot_gloves, slot_l_ear,
@@ -71,10 +72,13 @@
 	)
 	if (!istype(I))
 		return
+	var/equip_flags = TRYEQUIP_REDRAW | TRYEQUIP_SILENT
+	if (skip_timer)
+		equip_flags |= TRYEQUIP_INSTANT
 	for (var/slot in slots_by_priority)
 		if (skip_storage && (slot == slot_s_store || slot == slot_l_store || slot == slot_r_store))
 			continue
-		if (equip_to_slot_if_possible(I, slot, TRYEQUIP_REDRAW | TRYEQUIP_SILENT))
+		if (equip_to_slot_if_possible(I, slot, equip_flags))
 			return slot //slot is truthy; we can return it for info
 
 
@@ -209,12 +213,12 @@
 
 /// Whether or not the mob's hands or other holding slots are empty. Returns boolean.
 /mob/proc/HandsEmpty()
-	return l_hand == null && r_hand == null
+	return isnull(l_hand) && isnull(r_hand)
 
 
 /// Whether or not the mob has any free hands/holding slots.
 /mob/proc/HasFreeHand()
-	return l_hand == null || r_hand == null
+	return isnull(l_hand) || isnull(r_hand)
 
 
 // Removes an item from inventory and places it in the target atom.

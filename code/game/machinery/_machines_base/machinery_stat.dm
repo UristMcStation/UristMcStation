@@ -1,8 +1,8 @@
 /// Bitflag. Machine's base status. Can include `MACHINE_STAT_BROKEN`, `MACHINE_STAT_NOPOWER`, etc.
-/obj/machinery/var/stat = EMPTY_BITFIELD
+/obj/machinery/var/stat = FLAGS_OFF
 
 /// Bitflag. Reason the machine is 'broken'. Can be any combination of `MACHINE_BROKEN_*`. Do not modify directly - Use `set_broken()` instead.
-/obj/machinery/var/reason_broken = EMPTY_BITFIELD
+/obj/machinery/var/reason_broken = FLAGS_OFF
 
 /// Bitflag. The machine will never set stat to these flags.
 /obj/machinery/var/stat_immune = MACHINE_STAT_NOSCREEN | MACHINE_STAT_NOINPUT
@@ -45,6 +45,28 @@
 
 
 /**
+ * Updates the machine's stat immunity. This also updates the stat flag itself, if it's set and you're turning on immunity.
+ *
+ * **Parameters**:
+ * - `statflag` (bitfield, One of `MACHINE_STAT_*`) - The stat flag to set immunity of.
+ * - `new_state` (boolean, default `TRUE`) - The new state of the stat immunity flag.
+ *
+ * Returns boolean. Whether or not `stat` was updated during the operation.
+ */
+/obj/machinery/proc/set_stat_immunity(statflag, new_state = TRUE)
+	if (new_state == !!HAS_FLAGS(stat_immune, statflag))
+		return FALSE
+	if (new_state)
+		SET_FLAGS(stat_immune, statflag)
+		if (HAS_FLAGS(stat, statflag))
+			CLEAR_FLAGS(stat, statflag)
+			return TRUE
+		return FALSE
+	CLEAR_FLAGS(stat_immune, statflag)
+	return FALSE
+
+
+/**
  * Toggles a stat flag.
  *
  * **Parameters**:
@@ -64,7 +86,7 @@
  *
  * Returns boolean.
  */
-/obj/machinery/proc/is_powered(additional_flags = EMPTY_BITFIELD)
+/obj/machinery/proc/is_powered(additional_flags = FLAGS_OFF)
 	return !GET_FLAGS(stat, MACHINE_STAT_NOPOWER | additional_flags)
 
 
@@ -74,5 +96,5 @@
 
 
 /// Checks whether or not the machine's state variable has the `MACHINE_STAT_BROKEN` or `MACHINE_STAT_NOPOWER` flags, or any of the provided `additional_flags`. Returns `TRUE` if any of the flags match.
-/obj/machinery/proc/inoperable(additional_flags = EMPTY_BITFIELD)
+/obj/machinery/proc/inoperable(additional_flags = FLAGS_OFF)
 	return (GET_FLAGS(stat, MACHINE_STAT_NOPOWER | additional_flags) || reason_broken)

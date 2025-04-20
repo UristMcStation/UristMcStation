@@ -42,7 +42,7 @@ var/global/list/spells = typesof(/spell) //needed for the badmin verb for now
 	var/cooldown_min = 0 //minimum possible cooldown for a charging spell
 
 	var/overlay = 0
-	var/overlay_icon = 'icons/obj/wizard.dmi'
+	var/overlay_icon = 'icons/obj/cult.dmi'
 	var/overlay_icon_state = "spell"
 	var/overlay_lifespan = 0
 
@@ -61,8 +61,6 @@ var/global/list/spells = typesof(/spell) //needed for the badmin verb for now
 	var/hud_state = "" //name of the icon used in generating the spell hud object
 	var/override_base = ""
 
-
-	var/mob/living/deity/connected_god //Do we have this spell based off a boon from a god?
 	var/obj/screen/connected_button
 
 	var/hidden_from_codex = FALSE
@@ -177,9 +175,9 @@ var/global/list/spells = typesof(/spell) //needed for the badmin verb for now
 			var/location
 			if(istype(target,/mob/living))
 				location = target.loc
-			else if(istype(target,/turf))
+			else if(isturf(target))
 				location = target
-			var/obj/effect/overlay/spell = new /obj/effect/overlay(location)
+			var/obj/overlay/spell = new /obj/overlay(location)
 			spell.icon = overlay_icon
 			spell.icon_state = overlay_icon_state
 			spell.anchored = TRUE
@@ -195,16 +193,16 @@ var/global/list/spells = typesof(/spell) //needed for the badmin verb for now
 		if(istype(target,/mob/living) && message)
 			to_chat(target, text("[message]"))
 		if(sparks_spread)
-			var/datum/effect/effect/system/spark_spread/sparks = new /datum/effect/effect/system/spark_spread()
+			var/datum/effect/spark_spread/sparks = new /datum/effect/spark_spread()
 			sparks.set_up(sparks_amt, 0, location) //no idea what the 0 is
 			sparks.start()
 		if(smoke_spread)
 			if(smoke_spread == 1)
-				var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
+				var/datum/effect/smoke_spread/smoke = new /datum/effect/smoke_spread()
 				smoke.set_up(smoke_amt, 0, location) //no idea what the 0 is
 				smoke.start()
 			else if(smoke_spread == 2)
-				var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad()
+				var/datum/effect/smoke_spread/bad/smoke = new /datum/effect/smoke_spread/bad()
 				smoke.set_up(smoke_amt, 0, location) //no idea what the 0 is
 				smoke.start()
 

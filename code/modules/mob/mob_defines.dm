@@ -7,6 +7,8 @@
 	animate_movement = 2
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
+
 	virtual_mob = /mob/observer/virtual/mob
 
 	movement_handlers = list(
@@ -57,7 +59,6 @@
 	var/obj/screen/gun/item/item_use_icon = null
 	var/obj/screen/gun/radio/radio_use_icon = null
 	var/obj/screen/gun/move/gun_move_icon = null
-	var/obj/screen/gun/run/gun_run_icon = null
 	var/obj/screen/gun/mode/gun_setting_icon = null
 
 	var/obj/screen/movable/ability_master/ability_master = null
@@ -87,7 +88,8 @@
 	var/bhunger = 0			//Carbon
 
 	var/druggy = 0			//Carbon
-	var/confused = 0		//Carbon
+	/// Positive Integer. The mob's current confusion level. Ticks down every `Fire()` in SSMobs. See `set_confused()`, `mod_confused()`, `clear_confused()`, and `is_confused()`.
+	VAR_PRIVATE/confused = 0
 	var/sleeping = 0		//Carbon
 	var/resting = FALSE			//Carbon
 	var/is_shifted = FALSE
@@ -135,8 +137,6 @@
 
 	var/in_throw_mode = 0
 
-	var/inertia_dir = 0
-
 //	var/job = null//Living
 
 	var/can_pull_size = ITEM_SIZE_NO_CONTAINER // Maximum w_class the mob can pull.
@@ -150,6 +150,9 @@
 	var/radiation = 0.0//Carbon
 
 	var/voice_name = "unidentifiable voice"
+
+// To check if mobs can see shadows or not. By default they can.
+	var/seedarkness = 1
 
 	var/faction = MOB_FACTION_NEUTRAL //Used for checking whether hostile simple animals will attack you, possibly more stuff later
 	var/last_faction = MOB_FACTION_NEUTRAL
@@ -196,3 +199,7 @@
 	var/pronouns = null
 
 	var/list/additional_vision_handlers = list() //Basically a list of atoms from which additional vision data is retrieved
+
+	// Offset the overhead text if necessary.
+	var/offset_overhead_text_x = 0
+	var/offset_overhead_text_y = 0

@@ -1,7 +1,7 @@
 /obj/machinery/uniform_vendor
 	name = "uniform vendor"
 	desc= "A uniform vendor for utility, service, and dress uniforms."
-	icon = 'icons/obj/vending.dmi'
+	icon = 'icons/obj/machines/vending.dmi'
 	icon_state = "uniform"
 	layer = BELOW_OBJ_LAYER
 	anchored = TRUE
@@ -98,19 +98,21 @@
 	if(.)
 		attack_hand(user)
 
-/obj/machinery/uniform_vendor/attackby(obj/item/W, mob/user)
+/obj/machinery/uniform_vendor/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/clothingbag))
 		if(length(W.contents))
-			to_chat(user, SPAN_NOTICE("You must empty \the [W] before you can put it in \the [src]."))
-			return
+			to_chat(user, SPAN_WARNING("You must empty \the [W] before you can put it in \the [src]."))
+			return TRUE
 		to_chat(user, SPAN_NOTICE("You put \the [W] into \the [src]'s recycling slot."))
 		qdel(W)
-	else if(istype(W, /obj/item/card/id) && !ID && user.unEquip(W, src))
+		return TRUE
+
+	if (istype(W, /obj/item/card/id) && !ID && user.unEquip(W, src))
 		to_chat(user, SPAN_NOTICE("You slide \the [W] into \the [src]!"))
 		ID = W
 		attack_hand(user)
-	else
-		..()
+		return TRUE
+	return ..()
 
 /*	Outfit structures
 	branch
@@ -178,6 +180,7 @@
 		user_outfit.service_skirt,
 		user_outfit.service_over,
 		user_outfit.service_shoes,
+		user_outfit.service_heels,
 		user_outfit.service_hat,
 		user_outfit.service_gloves
 		)
@@ -189,6 +192,7 @@
 		user_outfit.dress_skirt,
 		user_outfit.dress_over,
 		user_outfit.dress_shoes,
+		user_outfit.dress_heels,
 		user_outfit.dress_hat,
 		user_outfit.dress_gloves
 		)

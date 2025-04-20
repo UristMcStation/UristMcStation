@@ -52,14 +52,14 @@
 
 	ui_interact(user)
 
-/obj/machinery/computer/accounts/attackby(obj/O, mob/user)
-	if(!istype(O, /obj/item/card/id))
+/obj/machinery/computer/accounts/use_tool(obj/item/I, mob/living/user, list/click_params)
+	if(!istype(I, /obj/item/card/id))
 		return ..()
 
 	//Although not necessary; it's nice to be able to set the email and account info to the ID, so that they can ID login to email and swipe to pay at vendors
 	//We don't want to expose these details to anyone but the crewmember, so we'll copy them over here once account creation is complete
 	if(copy_mode && temp_account_items["new_email"])
-		var/obj/item/card/id/target_id = O
+		var/obj/item/card/id/target_id = I
 		var/list/email_login = temp_account_items["new_email"]
 		if(target_id.associated_account_number || target_id.associated_email_login["login"])	//So we cannot copy bank details to our own ID card.
 			to_chat(user, "<span class='warning'>\The [src] flashes a warning: Unassociated ID card required</span>")
@@ -83,7 +83,7 @@
 	else
 		return 2	//ID but no access
 
-/obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, var/force_open = 1)
+/obj/machinery/computer/accounts/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 
 	var/data[0]
 	data["state"] = display_state
@@ -218,7 +218,7 @@
 		ui.open()
 		ui.set_auto_update(0)
 
-/obj/machinery/computer/accounts/OnTopic(mob/user, var/list/href_list, state)
+/obj/machinery/computer/accounts/OnTopic(mob/user, list/href_list, state)
 	if(..())
 		return ..()
 
@@ -315,7 +315,7 @@
 				if(!P.stamped)
 					P.stamped = new
 				P.stamped += /obj/item/stamp
-				P.overlays += stampoverlay
+				P.AddOverlays(stampoverlay)
 				P.stamps += "<HR><i>This paper has been stamped by the Second Officer's Desk.</i>"
 				P.fields++
 				P.updateinfolinks()
@@ -324,7 +324,7 @@
 				if(!P2.stamped)
 					P2.stamped = new
 				P2.stamped += /obj/item/stamp
-				P2.overlays += stampoverlay
+				P2.AddOverlays(stampoverlay)
 				P2.stamps += "<HR><i>This paper has been stamped by the Second Officer's Desk.</i>"
 				P2.fields++
 				P2.updateinfolinks()
@@ -510,7 +510,7 @@
 				M.initial_account = acc
 
 				//More paperwork! This time for pins and account info. Only the crewmember should know this, so we'll put it in an envelope with a seal
-				var/obj/item/folder/envelope/P = new /obj/item/folder/envelope(src.loc)
+				var/obj/item/material/folder/envelope/P = new /obj/item/material/folder/envelope(src.loc)
 				P.name = "envelope - Account Details: [acc.owner_name] (CONFIDENTIAL)"
 				P.desc += "\nA large red label on the front reads \"CONFIDENTIAL - For account holder eyes only\""
 				var/obj/item/paper/R = new /obj/item/paper(P)
@@ -539,7 +539,7 @@
 				if(!R.stamped)
 					R.stamped = new
 				R.stamped += /obj/item/stamp
-				R.overlays += stampoverlay
+				R.AddOverlays(stampoverlay)
 				R.stamps += "<HR><i>This paper has been stamped by the Second Officer's Desk.</i>"
 				R.update_icon()
 
@@ -554,7 +554,7 @@
 
 	return TOPIC_NOACTION
 
-/obj/machinery/computer/accounts/proc/email_client(address, var/txt, var/sending = EMAIL_FINANCE)
+/obj/machinery/computer/accounts/proc/email_client(address, txt, sending = EMAIL_FINANCE)
 	if(!address || !txt)
 		return
 	var/datum/computer_file/data/email_account/server = ntnet_global.find_email_by_name(sending)
@@ -569,7 +569,7 @@
 	message.source = server.login
 	server.send_mail(address, message)
 
-/obj/machinery/computer/accounts/proc/addLog(action, var/details, var/obj/item/card/id/auth_card)
+/obj/machinery/computer/accounts/proc/addLog(action, details, obj/item/card/id/auth_card)
 	if(!details || !action || !auth_card)
 		return
 	var/log = "\[[stationdate2text()] [stationtime2text()]] - [auth_card.registered_name] ([auth_card.assignment]) - \[[action]]: [details]"

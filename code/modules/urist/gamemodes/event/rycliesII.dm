@@ -48,7 +48,7 @@
 		else
 	return
 
-/obj/effect/urist/planet/rycliesii
+/obj/urist_intangible/planet/rycliesii
 	name = "Ryclies II"
 	desc = "Such a beautiful planet... You wish you would've come here before it was torn apart by the Galactic Crisis."
 	icon = 'icons/urist/events/planets.dmi'
@@ -58,10 +58,10 @@
 	layer = 2.0
 //	level = 1
 
-/obj/effect/urist/planet/ex_act(severity)
+/obj/urist_intangible/planet/ex_act(severity)
 	return
 
-/obj/effect/landmark/scom/target
+/obj/landmark/scom/target
 	invisibility = 101
 	var/artillery = 0
 	var/fire = 0
@@ -125,7 +125,7 @@
 	var/reload = 180
 	name = "bluespace artillery control"
 	icon_state = "control_boxp1"
-	icon = 'icons/obj/machines/particle_accelerator2.dmi'
+	icon = 'icons/obj/machines/power/particle_accelerator2.dmi'
 	density = TRUE
 	anchored = TRUE
 	var/artillery = 0
@@ -163,7 +163,7 @@
 			if("Cancel")
 				return
 			if("Yes")
-				for(var/obj/effect/landmark/scom/target/T in landmarks_list)
+				for(var/obj/landmark/scom/target/T in landmarks_list)
 					if(T.artillery == artillery && T.fire == fire)
 						explosion(T.loc, 1, 2, 5)
 						reload = 0
@@ -179,14 +179,14 @@
 			return
 		if("Yes")
 			to_world(FONT_LARGE(SPAN_DANGER("Mothership self-destruct sequence activated.")))
-			for(var/obj/effect/landmark/scom/bomb/B in landmarks_list)
+			for(var/obj/landmark/scom/bomb/B in landmarks_list)
 				B.incomprehensibleprocname()
 				sploded = 0
 				spawn(300)
 					B.incomprehensibleprocname()
 
 
-/obj/effect/urist/fakebomb
+/obj/urist_intangible/fakebomb
 	name = "explosion"
 	icon = 'icons/urist/96x96.dmi'
 	icon_state = "explosion"
@@ -231,19 +231,29 @@
 	armor = list(melee = 60, bullet = 80, laser = 40,energy = 35, bomb = 10, bio = 2, rad = 0)
 
 /obj/item/gun/projectile/automatic/kh50
-	item_icons = DEF_URIST_INHANDS
 	name = "KH50"
 	desc = "A compact rifle chambered in 12.7x54mm Caseless. Heavy and inaccurate, but hard-hitting and reliable. The stamped text on the side reads, 'Kayman-Hale KH-50'"
-	icon_state = "KH50"
-	item_state = "gun"
 	icon = 'icons/urist/items/guns.dmi'
-	force = 12
-	caliber = "12.7x54mm"
+	icon_state = "KH50"
+	item_state = "knight45" // close enough to the look
+	wielded_item_state = "knight45"
+	item_icons = DEF_URIST_INHANDS
+	w_class = ITEM_SIZE_NORMAL
+	caliber = CALIBER_RIFLE_CASELESS
+	origin_tech = list(TECH_COMBAT = 2)
+	slot_flags = SLOT_BELT
 	magazine_type = /obj/item/ammo_magazine/a127x54mm
+	allowed_magazines = /obj/item/ammo_magazine/a127x54mm
+	ammo_type = /obj/item/ammo_casing/a127x54mm
 	load_method = MAGAZINE
+	fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
-
+	firemodes = list(
+		list(mode_name="semi auto",       burst=1, fire_delay=null,    move_delay=null, one_hand_penalty=0, burst_accuracy=null, dispersion=null),
+		list(mode_name="4-round bursts", burst=4, fire_delay=null, move_delay=4,    one_hand_penalty=1, burst_accuracy=list(0,-1,-1),       dispersion=list(0.0, 0.6, 1.0)),
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=0.5, one_hand_penalty=3, burst_accuracy = list(0,-1,-2,-3,-4,-4,-4,-4,-4), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
+		)
 
 /obj/item/gun/projectile/automatic/kh50/on_update_icon()
 	..()
@@ -254,30 +264,32 @@
 	return
 
 /obj/item/ammo_magazine/a127x54mm
-	name = "magazine (12.7x54mm)"
+	name = "rifle magazine"
+	icon = 'icons/urist/items/guns.dmi'
 	icon_state = "12.7x54mm"
 	desc = "A magazine for the KH-50 rifle. Holds up to twenty 12.7x54mm Caseless rounds. This magazine is loaded with regular ball ammo."
-	icon = 'icons/urist/items/guns.dmi'
-	origin_tech = "combat=2"
+	mag_type = MAGAZINE
+	caliber = CALIBER_RIFLE_CASELESS
 	ammo_type = /obj/item/ammo_casing/a127x54mm
+	matter = list(MATERIAL_STEEL = 1000)
 	max_ammo = 31
 	multiple_sprites = 0
-	mag_type = MAGAZINE
-	caliber = "12.7x54mm"
 
 /obj/item/ammo_magazine/a127x54mm/empty //not sure if this is even necessary anymore
-	name = "magazine (12.7x54mm)"
+	name = "rifle magazine"
 	icon_state = "12.7x54mm-empty"
 	icon = 'icons/urist/items/guns.dmi'
 	initial_ammo = 0
 
 /obj/item/ammo_casing/a127x54mm
 	desc = "A 12.7x54mm bullet casing."
-	caliber = "12.7x54mm"
+	caliber = CALIBER_RIFLE_CASELESS
 	projectile_type = /obj/item/projectile/bullet/rifle/a127
 
 /obj/item/projectile/bullet/rifle/a127
 	damage = 25 //low-ish for 12.7, equal with 7.62, but it's what it used to inflict pre-0.1.19 - balance this
+	armor_penetration = 20
+	distance_falloff = 1
 
 /obj/item/storage/box/kh50ammo
 	name = "box of KH-50 ammo"

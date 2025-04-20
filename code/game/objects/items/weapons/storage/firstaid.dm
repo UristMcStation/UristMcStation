@@ -158,7 +158,7 @@
 		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dexalin,
 		/obj/item/stack/medical/bruise_pack
 	)
-	can_hold = list(
+	contents_allowed = list(
 		/obj/item/clothing/gloves/latex,
 		/obj/item/reagent_containers/hypospray/autoinjector,
 		/obj/item/stack/medical/bruise_pack
@@ -173,7 +173,8 @@
 	storage_slots = 14
 	max_w_class = ITEM_SIZE_NORMAL
 	max_storage_space = null
-	can_hold = list(
+	w_class = ITEM_SIZE_LARGE
+	contents_allowed = list(
 		/obj/item/bonesetter,
 		/obj/item/cautery,
 		/obj/item/circular_saw,
@@ -192,7 +193,7 @@
 		/obj/item/circular_saw,
 		/obj/item/hemostat,
 		/obj/item/retractor,
-		/obj/item/scalpel,
+		/obj/item/scalpel/basic,
 		/obj/item/surgicaldrill,
 		/obj/item/bonegel,
 		/obj/item/FixOVein,
@@ -210,11 +211,11 @@
 	max_w_class = ITEM_SIZE_NORMAL
 	w_class = ITEM_SIZE_LARGE
 	max_storage_space = DEFAULT_LARGEBOX_STORAGE
-	use_to_pickup = TRUE
+	allow_quick_gather = TRUE
 	temperature = -16 CELSIUS
 	matter = list(MATERIAL_PLASTIC = 350)
 	origin_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2)
-	can_hold = list(
+	contents_allowed = list(
 		/obj/item/organ,
 		/obj/item/reagent_containers
 	)

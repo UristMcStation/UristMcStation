@@ -3,10 +3,10 @@
 	waterproof = FALSE
 	var/lit = 0
 
-/obj/item/flame/afterattack(obj/O, mob/user, proximity)
-	..()
-	if(proximity && lit && istype(O))
+/obj/item/flame/use_after(obj/O, mob/living/user, click_parameters)
+	if(lit && istype(O))
 		O.HandleObjectHeating(src, user, 700)
+		return TRUE
 
 /obj/item/flame/proc/extinguish(mob/user, no_message)
 	lit = 0
@@ -29,6 +29,7 @@
 ///////////
 /obj/item/flame/match
 	name = "match"
+	pluralname = "matche"
 	desc = "A simple match stick, used for lighting fine smokables."
 	icon = 'icons/obj/cigarettes.dmi'
 	icon_state = "match_unlit"
@@ -51,7 +52,7 @@
 		extinguish()
 		return
 	if(location)
-		location.hotspot_expose(700, 5)
+		location.hotspot_expose(700)
 
 /obj/item/flame/match/dropped(mob/user)
 	//If dropped, put ourselves out
@@ -59,7 +60,7 @@
 	if(lit)
 		var/turf/location = src.loc
 		if(istype(location))
-			location.hotspot_expose(700, 5)
+			location.hotspot_expose(700)
 		extinguish()
 	return ..()
 
@@ -76,7 +77,3 @@
 	if(burnt)
 		icon_state = "match_burnt"
 		item_state = "cigoff"
-
-
-/obj/item/flame/match/IsHeatSource()
-	return lit ? 1000 : 0

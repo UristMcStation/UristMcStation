@@ -38,16 +38,19 @@
 		power_equip = 0
 		power_environ = 0
 	power_change()		// all machines set to current power level, also updates lighting icon
+	if (turfs_airless)
+		return INITIALIZE_HINT_LATELOAD
 
-/area/Destroy()
-	..()
-	return QDEL_HINT_HARDDEL
+/area/LateInitialize(mapload)
+	turfs_airless = FALSE
+
 
 // Changes the area of T to A. Do not do this manually.
 // Area is expected to be a non-null instance.
 /proc/ChangeArea(turf/T, area/A)
 	if(!istype(A))
 		CRASH("Area change attempt failed: invalid area supplied.")
+	var/old_outside = T.is_outside()
 	var/area/old_area = get_area(T)
 	if(old_area == A)
 		return
@@ -62,6 +65,15 @@
 
 	for(var/obj/machinery/M in T)
 		M.area_changed(old_area, A) // They usually get moved events, but this is the one way an area can change without triggering one.
+
+	var/turf/simulated/simT = T
+	if (istype(simT))
+		if(T.is_outside == OUTSIDE_AREA)
+			simT.update_external_atmos_participation() // Refreshes outside status and adds exterior air to turf air if necessary.
+	//Check again if turf is outside -> This isnt solely area based so we cant know based on area alone
+	if(T.is_outside() != old_outside)
+		T.update_weather()
+		AMBIENT_LIGHT_QUEUE_TURF(T)
 
 /// Returns list (`/obj/machinery/camera`). A list of all cameras in the area.
 /area/proc/get_cameras()
@@ -138,7 +150,7 @@
 /// Sets a fire alarm in the area, if one is not already active.
 /area/proc/fire_alert()
 	if(!fire)
-		fire = 1	//used for firedoor checks
+		fire = TRUE	//used for firedoor checks
 		update_icon()
 		mouse_opacity = 0
 		if(!all_doors)
@@ -154,7 +166,7 @@
 /// Clears an active fire alarm from the area.
 /area/proc/fire_reset()
 	if (fire)
-		fire = 0	//used for firedoor checks
+		fire = FALSE	//used for firedoor checks
 		update_icon()
 		mouse_opacity = 0
 		if(!all_doors)
@@ -241,14 +253,13 @@
 	if(!istype(A,/mob/living))	return
 
 	var/mob/living/L = A
-	if(!L.ckey)	return
 
 	if(!L.lastarea)
 		L.lastarea = get_area(L.loc)
 	var/area/newarea = get_area(L.loc)
 	var/area/oldarea = L.lastarea
 	if(oldarea.has_gravity != newarea.has_gravity)
-		if(newarea.has_gravity == 1 && !MOVING_DELIBERATELY(L)) // Being ready when you change areas allows you to avoid falling.
+		if(newarea.has_gravity == 1 && MOVING_QUICKLY(L)) // Being not hasty when you change areas allows you to avoid falling.
 			thunk(L)
 		L.update_floating()
 
@@ -322,22 +333,21 @@
 		var/mob/living/carbon/human/H = mob
 		if(!H.buckled)
 			if(!MOVING_DELIBERATELY(H))
-				H.AdjustStunned(5)
-				H.AdjustWeakened(5)
-			else
 				H.AdjustStunned(3)
 				H.AdjustWeakened(3)
+			else
+				H.AdjustStunned(1.5)
+				H.AdjustWeakened(1.5)
 			to_chat(mob, SPAN_NOTICE("The sudden appearance of gravity makes you fall to the floor!"))
 
 /// Trigger for the prison break event. Causes lighting to overload and dooes to open. Has no effect if the area lacks an APC or the APC is turned off.
 /area/proc/prison_break()
-	var/obj/machinery/power/apc/theAPC = get_apc()
-	if(theAPC && theAPC.operating)
-		for(var/obj/machinery/power/apc/temp_apc in src)
+	if (apc?.operating)
+		for (var/obj/machinery/power/apc/temp_apc in src)
 			temp_apc.overload_lighting(70)
-		for(var/obj/machinery/door/airlock/temp_airlock in src)
+		for (var/obj/machinery/door/airlock/temp_airlock in src)
 			temp_airlock.prison_open()
-		for(var/obj/machinery/door/window/temp_windoor in src)
+		for (var/obj/machinery/door/window/temp_windoor in src)
 			temp_windoor.open()
 
 /// Returns boolean. Whether or not the area is considered to have gravity.
@@ -388,3 +398,99 @@
 	if (src && src.area_flags & AREA_FLAG_NO_MODIFY)
 		return FALSE
 	return TRUE
+
+
+/// Attempt to move the contents of this area to A
+/area/proc/move_contents_to(area/A)
+	if (!A || !src)
+		return
+	var/list/turfs_src = get_area_turfs("\ref[src]")
+	if (!length(turfs_src))
+		return
+	var/src_origin = locate(x, y, z)
+	var/trg_origin = locate(A.x, A.y, A.z)
+	if (src_origin && trg_origin)
+		var/translation = get_turf_translation(src_origin, trg_origin, turfs_src)
+		translate_turfs(translation, null)
+
+
+/**
+ * Attempts to move the contents, including turfs, of one area to another area.
+ * Positioning is based on the lower left corner of both areas.
+ * Tiles that do not fit into the new area will not be copied.
+ * Source atoms are not modified or deleted.
+ * Turfs are created using `ChangeTurf()`.
+ * `dir`, `icon`, and `icon_state` are copied. All other vars use the default value for the copied atom.
+ * Primarily used for holodecks.
+ *
+ * **Parameters**:
+ * - `target` `/area`. The area to copy src's contents to.
+ * - `plating_required` Boolean, default `FALSE`. If set, contents will only be copied to destination tiles that are not the same type as `get_base_area_by_turf()` before calling `ChangeTurf()`.
+ *
+ * Returns List (`/atom`). A list containing all atoms that were created at the target area during the process.
+ */
+/area/proc/copy_contents_to(area/target, plating_required)
+	RETURN_TYPE(/list)
+	if (!target || !src)
+		return
+	var/list/turfs_src = get_area_turfs(type)
+	var/list/turfs_trg = get_area_turfs(target.type)
+	var/src_min_x = 0
+	var/src_min_y = 0
+	for (var/turf/turf in turfs_src)
+		if (turf.x < src_min_x || !src_min_x)
+			src_min_x = turf.x
+		if (turf.y < src_min_y || !src_min_y)
+			src_min_y = turf.y
+	var/trg_min_x = 0
+	var/trg_min_y = 0
+	for (var/turf/turf in turfs_trg)
+		if (turf.x < trg_min_x || !trg_min_x)
+			trg_min_x = turf.x
+		if (turf.y < trg_min_y || !trg_min_y)
+			trg_min_y = turf.y
+	var/list/refined_src = list()
+	for (var/turf/turf in turfs_src)
+		refined_src[turf] = list(turf.x - src_min_x, turf.y - src_min_y)
+	var/list/refined_trg = list()
+	for (var/turf/turf in turfs_trg)
+		refined_trg[turf] = list(turf.x - trg_min_x, turf.y - trg_min_y)
+	var/list/turfs_to_update = list()
+	var/list/copied_movables = list()
+	moving:
+		for (var/turf/source_turf in refined_src)
+			var/list/source_position = refined_src[source_turf]
+			for (var/turf/target_turf in refined_trg)
+				var/list/target_position = refined_trg[target_turf]
+				var/same_position = source_position[1] == target_position[1] \
+					&& source_position[2] == target_position[2]
+				if (same_position)
+					var/old_dir1 = source_turf.dir
+					var/old_icon_state1 = source_turf.icon_state
+					var/old_icon1 = source_turf.icon
+					var/old_underlays = source_turf.underlays.Copy()
+					if (plating_required)
+						if (istype(target_turf, get_base_turf_by_area(target_turf)))
+							continue moving
+					var/turf/temp_target_turf = target_turf
+					temp_target_turf.ChangeTurf(source_turf.type)
+					temp_target_turf.set_dir(old_dir1)
+					temp_target_turf.icon_state = old_icon_state1
+					temp_target_turf.icon = old_icon1
+					temp_target_turf.CopyOverlays(source_turf)
+					temp_target_turf.underlays = old_underlays
+					for (var/obj/obj in source_turf)
+						if (!obj.simulated)
+							continue
+						copied_movables += clone_atom(obj, TRUE, temp_target_turf)
+					for (var/mob/mob in source_turf)
+						if (!mob.simulated)
+							continue
+						copied_movables += clone_atom(mob, TRUE, temp_target_turf)
+					turfs_to_update += temp_target_turf
+					refined_src -= source_turf
+					refined_trg -= target_turf
+					continue moving
+	for (var/turf/simulated/simulated in turfs_to_update)
+		SSair.mark_for_update(simulated)
+	return copied_movables

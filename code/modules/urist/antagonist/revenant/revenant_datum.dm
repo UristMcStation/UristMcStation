@@ -40,7 +40,7 @@
 	if(isnull(GLOB.revenant_powerinstances))
 		GLOB.revenant_powerinstances = list()
 
-	if(!(GLOB.revenant_powerinstances.len))
+	if(!length(GLOB.revenant_powerinstances))
 		// NOTE: we're currently doing both Powers and Hungers in one instances list
 		// If we get enough of 'em that iteration is slow, consider splitting.
 		for(var/RP in revenant_powers)
@@ -62,7 +62,7 @@
 	return GLOB.revenant_powerinstances
 
 
-/datum/bluespace_revenant/proc/RebuildPhenomena(var/mob/M, var/list/flavors_override = null, var/list/powers_override = null, var/list/hungers_override = null, var/list/distortions_override = null)
+/datum/bluespace_revenant/proc/RebuildPhenomena(mob/M, list/flavors_override = null, list/powers_override = null, list/hungers_override = null, list/distortions_override = null)
 	src.flavors = (isnull(flavors_override) ? src.select_flavors() : flavors_override)
 	src.power_set = (isnull(powers_override) ? src.select_powers() : powers_override)
 	src.hungers = (isnull(hungers_override) ? src.select_hungers() : hungers_override)
@@ -97,7 +97,7 @@
 	return TRUE
 
 
-/datum/bluespace_revenant/proc/AddCallback(var/callback)
+/datum/bluespace_revenant/proc/AddCallback(callback)
 	if(!istype(src.callbacks))
 		src.callbacks = list()
 
@@ -110,7 +110,7 @@
 	return src
 
 
-/datum/bluespace_revenant/proc/Init(var/mob/M, var/list/flavors_override = null, var/list/powers_override = null, var/list/hungers_override = null)
+/datum/bluespace_revenant/proc/Init(mob/M, list/flavors_override = null, list/powers_override = null, list/hungers_override = null)
 
 	// Make sure this exists; will only do any work if it wasn't set up already
 	initialize_powerinstances()
@@ -148,10 +148,8 @@
 	return src
 
 
-/datum/bluespace_revenant/New(var/mob/M, var/list/flavors_override = null, var/list/powers_override = null, var/list/hungers_override = null)
+/datum/bluespace_revenant/New(mob/M, list/flavors_override = null, list/powers_override = null, list/hungers_override = null)
 	. = ..()
 
 	src.Init(M, flavors_override, powers_override, hungers_override)
 	return
-
-

@@ -28,7 +28,7 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 	name = "Schrodinger's Crate"
 	desc = "What happens if you open it?"
 
-/obj/structure/largecrate/schrodinger/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/largecrate/schrodinger/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/crowbar))
 		var/mob/living/simple_animal/passive/cat/Cat1 = new(loc)
 		Cat1.apply_damage(250)//,TOX)
@@ -65,9 +65,9 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 		src.visible_message("<span class='warning'>[src] emits a quiet raising whine...</span>", "<span class='warning'>[src] emits a quiet raising whine...</span>", 5)
 		sleep(10)
 		if(trap)
-			if(istype(trap, /obj/effect/mine))
-				var/obj/effect/mine/M = trap
-				M.explode2()
+			if(istype(trap, /obj/structure/mine))
+				var/obj/structure/mine/M = trap
+				M.activate()
 			else if(istype(trap, /obj/item/grenade))
 				var/obj/item/grenade/G = trap
 				G.detonate()
@@ -78,7 +78,7 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 	if(!(triggered))
 		triggered = 1
 		if(trap)
-			if(istype(trap, /obj) && trap_delete_on_open)
+			if(isobj(trap) && trap_delete_on_open)
 				qdel(trap) //no frags for you!
 	..()
 

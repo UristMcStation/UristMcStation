@@ -1,7 +1,7 @@
 /obj/machinery/portable_atmospherics/hydroponics
 	name = "hydroponics tray"
 	desc = "A mechanical basin designed to nurture plants. It has various useful sensors."
-	icon = 'icons/obj/hydroponics_machines.dmi'
+	icon = 'icons/obj/machines/hydroponics_machines.dmi'
 	icon_state = "hydrotray3"
 	density = TRUE
 	anchored = TRUE
@@ -10,7 +10,7 @@
 	construct_state = /singleton/machine_construction/default/panel_closed
 	uncreated_component_parts = null
 	stat_immune = 0
-	init_flags = EMPTY_BITFIELD
+	init_flags = FLAGS_OFF
 
 	machine_name = "hydroponics tray"
 	machine_desc = "These are waist-high trays that can grow a vast variety of plants in a nutrient bath. Also comes with a sealable lid for plants that don't grow in a surrounding atmosphere. A cornerstone of self-sufficient spaceships across the galaxy."
@@ -76,7 +76,8 @@
 		/datum/reagent/adminordrazine =                 1,
 		/datum/reagent/toxin/fertilizer/eznutrient =    1,
 		/datum/reagent/toxin/fertilizer/robustharvest = 1,
-		/datum/reagent/toxin/fertilizer/left4zed =      1
+		/datum/reagent/toxin/fertilizer/left4zed =      1,
+		/datum/reagent/toxin/fertilizer/potash =        1
 		)
 	var/static/list/weedkiller_reagents = list(
 		/datum/reagent/hydrazine =          -4,
@@ -124,7 +125,8 @@
 		/datum/reagent/adminordrazine =                  list(  1,    1,   1  ),
 		/datum/reagent/toxin/fertilizer/robustharvest =  list(  0,    0.2, 0  ),
 		/datum/reagent/toxin/fertilizer/left4zed =       list(  0,    0,   0.2),
-		/datum/reagent/drugs/three_eye =                       list(  -1  , 0,   0.5)
+		/datum/reagent/drugs/three_eye =                       list(  -1  , 0,   0.5),
+		/datum/reagent/toxin/fertilizer/potash =         list(  0,5,   0.5,   0)
 		)
 
 	// Mutagen list specifies minimum value for the mutation to take place, rather
@@ -137,7 +139,7 @@
 /obj/machinery/portable_atmospherics/hydroponics/AltClick()
 	if(mechanical && !usr.incapacitated() && Adjacent(usr))
 		close_lid(usr)
-		return 1
+		return TRUE
 	return ..()
 
 /obj/machinery/portable_atmospherics/hydroponics/attack_ghost(mob/observer/ghost/user)
@@ -169,7 +171,7 @@
 	SSplants.active_plants -= src
 	return ..()
 
-/obj/machinery/portable_atmospherics/hydroponics/LateInitialize()
+/obj/machinery/portable_atmospherics/hydroponics/LateInitialize(mapload)
 	..()
 	if(locate(/obj/item/seeds) in get_turf(src))
 		plant()
@@ -412,24 +414,22 @@
 
 	return
 
-/obj/machinery/portable_atmospherics/hydroponics/attackby(obj/item/O, mob/user)
-
+/obj/machinery/portable_atmospherics/hydroponics/use_tool(obj/item/O, mob/living/user, list/click_params)
 	if (O.is_open_container())
-		return 0
+		return FALSE
 
 	if(O.edge && O.w_class < ITEM_SIZE_NORMAL && user.a_intent != I_HURT)
-
 		if(!seed)
 			to_chat(user, SPAN_WARNING("There is nothing to take a sample from in \the [src]."))
-			return
+			return TRUE
 
 		if(sampled)
 			to_chat(user, SPAN_WARNING("There's no bits that can be used for a sampling left."))
-			return
+			return TRUE
 
 		if(dead)
 			to_chat(user, SPAN_WARNING("The plant is dead."))
-			return
+			return TRUE
 
 		else
 			// Create a sample.
@@ -444,55 +444,52 @@
 		force_update = 1
 		Process()
 
-		return
+		return TRUE
 
-	else if(istype(O, /obj/item/reagent_containers/syringe))
-
+	if (istype(O, /obj/item/reagent_containers/syringe))
 		var/obj/item/reagent_containers/syringe/S = O
-
 		if (S.mode == 1)
 			if(seed)
 				return ..()
 			else
 				to_chat(user, "There's no plant to inject.")
-				return 1
+				return TRUE
 		else
 			if(seed)
 				//Leaving this in in case we want to extract from plants later.
 				to_chat(user, "You can't get any extract out of this plant.")
 			else
 				to_chat(user, "There's nothing to draw something from.")
-			return 1
+			return TRUE
 
-	else if (istype(O, /obj/item/seeds))
-
+	if (istype(O, /obj/item/seeds))
 		plant_seed(user, O)
+		return TRUE
 
-	else if (istype(O, /obj/item/material/minihoe))  // The minihoe
-
+	if (istype(O, /obj/item/material/minihoe))
 		if(weedlevel > 0)
 			user.visible_message(SPAN_NOTICE("[user] starts uprooting the weeds."), SPAN_NOTICE("You remove the weeds from the [src]."))
 			weedlevel = 0
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, SPAN_NOTICE("This plot is completely devoid of weeds. It doesn't need uprooting."))
+			return TRUE
 
-	else if (istype(O, /obj/item/storage/plants))
-
+	if (istype(O, /obj/item/storage/plants))
 		attack_hand(user)
-
 		var/obj/item/storage/plants/S = O
 		for (var/obj/item/reagent_containers/food/snacks/grown/G in locate(user.x,user.y,user.z))
 			if(!S.can_be_inserted(G, user))
-				return
+				return TRUE
 			S.handle_item_insertion(G, 1)
 		for (var/obj/item/shellfish/G in locate(user.x,user.y,user.z))
 			if(!S.can_be_inserted(G, user))
-				return
+				return TRUE
 			S.handle_item_insertion(G, 1)
+		return TRUE
 
-	else if ( istype(O, /obj/item/plantspray) )
-
+	if (istype(O, /obj/item/plantspray))
 		var/obj/item/plantspray/spray = O
 		toxins += spray.toxicity
 		pestlevel -= spray.pest_kill_str
@@ -501,9 +498,9 @@
 		playsound(loc, 'sound/effects/spray3.ogg', 50, 1, -6)
 		qdel(O)
 		check_health()
+		return TRUE
 
-	else if(mechanical && isWrench(O))
-
+	if (mechanical && isWrench(O))
 		//If there's a connector here, the portable_atmospherics setup can handle it.
 		if(locate(/obj/machinery/atmospherics/portables_connector) in loc)
 			return ..()
@@ -511,16 +508,24 @@
 		playsound(loc, 'sound/items/Ratchet.ogg', 50, 1)
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "wrench" : "unwrench"] \the [src].")
+		return TRUE
 
-	else if(O.force && seed)
-		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		user.visible_message(SPAN_DANGER("\The [seed.display_name] has been attacked by [user] with \the [O]!"))
-		playsound(get_turf(src), O.hitsound, 100, 1)
-		if(!dead)
-			health -= O.force
-			check_health()
-	else if(mechanical)
+	if (mechanical)
 		return component_attackby(O, user)
+
+	return ..()
+
+/obj/machinery/portable_atmospherics/hydroponics/use_weapon(obj/item/weapon, mob/living/user, list/click_params)
+	if (weapon.force && seed)
+		user.setClickCooldown(user.get_attack_speed(weapon))
+		user.do_attack_animation(src)
+		user.visible_message(SPAN_DANGER("\The [seed.display_name] has been attacked by [user] with \the [weapon]!"))
+		playsound(get_turf(src), weapon.hitsound, 100, 1)
+		if(!dead)
+			health -= weapon.force
+			check_health()
+		return TRUE
+	return ..()
 
 /obj/machinery/portable_atmospherics/hydroponics/proc/plant_seed(mob/user, obj/item/seeds/S)
 

@@ -22,14 +22,14 @@
 		SKILL_WEAPONS = SKILL_MAX,
 		SKILL_FORENSICS = SKILL_MAX,
 		SKILL_CONSTRUCTION = SKILL_MAX,
-		SKILL_ELECTRICAL = SKILL_ADEPT,
-		SKILL_ATMOS = SKILL_ADEPT,
-		SKILL_ENGINES = SKILL_ADEPT,
+		SKILL_ELECTRICAL = SKILL_TRAINED,
+		SKILL_ATMOS = SKILL_TRAINED,
+		SKILL_ENGINES = SKILL_TRAINED,
 		SKILL_DEVICES = SKILL_MAX,
 		SKILL_SCIENCE = SKILL_MAX,
-		SKILL_MEDICAL = SKILL_ADEPT,
-		SKILL_ANATOMY = SKILL_ADEPT,
-		SKILL_CHEMISTRY = SKILL_ADEPT
+		SKILL_MEDICAL = SKILL_TRAINED,
+		SKILL_ANATOMY = SKILL_TRAINED,
+		SKILL_CHEMISTRY = SKILL_TRAINED
 	)
 
 /datum/job/submap/voxship_vox/doc
@@ -38,13 +38,13 @@
 	info = "You are the sawbones of your scavenger crew. You are in charge of removing stacks, replacing limbs, and generally keeping \
 	your kin alive at all costs."
 	whitelisted_species = list(SPECIES_VOX)
-	min_skill = list(
-		SKILL_HAULING = SKILL_BASIC,
-		SKILL_EVA = SKILL_EXPERT,
-		SKILL_MEDICAL = SKILL_EXPERT,
-		SKILL_ANATOMY = SKILL_EXPERT,
-		SKILL_CHEMISTRY = SKILL_BASIC,
-		SKILL_DEVICES = SKILL_ADEPT
+	min_skill = list( // 45 points
+		SKILL_HAULING = SKILL_BASIC, // 1 point
+		SKILL_EVA = SKILL_EXPERIENCED, // 4 points
+		SKILL_MEDICAL = SKILL_EXPERIENCED, // 16 points
+		SKILL_ANATOMY = SKILL_EXPERIENCED, // 16 points
+		SKILL_CHEMISTRY = SKILL_BASIC, // 4 points
+		SKILL_DEVICES = SKILL_TRAINED // 4 points
 	)
 
 	max_skill = list(
@@ -60,10 +60,10 @@
 		SKILL_COMBAT = SKILL_MAX,
 		SKILL_WEAPONS = SKILL_MAX,
 		SKILL_FORENSICS = SKILL_MAX,
-		SKILL_CONSTRUCTION = SKILL_ADEPT,
-		SKILL_ELECTRICAL = SKILL_ADEPT,
-		SKILL_ATMOS = SKILL_ADEPT,
-		SKILL_ENGINES = SKILL_ADEPT,
+		SKILL_CONSTRUCTION = SKILL_TRAINED,
+		SKILL_ELECTRICAL = SKILL_TRAINED,
+		SKILL_ATMOS = SKILL_TRAINED,
+		SKILL_ENGINES = SKILL_TRAINED,
 		SKILL_DEVICES = SKILL_MAX,
 		SKILL_SCIENCE = SKILL_MAX,
 		SKILL_MEDICAL = SKILL_MAX,
@@ -77,14 +77,14 @@
 	total_positions = 1
 	info = "You are the mechanic of your scavenger crew. Keep all your salvaged technology running, fix robotics, and disassemble some of \
 	the more complex devices your crew comes across."
-	min_skill = list(
-		SKILL_HAULING = SKILL_BASIC,
-		SKILL_COMPUTER = SKILL_BASIC,
-		SKILL_EVA = SKILL_EXPERT,
-		SKILL_CONSTRUCTION = SKILL_ADEPT,
-		SKILL_ELECTRICAL = SKILL_BASIC,
-		SKILL_ATMOS = SKILL_BASIC,
-		SKILL_ENGINES = SKILL_BASIC
+	min_skill = list( // 16 points
+		SKILL_HAULING = SKILL_BASIC, // 1 point
+		SKILL_COMPUTER = SKILL_BASIC, // 1 point
+		SKILL_EVA = SKILL_EXPERIENCED, // 4 points
+		SKILL_CONSTRUCTION = SKILL_TRAINED, // 2 points
+		SKILL_ELECTRICAL = SKILL_BASIC, // 2 points
+		SKILL_ATMOS = SKILL_BASIC, // 2 points
+		SKILL_ENGINES = SKILL_BASIC // 4 points
 	)
 
 	max_skill = list(
@@ -106,9 +106,9 @@
 		SKILL_ENGINES = SKILL_MAX,
 		SKILL_DEVICES = SKILL_MAX,
 		SKILL_SCIENCE = SKILL_MAX,
-		SKILL_MEDICAL = SKILL_ADEPT,
-		SKILL_ANATOMY = SKILL_ADEPT,
-		SKILL_CHEMISTRY = SKILL_ADEPT
+		SKILL_MEDICAL = SKILL_TRAINED,
+		SKILL_ANATOMY = SKILL_TRAINED,
+		SKILL_CHEMISTRY = SKILL_TRAINED
 	)
 	skill_points = 20
 
@@ -118,13 +118,13 @@
 	outfit_type = /singleton/hierarchy/outfit/job/voxship/crew
 	supervisors = "apex and the arkship"
 	info = "You're in charge. You fly the ship, and dictate what the crew does. Do not disappoint the Apex."
-	min_skill = list(
-		SKILL_HAULING = SKILL_BASIC,
-		SKILL_EVA = SKILL_EXPERT,
-		SKILL_SCIENCE = SKILL_ADEPT,
-		SKILL_PILOT = SKILL_ADEPT,
-		SKILL_COMBAT = SKILL_ADEPT,
-		SKILL_WEAPONS = SKILL_ADEPT
+	min_skill = list( // 25 points
+		SKILL_HAULING = SKILL_BASIC, // 1 point
+		SKILL_EVA = SKILL_EXPERIENCED, // 4 points
+		SKILL_SCIENCE = SKILL_TRAINED, // 4 points
+		SKILL_PILOT = SKILL_TRAINED, // 4 points
+		SKILL_COMBAT = SKILL_TRAINED, // 6 points
+		SKILL_WEAPONS = SKILL_TRAINED // 6 points
 	)
 
 	max_skill = list(
@@ -141,14 +141,14 @@
 		SKILL_WEAPONS = SKILL_MAX,
 		SKILL_FORENSICS = SKILL_MAX,
 		SKILL_CONSTRUCTION = SKILL_MAX,
-		SKILL_ELECTRICAL = SKILL_EXPERT,
-		SKILL_ATMOS = SKILL_EXPERT,
-		SKILL_ENGINES = SKILL_EXPERT,
+		SKILL_ELECTRICAL = SKILL_EXPERIENCED,
+		SKILL_ATMOS = SKILL_EXPERIENCED,
+		SKILL_ENGINES = SKILL_EXPERIENCED,
 		SKILL_DEVICES = SKILL_MAX,
 		SKILL_SCIENCE = SKILL_MAX,
-		SKILL_MEDICAL = SKILL_EXPERT,
-		SKILL_ANATOMY = SKILL_EXPERT,
-		SKILL_CHEMISTRY = SKILL_EXPERT
+		SKILL_MEDICAL = SKILL_EXPERIENCED,
+		SKILL_ANATOMY = SKILL_EXPERIENCED,
+		SKILL_CHEMISTRY = SKILL_EXPERIENCED
 	)
 	skill_points = 20
 
@@ -180,17 +180,17 @@ var/global/const/access_voxship = "ACCESS_VOXSHIP"
 	l_pocket = /obj/item/crowbar/prybar
 	l_ear = /obj/item/device/radio/headset/map_preset/voxship
 
-/obj/effect/submap_landmark/spawnpoint/voxship_crew
+/obj/submap_landmark/spawnpoint/voxship_crew
 	name = "Shoal Scavenger"
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/submap_landmark/spawnpoint/voxship_crew/doc
+/obj/submap_landmark/spawnpoint/voxship_crew/doc
 	name = "Shoal Biotechnician"
 
-/obj/effect/submap_landmark/spawnpoint/voxship_crew/engineer
+/obj/submap_landmark/spawnpoint/voxship_crew/engineer
 	name = "Shoal Technician"
 
-/obj/effect/submap_landmark/spawnpoint/voxship_crew/quill
+/obj/submap_landmark/spawnpoint/voxship_crew/quill
 	name = "Quill"
 
 #undef VOXSHIP_OUTFIT_JOB_NAME

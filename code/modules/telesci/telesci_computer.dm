@@ -44,7 +44,7 @@
 /obj/machinery/computer/telescience/proc/link_telepad()
 	telepad = locate() in range(src, 7)
 
-/obj/machinery/computer/telescience/attackby(obj/item/W, mob/user)
+/obj/machinery/computer/telescience/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/bluespace_crystal))
 		if(length(crystals) >= length(power_options))
 			to_chat(user, "<span class='warning'>There are not enough crystal ports.</span>")
@@ -112,7 +112,7 @@
 
 /obj/machinery/computer/telescience/proc/sparks()
 	if(telepad)
-		var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+		var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 		s.set_up(5, 1, get_turf(telepad))
 		s.start()
 	else
@@ -169,7 +169,7 @@
 			// use a lot of power
 			use_power_oneoff(power * 10, EQUIP)
 
-			var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+			var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 			s.set_up(5, 1, get_turf(telepad))
 			s.start()
 
@@ -181,7 +181,7 @@
 			investigate_log("[key_name(usr)]/[user] has teleported with Telescience at [trueX],[trueY],[z_co], in [A ? A.name : "null area"].","telesci")
 
 			var/sparks = get_turf(target)
-			var/datum/effect/effect/system/spark_spread/y = new /datum/effect/effect/system/spark_spread
+			var/datum/effect/spark_spread/y = new /datum/effect/spark_spread
 			y.set_up(5, 1, sparks)
 			y.start()
 
@@ -210,7 +210,7 @@
 			updateDialog()
 
 /obj/machinery/computer/telescience/proc/teleport(mob/user)
-	if(rotation == null || angle == null || z_co == null)
+	if(isnull(rotation) || isnull(angle) || isnull(z_co))
 		temp_msg = "ERROR!<BR>Set a angle, rotation and sector."
 		return
 	if(power <= 0)

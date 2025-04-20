@@ -1,7 +1,7 @@
 var/global/list/navbeacons = list()
 
 /obj/machinery/navbeacon
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/structures/nav_beacon.dmi'
 	icon_state = "navbeacon0-f"
 	name = "navigation beacon"
 	desc = "A radio beacon used for bot navigation."
@@ -25,7 +25,7 @@ var/global/list/navbeacons = list()
 	navbeacons += src
 
 /obj/machinery/navbeacon/hide(intact)
-	set_invisibility(intact ? 101 : 0)
+	set_invisibility(intact ? INVISIBILITY_ABSTRACT : 0)
 	update_icon()
 
 /obj/machinery/navbeacon/on_update_icon()
@@ -37,29 +37,33 @@ var/global/list/navbeacons = list()
 	else
 		icon_state = "[state]"
 
-/obj/machinery/navbeacon/attackby(obj/item/I, mob/user)
+/obj/machinery/navbeacon/use_tool(obj/item/I, mob/living/user, list/click_params)
 	var/turf/T = loc
 	if(!T.is_plating())
-		return		// prevent intraction when T-scanner revealed
+		return TRUE// prevent intraction when T-scanner revealed
 
 	if(isScrewdriver(I))
 		open = !open
-
-		user.visible_message("\The [user] [open ? "opens" : "closes"] cover of \the [src].", "You [open ? "open" : "close"] cover of \the [src].")
-
+		user.visible_message(
+			SPAN_NOTICE("\The [user] [open ? "opens" : "closes"] cover of \the [src]."),
+			SPAN_NOTICE("You [open ? "open" : "close"] cover of \the [src].")
+		)
 		update_icon()
+		return TRUE
 
-	else if(I.GetIdCard())
+	if (I.GetIdCard())
 		if(open)
-			if (src.allowed(user))
-				src.locked = !src.locked
-				to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
+			if (allowed(user))
+				locked = !locked
+				to_chat(user, "Controls are now [locked ? "locked." : "unlocked."]")
 			else
 				to_chat(user, SPAN_WARNING("Access denied."))
 			updateDialog()
 		else
 			to_chat(user, "You must open the cover first!")
-	return
+		return TRUE
+
+	return ..()
 
 /obj/machinery/navbeacon/interface_interact(mob/user)
 	interact(user)
@@ -109,7 +113,7 @@ Transponder Codes:<UL>"}
 	..()
 	if (usr.stat)
 		return
-	if ((in_range(src, usr) && istype(src.loc, /turf)) || (istype(usr, /mob/living/silicon)))
+	if ((in_range(src, usr) && isturf(loc)) || (istype(usr, /mob/living/silicon)))
 		if(open && !locked)
 			usr.set_machine(src)
 

@@ -34,7 +34,7 @@
 	uniform = /obj/item/clothing/under/rank/scientist
 	shoes = /obj/item/clothing/shoes/white
 	gloves = /obj/item/clothing/gloves/latex
-	back = /obj/item/storage/backpack/toxins
+	back = /obj/item/storage/backpack/corpsci
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	id_pda_assignment = "Researcher"
 	r_pocket = null
@@ -46,7 +46,7 @@
 	var/team3uniform = /obj/item/clothing/under/urist/scom/s3
 	var/team4uniform = /obj/item/clothing/under/urist/scom/s4
 
-/singleton/hierarchy/outfit/scom/squaddie/equip(mob/living/carbon/human/H, rank, var/assignment, var/teamnum, equip_adjustments)
+/singleton/hierarchy/outfit/scom/squaddie/equip(mob/living/carbon/human/H, rank, assignment, teamnum, equip_adjustments)
 	if(teamnum)
 		if(teamnum == 1)
 			uniform = team1uniform
@@ -140,7 +140,7 @@
 		new /obj/item/device/radio/headset/heads/captain(src)
 		new /obj/item/clothing/under/rank/scientist(src)
 		new /obj/item/clothing/shoes/white(src)
-		new /obj/item/storage/backpack/toxins(src)
+		new /obj/item/storage/backpack/corpsci(src)
 		new /obj/item/clothing/suit/storage/toggle/labcoat/science(src)
 		new /obj/item/clothing/shoes/jackboots/unathi(src)
 		new /obj/item/clothing/glasses(src)

@@ -54,15 +54,11 @@
 	update_icon()
 	return 1
 
-/obj/item/sample/resolve_attackby(atom/A, mob/user, click_params)
-	// Fingerprints will be handled in after_attack() to not mess up the samples taken
-	return A.attackby(src, user, click_params)
-
-/obj/item/sample/attackby(obj/O, mob/user)
-	if(O.type == src.type)
-		if(user.unEquip(O) && merge_evidence(O, user))
-			qdel(O)
-		return 1
+/obj/item/sample/use_tool(obj/item/item, mob/living/user, list/click_params)
+	if(item.type == type)
+		if(user.unEquip(item) && merge_evidence(item, user))
+			qdel(item)
+		return TRUE
 	return ..()
 
 /obj/item/sample/fibers
@@ -73,7 +69,7 @@
 /obj/item/sample/print
 	name = "fingerprint card"
 	desc = "Records a set of fingerprints."
-	icon = 'icons/obj/card.dmi'
+	icon = 'icons/obj/tools/card.dmi'
 	icon_state = "fingerprint0"
 	item_state = "paper"
 
@@ -93,44 +89,43 @@
 	SetName("[initial(name)] (\the [H])")
 	update_icon()
 
-/obj/item/sample/print/attack(mob/living/M, mob/user)
+/obj/item/sample/print/use_before(mob/living/M, mob/user)
+	. = FALSE
+	if (!ishuman(M))
+		return FALSE
 
-	if(!ishuman(M))
-		return ..()
-
-	if(evidence && length(evidence))
-		return 0
+	if (evidence && length(evidence))
+		return FALSE
 
 	var/mob/living/carbon/human/H = M
 
-	if(H.gloves)
+	if (H.gloves)
 		to_chat(user, SPAN_WARNING("\The [H] is wearing gloves."))
-		return 1
+		return TRUE
 
-	if(user != H && H.a_intent != I_HELP && !H.lying)
+	if (user != H && H.a_intent != I_HELP && !H.lying)
 		user.visible_message(SPAN_DANGER("\The [user] tries to take prints from \the [H], but they move away."))
-		return 1
+		return TRUE
 
-	if(user.zone_sel.selecting == BP_R_HAND || user.zone_sel.selecting == BP_L_HAND)
-		var/has_hand
-		var/obj/item/organ/external/O = H.organs_by_name[BP_R_HAND]
-		if(istype(O) && !O.is_stump())
+	var/has_hand
+	var/obj/item/organ/external/O = H.organs_by_name[BP_R_HAND]
+	if (istype(O) && !O.is_stump())
+		has_hand = 1
+	else
+		O = H.organs_by_name[BP_L_HAND]
+		if (istype(O) && !O.is_stump())
 			has_hand = 1
-		else
-			O = H.organs_by_name[BP_L_HAND]
-			if(istype(O) && !O.is_stump())
-				has_hand = 1
-		if(!has_hand)
-			to_chat(user, SPAN_WARNING("They don't have any hands."))
-			return 1
-		user.visible_message("[user] takes a copy of \the [H]'s fingerprints.")
-		var/fullprint = H.get_full_print()
-		evidence[fullprint] = fullprint
-		copy_evidence(src)
-		SetName("[initial(name)] (\the [H])")
-		update_icon()
-		return 1
-	return 0
+	if (!has_hand)
+		to_chat(user, SPAN_WARNING("They don't have any hands."))
+		return TRUE
+
+	user.visible_message("[user] takes a copy of \the [H]'s fingerprints.")
+	var/fullprint = H.get_full_print()
+	evidence[fullprint] = fullprint
+	copy_evidence(src)
+	SetName("[initial(name)] (\the [H])")
+	update_icon()
+	return TRUE
 
 /obj/item/sample/print/copy_evidence(atom/supplied)
 	if(supplied.fingerprints && length(supplied.fingerprints))
@@ -156,9 +151,9 @@
 	var/obj/item/sample/S = new evidence_path(get_turf(user), supplied)
 	to_chat(user, SPAN_NOTICE("You transfer [length(S.evidence)] [length(S.evidence) > 1 ? "[evidence_type]s" : "[evidence_type]"] to \the [S]."))
 
-/obj/item/forensics/sample_kit/resolve_attackby(atom/A, mob/user, click_params)
-	if (user.a_intent != I_HELP) // Prevents putting sample kits in bags, on racks/tables, etc when trying to take samples
-		return FALSE
+/obj/item/forensics/sample_kit/use_before(atom/target, mob/living/user, click_parameters)
+	if (user.a_intent == I_HELP) // Prevents putting sample kits in bags, on racks/tables, etc when trying to take samples
+		return ..()
 
 	. = ..()
 
@@ -170,11 +165,11 @@
 		. = 1
 	else
 		to_chat(user, SPAN_WARNING("You are unable to locate any [evidence_type]s on \the [A]."))
-		. = ..()
+	return TRUE
 
 /obj/item/forensics/sample_kit/MouseDrop(atom/over)
-	if(ismob(src.loc) && CanMouseDrop(over))
-		afterattack(over, usr, TRUE)
+	if(ismob(loc) && CanMouseDrop(over))
+		use_after(over, usr)
 
 /obj/item/forensics/sample_kit/powder
 	name = "fingerprint powder"

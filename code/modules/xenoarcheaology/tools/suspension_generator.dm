@@ -1,7 +1,7 @@
 /obj/machinery/suspension_gen
 	name = "suspension field generator"
 	desc = "It has stubby bolts bolted up against its tracks for stabilizing."
-	icon = 'icons/obj/xenoarchaeology.dmi'
+	icon = 'icons/obj/machines/research/suspension_generator.dmi'
 	icon_state = "suspension"
 	density = TRUE
 	construct_state = /singleton/machine_construction/default/panel_closed
@@ -10,7 +10,8 @@
 	active_power_usage = 5 KILOWATTS
 	machine_name = "suspension generator"
 	machine_desc = "Projects a pacifying energy field, used to hold xenofauna (among other things) for safe study."
-	var/obj/effect/suspension_field/suspension_field
+	var/obj/suspension_field/suspension_field
+	obj_flags = OBJ_FLAG_ANCHORABLE
 
 /obj/machinery/suspension_gen/Process()
 	if(suspension_field)
@@ -32,7 +33,7 @@
 		for(var/obj/item/I in T)
 			if(!length(suspension_field.contents))
 				suspension_field.icon_state = "energynet"
-				suspension_field.overlays += "shield2"
+				suspension_field.AddOverlays("shield2")
 			I.forceMove(suspension_field)
 
 /obj/machinery/suspension_gen/interact(mob/user)
@@ -49,11 +50,11 @@
 		dat += "<b>Energy cell</b>: [SPAN_COLOR("[colour]", "[percent]%")]<br>"
 	else
 		dat += "<b>Energy cell</b>: None<br>"
-	dat += "<b><A href='?src=\ref[src];toggle_field=1'>[suspension_field ? "Disable" : "Enable"] field</a></b><br>"
+	dat += "<b><A href='byond://?src=\ref[src];toggle_field=1'>[suspension_field ? "Disable" : "Enable"] field</a></b><br>"
 	dat += "<hr>"
 	dat += "<hr>"
 	dat += "[SPAN_COLOR("cyan", "<b>Always wear safety gear and consult a field manual before operation.</b>")]<br>"
-	dat += "<A href='?src=\ref[src];close=1'>Close console</A>"
+	dat += "<A href='byond://?src=\ref[src];close=1'>Close console</A>"
 	var/datum/browser/popup = new(user, "suspension", "Suspension Generator", 500, 400)
 	popup.set_content(dat)
 	popup.open()
@@ -90,23 +91,20 @@
 		return SPAN_NOTICE("Turn \the [src] off first.")
 	return ..()
 
-/obj/machinery/suspension_gen/attackby(obj/item/W, mob/user)
-	if(component_attackby(W, user))
-		return TRUE
-	else if(isWrench(W))
-		if(!suspension_field)
-			anchored = !anchored
-			to_chat(user, SPAN_INFO("You wrench the stabilising bolts [anchored ? "into place" : "loose"]."))
-			if(anchored)
-				desc = "Its tracks are securely held in place with securing bolts."
-				icon_state = "suspension_wrenched"
-			else
-				desc = "It has stubby bolts bolted up against its tracks for stabilizing."
-				icon_state = "suspension"
-			playsound(loc, 'sound/items/Ratchet.ogg', 40)
-			update_icon()
-		else
-			to_chat(user, SPAN_WARNING("You are unable to secure [src] while it is active!"))
+/obj/machinery/suspension_gen/can_anchor(obj/item/tool, mob/user, silent)
+	if (suspension_field)
+		to_chat(user, SPAN_WARNING("You are unable to wrench \the [src] while it is active!"))
+		return FALSE
+	return ..()
+
+/obj/machinery/suspension_gen/post_anchor_change()
+	if (anchored)
+		desc = "Its tracks are securely held in place with securing bolts."
+		icon_state = "suspension_wrenched"
+	else
+		desc = "It has stubby bolts bolted up against its tracks for stabilizing."
+		icon_state = "suspension"
+	..()
 
 //checks for whether the machine can be activated or not should already have occurred by this point
 /obj/machinery/suspension_gen/proc/activate()
@@ -130,7 +128,7 @@
 
 	if(collected)
 		suspension_field.icon_state = "energynet"
-		suspension_field.overlays += "shield2"
+		suspension_field.AddOverlays("shield2")
 		src.visible_message(SPAN_NOTICE("[icon2html(suspension_field, viewers(get_turf(src)))] [suspension_field] gently absconds [collected > 1 ? "something" : "several things"]."))
 	else
 		if(istype(T,/turf/simulated/mineral) || istype(T,/turf/simulated/wall))
@@ -181,18 +179,18 @@
 		set_dir(turn(dir, -90))
 
 /obj/machinery/suspension_gen/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(panel_open)
-		overlays += "suspension_panel"
+		AddOverlays("suspension_panel")
 	. = ..()
 
-/obj/effect/suspension_field
+/obj/suspension_field
 	name = "energy field"
 	icon = 'icons/effects/effects.dmi'
 	anchored = TRUE
 	density = TRUE
 
-/obj/effect/suspension_field/Destroy()
+/obj/suspension_field/Destroy()
 	for(var/atom/movable/I in src)
 		I.dropInto(loc)
 	return ..()

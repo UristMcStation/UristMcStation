@@ -5,12 +5,13 @@
 	program_icon_state = "generic"
 	program_key_state = "generic_key"
 	program_menu_icon = "mail-closed"
-	size = 7
+	size = 1
+	processing_size = 0 //It's the only way to ensure people actually have it on.
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
 	var/stored_login = ""
 	var/stored_password = ""
-	usage_flags = PROGRAM_ALL
+	usage_flags = PROGRAM_ALL|PROGRAM_NO_KILL
 	category = PROG_OFFICE
 
 	nanomodule_path = /datum/nano_module/email_client
@@ -91,15 +92,8 @@
 /datum/nano_module/email_client/proc/mail_received(datum/computer_file/data/email_message/received_message)
 	var/mob/living/L = get_holder_of_type(host, /mob/living)
 	if(L)
-		var/list/msg = list()
-		msg += "*--*\n"
-		msg += "[SPAN_NOTICE("New mail received from [received_message.source]:")]\n"
-		msg += "<b>Subject:</b> [received_message.title]\n<b>Message:</b>\n[digitalPencode2html(received_message.stored_data)]\n"
-		if(received_message.attachment)
-			msg += "<b>Attachment:</b> [received_message.attachment.filename].[received_message.attachment.filetype] ([received_message.attachment.size]GQ)\n"
-		msg += "<a href='?src=\ref[src];open;reply=[received_message.uid]'>Reply</a>\n"
-		msg += "*--*"
-		to_chat(L, jointext(msg, null))
+		var/msg = "[SPAN_NOTICE("New mail received from [received_message.source]:")] <b>Subject:</b> [received_message.title]"
+		to_chat(L, msg)
 
 /datum/nano_module/email_client/Destroy()
 	log_out()
@@ -407,6 +401,7 @@
 		else
 			current_account.deleted.Add(M)
 			current_account.inbox.Remove(M)
+			current_account.outbox.Remove(M)
 			current_account.spam.Remove(M)
 		if(current_message == M)
 			current_message = null

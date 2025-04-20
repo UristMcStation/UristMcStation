@@ -25,79 +25,98 @@
 	to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
 	return
 
-/obj/structure/engineeringcart/attackby(obj/item/I, mob/user)
+/obj/structure/engineeringcart/use_tool(obj/item/I, mob/living/user, list/click_params)
 	var/fail_msg = "<span class='notice'>There is already one of those in [src].</span>"
 	if(istype(I, /obj/item/stack/material/glass))
 		if(!myglass)
 			put_in_cart(I, user)
 			myglass=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/stack/material/steel))
 		if(!mymetal)
 			put_in_cart(I, user)
 			mymetal=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/stack/material/plasteel))
 		if(!myplasteel)
 			put_in_cart(I, user)
 			myplasteel=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/device/flashlight))
 		if(!myflashlight)
 			put_in_cart(I, user)
 			myflashlight=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/storage/toolbox/mechanical))
 		if(!mybluetoolbox)
 			put_in_cart(I, user)
 			mybluetoolbox=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/storage/toolbox/electrical))
 		if(!myyellowtoolbox)
 			put_in_cart(I, user)
 			myyellowtoolbox=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/storage/toolbox/emergency))
 		if(!myredtoolbox)
 			put_in_cart(I, user)
 			myredtoolbox=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/taperoll/engineering))
 		if(!myengitape)
 			put_in_cart(I, user)
 			myengitape=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
 
 	else if(istype(I, /obj/item/storage/briefcase/inflatable))
 		if(!myinflate)
 			put_in_cart(I, user)
 			myinflate=I
 			update_icon()
+			return TRUE
 		else
 			to_chat(user, fail_msg)
+			return TRUE
+	return ..()
 
 /obj/structure/engineeringcart/attack_hand(mob/user)
 	user.set_machine(src)
@@ -180,22 +199,22 @@
 	updateUsrDialog()
 
 /obj/structure/engineeringcart/on_update_icon()
-	overlays = null
+	ClearOverlays()
 	if(myglass)
-		overlays += "cart_glass"
+		AddOverlays("cart_glass")
 	if(mymetal)
-		overlays += "cart_metal"
+		AddOverlays("cart_metal")
 	if(myplasteel)
-		overlays += "cart_plasteel"
+		AddOverlays("cart_plasteel")
 	if(myflashlight)
-		overlays += "cart_flashlight"
+		AddOverlays("cart_flashlight")
 	if(mybluetoolbox)
-		overlays += "cart_bluetoolbox"
+		AddOverlays("cart_bluetoolbox")
 	if(myredtoolbox)
-		overlays += "cart_redtoolbox"
+		AddOverlays("cart_redtoolbox")
 	if(myyellowtoolbox)
-		overlays += "cart_yellowtoolbox"
+		AddOverlays("cart_yellowtoolbox")
 	if(myengitape)
-		overlays += "cart_engitape"
+		AddOverlays("cart_engitape")
 	if(myinflate)
-		overlays += "cart_inflate"
+		AddOverlays("cart_inflate")

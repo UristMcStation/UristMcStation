@@ -19,5 +19,5 @@
 			especially not with the local geneseeded fauna. Still, it can't be worse than the Graveworlds or the Crisis refugee camps.\
 			Either way, whatever happens out here at the fringe is between you and your god."
 
-/obj/effect/submap_landmark/spawnpoint/forest_settler
+/obj/submap_landmark/spawnpoint/forest_settler
 	name = "Terrestrial Pioneer"

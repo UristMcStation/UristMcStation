@@ -16,10 +16,10 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 /mob/is_burnable()
 	return simulated
 
-/turf/proc/hotspot_expose(exposed_temperature, exposed_volume, soh = 0)
+/turf/proc/hotspot_expose(exposed_temperature)
+	return
 
-
-/turf/simulated/hotspot_expose(exposed_temperature, exposed_volume, soh)
+/turf/simulated/hotspot_expose(exposed_temperature)
 	if(fire_protection > world.time-300)
 		return 0
 	if(locate(/obj/hotspot) in src)
@@ -29,7 +29,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		return 0
 
 	var/igniting = 0
-	var/obj/effect/decal/cleanable/liquid_fuel/liquid = locate() in src
+	var/obj/decal/cleanable/liquid_fuel/liquid = locate() in src
 	if(liquid && air_contents.check_combustability(liquid))
 		IgniteTurf(liquid.amount * 10)
 		QDEL_NULL(liquid)
@@ -112,13 +112,13 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 
 	if(firelevel > 6)
 		icon_state = "3"
-		set_light(1, 2, 7)
+		set_light(7, 1)
 	else if(firelevel > 2.5)
 		icon_state = "2"
-		set_light(0.7, 2, 5)
+		set_light(5, 0.7)
 	else
 		icon_state = "1"
-		set_light(0.5, 1, 3)
+		set_light(3, 0.5)
 
 	for(var/mob/living/L in loc)
 		L.FireBurn(firelevel, air_contents.temperature, air_contents.return_pressure())  //Burn the mobs!
@@ -160,7 +160,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 /obj/hotspot/New(newLoc,fl)
 	..()
 
-	if(!istype(loc, /turf))
+	if(!isturf(loc))
 		qdel(src)
 		return
 
@@ -168,7 +168,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 
 	var/datum/gas_mixture/air_contents = loc.return_air()
 	color = fire_color(air_contents.temperature)
-	set_light(0.5, 1, 3, l_color = color)
+	set_light(3, 0.5, l_color = color)
 
 	firelevel = fl
 	SSair.active_hotspots.Add(src)
@@ -303,7 +303,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 			. = 1
 			break
 
-/datum/gas_mixture/proc/check_combustability(obj/effect/decal/cleanable/liquid_fuel/liquid=null)
+/datum/gas_mixture/proc/check_combustability(obj/decal/cleanable/liquid_fuel/liquid=null)
 	. = 0
 	for(var/g in gas)
 		if(gas_data.flags[g] & XGM_GAS_OXIDIZER && QUANTIZE(gas[g] * vsc.fire_consuption_rate) >= 0.1)

@@ -39,7 +39,6 @@
 		/obj/item/device/radio/headset/heads/cmo,
 		/obj/item/device/radio/headset/heads/cmo/alt,
 		/obj/item/device/flash,
-		/obj/item/gun/energy/confuseray,
 		/obj/item/device/megaphone,
 		/obj/item/reagent_containers/hypospray/vial,
 		/obj/item/storage/fancy/vials,
@@ -54,6 +53,7 @@
 		/obj/item/storage/box/armband/med,
 		/obj/item/material/knife/folding/swiss/officer,
 		/obj/item/storage/backpack/dufflebag/med,
+		/obj/item/storage/belt/medical,
 		RANDOM_SCRUBS
 	)
 
@@ -102,7 +102,7 @@
 		/obj/item/clothing/glasses/hud/health,
 		/obj/item/storage/firstaid/adv,
 		/obj/item/clothing/suit/storage/medical_chest_rig,
-		/obj/item/clothing/head/hardhat/EMS,
+		/obj/item/clothing/head/hardhat/light/medic,
 		/obj/item/material/knife/folding/swiss/medic,
 		/obj/item/storage/backpack/dufflebag/med
 	)

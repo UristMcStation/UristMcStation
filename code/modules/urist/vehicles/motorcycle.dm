@@ -10,17 +10,17 @@
 	charge_use = 0
 
 /obj/vehicle/train/cargo/engine/motorcycle_4dir/proc/update_dir_motorcycle_overlays()
-	overlays = null
+	ClearOverlays()
 	if(src.dir == NORTH||SOUTH)
 		if(src.dir == NORTH)
 			var/image/I = new(icon = 'icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_n", layer = src.layer + 0.2) //over mobs
-			overlays += I
+			AddOverlays(I)
 		else if(src.dir == SOUTH)
 			var/image/I = new(icon = 'icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_s", layer = src.layer + 0.2) //over mobs
-			overlays += I
+			AddOverlays(I)
 	else
 		var/image/I = new(icon = 'icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_side", layer = src.layer + 0.2) //over mobs
-		overlays += I
+		AddOverlays(I)
 
 /obj/vehicle/train/cargo/engine/motorcycle_4dir/New()
 	..()
@@ -43,9 +43,9 @@
 
 /obj/vehicle/train/cargo/engine/motorcycle_1dir/New()
 	..()
-	overlays = null
+	ClearOverlays()
 	var/image/I = new(icon = 'icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_n", layer = src.layer + 0.2) //over mobs
-	overlays += I
+	AddOverlays(I)
 
 /obj/vehicle/train/cargo/engine/motorcycle_1dir/Move()
 	..()
@@ -72,7 +72,7 @@
 		if(8) to_chat(user, "It has both tires, a transmission and a loosely attached battery.")
 		if(9) to_chat(user, "It has both tires, a transmission and a firmly attached battery.")
 
-/obj/structure/vehicle_frame/motorcycle/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/vehicle_frame/motorcycle/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/stack/material/rods))
 		if(buildstate == 0)
 			var/obj/item/stack/material/rods/R = W
@@ -173,8 +173,8 @@
 	fire_dam_coeff = 0.6
 	brute_dam_coeff = 0.5
 //	debris_path = /obj/structure/scrap/vehicle
-	light_max_bright = 5
-	light_outer_range = 6
+	light_power = 5
+	light_range = 6
 	var/idle_sound = 'sound/urist/vehicle/bike_idle.ogg'
 	var/start_sound = 'sound/urist/vehicle/bike_start.ogg'
 	space_speed = 0
@@ -228,14 +228,14 @@
 
 /obj/vehicle/bike/motorcycle/Bump(atom/thing)
 
-	if(!istype(thing, /atom/movable))
+	if(!ismovable(thing))
 		return
 
 	var/crashed
 	var/atom/movable/A = thing
 
 	// Bump things away!
-	if(istype(A, /turf))
+	if(isturf(A))
 		var/turf/T = A
 		if(T.density)
 			if(collision_cooldown)

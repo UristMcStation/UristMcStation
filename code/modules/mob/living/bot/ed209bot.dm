@@ -43,7 +43,7 @@
 	visible_message(SPAN_WARNING("[src] blows apart!"))
 	var/turf/Tsec = get_turf(src)
 
-	var/obj/item/gun/energy/taser/G = new /obj/item/gun/energy/taser(Tsec)
+	var/obj/item/gun/energy/stunrevolver/G = new /obj/item/gun/energy/stunrevolver(Tsec)
 	G.power_supply.charge = 0
 	if(prob(50))
 		new /obj/item/robot_parts/l_leg(Tsec)
@@ -55,11 +55,11 @@
 		else
 			new /obj/item/clothing/suit/armor/vest(Tsec)
 
-	var/datum/effect/effect/system/spark_spread/s = new /datum/effect/effect/system/spark_spread
+	var/datum/effect/spark_spread/s = new /datum/effect/spark_spread
 	s.set_up(3, 1, src)
 	s.start()
 
-	new /obj/effect/decal/cleanable/blood/oil(Tsec)
+	new /obj/decal/cleanable/blood/oil(Tsec)
 	qdel(src)
 
 /mob/living/bot/secbot/ed209/handleRangedTarget()

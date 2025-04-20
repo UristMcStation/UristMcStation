@@ -45,7 +45,7 @@
 		return 0
 
 /obj/vehicle/train/Bump(atom/Obstacle)
-	if(!istype(Obstacle, /atom/movable))
+	if(!ismovable(Obstacle))
 		return
 	var/atom/movable/A = Obstacle
 
@@ -232,5 +232,5 @@
 		T.update_car(train_length, active_engines)
 		T = T.lead
 
-/obj/vehicle/train/proc/update_car(train_length, var/active_engines)
+/obj/vehicle/train/proc/update_car(train_length, active_engines)
 	return

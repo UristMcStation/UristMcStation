@@ -6,7 +6,7 @@
 	name = "ladder"
 	desc = "A ladder. You can climb it up and down."
 	icon_state = "ladder01"
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/obj/structures/structures.dmi'
 	density = FALSE
 	opacity = 0
 	anchored = TRUE
@@ -58,8 +58,12 @@
 		target_up = null
 	return ..()
 
-/obj/structure/ladder/attackby(obj/item/I, mob/user)
-	climb(user, I)
+
+/obj/structure/ladder/use_tool(obj/item/tool, mob/user, list/click_params)
+	SHOULD_CALL_PARENT(FALSE)
+	climb(user, tool)
+	return TRUE
+
 
 /turf/hitby(atom/movable/AM)
 	if(isobj(AM))
@@ -72,9 +76,10 @@
 /obj/structure/ladder/hitby(obj/item/I)
 	if (istype(src, /obj/structure/ladder/up))
 		return
-	var/area/room = get_area(src)
-	if(!room.has_gravity())
+
+	if(!has_gravity())
 		return
+
 	var/atom/blocker
 	var/turf/landing = get_turf(target_down)
 	for(var/atom/A in landing)
@@ -149,7 +154,7 @@
 	instant_climb(M)
 
 /obj/structure/ladder/proc/getTargetLadder(mob/M)
-	if((!target_up && !target_down) || (target_up && !istype(target_up.loc, /turf/simulated/open) || (target_down && !istype(target_down.loc, /turf))))
+	if((!target_up && !target_down) || (target_up && !istype(target_up.loc, /turf/simulated/open) || (target_down && !isturf(target_down.loc))))
 		to_chat(M, SPAN_NOTICE("\The [src] is incomplete and can't be climbed."))
 		return
 
@@ -213,11 +218,11 @@
 
 			//We cannot use the ladder, but we probably can remove the obstruction
 			var/atom/movable/M = A
-			if(istype(M) && M.movable_flags & MOVABLE_FLAG_Z_INTERACT)
+			if (istype(M) && HAS_FLAGS(M.movable_flags, MOVABLE_FLAG_Z_INTERACT))
 				if(isnull(I))
 					M.attack_hand(user)
 				else
-					M.attackby(I, user)
+					M.use_tool(I, user)
 
 			return FALSE
 
@@ -242,7 +247,8 @@
 /obj/structure/stairs
 	name = "stairs"
 	desc = "Stairs leading to another deck.  Not too useful if the gravity goes out."
-	icon = 'icons/obj/stairs.dmi'
+	icon = 'icons/obj/structures/stairs.dmi'
+	icon_state = "above"
 	density = FALSE
 	opacity = 0
 	anchored = TRUE

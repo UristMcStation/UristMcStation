@@ -83,7 +83,7 @@
 /obj/item/integrated_circuit/output/light/proc/update_lighting()
 	if(light_toggled)
 		if(assembly)
-			assembly.set_light(light_brightness, 1, 4, 2, light_rgb)
+			assembly.set_light(4, light_brightness, light_rgb)
 	else
 		if(assembly)
 			assembly.set_light(0)
@@ -265,6 +265,7 @@
 /obj/item/integrated_circuit/output/video_camera/Initialize()
 	. = ..()
 	camera = new(src)
+	camera.set_stat_immunity(MACHINE_STAT_NOPOWER, TRUE)
 	camera.replace_networks(list())
 	on_data_written()
 

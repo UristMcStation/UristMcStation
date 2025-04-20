@@ -21,7 +21,7 @@
 	var/atom/movable/projectile_type
 	var/fire_anim = 0
 	var/fire_sound = null
-	var/obj/effect/overmap/visitable/ship/combat/homeship = null
+	var/obj/overmap/visitable/ship/combat/homeship = null
 	var/obj/machinery/computer/combatcomputer/linkedcomputer = null
 	var/status = CHARGED
 	var/datum/shipcomponents/targeted_component
@@ -124,7 +124,7 @@
 			update_icon()
 			Charging() //time to recharge
 
-		if(istype(target, /obj/effect/overmap/visitable/ship/combat))
+		if(istype(target, /obj/overmap/visitable/ship/combat))
 			MapFire()	//PVP combat just lobs projectiles at the other ship, no need for further calculations.
 			return TRUE
 
@@ -250,7 +250,7 @@
 		if(targetcomponent.health <= 0)
 			targetcomponent.BlowUp()
 
-/obj/machinery/shipweapons/proc/TargetedHit(targetship, var/hull_damage, var/oc = FALSE)
+/obj/machinery/shipweapons/proc/TargetedHit(targetship, hull_damage, oc = FALSE)
 	var/mob/living/simple_animal/hostile/overmapship/OM = targetship
 	if(!targeted_component.broken)
 		targeted_component.health -= (hull_damage * component_modifier_high) //we do more damage for aimed shots
@@ -276,7 +276,7 @@
 	if(!projectile_type)
 		return
 
-	if(istype(target, /obj/effect/overmap/visitable/ship/combat))
+	if(istype(target, /obj/overmap/visitable/ship/combat))
 		HandlePvpFire()
 
 	else if(istype(target, /mob/living/simple_animal/hostile/overmapship))
@@ -285,7 +285,7 @@
 			homeship.pve_mapfire(projectile_type)
 
 /obj/machinery/shipweapons/proc/HandlePvpFire() //come back to this to add handling for burst fire
-	var/obj/effect/overmap/visitable/ship/combat/target_ship = target
+	var/obj/overmap/visitable/ship/combat/target_ship = target
 	if(!target_ship)
 		return
 
@@ -311,7 +311,7 @@
 		target = linkedcomputer.target
 
 	if(!homeship)
-		for(var/obj/effect/overmap/visitable/ship/combat/C in GLOB.overmap_ships)
+		for(var/obj/overmap/visitable/ship/combat/C in GLOB.overmap_ships)
 			if(C.shipid == src.shipid)
 				homeship = C
 
@@ -330,15 +330,14 @@
 		return "Out of Ammo"
 	return "Ready to Fire"
 
-/obj/machinery/shipweapons/attackby(obj/item/W as obj, mob/living/user as mob)
+/obj/machinery/shipweapons/use_tool(obj/item/W as obj, mob/living/user as mob, click_params)
 	var/turf/T = get_turf(src)
 	if(isScrewdriver(W) && locate(/obj/structure/shipweapons/hardpoint) in T)
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 50, 1)
 		to_chat(user, "<span class='warning'>You unsecure the wires and unscrew the external hatches: the weapon is no longer ready to fire.</span>")
 		DeconstructWeapon() //moving this to a proc lets us change how things deconstruct for certain weapons. this is done to allow something like the torpedo launcher to just be sawn out of it's place or w/e
-
-	else
-		..()
+		return TRUE
+	return ..()
 
 /obj/machinery/shipweapons/proc/DeconstructWeapon()
 	if(linkedcomputer)
@@ -372,6 +371,7 @@
 	return
 
 /obj/machinery/shipweapons/emp_act()
+	SHOULD_CALL_PARENT(FALSE)
 	return
 
 #undef RECHARGING

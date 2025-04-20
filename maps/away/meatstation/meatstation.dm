@@ -1,10 +1,10 @@
 #include "meatstation_areas.dm"
 
-/obj/effect/overmap/visitable/sector/meatstation
+/obj/overmap/visitable/sector/meatstation
 	name = "Unpowered Research Station"
 	desc = "An unpowered research station. A large quantity of nearby debris blocks more detail."
 	icon_state = "object"
-	known = FALSE
+
 	initial_generic_waypoints = list(
 		"nav_meatstation_1",
 		"nav_meatstation_2",
@@ -21,32 +21,32 @@
 	spawn_cost = 2
 	area_usage_test_exempted_root_areas = list(/area/meatstation)
 
-/obj/effect/shuttle_landmark/nav_meatstation/nav1
+/obj/shuttle_landmark/nav_meatstation/nav1
 	name = "Navpoint #1"
 	landmark_tag = "nav_meatstation_1"
 
-/obj/effect/shuttle_landmark/nav_meatstation/nav2
+/obj/shuttle_landmark/nav_meatstation/nav2
 	name = "Navpoint #2"
 	landmark_tag = "nav_meatstation_2"
 
-/obj/effect/shuttle_landmark/nav_meatstation/nav3
+/obj/shuttle_landmark/nav_meatstation/nav3
 	name = "Navpoint #3"
 	landmark_tag = "nav_meatstation_3"
 
-/obj/effect/shuttle_landmark/nav_meatstation/nav4
+/obj/shuttle_landmark/nav_meatstation/nav4
 	name = "Navpoint #4"
 	landmark_tag = "nav_meatstation_4"
 
-/obj/effect/shuttle_landmark/nav_meatstation/nav5
+/obj/shuttle_landmark/nav_meatstation/nav5
 	name = "Navpoint #5"
 	landmark_tag = "nav_meatstation_antag"
 
 //structural
 
-/obj/effect/paint/meatstation
+/obj/paint/meatstation
 	color = "#543333"
 
-/obj/effect/paint/meatstation/lab
+/obj/paint/meatstation/lab
 	color = "#301f1f"
 
 /obj/machinery/power/apc/meatstation
@@ -141,9 +141,9 @@
 	health = 60
 	natural_weapon = /obj/item/natural_weapon/wormguard
 	meat_amount = 3
-	projectilesound = 'sound/weapons/laser.ogg'
+	projectilesound = 'sound/weapons/Laser.ogg'
 	ranged = 1
-	projectiletype = /obj/item/projectile/beam/meatstation
+	projectiletype = /obj/item/projectile/beam/smalllaser
 
 	say_list_type = /datum/say_list/meatstation/meat_human
 /obj/item/natural_weapon/wormguard
@@ -171,47 +171,7 @@
 	sharp = TRUE
 	attack_verb = list("chomped")
 
-//projectile
-
-/obj/item/projectile/beam/meatstation
-	damage = 10
-	agony = 10
-	armor_penetration = 5
-
-	muzzle_type = /obj/effect/projectile/meatstation/muzzle
-	tracer_type = /obj/effect/projectile/meatstation/tracer
-	impact_type = /obj/effect/projectile/meatstation/impact
-
-/obj/effect/projectile/meatstation
-	light_color = COLOR_RED_LIGHT
-	icon = 'maps/away/meatstation/meatstation_sprites.dmi'
-
-/obj/effect/projectile/meatstation/tracer
-	icon_state = "redstun"
-
-/obj/effect/projectile/meatstation/muzzle
-	icon_state = "muzzle_redstun"
-
-/obj/effect/projectile/meatstation/impact
-	icon_state = "impact_redstun"
-
 //items
-
-/obj/item/gun/energy/laser/meatstation
-	name = "LP76 carbine"
-	desc = "An outdated energy carbine, originally designed for peacekeeping operations. Fires super-heated stun beams."
-	icon = 'maps/away/meatstation/meatstation_sprites.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'maps/away/meatstation/meatstation_left_hand.dmi',
-		slot_r_hand_str = 'maps/away/meatstation/meatstation_right_hand.dmi',
-		)
-	icon_state = "meatstationlaser"
-	item_state = "meatstationlaser"
-	projectile_type = /obj/item/projectile/beam/meatstation
-	slot_flags = null
-	wielded_item_state = "meatstationlaser-wielded"
-	fire_delay = 15
-	max_shots = 12
 
 /obj/item/reagent_containers/food/snacks/meat/meatstationmeat
 	name = "tainted meat"
@@ -294,7 +254,7 @@
 
 /obj/random/single/meatstation/laser
 	icon_state = "laser50"
-	spawn_object = /obj/item/gun/energy/laser/meatstation
+	spawn_object = /obj/item/gun/energy/laser/xenofauna/broken
 
 /obj/random/single/meatstation/low/biocell
 	icon_state = "biocell10"

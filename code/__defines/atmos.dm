@@ -22,7 +22,7 @@
 #define SOUND_MINIMUM_PRESSURE 10
 
 #define PRESSURE_DAMAGE_COEFFICIENT 4   // The amount of pressure damage someone takes is equal to (pressure / HAZARD_HIGH_PRESSURE)*PRESSURE_DAMAGE_COEFFICIENT, with the maximum of MAX_PRESSURE_DAMAGE.
-#define    MAX_HIGH_PRESSURE_DAMAGE 4   // This used to be 20... I got this much random rage for some retarded decision by polymorph?! Polymorph now lies in a pool of blood with a katana jammed in his spleen. ~Errorage --PS: The katana did less than 20 damage to him :(
+#define    MAX_HIGH_PRESSURE_DAMAGE 4   // This used to be 20
 #define         LOW_PRESSURE_DAMAGE 0.6 // The amount of damage someone takes when in a low pressure area. (The pressure threshold is so low that it doesn't make sense to do any calculations, so it just applies this flat value).
 
 #define MINIMUM_PRESSURE_DIFFERENCE_TO_SUSPEND (MINIMUM_AIR_TO_SUSPEND*R_IDEAL_GAS_EQUATION*T20C)/CELL_VOLUME			// Minimum pressure difference between zones to suspend
@@ -48,6 +48,9 @@
 // Fire damage.
 #define CARBON_LIFEFORM_FIRE_RESISTANCE (T0C + 200)
 #define CARBON_LIFEFORM_FIRE_DAMAGE     4
+
+#define FOGGING_TEMPERATURE (T0C + 5)
+#define MAX_FOG_TEMPERATURE (T0C - 50)
 
 // Phoron fire properties.
 #define PHORON_MINIMUM_BURN_TEMPERATURE    (T0C +  126) //400 K - autoignite temperature in tanks and canisters - enclosed environments I guess
@@ -126,3 +129,4 @@
 #define GAS_PHORON				"phoron"
 #define GAS_BORON				"boron"
 #define GAS_HEAT                "heat" //Not a real gas, used for visual effects
+#define GAS_COLD                "cold" //Not a real gas, used for visual effects

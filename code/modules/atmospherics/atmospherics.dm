@@ -19,6 +19,7 @@ Pipelines + Other Objects -> Pipe network
 	var/power_rating //the maximum amount of power the machine can use to do work, affects how powerful the machine is, in Watts
 
 	layer = EXPOSED_PIPE_LAYER
+	var/hidden_layer = PIPE_LAYER
 
 	var/connect_types = CONNECT_TYPE_REGULAR
 	var/connect_dir_type = SOUTH // Assume your dir is SOUTH. What dirs should you connect to?
@@ -32,7 +33,7 @@ Pipelines + Other Objects -> Pipe network
 	var/obj/machinery/atmospherics/node2
 
 	var/atmos_initalized = FALSE
-	var/build_icon = 'icons/obj/pipe-item.dmi'
+	var/build_icon = 'icons/obj/atmospherics/pipe-item.dmi'
 	var/build_icon_state = "buildpipe"
 	var/colorable = FALSE
 
@@ -58,14 +59,9 @@ Pipelines + Other Objects -> Pipe network
 
 /obj/machinery/atmospherics/hide(do_hide)
 	if(do_hide && level == ATOM_LEVEL_UNDER_TILE)
-		layer = PIPE_LAYER
+		layer = hidden_layer
 	else
 		reset_plane_and_layer()
-
-/obj/machinery/atmospherics/attackby(atom/A, mob/user as mob)
-	if(istype(A, /obj/item/device/scanner/gas))
-		return
-	..()
 
 /obj/machinery/atmospherics/proc/add_underlay(turf/T, obj/machinery/atmospherics/node, direction, icon_connect_type)
 	if(node)

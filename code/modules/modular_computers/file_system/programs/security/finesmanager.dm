@@ -1,4 +1,4 @@
-GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()))
+GLOBAL_LIST_AS(all_fines, list("fineNum" = rand(1000,2500), "records" = list()))
 
 /datum/computer_file/program/finesmanager
 	filename = "digitalfines"
@@ -62,7 +62,7 @@ GLOBAL_LIST_INIT(all_fines, list("fineNum" = rand(1000,2500), "records" = list()
 			display_state = 1
 			return TRUE
 
-/datum/nano_module/program/finesmanager/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = GLOB.default_state)
+/datum/nano_module/program/finesmanager/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/topic_state/state = GLOB.default_state)
 	var/list/data = program.computer.initial_data()
 	var/obj/item/stock_parts/computer/card_slot/card_slot = program.computer.get_component(PART_CARD)
 

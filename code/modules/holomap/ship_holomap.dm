@@ -112,8 +112,8 @@
 			user.client.images |= holomap_datum.station_map
 
 			watching_mob = user
-			GLOB.moved_event.register(watching_mob, src, /obj/machinery/ship_map/proc/checkPosition)
-			GLOB.destroyed_event.register(watching_mob, src, /obj/machinery/ship_map/proc/stopWatching)
+			GLOB.moved_event.register(watching_mob, src, PROC_REF(checkPosition))
+			GLOB.destroyed_event.register(watching_mob, src, PROC_REF(stopWatching))
 			update_use_power(POWER_USE_ACTIVE)
 
 			if(bogus)
@@ -137,7 +137,7 @@
 		if(watching_mob.client)
 			animate(holomap_datum.station_map, alpha = 0, time = 5, easing = LINEAR_EASING)
 			var/mob/M = watching_mob
-			addtimer(new Callback(src, .proc/clear_image, M, holomap_datum.station_map),  0.5 SECONDS)//we give it time to fade out
+			addtimer(new Callback(src, PROC_REF(clear_image), M, holomap_datum.station_map),  0.5 SECONDS)//we give it time to fade out
 		GLOB.moved_event.unregister(watching_mob, src)
 		GLOB.destroyed_event.unregister(watching_mob, src)
 	watching_mob = null
@@ -150,8 +150,7 @@
 		M.client.images -= I
 
 /obj/machinery/ship_map/on_update_icon()
-	. = ..()
-	overlays.Cut()
+	ClearOverlays()
 	if(MACHINE_IS_BROKEN(src))
 		icon_state = "station_mapb"
 		set_light(0)
@@ -160,20 +159,20 @@
 		set_light(0)
 	else
 		icon_state = "station_map"
-		set_light(0.8, 0.1, 2, 2, "#1dbe17")
+		set_light(2, 0.8, "#1dbe17")
 
 		// Put the little "map" overlay down where it looks nice
 		if(small_station_map)
-			overlays.Add(small_station_map)
+			AddOverlays(small_station_map)
 
 	if(floor_markings)
 		floor_markings.dir = src.dir
 		floor_markings.pixel_x = -src.pixel_x
 		floor_markings.pixel_y = -src.pixel_y
-		src.overlays.Add(floor_markings)
+		AddOverlays(floor_markings)
 
 	if(panel_open)
-		overlays.Add("station_map-panel")
+		AddOverlays("station_map-panel")
 
 /obj/machinery/ship_map/ex_act(severity)
 	switch(severity)
@@ -239,7 +238,7 @@
 	. = ..()
 	src.color = color
 	saved_color = color
-	maptext = "<A href='?src=\ref[src]' style='color: #ffffff'>[HOLOMAP_LEGEND_STYLING(text)]</A>"
+	maptext = "<A href='byond://?src=\ref[src]' style='color: #ffffff'>[HOLOMAP_LEGEND_STYLING(text)]</A>"
 	alpha = 254
 
 /obj/screen/legend/Click(location, control, params)
@@ -250,13 +249,13 @@
 /obj/screen/legend/proc/Setup(z_level)
 	has_areas = FALSE
 	//Get the areas for this z level and mark if we're empty
-	overlays.Cut()
+	ClearOverlays()
 	for(var/area/A in SSminimap.holomaps[z_level].holomap_areas)
 		if(A.holomap_color == saved_color)
 			var/image/area = image(SSminimap.holomaps[z_level].holomap_areas[A])
 			area.pixel_x = ((HOLOMAP_ICON_SIZE / 2) - world.maxx / 2) - pixel_x
 			area.pixel_y = ((HOLOMAP_ICON_SIZE / 2) - world.maxy / 2) - pixel_y
-			overlays += area
+			AddOverlays(area)
 			has_areas = TRUE
 
 //What happens when we are clicked on / when another is clicked on
@@ -288,7 +287,7 @@
 	var/z = -1
 	var/displayed_level = 1 //Index of level to display
 
-/datum/station_holomap/Destroy(force)
+/datum/station_holomap/Destroy()
 	QDEL_NULL(station_map)
 	QDEL_NULL(cursor)
 	QDEL_NULL_LIST(legend)
@@ -296,7 +295,7 @@
 	QDEL_NULL_LIST(lbuttons)
 	QDEL_NULL_LIST(maptexts)
 	QDEL_NULL_LIST(z_levels)
-	. = ..()
+	return ..()
 
 /datum/station_holomap/proc/initialize_holomap(turf/T, isAI = null, mob/user = null, reinit = FALSE)
 	z = T.z
@@ -331,7 +330,7 @@
 
 	//This is where the fun begins
 	if(GLOB.using_map.use_overmap)
-		var/obj/effect/overmap/visitable/O = map_sectors["[z]"]
+		var/obj/overmap/visitable/O = map_sectors["[z]"]
 
 		var/current_z_offset_x = (HOLOMAP_ICON_SIZE / 2) - world.maxx / 2
 		var/current_z_offset_y = (HOLOMAP_ICON_SIZE / 2) - world.maxy / 2
@@ -394,14 +393,14 @@
 
 	displayed_level = level
 
-	station_map.overlays.Cut()
+	station_map.ClearOverlays()
 	station_map.vis_contents.Cut()
 
 	if(z == z_levels[displayed_level])
-		station_map.overlays += cursor
+		station_map.AddOverlays(cursor)
 
-	station_map.overlays += levels["[z_levels[displayed_level]]"]
-	station_map.vis_contents += maptexts["[z_levels[displayed_level]]"]
+	station_map.AddOverlays(levels["[z_levels[displayed_level]]"])
+	station_map.add_vis_contents(maptexts["[z_levels[displayed_level]]"])
 
 	//Fix legend position
 	var/pixel_y = HOLOMAP_LEGEND_Y
@@ -411,13 +410,13 @@
 		element.Setup(z_levels[displayed_level])
 		if(element.has_areas)
 			pixel_y -= 10
-			station_map.vis_contents += element
+			station_map.add_vis_contents(element)
 
 	if(displayed_level > 1)
-		station_map.vis_contents += lbuttons[1]
+		station_map.add_vis_contents(lbuttons[1])
 
 	if(displayed_level < length(z_levels))
-		station_map.vis_contents += lbuttons[2]
+		station_map.add_vis_contents(lbuttons[2])
 
 /datum/station_holomap/proc/legend_select(obj/screen/legend/L)
 	legend_deselect()
@@ -429,6 +428,7 @@
 
 /datum/station_holomap/proc/initialize_holomap_bogus()
 	station_map = image('icons/480x480.dmi', "stationmap")
-	station_map.overlays |= image('icons/effects/64x64.dmi', "notfound", pixel_x = 7 * WORLD_ICON_SIZE, pixel_y = 7 * WORLD_ICON_SIZE)
+	var/notfound = image('icons/effects/64x64.dmi', "notfound", pixel_x = 7 * WORLD_ICON_SIZE, pixel_y = 7 * WORLD_ICON_SIZE)
+	station_map.AddOverlays(notfound)
 
 #undef HOLOMAP_LEGEND_STYLING

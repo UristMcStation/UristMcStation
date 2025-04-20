@@ -21,7 +21,7 @@
 	name = "DISTORTION: Spatial Instability"
 
 
-/datum/power/revenant/distortion/spatial_instability/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/spatial_instability/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(!istype(A))
 		return
 
@@ -84,7 +84,7 @@
 	name = "DISTORTION: Afterimage"
 
 
-/datum/power/revenant/distortion/afterimage/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/afterimage/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -121,8 +121,8 @@
 		return
 
 	playsound(get_turf(src), 'sound/effects/teleport.ogg', 50, 1)
-	new /obj/effect/portal/wizard(start, end, 2 MINUTES)
-	new /obj/effect/portal/wizard(end, start, 2 MINUTES)
+	new /obj/portal/wizard(start, end, 2 MINUTES)
+	new /obj/portal/wizard(end, start, 2 MINUTES)
 
 	var/datum/bluespace_revenant/revenant = src?.mind?.bluespace_revenant
 	if(istype(revenant))
@@ -190,7 +190,7 @@ Proc needs to be fixed, it fails to locate a dest
 	return 1
 
 
-/datum/bluespace_revenant/proc/ProcessDigitalCamo(var/ticks = 1)
+/datum/bluespace_revenant/proc/ProcessDigitalCamo(ticks = 1)
 	// If we have digicamo on, increase distortion
 
 	if(isnull(src.trackers))
@@ -221,7 +221,7 @@ Proc needs to be fixed, it fails to locate a dest
 	distortion_threshold = 18000 // 15 mins
 
 
-/datum/power/revenant/bs_power/digicamo/Activate(var/datum/mind/M)
+/datum/power/revenant/bs_power/digicamo/Activate(datum/mind/M)
 	. = ..(M)
 
 	if(!.)
@@ -250,7 +250,7 @@ Proc needs to be fixed, it fails to locate a dest
 	name = "DISTORTION: Machine Discord"
 
 
-/datum/power/revenant/distortion/techdiscord/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/techdiscord/Apply(atom/A, datum/bluespace_revenant/revenant)
 	// 0
 	if(isnull(A) || !istype(A))
 		return
@@ -263,7 +263,7 @@ Proc needs to be fixed, it fails to locate a dest
 	if(!istype(angerymachine))
 		return FALSE
 
-	var/datum/effect/effect/system/spark_spread/sparkFX = new()
+	var/datum/effect/spark_spread/sparkFX = new()
 	sparkFX.set_up(3, 0, T)
 	sparkFX.start()
 
@@ -281,7 +281,7 @@ Proc needs to be fixed, it fails to locate a dest
 	distortion_threshold = 24000
 
 
-/datum/power/revenant/distortion/techbane/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/techbane/Apply(atom/A, datum/bluespace_revenant/revenant)
 	//
 	if(isnull(A) || !istype(A))
 		return
@@ -299,7 +299,7 @@ Proc needs to be fixed, it fails to locate a dest
 	if(istype(M))
 		empIsSafe = (get_dist(T, M) > 2)
 
-	var/datum/effect/effect/system/spark_spread/sparkFX = new()
+	var/datum/effect/spark_spread/sparkFX = new()
 	sparkFX.set_up(3, 0, T)
 	sparkFX.start()
 
@@ -322,7 +322,7 @@ Proc needs to be fixed, it fails to locate a dest
 	name = "DISTORTION: Flicker Fluorescents"
 
 
-/datum/power/revenant/distortion/lightflicker/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/lightflicker/Apply(atom/A, datum/bluespace_revenant/revenant)
 	// Flicker lights
 	if(isnull(A) || !istype(A))
 		return
@@ -355,7 +355,7 @@ Proc needs to be fixed, it fails to locate a dest
 	name = "DISTORTION - Spatiotemporal Interference"
 
 
-/datum/power/revenant/distortion/noisefx/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/noisefx/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -365,7 +365,7 @@ Proc needs to be fixed, it fails to locate a dest
 
 	var/randicon = rand(1, 9)
 	var/duration = rand(30 SECONDS, 90 SECONDS)
-	var/obj/effect/temporary/staticeffect = new (T, duration, 'icons/effects/static.dmi', "[randicon] light")
+	var/obj/temporary/staticeffect = new (T, duration, 'icons/effects/static.dmi', "[randicon] light")
 
 	if(istype(staticeffect))
 		return TRUE
@@ -396,12 +396,12 @@ Proc needs to be fixed, it fails to locate a dest
 			targets.Add(O)
 			value_lookup[O] = tradeval
 
-	if(!(targets.len))
+	if(!(length(targets)))
 		to_chat(src, SPAN_NOTICE("No valuable items nearby."))
 		return
 
 	var/obj/target = null
-	if(targets.len == 1)
+	if(length(targets) == 1)
 		target = targets[1]
 
 	if(!istype(target))
@@ -461,4 +461,3 @@ Proc needs to be fixed, it fails to locate a dest
 	name = "Equivalent Exchange"
 	isVerb = TRUE
 	verbpath = /mob/proc/revenant_goldeater
-

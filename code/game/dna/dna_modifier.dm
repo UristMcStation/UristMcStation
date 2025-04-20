@@ -37,7 +37,7 @@
 
 /////////////////////////// DNA MACHINES
 /obj/item/stock_parts/circuitboard/clonescanner
-	name = T_BOARD("cloning scanner")
+	name = "circuit board (cloning scanner)"
 	build_path = /obj/machinery/dna_scannernew
 	board_type = "machine"
 	origin_tech = list(TECH_DATA = 3, TECH_BIO = 3)
@@ -51,7 +51,7 @@
 /obj/machinery/dna_scannernew
 	name = "\improper DNA scanner"
 	desc = "It scans DNA structures."
-	icon = 'icons/obj/Cryogenic2.dmi'
+	icon = 'icons/obj/machines/medical/cryogenic_legacy.dmi'
 	icon_state = "scanner_0"
 	density = TRUE
 	anchored = TRUE
@@ -64,6 +64,12 @@
 	var/mob/living/carbon/occupant = null
 	var/obj/item/reagent_containers/glass/beaker = null
 	var/opened = 0
+
+/obj/machinery/dna_scannernew/on_update_icon()
+	if(!occupant)
+		icon_state = "scanner_0"
+	else
+		icon_state = "scanner_1"
 
 /obj/machinery/dna_scannernew/relaymove(mob/user as mob)
 	if (user.stat)
@@ -117,61 +123,77 @@
 	src.add_fingerprint(usr)
 	return
 
-/obj/machinery/dna_scannernew/attackby(var/obj/item/item as obj, var/mob/user as mob)
-	if(istype(item, /obj/item/reagent_containers/glass))
+/obj/machinery/dna_scannernew/use_tool(obj/item/I, mob/living/user, list/click_params)
+	if(istype(I, /obj/item/reagent_containers/glass))
 		if(beaker)
 			to_chat(user, "<span class='warning'>A beaker is already loaded into the machine.</span>")
-			return
+			return TRUE
+		if(!user.unEquip(I, src))
+			return TRUE
+		beaker = I
+		user.visible_message(SPAN_NOTICE("\The [user] adds \a [I] to \the [src]."), SPAN_NOTICE("You add \a [I] to \the [src]."))
+		return TRUE
 
-		beaker = item
-		user.drop_item()
-		item.loc = src
-		user.visible_message("\The [user] adds \a [item] to \the [src]!", "You add \a [item] to \the [src]!")
-		return
-	else if (!istype(item, /obj/item/grab))
-		return
-	var/obj/item/grab/G = item
-	if (!ismob(G.affecting))
-		return
-	if (src.occupant)
-		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
-		return
-	if (G.affecting.abiotic())
-		to_chat(user, "<span class='warning'>The subject cannot have abiotic items on.</span>")
-		return
-	put_in(G.affecting)
-	src.add_fingerprint(user)
-	qdel(G)
-	return
+	return ..()
 
-//Like grab-putting, but for mouse-drop.
-/obj/machinery/dna_scannernew/MouseDrop_T(var/mob/target, var/mob/user)
-	if(!istype(target))
-		return
-	if (!CanMouseDrop(target, user))
-		return
-	if (src.occupant)
-		to_chat(user, "<span class='warning'>The scanner is already occupied!</span>")
-		return
+/obj/machinery/dna_scannernew/user_can_move_target_inside(mob/target, mob/user)
+	if (occupant)
+		to_chat(user,  SPAN_WARNING("\The [src] is already occupied!"))
+		return FALSE
 	if (target.abiotic())
-		to_chat(user, "<span class='warning'>The subject cannot have abiotic items on.</span>")
-		return
+		to_chat(user, SPAN_WARNING("The subject cannot have abiotic items on."))
+		return FALSE
 	if (target.buckled)
-		to_chat(user, "<span class='warning'>Unbuckle the subject before attempting to move them.</span>")
+		to_chat(user, SPAN_WARNING("Unbuckle the subject before attempting to move them."))
+		return FALSE
+	return ..()
+
+/obj/machinery/dna_scannernew/MouseDrop_T(mob/target, mob/user)
+	if (!CanMouseDrop(target, user) || !ismob(target))
 		return
+	if (!user_can_move_target_inside(target, user))
+		return
+	put_in(target)
+
+/obj/machinery/dna_scannernew/use_grab(obj/item/grab/grab, list/click_params) //Grab is deleted at the level of put_in if all checks are passed.
+	MouseDrop_T(grab.affecting, grab.assailant)
+	return TRUE
+
+/obj/machinery/dna_scannernew/proc/put_in(mob/target, mob/user)
+	if (!target)
+		return FALSE
+	if (occupant)
+		to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
+		return FALSE
+	if (!user_can_move_target_inside(target, user))
+		return
+	if (target == user)
+		visible_message("\The [user] starts climbing into \the [src].")
+	else
+		visible_message("\The [user] starts putting [target] into \the [src].")
+	add_fingerprint(user) //Add fingerprints for trying to go in.
+	if (!do_after(user, 2 SECONDS, src, DO_PUBLIC_UNIQUE))
+		return FALSE
+	if (!user_can_move_target_inside(target, user))
+		return FALSE
+	set_occupant(target)
+	if (target != user)
+		add_fingerprint(target) //Add fingerprints of the person stuffed in.
+	target.remove_grabs_and_pulls()
+
 	user.visible_message("<span class='notice'>\The [user] begins placing \the [target] into \the [src].</span>", "<span class='notice'>You start placing \the [target] into \the [src].</span>")
 	if(!do_after(user, 30, src))
 		return
-	put_in(target)
-	src.add_fingerprint(user)
 
-/obj/machinery/dna_scannernew/proc/put_in(var/mob/M)
-	if(M.client)
-		M.client.perspective = EYE_PERSPECTIVE
-		M.client.eye = src
-	M.loc = src
-	src.occupant = M
-	src.icon_state = "scanner_1"
+/obj/machinery/dna_scannernew/proc/set_occupant(mob/living/carbon/occupant)
+	src.occupant = occupant
+	update_icon()
+	SetName("[name] ([occupant])")
+	if(occupant.client)
+		occupant.client.perspective = EYE_PERSPECTIVE
+		occupant.client.eye = src
+	occupant.forceMove(src)
+	occupant.stop_pulling()
 
 	// search for ghosts, if the corpse is empty and the scanner is connected to a cloner
 	if(!config.use_cortical_stacks)
@@ -180,20 +202,21 @@
 			|| locate(/obj/machinery/computer/cloning, get_step(src, EAST)) \
 			|| locate(/obj/machinery/computer/cloning, get_step(src, WEST)))
 
-			if(!M.client && M.mind)
+			if(!occupant.client && occupant.mind)
 				for(var/mob/observer/ghost/ghost in GLOB.player_list)
-					if(ghost.mind == M.mind)
+					if(ghost.mind == occupant.mind)
 						to_chat(ghost, "<b><font color = #330033><font size = 3>Your corpse has been placed into a cloning scanner. Return to your body if you want to be resurrected/cloned!</b> (Verbs -> Ghost -> Re-enter corpse)</font></font>")
 						break
 	return
 
 /obj/machinery/dna_scannernew/proc/go_out()
-	if (!src.occupant)
+	if (!occupant)
 		return
-	src.occupant.reset_view(null)
-	src.occupant.loc = get_turf(src)
-	src.occupant = null
-	src.icon_state = "scanner_0"
+	occupant.reset_view(null)
+	occupant.loc = get_turf(src)
+	occupant = null
+	update_icon()
+	SetName(initial(name))
 	return
 
 /obj/machinery/dna_scannernew/ex_act(severity)
@@ -230,7 +253,7 @@
 /obj/machinery/computer/scan_consolenew
 	name = "DNA Modifier Access Console"
 	desc = "Scan DNA."
-	icon = 'icons/obj/computer.dmi'
+	icon = 'icons/obj/machines/computer.dmi'
 	icon_keyboard = "med_key"
 	icon_screen = "dna"
 	density = TRUE
@@ -299,7 +322,7 @@
 
 /obj/machinery/computer/scan_consolenew/proc/all_dna_blocks(var/list/buffer)
 	var/list/arr = list()
-	for(var/i = 1, i <= buffer.len, i++)
+	for(var/i = 1, i <= length(buffer), i++)
 		arr += "[i]:[EncodeDNABlock(buffer[i])]"
 	return arr
 
@@ -419,7 +442,7 @@
 	data["beakerVolume"] = 0
 	if(connected.beaker)
 		data["beakerLabel"] = connected.beaker.label_text ? connected.beaker.label_text : null
-		if (connected.beaker.reagents && connected.beaker.reagents.reagent_list.len)
+		if (connected.beaker.reagents && length(connected.beaker.reagents.reagent_list))
 			for(var/datum/reagent/R in connected.beaker.reagents.reagent_list)
 				data["beakerVolume"] += R.volume
 
@@ -439,7 +462,7 @@
 /obj/machinery/computer/scan_consolenew/Topic(href, href_list)
 	if(..())
 		return 0 // don't update uis
-	if(!istype(usr.loc, /turf))
+	if(!isturf(usr.loc))
 		return 0 // don't update uis
 	if(!src || !src.connected)
 		return 0 // don't update uis

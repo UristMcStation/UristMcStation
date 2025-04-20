@@ -1,10 +1,22 @@
-/obj/item/clothing/suit/storage/solgov
-	name = "master solgov jacket"
+/obj/item/clothing/suit/solgov
+	abstract_type = /obj/item/clothing/suit/solgov
+	name = "master solgov suit"
 	icon = 'maps/torch/icons/obj/obj_suit_solgov.dmi'
 	item_icons = list(slot_wear_suit_str = 'maps/torch/icons/mob/onmob_suit_solgov.dmi')
 	sprite_sheets = list(
 		SPECIES_UNATHI = 'maps/torch/icons/mob/unathi/onmob_suit_solgov_unathi.dmi'
 	)
+
+
+/obj/item/clothing/suit/storage/solgov
+	abstract_type = /obj/item/clothing/suit/storage/solgov
+	name = "master solgov suit with pockets"
+	icon = 'maps/torch/icons/obj/obj_suit_solgov.dmi'
+	item_icons = list(slot_wear_suit_str = 'maps/torch/icons/mob/onmob_suit_solgov.dmi')
+	sprite_sheets = list(
+		SPECIES_UNATHI = 'maps/torch/icons/mob/unathi/onmob_suit_solgov_unathi.dmi'
+	)
+
 
 //Service
 
@@ -34,7 +46,7 @@
 		ACCESSORY_SLOT_MEDAL,
 		ACCESSORY_SLOT_INSIGNIA,
 		ACCESSORY_SLOT_RANK,
-		ACCESSORY_SLOT_DEPT,
+		ACCESSORY_SLOT_FLASH,
 		ACCESSORY_SLOT_DECOR
 	)
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMBAND)
@@ -50,48 +62,63 @@
 
 /obj/item/clothing/suit/storage/solgov/service/expeditionary/medical
 	accessories = list(/obj/item/clothing/accessory/solgov/department/medical/service)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/storage/solgov/service/expeditionary/command/medical
 	accessories = list(/obj/item/clothing/accessory/solgov/department/medical/service)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/storage/solgov/service/expeditionary/engineering
 	accessories = list(/obj/item/clothing/accessory/solgov/department/engineering/service)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/storage/solgov/service/expeditionary/command/engineering
 	accessories = list(/obj/item/clothing/accessory/solgov/department/engineering/service)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/storage/solgov/service/expeditionary/supply
 	accessories = list(/obj/item/clothing/accessory/solgov/department/supply/service)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/storage/solgov/service/expeditionary/command/supply
 	accessories = list(/obj/item/clothing/accessory/solgov/department/supply/service)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/storage/solgov/service/expeditionary/security
 	accessories = list(/obj/item/clothing/accessory/solgov/department/security/service)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/storage/solgov/service/expeditionary/command/security
 	accessories = list(/obj/item/clothing/accessory/solgov/department/security/service)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/storage/solgov/service/expeditionary/service
 	accessories = list(/obj/item/clothing/accessory/solgov/department/service/service)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/storage/solgov/service/expeditionary/command/service
 	accessories = list(/obj/item/clothing/accessory/solgov/department/service/service)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/storage/solgov/service/expeditionary/exploration
 	accessories = list(/obj/item/clothing/accessory/solgov/department/exploration/service)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/storage/solgov/service/expeditionary/command/exploration
 	accessories = list(/obj/item/clothing/accessory/solgov/department/exploration/service)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/storage/solgov/service/expeditionary/research
 	accessories = list(/obj/item/clothing/accessory/solgov/department/research/service)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/storage/solgov/service/expeditionary/command/research
 	accessories = list(/obj/item/clothing/accessory/solgov/department/research/service)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/storage/solgov/service/expeditionary/command/command
 	accessories = list(/obj/item/clothing/accessory/solgov/department/command/service)
+	item_flags = ITEM_FLAG_WASHER_ALLOWED | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/storage/solgov/service/fleet
 	name = "fleet service jacket"
@@ -123,83 +150,46 @@
 	icon_state = "blueservice_flag"
 	item_state = "blueservice_flag"
 
-/obj/item/clothing/suit/storage/solgov/service/army
-	name = "army coat"
-	desc = "An SCG Army service coat. Green and undecorated."
-	icon_state = "greenservice"
-	item_state = "greenservice"
+//Fleet Service Sweater
 
-/obj/item/clothing/suit/storage/solgov/service/army/medical
-	name = "army medical jacket"
-	desc = "An SCG Army service coat. This one has blue markings."
-	icon_state = "greenservice_med"
-	item_state = "greenservice_med"
+/obj/item/clothing/suit/solgov/fleet_sweater
+	name = "fleet service sweater"
+	desc = "A navy blue SCG Fleet service sweater."
+	icon_state = "fleet_sweater"
+	item_state = "fleet_sweater"
+	body_parts_covered = UPPER_TORSO|ARMS
+	allowed = null
+	valid_accessory_slots = list(
+		ACCESSORY_SLOT_ARMBAND,
+		ACCESSORY_SLOT_MEDAL,
+		ACCESSORY_SLOT_INSIGNIA,
+		ACCESSORY_SLOT_RANK,
+		ACCESSORY_SLOT_FLASH,
+		ACCESSORY_SLOT_DECOR
+	)
+	restricted_accessory_slots = list(
+		ACCESSORY_SLOT_ARMBAND,
+		ACCESSORY_SLOT_RANK,
+		ACCESSORY_SLOT_FLASH
+	)
 
-/obj/item/clothing/suit/storage/solgov/service/army/medical/command
-	name = "army medical command jacket"
-	desc = "An SCG Army service coat. This one has blue and gold markings."
-	icon_state = "greenservice_medcom"
-	item_state = "greenservice_medcom"
+/obj/item/clothing/suit/solgov/fleet_sweater/officer
+	name = "fleet officer's service sweater"
+	desc = "A navy blue SCG Fleet service sweater with silver accents."
+	icon_state = "fleet_sweater_off"
+	item_state = "fleet_sweater_off"
 
-/obj/item/clothing/suit/storage/solgov/service/army/engineering
-	name = "army engineering jacket"
-	desc = "An SCG Army service coat. This one has orange markings."
-	icon_state = "greenservice_eng"
-	item_state = "greenservice_eng"
+/obj/item/clothing/suit/solgov/fleet_sweater/command
+	name = "fleet senior officer's service sweater"
+	desc = "A navy blue SCG Fleet service sweater with gold accents."
+	icon_state = "fleet_sweater_comm"
+	item_state = "fleet_sweater_comm"
 
-/obj/item/clothing/suit/storage/solgov/service/army/engineering/command
-	name = "army engineering command jacket"
-	desc = "An SCG Army service coat. This one has orange and gold markings."
-	icon_state = "greenservice_engcom"
-	item_state = "greenservice_engcom"
-
-/obj/item/clothing/suit/storage/solgov/service/army/supply
-	name = "army supply jacket"
-	desc = "An SCG Army service coat. This one has brown markings."
-	icon_state = "greenservice_sup"
-	item_state = "greenservice_sup"
-
-/obj/item/clothing/suit/storage/solgov/service/army/security
-	name = "army security jacket"
-	desc = "An SCG Army service coat. This one has red markings."
-	icon_state = "greenservice_sec"
-	item_state = "greenservice_sec"
-
-/obj/item/clothing/suit/storage/solgov/service/army/security/command
-	name = "army security command jacket"
-	desc = "An SCG Army service coat. This one has red and gold markings."
-	icon_state = "greenservice_seccom"
-	item_state = "greenservice_seccom"
-
-/obj/item/clothing/suit/storage/solgov/service/army/service
-	name = "army service jacket"
-	desc = "An SCG Army service coat. This one has green markings."
-	icon_state = "greenservice_srv"
-	item_state = "greenservice_srv"
-
-/obj/item/clothing/suit/storage/solgov/service/army/service/command
-	name = "army service command jacket"
-	desc = "An SCG Army service coat. This one has green and gold markings."
-	icon_state = "greenservice_srvcom"
-	item_state = "greenservice_srvcom"
-
-/obj/item/clothing/suit/storage/solgov/service/army/exploration
-	name = "army exploration jacket"
-	desc = "An SCG Army service coat. This one has purple markings."
-	icon_state = "greenservice_exp"
-	item_state = "greenservice_exp"
-
-/obj/item/clothing/suit/storage/solgov/service/army/exploration/command
-	name = "army exploration command jacket"
-	desc = "An SCG Army service coat. This one has purple and gold markings."
-	icon_state = "greenservice_expcom"
-	item_state = "greenservice_expcom"
-
-/obj/item/clothing/suit/storage/solgov/service/army/command
-	name = "army command jacket"
-	desc = "An SCG Marine Corps service coat. This one has gold markings."
-	icon_state = "greenservice_com"
-	item_state = "greenservice_com"
+/obj/item/clothing/suit/solgov/fleet_sweater/flag
+	name = "fleet flag officer's service sweater"
+	desc = "A navy blue SCG Fleet serivce sweater with red accents."
+	icon_state = "fleet_sweater_flag"
+	item_state = "fleet_sweater_flag"
 
 //Dress - murder me with a gun why are these 3 different types
 
@@ -307,17 +297,6 @@
 	icon_state = "sailordress"
 	item_state = "sailordress"
 
-/obj/item/clothing/suit/dress/solgov/army
-	name = "army dress jacket"
-	desc = "A tailored black SCG Army dress jacket with red trim. So sexy it hurts."
-	icon_state = "blackdress"
-	item_state = "blackdress"
-
-/obj/item/clothing/suit/dress/solgov/army/command
-	name = "army officer's dress jacket"
-	desc = "A tailored black SCG Army dress jacket with gold trim. Smells like ceremony."
-	icon_state = "blackdress_com"
-	item_state = "blackdress_com"
 
 //Misc
 
@@ -328,10 +307,6 @@
 	item_icons = list(slot_wear_suit_str = 'maps/torch/icons/mob/onmob_suit_solgov.dmi')
 	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA,ACCESSORY_SLOT_RANK)
 
-/obj/item/clothing/suit/storage/hooded/wintercoat/solgov/army
-	name = "army winter coat"
-	icon_state = "coatar"
-	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA,ACCESSORY_SLOT_RANK)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/solgov/fleet
 	name = "fleet winter coat"
@@ -514,6 +489,7 @@
 /obj/item/clothing/suit/space/void/engineering/alt/sol/prepared
 	helmet = /obj/item/clothing/head/helmet/space/void/engineering/alt/sol
 	boots = /obj/item/clothing/shoes/magboots
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/space/void/atmos/alt/sol
 	icon = 'maps/torch/icons/obj/obj_suit_solgov.dmi'
@@ -530,6 +506,7 @@
 /obj/item/clothing/suit/space/void/atmos/alt/sol/prepared
 	helmet = /obj/item/clothing/head/helmet/space/void/atmos/alt/sol
 	boots = /obj/item/clothing/shoes/magboots
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/space/void/pilot/sol
 	icon = 'maps/torch/icons/obj/obj_suit_solgov.dmi'
@@ -546,6 +523,7 @@
 /obj/item/clothing/suit/space/void/pilot/sol/prepared
 	helmet = /obj/item/clothing/head/helmet/space/void/pilot/sol
 	boots = /obj/item/clothing/shoes/magboots
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/space/void/medical/alt/sol
 	icon = 'maps/torch/icons/obj/obj_suit_solgov.dmi'
@@ -562,6 +540,7 @@
 /obj/item/clothing/suit/space/void/medical/alt/sol/prepared
 	helmet = /obj/item/clothing/head/helmet/space/void/medical/alt/sol
 	boots = /obj/item/clothing/shoes/magboots
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/space/void/command
 	name = "command voidsuit"
@@ -587,6 +566,7 @@
 /obj/item/clothing/suit/space/void/command/prepared
 	helmet = /obj/item/clothing/head/helmet/space/void/command
 	boots = /obj/item/clothing/shoes/magboots
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_INVALID_FOR_CHAMELEON
 
 /obj/item/clothing/suit/space/void/exploration
 	name = "exploration voidsuit"
@@ -617,3 +597,4 @@
 /obj/item/clothing/suit/space/void/exploration/prepared
 	helmet = /obj/item/clothing/head/helmet/space/void/exploration
 	boots = /obj/item/clothing/shoes/magboots
+	item_flags = ITEM_FLAG_THICKMATERIAL | ITEM_FLAG_INVALID_FOR_CHAMELEON

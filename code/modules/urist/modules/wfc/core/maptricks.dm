@@ -16,7 +16,7 @@
 	invisibility = STEP_TRIGGER_INVISIBILITY
 
 
-/obj/wfc_step_trigger/Crossed(var/atom/movable/O)
+/obj/wfc_step_trigger/Crossed(atom/movable/O)
 	. = ..(O)
 
 	if(src.step_callback)
@@ -32,7 +32,7 @@
 			call(src.step_callback)(arglist(_cbargs))
 
 
-/obj/wfc_step_trigger/Uncrossed(var/atom/movable/O)
+/obj/wfc_step_trigger/Uncrossed(atom/movable/O)
 	. = ..(O)
 
 	if(src.unstep_callback)
@@ -46,4 +46,3 @@
 				_cbargs.Add(src.unstep_callback_args)
 
 			call(src.unstep_callback)(arglist(_cbargs))
-

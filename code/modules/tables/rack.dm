@@ -1,11 +1,12 @@
 /obj/structure/table/rack
 	name = "rack"
 	desc = "Different from the Middle Ages version."
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/structures/furniture.dmi'
 	icon_state = "rack"
 	can_plate = 0
 	can_reinforce = 0
 	flipped = -1
+	obj_flags = FLAGS_OFF // No tabling objects
 
 /obj/structure/table/rack/New()
 	..()

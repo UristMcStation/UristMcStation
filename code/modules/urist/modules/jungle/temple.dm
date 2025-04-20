@@ -39,7 +39,7 @@
 // Loot //
 //******//
 
-/*/obj/effect/landmark/glowshroom_spawn
+/*/obj/landmark/glowshroom_spawn
 	icon_state = "x3"
 	invisibility = 101
 	New()
@@ -47,12 +47,12 @@
 			new /obj/effect/plant(src.loc)
 		qdel(src)*/ //restore once it DOESN'T RUNTIME
 
-/obj/effect/landmark/loot_spawn
+/obj/landmark/loot_spawn
 	name = "loot spawner"
 	icon_state = "grabbed1"
 	var/low_probability = 0
 
-/obj/effect/landmark/loot_spawn/New()
+/obj/landmark/loot_spawn/New()
 
 	switch(pick( \
 	low_probability * 1000;"nothing", \
@@ -122,8 +122,6 @@
 				new /obj/item/reagent_containers/food/snacks/grown/mushroom/libertycap(src.loc)
 			else if(prob(50))
 				new /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris(src.loc)
-//		if("blob")
-//			new /obj/effect/blob/core(src.loc) //blob will lag out the planet
 			return
 		if("clothes")
 			var/obj/structure/closet/C = new(src.loc)
@@ -230,7 +228,7 @@
 			var/obj/structure/closet/crate/secure/gear/C = new(src.loc)
 			var/num = rand(2,6)
 			for(var/i=0,i<num,i++)
-				var/spawn_type = pick(/obj/item/device/flashlight/flare, /obj/item/trash/candle, /obj/item/flame/candle, /obj/item/storage/box/matches)
+				var/spawn_type = pick(/obj/item/device/flashlight/flare, /obj/item/trash/candle, /obj/item/flame/candle, /obj/item/storage/fancy/matches/matchbox)
 				new spawn_type(C)
 		if("engineering")
 			var/obj/structure/closet/crate/secure/gear/C = new(src.loc)
@@ -267,7 +265,7 @@
 	..()
 	qdel(src)
 
-/obj/effect/landmark/loot_spawn/low
+/obj/landmark/loot_spawn/low
 	name = "low prob loot spawner"
 	icon_state = "grabbed"
 	low_probability = 1
@@ -276,14 +274,14 @@
 // Traps! //
 //********//
 
-/obj/effect/step_trigger/trap
+/obj/step_trigger/trap
 	name = "trap"
 	icon = 'icons/jungle.dmi'
 	icon = 'icons/jungle.dmi'
 	icon_state = "trap"
 	var/trap_type
 
-/obj/effect/step_trigger/trap/New()
+/obj/step_trigger/trap/New()
 	trap_type = pick(50;"thrower","sawburst","poison_dart","flame_burst",10;"phoron_gas",5;"n2_gas")
 //	if( (trap_type == "phoron_gas" || trap_type == "n2_gas") && prob(10))
 //		new /obj/effect/plant(src.loc)
@@ -294,7 +292,7 @@
 		T.desc = pick("There is a faint sheen of moisture over the top.","It looks a little unstable.","Something doesn't seem right.")
 	..()
 
-/obj/effect/step_trigger/trap/Trigger(atom/A)
+/obj/step_trigger/trap/Trigger(atom/A)
 	var/mob/living/M = A
 	if(!istype(M))
 		return
@@ -306,9 +304,9 @@
 
 			var/atom/myloc = src.loc
 			var/image/flicker = image('icons/jungle.dmi',"sawblade")
-			myloc.overlays += flicker
+			myloc.AddOverlays(flicker)
 			spawn(8)
-				myloc.overlays -= flicker
+				myloc.CutOverlays(flicker)
 				qdel(flicker)
 			//flick("sawblade",src)
 		if("poison_dart")
@@ -317,9 +315,9 @@
 
 			var/atom/myloc = src.loc
 			var/image/flicker = image('icons/jungle.dmi',"dart[rand(1,3)]")
-			myloc.overlays += flicker
+			myloc.AddOverlays(flicker)
 			spawn(8)
-				myloc.overlays -= flicker
+				myloc.CutOverlays(flicker)
 				qdel(flicker)
 			//flick("dart[rand(1,3)]",src)
 		if("flame_burst")
@@ -328,9 +326,9 @@
 
 			var/atom/myloc = src.loc
 			var/image/flicker = image('icons/jungle.dmi',"flameburst")
-			myloc.overlays += flicker
+			myloc.AddOverlays(flicker)
 			spawn(8)
-				myloc.overlays -= flicker
+				myloc.CutOverlays(flicker)
 				del flicker
 			//flick("flameburst",src)
 		if("phoron_gas")
@@ -344,14 +342,14 @@
 
 			var/atom/myloc = src.loc
 			var/image/flicker = image('icons/jungle.dmi',"throw[throw_dir]")
-			myloc.overlays += flicker
+			myloc.AddOverlays(flicker)
 			var/turf/my_turf = get_turf(loc)
 			if(!my_turf.density)
 				my_turf.density = TRUE
 				spawn(8)
 					my_turf.density = FALSE
 			spawn(8)
-				myloc.overlays -= flicker
+				myloc.CutOverlays(flicker)
 				qdel(flicker)
 
 			var/dist = rand(1,5)
@@ -370,11 +368,11 @@
 				M.dir = predir
 
 //gives turf a different description, to try and trick players
-/obj/effect/step_trigger/trap/fake
+/obj/step_trigger/trap/fake
 	icon_state = "faketrap"
 	name = "fake trap"
 
-/obj/effect/step_trigger/trap/fake/New()
+/obj/step_trigger/trap/fake/New()
 	if(prob(90))
 		var/turf/T = get_turf(src)
 		T.desc = pick("It looks a little dustier than the surrounding tiles.","It is somewhat ornate.","It looks a little darker than the surrounding tiles.")
@@ -382,12 +380,12 @@
 	qdel(src)
 
 //50% chance of being a trap
-/obj/effect/step_trigger/trap/fifty
+/obj/step_trigger/trap/fifty
 	icon_state = "trap"
 	name = "fifty fifty trap"
 	icon_state = "fiftytrap"
 
-/obj/effect/step_trigger/trap/fifty/New()
+/obj/step_trigger/trap/fifty/New()
 	if(prob(50))
 		..()
 	else

@@ -28,11 +28,11 @@
 
 
 /mob/living/silicon/robot/HandsEmpty()
-	return module_state_1 == null && module_state_2 == null && module_state_3 == null
+	return isnull(module_state_1) && isnull(module_state_2) && isnull(module_state_3)
 
 
 /mob/living/silicon/robot/HasFreeHand()
-	return module_state_1 == null || module_state_2 == null || module_state_3 == null
+	return isnull(module_state_1) || isnull(module_state_2) || isnull(module_state_3)
 
 
 /mob/living/silicon/robot/GetAllHeld(item_path)
@@ -265,7 +265,7 @@
 	return
 
 /mob/living/silicon/robot/proc/activate_module(obj/item/O)
-	if(!(locate(O) in module.equipment) && O != src.module.emag)
+	if(!(locate(O) in module.equipment))
 		return
 	if (IsHolding(O))
 		to_chat(src, SPAN_NOTICE("Already activated"))

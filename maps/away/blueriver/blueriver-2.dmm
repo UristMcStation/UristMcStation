@@ -58,13 +58,13 @@
 	},
 /area/bluespaceriver/ground)
 "ak" = (
-/obj/effect/shuttle_landmark/nav_blueriv/nav3,
+/obj/shuttle_landmark/nav_blueriv/nav3,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 240
 	},
 /area/bluespaceriver/ground)
 "al" = (
-/obj/effect/overmap/visitable/sector/planetoid/arcticplanet{
+/obj/overmap/visitable/sector/planetoid/arcticplanet{
 	desc = "Sensors show an arctic planet with a small vessel on the surface. The vessel is located in the western region of a trough surrounded by mineral-rich mountains on all four sides. Scans further indicate strange energy emissions from below the planet's surface. Sunrise is expected in 56 hours."
 	},
 /turf/simulated/floor/exoplanet/snow{
@@ -72,13 +72,13 @@
 	},
 /area/bluespaceriver/ground)
 "am" = (
-/obj/effect/shuttle_landmark/nav_blueriv/nav1,
+/obj/shuttle_landmark/nav_blueriv/nav1,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 240
 	},
 /area/bluespaceriver/ground)
 "an" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor,
 /area/bluespaceriver/ship)
 "ao" = (
@@ -110,7 +110,7 @@
 	},
 /obj/item/storage/pill_bottle/antitox,
 /obj/item/cell/standard,
-/obj/item/storage/box/matches,
+/obj/item/storage/fancy/matches/matchbox,
 /obj/random/maintenance/clean,
 /obj/random/cash,
 /obj/item/paper{
@@ -195,7 +195,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/item/material/knife/table,
+/obj/item/material/utensil/knife,
 /obj/item/paper{
 	info = "Well, it didn't take the three days I was betting on, so i'm out twenty bucks, but we managed to punch through into a cave of some sort with the drilling equipment. We're lowering a ladder down now and sending one of the guards down to check that there's no spiders in there or anything. Once they report back, we'll Move the whole basecamp down there, and- SO, We've moved down into the cave now, and what we've found is astounding! It looks a LOT like a lake or river of blue goo, but... not? I took some scans, but couldn't pick anything up aside from radiation spikes from the pool. I also lowered a swab into the fluid to take a sample, but when I touched the swab to the surface of the... Fluid? the Swab just... Ceased And yes, that's the best way to describe it. it just stopped existing in my hand. We figure it's best we DON'T touch the blue stuff for now. one of our help has started moving supplies down into the cave to build a bridge of sorts though across the pool. We spotted some sort of structure on the far side, and the bridge is the only way to get to it, so now we wait."
 	},
@@ -290,7 +290,7 @@
 /turf/simulated/floor/tiled,
 /area/bluespaceriver/ship)
 "ba" = (
-/obj/effect/wallframe_spawn/reinforced,
+/obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/bluespaceriver/ship)
 "bb" = (
@@ -786,7 +786,7 @@
 	},
 /area/bluespaceriver/ground)
 "cx" = (
-/obj/effect/shuttle_landmark/nav_blueriv/nav4,
+/obj/shuttle_landmark/nav_blueriv/nav4,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 240
 	},
@@ -818,13 +818,13 @@
 	},
 /area/bluespaceriver/ground)
 "cC" = (
-/obj/effect/shuttle_landmark/nav_blueriv/nav2,
+/obj/shuttle_landmark/nav_blueriv/nav2,
 /turf/simulated/floor/exoplanet/snow{
 	temperature = 240
 	},
 /area/bluespaceriver/ground)
 "cD" = (
-/obj/effect/landmark/map_data{
+/obj/landmark/map_data{
 	height = 2
 	},
 /turf/unsimulated/mineral{

@@ -1,7 +1,17 @@
+/datum/gear/trinket/photograph
+	display_name = "photo"
+	description = "A definable photograph. The only limit is your imagination."
+	path = /obj/item/phototrinket
+
+/datum/gear/trinket/photomaxim
+	display_name = "Maxim's photo"
+	description = "Token photograph from E-14b."
+	path = /obj/item/photomaxim
+
 /datum/gear/trinket/scg_challenge_coin
 	display_name = "sol challenge coin selection"
-	description = "A selection of challenge coins for identification, collection or simply bragging rights"
-	path = /obj/item/material/coin/challenge/sol
+	description = "A selection of challenge coins for identification, collection or simply bragging rights."
+	path = /obj/item/material/coin/challenge
 	cost = 1
 
 
@@ -9,7 +19,7 @@
 	..()
 	var/list/options = list()
 	options["fleet"] = /obj/item/material/coin/challenge/sol/fleet
-	options["army"] = /obj/item/material/coin/challenge/sol/army
+	options["army"] = /obj/item/material/coin/challenge/scga/army
 	options["armsmen"] = /obj/item/material/coin/challenge/sol/armsmen
 	options["gaia conflict"] = /obj/item/material/coin/challenge/sol/gaia
 	options["observatory"] = /obj/item/material/coin/challenge/sol/observatory
@@ -20,7 +30,7 @@
 
 /datum/gear/trinket/misc_challenge_coin
 	display_name = "misc challenge coin selection"
-	description = "A selection of challenge coins for identification, collection or simply bragging rights"
+	description = "A selection of challenge coins for identification, collection or simply bragging rights."
 	path = /obj/item/material/coin/challenge/misc
 	cost = 1
 
@@ -30,10 +40,15 @@
 	var/list/options = list()
 	options["PCRC"] = /obj/item/material/coin/challenge/misc/pcrc
 	options["SAARE"] = /obj/item/material/coin/challenge/misc/saare
+	options["Maxim"] = /obj/item/material/coin/challenge/misc/maxim
 	gear_tweaks += new /datum/gear_tweak/path (options)
 
 
 /datum/gear/trinket/gcc_challenge_coin/allowed_branches = list(
 	/datum/mil_branch/civilian,
 	/datum/mil_branch/iccgn
+)
+
+/datum/gear/union_card/allowed_branches = list(
+	/datum/mil_branch/civilian
 )

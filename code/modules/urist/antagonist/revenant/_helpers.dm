@@ -1,4 +1,4 @@
-/proc/compute_total_weights(var/list/keys2weights)
+/proc/compute_total_weights(list/keys2weights)
 	var/total_weights = 0
 
 	for(var/roll_key in keys2weights)
@@ -9,10 +9,10 @@
 	return total_weights
 
 
-/proc/sample_with_weights(var/list/keys2weights, var/weights_total = null)
+/proc/sample_with_weights(list/keys2weights, weights_total = null)
 	// For you mathier types, this is sampling from a categorical distribution.
 
-	if(!istype(keys2weights) || !keys2weights?.len)
+	if(!istype(keys2weights) || !length(keys2weights))
 		return
 
 	var/total_weights = weights_total

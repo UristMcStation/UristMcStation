@@ -22,6 +22,7 @@
 	icon_state = "sheet"
 	default_type = MATERIAL_STEEL
 	stacktype = /obj/item/stack/material/steel
+	build_type = /obj/item/stack/material/steel
 
 /obj/item/stack/material/cyborg/plasteel
 	icon_state = "sheet-reinf"
@@ -36,7 +37,7 @@
 /obj/item/stack/material/cyborg/glass
 	icon_state = "sheet"
 	default_type = MATERIAL_GLASS
-	material_flags = USE_MATERIAL_COLOR|USE_MATERIAL_SINGULAR_NAME|USE_MATERIAL_PLURAL_NAME
+	material_flags = USE_MATERIAL_COLOR | USE_MATERIAL_SINGULAR_NAME | USE_MATERIAL_PLURAL_NAME | USE_MATERIAL_ICON
 	stacktype = /obj/item/stack/material/glass
 
 /obj/item/stack/material/cyborg/glass/reinforced
@@ -49,5 +50,5 @@
 /obj/item/stack/material/cyborg/aluminium
 	icon_state = "sheet"
 	default_type = MATERIAL_ALUMINIUM
-	material_flags = USE_MATERIAL_COLOR|USE_MATERIAL_SINGULAR_NAME|USE_MATERIAL_PLURAL_NAME
+	material_flags = USE_MATERIAL_COLOR | USE_MATERIAL_SINGULAR_NAME | USE_MATERIAL_PLURAL_NAME | USE_MATERIAL_ICON
 	stacktype = /obj/item/stack/material/aliumium

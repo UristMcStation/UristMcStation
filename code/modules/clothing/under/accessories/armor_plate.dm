@@ -11,7 +11,7 @@
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 		)
-	slot = ACCESSORY_SLOT_ARMOR_C
+	slot = ACCESSORY_SLOT_ARMOR_CHEST
 	flags_inv = CLOTHING_BULKY
 
 
@@ -65,7 +65,7 @@
 	slot_flags = SLOT_OCLOTHING //can wear in suit slot as well
 	slot = ACCESSORY_SLOT_UTILITY
 	w_class = ITEM_SIZE_NORMAL
-	blood_overlay_type = "armor"
+	blood_overlay_type = "armorblood"
 	icon_state = "undervest"
 
 

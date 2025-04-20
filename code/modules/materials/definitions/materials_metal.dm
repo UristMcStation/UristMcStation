@@ -5,10 +5,17 @@
 	wall_name = "bulkhead"
 	stack_type = /obj/item/stack/material/uranium
 	radioactivity = 12
-	icon_base = "stone"
+	sheet_icon_base = "puck"
+	wall_icon_base = "stone"
+	wall_flags = FLAGS_OFF
+	wall_blend_icons = list(
+		"solid" = TRUE,
+		"wood" = TRUE,
+		"metal" = TRUE
+	)
 	door_icon_base = "stone"
 	table_icon_base = "stone"
-	icon_reinf = "reinf_stone"
+	wall_icon_reinf = "reinf_stone"
 	icon_colour = "#007a00"
 	weight = 22
 	stack_origin_tech = list(TECH_MATERIAL = 5)
@@ -29,6 +36,7 @@
 	hardness = MATERIAL_FLEXIBLE + 5
 	integrity = 100
 	stack_origin_tech = list(TECH_MATERIAL = 4)
+	sheet_icon_base = "ingot"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	chem_products = list(
@@ -70,6 +78,7 @@
 	weight = 15
 	hardness = MATERIAL_FLEXIBLE + 10
 	stack_origin_tech = list(TECH_MATERIAL = 2)
+	sheet_icon_base = "ingot"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	chem_products = list(
@@ -94,6 +103,7 @@
 	weight = 22
 	hardness = MATERIAL_FLEXIBLE + 10
 	stack_origin_tech = list(TECH_MATERIAL = 3)
+	sheet_icon_base = "ingot"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	chem_products = list(
@@ -115,8 +125,13 @@
 	wall_name = "bulkhead"
 	stack_type = /obj/item/stack/material/steel
 	brute_armor = 7
-	icon_base = "solid"
-	icon_reinf = "reinf_over"
+	wall_icon_base = "solid"
+	wall_icon_reinf = "reinf_over"
+	wall_flags = MATERIAL_PAINTABLE_MAIN|MATERIAL_PAINTABLE_STRIPE|MATERIAL_WALL_HAS_EDGES
+	wall_blend_icons = list(
+		"wood" = TRUE,
+		"stone" = TRUE
+	)
 	icon_colour = COLOR_STEEL
 	hitsound = 'sound/weapons/smash.ogg'
 	chem_products = list(
@@ -152,8 +167,14 @@
 				)
 	integrity = 125
 	weight = 18
-	icon_base = "solid"
-	icon_reinf = "reinf_over"
+	sheet_icon_base = "sheet-sheen"
+	wall_icon_base = "solid"
+	wall_icon_reinf = "reinf_over"
+	wall_flags = MATERIAL_PAINTABLE_MAIN|MATERIAL_PAINTABLE_STRIPE|MATERIAL_WALL_HAS_EDGES
+	wall_blend_icons = list(
+		"wood" = TRUE,
+		"stone" = TRUE
+	)
 	icon_colour = "#cccdcc"
 	hitsound = 'sound/weapons/smash.ogg'
 	sale_price = 1
@@ -176,8 +197,14 @@
 	stack_type = /obj/item/stack/material/plasteel
 	integrity = 400
 	melting_point = 6000
-	icon_base = "solid"
-	icon_reinf = "reinf_over"
+	sheet_icon_base = "sheet-reinf"
+	wall_icon_base = "solid"
+	wall_icon_reinf = "reinf_over"
+	wall_flags = MATERIAL_PAINTABLE_MAIN|MATERIAL_PAINTABLE_STRIPE|MATERIAL_WALL_HAS_EDGES
+	wall_blend_icons = list(
+		"wood" = TRUE,
+		"stone" = TRUE
+	)
 	icon_colour = "#a8a9b2"
 	explosion_resistance = 7.5
 	brute_armor = 8
@@ -202,10 +229,15 @@
 	melting_point = 3000
 	weight = 18
 	stack_type = /obj/item/stack/material/titanium
-	icon_base = "metal"
+	wall_icon_base = "metal"
+	wall_flags = MATERIAL_PAINTABLE_MAIN
+	wall_blend_icons = list(
+		"wood" = TRUE,
+		"stone" = TRUE
+	)
 	door_icon_base = "metal"
 	icon_colour = "#d1e6e3"
-	icon_reinf = "reinf_metal"
+	wall_icon_reinf = "reinf_metal"
 	construction_difficulty = MATERIAL_VERY_HARD_DIY
 	alloy_materials = null
 	alloy_product = FALSE
@@ -216,8 +248,14 @@
 	stack_type = /obj/item/stack/material/ocp
 	integrity = 200
 	melting_point = 12000
-	icon_base = "solid"
-	icon_reinf = "reinf_over"
+	sheet_icon_base = "sheet-reinf"
+	wall_icon_base = "solid"
+	wall_icon_reinf = "reinf_over"
+	wall_flags = MATERIAL_PAINTABLE_MAIN|MATERIAL_PAINTABLE_STRIPE|MATERIAL_WALL_HAS_EDGES
+	wall_blend_icons = list(
+		"wood" = TRUE,
+		"stone" = TRUE
+	)
 	icon_colour = "#9bc6f2"
 	brute_armor = 4
 	burn_armor = 20
@@ -235,12 +273,14 @@
 	stack_type = /obj/item/stack/material/osmium
 	icon_colour = "#9999ff"
 	stack_origin_tech = list(TECH_MATERIAL = 5)
+	sheet_icon_base = "ingot"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	construction_difficulty = MATERIAL_VERY_HARD_DIY
 	sale_price = 3
 	ore_smelts_to = MATERIAL_OSMIUM
 	value = 30
+	weight = 29
 
 /material/tritium
 	name = MATERIAL_TRITIUM
@@ -250,6 +290,7 @@
 	stack_type = /obj/item/stack/material/tritium
 	icon_colour = "#777777"
 	stack_origin_tech = list(TECH_MATERIAL = 5)
+	sheet_icon_base = "puck"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	is_fusion_fuel = 1
@@ -264,6 +305,7 @@
 	stack_type = /obj/item/stack/material/deuterium
 	icon_colour = "#999999"
 	stack_origin_tech = list(TECH_MATERIAL = 3)
+	sheet_icon_base = "puck"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	is_fusion_fuel = 1
@@ -275,6 +317,8 @@
 	display_name = "metallic hydrogen"
 	wall_name = "bulkhead"
 	stack_type = /obj/item/stack/material/mhydrogen
+	sheet_icon_base = "sheet-mythril"
+	sheet_has_plural_icon = FALSE
 	icon_colour = "#e6c5de"
 	stack_origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 6, TECH_MAGNET = 5)
 	is_fusion_fuel = 1
@@ -298,6 +342,7 @@
 	icon_colour = "#deddff"
 	weight = 27
 	stack_origin_tech = list(TECH_MATERIAL = 2)
+	sheet_icon_base = "ingot"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	construction_difficulty = MATERIAL_HARD_DIY
@@ -318,6 +363,7 @@
 	stack_type = /obj/item/stack/material/iron
 	icon_colour = "#5c5454"
 	weight = 22
+	sheet_icon_base = "ingot"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	hitsound = 'sound/weapons/smash.ogg'
@@ -333,6 +379,7 @@
 	name = MATERIAL_VOX
 	display_name = "durable alloy"
 	wall_name = "bulkhead"
+	sheet_icon_base = "vox"
 	stack_type = null
 	icon_colour = "#6c7364"
 	integrity = 1200
@@ -358,9 +405,9 @@
 	display_name = "alien alloy"
 	wall_name = "bulkhead"
 	stack_type = null
-	icon_base = "jaggy"
+	wall_icon_base = "jaggy"
 	door_icon_base = "metal"
-	icon_reinf = "reinf_metal"
+	wall_icon_reinf = "reinf_metal"
 	hitsound = 'sound/weapons/smash.ogg'
 	sheet_singular_name = "chunk"
 	sheet_plural_name = "chunks"
@@ -369,7 +416,12 @@
 	hidden_from_codex = TRUE
 
 /material/aliumium/New()
-	icon_base = "metal"
+	wall_icon_base = "metal"
+	wall_flags = MATERIAL_PAINTABLE_MAIN
+	wall_blend_icons = list(
+		"wood" = TRUE,
+		"stone" = TRUE
+	)
 	icon_colour = rgb(rand(10,150),rand(10,150),rand(10,150))
 	explosion_resistance = rand(25,40)
 	brute_armor = rand(10,20)
@@ -377,6 +429,25 @@
 	hardness = rand(15,100)
 	integrity = rand(200,400)
 	melting_point = rand(400,10000)
+
+	// Randomize icons
+	if (rand(0, 1))
+		sheet_icon_base = pick(list("sheet", "sheet-reinf", "sheet-clear", "sheet-sheen", "sheet-glass-reinf"))
+		sheet_icon_reinf = "reinf_overlay"
+	else
+		sheet_icon_base = pick(list("sheet-wood", "diamond", "ingot", "sheet-card", "brick", "rod", "puck", "skin", "bone", "vox"))
+		sheet_icon_reinf = null
+	wall_icon_base = pick(list("metal", "stone", "solid", "cult", "wood"))
+	switch (wall_icon_base)
+		if ("wood")
+			wall_icon_reinf = "reinf_metal"
+		if ("solid")
+			wall_icon_reinf = "reinf_over"
+		else
+			wall_icon_reinf = "reinf_[wall_icon_reinf]"
+	door_icon_base = pick(list("metal", "stone", "plastic", "cult", "wood"))
+	table_icon_base = pick(list("metal", "solid", "stone", "cult", "wood"))
+
 	..()
 
 /material/aliumium/place_dismantled_girder(turf/target, material/reinf_material)
@@ -414,6 +485,7 @@
 	lore_text = "A soft natural alloy of gold and silver with a green-gold color, typically used for coinage and decoration."
 	wall_name = "bulkhead"
 	stack_type = /obj/item/stack/material/electrum
+	sheet_icon_base = "ingot"
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	icon_colour = "#e7c697"

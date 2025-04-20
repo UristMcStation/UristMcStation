@@ -15,8 +15,8 @@
 	QDEL_NULL(ingested)
 	. = ..()
 
-/obj/item/organ/internal/stomach/New()
-	..()
+/obj/item/organ/internal/stomach/Initialize()
+	. = ..()
 	var/ingested_atom = owner ? owner : src
 	ingested = new/datum/reagents/metabolism(240, ingested_atom, CHEM_INGEST)
 	if(species.gluttonous)
@@ -40,7 +40,7 @@
 	return !isnull(get_devour_time(food))
 
 /obj/item/organ/internal/stomach/proc/is_full(atom/movable/food)
-	var/total = Floor(ingested.total_volume / 10)
+	var/total = floor(ingested.total_volume / 10)
 	for(var/a in contents + food)
 		if(ismob(a))
 			var/mob/M = a
@@ -86,10 +86,10 @@
 		owner.empty_stomach()
 		refresh_action_button()
 
-/obj/item/organ/internal/stomach/attackby(obj/item/item, mob/living/user)
+/obj/item/organ/internal/stomach/use_tool(obj/item/item, mob/living/user, list/click_params)
 	if (!is_sharp(item))
 		return ..()
-	. = TRUE
+
 	user.visible_message(
 		SPAN_ITALIC("\The [user] begins cutting into \a [src] with \a [item]."),
 		SPAN_ITALIC("You start to cut open \the [src] with \the [item]."),
@@ -97,9 +97,9 @@
 	)
 	take_internal_damage(5)
 	if (!do_after(user, 5 SECONDS, src) || QDELETED(src))
-		return
+		return TRUE
 	if (!Adjacent(user) || user.incapacitated())
-		return
+		return TRUE
 	var/removed_message
 	var/length = length(contents)
 	switch (length)
@@ -117,6 +117,7 @@
 	take_internal_damage(5)
 	for (var/atom/movable/movable as anything in contents)
 		movable.dropInto(loc)
+	return TRUE
 
 /obj/item/organ/internal/stomach/return_air()
 	return null

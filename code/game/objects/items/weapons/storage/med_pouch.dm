@@ -37,16 +37,16 @@ Single Use Emergency Pouches
 		A.update_icon()
 
 /obj/item/storage/med_pouch/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(!cross_overlay)
 		cross_overlay = image(icon, "cross")
 		cross_overlay.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
-	overlays += cross_overlay
+	AddOverlays(cross_overlay)
 	icon_state = "pack[opened]"
 
 /obj/item/storage/med_pouch/examine(mob/user)
 	. = ..()
-	to_chat(user, "<A href='?src=\ref[src];show_info=1'>Please read instructions before use.</A>")
+	to_chat(user, "<A href='byond://?src=\ref[src];show_info=1'>Please read instructions before use.</A>")
 
 /obj/item/storage/med_pouch/CanUseTopic()
 	return STATUS_INTERACTIVE
@@ -215,6 +215,11 @@ Single Use Emergency Pouches
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline
 	name = "emergency adrenaline autoinjector"
 	starts_with = list(/datum/reagent/adrenaline = 5)
+
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/allergy
+	name = "emergency allergy autoinjector"
+	desc = "The ingredient label reads 1.5 units of adrenaline and 3.5 units of inaprovaline."
+	starts_with = list(/datum/reagent/adrenaline = 1.5, /datum/reagent/inaprovaline = 3.5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/nanoblood
 	name = "emergency nanoblood autoinjector"

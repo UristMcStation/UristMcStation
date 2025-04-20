@@ -24,6 +24,12 @@
 	update_clothing_icon()
 
 
+/obj/item/clothing/glasses/eyepatch/on_update_icon()
+	..()
+	if (flipped)
+		icon_state += "_r"
+
+
 /obj/item/clothing/glasses/eyepatch/hud
 	name = "iPatch"
 	desc = "For the technologically inclined pirate. It connects directly to the optical nerve of the user, replacing the need for that useless eyeball."
@@ -46,20 +52,23 @@
 	update_icon()
 
 /obj/item/clothing/glasses/eyepatch/hud/on_update_icon()
-	overlays.Cut()
+	..()
+	ClearOverlays()
 	if(active)
 		var/image/eye = overlay_image(icon, "[icon_state]_eye", flags=RESET_COLOR)
 		eye.color = eye_color
-		overlays += eye
+		AddOverlays(eye)
 
 /obj/item/clothing/glasses/eyepatch/hud/get_mob_overlay(mob/user_mob, slot)
 	var/image/res = ..()
 	if(active)
 		var/image/eye = overlay_image(res.icon, "[icon_state]_eye", flags=RESET_COLOR)
 		eye.color = eye_color
-		eye.layer = ABOVE_LIGHTING_LAYER
-		eye.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		res.overlays += eye
+		eye.layer = FLOAT_LAYER
+		res.AddOverlays(list(
+			eye,
+			emissive_appearance(res.icon, "[icon_state]_eye", -15)
+		))
 		user_mob.z_flags |= ZMM_MANGLE_PLANES
 	return res
 

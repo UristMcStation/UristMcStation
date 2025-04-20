@@ -14,14 +14,11 @@
 	path = /obj/item/clothing/shoes
 	cost = 2
 
-/datum/gear/shoes/boots/New()
+/datum/gear/shoes/boots/New(boots = list())
 	..()
-	var/boots = list()
 	boots += /obj/item/clothing/shoes/jackboots
 	boots += /obj/item/clothing/shoes/workboots
 	boots += /obj/item/clothing/shoes/dutyboots
-	boots += /obj/item/clothing/shoes/jungleboots
-	boots += /obj/item/clothing/shoes/desertboots
 	gear_tweaks += new/datum/gear_tweak/path/specified_types_list(boots)
 
 /datum/gear/shoes/color
@@ -72,7 +69,7 @@
 
 /datum/gear/shoes/flipflobster
 	display_name = "flip flobsters"
-	path = /obj/item/clothing/shoes/flipflobster
+	path = /obj/item/clothing/shoes/foamclog/flipflobster
 
 /datum/gear/shoes/slippers
 	display_name = "bunny slippers"

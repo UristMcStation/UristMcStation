@@ -31,8 +31,8 @@
 /singleton/vv_set_handler/meteor_severity_handler
 	handled_type = /datum/game_mode/meteor
 	handled_vars = list(
-		"meteor_severity" = /datum/game_mode/meteor/proc/set_meteor_severity,
-		"meteor_wave_delay" = /datum/game_mode/meteor/proc/set_meteor_wave_delay
+		"meteor_severity" = TYPE_PROC_REF(/datum/game_mode/meteor, set_meteor_severity),
+		"meteor_wave_delay" = TYPE_PROC_REF(/datum/game_mode/meteor, set_meteor_wave_delay)
 	)
 
 /datum/game_mode/meteor/proc/set_meteor_severity(value)
@@ -63,7 +63,7 @@
 	if(GLOB.using_map.use_overmap)
 		var/area/map = locate(/area/overmap)
 		for(var/turf/T in map)
-			T.overlays += image('icons/obj/overmap.dmi', "meteor[rand(1,4)]")
+			T.AddOverlays(image('icons/obj/overmap.dmi', "meteor[rand(1,4)]"))
 	next_wave = round_duration_in_ticks + meteor_wave_delay
 
 /datum/game_mode/meteor/process()
@@ -74,7 +74,7 @@
 	if((round_duration_in_ticks >= next_wave) && (alert_sent == 1))
 		on_enter_field()
 	if((round_duration_in_ticks >= METEOR_FAILSAFE_THRESHOLD) && (meteor_severity < 15) && !failsafe_triggered)
-		log_and_message_admins("Meteor mode severity failsafe triggered: Severity forced to 15.")
+		log_and_message_admins("Meteor mode severity failsafe triggered: Severity forced to 15.", null)
 		meteor_severity = 15
 		failsafe_triggered = 1
 
@@ -88,7 +88,7 @@
 			meteor_severity++
 			escalated = TRUE
 		if(send_admin_broadcasts)
-			log_and_message_admins("Meteor: Wave fired. Escalation: [escalated ? "Yes" : "No"]. Severity: [meteor_severity]/[maximal_severity]")
+			log_and_message_admins("Meteor: Wave fired. Escalation: [escalated ? "Yes" : "No"]. Severity: [meteor_severity]/[maximal_severity]",  null)
 
 /datum/game_mode/meteor/proc/get_meteor_types()
 	switch(meteor_severity)

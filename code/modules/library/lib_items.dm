@@ -26,30 +26,52 @@
 	update_icon()
 	. = ..()
 
-/obj/structure/bookcase/attackby(obj/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/book))
-		if(!user.unEquip(O, src))
-			return
-		update_icon()
-	else if(istype(O, /obj/item/pen))
-		var/newname = sanitizeSafe(input("What would you like to title this bookshelf?"), MAX_NAME_LEN)
-		if(!newname)
-			return
-		else
-			SetName("bookcase ([newname])")
-	else if(isScrewdriver(O))
-		playsound(loc, 'sound/items/Screwdriver.ogg', 75, 1)
-		to_chat(user, SPAN_NOTICE("You begin dismantling \the [src]."))
-		if(do_after(user, 2.5 SECONDS, src, DO_PUBLIC_UNIQUE))
-			to_chat(user, SPAN_NOTICE("You dismantle \the [src]."))
-			new/obj/item/stack/material/wood(get_turf(src), 5)
-			for(var/obj/item/book/b in contents)
-				b.dropInto(loc)
-			qdel(src)
 
-	else
-		..()
-	return
+/obj/structure/bookcase/use_tool(obj/item/tool, mob/user, list/click_params)
+	// Book - Add book to shelf
+	if (istype(tool, /obj/item/book))
+		if (!user.unEquip(tool, src))
+			FEEDBACK_UNEQUIP_FAILURE(tool, src)
+			return TRUE
+		update_icon()
+		return TRUE
+
+	// Pen - Title bookshelf
+	if (istype(tool, /obj/item/pen))
+		var/input = input(user, "What would you like to title this bookshelf?", "Bookshelf Title") as null|text
+		input = sanitizeSafe(input, MAX_NAME_LEN)
+		if (!input || !user.use_sanity_check(src, tool))
+			return TRUE
+		SetName("[initial(name)] ([input])")
+		user.visible_message(
+			SPAN_NOTICE("\The [user] re-labels \the [src] with \a [tool]."),
+			SPAN_NOTICE("You re-label \the [src] with \the [tool].")
+		)
+		return TRUE
+
+	// Screwdriver - Dismantle bookshelf
+	if (isScrewdriver(tool))
+		playsound(src, 'sound/items/Screwdriver.ogg', 50, TRUE)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] begins dismantling \the [src] with \a [tool]."),
+			SPAN_NOTICE("You begin dismantling \the [src] with \a [tool].")
+		)
+		if (!user.do_skilled(2.5 SECONDS, SKILL_CONSTRUCTION, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+			return TRUE
+		var/obj/item/stack/material/wood/wood = new (loc, 5)
+		transfer_fingerprints_to(wood)
+		for (var/obj/item/book/book in contents)
+			book.dropInto(loc)
+		playsound(src, 'sound/items/Screwdriver.ogg', 50, TRUE)
+		user.visible_message(
+			SPAN_NOTICE("\The [user] dismantles \the [src] with \a [tool]."),
+			SPAN_NOTICE("You dismantle \the [src] with \a [tool].")
+		)
+		qdel_self()
+		return TRUE
+
+	return ..()
+
 
 /obj/structure/bookcase/attack_hand(mob/user as mob)
 	if(length(contents))
@@ -166,67 +188,77 @@
 	else
 		to_chat(user, "This book is completely blank!")
 
-/obj/item/book/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/book/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(carved == 1)
 		if(!store)
 			if(W.w_class < ITEM_SIZE_NORMAL)
 				if(!user.unEquip(W, src))
-					return
+					FEEDBACK_UNEQUIP_FAILURE(user, W)
+					return TRUE
 				store = W
-				to_chat(user, SPAN_NOTICE("You put [W] in [title]."))
-				return
+				to_chat(user, SPAN_NOTICE("You put \the [W] in \the [title]."))
+				return TRUE
 			else
-				to_chat(user, SPAN_NOTICE("[W] won't fit in [title]."))
-				return
+				to_chat(user, SPAN_WARNING("\The [W] won't fit in \the [title]."))
+				return TRUE
 		else
-			to_chat(user, SPAN_NOTICE("There's already something in [title]!"))
-			return
-	if(istype(W, /obj/item/pen))
+			to_chat(user, SPAN_WARNING("There's already something in [title]!"))
+			return TRUE
+
+	else if(istype(W, /obj/item/pen))
 		if(unique)
-			to_chat(user, "These pages don't seem to take the ink well. Looks like you can't modify it.")
-			return
+			to_chat(user, SPAN_WARNING("These pages don't seem to take the ink well. Looks like you can't modify it."))
+			return TRUE
 		var/choice = input("What would you like to change?") in list("Title", "Contents", "Author", "Cancel")
 		switch(choice)
 			if("Title")
 				var/newtitle = reject_bad_text(sanitizeSafe(input("Write a new title:")))
 				if(!newtitle)
-					to_chat(usr, "The title is invalid.")
-					return
+					to_chat(user, SPAN_WARNING("The title is invalid."))
+					return TRUE
 				else
-					src.SetName(newtitle)
-					src.title = newtitle
+					SetName(newtitle)
+					title = newtitle
+					return TRUE
 			if("Contents")
 				var/content = sanitize(input("Write your book's contents (HTML NOT allowed):") as message|null, MAX_BOOK_MESSAGE_LEN)
 				if(!content)
-					to_chat(usr, "The content is invalid.")
-					return
+					to_chat(user, SPAN_WARNING("The content is invalid."))
+					return TRUE
 				else
-					src.dat += content
+					dat += content
+					return TRUE
 			if("Author")
 				var/newauthor = sanitize(input(usr, "Write the author's name:"))
 				if(!newauthor)
-					to_chat(usr, "The name is invalid.")
-					return
+					to_chat(user, SPAN_WARNING("The name is invalid."))
+					return TRUE
 				else
-					src.author = newauthor
+					author = newauthor
+					return TRUE
 			else
-				return
-	else if(istype(W, /obj/item/material/knife) || isWirecutter(W))
-		if(carved)	return
-		to_chat(user, SPAN_NOTICE("You begin to carve out [title]."))
-		if(do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE))
-			to_chat(user, SPAN_NOTICE("You carve out the pages from [title]! You didn't want to read it anyway."))
-			carved = 1
-			return
-	else
-		..()
+				return TRUE
 
-/obj/item/book/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
-	if(user.zone_sel.selecting == BP_EYES)
+	else if(istype(W, /obj/item/material/knife) || isWirecutter(W))
+		if(carved)
+			to_chat(user, SPAN_WARNING("\The [src] already has something carved in it."))
+			return TRUE
+		to_chat(user, SPAN_NOTICE("You begin to carve out \the [title]."))
+		if(do_after(user, 3 SECONDS, src, DO_PUBLIC_UNIQUE))
+			to_chat(user, SPAN_NOTICE("You carve out the pages from \the [title]! You didn't want to read it anyway."))
+			carved = 1
+		return TRUE
+
+	return ..()
+
+/obj/item/book/use_before(mob/living/carbon/M as mob, mob/living/carbon/user as mob)
+	. = FALSE
+	if (istype(M) && user.a_intent == I_HELP && user.zone_sel.selecting == BP_EYES)
 		user.visible_message(SPAN_NOTICE("You open up the book and show it to [M]. "), \
 			SPAN_NOTICE(" [user] opens up a book and shows it to [M]. "))
 		show_browser(M, "<i>Author: [author].</i><br><br>" + "[dat]", "window=book;size=1000x550")
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //to prevent spam
+		return TRUE
 
 /*
  * Manual Base Object

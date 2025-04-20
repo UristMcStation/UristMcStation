@@ -6,7 +6,7 @@
 	config_setting = "dsay_allowed"
 	expected_communicator_type = /client
 	flags = COMMUNICATION_LOG_CHANNEL_NAME
-	log_proc = /proc/log_say
+	log_proc = GLOBAL_PROC_REF(log_say)
 	mute_setting = MUTE_DEADCHAT
 	show_preference_setting = /datum/client_preference/show_dsay
 
@@ -47,7 +47,7 @@
 		return FALSE
 	if(istype(C) && M.is_key_ignored(C.key))
 		return FALSE
-	if (M.client.holder)
+	if (M.client && M.client.holder)
 		return TRUE
 	if(M.stat != DEAD)
 		return FALSE
@@ -90,7 +90,7 @@
 	return SPAN_CLASS("name", "[lname]")
 
 /singleton/dsay_communication/proc/get_message(client/C, mob/M, message)
-	var say_verb = pick("complains","moans","whines","laments","blubbers")
+	var/say_verb = pick("complains","moans","whines","laments","blubbers")
 	return "[get_name(C, M)] [say_verb], [SPAN_CLASS("message linkify", "\"[message]\"")]"
 
 /singleton/dsay_communication/emote/get_message(client/C, mob/M, message)
@@ -100,11 +100,11 @@
 	dsay.flags |= COMMUNICATION_ADMIN_FOLLOW|COMMUNICATION_GHOST_FOLLOW // Add admin and ghost follow
 
 /singleton/dsay_communication/say/adjust_channel(singleton/communication_channel/dsay)
-	dsay.log_proc = /proc/log_say
+	dsay.log_proc = GLOBAL_PROC_REF(log_say)
 	..()
 
 /singleton/dsay_communication/emote/adjust_channel(singleton/communication_channel/dsay)
-	dsay.log_proc = /proc/log_emote
+	dsay.log_proc = GLOBAL_PROC_REF(log_emote)
 	..()
 
 /singleton/dsay_communication/admin/can_communicate(client/communicator, message, singleton/communication_channel/dsay)
@@ -120,12 +120,12 @@
 	return "[SPAN_CLASS("name", "[stafftype]([communicator.key])")] says, [SPAN_CLASS("message linkify", "\"[message]\"")]"
 
 /singleton/dsay_communication/admin/adjust_channel(singleton/communication_channel/dsay)
-	dsay.log_proc = /proc/log_say
+	dsay.log_proc = GLOBAL_PROC_REF(log_say)
 	dsay.flags |= COMMUNICATION_ADMIN_FOLLOW  // Add admin follow
 	dsay.flags &= ~COMMUNICATION_GHOST_FOLLOW // Remove ghost follow
 
 /singleton/dsay_communication/direct/adjust_channel(singleton/communication_channel/dsay, communicator)
-	dsay.log_proc = /proc/log_say
+	dsay.log_proc = GLOBAL_PROC_REF(log_say)
 	dsay.flags &= ~(COMMUNICATION_ADMIN_FOLLOW|COMMUNICATION_GHOST_FOLLOW) // Remove admin and ghost follow
 
 /singleton/dsay_communication/direct/can_communicate()

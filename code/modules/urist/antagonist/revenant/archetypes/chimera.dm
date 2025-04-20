@@ -11,7 +11,7 @@
 
 // This is a generic proc that should be called by other revenant weapon procs to equip them.
 // Blatantly ripped off from Ling :^)
-/mob/proc/bsrevenant_generic_weapon(var/weapon_type, var/make_sound = 1, var/cost = BSR_DISTORTION_GROWTH_OVER_MINUTES(5, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK), var/paincost = 50)
+/mob/proc/bsrevenant_generic_weapon(weapon_type, make_sound = 1, cost = BSR_DISTORTION_GROWTH_OVER_MINUTES(5, BSR_DEFAULT_DISTORTION_PER_TICK, BSR_DEFAULT_DECISECONDS_PER_TICK), paincost = 50)
 	var/datum/bluespace_revenant/revenant = src?.mind?.bluespace_revenant
 	if(!revenant)
 		return
@@ -47,7 +47,7 @@
 	set category = "Anomalous Powers"
 	set desc = "*Painfully* fleshcraft your arm into a vicious blade. Reality won't like this one bit."
 
-	if(bsrevenant_generic_weapon(/obj/item/melee/arm_blade))
+	if(bsrevenant_generic_weapon(/obj/item/melee/changeling/arm_blade))
 		return
 
 	return
@@ -80,7 +80,7 @@
 	name = "DISTORTION - Wallrot"
 
 
-/datum/power/revenant/distortion/wallrot/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/wallrot/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -294,7 +294,7 @@
 	name = "DISTORTION - Gross"
 
 
-/datum/power/revenant/distortion/gross/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/gross/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -303,12 +303,12 @@
 		return
 
 	var/picked_effect_type = pick(
-		100; /obj/effect/decal/cleanable/mucus,
-		100; /obj/effect/decal/cleanable/vomit,
-		100; /obj/effect/decal/cleanable/greenglow
+		100; /obj/decal/cleanable/mucus,
+		100; /obj/decal/cleanable/vomit,
+		100; /obj/decal/cleanable/greenglow
 	)
 
-	var/obj/effect/decal/cleanable/picked_effect = new picked_effect_type(T)
+	var/obj/decal/cleanable/picked_effect = new picked_effect_type(T)
 
 	if(istype(picked_effect))
 		return TRUE
@@ -334,7 +334,7 @@
 	distortion_threshold = 24000 // 20 mins
 
 
-/datum/power/revenant/distortion/bloodymess/Apply(var/atom/A, var/datum/bluespace_revenant/revenant)
+/datum/power/revenant/distortion/bloodymess/Apply(atom/A, datum/bluespace_revenant/revenant)
 	if(isnull(A) || !istype(A))
 		return
 
@@ -342,7 +342,7 @@
 	if(!istype(T))
 		return
 
-	var/obj/effect/gibspawner/generic/picked_effect = new(T)
+	var/obj/gibspawner/generic/picked_effect = new(T)
 	if(istype(picked_effect))
 		return TRUE
 
@@ -361,10 +361,10 @@
 	if(!istype(H))
 		return
 
-	var/datum/species/curr_species = null
+	var/singleton/species/curr_species = null
 
 	if(!istype(curr_species))
-		var/datum/species/new_species = new H.species.type()
+		var/singleton/species/new_species = new H.species.type()
 
 		if(!istype(new_species))
 			return

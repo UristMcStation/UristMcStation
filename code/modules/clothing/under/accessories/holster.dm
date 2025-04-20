@@ -16,13 +16,11 @@
 	set_extension(src, /datum/extension/holster, container, sound_in, sound_out, can_holster)
 
 
-/obj/item/clothing/accessory/storage/holster/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/accessory/storage/holster/use_tool(obj/item/W, mob/living/user, list/click_params)
 	var/datum/extension/holster/H = get_extension(src, /datum/extension/holster)
 	if (H.holster(W, user))
-		return
-	else
-		. = ..(W, user)
-
+		return TRUE
+	return ..()
 
 /obj/item/clothing/accessory/storage/holster/attack_hand(mob/user as mob)
 	var/datum/extension/holster/H = get_extension(src, /datum/extension/holster)
@@ -35,27 +33,6 @@
 	. = ..(user)
 	var/datum/extension/holster/H = get_extension(src, /datum/extension/holster)
 	H.examine_holster(user)
-
-
-/obj/item/clothing/accessory/storage/holster/on_attached(obj/item/clothing/under/S, mob/user as mob)
-	..()
-	parent.verbs += /atom/proc/holster_verb
-
-
-/obj/item/clothing/accessory/storage/holster/on_removed(mob/user as mob)
-	if (parent)
-		var/remove_verb = TRUE
-		if (has_extension(parent, /datum/extension/holster))
-			remove_verb = FALSE
-		for (var/obj/accessory in parent.accessories)
-			if (accessory == src)
-				continue
-			if (has_extension(accessory, /datum/extension/holster))
-				remove_verb = FALSE
-		if (remove_verb)
-			parent.verbs -= /atom/proc/holster_verb
-	..()
-
 
 /obj/item/clothing/accessory/storage/holster/armpit
 	name = "armpit holster"

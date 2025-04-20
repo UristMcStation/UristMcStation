@@ -44,7 +44,13 @@
 		if(I && I.damage > 0 && !BP_IS_ROBOTIC(I) && (!(I.status & ORGAN_DEAD) || I.can_recover()) && (I.surface_accessible || affected.how_open() >= (affected.encased ? SURGERY_ENCASED : SURGERY_RETRACTED)))
 			user.visible_message("[user] starts treating damage to [target]'s [I.name] with [tool_name].", \
 			"You start treating damage to [target]'s [I.name] with [tool_name]." )
+		else if(I && !(I.status & ORGAN_CUT_AWAY) && (I.status & ORGAN_DEAD) && I.parent_organ == affected.organ_tag && !BP_IS_ROBOTIC(I))
+			if (!I.can_recover())
+				to_chat(user, SPAN_WARNING("\The [target]'s [I.name] is fully necrotic; [tool_name] won't help here."))
+			else
+				to_chat(user, SPAN_WARNING("\The [target]'s [I.name] is decaying; you'll need more than just [tool_name] here."))
 	target.custom_pain("The pain in your [affected.name] is living hell!",100,affecting = affected)
+	playsound(target.loc, 'sound/items/bonegel.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/fix_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
@@ -95,34 +101,35 @@
 	surgery_candidate_flags = SURGERY_NO_CRYSTAL | SURGERY_NO_ROBOTIC | SURGERY_NO_STUMP | SURGERY_NEEDS_ENCASEMENT
 
 /singleton/surgery_step/internal/detatch_organ/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	var/list/attached_organs
-	for(var/organ in target.internal_organs_by_name)
+	var/list/attached_organs = list()
+	for (var/organ in target.internal_organs_by_name)
 		var/obj/item/organ/I = target.internal_organs_by_name[organ]
-		if(I && !(I.status & ORGAN_CUT_AWAY) && I.parent_organ == target_zone)
+		if (I && !(I.status & ORGAN_CUT_AWAY) && I.parent_organ == target_zone)
 			var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
 			radial_button.name = "Detach \the [I.name]"
-			LAZYSET(attached_organs, organ, radial_button)
-	if(!LAZYLEN(attached_organs))
+			attached_organs[I] = radial_button
+	if (!length(attached_organs))
 		to_chat(user, SPAN_WARNING("You can't find any organs to separate."))
-	else
-		var/obj/item/organ/organ_to_remove = attached_organs[1]
-		if(length(attached_organs) > 1)
-			organ_to_remove = show_radial_menu(user, target, attached_organs, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))
-		if(organ_to_remove)
-			return organ_to_remove
+		return FALSE
+	if (length(attached_organs) == 1 && user.get_preference_value(/datum/client_preference/surgery_skip_radial))
+		return attached_organs[1]
+	var/choice = show_radial_menu(user, tool, attached_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
+	if (choice && user.use_sanity_check(target, tool))
+		return choice
 	return FALSE
 
 /singleton/surgery_step/internal/detatch_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] starts to separate [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool].", \
-	"You start to separate [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool]." )
-	target.custom_pain("Someone's ripping out your [LAZYACCESS(target.surgeries_in_progress, target_zone)]!",100)
+	var/obj/item/organ/detaching = LAZYACCESS(target.surgeries_in_progress, target_zone)
+	user.visible_message("[user] starts to separate [target]'s [detaching.name] with \the [tool].", \
+	"You start to separate [target]'s [detaching.name] with \the [tool]." )
+	target.custom_pain("Someone's ripping out your [detaching.name]!",100)
+	playsound(target.loc, 'sound/items/scalpel.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/detatch_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_NOTICE("[user] has separated [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool].") , \
-	SPAN_NOTICE("You have separated [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool]."))
-
-	var/obj/item/organ/I = target.internal_organs_by_name[LAZYACCESS(target.surgeries_in_progress, target_zone)]
+	var/obj/item/organ/I = LAZYACCESS(target.surgeries_in_progress, target_zone)
+	user.visible_message(SPAN_NOTICE("[user] has separated [target]'s [I.name] with \the [tool].") , \
+	SPAN_NOTICE("You have separated [target]'s [I.name] with \the [tool]."))
 	if(I && istype(I))
 		I.cut_away(user)
 
@@ -141,43 +148,48 @@
 		/obj/item/hemostat = 100,
 		/obj/item/wirecutters = 75,
 		/obj/item/material/knife = 75,
-		/obj/item/material/kitchen/utensil/fork = 20
+		/obj/item/swapper/jaws_of_life = 50,
+		/obj/item/material/utensil/fork = 20
 	)
 	min_duration = 60
 	max_duration = 80
 
 /singleton/surgery_step/internal/remove_organ/pre_surgery_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	if(affected)
-		var/list/removable_organs
-		for(var/obj/item/organ/internal/I in affected.implants)
-			if(I.status & ORGAN_CUT_AWAY)
-				var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
-				radial_button.name = "Remove \the [I.name]"
-				LAZYSET(removable_organs, I, radial_button)
-		if(!LAZYLEN(removable_organs))
-			to_chat(user, SPAN_WARNING("You can't find any removable organs."))
-		else
-			var/obj/item/organ/organ_to_remove = removable_organs[1]
-			if(length(removable_organs) > 1)
-				organ_to_remove = show_radial_menu(user, target, removable_organs, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))
-			if(organ_to_remove)
-				return organ_to_remove
+	if (!affected)
+		return FALSE
+	var/list/removable_organs = list()
+	for (var/obj/item/organ/internal/I in affected.implants)
+		if (~I.status & ORGAN_CUT_AWAY)
+			continue
+		var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
+		radial_button.name = "Remove \the [I.name]"
+		removable_organs[I] = radial_button
+	if (!length(removable_organs))
+		to_chat(user, SPAN_WARNING("You can't find any removable organs."))
+		return FALSE
+	if (length(removable_organs) == 1 && user.get_preference_value(/datum/client_preference/surgery_skip_radial))
+		return removable_organs[1]
+	var/choice = show_radial_menu(user, tool, removable_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
+	if (choice && user.use_sanity_check(target, tool))
+		return choice
 	return FALSE
 
 /singleton/surgery_step/internal/remove_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
+	var/obj/item/organ/removing = LAZYACCESS(target.surgeries_in_progress, target_zone)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("\The [user] starts removing [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool].", \
-	"You start removing \the [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool].")
+	user.visible_message("\The [user] starts removing [target]'s [removing.name] with \the [tool].", \
+	"You start removing \the [target]'s [removing.name] with \the [tool].")
 	target.custom_pain("The pain in your [affected.name] is living hell!",100,affecting = affected)
+	playsound(target.loc, 'sound/items/hemostat.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/remove_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message(SPAN_NOTICE("\The [user] has removed \the [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool]."), \
-	SPAN_NOTICE("You have removed \the [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool]."))
+	var/obj/item/organ/O = LAZYACCESS(target.surgeries_in_progress, target_zone)
+	user.visible_message(SPAN_NOTICE("\The [user] has removed \the [target]'s [O.name] with \the [tool]."), \
+	SPAN_NOTICE("You have removed \the [target]'s [O.name] with \the [tool]."))
 
 	// Extract the organ!
-	var/obj/item/organ/O = LAZYACCESS(target.surgeries_in_progress, target_zone)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(istype(O) && istype(affected))
 		affected.implants -= O
@@ -248,15 +260,16 @@
 
 /singleton/surgery_step/internal/replace_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message("[user] starts [robotic_surgery ? "reinstalling" : "transplanting"] \the [tool] into [target]'s [affected.name].", \
-	"You start [robotic_surgery ? "reinstalling" : "transplanting"] \the [tool] into [target]'s [affected.name].")
+	user.visible_message("[user] starts [robotic_surgery ? "installing" : "transplanting"] \the [tool] into [target]'s [affected.name].", \
+	"You start [robotic_surgery ? "installing" : "transplanting"] \the [tool] into [target]'s [affected.name].")
 	target.custom_pain("Someone's rooting around in your [affected.name]!",100,affecting = affected)
+	playsound(target.loc, 'sound/items/scalpel.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/replace_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
-	user.visible_message(SPAN_NOTICE("\The [user] has [robotic_surgery ? "reinstalled" : "transplanted"] \the [tool] into [target]'s [affected.name]."), \
-	SPAN_NOTICE("You have [robotic_surgery ? "reinstalled" : "transplanted"] \the [tool] into [target]'s [affected.name]."))
+	user.visible_message(SPAN_NOTICE("\The [user] has [robotic_surgery ? "installed" : "transplanted"] \the [tool] into [target]'s [affected.name]."), \
+	SPAN_NOTICE("You have [robotic_surgery ? "installed" : "transplanted"] \the [tool] into [target]'s [affected.name]."))
 	var/obj/item/organ/O = tool
 	if(istype(O) && user.unEquip(O, target))
 		affected.implants |= O //move the organ into the patient. The organ is properly reattached in the next step
@@ -301,9 +314,13 @@
 	if(!LAZYLEN(attachable_organs))
 		return FALSE
 
-	var/obj/item/organ/organ_to_replace = show_radial_menu(user, target, attachable_organs, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))
+	var/obj/item/organ/organ_to_replace
+	if (length(attachable_organs) == 1 && user.get_preference_value(/datum/client_preference/surgery_skip_radial))
+		organ_to_replace = attachable_organs[1]
+	else
+		organ_to_replace = show_radial_menu(user, tool, attachable_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
 
-	if(!organ_to_replace)
+	if(!organ_to_replace || !user.use_sanity_check(target, tool))
 		return FALSE
 
 	if(organ_to_replace.parent_organ != affected.organ_tag)
@@ -327,16 +344,18 @@
 	return organ_to_replace
 
 /singleton/surgery_step/internal/attach_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
-	user.visible_message("[user] begins reattaching [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool].", \
-	"You start reattaching [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool].")
-	target.custom_pain("Someone's digging needles into your [LAZYACCESS(target.surgeries_in_progress, target_zone)]!",100)
+	var/obj/item/organ/attaching = LAZYACCESS(target.surgeries_in_progress, target_zone)
+	user.visible_message("[user] begins attaching [target]'s [attaching.name] with \the [tool].", \
+	"You start attaching [target]'s [attaching.name] with \the [tool].")
+	target.custom_pain("Someone's digging needles into your [attaching.name]!",100)
+	playsound(target.loc, 'sound/items/fixovein.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/attach_organ/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/I = LAZYACCESS(target.surgeries_in_progress, target_zone)
 
-	user.visible_message(SPAN_NOTICE("[user] has reattached [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool].") , \
-	SPAN_NOTICE("You have reattached [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool]."))
+	user.visible_message(SPAN_NOTICE("[user] has attached [target]'s [I.name] with \the [tool].") , \
+	SPAN_NOTICE("You have attached [target]'s [I.name] with \the [tool]."))
 
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(istype(I) && I.parent_organ == target_zone && affected && (I in affected.implants))
@@ -386,15 +405,14 @@
 	for(var/obj/item/organ/internal/I in target.internal_organs)
 		if(I && !(I.status & ORGAN_CUT_AWAY) && (I.status & ORGAN_DEAD) && I.parent_organ == affected.organ_tag && !BP_IS_ROBOTIC(I))
 			var/image/radial_button = image(icon = I.icon, icon_state = I.icon_state)
-			radial_button.name = "Treat \the [I.name]"
+			radial_button.name = "Regenerate \the [I.name]"
 			LAZYSET(dead_organs, I, radial_button)
 	if(!length(dead_organs))
 		return FALSE
-	var/obj/item/organ/internal/organ_to_fix = dead_organs[1]
-	if(length(dead_organs) > 1)
-		organ_to_fix = show_radial_menu(user, target, dead_organs, radius = 42, use_labels = TRUE, require_near = TRUE, check_locs = list(src))
-
-	if(!organ_to_fix)
+	if (length(dead_organs) == 1 && user.get_preference_value(/datum/client_preference/surgery_skip_radial))
+		return dead_organs[1]
+	var/obj/item/organ/internal/organ_to_fix = show_radial_menu(user, tool, dead_organs, radius = 42, require_near = TRUE, use_labels = TRUE, check_locs = list(tool))
+	if(!organ_to_fix || !user.use_sanity_check(target, tool))
 		return FALSE
 	if(!organ_to_fix.can_recover())
 		to_chat(user, SPAN_WARNING("The [organ_to_fix.name] is necrotic and can't be saved, it will need to be replaced."))
@@ -408,6 +426,7 @@
 	user.visible_message("[user] starts applying medication to the affected tissue in [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool]." , \
 	"You start applying medication to the affected tissue in [target]'s [LAZYACCESS(target.surgeries_in_progress, target_zone)] with \the [tool].")
 	target.custom_pain("Something in your [LAZYACCESS(target.surgeries_in_progress, target_zone)] is causing you a lot of pain!",50, affecting = LAZYACCESS(target.surgeries_in_progress, target_zone))
+	playsound(target.loc, 'sound/items/fixovein.ogg', 50, TRUE)
 	..()
 
 /singleton/surgery_step/internal/treat_necrosis/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)

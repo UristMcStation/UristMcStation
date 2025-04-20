@@ -60,7 +60,7 @@
 	to_world_log("NanoMapGen: <B>GENERATE MAP ([startX],[startY],[currentZ]) to ([endX],[endY],[currentZ])</B>")
 	to_chat(usr, "NanoMapGen: <B>GENERATE MAP ([startX],[startY],[currentZ]) to ([endX],[endY],[currentZ])</B>")
 
-	var/count = 0;
+	var/count = 0
 	for(var/WorldX = startX, WorldX <= endX, WorldX++)
 		for(var/WorldY = startY, WorldY <= endY, WorldY++)
 

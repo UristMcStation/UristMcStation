@@ -1,4 +1,4 @@
-GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
+GLOBAL_TYPED_NEW(sound_player, /singleton/sound_player)
 
 /*
 	A sound player/manager for looping 3D sound effects.
@@ -69,7 +69,7 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 		sound_tokens_by_sound_id[sound_id] = sound_tokens
 	sound_tokens += sound_token
 
-#define SOUND_STOPPED FLAG(15)
+#define SOUND_STOPPED FLAG_16
 
 /*
 	Outwardly this is a merely a toke/little helper that a user utilize to adjust sounds as desired (and possible).
@@ -116,10 +116,10 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 	listeners = list()
 	listener_status = list()
 
-	GLOB.destroyed_event.register(source, src, /datum/proc/qdel_self)
+	GLOB.destroyed_event.register(source, src, PROC_REF(qdel_self))
 
 	if(ismovable(source))
-		proxy_listener = new(source, /datum/sound_token/proc/PrivAddListener, /datum/sound_token/proc/PrivLocateListeners, range, proc_owner = src)
+		proxy_listener = new(source, TYPE_PROC_REF(/datum/sound_token, PrivAddListener), TYPE_PROC_REF(/datum/sound_token, PrivLocateListeners), range, proc_owner = src)
 		proxy_listener.register_turfs()
 
 /datum/sound_token/Destroy()
@@ -157,7 +157,7 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 	listeners = null
 	listener_status = null
 
-	GLOB.destroyed_event.unregister(source, src, /datum/proc/qdel_self)
+	GLOB.destroyed_event.unregister(source, src, PROC_REF(qdel_self))
 	QDEL_NULL(proxy_listener)
 	source = null
 
@@ -201,16 +201,16 @@ GLOBAL_DATUM_INIT(sound_player, /singleton/sound_player, new)
 
 	listeners += listener
 
-	GLOB.moved_event.register(listener, src, /datum/sound_token/proc/PrivUpdateListenerLoc)
-	GLOB.destroyed_event.register(listener, src, /datum/sound_token/proc/PrivRemoveListener)
+	GLOB.moved_event.register(listener, src, PROC_REF(PrivUpdateListenerLoc))
+	GLOB.destroyed_event.register(listener, src, PROC_REF(PrivRemoveListener))
 
 	PrivUpdateListenerLoc(listener, FALSE)
 
 /datum/sound_token/proc/PrivRemoveListener(atom/listener, sound/null_sound)
 	null_sound = null_sound || new(channel = sound.channel)
 	sound_to(listener, null_sound)
-	GLOB.moved_event.unregister(listener, src, /datum/sound_token/proc/PrivUpdateListenerLoc)
-	GLOB.destroyed_event.unregister(listener, src, /datum/sound_token/proc/PrivRemoveListener)
+	GLOB.moved_event.unregister(listener, src, PROC_REF(PrivUpdateListenerLoc))
+	GLOB.destroyed_event.unregister(listener, src, PROC_REF(PrivRemoveListener))
 	listeners -= listener
 
 /datum/sound_token/proc/PrivUpdateListenerLoc(atom/listener, update_sound = TRUE)

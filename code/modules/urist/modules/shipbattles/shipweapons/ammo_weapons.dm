@@ -86,7 +86,7 @@
 		var/obj/structure/shipammo/ammo = AM
 		DoLoading(ammo)
 
-/obj/machinery/shipweapons/ammo/attackby(obj/item/W as obj, mob/living/user as mob)
+/obj/machinery/shipweapons/ammo/use_tool(obj/item/W as obj, mob/living/user as mob, click_params)
 	if(isCrowbar(W) && loaded_ammo)
 		to_chat(user, "<span class='warning'>You pry the [loaded_ammo] out of the [src]. It will need to be reloaded before firing again.</span>")
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
@@ -110,7 +110,7 @@
 	component_hit = 25
 	rechargerate = 16 SECONDS
 	ammo_type = /obj/structure/shipammo/torpedo
-	projectile_type = /obj/effect/meteor/shipmissile/bigtorpedo
+	projectile_type = /obj/meteor/shipmissile/bigtorpedo
 	fire_sound = 'sound/weapons/railgun.ogg'
 	fire_amount = 1
 	can_intercept = TRUE

@@ -52,7 +52,7 @@
 	var/text = get_start_text()
 
 	log_vote(text)
-	to_world(SPAN_COLOR("purple", "<b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[SSvote];vote_panel=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote."))
+	to_world(SPAN_COLOR("purple", "<b>[text]</b>\nType <b>vote</b> or click <a href='byond://?src=\ref[SSvote];vote_panel=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote."))
 	sound_to(world, sound('sound/ui/vote-notify.ogg', repeat = 0, wait = 0, volume = 33, channel = GLOB.vote_sound_channel))
 
 /datum/vote/proc/get_start_text()
@@ -71,7 +71,7 @@
 	var/list/remaining_votes = votes.Copy()
 	while(length(result) < result_length)
 		remaining_choices = shuffle(remaining_choices)
-		sortTim(remaining_choices, /proc/cmp_numeric_dsc, TRUE)
+		sortTim(remaining_choices, GLOBAL_PROC_REF(cmp_numeric_dsc), TRUE)
 		if(!length(remaining_votes) || !length(remaining_choices))  // we ran out of options or votes, you get what we have
 			result += remaining_choices.Copy(1, clamp(result_length - length(result) + 1, 0, length(remaining_choices) + 1))
 			break
@@ -104,8 +104,13 @@
 		return 1
 
 	var/text = get_result_announcement()
+	var/admin_text = get_vote_statistics()
+	log_vote(admin_text)
 	log_vote(text)
-	to_world(SPAN_COLOR("purple", "[text]"))
+	to_world(SPAN_COLOR("purple", "[text]\n"))
+
+	for (var/client/C in GLOB.admins)
+		to_chat(C, SPAN_COLOR("purple", "[admin_text]"))
 
 	if(!(result[result[1]] > 0))
 		return 1
@@ -123,7 +128,17 @@
 				runner_ups += display_choices[runner_up]
 			text += english_list(runner_ups)
 
-	return JOINTEXT(text)
+	return jointext(text, null)
+
+/datum/vote/proc/get_vote_statistics()
+	var/list/text = list()
+	text += "<b>Total Votes: [length(votes)]/[length(GLOB.clients)]</b>\n"
+	text += "\n"
+	text += "<b>Votes Per Option:</b>"
+	for(var/R in result)
+		if (result[R] > 0)
+			text += "\n[R]: [result[R]]"
+	return jointext(text, null)
 
 
 /datum/vote/proc/mob_can_vote(mob/voter)
@@ -197,7 +212,7 @@
 		var/choice = choices[i]
 		var/voted_for = votes[user.ckey] && (i in votes[user.ckey])
 
-		. += "<tr><td><a href='?src=\ref[src];choice=[i]'[voted_for ? " style='font-weight: bold'" : ""]>"
+		. += "<tr><td><a href='byond://?src=\ref[src];choice=[i]'[voted_for ? " style='font-weight: bold'" : ""]>"
 		. += "[display_choices[choice]]"
 		. += "</a></td>"
 

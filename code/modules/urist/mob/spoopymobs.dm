@@ -61,10 +61,10 @@
 		"Your tongue swells up and turns black."
 	)
 
-/datum/reagent/xenomicrobes/uristzombie/affect_touch(mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/xenomicrobes/uristzombie/affect_touch(mob/living/carbon/M, alien, removed)
 	affect_blood(M, alien, removed * 0.5)
 
-/datum/reagent/xenomicrobes/uristzombie/affect_blood(mob/living/carbon/M, var/alien, var/removed)
+/datum/reagent/xenomicrobes/uristzombie/affect_blood(mob/living/carbon/M, alien, removed)
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
 		var/true_dose = H.chem_doses[type] + volume
@@ -215,7 +215,7 @@
 	regen = 1
 	plague = 1
 
-/mob/living/simple_animal/hostile/urist/zombie/UnarmedAttack(atom/A, var/proximity)
+/mob/living/simple_animal/hostile/urist/zombie/UnarmedAttack(atom/A, proximity)
 	. = ..()
 
 	if(plague)
@@ -259,7 +259,7 @@
 			victim.uZombify(src.regen, src.plague, src.maxHealth)
 
 
-/mob/living/carbon/human/proc/uZombify(regens=0, var/infects=0, var/transformation_msgs, var/time=60, var/hitpoints=40)
+/mob/living/carbon/human/proc/uZombify(regens=0, infects=0, transformation_msgs, time=60, hitpoints=40)
 	if(!src)
 		return
 
@@ -271,7 +271,7 @@
 	addtimer(new Callback(src, /mob/living/carbon/human/proc/uZombifyInstant, regens, infects, hitpoints), time SECONDS, TIMER_STOPPABLE)
 
 
-/mob/living/carbon/human/proc/uZombifyInstant(regens = 0, var/infects = 0, var/hitpoints = 40) //I swear officer, that Animalize() proc fell out the back of a truck.
+/mob/living/carbon/human/proc/uZombifyInstant(regens = 0, infects = 0, hitpoints = 40) //I swear officer, that Animalize() proc fell out the back of a truck.
 	if(!src)
 		return
 
@@ -315,7 +315,7 @@
 	if(old_icon_state)
 		new_mob.icon_state = old_icon_state
 	if(old_overlays)
-		new_mob.overlays = old_overlays
+		new_mob.SetOverlays(old_overlays)
 	if(old_name)
 		if(!(old_name == "unknown"))
 			new_mob.name = "zombified [old_name]"
@@ -354,7 +354,7 @@
 	return
 
 
-/mob/living/simple_animal/hostile/scom/civ/proc/uZombify(regens = 0, var/infects = 0, var/hitpoints = 40)
+/mob/living/simple_animal/hostile/scom/civ/proc/uZombify(regens = 0, infects = 0, hitpoints = 40)
 	var/mobpath = /mob/living/simple_animal/hostile/urist/zombie/plague
 	var/mob/living/simple_animal/hostile/urist/zombie/new_mob = new mobpath(src.loc)
 

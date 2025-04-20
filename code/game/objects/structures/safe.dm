@@ -8,7 +8,7 @@ FLOOR SAFES
 /obj/structure/safe
 	name = "safe"
 	desc = "A huge chunk of metal with a dial embedded in it. Fine print on the dial reads \"Scarborough Arms - 2 tumbler safe, guaranteed thermite resistant, explosion resistant, and assistant resistant.\"."
-	icon = 'icons/obj/structures.dmi'
+	icon = 'icons/obj/structures/structures.dmi'
 	icon_state = "safe"
 	anchored = TRUE
 	density = TRUE
@@ -71,12 +71,12 @@ FLOOR SAFES
 /obj/structure/safe/attack_hand(mob/user as mob)
 	user.set_machine(src)
 	var/dat = "<center>"
-	dat += "<a href='?src=\ref[src];open=1'>[open ? "Close" : "Open"] [src]</a> | <a href='?src=\ref[src];decrement=1'>-</a> [dial * 5] <a href='?src=\ref[src];increment=1'>+</a>"
+	dat += "<a href='byond://?src=\ref[src];open=1'>[open ? "Close" : "Open"] [src]</a> | <a href='byond://?src=\ref[src];decrement=1'>-</a> [dial * 5] <a href='byond://?src=\ref[src];increment=1'>+</a>"
 	if(open)
 		dat += "<table>"
 		for(var/i = length(contents), i>=1, i--)
 			var/obj/item/P = contents[i]
-			dat += "<tr><td><a href='?src=\ref[src];retrieve=\ref[P]'>[P.name]</a></td></tr>"
+			dat += "<tr><td><a href='byond://?src=\ref[src];retrieve=\ref[P]'>[P.name]</a></td></tr>"
 		dat += "</table></center>"
 	show_browser(user, "<html><head><title>[name]</title></head><body>[dat]</body></html>", "window=safe;size=350x300")
 
@@ -138,22 +138,30 @@ FLOOR SAFES
 				updateUsrDialog()
 
 
-/obj/structure/safe/attackby(obj/item/I as obj, mob/user as mob)
-	if(open)
-		if(I.w_class + space <= maxspace)
-			if(!user.unEquip(I, src))
-				return
-			space += I.w_class
-			to_chat(user, SPAN_NOTICE("You put [I] in [src]."))
-			updateUsrDialog()
-			return
-		else
-			to_chat(user, SPAN_NOTICE("[I] won't fit in [src]."))
-			return
-	else
-		if(istype(I, /obj/item/clothing/accessory/stethoscope))
-			to_chat(user, "Hold [I] in one of your hands while you manipulate the dial.")
-			return
+/obj/structure/safe/use_tool(obj/item/tool, mob/user, list/click_params)
+	// If open - Insert item
+	if (open)
+		if (tool.w_class + space >= maxspace)
+			USE_FEEDBACK_FAILURE("\The [src] doesn't have enough space for \the [tool].")
+			return TRUE
+		if (!user.unEquip(tool, src))
+			FEEDBACK_UNEQUIP_FAILURE(user, tool)
+			return TRUE
+		space += tool.w_class
+		updateUsrDialog()
+		user.visible_message(
+			SPAN_NOTICE("\The [user] puts \a [tool] in \the [src]."),
+			SPAN_NOTICE("You put \the [tool] in \the [src]."),
+			range = 2
+		)
+		return TRUE
+
+	// Stethoscope - Cracking tip
+	if (istype(tool, /obj/item/clothing/accessory/stethoscope))
+		to_chat(user, SPAN_INFO("Hold \the [tool] in one of your hands while you manipulate the dial to help with cracking the code."))
+		return TRUE
+
+	return ..()
 
 
 /obj/structure/safe/ex_act(severity)
@@ -175,7 +183,7 @@ FLOOR SAFES
 	update_icon()
 
 /obj/structure/safe/floor/hide(intact)
-	set_invisibility(intact ? 101 : 0)
+	set_invisibility(intact ? INVISIBILITY_ABSTRACT : 0)
 
 /obj/structure/safe/floor/hides_under_flooring()
 	return 1

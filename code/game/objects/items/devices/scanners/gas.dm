@@ -1,7 +1,7 @@
 /obj/item/device/scanner/gas
 	name = "gas analyzer"
 	desc = "A hand-held environmental scanner which reports current gas levels. Has a button to cycle modes."
-	icon = 'icons/obj/atmos_analyzer.dmi'
+	icon = 'icons/obj/tools/atmos_analyzer.dmi'
 	icon_state = "atmos"
 	item_state = "analyzer"
 
@@ -28,7 +28,7 @@
 
 	to_chat(user, "<hr>[scan_data]<hr>")
 
-/proc/atmosanalyzer_scan(atom/target, datum/gas_mixture/mixture, var/legacy = FALSE)
+/proc/atmosanalyzer_scan(atom/target, datum/gas_mixture/mixture, legacy = FALSE)
 	var/text_summary = ""
 	var/text_details = ""
 	. = legacy ? SPAN_NOTICE("Results of the analysis of \the [target]:\n") : "<h1>Results of the analysis of \the [target]:</h1>"

@@ -5,7 +5,7 @@ var/global/const/SAFETY_COOLDOWN = 100
 /obj/machinery/recycler
 	name = "crusher"
 	desc = "A large crushing machine which is used to recycle small items ineffeciently; there are lights on the side of it."
-	icon = 'icons/obj/recycling.dmi'
+	icon = 'icons/obj/machines/recycling.dmi'
 	icon_state = "grinder-o0"
 	layer = MOB_LAYER+1 // Overhead
 	anchored = TRUE
@@ -33,21 +33,25 @@ var/global/const/SAFETY_COOLDOWN = 100
 	update_icon()
 
 
-/obj/machinery/recycler/attackby(obj/item/I, var/mob/user)
+/obj/machinery/recycler/use_tool(obj/item/I, mob/user, click_params)
+	add_fingerprint(user)
+
 	if(istype(I, /obj/item/card/emag) && !emagged)
 		emagged = TRUE
 		if(safety_mode)
 			safety_mode = 0
 			update_icon()
 		playsound(src.loc, "sparks", 75, 1, -1)
+		return TRUE
+
 	else if(istype(I, /obj/item/screwdriver) && emagged)
 		emagged = FALSE
 		update_icon()
-		to_chat(user, "<span class='notice'>You reset the crusher to its default factory settings.</span>")
+		to_chat(user, SPAN_NOTICE("You reset the crusher to its default factory settings."))
+		return TRUE
+
 	else
-		..()
-		return
-	add_fingerprint(user)
+		return ..()
 
 /obj/machinery/recycler/on_update_icon()
 	..()
@@ -90,7 +94,7 @@ var/global/const/SAFETY_COOLDOWN = 100
 			playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
 			AM.loc = src.loc
 
-/obj/machinery/recycler/proc/recycle(obj/item/I, var/sound = 1)
+/obj/machinery/recycler/proc/recycle(obj/item/I, sound = 1)
 	I.loc = src.loc
 	if(!istype(I, /obj/item/disk/nuclear))
 		qdel(I)

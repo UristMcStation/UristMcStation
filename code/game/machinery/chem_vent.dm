@@ -22,7 +22,7 @@
 		reagents.add_reagent(chem, chemicals[chem])
 	var/image/I = image('icons/atmos/vent_pump.dmi',"overlay")
 	I.color = reagents.get_color()
-	overlays += I
+	AddOverlays(I)
 
 	radio_controller.add_object(src, 1707, RADIO_CHEM_VENT)
 
@@ -34,7 +34,7 @@
 
 /obj/machinery/chemical_vent/proc/activate()
 	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
-	var/datum/effect/effect/system/smoke_spread/chem/smoke_system = new()
+	var/datum/effect/smoke_spread/chem/smoke_system = new()
 	smoke_system.set_up(reagents, 10, 0, get_turf(src))
 	smoke_system.start()
 	if(!mapped)

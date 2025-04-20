@@ -159,9 +159,13 @@
 	item_state = "nervacosarmour"
 	blood_overlay_type = "armorblood"
 	armor = list(melee = 60, bullet = 50, laser = 45, energy = 30, bomb = 35, bio = 0, rad = 0)
-	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_A, ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
-	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_A, ACCESSORY_SLOT_ARMOR_L, ACCESSORY_SLOT_ARMOR_S)
-	accessories = list(/obj/item/clothing/accessory/arm_guards/merc, /obj/item/clothing/accessory/leg_guards/merc, /obj/item/clothing/accessory/storage/pouches/large, /obj/item/clothing/accessory/armor/tag/nerva)
+	valid_accessory_slots = list(ACCESSORY_SLOT_INSIGNIA, ACCESSORY_SLOT_ARMOR_ARMS, ACCESSORY_SLOT_ARMOR_LEGS, ACCESSORY_SLOT_ARMOR_STORAGE)
+	accessories = list(
+		/obj/item/clothing/accessory/arm_guards/merc,
+		/obj/item/clothing/accessory/leg_guards/merc,
+		/obj/item/clothing/accessory/storage/pouches/large,
+		/obj/item/clothing/accessory/armor/tag/nerva
+		)
 
 /obj/item/clothing/suit/armor/pcarrier/medium/nerva
 	accessories = list(/obj/item/clothing/accessory/armor_plate/medium, /obj/item/clothing/accessory/storage/pouches, /obj/item/clothing/accessory/armor/tag/nerva)

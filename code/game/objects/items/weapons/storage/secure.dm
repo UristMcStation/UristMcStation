@@ -15,26 +15,28 @@
 	max_w_class = ITEM_SIZE_SMALL
 	max_storage_space = DEFAULT_BOX_STORAGE
 
-
-/obj/item/storage/secure/attackby(obj/item/W, mob/user)
+/obj/item/storage/secure/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if (!locked)
 		return ..()
+
 	if (istype(W, /obj/item/melee/energy/blade) && emag_act(INFINITY, user, "You slice through the lock of \the [src]"))
-		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
+		var/datum/effect/spark_spread/spark_system = new /datum/effect/spark_spread()
 		spark_system.set_up(5, 0, loc)
 		spark_system.start()
 		playsound(loc, 'sound/weapons/blade1.ogg', 50, 1)
 		playsound(loc, "sparks", 50, 1)
-		return
-	if (isScrewdriver(W))
-		if (do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT))
+		return TRUE
+
+	else if (isScrewdriver(W))
+		if (do_after(user, (W.toolspeed * 2) SECONDS, src, DO_REPAIR_CONSTRUCT))
 			open = ! open
 			user.show_message(SPAN_NOTICE("You [open ? "open" : "close"] the service panel."))
-		return
-	if (isMultitool(W) && (open == 1)&& (!l_hacking))
+		return TRUE
+
+	else if (isMultitool(W) && (open == 1)&& (!l_hacking))
 		user.show_message(SPAN_NOTICE("Now attempting to reset internal memory, please hold."), 1)
 		l_hacking = 1
-		if (do_after(usr, 10 SECONDS, src, DO_REPAIR_CONSTRUCT))
+		if (do_after(usr, (W.toolspeed * 10) SECONDS, src, DO_REPAIR_CONSTRUCT))
 			if (prob(40))
 				l_setshort = 1
 				l_set = 0
@@ -47,6 +49,11 @@
 				l_hacking = 0
 		else
 			l_hacking = 0
+		return TRUE
+
+	else
+		to_chat(user, SPAN_WARNING("\The [src] is locked and cannot be opened!"))
+		return TRUE
 
 
 /obj/item/storage/secure/MouseDrop(over_object, src_location, over_location)
@@ -68,7 +75,7 @@
 	message = text("[]", src.code)
 	if (!locked)
 		message = "*****"
-	dat += text("<HR>\n>[]<BR>\n<A href='?src=\ref[];type=1'>1</A>-<A href='?src=\ref[];type=2'>2</A>-<A href='?src=\ref[];type=3'>3</A><BR>\n<A href='?src=\ref[];type=4'>4</A>-<A href='?src=\ref[];type=5'>5</A>-<A href='?src=\ref[];type=6'>6</A><BR>\n<A href='?src=\ref[];type=7'>7</A>-<A href='?src=\ref[];type=8'>8</A>-<A href='?src=\ref[];type=9'>9</A><BR>\n<A href='?src=\ref[];type=R'>R</A>-<A href='?src=\ref[];type=0'>0</A>-<A href='?src=\ref[];type=E'>E</A><BR>\n</TT>", message, src, src, src, src, src, src, src, src, src, src, src, src)
+	dat += text("<HR>\n>[]<BR>\n<A href='byond://?src=\ref[];type=1'>1</A>-<A href='byond://?src=\ref[];type=2'>2</A>-<A href='byond://?src=\ref[];type=3'>3</A><BR>\n<A href='byond://?src=\ref[];type=4'>4</A>-<A href='byond://?src=\ref[];type=5'>5</A>-<A href='byond://?src=\ref[];type=6'>6</A><BR>\n<A href='byond://?src=\ref[];type=7'>7</A>-<A href='byond://?src=\ref[];type=8'>8</A>-<A href='byond://?src=\ref[];type=9'>9</A><BR>\n<A href='byond://?src=\ref[];type=R'>R</A>-<A href='byond://?src=\ref[];type=0'>0</A>-<A href='byond://?src=\ref[];type=E'>E</A><BR>\n</TT>", message, src, src, src, src, src, src, src, src, src, src, src, src)
 	show_browser(user, dat, "window=caselock;size=300x280")
 
 
@@ -83,15 +90,15 @@
 				l_set = 1
 			else if ((code == l_code) && (!emagged) && (l_set == 1))
 				locked = 0
-				overlays.Cut()
-				overlays += image('icons/obj/storage.dmi', icon_opened)
+				ClearOverlays()
+				AddOverlays(image(icon, icon_opened))
 				code = null
 			else
 				code = "ERROR"
 		else
 			if ((href_list["type"] == "R") && (!emagged) && (!l_setshort))
 				locked = 1
-				overlays.Cut()
+				ClearOverlays()
 				code = null
 				close(usr)
 			else
@@ -119,10 +126,10 @@
 	if (emagged)
 		return
 	emagged = TRUE
-	src.overlays += image('icons/obj/storage.dmi', icon_sparking)
+	AddOverlays(icon_sparking)
 	sleep(6)
-	overlays.Cut()
-	overlays += image('icons/obj/storage.dmi', icon_locking)
+	ClearOverlays()
+	AddOverlays(icon_locking)
 	locked = 0
 	to_chat(user, (feedback ? feedback : "You short out the lock of \the [src]."))
 	return TRUE
@@ -130,7 +137,7 @@
 
 /obj/item/storage/secure/briefcase
 	name = "secure briefcase"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/briefcases.dmi'
 	icon_state = "secure"
 	item_state = "sec-case"
 	desc = "A large briefcase with a digital locking system."
@@ -159,17 +166,19 @@
 
 /obj/item/storage/secure/safe
 	name = "secure safe"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/structures/safe.dmi'
 	icon_state = "safe"
 	icon_opened = "safe0"
 	icon_locking = "safeb"
 	icon_sparking = "safespark"
 	force = 8.0
+	obj_flags = OBJ_FLAG_WALL_MOUNTED
 	w_class = ITEM_SIZE_NO_CONTAINER
 	max_w_class = ITEM_SIZE_HUGE
 	max_storage_space = 56
 	anchored = TRUE
 	density = FALSE
+	contents_banned = list(/obj/item/storage/secure/briefcase)
 	startswith = list(
 		/obj/item/paper = 1,
 		/obj/item/pen = 1
@@ -182,11 +191,12 @@
 
 /obj/item/storage/secure/AltClick(/mob/user)
 	if (locked)
-		return
-	..()
+		return FALSE
+	return ..()
 
 /obj/item/storage/secure/safe/Initialize()
 	. = ..()
+
 	for(var/obj/item/I in get_turf(src))
 		handle_item_insertion(I,1)
 
@@ -200,7 +210,7 @@
 	name = "personal arms safe"
 	max_storage_space = 24
 	req_access = list(access_bridge)
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/structures/safe.dmi'
 	icon_state = "safe"
 	icon_opened = "safe0"
 	icon_locking = "safeb"
@@ -211,7 +221,7 @@
 	max_w_class = ITEM_SIZE_HUGE
 	anchored = TRUE
 	density = FALSE
-	cant_hold = list(/obj/item/storage/secure/briefcase)
+	contents_banned = list(/obj/item/storage/secure/briefcase)
 	startswith = list(
 	/obj/item/gun/energy/taser = 1,
 	/obj/item/gun/projectile/revolver/hi2521r = 1,
@@ -250,6 +260,12 @@
 		return
 	..()
 
+/obj/item/storage/secure/alert_safe/open()
+	if(secure)
+		src.add_fingerprint(usr)
+		return
+	..()
+
 /obj/item/storage/secure/alert_safe/proc/check_arms(return_missing = FALSE)
 	if(return_missing)
 		var/list/wanted = list()
@@ -274,12 +290,12 @@
 				playsound(src,'sound/urist/buzzclick.ogg',100,0)
 				visible_message("<span class='info'>\The [src] buzzes and clicks as its automatic locks disengage.</span>")
 				secure = FALSE
-			overlays.Cut()
-			overlays += image(icon, locked ? icon_armed : icon_opened)
+			ClearOverlays()
+			AddOverlays(image(icon, locked ? icon_armed : icon_opened))
 			next_reminder = null
 	else if(check_arms() && locked)
 		secure = TRUE
-		overlays.Cut()
+		ClearOverlays()
 		playsound(src,'sound/effects/metal_close.ogg',25,0)
 		visible_message("<span class='notice'>\The [src] clicks as its automatic locks engage.</span>")
 	else
@@ -292,7 +308,7 @@
 		if(secure)
 			next_reminder = null
 			STOP_PROCESSING(SSobj, src)
-			overlays.Cut()
+			ClearOverlays()
 			playsound(src,'sound/effects/metal_close.ogg',25,0)
 			visible_message("<span class='notice'>\The [src] clicks as its automatic locks engage.</span>")
 		else
@@ -311,7 +327,7 @@
 /obj/item/storage/secure/alert_safe/attack_self(mob/user as mob)
 	ui_interact(user)
 
-/obj/item/storage/secure/alert_safe/emag_act(remaining_charges, var/mob/user, var/feedback)
+/obj/item/storage/secure/alert_safe/emag_act(remaining_charges, mob/user, feedback)
 	if(..())
 		STOP_PROCESSING(SSobj, src)
 		GLOB.alert_locked -= src	//Remove it from the GLOB list so further alert changes have no effect
@@ -323,7 +339,7 @@
 		return 0
 	. = ..()
 
-/obj/item/storage/secure/alert_safe/handle_item_insertion(obj/item/W, var/prevent_warning = 0, var/NoUpdate = 0)
+/obj/item/storage/secure/alert_safe/handle_item_insertion(obj/item/W, prevent_warning = 0, NoUpdate = 0)
 	. = ..()
 	if(.)
 		if(W.type in registered_gear)
@@ -335,7 +351,7 @@
 		if(W.type in registered_gear)
 			registered_gear[W.type]["current"]--
 
-/obj/item/storage/secure/alert_safe/ui_interact(mob/user, ui_key="main", datum/nanoui/ui = null, var/force_open = 1)
+/obj/item/storage/secure/alert_safe/ui_interact(mob/user, ui_key="main", datum/nanoui/ui = null, force_open = 1)
 	user.set_machine(src)
 
 	var/data[0]
@@ -364,16 +380,16 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/item/storage/secure/alert_safe/OnTopic(mob/user, var/list/href_list, state)
+/obj/item/storage/secure/alert_safe/OnTopic(mob/user, list/href_list, state)
 	if(..())
 		return 1
 	if(!allowed(user))
 		return 1
 	if(href_list["lock"])
 		locked = text2num(href_list["lock"])
-		overlays.Cut()
+		ClearOverlays()
 		if(!secure)
-			overlays += image(icon, locked ? icon_armed : icon_opened)
+			AddOverlays(image(icon, locked ? icon_armed : icon_opened))
 	return 1
 
 /obj/item/storage/secure/alert_safe/so

@@ -10,7 +10,7 @@
 	var/punji = 0
 	var/animal_safe
 
-/obj/structure/pit/attackby(obj/item/W, mob/user)
+/obj/structure/pit/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if( istype(W,/obj/item/shovel) )
 		if(punji)
 			to_chat(user, "<span class='notice'>Remove the sharpened sticks before filling it up.</span>")
@@ -45,7 +45,7 @@
 			else
 				to_chat(user, "<span class='notice'>You stick a sharpened wooden shaft into the side of the pit.</span>")
 				punji += 1
-				src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji[punji]", layer=3.7)
+				AddOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji[punji]", layer=3.7))
 				qdel(W)
 				user.regenerate_icons()
 	..()
@@ -73,7 +73,7 @@
 	if(punji)
 		to_chat(user, "You yank out one of the sharpened sticks from the pit.")
 		new /obj/item/sharpwoodrod(src.loc)
-		src.overlays -= image('icons/urist/structures&machinery/structures.dmi', "punji[punji]")
+		CutOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji[punji]"))
 		punji -= 1
 
 /obj/structure/pit/examine()
@@ -139,12 +139,12 @@
 
 /obj/structure/pit/punji6/New()
 	..()
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji1", layer=3.7)
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji2", layer=3.7)
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji3", layer=3.7)
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji4", layer=3.7)
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji5", layer=3.7)
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji6", layer=3.7)
+	src.AddOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji1", layer=3.7))
+	src.AddOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji2", layer=3.7))
+	src.AddOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji3", layer=3.7))
+	src.AddOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji4", layer=3.7))
+	src.AddOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji5", layer=3.7))
+	src.AddOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji6", layer=3.7))
 
 /obj/structure/pit/punji6/hidden
 	icon_state = "hiddentrap"
@@ -189,7 +189,7 @@
 		/obj/item/clothing/suit/storage/toggle/brown_jacket,
 		/obj/item/clothing/suit/storage/toggle/hoodie,
 		/obj/item/clothing/suit/storage/toggle/hoodie/black,
-		/obj/item/clothing/suit/poncho/colored
+		/obj/item/clothing/suit/poncho
 		)
 	loot = pick(suits)
 	new loot(C)
@@ -272,14 +272,19 @@
 
 	message = "Here lies [nam], [born] - [died]."
 
-/obj/structure/gravemarker/attackby(obj/item/W, mob/user)
+/obj/structure/gravemarker/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W,/obj/item/material/hatchet))
 		visible_message("<span class = 'warning'>\The [user] starts hacking away at \the [src] with \the [W].</span>")
 		if(!do_after(user, 30))
 			visible_message("<span class = 'warning'>\The [user] hacks \the [src] apart.</span>")
 			new /obj/item/stack/material/wood(src)
-			qdel(src)
+			qdel_self()
+			return TRUE
+
 	if(istype(W,/obj/item/pen))
 		var/msg = sanitize(input(user, "What should it say?", "Grave marker", message) as text|null)
 		if(msg)
 			message = msg
+		return TRUE
+
+	return ..()

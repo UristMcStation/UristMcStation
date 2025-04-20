@@ -1,16 +1,17 @@
 /obj/machinery/radio_beacon
 	name = "transmission beacon"
 	desc = "A bulky hyperspace transmitter, capable of continuously broadcasting a signal that can be picked up by ship sensors."
-	icon = 'icons/obj/structures/beacon.dmi'
-	icon_state = "inactive"
+	icon = 'icons/obj/machines/beacon.dmi'
+	icon_state = "beacon"
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 0
 	health_max = 100
 	active_power_usage = 1 KILOWATTS
 	construct_state = /singleton/machine_construction/default/panel_closed
-	var/obj/effect/overmap/radio/signal
-	var/obj/effect/overmap/radio/distress/emergency_signal
+	var/obj/overmap/radio/signal
+	var/obj/overmap/radio/distress/emergency_signal
+	var/obj/item/device/gps/gps
 	/// Integer. The `world.time` value of the last distress broadcast.
 	var/last_message_time = 0
 	/// Integer. The `world.time` of the last activation toggle.
@@ -19,7 +20,7 @@
 	var/const/activation_frequency = 1 MINUTE
 
 /obj/item/stock_parts/circuitboard/radio_beacon
-	name = T_BOARD("transmission beacon")
+	name = "circuit board (transmission beacon)"
 	board_type = "machine"
 	icon_state = "mcontroller"
 	build_path = /obj/machinery/radio_beacon
@@ -37,6 +38,10 @@
 	)
 
 
+/obj/machinery/radio_beacon/Initialize()
+	. = ..()
+	gps = new(src)
+
 /obj/machinery/radio_beacon/interface_interact(mob/user, skip_time_check = FALSE)
 	if (!CanInteract(user, DefaultTopicState()))
 		return
@@ -45,7 +50,7 @@
 		to_chat(user, SPAN_WARNING("A small red light flashes on \the [src]."))
 		return
 
-	var/obj/effect/overmap/visitable/O = map_sectors["[get_z(src)]"]
+	var/obj/overmap/visitable/O = map_sectors["[get_z(src)]"]
 	if(!O)
 		to_chat(user, SPAN_WARNING("You cannot deploy \the [src] here."))
 		return
@@ -79,10 +84,16 @@
 			activate_distress()
 
 /obj/machinery/radio_beacon/proc/activate()
-	var/obj/effect/overmap/visitable/O = map_sectors["[get_z(src)]"]
+	var/obj/overmap/visitable/O = map_sectors["[get_z(src)]"]
 	var/message = sanitize(input("What should it broadcast?") as message|null)
 	if(!message)
 		return
+
+	var/gps_name = sanitize(input("What should its GCS signal be named?", "[gps.gps_tag] - GCS Tag", gps.gps_tag) as text|null)
+	if (gps_name && gps_name != gps.gps_tag)
+		gps.gps_tag = uppertext(copytext(gps_name, 1, 11))
+		if (!gps.tracking)
+			gps.toggle_tracking(silent=TRUE)
 
 	visible_message(SPAN_NOTICE("\The [src] whirrs to life, starting its radio broadcast."))
 
@@ -99,7 +110,7 @@
 	update_icon()
 
 /obj/machinery/radio_beacon/proc/activate_distress()
-	var/obj/effect/overmap/visitable/O = map_sectors["[get_z(src)]"]
+	var/obj/overmap/visitable/O = map_sectors["[get_z(src)]"]
 
 	visible_message(SPAN_WARNING("\The [src] beeps urgently as it whirrs to life, sending out intermittent tones."))
 
@@ -112,6 +123,10 @@
 	last_activation_time = world.time
 
 	emergency_signal.set_origin(O)
+
+	gps?.gps_tag = "SOS"
+	if (!gps?.tracking)
+		gps.toggle_tracking(silent=TRUE)
 
 	update_use_power(POWER_USE_ACTIVE)
 	update_icon()
@@ -127,6 +142,9 @@
 
 	last_activation_time = world.time
 
+	if (gps?.tracking)
+		gps.toggle_tracking(silent=TRUE)
+
 	update_use_power(POWER_USE_OFF)
 	update_icon()
 
@@ -138,58 +156,65 @@
 		deactivate()
 
 /obj/machinery/radio_beacon/on_update_icon()
-	overlays.Cut()
-	icon_state = signal ? "active" : "inactive"
-	if(emergency_signal)
-		overlays += "distress"
+	ClearOverlays()
 	if(panel_open)
-		overlays += "panel"
-	. = ..()
+		AddOverlays("[icon_state]_panel")
+	if(is_powered())
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
+	if(signal)
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_active"))
+		AddOverlays("[icon_state]_lights_active")
+	else if(emergency_signal)
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights_distress"))
+		AddOverlays("[icon_state]_lights_distress")
+
 /obj/machinery/radio_beacon/Destroy()
 	QDEL_NULL(signal)
 	QDEL_NULL(emergency_signal)
+	QDEL_NULL(gps)
 	. = ..()
 
-/obj/effect/overmap/radio
+/obj/overmap/radio
 	name = "radio signal"
 	icon_state = "radio"
 	scannable = TRUE
 	color = COLOR_AMBER
 	var/message
-	var/obj/effect/overmap/source
+	var/obj/overmap/source
 
-/obj/effect/overmap/radio/get_scan_data(mob/user)
-	return "A radio signal originating at \the [source].<br><br> \
+/obj/overmap/radio/get_scan_data(mob/user)
+	return list("A radio signal originating at \the [source].<br><br> \
 	---BEGINNING OF TRANSMISSION---<br><br> \
 	[message] \
-	<br><br>---END OF TRANSMISSION---"
+	<br><br>---END OF TRANSMISSION---")
 
-/obj/effect/overmap/radio/proc/set_origin(obj/effect/overmap/origin)
-	GLOB.moved_event.register(origin, src, /obj/effect/overmap/radio/proc/follow)
-	GLOB.destroyed_event.register(origin, src, /datum/proc/qdel_self)
+/obj/overmap/radio/proc/set_origin(obj/overmap/origin)
+	GLOB.moved_event.register(origin, src, PROC_REF(follow))
+	GLOB.destroyed_event.register(origin, src, TYPE_PROC_REF(/datum, qdel_self))
 	forceMove(origin.loc)
 	source = origin
 	pixel_x = -(origin.bound_width - 6)
 	pixel_y = origin.bound_height - 6
 
-/obj/effect/overmap/radio/proc/follow(atom/movable/am, old_loc, new_loc)
+/obj/overmap/radio/proc/follow(atom/movable/am, old_loc, new_loc)
 	forceMove(new_loc)
 
-/obj/effect/overmap/radio/Destroy()
+/obj/overmap/radio/Destroy()
 	GLOB.destroyed_event.unregister(source, src)
 	GLOB.moved_event.unregister(source, src)
 	source = null
 	. = ..()
 
-/obj/effect/overmap/radio/distress
+/obj/overmap/radio/distress
 	name = "distress dataspike"
 	icon_state = "radio"
 	color = COLOR_NT_RED
 
-/obj/effect/overmap/radio/distress/get_scan_data(mob/user)
-	return "A unilateral, broadband data broadcast originating at \the [source] carrying only an emergency code sequence."
+/obj/overmap/radio/distress/get_scan_data(mob/user)
+	return list("A unilateral, broadband data broadcast originating at \the [source] carrying only an emergency code sequence.")
 
-/obj/effect/overmap/radio/distress/Initialize()
+/obj/overmap/radio/distress/Initialize()
 	..()
 	for(var/obj/machinery/computer/ship/helm/H in SSmachines.machinery)
 		H.visible_message(SPAN_WARNING("\the [H] pings uneasily as it detects a distress signal."))
