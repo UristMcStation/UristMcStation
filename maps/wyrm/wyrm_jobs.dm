@@ -1,14 +1,19 @@
 /datum/map/wyrm
-	allowed_jobs = list(/datum/job/captain, /datum/job/hop, /datum/job/blueshield,
-						/datum/job/bartender, /datum/job/janitor,
-						/datum/job/qm, /datum/job/cargo_tech,
-						/datum/job/chief_engineer, /datum/job/engineer,
-						/datum/job/hos, /datum/job/officer,
-						/datum/job/doctor,
-						/datum/job/rd, /datum/job/scientist,
-						/datum/job/merchant,
-						/datum/job/ai, /datum/job/cyborg
-						)
+	allowed_jobs = list(
+		/datum/job/captain,
+		/datum/job/hop,
+		/datum/job/hos,
+		/datum/job/logistics,
+		/datum/job/logistics/salvage,
+		/datum/job/scientist,
+		/datum/job/scientist/roboticist,
+		/datum/job/doctor/surgeon,
+		/datum/job/doctor,
+		/datum/job/engineer/head,
+		/datum/job/engineer,
+		//datum/job/ai,
+		/datum/job/cyborg
+		)
 
 /datum/job/chief_engineer
 	title = "Senior Engineer"

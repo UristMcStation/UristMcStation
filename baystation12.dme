@@ -3700,9 +3700,6 @@
 #include "maps\glloydstation\glloydstation_define.dm"
 #include "maps\RandomZLevels\maze1.dm"
 #include "maps\torch\torch_define.dm"
-#include "maps\wyrm\items\smcult.dm"
 #include "maps\wyrm\items\clothing\corporate.dm"
-#include "maps\wyrm\obj\alien.dm"
-#include "maps\wyrm\turf\generic.dm"
 #include "~code\global_init.dm"
 // END_INCLUDE
