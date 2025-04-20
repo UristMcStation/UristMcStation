@@ -106,7 +106,7 @@
 
 	var/list/groups = matcher.group
 
-	ASSERT(groups.len == 4)
+	ASSERT(length(groups) == 4)
 
 	var/in_h = text2num(groups[1])
 	var/in_x = text2num(groups[2])
@@ -134,7 +134,7 @@
 
 	var/list/groups = matcher.group
 
-	ASSERT(groups.len == 4)
+	ASSERT(length(groups) == 4)
 
 	var/in_h = text2num(groups[1])
 	var/in_x = text2num(groups[2])

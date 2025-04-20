@@ -75,10 +75,10 @@
 
 	var/list/choices = null
 
-	if(istype(choices_override) && choices_override.len)
+	if(istype(choices_override) && length(choices_override))
 		choices = choices_override.Copy()
 
-	if(!(choices?.len))
+	if(!length(choices))
 		choices = BSR_ALL_FLAVORS_LIST
 
 	// We increase the weights exponentially. This is the base of the exponent.
@@ -91,7 +91,7 @@
 
 	var/list/flavors = list()
 
-	while(choices && (flavors.len < safe_amt))
+	while(choices && (length(flavors) < safe_amt))
 		var/picked_flavor = pick(choices)
 		flavors[picked_flavor] = flavor_weight
 		choices.Remove(picked_flavor)
@@ -101,7 +101,7 @@
 		flavor_weight *= weight_log_base
 
 	# ifdef BSR_DEBUGGING_ENABLED
-	if(flavors.len < safe_amt)
+	if(length(flavors) < safe_amt)
 		BSR_DEBUG_LOG("WARNING: Bluespace Revenant exhausted all choices before picking the requested amount. Proceeding with the smaller amount available!")
 	# endif
 
@@ -139,10 +139,10 @@
 	var/attempts = 0
 	var/list/generic_powers = power_options[BSR_FLAVOR_GENERIC]
 
-	while(powerset.len < num_powers)
+	while(length(powerset) < num_powers)
 		sleep(-1)
 
-		if(!(power_options?.len))
+		if(!length(power_options))
 			BSR_DEBUG_LOG("BLUESPACE REVENANT: No power options, aborting [identifier] selection!")
 			break
 
@@ -165,7 +165,7 @@
 		var/list/flavor_powers = power_options[rolled_flavor]
 
 		if(isnull(flavor_powers) && abort_on_flv_miss)
-			BSR_DEBUG_LOG("BLUESPACE REVENANT: Flavor [rolled_flavor] does not correspond to a valid option in [power_options] ([power_options?.len]). This should never happen, aborting [identifier] selection!")
+			BSR_DEBUG_LOG("BLUESPACE REVENANT: Flavor [rolled_flavor] does not correspond to a valid option in [power_options] ([length(power_options)]). This should never happen, aborting [identifier] selection!")
 			break
 
 		for(var/datum/power/revenant/FP in flavor_powers)
@@ -182,12 +182,12 @@
 		// NOTE: this could use weights as well, potentially
 		var/datum/power/revenant/selected_power = null
 
-		if(!(pickable_powers?.len))
+		if(!length(pickable_powers))
 			BSR_DEBUG_LOG("BSR: falling back to a generic set for [identifier]!")
 			pickable_powers = generic_powers
 			true_flavors.Remove(rolled_flavor)
 
-		if(pickable_powers?.len)
+		if(length(pickable_powers))
 			selected_power = pick(pickable_powers)
 
 		if(selected_power && !(selected_power in powerset))

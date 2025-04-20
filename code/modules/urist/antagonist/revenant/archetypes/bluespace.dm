@@ -396,12 +396,12 @@ Proc needs to be fixed, it fails to locate a dest
 			targets.Add(O)
 			value_lookup[O] = tradeval
 
-	if(!(targets.len))
+	if(!(length(targets)))
 		to_chat(src, SPAN_NOTICE("No valuable items nearby."))
 		return
 
 	var/obj/target = null
-	if(targets.len == 1)
+	if(length(targets) == 1)
 		target = targets[1]
 
 	if(!istype(target))

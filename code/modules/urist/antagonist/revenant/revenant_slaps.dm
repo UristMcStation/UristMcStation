@@ -76,7 +76,7 @@ var/global/list/revenant_slaps = (typesof(/datum/power/revenant/bs_slap) - /datu
 		if(cand_slap.distortion_threshold && effective_distortion > cand_slap.distortion_threshold)
 			applicable_slaps.Add(cand_slap)
 
-	if(!(applicable_slaps.len))
+	if(!(length(applicable_slaps)))
 		return
 
 	var/datum/power/revenant/bs_slap/slap = pick(applicable_slaps)

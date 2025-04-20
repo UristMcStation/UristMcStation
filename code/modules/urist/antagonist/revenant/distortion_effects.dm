@@ -43,7 +43,7 @@ var/global/list/revenant_distortions = (typesof(/datum/power/revenant/distortion
 	if(!istype(helper_result))
 		helper_result = list()
 
-	if(!helper_result.len)
+	if(!length(helper_result))
 		BSR_DEBUG_LOG("BSR: No Distortions were rolled by tag; picking a random one as a fallback!")
 		var/rawD = pick(revenant_distortions)
 		var/datum/power/revenant/distortion/instanceD = GLOB.revenant_powerinstances[rawD]
@@ -111,7 +111,7 @@ var/global/list/revenant_distortions = (typesof(/datum/power/revenant/distortion
 	if(!istype(A))
 		return
 
-	if(!(src.distortions?.len))
+	if(!length(distortions))
 		BSR_DEBUG_LOG("BSR: ERROR - HandleDistortionFX called with no Distortions!")
 		return
 

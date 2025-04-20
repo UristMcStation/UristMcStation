@@ -21,7 +21,7 @@
 
 	// ...because I'm pretty sure the `--x` op here is inplace
 	while(tries --> 0)
-		if(src.spawned_teleporters.len >= src.entrypoints)
+		if(length(src.spawned_teleporters) >= src.entrypoints)
 			break
 
 		var/area/location = pick_area(list(/proc/is_not_space_area, /proc/is_station_area, /proc/is_maint_area))
@@ -41,7 +41,7 @@
 			// Try to do blocks of 5 between each sleep
 			sleep(0)
 
-	if(!(src.spawned_teleporters?.len))
+	if(!(length(src.spawned_teleporters)))
 		log_debug("Failed to spawn any teleporters for the Deepmaint event. Aborting.")
 		kill(TRUE)
 
@@ -53,7 +53,7 @@
 
 	sleep(0)
 
-	if(!(GLOB.wfc_deepmaint_zlevels_by_instance?.len))
+	if(!(length(GLOB.wfc_deepmaint_zlevels_by_instance)))
 		// This if could check template.loaded, but if the Z-level map is busted,
 		// we'd need to rebuild it anyway as the generation code usually relies on that.
 		var/datum/map_template/template = SSmapping.map_templates["Maintrooms"]
@@ -106,4 +106,3 @@
 
 /datum/event/deepmaint/announce()
 	command_announcement.Announce("Extreme subspace anomalies detected. Ensure all persons and assets are accounted for.", "[location_name()] Spooky Sensor Network", zlevels = affecting_z)
-

@@ -285,7 +285,7 @@
 		spawn(rand(15, 25 SECONDS))
 			var/list/possible_spawns = mobselection_override
 
-			if(!istype(possible_spawns) || !(possible_spawns?.len))
+			if(!istype(possible_spawns) || !length(possible_spawns))
 				possible_spawns = list(
 					/mob/living/simple_animal/hostile/urist/imp,
 					/mob/living/simple_animal/hostile/scarybat/cult,

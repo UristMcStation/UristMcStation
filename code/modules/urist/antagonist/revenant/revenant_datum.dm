@@ -40,7 +40,7 @@
 	if(isnull(GLOB.revenant_powerinstances))
 		GLOB.revenant_powerinstances = list()
 
-	if(!(GLOB.revenant_powerinstances.len))
+	if(!length(GLOB.revenant_powerinstances))
 		// NOTE: we're currently doing both Powers and Hungers in one instances list
 		// If we get enough of 'em that iteration is slow, consider splitting.
 		for(var/RP in revenant_powers)

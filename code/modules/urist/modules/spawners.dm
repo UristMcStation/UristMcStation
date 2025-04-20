@@ -156,7 +156,7 @@
 	while(TRUE)
 		sleep(sleep_time)
 
-		if ((mobs?.len || 0) > 0 && next_spawn_time < world.time)
+		if ((length(mobs) || 0) > 0 && next_spawn_time < world.time)
 			var/turf/T = src.PickSpawnLoc()
 
 			if(isnull(T) || T.is_wall() || T.density)
