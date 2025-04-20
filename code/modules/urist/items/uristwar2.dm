@@ -298,8 +298,8 @@
 	item_state = "flashbang"
 	arm_sound = 'sound/effects/flare.ogg' // Closest thing to old fuse sounds.
 
-/obj/item/grenade/stielhandgranate/detonate()
-	explosion(src.loc, 6, EX_ACT_DEVASTATING)
+/obj/item/grenade/frag/stielhandgranate/detonate()
+	explosion(src.loc, 3, EX_ACT_DEVASTATING)
 	qdel(src)
 
 //russia
@@ -360,7 +360,7 @@
 	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/grenade)
 	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
 
-//guns //making the different calibres for germany was stupid. I'm just going to collapse the 7.62�38mmR, 7.62�54mmR and 7.62�25mm Tokarev into just 7.62mm. They're all going to use the same projectile anyways, so fuck it
+//guns //making the different calibres for germany was stupid. I'm just going to collapse the 7.62x38mmR, 7.62x54mmR and 7.62x25mm Tokarev into just 7.62mm. They're all going to use the same projectile anyways, so fuck it
 
 /obj/item/gun/projectile/manualcycle/mosinnagant
 	item_icons = DEF_URIST_INHANDS
@@ -563,7 +563,7 @@
 	magazine_type = /obj/item/ammo_magazine/r762
 
 /obj/item/ammo_magazine/r762
-	name = "speed loader"
+	name = "nagant revolver speed loader"
 	icon_state = "T38"
 	caliber = CALIBER_RIFLE_MILITARY
 	ammo_type = /obj/item/ammo_casing/rifle/military

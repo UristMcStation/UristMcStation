@@ -469,61 +469,64 @@
 	initial_ammo = 0
 
 /obj/item/gun/projectile/manualcycle/a50
-	item_icons = list(
-		slot_l_hand_str = 'icons/uristmob/items_lefthand48x32.dmi',
-		slot_r_hand_str = 'icons/uristmob/items_righthand48x32.dmi',
-		slot_back_str = 'icons/uristmob/back.dmi'
-		)
 	name = "A50 Heavy Rifle"
 	icon = 'icons/urist/items/guns48x32.dmi'
 	desc = "A bolt action anti-material rifle used by ANFOR support units. Chambered in 13.2x108mm, it is intended to breach the thin hulls of light landing craft, but in a pinch, could be used against the hardened carapaces of xenomorphs. Using state of the art technology, the gun manages to negate the majority of the recoil."
 	wielded_item_state = "ANFOR-sniper-wielded"
 	icon_state = "ANFOR-sniper"
 	item_state = "ANFOR-sniper"
+	item_icons = list(
+		slot_l_hand_str = 'icons/uristmob/items_lefthand48x32.dmi',
+		slot_r_hand_str = 'icons/uristmob/items_righthand48x32.dmi',
+		slot_back_str = 'icons/uristmob/back.dmi'
+	)
 	w_class = ITEM_SIZE_HUGE
 	one_hand_penalty = 6
 	force = 10
+	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ESOTERIC = 8)
 	slot_flags = SLOT_BACK
 	caliber = CALIBER_ANTIMATERIAL
+	load_method = SINGLE_CASING|SPEEDLOADER
+	screen_shake = 2
 	handle_casings = HOLD_CASINGS
-	load_method = SINGLE_CASING | MAGAZINE
+	scoped_accuracy = 18
+	scope_zoom = 2
 	max_shells = 5
-	ammo_type = /obj/item/ammo_casing/a132x108mm
-	allowed_magazines = /obj/item/ammo_magazine/a132x108mm
-	magazine_type = /obj/item/ammo_magazine/a132x108mm
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
+	ammo_type = /obj/item/ammo_casing/a50sniper
+	allowed_magazines = /obj/item/ammo_magazine/manualcycle/a50_sniper
+	magazine_type = /obj/item/ammo_magazine/manualcycle/a50_sniper
+	fire_sound = 'sound/weapons/gunshot/sniper.ogg'
+	load_sound = 'sound/weapons/guns/interaction/rifle_boltforward.ogg'
 
 
-/obj/item/ammo_casing/a132x108mm
+/obj/item/ammo_magazine/manualcycle/a50_sniper
+	name = "A50 Magazine"
+	desc = "A 14.5mm magazine clip for the A50 anti-material rifle."
+	icon = 'icons/urist/items/guns.dmi'
+	icon_state = "ANFOR-snipermag"
+	max_ammo = 5
+	multiple_sprites = 1
+	mag_type = SPEEDLOADER
+	caliber = CALIBER_ANTIMATERIAL
+	matter = list(DEFAULT_WALL_MATERIAL = 1500)
+	ammo_type = /obj/item/ammo_casing/a50sniper
+
+/obj/item/ammo_casing/a50sniper
 	name = "shell casing"
-	desc = "A 13.2x108mm shell."
+	desc = "A 14.5mm shell."
 	icon = 'icons/urist/items/ammo.dmi'
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 	caliber = CALIBER_ANTIMATERIAL
-	projectile_type = /obj/item/projectile/bullet/rifle/shell
+	projectile_type = /obj/item/projectile/bullet/rifle/a50_sniper
 	matter = list(DEFAULT_WALL_MATERIAL = 1250)
 
-/obj/item/projectile/bullet/rifle/a132x108mm
+/obj/item/projectile/bullet/rifle/a50_sniper
 	fire_sound = 'sound/weapons/gunshot/sniper.ogg'
-	damage = 50
-	stun = 1
-	weaken = 1
-	penetrating = 2
-	armor_penetration = 50
-
-/obj/item/ammo_magazine/a132x108mm // this is a hacky way of getting it to work, but fuck it - Y
-	name = "A50 magazine"
-	mag_type = MAGAZINE
-	icon = 'icons/urist/items/guns.dmi'
-	icon_state = "ANFOR-snipermag"
-	caliber = CALIBER_ANTIMATERIAL
-	max_ammo = 5
-	multiple_sprites = 1
-	ammo_type = /obj/item/ammo_casing/a132x108mm
-
-/obj/item/ammo_magazine/a127x54mm/empty
-	name = "A50 magazine"
-	icon_state = "ANFOR-snipermag-empty"
-	icon = 'icons/urist/items/guns.dmi'
-	initial_ammo = 0
+	damage = 75
+	stun = 3
+	weaken = 3
+	penetrating = 4
+	armor_penetration = 65
+	penetration_modifier = 1.2
+	distance_falloff = 0.75

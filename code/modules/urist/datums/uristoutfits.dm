@@ -128,7 +128,7 @@
 	uniform = /obj/item/clothing/under/urist/wwii/germanrifleman
 	shoes = /obj/item/clothing/shoes/urist/wwii/germanboots
 	back = /obj/item/gun/projectile/manualcycle/kar98
-	r_pocket = /obj/item/grenade/stielhandgranate
+	r_pocket = /obj/item/grenade/frag/stielhandgranate
 	l_pocket = /obj/item/ammo_magazine/a792x57mm/stripper
 	r_hand = /obj/item/ammo_magazine/a792x57mm/stripper
 	l_hand = /obj/item/ammo_magazine/a792x57mm/stripper
@@ -151,7 +151,7 @@
 
 	else if(prob(5))
 		back = /obj/item/gun/projectile/automatic/l6_saw/mg42
-		l_pocket = /obj/item/grenade/stielhandgranate
+		l_pocket = /obj/item/grenade/frag/stielhandgranate
 		r_hand = /obj/item/ammo_magazine/a792x57mm/mg42
 		l_hand = /obj/item/ammo_magazine/a792x57mm/mg42
 		belt = 	/obj/item/ammo_magazine/a792x57mm/g43mag
@@ -175,7 +175,7 @@
 	uniform = /obj/item/clothing/under/urist/wwii/germanofficer
 	shoes = /obj/item/clothing/shoes/urist/wwii/germanboots
 	back = /obj/item/gun/projectile/automatic/mp40
-	r_pocket = /obj/item/grenade/stielhandgranate
+	r_pocket = /obj/item/grenade/frag/stielhandgranate
 	l_pocket = /obj/item/ammo_magazine/pistol/mp40
 	r_hand = /obj/item/ammo_magazine/pistol/mp40
 	l_hand = /obj/item/ammo_magazine/pistol/p38

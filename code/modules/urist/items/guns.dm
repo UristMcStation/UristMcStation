@@ -11,7 +11,7 @@
 	w_class = 1
 	charge_cost = 10 //How much energy is needed to fire.
 	projectile_type = /obj/item/projectile/energy/electrode
-	origin_tech = "combat=2;magnets=2"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
 	modifystate = "senergystun"
 	cell_type = /obj/item/cell/device/standard
 
@@ -51,7 +51,7 @@
 	icon_state = "gun"
 	item_state = "gun"
 	var/on = 0
-	w_class = 2
+	w_class = ITEM_SIZE_NORMAL
 
 /obj/item/gag/BANG/attack_self(mob/user as mob)
 	item_icons = DEF_URIST_INHANDS
@@ -97,7 +97,7 @@ the sprite and make my own projectile -Glloyd*/
 	w_class = 1
 	charge_cost = 20 //How much energy is needed to fire.
 	projectile_type = /obj/item/projectile/energy/plasma2
-	origin_tech = "combat=3;magnets=2"
+	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 3)
 	modifystate = "plasmapistol"
 	cell_type = /obj/item/cell/device/premium
 
@@ -256,7 +256,7 @@ the sprite and make my own projectile -Glloyd*/
 	w_class = 4
 	force = 10
 	caliber = CALIBER_RIFLE_MILITARY
-	origin_tech = "combat=6;materials=1;syndicate=4"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ESOTERIC = 4)
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	allowed_magazines = /obj/item/ammo_magazine/rifle/m16
@@ -463,7 +463,7 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "[initial(icon_state)]"
 
 /obj/item/gun/projectile/manualcycle/attack_self(mob/user as mob)
-	playsound(src.loc, 'sound/weapons/flipblade.ogg', 50, 1)
+	playsound(src.loc, 'sound/weapons/guns/interaction/rifle_load.ogg', 50, 1)
 	bolt_open = !bolt_open
 	if(bolt_open)
 		if(chambered)
@@ -507,7 +507,7 @@ the sprite and make my own projectile -Glloyd*/
 	one_hand_penalty = 4
 	force = 10
 	slot_flags = SLOT_BACK
-	origin_tech = "combat=2;materials=1"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 1)
 	caliber = CALIBER_RIFLE_MILITARY
 	//fire_sound = 'sound/weapons/sniper.ogg'
 	handle_casings = HOLD_CASINGS
@@ -528,7 +528,7 @@ the sprite and make my own projectile -Glloyd*/
 	one_hand_penalty = 0
 	force = 4
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	origin_tech = "combat=1"
+	origin_tech = list(TECH_COMBAT = 1)
 	caliber = CALIBER_RIFLE_MILITARY
 	//fire_sound = 'sound/weapons/sniper.ogg'
 	handle_casings = HOLD_CASINGS
@@ -736,7 +736,7 @@ the sprite and make my own projectile -Glloyd*/
 	w_class = 4
 	force = 10
 	caliber = CALIBER_RIFLE_MILITARY
-	origin_tech = "combat=4;materials=1;syndicate=1"
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 1, TECH_ESOTERIC = 1)
 	slot_flags = SLOT_BACK
 	ammo_type = /obj/item/ammo_casing/rifle/military
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
@@ -792,7 +792,7 @@ the sprite and make my own projectile -Glloyd*/
 	w_class = 3
 	force = 10
 	caliber = CALIBER_PISTOL_SMALL
-	origin_tech = "combat=4;materials=1;syndicate=1"
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 1, TECH_ESOTERIC = 1)
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/hi2521smg9mm/rubber
@@ -820,7 +820,7 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "combatSMG-mag"
 	mag_type = MAGAZINE
 	caliber = CALIBER_PISTOL_SMALL
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 1800)
 	ammo_type = /obj/item/ammo_casing/pistol/small
 	max_ammo = 15
@@ -895,7 +895,7 @@ the sprite and make my own projectile -Glloyd*/
 	wielded_item_state = "crewpistol"
 	w_class = 2
 	caliber = CALIBER_PISTOL_SMALL
-	origin_tech = "combat=2;materials=2;syndicate=1"
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ESOTERIC = 1)
 	slot_flags = SLOT_BELT | SLOT_HOLSTER
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/hi2521pistol9mm
@@ -918,7 +918,7 @@ the sprite and make my own projectile -Glloyd*/
 	icon_state = "crewpistol-mag"
 	mag_type = MAGAZINE
 	caliber = CALIBER_PISTOL_SMALL
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	ammo_type = /obj/item/ammo_casing/pistol/small
 	max_ammo = 10
