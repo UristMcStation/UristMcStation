@@ -199,22 +199,22 @@
 	updateUsrDialog()
 
 /obj/structure/engineeringcart/on_update_icon()
-	overlays = null
+	ClearOverlays()
 	if(myglass)
-		overlays += "cart_glass"
+		AddOverlays("cart_glass")
 	if(mymetal)
-		overlays += "cart_metal"
+		AddOverlays("cart_metal")
 	if(myplasteel)
-		overlays += "cart_plasteel"
+		AddOverlays("cart_plasteel")
 	if(myflashlight)
-		overlays += "cart_flashlight"
+		AddOverlays("cart_flashlight")
 	if(mybluetoolbox)
-		overlays += "cart_bluetoolbox"
+		AddOverlays("cart_bluetoolbox")
 	if(myredtoolbox)
-		overlays += "cart_redtoolbox"
+		AddOverlays("cart_redtoolbox")
 	if(myyellowtoolbox)
-		overlays += "cart_yellowtoolbox"
+		AddOverlays("cart_yellowtoolbox")
 	if(myengitape)
-		overlays += "cart_engitape"
+		AddOverlays("cart_engitape")
 	if(myinflate)
-		overlays += "cart_inflate"
+		AddOverlays("cart_inflate")

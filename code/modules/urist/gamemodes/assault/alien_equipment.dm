@@ -164,7 +164,7 @@
 		else
 			target.ex_act(1)
 	if(target)
-		target.overlays -= image_overlay
+		target.CutOverlays(image_overlay)
 	qdel(src)
 
 /obj/item/plastique/alienexplosive/use_tool(obj/item/I, mob/user, click_params)

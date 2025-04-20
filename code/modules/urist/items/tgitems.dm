@@ -377,9 +377,9 @@ Please only put items here that don't have a huge definition - Glloyd											
 
 
 /obj/item/storage/fancy/rollingpapers/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(!length(contents))
-		overlays += "[icon_state]_empty"
+		AddOverlays("[icon_state]_empty")
 	return
 
 /obj/item/storage/part_replacer/bluespace //from tg... somewhat

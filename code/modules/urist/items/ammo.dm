@@ -98,10 +98,10 @@
 	qdel(src)
 
 /obj/item/ammo_magazine/bundle/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	var/count = 1
 	for(var/obj/item/ammo_casing/C in stored_ammo)
-		overlays += image(src.icon, "[C.icon_state]-[count]")
+		AddOverlays(image(src.icon, "[C.icon_state]-[count]"))
 		count++
 
 /obj/item/ammo_casing/a75

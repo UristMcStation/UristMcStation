@@ -172,9 +172,9 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 /obj/structure/bed/chair/urist/shuttle/post_buckle_mob()
 	if(buckled_mob)
-		overlays += armrest
+		AddOverlays(armrest)
 	else
-		overlays -= armrest
+		CutOverlays(armrest)
 
 //random benches
 
@@ -355,7 +355,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /*/obj/structure/grille/wood/on_update_icon()
 	update_onframe()
 
-	overlays.Cut()
+	ClearOverlays()
 	if(destroyed)
 		if(on_frame)
 			icon_state = "broken"

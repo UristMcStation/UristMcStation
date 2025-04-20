@@ -36,7 +36,7 @@ Icons for uristturfs from Nienhaus, Glloyd and Lord Slowpoke*/
 
 /turf/simulated/floor/beach/pool/New()
 	..()
-	overlays += image("icon"='icons/urist/turf/uristturf.dmi',"icon_state"="water2","layer"=MOB_LAYER+0.1)
+	AddOverlays(image("icon"='icons/urist/turf/uristturf.dmi',"icon_state"="water2","layer"=MOB_LAYER+0.1))
 
 /turf/simulated/floor/plating/airless
 	initial_gas = null

@@ -22,7 +22,7 @@
 		reagents.add_reagent(chem, chemicals[chem])
 	var/image/I = image('icons/atmos/vent_pump.dmi',"overlay")
 	I.color = reagents.get_color()
-	overlays += I
+	AddOverlays(I)
 
 	radio_controller.add_object(src, 1707, RADIO_CHEM_VENT)
 

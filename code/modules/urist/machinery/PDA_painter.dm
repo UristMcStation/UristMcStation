@@ -10,14 +10,14 @@
 
 
 /obj/machinery/pdapainter/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 
 	if(stat & inoperable())
 		icon_state = "[initial(icon_state)]-broken"
 		return
 
 	if(storedpda)
-		overlays += "[initial(icon_state)]-closed"
+		AddOverlays("[initial(icon_state)]-closed")
 
 	if(powered())
 		icon_state = initial(icon_state)

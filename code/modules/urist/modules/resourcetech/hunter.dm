@@ -29,16 +29,16 @@
 			update_icon()
 
 /obj/machinery/smartfridge/tanningrack/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(inoperable())
 		icon_state = icon_off
 	else
 		icon_state = icon_on
 	for(var/datum/stored_items/I in item_records)
 		if(length(I.instances))
-			overlays += "drying_rack_filled"
+			AddOverlays("drying_rack_filled")
 			if(!inoperable())
-				overlays += "drying_rack_drying"
+				AddOverlays("drying_rack_drying")
 
 /obj/machinery/smartfridge/tanningrack/proc/dry()
 	for(var/datum/stored_items/I in item_records)

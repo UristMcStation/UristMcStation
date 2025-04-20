@@ -34,8 +34,8 @@
 		if(istype(I, /obj/item/reagent_containers))
 			var/obj/item/reagent_containers/food = I
 			food.reagents.trans_to(S, food.reagents.total_volume)
-		S.overlays += img
-		S.overlays += I.overlays
+		S.AddOverlays(img)
+		S.AddOverlays(I.overlays)
 		S.name = "box of [I] cereal"
 		playsound(loc, 'sound/machines/ding.ogg', 50, 1)
 		on = FALSE

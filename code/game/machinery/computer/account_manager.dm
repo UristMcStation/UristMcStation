@@ -315,7 +315,7 @@
 				if(!P.stamped)
 					P.stamped = new
 				P.stamped += /obj/item/stamp
-				P.overlays += stampoverlay
+				P.AddOverlays(stampoverlay)
 				P.stamps += "<HR><i>This paper has been stamped by the Second Officer's Desk.</i>"
 				P.fields++
 				P.updateinfolinks()
@@ -324,7 +324,7 @@
 				if(!P2.stamped)
 					P2.stamped = new
 				P2.stamped += /obj/item/stamp
-				P2.overlays += stampoverlay
+				P2.AddOverlays(stampoverlay)
 				P2.stamps += "<HR><i>This paper has been stamped by the Second Officer's Desk.</i>"
 				P2.fields++
 				P2.updateinfolinks()
@@ -539,7 +539,7 @@
 				if(!R.stamped)
 					R.stamped = new
 				R.stamped += /obj/item/stamp
-				R.overlays += stampoverlay
+				R.AddOverlays(stampoverlay)
 				R.stamps += "<HR><i>This paper has been stamped by the Second Officer's Desk.</i>"
 				R.update_icon()
 

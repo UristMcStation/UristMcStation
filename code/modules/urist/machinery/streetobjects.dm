@@ -164,12 +164,12 @@
 
 /obj/machinery/billboard/on_update_icon()
 	..()
-	overlays.Cut()
+	ClearOverlays()
 
 	if(!current_ad)
-		overlays += pick(ads)
+		AddOverlays(pick(ads))
 	else
-		overlays += current_ad
+		AddOverlays(current_ad)
 
 /obj/machinery/billboard/Initialize()
 	.=..()

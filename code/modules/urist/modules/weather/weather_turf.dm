@@ -42,17 +42,17 @@
 	/* first, clean up */
 	var/list/curr_overlays = list()
 	curr_overlays.Copy(src.overlays)
-	overlays.Cut()
+	ClearOverlays()
 	for(var/old_overlay in curr_overlays)
 		if(old_overlay in weather_overlays)
 			continue
 		else
-			overlays += old_overlay
+			AddOverlays(old_overlay)
 	weather_overlays.Cut()
 	/* now, add new ones */
 	for(var/obj/weathertype/WT in active_weathers)
 		weather_overlays += WT
-		overlays += weather_overlays
+		AddOverlays(weather_overlays)
 
 //Something entered the weather zone so the weather has to do work
 /turf/proc/weather_activate()

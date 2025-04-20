@@ -72,11 +72,11 @@
 	/* first, clean up */
 	for(var/old_overlay in weather_overlays)
 		if(old_overlay in overlays)
-			overlays -= old_overlay
+			CutOverlays(old_overlay)
 	/* now, add new ones */
 	for(var/obj/weathertype/WT in active_weathers)
 		weather_overlays += WT
-	overlays += weather_overlays
+	AddOverlays(weather_overlays)
 
 //Handles all weather effects
 /obj/urist_intangible/weather/proc/inflictW()

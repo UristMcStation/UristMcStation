@@ -45,7 +45,7 @@
 			else
 				to_chat(user, "<span class='notice'>You stick a sharpened wooden shaft into the side of the pit.</span>")
 				punji += 1
-				src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji[punji]", layer=3.7)
+				AddOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji[punji]", layer=3.7))
 				qdel(W)
 				user.regenerate_icons()
 	..()
@@ -73,7 +73,7 @@
 	if(punji)
 		to_chat(user, "You yank out one of the sharpened sticks from the pit.")
 		new /obj/item/sharpwoodrod(src.loc)
-		src.overlays -= image('icons/urist/structures&machinery/structures.dmi', "punji[punji]")
+		CutOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji[punji]"))
 		punji -= 1
 
 /obj/structure/pit/examine()
@@ -139,12 +139,12 @@
 
 /obj/structure/pit/punji6/New()
 	..()
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji1", layer=3.7)
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji2", layer=3.7)
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji3", layer=3.7)
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji4", layer=3.7)
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji5", layer=3.7)
-	src.overlays += image('icons/urist/structures&machinery/structures.dmi', "punji6", layer=3.7)
+	src.AddOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji1", layer=3.7))
+	src.AddOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji2", layer=3.7))
+	src.AddOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji3", layer=3.7))
+	src.AddOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji4", layer=3.7))
+	src.AddOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji5", layer=3.7))
+	src.AddOverlays(image('icons/urist/structures&machinery/structures.dmi', "punji6", layer=3.7))
 
 /obj/structure/pit/punji6/hidden
 	icon_state = "hiddentrap"

@@ -20,9 +20,9 @@
 
 /obj/machinery/ai_slipper/on_update_icon()
 	if (stat & MACHINE_STAT_NOPOWER || stat & MACHINE_STAT_EMPED)
-		overlays += "prox_timing"
+		AddOverlays("prox_timing")
 	else
-		overlays = null
+		ClearOverlays()
 
 /obj/machinery/ai_slipper/proc/setState(enabled, uses)
 	src.disabled = disabled

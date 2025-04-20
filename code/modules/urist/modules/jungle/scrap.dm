@@ -93,7 +93,7 @@
 /obj/structure/scrap/on_update_icon()
 	var/rebuild_base = 0
 	if(rebuild_base)
-		overlays.Cut()
+		ClearOverlays()
 		var/num = rand(base_min,base_max)
 		for(var/i=1 to num)
 			var/image/I = image(parts_icon,pick(icon_states(parts_icon)))

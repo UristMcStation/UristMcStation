@@ -163,7 +163,7 @@
 	update_icon()
 
 /obj/item/device/inteluplink/on_update_icon()
-	overlays.Cut()
+	ClearOverlays()
 	if(open)
 		icon_state = "laptop"
 		light_range = 3

@@ -290,12 +290,12 @@
 				playsound(src,'sound/urist/buzzclick.ogg',100,0)
 				visible_message("<span class='info'>\The [src] buzzes and clicks as its automatic locks disengage.</span>")
 				secure = FALSE
-			overlays.Cut()
-			overlays += image(icon, locked ? icon_armed : icon_opened)
+			ClearOverlays()
+			AddOverlays(image(icon, locked ? icon_armed : icon_opened))
 			next_reminder = null
 	else if(check_arms() && locked)
 		secure = TRUE
-		overlays.Cut()
+		ClearOverlays()
 		playsound(src,'sound/effects/metal_close.ogg',25,0)
 		visible_message("<span class='notice'>\The [src] clicks as its automatic locks engage.</span>")
 	else
@@ -308,7 +308,7 @@
 		if(secure)
 			next_reminder = null
 			STOP_PROCESSING(SSobj, src)
-			overlays.Cut()
+			ClearOverlays()
 			playsound(src,'sound/effects/metal_close.ogg',25,0)
 			visible_message("<span class='notice'>\The [src] clicks as its automatic locks engage.</span>")
 		else
@@ -387,9 +387,9 @@
 		return 1
 	if(href_list["lock"])
 		locked = text2num(href_list["lock"])
-		overlays.Cut()
+		ClearOverlays()
 		if(!secure)
-			overlays += image(icon, locked ? icon_armed : icon_opened)
+			AddOverlays(image(icon, locked ? icon_armed : icon_opened))
 	return 1
 
 /obj/item/storage/secure/alert_safe/so

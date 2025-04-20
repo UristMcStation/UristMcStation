@@ -259,9 +259,9 @@
 	if(signs)
 		AddOverlays("cart_sign[signs]")
 	if(myplunger)
-		overlays += "cart_plunger"
+		AddOverlays("cart_plunger")
 	if(mygun)
-		overlays += "cart_gun"
+		AddOverlays("cart_gun")
 
 //old style cart
 /obj/structure/bed/chair/janicart

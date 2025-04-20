@@ -26,12 +26,12 @@
 
 /obj/item/mine/attack_self(mob/user as mob)
 	var/obj/structure/mine/frag/M = new /obj/structure/mine/frag(user.loc)
-	M.overlays += image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1)
+	M.AddOverlays(image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1))
 	user.visible_message("<span class='warning'>[user] arms the mine! Be careful not to step on it!</span>","<span_class='warning'>You arm the mine and lay it on the floor. Be careful not to step on it!</span>")
 	qdel(src)
 	user.regenerate_icons()
 	spawn(35)
-		M.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1)
+		M.CutOverlays(image('icons/urist/jungle/turfs.dmi', "exclamation", layer=3.1))
 
 /obj/item/storage/box/large/mines
 	name = "box of frag mines (WARNING)"

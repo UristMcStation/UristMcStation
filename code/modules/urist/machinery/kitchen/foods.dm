@@ -323,7 +323,7 @@
 	var/fullname = "" //We need to build this from the contents of the var.
 	var/i = 0
 
-	overlays.Cut()
+	ClearOverlays()
 
 	for(var/obj/item/reagent_containers/food/snacks/O in ingredients)
 
@@ -341,7 +341,7 @@
 				I.color = O.filling_color
 				I.pixel_x = pick(list(-1,0,1))
 				I.pixel_y = (i*2)+1
-				overlays += I
+				AddOverlays(I)
 			else
 				var/list/internalcolors //holds a rgb value of the current overlay
 				if(src.filling_color)
@@ -359,19 +359,19 @@
 					internalcolors = SimpleRGBMix(internalcolors, externalcolors, 90, 700, 1)//no painfully black/white foods
 					src.filling_color = rgb(internalcolors[1], internalcolors[2], internalcolors[3])
 				I.color = src.filling_color
-			overlays += I
+			AddOverlays(I)
 		else
 			var/image/F = new(O.icon, O.icon_state)
 			F.pixel_x = pick(list(-1,0,1))
 			F.pixel_y = pick(list(-1,0,1))
-			overlays += F
-			overlays += O.overlays
+			AddOverlays(F)
+			AddOverlays(O.overlays)
 
 	if(top)
 		var/image/T = new(src.icon, "[baseicon]_top")
 		T.pixel_x = pick(list(-1,0,1))
 		T.pixel_y = (length(ingredients) * 2)+1
-		overlays += T
+		AddOverlays(T)
 
 	name = lowertext("[fullname] [basename]")
 	if(length(name) > 80) name = "[pick(list("absurd","colossal","enormous","ridiculous","massive","oversized","cardiac-arresting","pipe-clogging","edible but sickening","sickening","gargantuan","mega","belly-burster","chest-burster"))] [basename]"
@@ -510,7 +510,7 @@
 	var/fullname = "" //We need to build this from the contents of the var.
 	var/i = 0
 
-	overlays.Cut()
+	ClearOverlays()
 
 	for(var/obj/item/reagent_containers/food/snacks/O in ingredients)
 
@@ -540,13 +540,13 @@
 				internalcolors = SimpleRGBMix(internalcolors, externalcolors, 90, 700, 1)//no painfully black/white foods
 				src.filling_color = rgb(internalcolors[1], internalcolors[2], internalcolors[3])
 			I.color = src.filling_color
-			overlays += I
+			AddOverlays(I)
 		else
 			var/image/F = new(O.icon, O.icon_state)
 			F.pixel_x = pick(list(-1,0,1))
 			F.pixel_y = pick(list(-1,0,1))
-			overlays += F
-			overlays += O.overlays
+			AddOverlays(F)
+			AddOverlays(O.overlays)
 
 	name = lowertext("[fullname] [basename]")
 	if(length(name) > 80) name = "incomprehensible mixture [basename]"

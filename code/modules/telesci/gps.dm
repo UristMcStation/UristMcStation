@@ -14,19 +14,19 @@ var/global/list/GPS_list = list()
 	..()
 	GPS_list.Add(src)
 	name = "global positioning system ([gpstag])"
-	overlays += "working"
+	AddOverlays("working")
 
 /obj/item/device/gps/goof/Destroy()
 	GPS_list.Remove(src)
 	..()
 /obj/item/device/gps/goof/emp_act(severity)
 	emped = 1
-	overlays -= "working"
-	overlays += "emp"
+	CutOverlays("working")
+	AddOverlays("emp")
 	spawn(300)
 		emped = 0
-		overlays -= "emp"
-		overlays += "working"
+		CutOverlays("emp")
+		AddOverlays("working")
 
 /obj/item/device/gps/goof/attack_self(mob/user as mob)
 

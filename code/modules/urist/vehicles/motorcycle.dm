@@ -10,17 +10,17 @@
 	charge_use = 0
 
 /obj/vehicle/train/cargo/engine/motorcycle_4dir/proc/update_dir_motorcycle_overlays()
-	overlays = null
+	ClearOverlays()
 	if(src.dir == NORTH||SOUTH)
 		if(src.dir == NORTH)
 			var/image/I = new(icon = 'icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_n", layer = src.layer + 0.2) //over mobs
-			overlays += I
+			AddOverlays(I)
 		else if(src.dir == SOUTH)
 			var/image/I = new(icon = 'icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_s", layer = src.layer + 0.2) //over mobs
-			overlays += I
+			AddOverlays(I)
 	else
 		var/image/I = new(icon = 'icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_side", layer = src.layer + 0.2) //over mobs
-		overlays += I
+		AddOverlays(I)
 
 /obj/vehicle/train/cargo/engine/motorcycle_4dir/New()
 	..()
@@ -43,9 +43,9 @@
 
 /obj/vehicle/train/cargo/engine/motorcycle_1dir/New()
 	..()
-	overlays = null
+	ClearOverlays()
 	var/image/I = new(icon = 'icons/urist/vehicles/uristvehicles.dmi', icon_state = "motorcycle_overlay_n", layer = src.layer + 0.2) //over mobs
-	overlays += I
+	AddOverlays(I)
 
 /obj/vehicle/train/cargo/engine/motorcycle_1dir/Move()
 	..()

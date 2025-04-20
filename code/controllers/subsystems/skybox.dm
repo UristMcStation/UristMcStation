@@ -78,7 +78,7 @@ SUBSYSTEM_DEF(skybox)
 	if(GLOB.using_map.has_skybox_image)
 		if(z in GLOB.using_map.player_levels)
 			var/image/map_background = GLOB.using_map.get_skybox_image()
-			res.overlays += map_background
+			res.AddOverlays(map_background)
 
 	for (var/datum/event/event as anything in SSevent.active_events)
 		if(event.has_skybox_image && event.isRunning && (z in event.affecting_z))

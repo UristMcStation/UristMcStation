@@ -56,7 +56,7 @@
 					I = image('icons/obj/flora/ausflora.dmi',"stalkybush_[rand(1,3)]")
 			I.pixel_x = rand(-6,6)
 			I.pixel_y = rand(-6,6)
-			overlays += I
+			AddOverlays(I)
 		else
 			var/obj/structure/jungle_plant/J = new(src)
 			J.pixel_x = rand(-6,6)
@@ -131,7 +131,7 @@
 				user.visible_message("<span class='notice'>[user] digs up some soil and prepares the ground for planting.</span>", \
 				"<span class='notice'>You dig up some soil and prepares the ground for planting.</span>")
 				src.farmed = 1
-				src.overlays = null
+				ClearOverlays()
 
 		else if(farmed == 1)
 			var/want = input("What would you like to do?", "Shovel", "Cancel") in list ("Cancel", "Remove the farm plot", "Dig a pit")
@@ -143,7 +143,7 @@
 					"<span class='notice'>You smooth over the ground, removing the farm plot.</span>")
 					for(var/obj/machinery/portable_atmospherics/hydroponics/soil/S in src.contents)
 						qdel(S)
-					src.overlays += image('icons/urist/jungle/turfs.dmi', "dirt", layer=2.1)
+					AddOverlays(image('icons/urist/jungle/turfs.dmi', "dirt", layer=2.1))
 					farmed = 0
 				if("Dig a pit")
 					user.visible_message("<span class='notice'>[user] starts to dig up large amounts of soil to form a pit.</span>", \
@@ -158,7 +158,7 @@
 
 	else if(istype(I, /obj/item/stack/tile/floor))
 		var/obj/item/stack/tile/floor/R = I
-		src.overlays = null
+		ClearOverlays()
 		src.ChangeTurf(/turf/simulated/floor/plating)
 		R.use(1)
 
@@ -385,19 +385,19 @@
 	if(!istype(get_step(src, NORTH), /turf/simulated/floor/planet/jungle/rock) && !istype(get_step(src, NORTH), /turf/unsimulated/wall))
 		T = get_step(src, NORTH)
 		if (T)
-			T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_s")
+			T.AddOverlays(image('icons/urist/turf/uristturf.dmi', "rock_side_s"))
 	if(!istype(get_step(src, SOUTH), /turf/simulated/floor/planet/jungle/rock) && !istype(get_step(src, SOUTH), /turf/unsimulated/wall))
 		T = get_step(src, SOUTH)
 		if (T)
-			T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_n", layer=6)
+			T.AddOverlays(image('icons/urist/turf/uristturf.dmi', "rock_side_n", layer=6))
 	if(!istype(get_step(src, EAST), /turf/simulated/floor/planet/jungle/rock) && !istype(get_step(src, EAST), /turf/unsimulated/wall))
 		T = get_step(src, EAST)
 		if (T)
-			T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_w", layer=6)
+			T.AddOverlays(image('icons/urist/turf/uristturf.dmi', "rock_side_w", layer=6))
 	if(!istype(get_step(src, WEST), /turf/simulated/floor/planet/jungle/rock) && !istype(get_step(src, WEST), /turf/unsimulated/wall))
 		T = get_step(src, WEST)
 		if (T)
-			T.overlays += image('icons/urist/turf/uristturf.dmi', "rock_side_e", layer=6)
+			T.AddOverlays(image('icons/urist/turf/uristturf.dmi', "rock_side_e", layer=6))
 	. = ..()
 
 /turf/simulated/floor/planet/jungle/rock/weather_enable()
@@ -447,14 +447,14 @@
 
 			if (do_after(user, fishtime, src))
 				to_chat(user, "<span class='notice'>You feel a tug on your line!</span>")
-				src.overlays += image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)	//exclamation mark
+				AddOverlays(image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1))	//exclamation mark
 				fishing = 2
 				var/tempfish = fishleft
 				spawn(rand(35,70))
 					if(fishing && fishleft == tempfish)
 						to_chat(user, "<span class='notice'>Looks like it got away...</span>")
 						fishing = 0
-						src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
+						CutOverlays(image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1))
 			return TRUE
 		else if(fishleft && fishing == 2 && !bridge)
 			var/obj/item/F
@@ -477,7 +477,7 @@
 			else
 				F = new/obj/item/fish(user.loc)
 
-			src.overlays -= image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1)
+			CutOverlays(image('icons/urist/jungle/turfs.dmi', "exclamation", layer=2.1))
 			fishleft -= 1
 			fishing = 0
 			to_chat(user, "<span class='notice'>You yank on your line, pulling up [F]!</span>")
@@ -497,7 +497,7 @@
 				desc = "thick murky water. There's a makeshift platform over it."
 				R.use(3)
 				bridge = 1
-				src.overlays += image('icons/urist/jungle/turfs.dmi', "bridge", layer=2.1)
+				AddOverlays(image('icons/urist/jungle/turfs.dmi', "bridge", layer=2.1))
 			else
 				to_chat(user, "<span class='notice'>You do not have enough wood to build a bridge.</span>")
 
@@ -512,7 +512,7 @@
 				desc = "thick murky water. There's a makeshift platform over it."
 				R.use(3)
 
-				src.overlays += image('icons/urist/jungle/turfs.dmi', "bridge2", layer=2.1)
+				AddOverlays(image('icons/urist/jungle/turfs.dmi', "bridge2", layer=2.1))
 				bridge = 2
 			else
 				to_chat(user, "<span class='notice'>You do not have enough wood to build a bridge.</span>")
@@ -561,7 +561,7 @@
 
 				to_chat(user, "<span class='notice'>You disassemble the bridge.</span>")
 
-				src.overlays = null
+				ClearOverlays()
 
 				if(bridge == 1)
 					var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(get_turf(src))

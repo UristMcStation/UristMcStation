@@ -29,9 +29,9 @@
 
 /obj/structure/bed/chair/couch/post_buckle_mob()
 	if(buckled_mob)
-		overlays += armrest
+		AddOverlays(armrest)
 	else
-		overlays -= armrest
+		CutOverlays(armrest)
 
 /obj/structure/bed/chair/couch/left
 	couchpart = 1
