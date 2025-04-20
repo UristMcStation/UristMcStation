@@ -44,7 +44,7 @@ SUBSYSTEM_DEF(urist_weather)
 			var/obj/urist_intangible/weather/WO = i
 			if(WO.WActive()) //not active, not processed
 				responsive += WO
-		else if(istype(i, /turf))
+		else if(isturf(i))
 			var/obj/urist_intangible/weather/WTu = i
 			if(WTu.WActive())
 				responsive += WTu
@@ -58,7 +58,7 @@ SUBSYSTEM_DEF(urist_weather)
 			var/obj/urist_intangible/weather/WO = i
 			if(WO.weather_check_in()) //should be always true while object exists and should change
 				act_weathers += WO
-		else if(istype(i, /turf))
+		else if(isturf(i))
 			var/obj/urist_intangible/weather/WTu = i
 			if(WTu.weather_check_in())
 				act_weathers += WTu

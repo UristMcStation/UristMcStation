@@ -36,14 +36,14 @@
 	if(..())
 		return 1
 
-	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+	if ((usr.contents.Find(src) || (in_range(src, usr) && isturf(src.loc))) || (istype(usr, /mob/living/silicon)))
 		var/area/thearea = input("Area to jump bombard", "Open Fire") as null|anything in teleportlocs
 		thearea = thearea ? teleportlocs[thearea] : thearea
 		if (!thearea || CanUseTopic(usr, GLOB.physical_state) != STATUS_INTERACTIVE)
 			return
 		if (src.reload < 180)
 			return
-		if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
+		if ((usr.contents.Find(src) || (in_range(src, usr) && isturf(src.loc))) || (istype(usr, /mob/living/silicon)))
 			command_announcement.Announce("Bluespace artillery fire detected. Brace for impact.")
 			message_admins("[key_name_admin(usr)] has launched an artillery strike.", 1)
 			var/list/L = list()

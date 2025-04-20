@@ -315,7 +315,7 @@
 	if(old_icon_state)
 		new_mob.icon_state = old_icon_state
 	if(old_overlays)
-		new_mob.overlays = old_overlays
+		new_mob.SetOverlays(old_overlays)
 	if(old_name)
 		if(!(old_name == "unknown"))
 			new_mob.name = "zombified [old_name]"

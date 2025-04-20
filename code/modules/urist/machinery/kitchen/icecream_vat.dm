@@ -91,7 +91,7 @@
 		if(href_list["amount"])
 			var/id = href_list["remove"]
 			var/amount = text2num(href_list["amount"])
-			if(beaker == null)
+			if(isnull(beaker))
 				reagents.remove_reagent(id,amount)
 			else
 				if(validexchange(id))

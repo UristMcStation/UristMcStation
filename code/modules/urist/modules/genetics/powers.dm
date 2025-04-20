@@ -215,7 +215,7 @@
 	var/list/possible_targets = list()
 
 	for(var/atom/movable/O in view_or_range(range, user, selection_type))
-		if(is_type_in_list(O,types_allowed) && !istype(O.loc, /mob)) // No eating things inside of you or another person, that's just creepy
+		if(is_type_in_list(O,types_allowed) && !ismob(O.loc)) // No eating things inside of you or another person, that's just creepy
 			possible_targets += O
 
 	targets += input("Choose the target of your hunger.", "Targeting") as anything in possible_targets
@@ -326,11 +326,11 @@
 	spell_flags = INCLUDEUSER
 
 /spell/targeted/leap/cast(list/targets)
-	if (istype(usr.loc,/mob))
+	if (ismob(usr.loc))
 		to_chat(usr, "<span class='warning'> You can't jump right now!</span>")
 		return
 
-	if (istype(usr.loc,/turf))
+	if (isturf(usr.loc))
 		usr.visible_message("<span class='danger'>[usr.name] takes a huge leap!</span>")
 		playsound(usr.loc, 'sound/weapons/thudswoosh.ogg', 50, 1)
 		var/prevLayer = usr.layer
@@ -350,7 +350,7 @@
 
 		usr.layer = prevLayer
 
-	if (istype(usr.loc,/obj))
+	if (isobj(usr.loc))
 		var/obj/container = usr.loc
 		to_chat(usr, "<span class='warning'> You leap and slam your head against the inside of [container]! Ouch!</span>")
 		usr.paralysis += 3

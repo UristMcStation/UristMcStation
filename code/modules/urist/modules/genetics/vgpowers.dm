@@ -69,7 +69,7 @@ Obviously, requires DNA2.
 	..()
 
 /spell/targeted/hulk/cast(list/targets)
-	if (istype(usr.loc,/mob))
+	if (ismob(usr.loc))
 		to_chat(usr, "<span class='warning'> You can't hulk out right now!</span>")
 		return
 	var/mob/living/carbon/human/M=usr

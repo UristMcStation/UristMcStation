@@ -87,7 +87,7 @@ use area procs or whatever, or you'll break the map */
 	icon_state = "splash"
 
 /obj/urist_intangible/weather_enabler/New()
-	if(istype(src.loc, /turf))
+	if(isturf(src.loc))
 		var/turf/WT = src.loc
 		WT.weather_enable()
 	qdel(src)

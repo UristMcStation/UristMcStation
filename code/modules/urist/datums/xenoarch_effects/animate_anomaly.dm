@@ -17,7 +17,7 @@
 /datum/artifact_effect/animate_anomaly/DoEffectTouch(mob/living/user)
 	var/obj/O = holder
 	var/turf/T = get_step_away(O, user)
-	if (target && istype(T) && istype(O.loc, /turf))
+	if (target && istype(T) && isturf(O.loc))
 		O.Move(T)
 		O.visible_message(SPAN_CLASS("alien", "\The [holder] lurches away from [user]!"))
 
@@ -28,7 +28,7 @@
 	if (!target || !istype(O))
 		return
 	O.dir = get_dir(O, target)
-	if (istype(O.loc, /turf))
+	if (isturf(O.loc))
 		if (get_dist(O.loc, target.loc) > 1)
 			O.Move(get_step_to(O, target))
 			O.visible_message(SPAN_CLASS("alien", "\The [O] lurches toward [target]!"))

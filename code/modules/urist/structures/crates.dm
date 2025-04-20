@@ -78,7 +78,7 @@ All crates that cannot be ordered go here. Please keep it tidy, by which I mean 
 	if(!(triggered))
 		triggered = 1
 		if(trap)
-			if(istype(trap, /obj) && trap_delete_on_open)
+			if(isobj(trap) && trap_delete_on_open)
 				qdel(trap) //no frags for you!
 	..()
 

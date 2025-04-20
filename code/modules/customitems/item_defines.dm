@@ -435,7 +435,7 @@
 	if(!reagents.total_volume)
 		to_chat(user, "\red \The [src] is empty.")
 		return
-	if (!( istype(M, /mob) ))
+	if (!ismob(M))
 		return
 	if (reagents.total_volume)
 		if (M == user && user.ckey == "nerezza") //Make sure this is being used by the right person, for the right reason (self injection)

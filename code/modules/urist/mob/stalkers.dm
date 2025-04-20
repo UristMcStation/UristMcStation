@@ -133,7 +133,7 @@
 			HuntingTeleport()
 
 /mob/living/simple_animal/hostile/urist/stalker/proc/HuntingTeleport()
-	var/list/destinations = new/list()
+	var/list/destinations = list()
 
 	for(var/turf/T in range(5, stalkee))
 		if(istype(T,/turf/space)) continue

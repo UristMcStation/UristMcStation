@@ -77,7 +77,7 @@
 
 /obj/item/ammo_casing/shotgun/dropped()
 	if(!BB)
-		if(istype(loc, /turf))
+		if(isturf(loc))
 			icon_state = global_icon
 		else
 			icon_state = spent_icon

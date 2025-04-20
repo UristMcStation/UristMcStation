@@ -47,7 +47,7 @@
 		var/file = file(eventmap)
 //		var/file = file(mappath) //leaving it in as the basis to a future port to a .dm file-based map loading, instead of the other way round
 
-		if(eventmap == null)
+		if(isnull(eventmap))
 			report_progress("Event Map loading aborted")
 			return
 

@@ -214,7 +214,7 @@
 			if(P.name == Pname)
 				Thepower = P
 
-	if(Thepower == null)
+	if(isnull(Thepower))
 		to_chat(M.current, "This is awkward.  Revenant unlock failed for [identifier] `[Pname]`, please report this bug to a coder!")
 		return
 

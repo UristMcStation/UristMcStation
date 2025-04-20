@@ -228,14 +228,14 @@
 
 /obj/vehicle/bike/motorcycle/Bump(atom/thing)
 
-	if(!istype(thing, /atom/movable))
+	if(!ismovable(thing))
 		return
 
 	var/crashed
 	var/atom/movable/A = thing
 
 	// Bump things away!
-	if(istype(A, /turf))
+	if(isturf(A))
 		var/turf/T = A
 		if(T.density)
 			if(collision_cooldown)

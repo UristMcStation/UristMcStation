@@ -50,7 +50,7 @@
 /obj/item/reagent_containers/glass/mister/proc/get_nozholder()
 	// localized port of the old get() helper; recursive parent search
 	while(loc)
-		if(istype(loc, /mob))
+		if(ismob(loc))
 			return loc
 		loc = loc.loc
 	return null

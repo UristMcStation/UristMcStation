@@ -1,7 +1,7 @@
 /mob/living/carbon/alien/larva/proc/check_can_infest(mob/living/M)
 	if(!src)
 		return 0
-	if(!istype(loc, /turf))
+	if(!isturf(loc))
 		to_chat(src, "<span class='danger'>You cannot infest a target in your current position.</span>")
 		return 0
 	if(incapacitated())

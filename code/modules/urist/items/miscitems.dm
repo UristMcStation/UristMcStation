@@ -162,7 +162,7 @@
 /*/obj/item/stack/woodrods/attack_self(mob/user as mob)
 	src.add_fingerprint(user)
 
-	if(!istype(user.loc,/turf)) return 0
+	if(!isturf(user.loc)) return 0
 
 	if (locate(/obj/structure/grille/wood, usr.loc))
 		for(var/obj/structure/grille/wood/G in usr.loc)

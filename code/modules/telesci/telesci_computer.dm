@@ -210,7 +210,7 @@
 			updateDialog()
 
 /obj/machinery/computer/telescience/proc/teleport(mob/user)
-	if(rotation == null || angle == null || z_co == null)
+	if(isnull(rotation) || isnull(angle) || isnull(z_co))
 		temp_msg = "ERROR!<BR>Set a angle, rotation and sector."
 		return
 	if(power <= 0)
