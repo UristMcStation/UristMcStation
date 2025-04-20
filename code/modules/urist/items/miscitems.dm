@@ -505,7 +505,7 @@
 // Fake Plastic Cap Gun of the Colt Single Action
 /obj/item/gun/projectile/revolver/coltsaa/fake
 	desc = "A poorly made plastic replica of the Colt Single Action Army revolver dating from the late 19th century. It appears to shoot pop caps, with tactical plastic painted engravings that offer no tactical advantage."
-	caliber = "caps"
+	caliber = CALIBER_CAPS
 	ammo_type = /obj/item/ammo_casing/cap
 
 //Coptain
