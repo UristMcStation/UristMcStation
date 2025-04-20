@@ -96,7 +96,7 @@ SUBSYSTEM_DEF(urist_weather)
 					log_game("Weathertype ([j]) received from [WA.name] by [WO.name] in [WO.loc] is path instead of instance!")
 					message_admins("Weathertype ([j]) received from [WA.name] by [WO.name] in [WO.loc] is path instead of instance!")
 			WO.update_weather_icon()
-		else if(istype(weather_handler, /turf))
+		else if(isturf(weather_handler))
 			var/turf/WTu = weather_handler
 			/* I didn't want to copypaste, but
 			BYOND sucks for duck typing -_- */
@@ -135,7 +135,7 @@ SUBSYSTEM_DEF(urist_weather)
 			var/obj/urist_intangible/weather/WO = weatherhandler
 			if(!(WO.weather_safe) && WO.weather_check_in())
 				WO.inflictW()
-		else if(istype(weatherhandler, /turf))
+		else if(isturf(weatherhandler))
 			var/turf/WTu = weatherhandler
 			if(!(WTu.weather_safe) && WTu.weather_check_in())
 				WTu.inflictW()
