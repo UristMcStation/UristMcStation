@@ -10,6 +10,7 @@
 	},
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/medical/treatment)
 "aac" = (
@@ -13837,13 +13838,9 @@
 /area/engineering/lobby)
 "axT" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 24
-	},
-/obj/machinery/camera/network/engineering{
-	dir = 8;
-	c_tag = "Engineering"
+/obj/machinery/status_display{
+	density = 0;
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
@@ -14386,6 +14383,10 @@
 /obj/structure/cable{
 	icon_state = "0-8";
 	d2 = 8
+	},
+/obj/machinery/camera/network/engineering{
+	dir = 8;
+	c_tag = "Engineering"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
@@ -15890,6 +15891,10 @@
 /obj/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
+/obj/machinery/firealarm{
+	dir = 1;
+	pixel_y = -24
+	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
 "aBT" = (
@@ -15908,11 +15913,6 @@
 /area/engineering/lobby)
 "aBU" = (
 /obj/structure/stairs/south,
-/obj/machinery/status_display{
-	density = 0;
-	pixel_x = 32;
-	pixel_y = 0
-	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/lobby)
 "aBV" = (
