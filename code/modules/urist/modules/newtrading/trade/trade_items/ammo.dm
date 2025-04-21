@@ -16,7 +16,7 @@
 	category = "weapon"
 
 /datum/trade_item/topmountedpistol
-	name = "top mounted magazine (7mm)"
+	name = "top mounted magazine (9mm)"
 	item_type = /obj/item/ammo_magazine/smg_top
 	quantity = 10
 	value = 100
