@@ -90,3 +90,10 @@
 	name = "5x Metal Foam Grenades"
 	item_cost = 16
 	path = /obj/item/storage/box/metalfoams
+
+/datum/uplink_item/item/grenade/minibomb
+	name = "1x Syndicate Minibomb"
+	desc = "A highly dangerous non-fragmenting explosive, capable of grevious damage to anything in it's radius."
+	item_cost = 28
+	path = /obj/item/grenade/syndieminibomb
+	antag_costs = list(MODE_MERCENARY = 38) // Lots of structural damage.
