@@ -91,7 +91,7 @@
 	item_cost = 16
 	path = /obj/item/storage/box/metalfoams
 
-/datum/uplink_item/item/grenade/minibomb
+/datum/uplink_item/item/grenades/minibomb
 	name = "1x Syndicate Minibomb"
 	desc = "A highly dangerous non-fragmenting explosive, capable of grevious damage to anything in it's radius."
 	item_cost = 28
