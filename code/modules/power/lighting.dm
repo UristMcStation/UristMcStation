@@ -717,7 +717,7 @@
 	item_state = "c_tube"
 	matter = list(MATERIAL_GLASS = 100, MATERIAL_ALUMINIUM = 20)
 
-	b_range = 5
+	b_range = 6
 	lighting_modes = list(
 		LIGHTMODE_EMERGENCY = list(l_range = 4, l_power = 1, l_color = LIGHT_COLOUR_E_RED),
 	)
