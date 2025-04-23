@@ -12,6 +12,8 @@
 	active_power_usage = 100
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_REACT
 	obj_flags = OBJ_FLAG_ANCHORABLE | OBJ_FLAG_ROTATABLE
+	construct_state = /singleton/machine_construction/default/panel_closed
+	maximum_component_parts = list(/obj/item/stock_parts = 13)
 	var/static/max_n_of_items = 999 // Sorry but the BYOND infinite loop detector doesn't look things over 1000.
 	var/icon_base = "fridge_sci"
 	var/icon_contents = "chem"
@@ -131,7 +133,7 @@
 	)
 
 /obj/machinery/smartfridge/drying_rack
-	name = "drying rack"
+	name = "Drying Rack"
 	desc = "A machine for drying plants."
 	icon_state = "drying_rack"
 	construct_state = /singleton/machine_construction/default/panel_closed
