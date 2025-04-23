@@ -12,8 +12,6 @@
 	active_power_usage = 100
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_NO_REACT
 	obj_flags = OBJ_FLAG_ANCHORABLE | OBJ_FLAG_ROTATABLE
-	construct_state = /singleton/machine_construction/default/panel_closed
-	maximum_component_parts = list(/obj/item/stock_parts = 13)
 	var/static/max_n_of_items = 999 // Sorry but the BYOND infinite loop detector doesn't look things over 1000.
 	var/icon_base = "fridge_sci"
 	var/icon_contents = "chem"
@@ -53,8 +51,8 @@
 		return list()
 	return ..()
 
-/obj/machinery/smartfridge/proc/accept_check(obj/item/O as obj, mob/user as mob)
-	if(istype(O,/obj/item/reagent_containers/food/snacks/grown) || istype(O,/obj/item/seeds) || istype(O,/obj/item/shellfish))
+/obj/machinery/smartfridge/proc/accept_check(obj/item/O)
+	if (is_type_in_list(O, accepted_types))
 		return TRUE
 	return FALSE
 
@@ -73,14 +71,12 @@
 	accepted_types = list(
 		/obj/item/slime_extract
 	)
-	construct_state = null
 
 /obj/machinery/smartfridge/secure/medbay
 	name = "\improper Refrigerated Medicine Storage"
 	desc = "A refrigerated storage unit for storing medicine and chemicals."
 	icon_contents = "chem"
 	req_access = list(list(access_medical,access_chemistry))
-	construct_state = null
 	accepted_types = list(
 		/obj/item/reagent_containers/glass,
 		/obj/item/storage/pill_bottle,
@@ -93,7 +89,6 @@
 	desc = "A refrigerated storage unit for storing viral material."
 	req_access = list(access_virology)
 	icon_contents = "chem"
-	construct_state = null
 	accepted_types = list(
 		/obj/item/reagent_containers/glass/beaker/vial
 	)
@@ -102,7 +97,6 @@
 	name = "\improper Smart Chemical Storage"
 	desc = "A refrigerated storage unit for medicine and chemical storage."
 	icon_contents = "chem"
-	construct_state = null
 	accepted_types = list(
 		/obj/item/storage/pill_bottle,
 		/obj/item/reagent_containers
@@ -119,7 +113,6 @@
 	icon_state = "fridge_dark"
 	icon_base = "fridge_dark"
 	icon_contents = "drink"
-	construct_state = null
 	accepted_types = list(
 		/obj/item/reagent_containers/glass,
 		/obj/item/reagent_containers/food/drinks,
@@ -132,20 +125,18 @@
 	icon_state = "fridge_food"
 	icon_state = "fridge_food"
 	icon_contents = "food"
-	construct_state = null
 	accepted_types = list(
 		/obj/item/reagent_containers/food/snacks,
 		/obj/item/material/utensil
 	)
 
 /obj/machinery/smartfridge/drying_rack
-	name = "Drying Rack"
+	name = "drying rack"
 	desc = "A machine for drying plants."
 	icon_state = "drying_rack"
-	construct_state = /singleton/machine_construction/default/panel_closed
 	accepted_types = null
 
-/obj/machinery/smartfridge/drying_rack/accept_check(obj/item/O as obj, mob/user as mob)
+/obj/machinery/smartfridge/drying_rack/accept_check(obj/item/O, mob/user as mob)
 	if(istype(O, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/S = O
 		return S.dried_type ? TRUE : FALSE
@@ -285,7 +276,7 @@
 		to_chat(user, SPAN_NOTICE("\The [src] is unpowered and useless."))
 		return TRUE
 
-	if(accept_check(O, user))
+	if(accept_check(O))
 		if(!user.unEquip(O))
 			return TRUE
 		stock_item(O)
@@ -297,7 +288,7 @@
 		var/obj/item/storage/bag/P = O
 		var/plants_loaded = 0
 		for(var/obj/G in P.contents)
-			if(accept_check(G, user) && P.remove_from_storage(G, src, 1))
+			if(accept_check(G) && P.remove_from_storage(G, src, 1))
 				plants_loaded++
 				stock_item(G)
 		P.finish_bulk_removal()
