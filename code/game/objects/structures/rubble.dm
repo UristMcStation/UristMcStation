@@ -71,7 +71,7 @@
 			SPAN_NOTICE("\The [user] starts clearing away \the [src] with \a [tool]."),
 			SPAN_NOTICE("You start clearing away \the [src] with \the [tool].")
 		)
-		if (!user.do_skilled(pickaxe.digspeed, SKILL_HAULING, src) || !user.use_sanity_check(src, tool))
+		if (!do_after(pickaxe.digspeed, src) || !user.use_sanity_check(src, tool))
 			return TRUE
 		if (lootleft && prob(1))
 			var/booty = pickweight(loot)

@@ -514,7 +514,7 @@
 			SPAN_NOTICE("\The [user] starts wrenching \a [src] [anchored ? "from" : "to"] the floor with \a [tool]."),
 			SPAN_NOTICE("You start wrenching \the [src] [anchored ? "from" : "to"] the floor with \the [tool].")
 		)
-		if (!user.do_skilled(tool.toolspeed, SKILL_CONSTRUCTION, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+		if (!do_after(user, tool.toolspeed, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
 			return TRUE
 		if (!HAS_FLAGS(circuit_flags, IC_FLAG_ANCHORABLE))
 			USE_FEEDBACK_FAILURE("\The [src] can't be anchored.")
@@ -542,7 +542,7 @@
 			SPAN_NOTICE("\The [user] starts repairing some of \a [src]'s damage with [cable.get_vague_name(TRUE)]."),
 			SPAN_NOTICE("You start repairing some of \the [src]'s damage with [cable.get_exact_name(5)].")
 		)
-		if (!user.do_skilled(1 SECOND, SKILL_DEVICES, src) || !user.use_sanity_check(src, tool))
+		if (!do_after(user, 1 SECOND, src) || !user.use_sanity_check(src, tool))
 			return TRUE
 		if (!health_damaged())
 			USE_FEEDBACK_FAILURE("\The [src] doesn't need repair.")

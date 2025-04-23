@@ -160,18 +160,7 @@ var/global/const/STASISCAGE_WIRE_LOCK      = 4
 			playsound(loc, 'sound/machines/airlock_creaking.ogg', 40)
 			if (!do_after(user, 7 SECONDS, src, DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool))
 				return TRUE
-			if (!prob(20 * (user.get_skill_value(SKILL_CONSTRUCTION))))
-				USE_FEEDBACK_FAILURE("You fail to pry open \the [src]'s lid!")
-				return TRUE
-			if (!user.skill_check(SKILL_CONSTRUCTION, SKILL_TRAINED))
-				user.visible_message(
-					SPAN_DANGER("\The [user] jams open \the [src]'s lid, damaging it in the process!"),
-					SPAN_DANGER("You successfully manage to jam open \the [src]'s lid, damaging it in the process.")
-				)
-				release()
-				broken = TRUE
-				update_icon()
-				return TRUE
+		
 			user.visible_message(
 				SPAN_DANGER("\The [user] jams open \the [src]'s lid!"),
 				SPAN_DANGER("You successfully manage to jam open \the [src]'s lid.")
@@ -220,9 +209,6 @@ var/global/const/STASISCAGE_WIRE_LOCK      = 4
 				SPAN_NOTICE("You begin to clamp \the [src]'s lid back into position.")
 			)
 			playsound(src, 'sound/items/Ratchet.ogg', 50, 1)
-			if (!user.skill_check(SKILL_CONSTRUCTION, SKILL_BASIC))
-				to_chat(user, SPAN_WARNING("You fail to repair \the [src]."))
-				return TRUE
 			if (!do_after(user, 5 SECONDS, src, DO_PUBLIC_UNIQUE))
 				return TRUE
 			user.visible_message(
@@ -364,12 +350,9 @@ var/global/const/STASISCAGE_WIRE_LOCK      = 4
 	. = ..()
 	. += "<ul>"
 	. += "<li>The panel is powered.</li>"
-	if (user.skill_check(SKILL_ELECTRICAL, SKILL_BASIC))
-		. += "<li>The biometric safety sensors are [IsIndexCut(STASISCAGE_WIRE_SAFETY) ? "disconnected" : "connected"].</li>"
-		. += "<li>The cage's emergency auto-release mechanism is [IsIndexCut(STASISCAGE_WIRE_RELEASE) ? "disabled" : "enabled"].</li>"
-		. += "<li>The cage lid motors are [IsIndexCut(STASISCAGE_WIRE_LOCK) ? "overriden" : "nominal"].</li>"
-	else
-		. += "<li>There are lights and wires here, but you don't know how the wiring works.</li>"
+	. += "<li>The biometric safety sensors are [IsIndexCut(STASISCAGE_WIRE_SAFETY) ? "disconnected" : "connected"].</li>"
+	. += "<li>The cage's emergency auto-release mechanism is [IsIndexCut(STASISCAGE_WIRE_RELEASE) ? "disabled" : "enabled"].</li>"
+	. += "<li>The cage lid motors are [IsIndexCut(STASISCAGE_WIRE_LOCK) ? "overriden" : "nominal"].</li>"
 	. += "</ul>"
 
 
@@ -397,7 +380,7 @@ var/global/const/STASISCAGE_WIRE_LOCK      = 4
 	switch (index)
 		if (STASISCAGE_WIRE_SAFETY)
 			if (stasis_cage.contained)
-				if (prob(20) && usr.skill_check(SKILL_ELECTRICAL, SKILL_BASIC))
+				if (prob(20))
 					holder.visible_message(
 						SPAN_WARNING("The cage hastily flicks open its lid!"),
 						SPAN_NOTICE("You notice the biometric sensor flag blink fervently.")

@@ -29,8 +29,6 @@
 				SPAN_NOTICE("\The [user] transfers \a [sample] from \the [src] to \a [bag]."),
 				SPAN_NOTICE("You transfer \a [sample] from \the [src] to \a [bag].")
 			)
-			if(!user.skill_check(SKILL_FORENSICS, SKILL_BASIC))
-				sample.add_fingerprint(user)
 			sample.forceMove(bag)
 			bag.stored_item = sample
 			bag.w_class = sample.w_class

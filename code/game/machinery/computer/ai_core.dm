@@ -100,7 +100,7 @@ var/global/list/empty_playable_ai_cores = list()
 			SPAN_NOTICE("You start wiring \the [src] with \the [tool].")
 		)
 		playsound(loc, 'sound/items/Deconstruct.ogg', 50, TRUE)
-		if (!user.do_skilled(2 SECONDS, SKILL_ELECTRICAL, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+		if (!do_after(user, 2 SECONDS, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
 			return TRUE
 		if (state < STATE_CIRCUIT)
 			USE_FEEDBACK_FAILURE("\The [src] has no circuit to wire.")
@@ -275,7 +275,7 @@ var/global/list/empty_playable_ai_cores = list()
 			SPAN_NOTICE("\The [user] starts installing a panel into \the [src] with \a [tool]."),
 			SPAN_NOTICE("You start installing a panel into \the [src] with \the [tool].")
 		)
-		if (!user.do_skilled(2 SECONDS, SKILL_CONSTRUCTION, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+		if (!do_after(user, 2 SECONDS, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
 			return TRUE
 		if (state < STATE_WIRED)
 			USE_FEEDBACK_FAILURE("\The [src] needs to be wired before you can install a glass panel.")
@@ -364,7 +364,7 @@ var/global/list/empty_playable_ai_cores = list()
 				SPAN_NOTICE("You start dismantling \the [src] with \the [tool].")
 			)
 			playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
-			if (!user.do_skilled(SKILL_CONSTRUCTION, 2 SECONDS, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+			if (!do_after(user, 2 SECONDS, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
 				return TRUE
 			if (!welder.remove_fuel(1, user))
 				return TRUE

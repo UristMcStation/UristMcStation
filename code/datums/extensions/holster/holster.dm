@@ -42,7 +42,7 @@
 		if(istype(I, /obj/item/gun))
 			var/obj/item/gun/G = I
 			G.check_accidents(user)
-			if(user.a_intent == I_HELP && G.has_safety && !G.safety_state && user.skill_check(SKILL_WEAPONS, SKILL_EXPERIENCED))
+			if(user.a_intent == I_HELP && G.has_safety && !G.safety_state)
 				G.toggle_safety(user)
 		holstered = I
 		storage.handle_item_insertion(holstered, 1)
