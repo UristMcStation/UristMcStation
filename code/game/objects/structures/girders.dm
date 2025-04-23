@@ -89,7 +89,7 @@
 			SPAN_NOTICE("\The [user] starts cutting \the [src] with \a [tool]."),
 			SPAN_NOTICE("You start cutting \the [src] with \the [tool].")
 		)
-		if (!do_after((reinf_material ? 4 : 2) SECONDS, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+		if (!do_after(user, (reinf_material ? 4 : 2) SECONDS, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
 			return TRUE
 		playsound(loc, 'sound/items/Welder.ogg', 50, TRUE)
 		user.visible_message(
