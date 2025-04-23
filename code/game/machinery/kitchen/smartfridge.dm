@@ -134,7 +134,7 @@
 	name = "drying rack"
 	desc = "A machine for drying plants."
 	icon_state = "drying_rack"
-	construct_state = null
+	construct_state = /singleton/machine_construction/default/panel_closed
 	accepted_types = null
 
 /obj/machinery/smartfridge/drying_rack/accept_check(obj/item/O, mob/user as mob)
