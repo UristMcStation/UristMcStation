@@ -294,7 +294,8 @@
 /area/maintenance/third_deck/fp)
 "aaT" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/maintenance/third_deck/fp)
 "aaU" = (
@@ -1479,7 +1480,8 @@
 /area/maintenance/third_deck/afp)
 "adx" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/maintenance/third_deck/afp)
 "ady" = (
@@ -26726,7 +26728,8 @@
 /area/maintenance/third_deck/fs)
 "aUx" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/maintenance/third_deck/afs)
 "aUy" = (
@@ -30235,7 +30238,8 @@
 /area/security/portexternalgun)
 "oWv" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/maintenance/third_deck/cents)
 "pbb" = (
