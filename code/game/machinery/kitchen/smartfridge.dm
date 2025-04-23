@@ -134,6 +134,7 @@
 	name = "drying rack"
 	desc = "A machine for drying plants."
 	icon_state = "drying_rack"
+	construct_state = null
 	accepted_types = null
 
 /obj/machinery/smartfridge/drying_rack/accept_check(obj/item/O, mob/user as mob)
@@ -276,7 +277,7 @@
 		to_chat(user, SPAN_NOTICE("\The [src] is unpowered and useless."))
 		return TRUE
 
-	if(accept_check(O))
+	if(accept_check(O, user))
 		if(!user.unEquip(O))
 			return TRUE
 		stock_item(O)
@@ -288,7 +289,7 @@
 		var/obj/item/storage/bag/P = O
 		var/plants_loaded = 0
 		for(var/obj/G in P.contents)
-			if(accept_check(G) && P.remove_from_storage(G, src, 1))
+			if(accept_check(G, user) && P.remove_from_storage(G, src, 1))
 				plants_loaded++
 				stock_item(G)
 		P.finish_bulk_removal()
