@@ -73,12 +73,14 @@
 	accepted_types = list(
 		/obj/item/slime_extract
 	)
+	construct_state = null
 
 /obj/machinery/smartfridge/secure/medbay
 	name = "\improper Refrigerated Medicine Storage"
 	desc = "A refrigerated storage unit for storing medicine and chemicals."
 	icon_contents = "chem"
 	req_access = list(list(access_medical,access_chemistry))
+	construct_state = null
 	accepted_types = list(
 		/obj/item/reagent_containers/glass,
 		/obj/item/storage/pill_bottle,
@@ -91,6 +93,7 @@
 	desc = "A refrigerated storage unit for storing viral material."
 	req_access = list(access_virology)
 	icon_contents = "chem"
+	construct_state = null
 	accepted_types = list(
 		/obj/item/reagent_containers/glass/beaker/vial
 	)
@@ -99,6 +102,7 @@
 	name = "\improper Smart Chemical Storage"
 	desc = "A refrigerated storage unit for medicine and chemical storage."
 	icon_contents = "chem"
+	construct_state = null
 	accepted_types = list(
 		/obj/item/storage/pill_bottle,
 		/obj/item/reagent_containers
@@ -115,6 +119,7 @@
 	icon_state = "fridge_dark"
 	icon_base = "fridge_dark"
 	icon_contents = "drink"
+	construct_state = null
 	accepted_types = list(
 		/obj/item/reagent_containers/glass,
 		/obj/item/reagent_containers/food/drinks,
@@ -127,6 +132,7 @@
 	icon_state = "fridge_food"
 	icon_state = "fridge_food"
 	icon_contents = "food"
+	construct_state = null
 	accepted_types = list(
 		/obj/item/reagent_containers/food/snacks,
 		/obj/item/material/utensil
