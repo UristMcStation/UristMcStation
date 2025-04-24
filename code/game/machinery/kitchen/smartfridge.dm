@@ -53,8 +53,8 @@
 		return list()
 	return ..()
 
-/obj/machinery/smartfridge/proc/accept_check(obj/item/O as obj, mob/user as mob)
-	if(istype(O,/obj/item/reagent_containers/food/snacks/grown) || istype(O,/obj/item/seeds) || istype(O,/obj/item/shellfish))
+/obj/machinery/smartfridge/proc/accept_check(obj/item/O)
+	if (is_type_in_list(O, accepted_types))
 		return TRUE
 	return FALSE
 
@@ -145,7 +145,7 @@
 	construct_state = /singleton/machine_construction/default/panel_closed
 	accepted_types = null
 
-/obj/machinery/smartfridge/drying_rack/accept_check(obj/item/O as obj, mob/user as mob)
+/obj/machinery/smartfridge/drying_rack/accept_check(obj/item/O, mob/user as mob)
 	if(istype(O, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/S = O
 		return S.dried_type ? TRUE : FALSE

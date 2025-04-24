@@ -709,7 +709,8 @@
 /area/maintenance/first_deck/afp)
 "bC" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/maintenance/first_deck/afp)
 "bD" = (
@@ -1991,7 +1992,8 @@
 /area/civilian/abandonedwarehouse)
 "ei" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/maintenance/first_deck/central)
 "ej" = (
@@ -7486,7 +7488,8 @@
 /area/engineering/bluespace)
 "nY" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/engineering/bluespace)
 "nZ" = (
@@ -8563,7 +8566,8 @@
 /area/maintenance/first_deck/afs)
 "pZ" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/maintenance/first_deck/afs)
 "qa" = (
