@@ -54,13 +54,13 @@
 	var/source_z
 
 /obj/structure/boarding/shipportal/shipside/Initialize()
-	for(var/obj/structure/boarding/shipportal/sp)
-		if(!isPlayerLevel(sp.z))
-			source_x = sp.x
-			source_y = sp.y
-			source_z = sp.z
-			break
-	QDEL_IN(src, 15 MINUTES)
+	for(var/obj/urist_intangible/triggers/boarding_landmark/sp in GLOB.trigger_landmarks)
+		sp.linked_portal = src
+		source_x = sp.x
+		source_y = sp.y
+		source_z = sp.z
+		break
+	QDEL_IN(src, 8 MINUTES)
 	. = ..()
 
 /obj/structure/boarding/shipportal/shipside/teleport(atom/movable/M as mob|obj)
@@ -103,7 +103,7 @@
 					return
 
 				else
-					to_chat(user, "<span class='warning'>You engage the self-desturct sequence. Better get the hell out of there.</span>")
+					to_chat(user, "<span class='warning'>You engage the self-destruct sequence. Better get the hell out of there.</span>")
 					triggered = TRUE
 					GLOB.global_announcer.autosay("<b>The self-destruct sequence on the attacking ship has been initiated. Evacuate all boarding parties immediately.</b>", "[GLOB.using_map.full_name] Automated Defence Computer", "Common")
 					for(var/obj/landmark/scom/bomb/B in landmarks_list)

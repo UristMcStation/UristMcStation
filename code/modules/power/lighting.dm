@@ -14,6 +14,7 @@
 
 #define LIGHTMODE_EMERGENCY "emergency_lighting"
 #define LIGHTMODE_READY "ready"
+#define LIGHTMODE_COMBAT "combat_lighting"
 
 #define LIGHT_PHORON_EXPLODE_THRESHOLD 5 // This many units of phoron have to be in the bulb for it to explode
 
@@ -225,6 +226,7 @@
 	desc = "A more robust socket for light tubes that demand more power."
 	light_type = /obj/item/light/tube/large
 	construct_type = /obj/machinery/light_construct/spot
+
 
 // create a new lighting fixture
 /obj/machinery/light/Initialize(mapload, obj/machinery/light_construct/construct = null)
@@ -720,6 +722,7 @@
 	b_range = 6
 	lighting_modes = list(
 		LIGHTMODE_EMERGENCY = list(l_range = 4, l_power = 1, l_color = LIGHT_COLOUR_E_RED),
+		LIGHTMODE_COMBAT = list(l_range = 4, l_power = 0.8, l_color = LIGHT_COLOUR_COMBAT)
 	)
 	sound_on = 'sound/machines/lightson.ogg'
 
@@ -746,6 +749,10 @@
 	w_class = ITEM_SIZE_SMALL
 	name = "large light tube"
 	b_range = 8
+	lighting_modes = list(
+		LIGHTMODE_EMERGENCY = list(l_range = 4, l_power = 1, l_color = LIGHT_COLOUR_E_RED),
+		LIGHTMODE_COMBAT = list(l_range = 6, l_power = 0.8, l_color = LIGHT_COLOUR_COMBAT)
+	)
 
 /obj/item/light/tube/large/warm
 	name = "large light tube (warm)"
@@ -778,7 +785,8 @@
 	b_power = 0.7
 	b_range = 4
 	lighting_modes = list(
-		LIGHTMODE_EMERGENCY = list(l_range = 3, l_power = 1, l_color = LIGHT_COLOUR_E_RED)
+		LIGHTMODE_EMERGENCY = list(l_range = 3, l_power = 1, l_color = LIGHT_COLOUR_E_RED),
+		LIGHTMODE_COMBAT = list(l_range = 3, l_power = 1, l_color = LIGHT_COLOUR_COMBAT)
 	)
 
 /obj/item/light/bulb/warm

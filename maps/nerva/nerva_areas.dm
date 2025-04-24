@@ -16,6 +16,7 @@
 /area/command/bridge
 	name = "\improper ICS Nerva Bridge"
 	icon_state = "bridge"
+	is_critical = TRUE
 
 /area/command/hop
 	name = "\improper Personnel Office"
@@ -77,6 +78,7 @@
 /area/command/teleporter
 	name = "\improper Teleporter Chamber"
 	req_access = list(access_teleporter)
+	is_critical = TRUE //for boarding
 
 /area/command/storage
 	name = "\improper Bridge Storage"
@@ -122,11 +124,13 @@
 /area/command/safe_room
 	name = "\improper Safe Room"
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_ION_SHIELDED
+	is_critical = TRUE
 
 /area/command/weapons_command
 	name = "\improper Weapons Command"
 	sound_env = SMALL_ENCLOSED
 	area_flags = AREA_FLAG_ION_SHIELDED
+	is_critical = TRUE
 
 //////////////////////////////////////
 //			CIVILIAN				//
@@ -143,11 +147,13 @@
 	name = "\improper Primary Cryogenic Storage"
 	icon_state = "bluenew"
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	is_critical = TRUE
 
 /area/civilian/cryo2
 	name = "\improper Secondary Cryogenic Storage"
 	icon_state = "bluenew"
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	is_critical = TRUE
 
 /area/civilian/freezer
 	name = "\improper Kitchen Freezer"
@@ -192,6 +198,7 @@
 	name = "\improper Bar"
 	icon_state = "bar"
 	sound_env = LARGE_SOFTFLOOR
+	is_critical = TRUE
 
 /area/civilian/abandonedoffice
 	name = "\improper Abandoned Office"
@@ -271,12 +278,14 @@
 	name = "\improper Armoury"
 	icon_state = "Warden"
 	req_access = list(access_armory)
+	is_critical = TRUE
 
 /area/security/breakroom
 	name = "\improper Security Dorms"
 
 /area/security/office
 	name = "\improper Security Office"
+	is_critical = TRUE
 
 /area/security/forensics
 	name = "\improper Forensics Lab"
@@ -296,6 +305,7 @@
 	name = "\improper Boarding Armory"
 	icon_state = "Warden"
 	req_access = list(access_armory)
+	is_critical = TRUE
 
 /area/security/lockers
 	name = "\improper Security Locker Room"
@@ -304,31 +314,37 @@
 	name = "\improper Port Gunnery Room"
 	icon_state = "LP"
 	req_access = list(list(access_bridge, access_gunnery))
+	is_critical = TRUE
 
 /area/security/portexternalgun
 	name = "\improper Port External Gun Bay"
 	icon_state = "LP"
 	req_access = list(list(access_bridge, access_gunnery))
+	is_critical = TRUE
 
 /area/security/starboardgun
 	name = "\improper Starboard Gunnery Room"
 	icon_state = "LP"
 	req_access = list(list(access_bridge, access_gunnery))
+	is_critical = TRUE
 
 /area/security/starboardexternalgun
 	name = "\improper Starboard External Gun Bay"
 	icon_state = "LP"
 	req_access = list(list(access_bridge, access_gunnery))
+	is_critical = TRUE
 
 /area/security/bottomgun
 	name = "\improper Fourth Deck Gunnery Room"
 	icon_state = "LP"
 	req_access = list(list(access_bridge, access_gunnery))
+	is_critical = TRUE
 
 /area/security/topgun
 	name = "\improper First Deck Gunnery Room"
 	icon_state = "LP"
 	req_access = list(list(access_bridge, access_gunnery))
+	is_critical = TRUE
 
 //////////////////////////////////////
 //			SCIENCE					//
@@ -391,6 +407,7 @@
 	name = "\improper Supermatter Monitoring Room"
 	icon_state = "engine_monitoring"
 	req_access = list(access_engine_equip)
+	is_critical = TRUE
 
 /area/engineering/atmospherics
 	name = "\improper Atmospherics"
@@ -402,11 +419,13 @@
 	icon_state = "engine"
 	sound_env = LARGE_ENCLOSED
 	req_access = list(access_engine_equip)
+	is_critical = TRUE
 
 /area/engineering/smes
 	name = "\improper SMES Room"
 	sound_env = SMALL_ENCLOSED
 	icon_state = "engine_smes"
+	is_critical = TRUE
 
 /area/engineering/securestorage
 	name = "\improper Secure Storage"
@@ -536,11 +555,13 @@
 /area/medical/treatment
 	name = "\improper Medical Treatment Center"
 	icon_state = "medbay3"
+	is_critical = TRUE
 
 /area/medical/hallway
 	name = "\improper Medical Hallway"
 	icon_state = "medbay2"
 	req_access = list()
+	is_critical = TRUE
 
 /area/medical/morgue
 	name = "\improper Morgue"
@@ -567,11 +588,13 @@
 	name = "\improper Chemistry Lab"
 	icon_state = "chem"
 	req_access = list(access_chemistry)
+	is_critical = TRUE
 
 /area/medical/surgery
 	name = "\improper Operating Theatre"
 	icon_state = "surgery"
 	req_access = list(access_surgery)
+	is_critical = TRUE
 
 /area/medical/virology
 	name = "\improper Virology Lab"
@@ -580,6 +603,7 @@
 /area/medical/cloning
 	name = "\improper Cloning Bay"
 	req_access = list(access_medical)
+	is_critical = TRUE
 
 /area/medical/extstorage
 	name = "\improper Medbay Extra Storage"
@@ -625,6 +649,7 @@
 /area/logistics/fabwork
 	name = "\improper Cargo Fabrication Workshop"
 	icon_state = "quartoffice"
+	is_critical = TRUE
 
 /area/logistics/advwork
 	name = "\improper Cargo Advanced Workshop"
@@ -821,11 +846,13 @@
 	name = "\improper Command Port Hallway"
 	icon_state = "hallP"
 	req_access = list(access_bridge)
+	is_critical = TRUE
 
 /area/hallway/commandstarboard
 	name = "\improper Command Starboard Hallway"
 	icon_state = "hallS"
 	req_access = list(list(access_bridge, access_gunnery))
+	is_critical = TRUE
 
 //bottom/fourth deck
 
