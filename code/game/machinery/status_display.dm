@@ -80,7 +80,7 @@
 		if (!mats.can_use(2))
 			USE_FEEDBACK_STACK_NOT_ENOUGH(mats, 2, "repair \the [src].")
 			return TRUE
-		if (!user.do_skilled(4 SECONDS, SKILL_CONSTRUCTION, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+		if (!do_after(user, 4 SECONDS, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
 			return TRUE
 		mats.use(2)
 		to_chat(user, SPAN_NOTICE("You repair the broken glass on \the [src]."))

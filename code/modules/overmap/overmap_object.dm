@@ -52,10 +52,7 @@
 	var/temp_data = list()
 	for(var/id in scans)
 		var/datum/sector_scan/scan = scans[id]
-		if (!scan.required_skill || user.skill_check(scan.required_skill, scan.required_skill_level))
-			temp_data += scan.description
-		else if (scan.low_skill_description)
-			temp_data += scan.low_skill_description
+		temp_data += scan.description
 
 	return temp_data
 

@@ -24,7 +24,7 @@
 		)
 		add_fingerprint(user, FALSE, tool)
 		playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
-		if (!user.do_skilled(SKILL_CONSTRUCTION, 2 SECONDS, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+		if (!do_after(user, 2 SECONDS, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
 			return TRUE
 		if (!welder.remove_fuel(1, user))
 			return TRUE
