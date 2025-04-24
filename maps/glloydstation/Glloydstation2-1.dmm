@@ -7012,7 +7012,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/hallway/secondary/exit)
 "apj" = (
-/obj/urist_intangible/trigger/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/gamemode/assault{
 	mapfile = "assault_aship1.dmm"
 	},
 /turf/space,
@@ -12405,7 +12405,7 @@
 "aAK" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/device/flashlight/lamp,
-/obj/urist_intangible/trigger/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/gamemode/assault{
 	mapfile = "assault_marine_dorm.dmm"
 	},
 /turf/simulated/floor/wood/walnut,
@@ -13631,7 +13631,7 @@
 /turf/simulated/floor/carpet,
 /area/bridge/meeting_hall)
 "aDw" = (
-/obj/urist_intangible/trigger/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/gamemode/assault{
 	mapfile = "assault_meetinghall.dmm"
 	},
 /turf/simulated/floor/carpet,
@@ -29871,7 +29871,7 @@
 /obj/machinery/newscaster{
 	pixel_x = -32
 	},
-/obj/urist_intangible/trigger/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/gamemode/assault{
 	mapfile = "assault_fore.dmm"
 	},
 /obj/floor_decal/corner/grey{
@@ -38964,7 +38964,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/port)
 "bBE" = (
-/obj/urist_intangible/trigger/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/gamemode/assault{
 	mapfile = "assault_port.dmm"
 	},
 /turf/simulated/floor/tiled,
@@ -39115,7 +39115,7 @@
 /obj/structure/flora/pottedplant/Nienplants/plant{
 	icon_state = "fullgrass_3"
 	},
-/obj/urist_intangible/trigger/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/gamemode/assault{
 	mapfile = "assault_central.dmm"
 	},
 /turf/simulated/floor/grass,
@@ -39437,7 +39437,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/urist_intangible/trigger/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/gamemode/assault{
 	mapfile = "assault_starboard.dmm"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -52289,7 +52289,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/office)
 "ccd" = (
-/obj/urist_intangible/trigger/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/gamemode/assault{
 	mapfile = "assault_cargonia2.dmm"
 	},
 /turf/simulated/floor/tiled,
@@ -54825,7 +54825,7 @@
 	name = "Cargo Docking Hatch";
 	req_access = list("ACCESS_EXTERNAL")
 	},
-/obj/urist_intangible/trigger/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/gamemode/assault{
 	mapfile = "assault_cargonia.dmm"
 	},
 /turf/simulated/floor/plating,
@@ -60213,7 +60213,7 @@
 "crG" = (
 /obj/machinery/hologram/holopad,
 /obj/structure/disposalpipe/segment,
-/obj/urist_intangible/trigger/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/gamemode/assault{
 	mapfile = "assault_aft.dmm"
 	},
 /turf/simulated/floor/tiled,
@@ -81778,7 +81778,7 @@
 /turf/simulated/floor/plating,
 /area/maintenance/aft)
 "djF" = (
-/obj/urist_intangible/trigger/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/gamemode/assault{
 	mapfile = "assault_aship2.dmm"
 	},
 /turf/space,

@@ -1537,7 +1537,7 @@
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "fq" = (
-/obj/urist_intangible/trigger/template_loader/ships,
+/obj/urist_intangible/triggers/template_loader/ships,
 /turf/space,
 /area/space)
 "fr" = (

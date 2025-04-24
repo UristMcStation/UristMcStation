@@ -72,7 +72,7 @@
 "bt" = (/obj/machinery/light/small{dir = 4},/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
 "bu" = (/obj/structure/hygiene/sink{dir = 4; icon_state = "sink"; pixel_x = 11; pixel_y = 0},/turf/simulated/floor/tiled/freezer,/area/boarding_ship)
 "bv" = (/obj/structure/window/reinforced/tinted/frosted{icon_state = "window"; dir = 1},/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
-"bw" = (/obj/urist_intangible/trigger/template_loader/ships,/turf/simulated/floor/tiled/dark/monotile,/area/boarding_ship)
+"bw" = (/obj/urist_intangible/triggers/template_loader/ships,/turf/simulated/floor/tiled/dark/monotile,/area/boarding_ship)
 "bx" = (/obj/structure/bed/chair/urist/shuttle,/turf/simulated/floor/tiled/techmaint,/area/boarding_ship)
 "by" = (/obj/item/stool,/turf/simulated/floor/tiled/steel_grid,/area/boarding_ship)
 "bz" = (/obj/structure/reagent_dispensers/fueltank,/obj/floor_decal/industrial/outline/yellow,/turf/simulated/floor/tiled/techfloor,/area/boarding_ship)

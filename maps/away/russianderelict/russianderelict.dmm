@@ -4217,7 +4217,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/russianderelict/singularity_engine)
 "lm" = (
-/obj/urist_intangible/trigger/template_loader/space,
+/obj/urist_intangible/triggers/template_loader/space,
 /turf/space,
 /area/space)
 "ln" = (

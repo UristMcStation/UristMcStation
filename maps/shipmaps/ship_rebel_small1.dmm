@@ -824,7 +824,7 @@
 /turf/simulated/floor/plating,
 /area/boarding_ship)
 "bT" = (
-/obj/urist_intangible/trigger/template_loader/ships,
+/obj/urist_intangible/triggers/template_loader/ships,
 /turf/simulated/wall/r_wall,
 /area/boarding_ship)
 "bU" = (

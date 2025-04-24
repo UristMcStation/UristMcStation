@@ -1552,7 +1552,7 @@
 /turf/space,
 /area/space)
 "er" = (
-/obj/urist_intangible/trigger/template_loader/space,
+/obj/urist_intangible/triggers/template_loader/space,
 /turf/space,
 /area/space)
 "es" = (
