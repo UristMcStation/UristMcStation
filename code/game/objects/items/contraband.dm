@@ -76,10 +76,14 @@
 
 // Proc to shove them up your nose
 
-/obj/item/reagent_containers/powder/use_tool(obj/item/W, mob/living/user, list/click_params)
+/obj/item/reagent_containers/powder/use_tool(obj/item/W, mob/living/carbon/human/user, list/click_params)
 	if(istype(W, /obj/item/glass_extra/straw) || istype(W, /obj/item/paper/cig) || istype(W, /obj/item/spacecash))
 		if(!user.check_has_mouth()) // We dont want dionae or adherents doing lines of cocaine. Probably.
-			to_chat(SPAN_WARNING("Without a nose, you seem unable to snort from \the [src]."))
+			to_chat(user, SPAN_WARNING("Without a nose, you seem unable to snort from \the [src]."))
+			return TRUE
+
+		if ((user.wear_mask && (user.wear_mask.body_parts_covered & FACE)) || (user.head && (user.head.body_parts_covered & FACE)))
+			to_chat(user, SPAN_WARNING("You need to expose your face first."))
 			return TRUE
 
 		user.visible_message(
