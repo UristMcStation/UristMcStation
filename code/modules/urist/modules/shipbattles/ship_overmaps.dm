@@ -70,6 +70,9 @@
 	set_combat_lighting(TRUE)
 
 /obj/overmap/visitable/ship/combat/proc/set_combat_lighting(set_lighting) //atmospheric combat lighting
+	set waitfor = FALSE
+	sleep(0)
+	
 	for(var/obj/machinery/light/light in SSmachines.machinery)
 		if(light.z in map_z)
 			if(light.lightbulb && light.current_mode != LIGHTMODE_EMERGENCY)
