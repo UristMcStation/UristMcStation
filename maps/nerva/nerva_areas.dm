@@ -103,6 +103,7 @@
 	name = "\improper EVA"
 	icon_state = "eva"
 	req_access = list(access_eva)
+	is_critical = TRUE
 
 /area/command/bodyguard
 	name = "\improper Bodyguard's Office"
