@@ -1467,7 +1467,7 @@
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
 "dx" = (
-/obj/urist_intangible/trigger/template_loader/underground,
+/obj/urist_intangible/triggers/template_loader/underground,
 /turf/unsimulated/mask,
 /area/mine/unexplored)
 "dy" = (

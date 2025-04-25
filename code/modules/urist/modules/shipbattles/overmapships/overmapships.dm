@@ -16,7 +16,7 @@
 	var/boardingmap = "maps/shipmaps/ship_blank.dmm"
 	var/list/components = list()
 	var/list/weapons = list()
-	var/incombat = 0
+	var/incombat = FALSE
 	var/aggressive = 0 //will always attack
 	var/obj/overmap/visitable/ship/combat/target_ship
 	var/obj/overmap/visitable/sector/station/home_station
@@ -31,6 +31,7 @@
 	turns_per_move = 10 //this is now determined by the engine component
 	var/potential_weapons = list()
 	var/boarders_amount = 0 //how many human boarders can we have?
+	var/defenders_spawned = FALSE
 	ai_holder = /datum/ai_holder/simple_animal/overmapship
 
 /datum/ai_holder/simple_animal/overmapship
@@ -106,7 +107,7 @@
 */
 /mob/living/simple_animal/hostile/overmapship/proc/spawnmap()
 	if(target_ship == GLOB.using_map.overmap_ship && boardingmap)
-		for(var/obj/urist_intangible/trigger/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
+		for(var/obj/urist_intangible/triggers/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
 			S.mapfile = src.boardingmap
 			S.home_ship = src //checking whether the map has been loaded is now handled by the template loader, so it properly checks for completion
 			S.Load()
@@ -114,12 +115,11 @@
 				for(var/obj/urist_intangible/triggers/station_disk/D in GLOB.trigger_landmarks)
 					if(D.faction_id == hiddenfaction.factionid)
 						D.spawn_disk(home_station)
-			boarded()
 		return
 
 /mob/living/simple_animal/hostile/overmapship/proc/despawnmap()
 	if(target_ship == GLOB.using_map.overmap_ship)
-		for(var/obj/urist_intangible/trigger/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
+		for(var/obj/urist_intangible/triggers/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
 			S.mapfile = "maps/shipmaps/ship_blank.dmm"
 			S.Load()
 		return
@@ -157,31 +157,38 @@
 			adjustBruteLoss(maxHealth)
 			qdel(src)
 
-/mob/living/simple_animal/hostile/overmapship/proc/boarded()
-	if(!boarding && map_spawned)
-		boarding = TRUE
+/mob/living/simple_animal/hostile/overmapship/proc/boarded(counterboarding)
+	if(map_spawned)
+		if(!boarding && !counterboarding)
+			boarding = TRUE
+			if(target_ship == GLOB.using_map.overmap_ship) //currently only the main ship can board, pending a rewrite of boarding code
+				target_ship.autoannounce("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "private") //add name+designation if I get lists for that stuff
 
-		if(target_ship == GLOB.using_map.overmap_ship) //currently only the main ship can board, pending a rewrite of boarding code
-			//target_ship.autoannounce("<b>The attacking [src.ship_category] is now able to be boarded via teleporter. Please await further instructions from Command.</b>", "public") //add name+designation if I get lists for that stuff
+				for(var/obj/urist_intangible/triggers/boarding_landmark/L in GLOB.trigger_landmarks)
+					new /obj/machinery/tele_beacon(L.loc)
 
-			for(var/obj/urist_intangible/triggers/boarding_landmark/L in GLOB.trigger_landmarks)
-				new /obj/machinery/tele_beacon(L.loc)
+				if(!defenders_spawned)
+					spawn_defenders()
 
-			for(var/obj/urist_intangible/triggers/shipweapons/S in GLOB.trigger_landmarks)
-				var/datum/shipcomponents/weapons/W = pick(weapons)
-				new W.weapon_type(S.loc)
-				qdel(S)
+		else if(!boarding && counterboarding && !defenders_spawned)
+			if(target_ship == GLOB.using_map.overmap_ship) //currently only the main ship can board, pending a rewrite of boarding code
+				spawn_defenders()
 
-			for(var/obj/urist_intangible/triggers/ai_defender_landmark/A in GLOB.trigger_landmarks)
-				A.spawn_mobs()
+/mob/living/simple_animal/hostile/overmapship/proc/spawn_defenders()
+	if(!defenders_spawned)
+		defenders_spawned = TRUE
+		for(var/obj/urist_intangible/triggers/shipweapons/S in GLOB.trigger_landmarks)
+			var/datum/shipcomponents/weapons/W = pick(weapons)
+			new W.weapon_type(S.loc)
+			qdel(S)
 
-			communicate(/singleton/communication_channel/dsay, GLOB.global_announcer, "<b>Ghosts can now join as a defender against ICS Nerva boarding using the verb under the IC tab. You have one minute to join.</b>", /singleton/dsay_communication/direct)
+		for(var/obj/urist_intangible/triggers/ai_defender_landmark/A in GLOB.trigger_landmarks)
+			A.spawn_mobs()
 
-			spawn(1 MINUTE)
-				boarders_amount = 0 //after a minute we null out the amount of boarders so noone joins mid boarding action.
+		communicate(/singleton/communication_channel/dsay, GLOB.global_announcer, "<b>Ghosts can now join as a defender against [target_ship.ship_name] boarding using the verb under the IC tab. You have one minute to join.</b>", /singleton/dsay_communication/direct)
 
-	else
-		return
+		spawn(1 MINUTE)
+			boarders_amount = 0 //after a minute we null out the amount of boarders so noone joins mid boarding action.
 
 /mob/living/simple_animal/hostile/overmapship/proc/add_weapons()
 	var/datum/shipcomponents/weapons/W = pick(potential_weapons)

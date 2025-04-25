@@ -459,7 +459,7 @@
 	},
 /area/planet/jungle/away)
 "bJ" = (
-/obj/urist_intangible/trigger/template_loader/planet,
+/obj/urist_intangible/triggers/template_loader/planet,
 /turf/simulated/floor/planet/jungle/med,
 /area/planet/jungle/away)
 "bK" = (
@@ -467,7 +467,7 @@
 /turf/simulated/floor/planet/jungle/clear,
 /area/planet/jungle/away)
 "bL" = (
-/obj/urist_intangible/trigger/template_loader/planet,
+/obj/urist_intangible/triggers/template_loader/planet,
 /turf/simulated/floor/planet/jungle/thick,
 /area/planet/jungle/away)
 "bM" = (

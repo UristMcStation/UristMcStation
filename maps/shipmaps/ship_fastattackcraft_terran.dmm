@@ -609,7 +609,7 @@
 /turf/simulated/floor/tiled/dark/monotile,
 /area/boarding_ship)
 "bV" = (
-/obj/urist_intangible/trigger/template_loader/ships,
+/obj/urist_intangible/triggers/template_loader/ships,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/boarding_ship)
 "bW" = (
