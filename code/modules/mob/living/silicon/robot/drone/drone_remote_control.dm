@@ -103,11 +103,6 @@
 		to_chat(controlling_ai, "<span class='notice'>[message]</span>")
 		controlling_ai.controlling_drone = null
 		controlling_ai = null
-	//releases controlled drone access to AI radio
-	QDEL_NULL(silicon_radio)
-	silicon_radio = drone_silicon_radio
-	drone_silicon_radio = null
-	default_language = all_languages[LANGUAGE_DRONE_GLOBAL]
 
 	verbs -= /mob/living/silicon/robot/drone/proc/release_ai_control_verb
 	full_law_reset()

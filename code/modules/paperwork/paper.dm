@@ -365,7 +365,8 @@
 		can_read = isAI(user)
 		if (can_read)
 			var/mob/living/silicon/ai/AI = user
-			can_read = get_dist(src, AI.camera) < 2
+			var/obj/machinery/camera/readingcamera = near_range_camera(AI.eyeobj)
+			can_read = get_dist(src, readingcamera) < 2
 		else
 			can_read = ishuman(user) || issilicon(user)
 			if (can_read)
@@ -390,7 +391,7 @@
 			html += "<hr/>" + info_links
 		else
 			html += PAPER_META_BAD("You can't write without knowing a language.")
-	else if (has_content)
+	else if (has_content && can_read)
 		html += PAPER_META("The paper is written in [language.name].")
 		html += "<hr/>" + info
 	html += "[stamps]</body></html>"
