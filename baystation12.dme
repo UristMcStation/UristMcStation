@@ -3496,7 +3496,6 @@
 #include "code\modules\urist\GOAI\_datastructures\registries\economy\market_utilities.dm"
 #include "code\modules\urist\GOAI\_datastructures\registries\economy\trade_offers.dm"
 #include "code\modules\urist\GOAI\_gizmos\gizmos.dm"
-#include "code\modules\urist\GOAI\_gizmos\pathfinding.dm"
 #include "code\modules\urist\GOAI\basics\__datums.dm"
 #include "code\modules\urist\GOAI\basics\_cover.dm"
 #include "code\modules\urist\GOAI\basics\_dir_blocker.dm"
