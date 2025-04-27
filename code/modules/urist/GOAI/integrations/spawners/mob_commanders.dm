@@ -19,7 +19,7 @@
 	return M
 
 
-/obj/spawner/oneshot/commanded_mob
+/obj/goai_spawner/oneshot/commanded_mob
 	var/commander_name = null
 	var/mob_icon = null
 	var/mob_icon_state = null
@@ -31,7 +31,7 @@
 	script = /proc/spawn_commanded_combatant
 
 
-/obj/spawner/oneshot/commanded_mob/CallScript()
+/obj/goai_spawner/oneshot/commanded_mob/CallScript()
 	if(!active)
 		return
 
@@ -160,7 +160,7 @@
 	return
 
 
-/obj/spawner/oneshot/commanded_squad_mob
+/obj/goai_spawner/oneshot/commanded_squad_mob
 	var/count = 3
 	var/radius = 2
 	var/mob_faction = null
@@ -174,7 +174,7 @@
 	script = /proc/spawn_commanded_squad
 
 
-/obj/spawner/oneshot/commanded_squad_mob/CallScript()
+/obj/goai_spawner/oneshot/commanded_squad_mob/CallScript()
 	if(!active)
 		return
 
@@ -248,7 +248,7 @@
 	return
 
 
-/obj/spawner/oneshot/commanded_humanoid
+/obj/goai_spawner/oneshot/commanded_humanoid
 	var/commander_name = null
 	var/spawn_commander = TRUE
 
@@ -258,7 +258,7 @@
 	script = /proc/spawn_commanded_humanoid
 
 
-/obj/spawner/oneshot/commanded_humanoid/CallScript()
+/obj/goai_spawner/oneshot/commanded_humanoid/CallScript()
 	if(!active)
 		return
 
@@ -305,7 +305,7 @@
 	return
 
 
-/obj/spawner/oneshot/commanded_simpleanimal
+/obj/goai_spawner/oneshot/commanded_simpleanimal
 	var/commander_name = null
 	var/spawn_commander = TRUE
 
@@ -315,7 +315,7 @@
 	script = /proc/spawn_commanded_simpleanimal
 
 
-/obj/spawner/oneshot/commanded_simpleanimal/CallScript()
+/obj/goai_spawner/oneshot/commanded_simpleanimal/CallScript()
 	if(!active)
 		return
 
@@ -357,7 +357,7 @@
 
 
 
-/obj/spawner/oneshot/commanded_object
+/obj/goai_spawner/oneshot/commanded_object
 	var/commander_name = null
 
 	# ifdef GOAI_SS13_SUPPORT
@@ -373,7 +373,7 @@
 	script = /proc/spawn_commanded_object
 
 
-/obj/spawner/oneshot/commanded_object/CallScript()
+/obj/goai_spawner/oneshot/commanded_object/CallScript()
 	if(!active)
 		return
 

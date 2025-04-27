@@ -44,13 +44,13 @@
 	return new_name
 
 
-/obj/spawner/oneshot/faction
+/obj/goai_spawner/oneshot/faction
 	var/factionspec_filepath = null
 	var/generate_faction_name = null
 	script = /proc/spawn_faction_commander
 
 
-/obj/spawner/oneshot/faction/CallScript()
+/obj/goai_spawner/oneshot/faction/CallScript()
 	set waitfor = FALSE
 
 	if(!active)
