@@ -200,6 +200,8 @@ var/global/list/ai_verbs_default = list(
 	ai_radio.myAi = src
 
 /mob/living/silicon/ai/proc/on_mob_init()
+	src.client.show_location_blurb(3 SECONDS)
+
 	to_chat(src, "<B>You are playing the [station_name()]'s AI. The AI cannot move, but can interact with many objects while viewing them (through cameras).</B>")
 	to_chat(src, "<B>To look at other areas, click on yourself to get a camera menu.</B>")
 	to_chat(src, "<B>While observing through a camera, you can use most (networked) devices which you can see, such as computers, APCs, intercoms, doors, etc.</B>")
