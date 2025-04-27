@@ -684,6 +684,8 @@
 	construct_state = /singleton/machine_construction/default/item_chassis
 	base_type = /obj/machinery/rotating_alarm/supermatter
 
+	sound_file = 'sound/obj/machinery/rotating_alarm/supermatter.ogg'
+
 /obj/machinery/rotating_alarm/supermatter/Initialize()
 	. = ..()
 	GLOB.supermatter_status.register_global(src, PROC_REF(check_supermatter))
