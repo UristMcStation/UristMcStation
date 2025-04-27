@@ -11019,7 +11019,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
 	frequency = 1441;
-	icon_state = "map_injector";
 	id = "d3sh_in";
 	use_power = 1
 	},
@@ -13555,7 +13554,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/highsecurity{
-	icon_state = "closed";
 	name = "Fire Control"
 	},
 /turf/simulated/floor/tiled/steel_ridged,
@@ -13569,7 +13567,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/highsecurity{
-	icon_state = "closed";
 	name = "Fire Control"
 	},
 /turf/simulated/floor/tiled/steel_ridged,
@@ -13638,7 +13635,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/highsecurity{
-	icon_state = "closed";
 	name = "Fire Control"
 	},
 /turf/simulated/floor/tiled/steel_ridged,
@@ -17858,7 +17854,6 @@
 "Sy" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1441;
-	icon_state = "map_injector";
 	id = "d3ph_in";
 	use_power = 1
 	},
@@ -18980,6 +18975,14 @@
 "Vx" = (
 /turf/simulated/wall/prepainted,
 /area/security/habcheck)
+"Vy" = (
+/obj/machinery/suit_storage_unit/engineering/alt/sol,
+/obj/floor_decal/industrial/outline/yellow,
+/obj/machinery/rotating_alarm/supermatter{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor/grid,
+/area/engineering/hardstorage)
 "VA" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/structure/cable/green{
@@ -42958,7 +42961,7 @@ gP
 xv
 XC
 ds
-uh
+Vy
 uh
 dM
 dM
