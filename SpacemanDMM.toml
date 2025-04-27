@@ -45,7 +45,7 @@ loop_condition_determinate = "error"
 integer_precision_loss = "error"
 
 # Parser
-var_in_proc_parameter = "error"
+var_in_proc_parameter = "off"
 static_in_proc_parameter = "error"
 semicolon_in_proc_parameter = "error"
 in_precedes_as = "error"
