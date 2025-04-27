@@ -43,6 +43,7 @@
 	else
 		icon_state = "egg"
 
+/* //Uncomment if someone ever makes xenophage usable.
 /obj/structure/alien/egg/attack_ghost(mob/observer/ghost/user)
 	if(progress == -1) //Egg has been hatched.
 		return
@@ -93,5 +94,5 @@
 	name = "hatched alien egg"
 	desc += " This one has hatched."
 	update_icon()
-
+*/
 #undef MAX_PROGRESS
