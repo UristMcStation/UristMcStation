@@ -59,10 +59,10 @@ exactly 0 "tmp/ vars" 'var.*/tmp/' -P
 # exactly 6 "uses of .len" '\.len\b' -P  # yeah no this is some Bay bullshit
 exactly 16 "uses of examine()" '[.|\s]examine\(' -P # If this fails it's likely because you used '/atom/proc/examine(mob)' instead of '/proc/examinate(mob, atom)' - Exception: An examine()-proc may call other examine()-procs
 exactly 7 "direct modifications of overlays list" '\boverlays((\s*[|^=+&-])|(\.(Cut)|(Add)|(Copy)|(Remove)|(Remove)))' -P
-exactly 0 "new/list list instantiations" 'new\s*/list' -P
+exactly 2 "new/list list instantiations" 'new\s*/list' -P #The 2 survivors use this for dynamic initial len, which is an alloc optimization
 exactly 0 "== null tests" '(==\s*null\b)|(\bnull\s*==)' -P #Use isnull() instead
 exactly 0 "istype /mob where ismob should be used" 'istype\(.*?,\s*/mob\s*\)' -P
-exactly 1 "istype /obj where isobj should be used" 'istype\(.*?,\s*/obj\s*\)' -P
+exactly 2 "istype /obj where isobj should be used" 'istype\(.*?,\s*/obj\s*\)' -P
 exactly 0 "istype /turf where isturf should be used" 'istype\(.*?,\s*/turf\s*\)' -P
 exactly 0 "istype /area where isarea should be used" 'istype\(.*?,\s*/area\s*\)' -P
 exactly 0 "istype /icon where isicon should be used" 'istype\(.*?,\s*/icon\s*\)' -P

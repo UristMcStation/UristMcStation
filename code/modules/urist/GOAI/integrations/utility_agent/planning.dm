@@ -157,7 +157,7 @@
 						// match, early return
 						return TRUE
 
-					if(istype(itm, /atom))
+					if(isloc(itm))
 						// no match, but might be a container
 						queue.Add(itm)
 

@@ -3,7 +3,7 @@
 	//
 	// Base class; you *probably* want to use one of the children.
 	*/
-	icon = 'icons/obj/objects.dmi'
+	icon = 'icons/obj/unused.dmi'
 	icon_state = "anom"
 	alpha = 50
 

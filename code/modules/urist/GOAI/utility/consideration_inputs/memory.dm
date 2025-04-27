@@ -77,7 +77,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_input_get_memory_ghost_turf)
 
 	var/turf/ghost_turf = locate(pos_x, pos_y, pos_z)
 
-	var/raw_loc_type = consideration_args["type_to_fetch"]
+	var/raw_loc_type = consideration_args?["type_to_fetch"]
 
 	if(isnull(raw_loc_type))
 		return ghost_turf

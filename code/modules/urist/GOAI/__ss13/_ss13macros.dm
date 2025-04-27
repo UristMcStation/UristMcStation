@@ -42,13 +42,9 @@
 
 #define isitem(A) istype(A, /obj/item)
 
-#define islist(A) istype(A, /list)
-
 #define isliving(A) istype(A, /mob/living)
 
 #define ismouse(A) istype(A, /mob/living/simple_animal/mouse)
-
-#define ismovable(A) istype(A, /atom/movable)
 
 #define isnewplayer(A) istype(A, /mob/new_player)
 
@@ -133,8 +129,6 @@
 // Helper macros to aid in optimizing lazy instantiation of lists.
 // All of these are null-safe, you can use them without knowing if the list var is initialized yet
 
-//Picks from the list, with some safeties, and returns the "default" arg if it fails
-#define DEFAULTPICK(L, default) ((istype(L, /list) && L:len) ? pick(L) : default)
 // Ensures L is initailized after this point
 #define LAZYINITLIST(L) if (!L) L = list()
 // Sets a L back to null iff it is empty

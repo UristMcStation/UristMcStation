@@ -10,7 +10,7 @@
 			"context_args": [
 				{
 					"variable": "path",
-					"list_idx": "0",
+					"list_idx": 0,
 					"output_context_key": "position"
 				}
 			],
@@ -19,7 +19,7 @@
 				{
 					"name": "Rand",
 					"lo_mark": 0, 
-					"hi_mark": 50, 
+					"hi_mark": 20, 
 					"input_proc": "/proc/consideration_input_urand", 
 					"curve_proc": "/proc/curve_binary"
 				},
@@ -66,7 +66,6 @@
 			"context_args": [
 				{
 					"variable": "path",
-					"list_pop": "1",
 					"output_context_key": "position"
 				}
 			],

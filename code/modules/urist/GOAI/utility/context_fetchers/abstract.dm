@@ -47,6 +47,7 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_read_origin_var)
 		UTILITYBRAIN_DEBUG_LOG("WARNING: requester for ctxfetcher_read_origin_var is not an AI @ L[__LINE__] in [__FILE__]!")
 		return null
 
+	var/default_val = context_args["default"]
 	var/var_key = context_args["variable"]
 
 	if(isnull(var_key))
@@ -65,6 +66,7 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_read_origin_var)
 		return null
 
 	var/raw_result = candidate.vars[var_key]
+
 	if(isnull(raw_result))
 		return null
 
@@ -78,39 +80,30 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_read_origin_var)
 		var/list/listey_raw_result = raw_result
 		ASSERT(islist(listey_raw_result))
 
+		if(!length(listey_raw_result))
+			UTILITYBRAIN_DEBUG_LOG("WARNING: candidate list for [var_key] is empty, returning default [NULL_TO_TEXT(default_val)] @ L[__LINE__] in [__FILE__]")
+			return default_val
+
 		// Check if index is numeric, casting from string if needed
 		var/numidx = (isnum(optional_list_idx) ? optional_list_idx : text2num(optional_list_idx))
 
 		if(isnull(numidx))
-			// Assoc list (string couldn't be converted to num -> it's a alphanumeric string)
+			// Assoc list (string couldn't be converted to num -> it's an alphanumeric string)
 			if(optional_list_idx in listey_raw_result)
 				result = listey_raw_result[optional_list_idx]
 			else
-				UTILITYBRAIN_DEBUG_LOG("WARNING: key [optional_list_idx] not in candidate list [listey_raw_result], returning null @ L[__LINE__] in [__FILE__]")
-				return null
+				UTILITYBRAIN_DEBUG_LOG("WARNING: key [optional_list_idx] not in candidate alist [json_encode(listey_raw_result)], returning default [NULL_TO_TEXT(default_val)] @ L[__LINE__] in [__FILE__]")
+				return default_val
 
 		else
 			// Array list
-			var/nonnegative_numidx = ((numidx <= 0) ? (numidx + listey_raw_result.len) : numidx)
+			var/nonnegative_numidx = ((numidx <= 0) ? (length(listey_raw_result) - numidx) : numidx)
+
 			if(listey_raw_result.len && listey_raw_result.len >= nonnegative_numidx)
 				result = listey_raw_result[nonnegative_numidx]
 			else
-				UTILITYBRAIN_DEBUG_LOG("WARNING: index [optional_list_idx] not in candidate list [listey_raw_result], returning null @ L[__LINE__] in [__FILE__]")
-				return null
-
-	var/should_pop = context_args["list_pop"]
-
-	if(!isnull(should_pop))
-		// if someone passed should_pop, assume raw_result is meant to be an array list
-		var/list/listey_raw_result = raw_result
-		ASSERT(islist(listey_raw_result))
-
-		if(listey_raw_result.len)
-			result = listey_raw_result[listey_raw_result.len]
-			listey_raw_result.len--
-		else
-			UTILITYBRAIN_DEBUG_LOG("WARNING: index [optional_list_idx] not in candidate list [listey_raw_result], returning null @ L[__LINE__] in [__FILE__]")
-			return null
+				UTILITYBRAIN_DEBUG_LOG("WARNING: index [nonnegative_numidx] not in candidate list [json_encode(listey_raw_result)], returning default [NULL_TO_TEXT(default_val)] @ L[__LINE__] in [__FILE__]")
+				return default_val
 
 	UTILITYBRAIN_DEBUG_LOG("Value for var [var_key] in [candidate] is [result] @ L[__LINE__] in [__FILE__]")
 

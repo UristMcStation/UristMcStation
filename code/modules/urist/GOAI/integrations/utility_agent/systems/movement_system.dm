@@ -40,7 +40,7 @@
 
 	var/localdist = MANHATTAN_DISTANCE_TWOD(trgturf, curr_loc, 1000)
 	if(localdist < 1)
-		MOVEMENT_DEBUG_LOG("MovementSystem idle; already at target! | [__FILE__] -> L[__LINE__]")
+		MOVEMENT_DEBUG_LOG("MovementSystem idle; already at target [trgturf] ([json_encode(curr_path)])! | [__FILE__] -> L[__LINE__]")
 		return
 
 	var/success = FALSE
@@ -60,7 +60,7 @@
 	var/require_stairs_in_loc = FALSE
 
 	while(pending_checks --> 0)
-		var/do_path_following = (allow_path_following && src.active_path && !src.active_path.IsDone() && (localdist < 12))
+		var/do_path_following = (allow_path_following && src.active_path && !src.active_path.IsDone())
 
 		if(do_path_following)
 			// Path-following mode:
@@ -74,6 +74,7 @@
 				destination = src.active_path.path[active_path_len]
 			else
 				do_path_following = FALSE
+				MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: disabling path-following: no active_path_len <-")
 				continue
 
 			var/atom/next_step = null
@@ -83,6 +84,7 @@
 				next_step = src.active_path.path[src.active_path.curr_offset]
 			else
 				do_path_following = FALSE
+				MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: disabling path-following: curr_offset > active_path_len <-")
 				continue
 
 			#ifdef ENABLE_GOAI_DEBUG_BEAM_GIZMOS
@@ -99,11 +101,13 @@
 			if(isnull(curr_loc))
 				allow_path_following = FALSE
 				pending_checks++
+				MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: disabling path-following: curr_loc is null <-")
 				continue
 
 			if(next_step.z != curr_loc.z)
 				allow_path_following = FALSE
 				pending_checks++
+				MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: disabling path-following: cross-z step <-")
 				continue
 
 			// Score potential steps for steering purposes
@@ -162,7 +166,7 @@
 
 		if(do_steering)
 			// Path-guided steering:
-			MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: IN STEERING MODE <-")
+			MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: IN STEERING MODE (activepath: [src.active_path]) <-")
 			var/last_is_delta_z = FALSE
 			var/path_len = curr_path.len
 			var/path_idx = path_len
@@ -195,6 +199,7 @@
 					//if(isnull(staircase) || (staircase.dir != get_dir(curr_loc, flattened_pathstep_loc)))
 					if(isnull(currloc_staircase) && require_stairs_in_loc)
 						MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: skipping [pathstep] @ [COORDS_TUPLE(pathstep)] - no staircase found at [curr_loc] @ [COORDS_TUPLE(curr_loc)] <-")
+						ADD_GOAI_TEMP_GIZMO(src, "blueX")
 						continue
 
 				var/near_zcross = FALSE
@@ -205,6 +210,7 @@
 
 				if(pathstep == banturf)
 					MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: skipping [pathstep] @ [COORDS_TUPLE(pathstep)] - banturf <-")
+					ADD_GOAI_TEMP_GIZMO(src, "blueX")
 					continue
 
 				var/cand_dist = MANHATTAN_DISTANCE_THREED(curr_loc, pathstep, null, 1)
@@ -246,13 +252,14 @@
 					break
 
 				MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: rejected candidate [pathstep] @ [COORDS_TUPLE(pathstep)] at dist: [flat_dist]/[cand_dist]... <-")
+				ADD_GOAI_TEMP_GIZMO(src, "redX")
 
 		else
 			// the conditions here are immutable between loops, so we'll set allow to false to save on checks
 			// because of short-circuiting, this will only need to check a single boolean on a re-do
 			allow_steering = FALSE
 
-		var/do_nudging = (src.allow_wandering ? (allow_nudging && isnull(bestcand) && prob(20)) : FALSE)
+		var/do_nudging = (src.allow_wandering ? (allow_nudging && isnull(bestcand) && prob(10)) : FALSE)
 
 		if(do_nudging && trgturf?.z == curr_loc.z)
 			// Goal-guided steering, lowest quality fallback

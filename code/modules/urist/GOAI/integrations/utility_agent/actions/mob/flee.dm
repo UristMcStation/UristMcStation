@@ -50,8 +50,8 @@
 	var/min_dist = 0
 
 	if((!src.active_path || src.active_path.target != threat))
-		src.brain?.SetMemory("ai_target", bestcand)
-		src.brain?.SetMemory("ai_target_mindist", 0, PLUS_INF)
+		src.brain?.SetMemory(MEM_AI_TARGET_MINDIST, 0, PLUS_INF)
+		src.brain?.SetMemory(MEM_AI_TARGET, bestcand, src.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
 
 		var/datum/ActivePathTracker/stored_path = StartNavigateTo(bestcand, min_dist, null)
 

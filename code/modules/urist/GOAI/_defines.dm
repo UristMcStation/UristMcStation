@@ -67,7 +67,7 @@
 #define IS_VALID_NON_NULL(X) (!(isnull(X)) && istype(X))
 #define PUT_EMPTY_LIST_IN(X) if(IS_VALID_NON_NULL(X)) { X.Cut() } else { X = list() }
 
-#define DEFAULT_GOAI_DISTANCE_PROC /proc/fTestObstacleDist
+#define DEFAULT_GOAI_DISTANCE_PROC /proc/fTestObstacleDistManhattan
 
 #define DEBUG_LOG_LIST_ARRAY(L, LOGGER) for(var/_li_ in L) { LOGGER("[_li_]") }
 #define DEBUG_LOG_LIST_ASSOC(L, LOGGER) for(var/_li_ in L) { LOGGER("[_li_]: [L[_li_]]") }

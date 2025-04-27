@@ -202,6 +202,7 @@
 		to_chat(usr, "Target position ([object]) does not exist!")
 		return
 
+	// Annoyingly, the macro-consts are not defined here, so we need to raw dog the strings. Might break.
 	var/datum/memory/created_mem = commander_brain.SetMemory("ai_target", position, PLUS_INF)
 	commander_brain.SetMemory("ai_target_mindist", 1, PLUS_INF)
 

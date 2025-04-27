@@ -35,8 +35,6 @@
 # define MEM_POS_THREATENED "OutInTheOpen"
 # define MEM_THREAT "Threat"
 # define MEM_THREAT_SECONDARY "ThreatSecondary"
-# define MEM_WAYPOINT_IDENTITY "WaypointRef"
-# define MEM_WAYPOINT_LKP "WaypointLKP"
 # define MEM_CURRLOC "MyCurrLocation"
 # define MEM_PREVLOC "MyPrevLocation"
 # define MEM_SAFESPACE "LastSafeSpace"
@@ -46,6 +44,10 @@
 # define MEM_PATH_TO_POS(Pos) "path_to_[Pos]"
 # define MEM_PATH_ACTIVE "ai_active_path" // we can have multiple paths stored, but only one active
 # define MEM_OCCUPIED_TURFS "OccupiedTurfs"
+# define MEM_AI_TARGET "ai_target" // default waypoint to path to in the pathservice; effectively the 'master' pathing target
+# define MEM_AI_TARGET_MINDIST "ai_target_mindist" // what distance to request when pathing to the waypoint
+# define MEM_WAYPOINT_IDENTITY "WaypointRef" // What are we tracking? If our senses detect this has moved, we can update AI_TARGET or similar to match the new pos.
+# define MEM_WAYPOINT_LKP "WaypointLKP" // Where was the tracked thing last seen? We can add random offsets to this to emulate search behavior.
 
 # define MEM_DIRLEAP_BESTPOS "DirectionalCoverleapBestpos"
 # define MEM_CHARGE_BESTPOS "ChargeBestpos"

@@ -86,7 +86,7 @@ CONSIDERATION_CALL_SIGNATURE(/proc/consideration_trade_desirability)
 	if(isnull(desirability))
 		// Either a need went negative, or the proc straight up crashed somewhere.
 		// In both cases, do not pass go, do not collect 200 trades.
-		TRADE_DEBUG_LOG("DEBUG: consideration_trade_desirability for [requester]: Desirability for [commodity] x [raw_volume] @ [cash_value] == null!")
+		TRADE_DEBUG_LOG("DEBUG: consideration_trade_desirability for [requester]: Desirability for [commodity] x [raw_volume] @ [cash_value] is null!")
 		return 0
 
 	return desirability
