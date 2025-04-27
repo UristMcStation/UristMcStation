@@ -102,19 +102,25 @@ PathNode
 
 # endif
 
-/proc/GoaiAStar(var/start, var/end, var/adjacent, var/dist, var/max_nodes, var/max_node_depth = 30, var/min_target_dist = 0, var/min_node_dist, var/list/adj_args = null, var/exclude)
-	/* AStar pathfinding algorithm. For SS13 purposes, this is essentially my (scrdest's) fork of the OG SS13 AStar for merge-compatibility.
-	// Compability with the legacy SS13 AStar is NOT guaranteed nor is it a goal.
+/proc/GoaiAStar(var/start, var/end, var/adjacent, var/dist, var/max_nodes, var/max_node_depth = 30, var/min_target_dist = 0, var/min_node_dist, var/list/adj_args = null, var/list/exclude = null, var/custom_mindist_proc = null)
+	/* AStar pathfinding algorithm.
+	// For SS13 purposes, this is essentially my (scrdest's) fork of the OG SS13 AStar for merge-compatibility.
+	// The version here is the 'functional' one, as opposed to an OOP one in /datum/utility_ai/proc/AiAStar().
+	// These should be 90+% identical, but this one can be used from anywhere and the other has better access to AI state.
 	//
 	// - start: Atom; starting point of the search (auto-resolved to a turf)
 	// - end: Atom; target of the search (auto-resolved to a turf)
-	// - adjacent: PROC! Function-style proc generating turfs adjacent to currently inspected turf.
-	// - dist: PROC! Function-style proc returning a distance metric between turfs.
-	// - max_nodes: Optional<Int>; If >0, bounds the number of stored search nodes to the given value (Beam Search/SMA* flavor of AStar)
-	// - max_node_depth: Optional<Int>; If >0, limits the search depth
-	// - min_target_dist: Optional<Int>; Minimum distance value (as returned by the dist proc earlier) that counts as 'goal reached'. Default: 0.
-	// - adj_args: Optional<assoc>; Args to pass to the adjacent arg's proc, if any.
-	// - exclude: Optional<datum>; Ignored adjacents. Pretty useless tbh. Blame legacy code.
+	// - adjacent: PROC! Func[atom -> list of atom]. Function-style proc generating turfs adjacent to currently inspected turf.
+	// - dist: PROC! Func[(atom, atom) -> num]. Function-style proc returning a distance metric between turfs. In A* terms, this is both (distance + heuristic).
+	// - max_nodes: Optional[Int]; If >0, bounds the number of stored search nodes to the given value (Beam Search/SMA* flavor of AStar)
+	// - max_node_depth: Optional[Num]; If >0, limits the searched nodes to those for whom ND < max_node_depth (where ND := PathLength + min_node_dist(node, goal)).
+	// - min_target_dist: Optional[Int]; Minimum distance value (as returned by the dist proc earlier) that counts as 'goal reached'. Default: 0.
+	// - min_node_dist: PROC! Optional[Func[(atom, atom) -> num]]. If not set, returns zero (so only PathLength counts for max_node_depth).
+	// - adj_args: Optional[assoc]; Args to pass to the adjacent arg's proc, if any.
+	// - exclude: Optional[datum]; Ignored adjacents. Pretty useless tbh. Blame legacy code.
+	// - custom_mindist_proc: PROC! Optional[Func(atom, atom) -> num]. Overrides the distance used for checking if dist <= min_target_dist.
+	//                        The dist proc needs to be a good heuristic. This means it might not behave nice for the purpose of checking min-dist.
+	//                        For example, if you want a Euclid-squared heuristic for efficiency, but the mob should be adjacent to the goal at the end (Chebyshev).
 	*/
 	var/PriorityQueue/open = new DEFAULT_PRIORITY_QUEUE_IMPL(/proc/PathWeightCompare)
 	var/list/closed = list()
@@ -129,8 +135,7 @@ PathNode
 	if(!isnull(min_target_dist) && (initial_dist <= min_target_dist))
 		// We are within min-dist - we're happy enough where we started.
 		// It is literally impossible to get a lower-cost path if no edges are negative.
-		MOVEMENT_DEBUG_LOG("[src]: path from [COORDS_TUPLE_UNSAFE(start)] -> [COORDS_TUPLE_UNSAFE(end)] not needed, within min-dist")
-		return path
+		return list()
 
 	open.Enqueue(new /PathNode(start, null, 0, call(dist)(start, end), 0))
 
@@ -148,12 +153,12 @@ PathNode
 				path[index--] = current.position
 			break
 
-		if(min_node_dist && max_node_depth)
-			if(call(min_node_dist)(current.position, end) + current.nodes_traversed >= max_node_depth)
-				continue
-
 		if(max_node_depth)
-			if(current.nodes_traversed >= max_node_depth)
+			var/current_to_end_min_dist = 0
+			if(min_node_dist)
+				current_to_end_min_dist = call(min_node_dist)(current.position, end)
+
+			if(current_to_end_min_dist + current.nodes_traversed >= max_node_depth)
 				continue
 
 		var/list/true_adj_args = list()

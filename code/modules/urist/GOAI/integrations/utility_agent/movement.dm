@@ -52,6 +52,7 @@
 		if(friends_positions)
 			true_avoid.Add(friends_positions)
 
+		/*
 		var/datum/squad/mysquad = aibrain.GetSquad()
 		var/list/squaddies = mysquad?.members
 
@@ -60,6 +61,7 @@
 				var/turf/squaddie_loc = get_turf(squaddie)
 				if(istype(squaddie_loc))
 					true_avoid.Add(squaddie_loc)
+		*/
 
 	var/true_adjproc = (isnull(adjproc) ? /proc/fCardinalTurfs : adjproc)
 	var/true_distproc = (isnull(distanceproc) ? DEFAULT_GOAI_DISTANCE_PROC : distanceproc)

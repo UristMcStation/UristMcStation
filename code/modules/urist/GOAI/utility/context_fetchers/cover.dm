@@ -53,11 +53,11 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_cover_candidates)
 
 	for(var/atom/candidate_cover in curr_view)
 		// Need to aggressively trim down processed types here or this will take forever in object-dense areas
-		if(!(istype(candidate_cover, /mob) || istype(candidate_cover, /obj/machinery) || istype(candidate_cover, /obj/mecha) || istype(candidate_cover, /obj/structure) || istype(candidate_cover, /obj/vehicle) || istype(candidate_cover, /turf)))
+		if(!(ismob(candidate_cover) || istype(candidate_cover, /obj/machinery) || istype(candidate_cover, /obj/mecha) || istype(candidate_cover, /obj/structure) || istype(candidate_cover, /obj/vehicle) || isturf(candidate_cover)))
 			// need to make it more elegant
 			continue
 
-		var/turf/cover_loc = (istype(candidate_cover, /turf) ? candidate_cover : get_turf(candidate_cover))
+		var/turf/cover_loc = (isturf(candidate_cover) ? candidate_cover : get_turf(candidate_cover))
 
 		if(!istype(cover_loc))
 			continue

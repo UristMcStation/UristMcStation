@@ -92,7 +92,7 @@
 	var/list/smart_paths = null
 	var/list/smart_plans = null
 	var/list/smart_orders = null
-	var/datum/squad/mysquad = null
+	//var/datum/squad/mysquad = null
 
 	var/datum/brain/ai_brain = src.brain
 
@@ -101,7 +101,7 @@
 		smart_paths = ai_brain.GetMemoryValue("AbstractSmartPaths", null)
 		smart_plans = ai_brain.GetMemoryValue("SmartPlans", null)
 		smart_orders = ai_brain.GetMemoryValue("SmartOrders", null)
-		mysquad = ai_brain.GetSquad()
+		//mysquad = ai_brain.GetSquad()
 
 	if(isnull(smartobjects))
 		smartobjects = list()
@@ -133,9 +133,11 @@
 	if(!isnull(pawn))
 		smartobjects.Add(pawn)
 
+	/*
 	// The Squad is one as well!
 	if(istype(mysquad))
 		smartobjects.Add(mysquad)
+	*/
 
 	if(smartobjects)
 		for(var/datum/SO in smartobjects)
@@ -191,6 +193,17 @@
 			template_count++
 			# endif
 
+			// skip templates that are on cooldown or w/e
+			var/action_active = DEFAULT_IF_NULL(action_template.active, FALSE)
+			if(!action_active)
+				continue
+
+			// skip zero-priority templates (usually bad SerDe or disabled because they currently don't work)
+			var/action_priority = DEFAULT_IF_NULL(action_template.priority_class, UTILITY_PRIORITY_BROKEN)
+			if(action_priority <= UTILITY_PRIORITY_BROKEN)
+				continue
+
+			// skip based on LOD checks
 			var/action_minlod = DEFAULT_IF_NULL(action_template.min_lod, GOAI_LOD_LOWEST)
 			if(our_lod < action_minlod)
 				continue
@@ -369,6 +382,8 @@
 		if(src.current_lod > src.max_lod)
 			return
 
+	ADD_DEBUG_LOG_SEPARATOR
+
 	// Should run, probably.
 	if(src.has_begin_hook)
 		src.OnBeginLifeTick() // hook
@@ -429,12 +444,8 @@
 
 				// do instants in one tick
 				if(action?.instant)
-					RUN_ACTION_DEBUG_LOG("Instant ACTION: [action?.name || "NONE"]([action?.arguments && json_encode(action?.arguments)]) | <@[src]>")
 					src.DoAction(src.selected_action)
 					src.selected_action = null
-
-				else
-					RUN_ACTION_DEBUG_LOG("Regular ACTION: [action?.name || "NONE"]([action?.arguments && json_encode(action?.arguments)]) | <@[src]>")
 
 
 		else //no plan & need to make one

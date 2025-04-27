@@ -125,7 +125,6 @@
 	// The logic below is similar, but we need to loop over filepaths.
 
 	var/sense/combatant_commander_eyes/eyes = new()
-	//var/sense/combatant_commander_utility_wayfinder/wayfinder = new()
 	var/sense/combatant_commander_utility_wayfinder_smartobjectey/wayfinder = new()
 
 	/* Register each Sense: */

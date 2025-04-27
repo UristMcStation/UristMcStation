@@ -124,7 +124,7 @@
 
 
 /proc/GoaiLinkBlocked(var/turf/A, var/turf/B)
-	if(A == null || B == null) return TRUE
+	if(isnull(A) || isnull(B)) return TRUE
 	var/adir = get_dir(A,B)
 	var/rdir = get_dir(B,A)
 
@@ -443,15 +443,15 @@
 	return result
 
 
-/proc/fDistance(var/turf/start, var/atom/T)
-	if(!start)
+/proc/fDistance(var/turf/start, var/atom/Trg)
+	if(!istype(start))
 		return
 
-	if(!istype(T))
+	if(!istype(Trg))
 		return
 
-	var/chebyDist = ChebyshevDistance(start, T)
-	var/turf/t = get_turf(T)
+	var/chebyDist = CHEBYSHEV_DISTANCE(start, Trg)
+	var/turf/t = get_turf(Trg)
 
 	if(istype(t))
 		var/deltaX = abs(start.x - t.x)
@@ -488,16 +488,89 @@
 		return chebyDist
 
 
-/proc/fTestObstacleDist(var/atom/start, var/atom/T)
+/proc/fDistanceManhattan(var/turf/start, var/atom/Trg)
+	// This variant uses Manhattan distance's diagonal cost of 2 rather than Euclid-like sqrt(2).
+	// This discourages diagonal moves a bit more.
+	//
+	// NOTE: This will ONLY be called in a diagonal context if the adjacency proc admits diagonals
+	//       (which implicitly says the caller CAN move diagonally at all)
+	//       Otherwise, for cardinal motion this will be broken into two moves with the expected cost of 2.
+	if(!istype(start))
+		return
+
+	if(!istype(Trg))
+		return
+
+	var/chebyDist = CHEBYSHEV_DISTANCE(start, Trg)
+	var/turf/t = get_turf(Trg)
+
+	if(istype(t))
+		var/deltaX = abs(start.x - t.x)
+		var/deltaY = abs(start.y - t.y)
+
+		#ifdef GOAI_MULTIZ_ASTAR
+		var/deltaZ = start.z - t.z
+		#endif
+
+		var/cost = deltaX + deltaY
+
+		if(chebyDist == 1)
+			cost *= (start.pathweight + t.pathweight)/2
+
+		#ifdef GOAI_MULTIZ_ASTAR
+		// For now, assume moving up and down is penalized equally
+		// In the future, down might be slightly preferred.
+		cost += (abs(deltaZ) * ASTAR_ZMOVE_BASE_PENALTY)
+		#endif
+
+		return cost
+
+	else
+		return chebyDist
+
+
+/proc/fTestObstacleDist(var/atom/start, var/atom/Trg)
 	if(!istype(start))
 		return PLUS_INF
 
-	if(!istype(T))
+	if(!istype(Trg))
 		return PLUS_INF
 
-	var/cost = fDistance(start, T)
+	var/cost = fDistance(start, Trg)
 
-	var/turf/t = T
+	var/turf/t = Trg
+
+	if(istype(t))
+		cost += t.pathing_obstacle_penalty
+
+		for(var/atom/movable/AM in t.contents)
+			if(!(AM?.density))
+				continue
+
+			# ifdef GOAI_SS13_SUPPORT
+
+			var/obj/machinery/door/D = AM
+			if(istype(D))
+				continue
+
+			# endif
+
+			// unhandled blocking junk gets a penalty
+			cost += AM.pathing_obstacle_penalty
+
+	return cost
+
+
+/proc/fTestObstacleDistManhattan(var/atom/start, var/atom/Trg)
+	if(!istype(start))
+		return PLUS_INF
+
+	if(!istype(Trg))
+		return PLUS_INF
+
+	var/cost = fDistanceManhattan(start, Trg)
+
+	var/turf/t = Trg
 
 	if(istype(t))
 		cost += t.pathing_obstacle_penalty

@@ -26,21 +26,21 @@
 
 
 /obj/cover
-	pathing_obstacle_penalty = 80
+	pathing_obstacle_penalty = 40
 
 
 /obj/cover/door
-	pathing_obstacle_penalty = 20
+	pathing_obstacle_penalty = 80
 
 
 /obj/cover/autodoor
-	pathing_obstacle_penalty = 20
+	pathing_obstacle_penalty = 80
 
 
 /obj/cover/table
-	pathing_obstacle_penalty = 15
+	pathing_obstacle_penalty = 160
 
 
 /turf/simulated/open
-	pathing_obstacle_penalty = 80
+	pathing_obstacle_penalty = 1600
 

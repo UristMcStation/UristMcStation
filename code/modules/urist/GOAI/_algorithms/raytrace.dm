@@ -69,7 +69,7 @@
 		if(!isnull(blocker))
 			RAYTRACE_DEBUG_LOG("Blocker [blocker] @ ([currX], [currY]) / [absSlope] == [curr_angle]")
 
-			if(istype(blocker, /turf))
+			if(isturf(blocker))
 				// turfs cover the whole tile, no glancing off
 				return blocker
 

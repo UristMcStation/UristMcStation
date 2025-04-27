@@ -111,9 +111,9 @@
 		return
 
 	var/pathing_timeout = DEFAULT_IF_NULL(timeout, 100)
-	var/timedelta = (world.time - tracker.creation_time)
+	var/timeout_timedelta = (world.time - tracker.creation_time)
 
-	if(timedelta > pathing_timeout)
+	if(timeout_timedelta > pathing_timeout)
 		tracker.SetFailed()
 		return
 
@@ -158,7 +158,9 @@
 	var/use_permissive_adjacencies = DEFAULT_IF_NULL(permissive_adjacents, FALSE)
 	var/used_adjproc = use_permissive_adjacencies ? /proc/fCardinalTurfsNoblocksObjpermissive : null
 
-	if((!src.active_path || src.active_path.target != true_position))
+	if((isnull(src.active_path) || src.active_path.target != true_position))
+		RUN_ACTION_DEBUG_LOG("SteerTo: Searching for a new path to [true_position] for [src.name] AI, current is [json_encode(src.active_path?.path)] with target [src.active_path?.target] @ L[__LINE__] in [__FILE__]")
+
 		var/stored_path = StartNavigateTo(
 			true_position,
 			_min_dist,
@@ -171,6 +173,8 @@
 			RUN_ACTION_DEBUG_LOG("FAILED: No path to [true_position] found for [src.name] AI @ L[__LINE__] in [__FILE__]")
 			src.brain?.SetMemory("UnreachableRunMovePath", position, 500)
 			return
+
+		src.active_path = stored_path
 
 	tracker.SetDone()
 

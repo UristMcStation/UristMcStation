@@ -3,6 +3,9 @@
 	// Only run if units are simulated properly and not abstracted
 	min_lod = GOAI_LOD_UNIT_LOW
 
+	// default is the same as for world.view
+	var/viewrange = 6
+
 	// max length of stored enemies
 	var/max_enemies = DEFAULT_MAX_ENEMIES
 
@@ -24,10 +27,38 @@
 
 	var/sense_side_delay_mult = 1
 
+	// Assoc list, MemKey => MemKey.
+	// For things like tracking moving objects
+	var/list/update_pos_into_memory = list(
+		MEM_WAYPOINT_IDENTITY = MEM_AI_TARGET,
+	)
+
+	// Assoc list, MemKey => MemKey.
+	// Similar, but for tracking last-known-positions.
+	// Runs on TARGETS of update_pos_into_memory (i.e. RHS of the mapping)!
+	// It's also a 'symmetric' mapping - if LKP fuzzing is enabled, the RHS will populate the LHS memory key.
+	var/list/update_lkp_into_memory = list(
+		MEM_AI_TARGET = MEM_WAYPOINT_LKP,
+	)
+
 	// =====      Trackercheat      =====
 	// This is a (provisional) name for an optional module that cheats in a bit of clairvoyance.
-	// If enabled, enemies are stored longer
-	var/trackercheat_enabled = FALSE
+	// If enabled (value > 0), will give the AI perfect location to the update_pos_into_memory items
+	//     with a given probability in 0-100 percent (independently per each assoc item).
+	// This should be used sparingly, because it makes the AI superhuman in a potentially cheap-feeling way.
+	// A sane use-case example is using this for friendly mobs that should follow the players.
+	var/trackercheat_perc = 0
+
+	// =====       Last Known Position (LKP) tracking      =====
+	// Activates only if the target has NOT been handled by other means and so we lost them.
+	// In this case, we instead update the update_pos_into_memory values to a random offset from LKP
+	// to emulate searching around for the target.
+	// This relies on the actual perceptions of the AI, so is much fairer than the Trackercheat.
+	// The amount of randomness in LKP offsets - 0 means no randomness (disables the system), 1 means +/- 1 tile, etc.
+	var/lkp_randoffset_scale = 3
+
+	// Minimum (Chebyshev) distance from LKP.
+	var/lkp_min_offset = 1
 
 
 /sense/combatant_commander_eyes/proc/UpdatePerceptions(var/datum/utility_ai/mob_commander/owner)
@@ -43,7 +74,7 @@
 		// We grab the view range from the owned mob, so we need it here
 		return
 
-	var/list/_raw_visual_range = view(pawn)
+	var/list/_raw_visual_range = view(src.viewrange, pawn)
 	var/list/visual_range = list()
 
 	for(var/atom/viewthing in _raw_visual_range)
@@ -55,6 +86,76 @@
 
 	if(visual_range)
 		owner_brain.perceptions[SENSE_SIGHT_CURR] = visual_range
+
+	if(src.update_pos_into_memory)
+		var/_lkp_randoffset_scale = DEFAULT_IF_NULL(src.lkp_randoffset_scale, 0)
+		var/_lkp_min_offset = DEFAULT_IF_NULL(src.lkp_min_offset, 0)
+
+		for(var/src_memkey in src.update_pos_into_memory)
+			var/trg_memkey = src.update_pos_into_memory[src_memkey]
+
+			if(isnull(trg_memkey))
+				continue
+
+			var/lkp_memkey_for_trg = src.update_lkp_into_memory[trg_memkey]
+			var/has_lkp_memkey = (!isnull(lkp_memkey_for_trg)) // helper/cache var, as we use this result a bunch
+
+			var/src_memval = owner_brain.GetMemoryValue(src_memkey)
+
+			if(isnull(src_memval))
+				continue
+
+			if(src_memval in visual_range)
+				var/turf/target_loc = get_turf(src_memval)
+				owner_brain.SetMemory(trg_memkey, target_loc, owner.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
+
+				if(has_lkp_memkey)
+					var/list/lkp_data = TO_GOAI_WAYPOINT_DATA(target_loc)
+					owner_brain.SetMemory(lkp_memkey_for_trg, lkp_data, owner.ai_tick_delay * MEM_AITICK_MULT_MIDTERM)
+
+				continue
+
+			if(src.trackercheat_perc)
+				var/roll_val = rand() * 100
+
+				if(roll_val < src.trackercheat_perc)
+					var/turf/target_loc = get_turf(src_memval)
+					owner_brain.SetMemory(trg_memkey, target_loc, owner.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
+
+					if(has_lkp_memkey)
+						var/list/lkp_data = TO_GOAI_WAYPOINT_DATA(target_loc)
+						owner_brain.SetMemory(lkp_memkey_for_trg, lkp_data, owner.ai_tick_delay * MEM_AITICK_MULT_MIDTERM)
+
+					continue
+
+			if(has_lkp_memkey && _lkp_randoffset_scale >= 0)
+				var/existing_memory = owner_brain.GetMemoryValue(trg_memkey)
+				if(!isnull(existing_memory))
+					// do not overwrite if we have a better source
+					continue
+
+				var/list/lkp = owner_brain.GetMemoryValue(has_lkp_memkey)
+
+				if(istype(lkp))
+					var/lkp_xpos = lkp[KEY_GHOST_X]
+					if(isnull(lkp_xpos)) continue
+
+					var/lkp_ypos = lkp[KEY_GHOST_Y]
+					if(isnull(lkp_ypos)) continue
+
+					var/lkp_zpos = lkp[KEY_GHOST_Z]
+					if(isnull(lkp_zpos)) continue
+
+					var/x_offset = (prob(50) ? -1 : 1) * (_lkp_min_offset + rand(0, _lkp_randoffset_scale))
+					var/y_offset = (prob(50) ? -1 : 1) * (_lkp_min_offset + rand(0, _lkp_randoffset_scale))
+
+					var/new_xpos = clamp(lkp_xpos + x_offset, 1, world.maxx)
+					var/new_ypos = clamp(lkp_ypos + y_offset, 1, world.maxy)
+
+					var/turf/searchloc = locate(new_xpos, new_ypos, lkp_zpos)
+					if(istype(searchloc))
+						// If we got here, we do not have a better memory for a target position
+						owner_brain.SetMemory(trg_memkey, searchloc, owner.ai_tick_delay * MEM_AITICK_MULT_MIDTERM)
 
 	/*
 	// Disabled because it takes a lot of memory for not a lot of obvious benefit
@@ -240,40 +341,6 @@
 	return TRUE
 
 
-/sense/combatant_commander_eyes/proc/SpotWaypoint(var/datum/utility_ai/mob_commander/owner)
-	if(isnull(owner))
-		return
-
-	var/datum/brain/owner_brain = owner?.brain
-	if(isnull(owner_brain))
-		// No point processing this if there's no memories to use
-		return
-
-	var/atom/waypoint = owner.brain.GetMemoryValue(MEM_WAYPOINT_IDENTITY, null, FALSE, TRUE)
-
-	if(isnull(waypoint))
-		return
-
-	if(owner_brain.GetMemory(MEM_WAYPOINT_LKP, FALSE, FALSE))
-		return
-
-	var/list/true_searchspace = owner_brain?.perceptions?.Get(SENSE_SIGHT_CURR)
-	if(!(true_searchspace))
-		return
-
-	if(waypoint in true_searchspace)
-		var/list/waypoint_memory_data = list(
-			KEY_GHOST_X = waypoint.x,
-			KEY_GHOST_Y = waypoint.y,
-			KEY_GHOST_Z = waypoint.z,
-			KEY_GHOST_POS_TUPLE = waypoint.CurrentPositionAsTuple(),
-		)
-		var/dict/waypoint_memory_ghost = new(waypoint_memory_data)
-		owner_brain.SetMemory(MEM_WAYPOINT_LKP, waypoint_memory_ghost, owner.ai_tick_delay*20)
-
-	return TRUE
-
-
 /sense/combatant_commander_eyes/ProcessTick(var/owner)
 	..(owner)
 
@@ -284,7 +351,6 @@
 
 	UpdatePerceptions(owner)
 	AssessThreats(owner)
-	//SpotWaypoint(owner)
 
 	spawn(src.GetOwnerAiTickrate(owner) * src.sense_side_delay_mult)
 		// Sense-side delay to avoid spamming view() scans too much

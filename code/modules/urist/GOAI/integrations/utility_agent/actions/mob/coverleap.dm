@@ -92,16 +92,14 @@
 			processed.Add(get_turf(candidate_cover))
 			continue
 
-		//if(!(istype(candidate_cover, /mob) || istype(candidate_cover, /obj/machinery) || istype(candidate_cover, /obj/mecha) || istype(candidate_cover, /obj/structure) || istype(candidate_cover, /obj/vehicle) || istype(candidate_cover, /turf)))
-		// removed mob
-		if(!(istype(candidate_cover, /obj/machinery) || istype(candidate_cover, /obj/mecha) || istype(candidate_cover, /obj/structure) || istype(candidate_cover, /obj/vehicle) || istype(candidate_cover, /turf)))
+		if(!(istype(candidate_cover, /obj/machinery) || istype(candidate_cover, /obj/mecha) || istype(candidate_cover, /obj/structure) || istype(candidate_cover, /obj/vehicle) || isturf(candidate_cover)))
 			continue
 
 		if(candidate_cover.directional_blocker?.block_all)
 			processed.Add(get_turf(candidate_cover))
 			continue
 
-		var/cand_is_turf = istype(candidate_cover, /turf)
+		var/cand_is_turf = isturf(candidate_cover)
 		var/turf/cand = (cand_is_turf ? candidate_cover : get_turf(candidate_cover))
 
 		if(cand in processed)

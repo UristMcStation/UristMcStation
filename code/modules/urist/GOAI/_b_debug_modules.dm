@@ -2,8 +2,9 @@
 
 
 # ifdef ENABLE_DEBUG_LOG_MACROS
-	# define DEMOGOAP_DEBUG_LOGGING 0
+	# define DEBUG_LOGGING_SEPARATORS 0
 	//# define DEBUG_LOGGING 0
+	# define DEMOGOAP_DEBUG_LOGGING 0
 	// # define RAYTRACE_DEBUG_LOGGING 0
 	// # define ADD_ACTION_DEBUG_LOGGING 0
 	# define COMBAT_AI_DEBUG_LOGGING 0
@@ -12,7 +13,7 @@
 	// # define OBSTACLEHUNT_DEBUG_LOGGING 0
 	// # define VALIDATE_ACTION_DEBUG_LOGGING 0
 	# define ACTION_RUNTIME_DEBUG_LOGGING 0
-	# define ACTIONTRACKER_DEBUG_LOGGING 0
+	//# define ACTIONTRACKER_DEBUG_LOGGING 0
 	//# define PLANNING_DEBUG_LOGGING 0
 	# define MOTIVES_DEBUG_LOGGING 0
 	//# define COVERDATA_DEBUG_LOGGING 0
@@ -42,8 +43,11 @@
 
 #endif
 
-// Undefine to disable drawing debug lines pointing at assorted Stuff
-//# define ENABLE_GOAI_DEBUG_BEAM_GIZMOS 1
+// Undefine to disable drawing icons used to debug pathfinding
+//#define ENABLE_GOAI_DEBUG_GIZMOS 1
+
+// Undefine to disable drawing debug lines pointing at assorted Stuff. Older and more expensive than other gizmos, for Reasons(TM) (allocs/deallocs)
+//#define ENABLE_GOAI_DEBUG_BEAM_GIZMOS 1
 
 #ifndef to_world
 	#define to_world(message) world << (message)
@@ -62,6 +66,15 @@
 # else
 	#define MAYBE_LOG(X)
 	#define MAYBE_LOG_TOSTR(X)
+# endif
+
+// If defined-in, adds a blank line to logs for better readability
+// Note this is per-AI, so interleaved AIs will make things messy!
+// This is mainly intended for testing single AI instances at a time.
+# ifdef DEBUG_LOGGING_SEPARATORS
+	#define ADD_DEBUG_LOG_SEPARATOR to_world_log("")
+# else
+	#define ADD_DEBUG_LOG_SEPARATOR
 # endif
 
 #ifdef ENABLE_GOAI_DEVEL_LOGGING

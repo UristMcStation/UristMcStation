@@ -272,3 +272,34 @@
 	var/atom/pawn = commander.GetPawn(); \
 	return (src in pawn) \
 };
+
+
+// Available if a memory value for a given key is exactly this entity:
+# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_IS_MEMORY(OBJTYPE, MemoryKey) \
+##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { \
+	var/datum/utility_ai/commander = requester; \
+	if(!istype(commander)) { \
+		return FALSE \
+	}; \
+	var/datum/brain/commander_brain = commander.brain; \
+	if(!istype(commander_brain)) { \
+		return FALSE \
+	}; \
+	var/mem = commander_brain.GetMemoryValue(MemoryKey); \
+	return (src == mem) \
+};
+
+// Available if a memory value for a given key CONTAINS this entity (generally, memories storing lists):
+# define GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_INSIDE_MEMORY(OBJTYPE, MemoryKey) \
+##OBJTYPE/HasUtilityActions(var/requester, var/list/args = null) { \
+	var/datum/utility_ai/commander = requester; \
+	if(!istype(commander)) { \
+		return FALSE \
+	}; \
+	var/datum/brain/commander_brain = commander.brain; \
+	if(!istype(commander_brain)) { \
+		return FALSE \
+	}; \
+	var/list/mem = commander_brain.GetMemoryValue(MemoryKey); \
+	return (islist(mem) && (src in mem)) ; \
+};
