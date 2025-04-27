@@ -65,8 +65,8 @@ var/global/list/gizmos = null
 
 // short-circuiting trick to make this easily inlineable; we know it's a non-null atom, so can use the Evil Colon Operator safely
 #define INIT_GOAI_GIZMOS_IF_NEEDED(Force) (build_goai_gizmos(Force))
-#define ADD_GOAI_GIZMO(Trg, GizmoVar) (istype(Trg, /atom) && istype(GizmoVar, /gizmo) && (Trg:vis_contents.Add(GizmoVar) || TRUE))
-#define REMOVE_GOAI_GIZMO(Trg, GizmoVar) istype(Trg, /atom) && istype(GizmoVar, /gizmo) && (Trg:vis_contents.Remove(GizmoVar))
+#define ADD_GOAI_GIZMO(Trg, GizmoVar) (isloc(Trg) && istype(GizmoVar, /gizmo) && (Trg:vis_contents.Add(GizmoVar) || TRUE))
+#define REMOVE_GOAI_GIZMO(Trg, GizmoVar) (isloc(Trg) && istype(GizmoVar, /gizmo) && (Trg:vis_contents.Remove(GizmoVar)))
 #define ADD_GOAI_TEMP_GIZMO_CUSTOMTTL(Trg, GizmoName, Ttl) (add_temp_gizmo(Trg, global.gizmos[##GizmoName], Ttl))
 #define ADD_GOAI_TEMP_GIZMO(Trg, GizmoName) ADD_GOAI_TEMP_GIZMO_CUSTOMTTL(Trg, ##GizmoName, 10)
 
