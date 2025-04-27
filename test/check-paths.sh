@@ -14,9 +14,13 @@ exactly() { # exactly N name search [mode] [filter]
 	num="$(grep "$mode" "$search" $filter | wc -l || true)"
 
 	if [ $num -eq $count ]; then
-		echo "$num $name"
+		echo "[1;32mOK[0m $num $name"
 	else
-		echo "$(tput setaf 9)$num $name (expecting exactly $count)$(tput sgr0)"
+		echo "[1;31mFAIL[0m $num $name (expecting exactly $count)"
+		if [ $1 -lt 30 ]; then
+			echo "entries:"
+			grep "$mode" "$search" $filter
+		fi
 		FAILED=1
 	fi
 }
@@ -34,17 +38,17 @@ exactly 156 "to_world uses" '\sto_world\('
 exactly 0 "globals with leading /" '^/var' -P
 exactly 0 "globals without global sugar" '^var/(?!global/)' -P
 exactly 0 "apparent paths with trailing /" '\w/[,\)\n]' -P
-exactly 96 "to_world_log uses" '\sto_world_log\('
+exactly 95 "to_world_log uses" '\sto_world_log\('
 exactly 2 "world<< uses" 'world<<|world[[:space:]]<<'
 exactly 2 "world.log<< uses" 'world.log<<|world.log[[:space:]]<<'
 exactly 16 "<< uses" '(?<!<)<<(?!<)' -P
 exactly 3 ">> uses" '(?<!>)>>(?!>)' -P
 exactly 0 "incorrect indentations" '^( {4,})' -P
-exactly 37 "text2path uses" 'text2path'
-exactly 3 "update_icon() override" '/update_icon\((.*)\)'  -P
-exactly 5 "goto use" 'goto '
+exactly 36 "text2path uses" 'text2path'
+exactly 5 "update_icon() override" '/update_icon\((.*)\)'  -P
+exactly 4 "goto use" 'goto '
 exactly 1 "NOOP match" 'NOOP'
-exactly 459 "spawn uses" '^\s*spawn\s*\(\s*(-\s*)?\d*\s*\)' -P
+exactly 440 "spawn uses" '^\s*spawn\s*\(\s*(-\s*)?\d*\s*\)' -P
 exactly 0 "tag uses" '\stag = ' -P '**/*.dmm'
 exactly 0 "anchored = 0/1" 'anchored\s*=\s*\d' -P
 exactly 2 "density = 0/1" 'density\s*=\s*\d' -P
