@@ -36,7 +36,7 @@
 	return
 
 
-/obj/spawner/oneshot/create_ladders
+/obj/goai_spawner/oneshot/create_ladders
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "ladder11"
 
@@ -49,7 +49,7 @@
 	var/upper_position_y = null
 
 
-/obj/spawner/oneshot/create_ladders/CallScript()
+/obj/goai_spawner/oneshot/create_ladders/CallScript()
 	if(!active)
 		return
 
@@ -123,7 +123,7 @@
 	return
 
 
-/obj/spawner/oneshot/create_stairs
+/obj/goai_spawner/oneshot/create_stairs
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "rampbottom"
 
@@ -136,7 +136,7 @@
 	var/up = TRUE
 
 
-/obj/spawner/oneshot/create_stairs/CallScript()
+/obj/goai_spawner/oneshot/create_stairs/CallScript()
 	if(!active)
 		return
 
