@@ -2,19 +2,19 @@
 #define MANHATTAN_DISTANCE_NUMERIC_THREED(Ax, Ay, Az, Bx, By, Bz, ZMULT) ( abs(Ax - Bx) + abs(Ay - By) + (abs(Az - Bz) * ZMULT) )
 #define MANHATTAN_DISTANCE_NUMERIC_TWOD(Ax, Ay, Bx, By) ( abs(Ax - Bx) + abs(Ay - By) )
 
-#define MANHATTAN_DISTANCE_TWOD(from_atom, to_atom, DEFAULT) ( (!istype(from_atom, /atom) || !istype(to_atom, /atom) || (from_atom.z != to_atom.z) ) ? DEFAULT : MANHATTAN_DISTANCE_NUMERIC_TWOD(from_atom.x, from_atom.y, to_atom.x, to_atom.y) )
-#define MANHATTAN_DISTANCE_THREED(from_atom, to_atom, DEFAULT, ZMULT) ( (!istype(from_atom, /atom) || !istype(to_atom, /atom)) ? DEFAULT : MANHATTAN_DISTANCE_NUMERIC_THREED(from_atom.x, from_atom.y, from_atom.z, to_atom.x, to_atom.y, to_atom.z, ZMULT) )
+#define MANHATTAN_DISTANCE_TWOD(from_atom, to_atom, DEFAULT) ( (!isloc(from_atom) || !isloc(to_atom) || (from_atom.z != to_atom.z) ) ? DEFAULT : MANHATTAN_DISTANCE_NUMERIC_TWOD(from_atom.x, from_atom.y, to_atom.x, to_atom.y) )
+#define MANHATTAN_DISTANCE_THREED(from_atom, to_atom, DEFAULT, ZMULT) (( !isloc(from_atom) || !isloc(to_atom) ) ? DEFAULT : MANHATTAN_DISTANCE_NUMERIC_THREED(from_atom.x, from_atom.y, from_atom.z, to_atom.x, to_atom.y, to_atom.z, ZMULT) )
 
 #define CHEBYSHEV_DISTANCE_NUMERIC_TWOD(Ax, Ay, Bx, By) (max( abs(Ax - Bx), abs(Ay - By) ))
 
-#define CHEBYSHEV_DISTANCE_TWOD(from_atom, to_atom, DEFAULT) ( (!istype(from_atom, /atom) || !istype(to_atom, /atom) || (from_atom.z != to_atom.z) ) ? DEFAULT : CHEBYSHEV_DISTANCE_NUMERIC_TWOD(from_atom.x, from_atom.y, to_atom.x, to_atom.y) )
-#define CHEBYSHEV_DISTANCE_THREED(from_atom, to_atom, DEFAULT, ZMULT) ( (!istype(from_atom, /atom) || !istype(to_atom, /atom) ) ? DEFAULT : CHEBYSHEV_DISTANCE_NUMERIC_TWOD(from_atom.x, from_atom.y, to_atom.x, to_atom.y) + (ZMULT * abs(to_atom.z - from_atom.z)) )
+#define CHEBYSHEV_DISTANCE_TWOD(from_atom, to_atom, DEFAULT) ( ( !isloc(from_atom) || !isloc(to_atom) || (from_atom.z != to_atom.z) ) ? DEFAULT : CHEBYSHEV_DISTANCE_NUMERIC_TWOD(from_atom.x, from_atom.y, to_atom.x, to_atom.y) )
+#define CHEBYSHEV_DISTANCE_THREED(from_atom, to_atom, DEFAULT, ZMULT) ( ( !isloc(from_atom) || !isloc(to_atom) ) ? DEFAULT : CHEBYSHEV_DISTANCE_NUMERIC_TWOD(from_atom.x, from_atom.y, to_atom.x, to_atom.y) + (ZMULT * abs(to_atom.z - from_atom.z)) )
 
 #define EUCLIDSQ_DISTANCE_NUMERIC_THREED(Ax, Ay, Az, Bx, By, Bz, ZMULT) ( ((Ax - Bx) ** 2) + ((Ay - By) ** 2) + (abs(Az - Bz) * ZMULT) )
 #define EUCLIDSQ_DISTANCE_NUMERIC_TWOD(Ax, Ay, Bx, By)  ( ((Ax - Bx) ** 2) + ((Ay - By) ** 2) )
 
-#define EUCLIDSQ_DISTANCE_TWOD(from_atom, to_atom, DEFAULT) ( (!istype(from_atom, /atom) || !istype(to_atom, /atom) || (from_atom.z != to_atom.z) ) ? DEFAULT : EUCLIDSQ_DISTANCE_NUMERIC_TWOD(from_atom.x, from_atom.y, to_atom.x, to_atom.y) )
-#define EUCLIDSQ_DISTANCE_THREED(from_atom, to_atom, DEFAULT, ZMULT) ( (!istype(from_atom, /atom) || !istype(to_atom, /atom) ) ? DEFAULT : EUCLIDSQ_DISTANCE_NUMERIC_TWOD(from_atom.x, from_atom.y, to_atom.x, to_atom.y) + (ZMULT * abs(to_atom.z - from_atom.z)) )
+#define EUCLIDSQ_DISTANCE_TWOD(from_atom, to_atom, DEFAULT) ( ( !isloc(from_atom) || !isloc(to_atom) || (from_atom.z != to_atom.z) ) ? DEFAULT : EUCLIDSQ_DISTANCE_NUMERIC_TWOD(from_atom.x, from_atom.y, to_atom.x, to_atom.y) )
+#define EUCLIDSQ_DISTANCE_THREED(from_atom, to_atom, DEFAULT, ZMULT) ( !isloc(from_atom) || !isloc(to_atom) ) ? DEFAULT : EUCLIDSQ_DISTANCE_NUMERIC_TWOD(from_atom.x, from_atom.y, to_atom.x, to_atom.y) + (ZMULT * abs(to_atom.z - from_atom.z)) )
 
 
 // aliasing - so there's a nice generic, swappable macro to use for common cases
