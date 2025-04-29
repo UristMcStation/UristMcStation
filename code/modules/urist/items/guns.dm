@@ -123,8 +123,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "knight45"
 	item_icons = URIST_ALL_ONMOBS
 	wielded_item_state = "knight45"
-	fire_sound = 'sound/urist/suppshot.ogg'
-	w_class = 2
+	w_class = ITEM_SIZE_NORMAL
 	max_shells = 7
 	slot_flags = SLOT_BELT | SLOT_POCKET | SLOT_HOLSTER
 	load_method = MAGAZINE
@@ -132,6 +131,11 @@ the sprite and make my own projectile -Glloyd*/
 	ammo_type = /obj/item/ammo_casing/pistol
 	magazine_type = /obj/item/ammo_magazine/pistol
 	allowed_magazines = /obj/item/ammo_magazine/pistol
+	auto_eject_sound = 'sound/urist/guns/casing_quiet.ogg'
+	mag_insert_sound = 'sound/urist/guns/pistol_magin_quiet.ogg'
+	mag_remove_sound = 'sound/urist/guns/pistol_magout_quiet.ogg'
+	fire_sound = 'sound/urist/suppshot.ogg'
+	silenced = TRUE
 	auto_eject = 1
 
 /obj/item/gun/projectile/silenced/knight/on_update_icon()
