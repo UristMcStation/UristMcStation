@@ -169,6 +169,8 @@
 	var/atom/movable/movPawn = pawn
 	if(istype(movPawn))
 		movPawn.do_attack_animation(target)
+
+	return TRUE
 	# endif
 
 	# ifdef GOAI_SS13_SUPPORT

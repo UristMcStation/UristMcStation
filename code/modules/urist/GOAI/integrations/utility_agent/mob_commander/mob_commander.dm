@@ -65,21 +65,31 @@
 
 	var/datum/relationships/relations = ..()
 
-	if(isnull(relations) || !istype(relations))
+	if(!istype(relations))
 		relations = new()
 
-	// Same faction should not be attacked by default, same as vanilla
 	var/mob/L = pawn
 	if(istype(L))
 		var/my_faction = L.faction
 
 		if(my_faction)
 			var/list/our_db_values = (GOAI_LIBBED_GLOB_ATTR(relationships_db))?[my_faction]
+
+			// Same faction should not be attacked by default, same as vanilla
+			// This CAN be overridden if the relationship DB specifies that (A->A) has a different value, e.g. -10
+			// though this will be a bit strange to people used to oldschool SS13 factions
+			var/self_value = our_db_values?[my_faction]
+			var/self_relation_val = DEFAULT_IF_NULL(self_value, RELATIONS_DEFAULT_SELF_FACTION_RELATION_VAL) // defaults fairly positive
+			var/datum/relation_data/my_faction_rel = new(self_relation_val, RELATIONS_DEFAULT_SELF_FACTION_RELATION_WEIGHT)
+			relations.Insert(my_faction, my_faction_rel)
+
 			for(var/faction_key in our_db_values)
+				// Add all rels to other factions defined for our faction in the relationship DB
 				var/db_value = our_db_values[faction_key]
-				var/new_relation_val = DEFAULT_IF_NULL(db_value, RELATIONS_DEFAULT_SELF_FACTION_RELATION_VAL) // slightly positive
-				var/datum/relation_data/my_faction_rel = new(new_relation_val, RELATIONS_DEFAULT_SELF_FACTION_RELATION_WEIGHT)
-				relations.Insert(faction_key, my_faction_rel)
+				if(!isnull(db_value))
+					var/datum/relation_data/other_faction_rel = new(db_value, RELATIONS_DEFAULT_RELATIONSHIP_WEIGHT)
+					to_world_log("Inserting a new relation for [src] ([pawn]) -> [faction_key] w/ value [db_value]")
+					relations.Insert(faction_key, other_faction_rel)
 
 	# ifdef GOAI_SS13_SUPPORT
 

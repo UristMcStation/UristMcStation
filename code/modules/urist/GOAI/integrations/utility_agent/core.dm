@@ -70,7 +70,7 @@
 		return
 
 	var/datum/relationships/relations = src.brain.relations
-	if(isnull(relations) || !istype(relations))
+	if(!istype(relations))
 		relations = new()
 
 	src.brain.relations = relations

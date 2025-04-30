@@ -13,6 +13,7 @@
 #define REMOVE_GOAI_GIZMO(Trg, GizmoVar)
 #define ADD_GOAI_TEMP_GIZMO_CUSTOMTTL(Trg, GizmoName, Ttl)
 #define ADD_GOAI_TEMP_GIZMO(Trg, GizmoName)
+#define ADD_GOAI_TEMP_GIZMO_SAFEINIT(Trg, GizmoName)
 
 #endif
 
@@ -43,24 +44,36 @@ var/global/list/gizmos = null
 	global.gizmos["yellow"] = new /gizmo(icon_name="dot_yellow")
 	global.gizmos["green"] = new /gizmo(icon_name="dot_green")
 	global.gizmos["grey"] = new /gizmo(icon_name="dot_grey")
+
 	// TL-corner dots
 	global.gizmos["yellowTL"] = new /gizmo(icon_name="dot_tl_yellow")
 	global.gizmos["greyTL"] = new /gizmo(icon_name="dot_tl_grey")
+
 	// Centered dots
 	global.gizmos["blueC"] = new /gizmo(icon_name="dot_centered_blue")
 	global.gizmos["redC"] = new /gizmo(icon_name="dot_centered_red")
 	global.gizmos["greenC"] = new /gizmo(icon_name="dot_centered_green")
 	global.gizmos["greyC"] = new /gizmo(icon_name="dot_centered_grey")
+
 	// Outlines (around tile)
 	global.gizmos["redO"] = new /gizmo(icon_name="outline_red")
 	global.gizmos["greenO"] = new /gizmo(icon_name="outline_green")
 	global.gizmos["blueO"] = new /gizmo(icon_name="outline_blue")
 	global.gizmos["greyO"] = new /gizmo(icon_name="outline_grey")
+
 	// Centered X-shape
 	global.gizmos["redX"] = new /gizmo(icon_name="x_centered_red")
 	global.gizmos["greenX"] = new /gizmo(icon_name="x_centered_green")
 	global.gizmos["blueX"] = new /gizmo(icon_name="x_centered_blue")
 	global.gizmos["greyX"] = new /gizmo(icon_name="x_centered_grey")
+
+	// Bottom-aligned eye icon
+	global.gizmos["greenE"] = new /gizmo(icon_name="eye_green")
+	global.gizmos["blueE"] = new /gizmo(icon_name="eye_blue")
+	global.gizmos["redE"] = new /gizmo(icon_name="eye_red")
+	global.gizmos["greyE"] = new /gizmo(icon_name="eye_grey")
+	global.gizmos["yellowE"] = new /gizmo(icon_name="eye_yellow")
+
 	return TRUE
 
 // short-circuiting trick to make this easily inlineable; we know it's a non-null atom, so can use the Evil Colon Operator safely
@@ -69,6 +82,7 @@ var/global/list/gizmos = null
 #define REMOVE_GOAI_GIZMO(Trg, GizmoVar) (isloc(Trg) && istype(GizmoVar, /gizmo) && (Trg:vis_contents.Remove(GizmoVar)))
 #define ADD_GOAI_TEMP_GIZMO_CUSTOMTTL(Trg, GizmoName, Ttl) (add_temp_gizmo(Trg, global.gizmos[##GizmoName], Ttl))
 #define ADD_GOAI_TEMP_GIZMO(Trg, GizmoName) ADD_GOAI_TEMP_GIZMO_CUSTOMTTL(Trg, ##GizmoName, 10)
+#define ADD_GOAI_TEMP_GIZMO_SAFEINIT(Trg, GizmoName) INIT_GOAI_GIZMOS_IF_NEEDED(FALSE); ADD_GOAI_TEMP_GIZMO_CUSTOMTTL(Trg, ##GizmoName, 10)
 
 /proc/add_temp_gizmo(var/atom/target, var/gizmo/gizmo = null, var/ttl = 10)
 	set waitfor = FALSE

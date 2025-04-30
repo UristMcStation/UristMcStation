@@ -1,5 +1,5 @@
 
-/proc/Raytrace(var/atom/From, var/atom/To, var/CheckBlock = null, var/list/ignore = null, var/raytype = null, var/dispersion = null, var/check_glancing_angles = TRUE)
+/proc/Raytrace(var/atom/From, var/atom/To, var/CheckBlock = null, var/list/ignore = null, var/raytype = null, var/dispersion = null, var/check_glancing_angles = TRUE, var/maxdist = null)
 	// Heavily based on: https://web.archive.org/web/20230119153820/https://playtechs.blogspot.com/2007/03/raytracing-on-grid.html
 	//
 	// Follows a straight line between two atoms, then walks every tile intersected by the line.
@@ -60,8 +60,15 @@
 	var/maxX = world.maxx
 	var/maxY = world.maxy
 
+	// We periodically sleep() this to avoid hanging up the code.
+	// The batchsize determines how often that happens, the counter
+	var/sleepiness_batchsize = 5
+	var/sleepiness_counter = 0
+
 	while(currX > 1 && currX < maxX && currY > 1 && currY < maxY)
-		sleep(-1)
+		if(!(++sleepiness_counter % sleepiness_batchsize))
+			sleepiness_counter = 0
+			sleep(-1)
 
 		if(!isnull(CheckBlock))
 			blocker = call(CheckBlock)(currX, currY, From.z, curr_angle, ignore, raytype, To)
@@ -129,6 +136,11 @@
 			else
 				return blocker
 
+		if(!isnull(maxdist))
+			var/curr_dist = CHEBYSHEV_DISTANCE_NUMERIC_TWOD(startX, startY, currX, currY)
+			if(curr_dist > maxdist)
+				break
+
 		if(error > 0)
 			currX += stepX
 			error -= dYabs
@@ -163,8 +175,11 @@
 	var/turf/blockturf = locate(baseX, baseY, z)
 
 	if(blockturf && istype(blockturf))
-		if(has_ignored && !(blockturf in ignored) && blockturf.density > 0)
+		if( blockturf.density && (!has_ignored || (has_ignored && !(blockturf in ignored))) )
 			return blockturf
+
+	if(istype(target) && ((target == blockturf) || (target in blockturf)))
+		return target
 
 	return null
 
@@ -191,11 +206,11 @@
 		if((_raytype & RAYFLAG_TURFBLOCK) && blockturf.density)
 			// Optimization: only check membership if we NEED to potentially ignore it
 			// Non-dense items are ignored regardless!
-			if(has_ignored && !(blockturf in ignored))
+			if(!has_ignored || (has_ignored && !(blockturf in ignored)))
 				return blockturf
 
 		for(var/atom/movable/A in blockturf)
-			if(!isnull(target) && A == target)
+			if(istype(target) && A == target)
 				return A
 
 			// Optimization: only check membership if we NEED to potentially ignore it
@@ -239,15 +254,19 @@
 
 	var/has_ignored = (istype(ignored) && ignored.len)
 
+	var/check_turfs = _raytype & RAYFLAG_TURFBLOCK
 	var/check_opaque = _raytype & RAYFLAG_OPAQUEBLOCK
 	var/check_transparent = _raytype & RAYFLAG_TRANSPARENTBLOCK
 	var/check_dense_objects = (check_opaque || check_transparent)
+	RAYTRACE_DEBUG_LOG("RAYTRACE: raytype is [raytype] (TRF: [check_turfs]|OPQ: [check_opaque]|TRA: [check_transparent]|DOB: [check_dense_objects]")
 
 	if(istype(blockturf))
-		if((_raytype & RAYFLAG_TURFBLOCK) && blockturf.density)
+		RAYTRACE_DEBUG_LOG("RAYTRACE: blockturf is [blockturf] at [COORDS_TUPLE_3D(blockturf)]")
+
+		if(check_turfs && blockturf.density)
 			// Optimization: only check membership if we NEED to potentially ignore it
 			// Non-dense items are ignored regardless!
-			if(has_ignored && !(blockturf in ignored))
+			if(!has_ignored || (has_ignored && !(blockturf in ignored)))
 				RAYTRACE_DEBUG_LOG("RAYTRACE: Returning dense turf blocker [blockturf]")
 				return blockturf
 
@@ -290,16 +309,16 @@
 	return null
 
 
-/proc/TurfDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null, var/check_glancing_angles = TRUE)
+/proc/TurfDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null, var/check_glancing_angles = TRUE, var/maxdist = null)
 	// Effectively a partial function on Raytrace, for convenience usage
-	return Raytrace(From, To, /proc/basicBlockCheck, ignored, dispersion, check_glancing_angles)
+	return Raytrace(From, To, /proc/basicBlockCheck, ignored, raytype, dispersion, check_glancing_angles, maxdist)
 
 
-/proc/AtomDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null, var/check_glancing_angles = TRUE)
+/proc/AtomDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null, var/check_glancing_angles = TRUE, var/maxdist = null)
 	// Effectively a partial function on Raytrace, for convenience usage
-	return Raytrace(From, To, /proc/denseCheck, ignored, raytype, dispersion, check_glancing_angles)
+	return Raytrace(From, To, /proc/denseCheck, ignored, raytype, dispersion, check_glancing_angles, maxdist)
 
 
-/proc/AtomDensityRaytraceLogged(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null, var/check_glancing_angles = TRUE)
+/proc/AtomDensityRaytraceLogged(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null, var/check_glancing_angles = TRUE, var/maxdist = null)
 	// Effectively a partial function on Raytrace, for convenience usage
-	return Raytrace(From, To, /proc/denseCheckLogged, ignored, raytype, dispersion, check_glancing_angles)
+	return Raytrace(From, To, /proc/denseCheckLogged, ignored, raytype, dispersion, check_glancing_angles, maxdist)

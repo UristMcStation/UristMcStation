@@ -62,7 +62,7 @@ GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_ALWAYS(/datum/path_smartobject)
 	// Only run if units are simulated properly and not abstracted
 	min_lod = GOAI_LOD_UNIT_LOW
 
-	var/target_source_memory = "fresh_ai_target_location"
+	var/target_source_memory = MEM_AI_TARGET
 	var/target_output_memory = MEM_PATH_ACTIVE
 
 	var/target_pos_fuzz_x = 0
@@ -139,7 +139,7 @@ GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_ALWAYS(/datum/path_smartobject)
 	path = owner.AiAStar(
 		start = get_turf(pawn),
 		end = target,
-		adjacent = /proc/fCardinalTurfsNoblocksObjpermissive,
+		adjacent = /proc/fCardinalTurfsNoblocks,
 		dist = DEFAULT_GOAI_DISTANCE_PROC,
 		max_nodes = 0,
 		max_node_depth = _max_node_depth,
@@ -148,6 +148,20 @@ GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_ALWAYS(/datum/path_smartobject)
 		adj_args = null,
 		exclude = null
 	)
+
+	if(isnull(path))
+		path = owner.AiAStar(
+			start = get_turf(pawn),
+			end = target,
+			adjacent = /proc/fCardinalTurfsNoblocksObjpermissive,
+			dist = DEFAULT_GOAI_DISTANCE_PROC,
+			max_nodes = 0,
+			max_node_depth = _max_node_depth,
+			min_target_dist = _min_target_dist,
+			min_node_dist = null,
+			adj_args = null,
+			exclude = null
+		)
 
 	if(isnull(path))
 		RUN_ACTION_DEBUG_LOG("Path is null | <@[src]> | [__FILE__] -> L[__LINE__]")
