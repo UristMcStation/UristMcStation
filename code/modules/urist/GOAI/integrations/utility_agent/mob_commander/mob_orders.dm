@@ -21,6 +21,8 @@
 
 	M.brain.SetMemory(MEM_AI_TARGET, trgturf, M.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
 	M.brain.SetMemory(MEM_AI_TARGET_MINDIST, 2, PLUS_INF)
+	M.brain.SetMemory(MEM_WAYPOINT_LKP, TO_GOAI_WAYPOINT_DATA(trgturf), PLUS_INF)
+	M.brain.SetMemory(MEM_WAYPOINT_IDENTITY, Trg, PLUS_INF)
 
 	var/atom/waypoint = created_mem?.val
 
@@ -41,6 +43,7 @@
 
 		M.brain.SetMemory(MEM_AI_TARGET, trgturf, M.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
 		M.brain.SetMemory(MEM_AI_TARGET_MINDIST, 1, PLUS_INF)
+		M.brain.SetMemory(MEM_WAYPOINT_LKP, TO_GOAI_WAYPOINT_DATA(trgturf), PLUS_INF)
 		M.brain.SetMemory(MEM_WAYPOINT_IDENTITY, Trg, PLUS_INF)
 
 	return
@@ -80,6 +83,7 @@
 
 	var/datum/memory/created_mem = M.brain.SetMemory(MEM_AI_TARGET, position, PLUS_INF)
 	M.brain.SetMemory(MEM_AI_TARGET_MINDIST, 1, PLUS_INF)
+	M.brain.SetMemory(MEM_WAYPOINT_LKP, TO_GOAI_WAYPOINT_DATA(position), PLUS_INF)
 	M.brain.SetMemory(MEM_WAYPOINT_IDENTITY, position, PLUS_INF)
 
 	var/atom/waypoint = created_mem?.val
@@ -107,6 +111,7 @@
 	var/datum/memory/created_mem = M.brain.SetMemory(MEM_WAYPOINT_IDENTITY, position, PLUS_INF)
 	M.brain.SetMemory(MEM_AI_TARGET_MINDIST, 1, PLUS_INF)
 	M.brain.SetMemory(MEM_AI_TARGET, position, M.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
+	M.brain.SetMemory(MEM_WAYPOINT_LKP, TO_GOAI_WAYPOINT_DATA(position), PLUS_INF)
 
 	var/atom/waypoint = created_mem?.val
 
@@ -125,7 +130,8 @@
 	M.brain.DropMemory("FollowTarget")
 	M.brain.DropMemory(MEM_AI_TARGET)
 	M.brain.DropMemory(MEM_AI_TARGET_MINDIST)
-	M.brain.DropMemory("fresh_ai_target_location")
+	M.brain.DropMemory(MEM_WAYPOINT_LKP)
+	M.brain.DropMemory(MEM_WAYPOINT_IDENTITY)
 
 	//to_chat(usr, (waypoint ? "[M] tracking [waypoint]" : "[M] no longer tracking waypoints"))
 

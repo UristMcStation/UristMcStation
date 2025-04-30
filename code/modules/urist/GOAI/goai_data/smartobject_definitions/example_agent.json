@@ -326,6 +326,101 @@
 			]
 		},
 		{
+			"name": "ChargePunch", 
+			"description": "Rush in for a punch", 
+			"handler": "/datum/utility_ai/mob_commander/proc/ChargeInPunch", 
+			"priority": 8,
+			"context_procs": ["/proc/ctxfetcher_get_memory_value_array"], 
+			"context_args": [
+				{
+					"input_key": "Enemies",
+					"output_context_key": "threat"
+				}
+			],
+			"considerations": [
+				{
+					"name": "IsFoe-ChargePunch",
+					"lo_mark": 0, 
+					"hi_mark": 0.01, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_relationship_score", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antilinear"
+				},
+				{
+					"name": "FoeHatred-ChargePunch",
+					"lo_mark": -100, 
+					"hi_mark": 100, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_relationship_score", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antilinear"
+				},
+				{
+					"name": "MeleeAffinityThresh-ChargePunch",
+					"lo_mark": -0.5, 
+					"hi_mark": 0.5, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_get_personality_trait", 
+					"input_args": {
+						"input_key": "MeleeAffinity",
+						"default": 0
+					},
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "MeleeAffinityVal-ChargePunch",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_get_personality_trait", 
+					"input_args": {
+						"input_key": "MeleeAffinity",
+						"default": 0
+					},
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "ClDistanceToThreat-ChargePunchMin",
+					"lo_mark": 0, 
+					"hi_mark": 2, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_chebyshev_distance_to_requester", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_binary"
+				},
+				{
+					"name": "ClDistanceToThreat-Punch",
+					"lo_mark": 2, 
+					"hi_mark": 10, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_chebyshev_distance_to_requester", 
+					"input_args": {
+						"input_key": "threat",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antisquare"
+				},
+				{
+					"name": "ThreatRNG-Punch",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_fuzz_uniform", 
+					"curve_proc": "/proc/curve_linear"
+				}
+			]
+		},
+		{
 			"name": "Grenade", 
 			"description": "Throws an (entirely fake) grenade", 
 			"handler": "/datum/utility_ai/mob_commander/proc/FakeGrenadeThrow", 

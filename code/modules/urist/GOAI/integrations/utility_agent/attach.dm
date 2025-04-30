@@ -31,6 +31,7 @@
 		new_commander.brain.name = "Brain of [new_commander.name]"
 
 	new_commander.UpdateBrain()
+	new_commander.InitRelations()
 
 	# ifdef GOAI_SS13_SUPPORT
 	# ifdef GOAI_DELETE_SS13_AI

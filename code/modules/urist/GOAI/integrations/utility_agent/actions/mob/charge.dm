@@ -22,7 +22,7 @@
 		tracker.SetFailed()
 		return
 
-	var/_timeout = DEFAULT_IF_NULL(timeout, 50)
+	var/_timeout = DEFAULT_IF_NULL(timeout, 100)
 	var/timedelta = (world.time - tracker.creation_time)
 
 	if(timedelta > _timeout)
@@ -36,17 +36,27 @@
 		//src.WalkPawnTowards(threat, FALSE)
 
 		if(tracker.failed_ticks >= pathing_fails_to_abort)
-			RUN_ACTION_DEBUG_LOG("Failed to find a path from [pawn] to target [threat] | <@[src]> | [__FILE__] -> L[__LINE__]")
+			RUN_ACTION_DEBUG_LOG("Failed to find a path from [pawn] ([LOCATION_WITH_COORDS(pawn)] to target [threat] ([LOCATION_WITH_COORDS(threat)] | <@[src]> | [__FILE__] -> L[__LINE__]")
 			tracker.SetFailed()
 			return
 
 		if(!src.active_path || src.active_path.target != threat)
+			ADD_GOAI_TEMP_GIZMO_SAFEINIT(get_turf(threat), "redO")
+
+			src.brain.SetMemory(MEM_AI_TARGET, threat)
+			src.brain.SetMemory(MEM_AI_TARGET_MINDIST, 1)
+			src.brain.SetMemory(MEM_WAYPOINT_IDENTITY, threat)
+			tracker.BBSet("walk_initiated", TRUE)
+
+			/*
 			var/new_path = StartNavigateTo(threat, 1, adjproc = /proc/fCardinalTurfsNoblocksObjpermissive)
+
 			if(isnull(new_path))
 				tracker.failed_ticks++
 			else
 				tracker.failed_ticks = 0
 				tracker.BBSet("walk_initiated", TRUE)
+			*/
 
 		return
 
@@ -57,17 +67,21 @@
 				tracker.SetFailed()
 				return
 
+			#ifdef GOAI_SS13_SUPPORT
+			/*
+			// commented out due to weird runtimes
 			var/mob/living/L = pawn
 			if(istype(L))
 				L.swap_hand()
+			*/
+			#endif
 
 		var/result = src.Melee(threat)
 
 		if(result)
 			tracker.failed_ticks = 0
+			tracker.SetDone()
 		else
 			tracker.failed_ticks++
-
-	tracker.SetDone()
 
 	return

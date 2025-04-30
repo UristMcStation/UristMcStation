@@ -25,7 +25,7 @@
 	// filter out dead mobs
 	var/ignore_dead = TRUE
 
-	var/sense_side_delay_mult = 1
+	var/sense_side_delay_mult = 5
 
 	// Assoc list, MemKey => MemKey.
 	// For things like tracking moving objects
@@ -40,6 +40,9 @@
 	var/list/update_lkp_into_memory = list(
 		MEM_AI_TARGET = MEM_WAYPOINT_LKP,
 	)
+
+	var/raytrace_to_target_enabled = TRUE
+	var/raytrace_maxdist_limit = null
 
 	// =====      Trackercheat      =====
 	// This is a (provisional) name for an optional module that cheats in a bit of clairvoyance.
@@ -110,10 +113,31 @@
 				owner_brain.SetMemory(trg_memkey, target_loc, owner.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
 
 				if(has_lkp_memkey)
+					ADD_GOAI_TEMP_GIZMO_SAFEINIT(target_loc, "blueE")
 					var/list/lkp_data = TO_GOAI_WAYPOINT_DATA(target_loc)
 					owner_brain.SetMemory(lkp_memkey_for_trg, lkp_data, owner.ai_tick_delay * MEM_AITICK_MULT_MIDTERM)
 
 				continue
+
+			if(src.raytrace_to_target_enabled)
+				// If we have a straight LOS to target, then we can treat them as visible.
+				// Perhaps deceptively, a single raytrace is cheaper than widening the view() range.
+				// We still need view() for things in proximity (pickups etc.) anyway though.
+				var/_raytrace_maxdist_limit = DEFAULT_IF_NULL(src.raytrace_maxdist_limit, world.view)
+				var/ray_maxdist = min(_raytrace_maxdist_limit, get_dist(pawn, src_memval))
+				var/atom/rayhit = TurfDensityRaytrace(pawn, src_memval, null, RAYTYPE_LOS, null, TRUE, ray_maxdist)
+				var/turf/target_loc = get_turf(src_memval)
+
+				if(istype(rayhit) && get_dist(rayhit, target_loc) <= 1)
+					ADD_GOAI_TEMP_GIZMO_SAFEINIT(get_turf(rayhit), "greyX")
+					owner_brain.SetMemory(trg_memkey, target_loc, owner.ai_tick_delay * MEM_AITICK_MULT_SHORTTERM)
+
+					if(has_lkp_memkey)
+						ADD_GOAI_TEMP_GIZMO_SAFEINIT(target_loc, "greenE")
+						var/list/lkp_data = TO_GOAI_WAYPOINT_DATA(target_loc)
+						owner_brain.SetMemory(lkp_memkey_for_trg, lkp_data, owner.ai_tick_delay * MEM_AITICK_MULT_MIDTERM)
+
+					continue
 
 			if(src.trackercheat_perc)
 				var/roll_val = rand() * 100
@@ -134,7 +158,7 @@
 					// do not overwrite if we have a better source
 					continue
 
-				var/list/lkp = owner_brain.GetMemoryValue(has_lkp_memkey)
+				var/list/lkp = owner_brain.GetMemoryValue(lkp_memkey_for_trg)
 
 				if(istype(lkp))
 					var/lkp_xpos = lkp[KEY_GHOST_X]
@@ -156,6 +180,7 @@
 					if(istype(searchloc))
 						// If we got here, we do not have a better memory for a target position
 						owner_brain.SetMemory(trg_memkey, searchloc, owner.ai_tick_delay * MEM_AITICK_MULT_MIDTERM)
+						ADD_GOAI_TEMP_GIZMO(searchloc, "greyE")
 
 	/*
 	// Disabled because it takes a lot of memory for not a lot of obvious benefit

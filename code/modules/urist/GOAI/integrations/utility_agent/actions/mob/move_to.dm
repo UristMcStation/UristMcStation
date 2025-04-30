@@ -174,8 +174,6 @@
 			src.brain?.SetMemory("UnreachableRunMovePath", position, 500)
 			return
 
-		src.active_path = stored_path
-
 	tracker.SetDone()
 
 	return
