@@ -24,7 +24,7 @@
 	icon_state = "meteor4"
 	hide_from_reports = TRUE
 	sensor_visibility = 10
-	color = "#a08444"
+	color = "#fc1100"
 	initial_generic_waypoints = list(
 		"nav_voxbase_1"
 	)
