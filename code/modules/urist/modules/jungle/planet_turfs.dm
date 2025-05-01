@@ -21,13 +21,15 @@
 	var/small_tree_type = /obj/structure/flora/tree/planet/jungle/small
 	var/large_tree_type = /obj/structure/flora/tree/planet/jungle/large
 
-	var/spawn_scrap = 0
+	var/spawn_scrap = FALSE //do we spawn scrap piles at random
 
 	var/planet_light = TRUE //do we use the fancy planet lighting
 
 	var/generate_things = TRUE //do we generate things at all
+
+	//these two vars are used for init processes, don't touch them
 	var/list/spawn_list = list()
-	var/plant_overlay = FALSE //do we have an overlay for plants
+	var/plant_overlay = FALSE
 
 /turf/simulated/floor/planet/update_air_properties() //No, you can't flood the jungle with phoron silly.
 	return
@@ -78,8 +80,6 @@
 		AddOverlays(I)
 
 /turf/simulated/floor/planet/proc/generate_planet_objects()
-//	set waitfor = FALSE
-
 	var/bushes = FALSE
 	var/tree = FALSE
 
@@ -207,11 +207,6 @@
 		/mob/living/simple_animal/hostile/retaliate/parrot/jungle,
 		/mob/living/simple_animal/huntable/monkey
 	)
-
-
-
-///turf/simulated/floor/planet/jungle/get_footstep_sound()
-//	return safepick(footstep_sounds[FOOTSTEP_GRASS])
 
 /turf/simulated/floor/planet/jungle/med
 	large_trees_chance = 1
