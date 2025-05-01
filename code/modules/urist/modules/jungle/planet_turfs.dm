@@ -11,22 +11,23 @@
 	icon_state = "grass1" //what the icon looks like when mapping/ingame if icon_spawn_state is not set
 	light_power = 0.4 //these keep tiles lit. you can adjust this to make things more dim or remove lighting entirely.
 	light_range = 1.5
-	footstep_type = /singleton/footsteps/grass
-	var/icon_spawn_state = "grass1" //what the icon looks like when it spawns. if this is not set it defaults to icon_state
+	var/icon_spawn_state //what the icon looks like when it spawns. if this is not set it defaults to icon_state
 	var/farmed = 0 //has someone tilled this soil?
 	var/bushspawnchance = 0 //let's try it, why not
-	var/animal_spawn_list //what animals types can spawn here?
+	var/list/animal_spawn_list //what animals types can spawn here?
 
 	var/misc_plant_type = /obj/structure/flora/reeds
 	var/bush_type = /obj/structure/bush
 	var/small_tree_type = /obj/structure/flora/tree/planet/jungle/small
 	var/large_tree_type = /obj/structure/flora/tree/planet/jungle/large
 
-	var/terrain_type = null //used for defining footstep sounds
-
 	var/spawn_scrap = 0
 
 	var/planet_light = TRUE //do we use the fancy planet lighting
+
+	var/generate_things = TRUE //do we generate things at all
+	var/list/spawn_list = list()
+	var/plant_overlay = FALSE //do we have an overlay for plants
 
 /turf/simulated/floor/planet/update_air_properties() //No, you can't flood the jungle with phoron silly.
 	return
@@ -34,73 +35,93 @@
 /turf/simulated/floor/planet/can_engrave()
 	return FALSE
 
-/turf/simulated/floor/planet/Initialize()
-	var/bushes = FALSE
-
+/turf/simulated/floor/planet/Initialize() //oh god this sucks so fucking much. this fucking 11 year old dogshit code will be the death of me
+	. = ..()
+//	weather_enable() //Fog does some odd things with duplicating the turf, need to invesi //he died shortly thereafter
 	if(icon_spawn_state)
 		icon_state = icon_spawn_state
-
-	if(plants_spawn_chance && prob(plants_spawn_chance))
-		if(prob(90))
-			var/image/I
-			if(prob(35))
-				I = image('icons/jungle.dmi',"plant[rand(1,7)]")
-			else
-				if(prob(30))
-					I = image('icons/obj/flora/ausflora.dmi',"reedbush_[rand(1,4)]")
-				else if(prob(33))
-					I = image('icons/obj/flora/ausflora.dmi',"leafybush_[rand(1,3)]")
-				else if(prob(50))
-					I = image('icons/obj/flora/ausflora.dmi',"fernybush_[rand(1,3)]")
-				else
-					I = image('icons/obj/flora/ausflora.dmi',"stalkybush_[rand(1,3)]")
-			I.pixel_x = rand(-6,6)
-			I.pixel_y = rand(-6,6)
-			AddOverlays(I)
-		else
-			var/obj/structure/jungle_plant/J = new(src)
-			J.pixel_x = rand(-6,6)
-			J.pixel_y = rand(-6,6)
-
-	if(misc_plant_spawn_chance && prob(misc_plant_spawn_chance))
-		new misc_plant_type(src)
-
-	if(bushspawnchance && prob(bushspawnchance))
-		new bush_type(src)
-		bushes = TRUE
-
-	if(small_trees_chance && prob(small_trees_chance)) //one in four give or take, we'll see how that goes. //IT WENT TERRIBLY
-		if(!bushes)
-			new small_tree_type(src)
-
-	if(large_trees_chance && prob(large_trees_chance ))
-		if(!bushes)
-			new large_tree_type(src)
-
-	if(animal_spawn_chance && prob(animal_spawn_chance ))
-		if(prob(50)) //even 1% is a fuck ton. A 100x100 area is 10000 tiles. This means that at 1% chance, 100 animals will spawn in that area.
-			var/A = pick(animal_spawn_list) //A conservative estimate for possible spawning tiles in the jungle would be 22500, which is very conservative. This means that roughly 225 animals would spawn.
-			new A(get_turf(src)) //thus, we half that number, which leads to more sane numbers, and I don't have to make every spawn a fraction of 1.
-
-	if(trap_spawn_chance)
-		if(!bushes && prob(0.5))
-			new /obj/structure/pit/punji6/hidden/dull(src)
-
-	if(spawn_scrap)
-		if(prob(4))
-			new	/obj/structure/scrap/random(src)
-		else if(prob(1))
-			new /obj/structure/scrap/vehicle(src)
-
-//	weather_enable() //Fog does some odd things with duplicating the turf, need to invesi //he died shortly thereafter
 
 	if(planet_light)
 		light_color = SSskybox.background_color
 
-	. = ..()
+	if(generate_things)
+		generate_planet_objects()
+		return INITIALIZE_HINT_LATELOAD
+
+/turf/simulated/floor/planet/LateInitialize(mapload)
+	if(length(spawn_list))
+		create_objects_in_loc(src, spawn_list)
+		spawn_list = list()
 
 /turf/simulated/floor/planet/ex_act(severity)
 	return
+
+/turf/simulated/floor/planet/on_update_icon(update_neighbors = FALSE)
+	. = ..()
+
+	if(plant_overlay)
+		plant_overlay = FALSE
+		var/image/I
+		if(prob(35))
+			I = image('icons/jungle.dmi',"plant[rand(1,7)]")
+		else
+			if(prob(30))
+				I = image('icons/obj/flora/ausflora.dmi',"reedbush_[rand(1,4)]")
+			else if(prob(33))
+				I = image('icons/obj/flora/ausflora.dmi',"leafybush_[rand(1,3)]")
+			else if(prob(50))
+				I = image('icons/obj/flora/ausflora.dmi',"fernybush_[rand(1,3)]")
+			else
+				I = image('icons/obj/flora/ausflora.dmi',"stalkybush_[rand(1,3)]")
+		I.pixel_x = rand(-6,6)
+		I.pixel_y = rand(-6,6)
+		AddOverlays(I)
+
+/turf/simulated/floor/planet/proc/generate_planet_objects()
+//	set waitfor = FALSE
+
+	var/bushes = FALSE
+	var/tree = FALSE
+
+	if(plants_spawn_chance)
+		if(prob(plants_spawn_chance)) //why were we running prob() on all of these even if they don't fucking spawn there
+			if(prob(90))
+				plant_overlay = TRUE
+				queue_icon_update()
+			else
+				spawn_list.Add(/obj/structure/jungle_plant)
+
+	if(misc_plant_spawn_chance)
+		if(prob(misc_plant_spawn_chance))
+			spawn_list.Add(misc_plant_type)
+
+	if(bushspawnchance)
+		if(prob(bushspawnchance))
+			spawn_list.Add(bush_type)
+			bushes = TRUE
+
+	if(!bushes)
+		if(small_trees_chance)
+			if(prob(small_trees_chance)) //one in four give or take, we'll see how that goes. //IT WENT TERRIBLY
+				spawn_list.Add(small_tree_type)
+				tree = TRUE
+		if(!tree && large_trees_chance)
+			if(prob(large_trees_chance))
+				spawn_list.Add(large_tree_type)
+		if(trap_spawn_chance)
+			if(prob(0.1))
+				spawn_list.Add(/obj/structure/pit/punji6/hidden/dull)
+
+	if(length(animal_spawn_list))
+		if(prob(animal_spawn_chance)) //even 1% is a fuck ton. A 100x100 area is 10000 tiles. This means that at 1% chance, 100 animals will spawn in that area.
+			var/A = pick(animal_spawn_list) //A conservative estimate for possible spawning tiles in the jungle would be 22500, which is very conservative. This means that roughly 225 animals would spawn.
+			spawn_list.Add(A) //so set your numbers fucking low. god i hate this shit.
+
+	if(spawn_scrap)
+		if(prob(4))
+			spawn_list.Add(/obj/structure/scrap/random)
+		else if(prob(1))
+			spawn_list.Add(/obj/structure/scrap/vehicle)
 
 /turf/simulated/floor/planet/border
 	density = TRUE
@@ -109,6 +130,7 @@
 	icon_state = "border"
 	name = ""
 	desc = ""
+	generate_things = FALSE
 
 /turf/simulated/floor/planet/border/Bumped(M as mob)
 	if (istype(M, /mob/living/simple_animal))
@@ -166,7 +188,7 @@
 
 /turf/simulated/floor/planet/jungle
 	temperature = 305.15 //32C
-	animal_spawn_chance = 0.75
+	animal_spawn_chance = 0.35
 	plants_spawn_chance = 40
 	small_trees_chance = 7.5
 	large_trees_chance = 0
@@ -175,12 +197,11 @@
 	desc = "Thick, long wet grass"
 	icon = 'icons/jungle.dmi'
 	icon_state = "grass1"
-	icon_spawn_state = "grass1"
 	light_power = 0.3
 	light_range = 1.5
 	light_color = "#ffffff"
 	bushspawnchance = 30 //let's try it, why not
-	terrain_type = "grass"
+	footstep_type = /singleton/footsteps/grass
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/deer,
 		/mob/living/simple_animal/hostile/retaliate/parrot/jungle,
@@ -198,9 +219,9 @@
 	icon_spawn_state = "grass1"
 	bushspawnchance = 50
 	small_trees_chance = 9
-	trap_spawn_chance = 1
+	trap_spawn_chance = TRUE
 	light_power = 0.25
-	animal_spawn_chance = 0.7
+	animal_spawn_chance = 0.3
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
@@ -214,9 +235,9 @@
 	bushspawnchance = 70
 	plants_spawn_chance = 45
 	small_trees_chance = 10
-	trap_spawn_chance = 2
+	trap_spawn_chance = TRUE
 	light_power = 0.125
-	animal_spawn_chance = 0.9
+	animal_spawn_chance = 0.45
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
@@ -228,7 +249,7 @@
 	icon_spawn_state = "grass1"
 	bushspawnchance = 60
 	light_power = 0.125
-	animal_spawn_chance = 1
+	animal_spawn_chance = 0.5
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/panther,
 		/mob/living/simple_animal/hostile/huntable/deer,
@@ -237,14 +258,13 @@
 		)
 
 /turf/simulated/floor/planet/jungle/clear
+	generate_things = FALSE
 	animal_spawn_chance = 0
 	bushspawnchance = 0
 	plants_spawn_chance = 0
 	small_trees_chance = 0
 	misc_plant_spawn_chance = 0
 	icon_state = "grass3" //clear
-//	icon_spawn_state = "grass3"
-	icon_spawn_state = null
 	light_power = 0.4
 
 /turf/simulated/floor/planet/jungle/clear/grass1
@@ -252,14 +272,10 @@
 	plants_spawn_chance = 0
 	small_trees_chance = 0
 	icon_state = "grass1" //clear
-//	icon_spawn_state = "grass3"
-	icon_spawn_state = null
 
 /turf/simulated/floor/planet/jungle/clear/dark
 	icon_state = "grass1" //clear
-//	icon_spawn_state = "grass1"
 	luminosity = 0
-	icon_spawn_state = null
 
 /turf/simulated/floor/planet/jungle/path
 	bushspawnchance = 0
@@ -271,40 +287,22 @@
 	icon_state = "grass_path" //path
 	icon_spawn_state = "grass2"
 	light_power = 0.3
-	animal_spawn_chance = 0.15
+	animal_spawn_chance = 0.07
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/retaliate/parrot/jungle,
 		/mob/living/simple_animal/huntable/monkey
 		)
-
-/turf/simulated/floor/planet/jungle/proc/Spread(probability, prob_loss = 50)
-	if(probability <= 0)
-		return
-
-	//to_world("<span class='notice'> Spread([probability])</span>")
-	for(var/turf/simulated/floor/planet/jungle/J in orange(1, src))
-		if(!J.bushspawnchance)
-			continue
-
-		var/turf/simulated/floor/planet/jungle/P = null
-		if(J.type == src.type)
-			P = J
-		else
-			P = new src.type(J)
-
-		if(P && prob(probability))
-			P.Spread(probability - prob_loss)
 
 /turf/simulated/floor/planet/plains
 	bushspawnchance = 0
 	small_trees_chance = 0
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "g"
-	icon_spawn_state = "g"
 	light_power = 0.5
 	light_range = 1.5
-	animal_spawn_chance = 1.5 //hostile wasteland riddled with scrap heaps.
+	animal_spawn_chance = 0.7 //hostile wasteland riddled with scrap heaps.
 	spawn_scrap = 1
+	footstep_type = /singleton/footsteps/grass
 	animal_spawn_list = list(
 		/mob/living/simple_animal/hostile/huntable/bear,
 		/mob/living/simple_animal/hostile/snake
@@ -313,13 +311,12 @@
 /turf/simulated/floor/planet/plains/clear
 	icon = 'icons/urist/events/train.dmi'
 	icon_state = "g"
-	icon_spawn_state = "g"
 	animal_spawn_chance = 0
 	spawn_scrap = 0
-
+	generate_things = FALSE
 
 /turf/simulated/floor/planet/jungle/impenetrable
-	animal_spawn_chance = 0.4 //very low chances. This is mainly just to populate the respawn list
+	animal_spawn_chance = 0.15 //very low chances. This is mainly just to populate the respawn list
 	bushspawnchance = 0
 	small_trees_chance = 0
 	large_trees_chance = 7
@@ -341,6 +338,7 @@
 
 //copy paste from asteroid mineral turfs
 /turf/simulated/floor/planet/jungle/rock //why is this a floor, what the fuck 2014 glloyd
+	generate_things = FALSE
 	bushspawnchance = 0
 	small_trees_chance = 0
 	plants_spawn_chance = 0
@@ -352,9 +350,7 @@
 	desc = "A massive wall of natural rock. No point in trying to mine it, try underground."
 	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "rock"
-//	icon_spawn_state = "rock"
-	icon_spawn_state = null
-	terrain_type = null
+	footstep_type = null
 
 /turf/simulated/floor/planet/jungle/rock/underground
 	name = "rock wall"
@@ -413,14 +409,12 @@
 	desc = "thick, murky water"
 	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "rivernew"
-//	icon_spawn_state = "rivernew"
-	icon_spawn_state = null
 	light_power = 0.5
 	var/bridge = 0 //has there been a bridge built?
 	var/fishleft = 3 //how many fish are left? todo: replenish this shit over time
 	var/fishing = 0 //are we fishing
 	var/busy = 0
-	terrain_type = null //GLLOYDTODO: water sound
+	footstep_type = /singleton/footsteps/water
 
 /turf/simulated/floor/planet/jungle/water/Initialize()
 	. = ..()
@@ -614,11 +608,11 @@
 
 
 /turf/simulated/floor/planet/jungle/water/deep
+	generate_things = FALSE
 	plants_spawn_chance = 0
 	density = TRUE
 	misc_plant_spawn_chance = 0 //too deep for reeds
 	icon_state = "deepnew"
-//	icon_spawn_state = "deepnew"
 
 /turf/simulated/floor/planet/jungle/water/deep/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover,/obj/item/projectile))
@@ -661,15 +655,6 @@
 						to_chat(user, "<span class='notice'>You dip your paddle into the water. Okay.</span>")
 	return
 
-/turf/simulated/floor/planet/jungle/temple_wall //again, what the fuck
-	name = "temple wall"
-	desc = ""
-	density = TRUE
-	icon = 'icons/turf/walls.dmi'
-	icon_state = "phoron0"
-	mineral = "phoron"
-	terrain_type = null
-
 /obj/floor_decal/water_edge
 	name = "murky water"
 	desc = "thick, murky water"
@@ -683,7 +668,6 @@
 	icon_state = "asteroid"
 	light_range = 0
 	light_power = 0
-	terrain_type = null
 	footstep_type = /singleton/footsteps/asteroid
 
 /turf/simulated/floor/planet/jungle/clear/underground/weather_enable(override = 0)
@@ -697,11 +681,12 @@
 	desc = "gritty, rough, dirt, the kind found outside."
 	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "dirt_full"
-	icon_spawn_state = null
 	misc_plant_spawn_chance = 15
 	misc_plant_type = /obj/structure/flora/ausbushes/fullgrass
+	footstep_type = /singleton/footsteps/asteroid
 
 /turf/simulated/floor/planet/dirt/clear
+	generate_things = FALSE
 	misc_plant_spawn_chance = 0
 
 /turf/simulated/floor/planet/dirt/city
@@ -711,6 +696,7 @@
 	light_range = 1
 
 /turf/simulated/floor/planet/dirt/city/clear
+	generate_things = FALSE
 	misc_plant_spawn_chance = 0
 
 //arid dirt
@@ -720,14 +706,12 @@
 	desc = "Arid, sandy dirt."
 	icon = 'icons/urist/jungle/aridwaste.dmi'
 	icon_state = "wasteland1"
-	icon_spawn_state = null
 	misc_plant_spawn_chance = 10
 	misc_plant_type = /obj/structure/flora/grass/arid
 	temperature = 305.15 //32C
-	small_trees_chance = 0
-	large_trees_chance = 0
 	small_tree_type = /obj/structure/flora/tree/planet/arid/small
 	large_tree_type = /obj/structure/flora/tree/planet/arid/large
+	footstep_type = /singleton/footsteps/sand
 
 /turf/simulated/floor/planet/ariddirt/Initialize()
 	.=..()
@@ -735,6 +719,7 @@
 
 /turf/simulated/floor/planet/ariddirt/clear
 	misc_plant_spawn_chance = 0
+	generate_things = FALSE
 
 /turf/simulated/floor/planet/ariddirt/path
 	icon_state = "wastelandp"
@@ -758,12 +743,8 @@
 //temperate forest turfs
 
 /turf/simulated/floor/planet/temperate
+	generate_things = FALSE
 	temperature = T0C+10
-	animal_spawn_chance = 0
-	plants_spawn_chance = 0
-	small_trees_chance = 0
-	large_trees_chance = 0
-	misc_plant_spawn_chance = 0 //WHY WOULDNT YOU WORK!!
 	name = "forest floor"
 	desc = "Patchy bits of moss, grass, dirt, and leaves"
 	icon = 'icons/urist/turf/floors_borders.dmi'
@@ -773,7 +754,7 @@
 	light_range = 1.5
 	light_color = "#ffffff"
 	bushspawnchance = 0 //let's try it, why not
-	terrain_type = "grass"
+	footstep_type = /singleton/footsteps/grass
 
 /turf/simulated/floor/planet/temperate/Initialize()
 	. = ..()
@@ -784,15 +765,11 @@
 //	icon_state = "grass_dark"
 
 /turf/simulated/floor/planet/dirt/temperate
-	animal_spawn_chance = 0
-	plants_spawn_chance = 0
-	small_trees_chance = 0
-	large_trees_chance = 0
+	generate_things = FALSE
 	misc_plant_spawn_chance = 0
 	temperature = 283.15 //10C
 	icon = 'icons/urist/jungle/turfs.dmi'
 	icon_state = "dirt-rough0"
-	icon_spawn_state = "dirt-rough"
 	light_power = 0.6
 	light_range = 1.5
 	light_color = "#ffffff"
@@ -802,13 +779,10 @@
 	icon_state = "dirt-rough[rand(0,4)]"
 
 /obj/floor_decal/planet/border
-	temperature = 283.15 //10C
+
 	name = "forest floor"
 	desc = "Patchy bits of moss, grass, dirt, and leaves"
 	icon = 'icons/urist/turf/floors_borders.dmi'
-	light_power = 0.5
-	light_range = 1.5
-	light_color = "#ffffff"
 
 /obj/floor_decal/planet/border/grasstodirt
 	icon_state = "grasstodirt_new"
@@ -823,34 +797,26 @@
 	icon_state = "snowtograss"
 
 /turf/simulated/floor/planet/snow
+	generate_things = FALSE
 	temperature = 273.15 //0C
-	animal_spawn_chance = 0
-	plants_spawn_chance = 0
-	small_trees_chance = 0
-	large_trees_chance = 0
-	misc_plant_spawn_chance = 0
 	name = "snow"
 	desc = "Cold and white"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow0"
-	icon_spawn_state = "snow0"
 	light_power = 0.7
 	light_range = 1.5
 	light_color = "#ffffff"
-	bushspawnchance = 0 //let's try it, why not
-	terrain_type = "grass"
+	footstep_type = /singleton/footsteps/snow
 	has_snow = TRUE
 	animal_spawn_list = list(
-		/mob/living/simple_animal/hostile/huntable/deer,
+		/mob/living/simple_animal/hostile/huntable/deer
+	)
 	//	/mob/living/simple_animal/hostile/huntable/bear/polar,
 	//	/mob/living/simple_animal/hostile/huntable/wolf/white,
-	)
-
 
 /turf/simulated/floor/planet/snow/Initialize()
 	. = ..()
 	icon_state = "snow[rand(0,12)]"
-
 
 /turf/simulated/open/skylight/planet
 	light_power = 0.3
