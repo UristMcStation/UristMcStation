@@ -11,7 +11,7 @@
 	if(!tram_linked)	return
 	var/dat = "Tram Controller"
 	dat += "<br>Tram engine: <a href=?src=\ref[src];engine_toggle=1>[tram_linked.automode ? "<font color='green'>On</font>" : "<font color='red'>Off</font>"]</a>"
-	dat += "<br><A href='?src=\ref[src];close=1'>Close console</A>"
+	dat += "<br><A href='byond://?src=\ref[src];close=1'>Close console</A>"
 	show_browser(user, dat, "window=trampad")
 	onclose(user,"trampad")
 

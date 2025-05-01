@@ -228,7 +228,7 @@
 		dat += "<h2>Customisation</h2>"
 		dat += "<b>Target Product:</b> <A href='byond://?src=\ref[src];select_department=1'>[target_modification.name]</a>, <A href='byond://?src=\ref[src];select_species=1'>[target_species]</a>."
 		dat += "<A href='byond://?src=\ref[src];apply_paintjob=1'><br>\[apply customisation routine\]</a><br><hr>"
-		dat += "<A href='?src=\ref[src];apply_paintjob=1'>\[Apply Customisation Routine\]</a><br/><hr>"
+		dat += "<A href='byond://?src=\ref[src];apply_paintjob=1'>\[Apply Customisation Routine\]</a><br/><hr>"
 	var/datum/browser/popup = new(user, "suit_cycler", "Suit Cycler Interface", 500, 400)
 	popup.set_content(dat)
 	popup.open()

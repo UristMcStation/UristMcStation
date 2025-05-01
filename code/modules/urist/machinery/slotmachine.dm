@@ -34,7 +34,7 @@
 		<B>Credits Remaining:</B> [balance]<BR>
 		[src.plays] players have tried their luck today!<BR>
 		<HR><BR>
-		<A href='?src=\ref[src];ops=1'>Play!<BR>"}
+		<A href='byond://?src=\ref[src];ops=1'>Play!<BR>"}
 		show_browser(user, dat, "window=slotmachine;size=400x500")
 		onclose(user, "slotmachine")
 
