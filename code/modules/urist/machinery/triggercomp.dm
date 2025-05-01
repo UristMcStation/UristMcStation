@@ -43,14 +43,14 @@
 		else
 
 			var/t = "<B>Blast Door Controller</B><br><br>"
-			t += "<A href='?src=\ref[src];on1=[id1]'>[id1]</A><br>"
-			t += "<A href='?src=\ref[src];on2=[id2]'>[id2]</A><br>"
-			t += "<A href='?src=\ref[src];on3=[id3]'>[id3]</A><br>"
-			t += "<A href='?src=\ref[src];on4=[id4]'>[id4]</A><br>"
+			t += "<A href='byond://?src=\ref[src];on1=[id1]'>[id1]</A><br>"
+			t += "<A href='byond://?src=\ref[src];on2=[id2]'>[id2]</A><br>"
+			t += "<A href='byond://?src=\ref[src];on3=[id3]'>[id3]</A><br>"
+			t += "<A href='byond://?src=\ref[src];on4=[id4]'>[id4]</A><br>"
 			if(id5)
-				t += "<A href='?src=\ref[src];on5=[id5]'>[id5]</A><br>"
-				t += "<A href='?src=\ref[src];on6=[id6]'>[id6]</A><br>"
-				t += "<A href='?src=\ref[src];on7=[id7]'>[id7]</A><br>"
+				t += "<A href='byond://?src=\ref[src];on5=[id5]'>[id5]</A><br>"
+				t += "<A href='byond://?src=\ref[src];on6=[id6]'>[id6]</A><br>"
+				t += "<A href='byond://?src=\ref[src];on7=[id7]'>[id7]</A><br>"
 
 			show_browser(user, t, "window=computer;size=420x700")
 

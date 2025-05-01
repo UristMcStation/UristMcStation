@@ -37,7 +37,7 @@
 			if(!M.isSynthetic())
 				continue
 
-			addtimer(new Callback(src, /datum/artifact_effect/magnetic/proc/YeetCallback, M), rand(0.5 SECONDS, 2 SECONDS), TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
+			addtimer(new Callback(src, TYPE_PROC_REF(/datum/artifact_effect/magnetic, YeetCallback), M), rand(0.5 SECONDS, 2 SECONDS), TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
 
 		else if(isitem(AM))
 			var/obj/item/I = AM
@@ -102,6 +102,6 @@
 	if(!toucher.isSynthetic())
 		return
 
-	addtimer(new Callback(src, /datum/artifact_effect/magnetic/proc/YeetCallback, toucher), rand(2 SECONDS, 6 SECONDS), TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
+	addtimer(new Callback(src, TYPE_PROC_REF(/datum/artifact_effect/magnetic, YeetCallback), toucher), rand(2 SECONDS, 6 SECONDS), TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_NO_HASH_WAIT)
 
 	return

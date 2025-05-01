@@ -91,7 +91,7 @@
 
 /obj/gateway/artifact/fabricator/Initialize(turf/T, obj/O)
 	. = ..()
-	addtimer(new Callback(src, .proc/increment), rand(15, 30) SECONDS, TIMER_UNIQUE | TIMER_LOOP)
+	addtimer(new Callback(src, PROC_REF(increment)), rand(15, 30) SECONDS, TIMER_UNIQUE | TIMER_LOOP)
 
 /obj/gateway/artifact/fabricator/Process()
 	if(active == FALSE)
