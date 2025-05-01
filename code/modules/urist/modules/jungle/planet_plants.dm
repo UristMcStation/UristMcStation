@@ -162,10 +162,6 @@
 		to_chat(user, "<span class='notice'> You pick a fruit off [src].</span>")
 
 		var/obj/item/reagent_containers/food/snacks/grown/jungle_fruit/J = new (src.loc)
-//		J.potency = plant_strength
-//		J.icon_state = fruit_icon_states[fruit_type]
-//		J.reagents.add_reagent(reagent_effects[fruit_type], 1+round((plant_strength / 20), 1))
-//		J.bitesize = 1+round(J.reagents.total_volume / 2, 1)
 		J.attack_hand(user)
 
 		CutOverlays(fruit_overlay)

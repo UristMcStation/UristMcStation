@@ -41,9 +41,6 @@ SUBSYSTEM_DEF(plants)
 	/// Live count of run plants.
 	var/static/run_plant_counter = 0
 
-	//urist vars for jungle plant initialization
-	var/static/list/fruit_icon_states = list("badrecipe","kudzupod","reishi","lime","grapes","boiledrorocore","chocolateegg")
-	var/static/list/reagent_effects = list("toxin","anti_toxin","stoxin","space_drugs","mindbreaker","zombiepowder","impedrezene")
 
 /datum/controller/subsystem/plants/UpdateStat(time)
 	if (PreventUpdateStat(time))
@@ -124,8 +121,6 @@ SUBSYSTEM_DEF(plants)
 		plant_gene_datums[mask] = plantgene
 		gene_masked_list += list(list("tag" = tag, "mask" = mask))
 
-	fruit_icon_states = shuffle(fruit_icon_states)
-	reagent_effects = shuffle(reagent_effects)
 
 /datum/controller/subsystem/plants/proc/create_random_seed(station_environment)
 	var/datum/seed/seed = new
