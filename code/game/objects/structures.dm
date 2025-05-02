@@ -149,7 +149,10 @@
 			if(S.can_visually_connect())
 				if(propagate)
 					S.update_connections()
-					S.update_icon()
+					if(GAME_STATE < RUNLEVEL_SETUP) //if we're in init or still in the lobby, we don't care if there's visual lag to updating connections
+						S.queue_icon_update() //i'm including the lobby to allow for pre-round spawning of things to be quicker for events and such
+					else
+						S.update_icon()
 				dirs += get_dir(src, S)
 
 	if(!can_visually_connect())

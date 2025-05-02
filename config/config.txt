@@ -210,7 +210,10 @@ VOTE_AUTOTRANSFER_INTERVAL 60
 #TRANSFER_VOTE_BLOCK_ANTAG_TIME 20
 
 ## Time left (seconds) before round start when automatic gamemote vote is called (default 100).
-VOTE_AUTOGAMEMODE_TIMELEFT 100
+VOTE_AUTOGAMEMODE_TIMELEFT 75
+
+## Time (seconds) before the server will attempt to start a round.
+PRE_GAME_TIME 110
 
 ## prevents dead players from voting or starting votes
 #NO_DEAD_VOTE

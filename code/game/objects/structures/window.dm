@@ -88,7 +88,10 @@
 	base_color = get_color()
 
 	update_connections(1)
-	update_icon()
+	if(GAME_STATE < RUNLEVEL_SETUP) //if we're in init or still in the lobby, we don't care if there's visual lag to updating the colour of windows
+		queue_icon_update() //i'm including the lobby to allow for pre-round spawning of things to be quicker for events and such
+	else
+		update_icon()
 	update_nearby_tiles(need_rebuild=1)
 
 /obj/structure/window/Destroy()
