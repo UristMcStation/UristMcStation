@@ -66,7 +66,7 @@
 	#include "../away/blueriver/blueriver.dm"
 	#include "../away/slavers_base/slavers_base.dm"
 	#include "../away/mobius_rift/mobius_rift.dm"
-	#include "../away/icarus/icarus.dm"
+//	#include "../away/icarus/icarus.dm"
 	#include "../away/errant_pisces/errant_pisces.dm"
 	#include "../away/lar_maria/lar_maria.dm"
 	#include "../away/stations/nerva_stations.dm"
