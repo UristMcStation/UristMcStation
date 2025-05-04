@@ -4205,7 +4205,6 @@
 	dir = 6
 	},
 /obj/random_multi/single_item/memo_engineering,
-/obj/item/material/folder/envelope/preset/ceorder,
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/office/ce)
 "iU" = (
@@ -8951,7 +8950,6 @@
 	},
 /obj/item/stamp/cos,
 /obj/random_multi/single_item/memo_security,
-/obj/item/material/folder/envelope/preset/cosorder,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/crew_quarters/heads/office/cos)
 "wD" = (
@@ -11157,7 +11155,6 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/item/material/folder/envelope/preset/lauletter1,
 /turf/simulated/floor/carpet/blue,
 /area/crew_quarters/heads/office/co)
 "Fn" = (
