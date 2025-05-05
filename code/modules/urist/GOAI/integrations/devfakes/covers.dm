@@ -52,7 +52,7 @@
 	var/flipped = FALSE
 
 	raycast_block_all = RAYCAST_BLOCK_CALLPROC
-	raycast_cover_proc = /obj/cover/table/proc/GetTableRaytraceBlocking
+	raycast_cover_proc = TYPE_PROC_REF(/obj/cover/table, GetTableRaytraceBlocking)
 
 
 /obj/cover/table/proc/GetTableRaytraceBlocking(var/hit_angle = null, var/raytype = null)

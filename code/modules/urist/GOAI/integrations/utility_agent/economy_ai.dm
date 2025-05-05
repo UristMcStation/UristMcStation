@@ -8,8 +8,8 @@
 //#define DEFAULT_BUY_ITEM_PROC null
 //#define DEFAULT_SELL_ITEM_PROC null
 
-#define DEFAULT_BUY_ITEM_PROC /proc/utility_best_trade_item_selector_personality_generic
-#define DEFAULT_SELL_ITEM_PROC /proc/utility_best_trade_item_selector_personality_generic
+#define DEFAULT_BUY_ITEM_PROC  GLOBAL_PROC_REF(utility_best_trade_item_selector_personality_generic)
+#define DEFAULT_SELL_ITEM_PROC GLOBAL_PROC_REF(utility_best_trade_item_selector_personality_generic)
 
 #define APPROX_SQRT_TWO 1.41421
 

@@ -1,6 +1,6 @@
 
-#define DEFAULT_TRADE_COMPLETION_PROC /proc/trade_apply_instant_abstract_success
-#define DEFAULT_TRADE_FAILURE_PROC /proc/trade_apply_instant_abstract_failure
+#define DEFAULT_TRADE_COMPLETION_PROC GLOBAL_PROC_REF(trade_apply_instant_abstract_success)
+#define DEFAULT_TRADE_FAILURE_PROC GLOBAL_PROC_REF(trade_apply_instant_abstract_failure)
 
 /datum/trade_contract
 	/*

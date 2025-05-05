@@ -11,9 +11,9 @@
 // The AI code will take it from here for you.
 //
 // To use for trading, simply instantiate a /datum/brain/utility or subclass with: ```
-best_purchase_for_need_proc = /proc/utility_best_trade_item_selector_kwargs
+best_purchase_for_need_proc = GLOBAL_PROC_REF(utility_best_trade_item_selector_kwargs)
 best_purchase_for_need_proc_args = list("best_commodity_for_need" = list(...your choices...))
-best_sale_for_need_proc = /proc/utility_best_trade_item_selector_kwargs
+best_sale_for_need_proc = GLOBAL_PROC_REF(utility_best_trade_item_selector_kwargs)
 best_sale_for_need_proc_args = list("best_commodity_for_need" = list(...your choices...))
 ```
 // (ignore backticks for copying, this is just to show this is the code to copy *verbatim*)

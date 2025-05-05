@@ -17,7 +17,7 @@
 	initialize_pawn = FALSE
 
 	// sensible default, override if needed
-	dynamic_lod_check = /proc/goai_pawn_is_conscious_and_present
+	dynamic_lod_check = GLOBAL_PROC_REF(goai_pawn_is_conscious_and_present)
 
 	// Moving stuff:
 	var/datum/ActivePathTracker/active_path

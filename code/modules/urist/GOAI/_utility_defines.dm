@@ -34,12 +34,12 @@
 # define CORRECT_UTILITY_SCORE(Score, NumConstraints) (Score + (Score * UTILITY_MITIGATING_FACTOR(NumConstraints)))
 
 // Core utility calculation - normalize inputs, fuzz, then get an Activation response from a curve.
-// e.g. UTILITY_CONSIDERATION(5, 2, 8, 0, /proc/curve_linear) => 0.5
-//  or: UTILITY_CONSIDERATION(5, 2, 8, 0, /proc/curve_binary) => 0.0
-//  or: UTILITY_CONSIDERATION(5, 0, 4, 0, /proc/curve_linear) => 1.0
-//  or: UTILITY_CONSIDERATION(5, 0, 4, 50, /proc/curve_linear) => (0.5 to 1.0)
-//  or: UTILITY_CONSIDERATION(3, 0, 4, 25, /proc/curve_linear) => (0.5 to 1.0)
-//  or: UTILITY_CONSIDERATION(5, 2, 8, 50, /proc/curve_linear) => (0.0 to 1.0)
+// e.g. UTILITY_CONSIDERATION(5, 2, 8, 0, GLOBAL_PROC_REF(curve_linear)) => 0.5
+//  or: UTILITY_CONSIDERATION(5, 2, 8, 0, GLOBAL_PROC_REF(curve_binary)) => 0.0
+//  or: UTILITY_CONSIDERATION(5, 0, 4, 0, GLOBAL_PROC_REF(curve_linear)) => 1.0
+//  or: UTILITY_CONSIDERATION(5, 0, 4, 50, GLOBAL_PROC_REF(curve_linear)) => (0.5 to 1.0)
+//  or: UTILITY_CONSIDERATION(3, 0, 4, 25, GLOBAL_PROC_REF(curve_linear)) => (0.5 to 1.0)
+//  or: UTILITY_CONSIDERATION(5, 2, 8, 50, GLOBAL_PROC_REF(curve_linear)) => (0.0 to 1.0)
 // Note that at NoisePerc>=100, the curve inputs are dominated by noise.
 # define UTILITY_CONSIDERATION(RawData, LoMark, HiMark, NoisePerc, CurveProc) call(CurveProc)(clamp(NORMALIZE_UTILITY_INPUT(RawData, LoMark, HiMark) + ((rand() - 0.5) * (NoisePerc / 50)), ACTIVATION_NONE, ACTIVATION_FULL))
 

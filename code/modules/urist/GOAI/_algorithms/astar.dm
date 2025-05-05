@@ -29,7 +29,7 @@ And for the distance one i wrote:
 /turf/proc/Distance
 So an example use might be:
 
-src.path_list = AStar(src.loc, target.loc, /proc/fAdjacentTurfs, /proc/fDistance)
+src.path_list = AStar(src.loc, target.loc, GLOBAL_PROC_REF(fAdjacentTurfs), GLOBAL_PROC_REF(fDistance))
 
 Note: The path is returned starting at the END node, so i wrote reverselist to reverse it for ease of use.
 

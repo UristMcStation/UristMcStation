@@ -28,7 +28,7 @@
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "ANTAG"
 
-	script = /proc/spawn_commanded_combatant
+	script = GLOBAL_PROC_REF(spawn_commanded_combatant)
 
 
 /obj/goai_spawner/oneshot/commanded_mob/CallScript()
@@ -171,7 +171,7 @@
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "ANTAG"
 
-	script = /proc/spawn_commanded_squad
+	script = GLOBAL_PROC_REF(spawn_commanded_squad)
 
 
 /obj/goai_spawner/oneshot/commanded_squad_mob/CallScript()
@@ -255,7 +255,7 @@
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "ANTAG"
 
-	script = /proc/spawn_commanded_humanoid
+	script = GLOBAL_PROC_REF(spawn_commanded_humanoid)
 
 
 /obj/goai_spawner/oneshot/commanded_humanoid/CallScript()
@@ -312,7 +312,7 @@
 	icon = 'icons/uristmob/simpleanimals.dmi'
 	icon_state = "ANTAG"
 
-	script = /proc/spawn_commanded_simpleanimal
+	script = GLOBAL_PROC_REF(spawn_commanded_simpleanimal)
 
 
 /obj/goai_spawner/oneshot/commanded_simpleanimal/CallScript()
@@ -370,7 +370,7 @@
 	icon_state = "laser"
 	# endif
 
-	script = /proc/spawn_commanded_object
+	script = GLOBAL_PROC_REF(spawn_commanded_object)
 
 
 /obj/goai_spawner/oneshot/commanded_object/CallScript()

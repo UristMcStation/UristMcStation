@@ -63,7 +63,7 @@
 					true_avoid.Add(squaddie_loc)
 		*/
 
-	var/true_adjproc = (isnull(adjproc) ? /proc/fCardinalTurfs : adjproc)
+	var/true_adjproc = (isnull(adjproc) ? GLOBAL_PROC_REF(fCardinalTurfs) : adjproc)
 	var/true_distproc = (isnull(distanceproc) ? DEFAULT_GOAI_DISTANCE_PROC : distanceproc)
 
 	var/list/path = src.AiAStar(

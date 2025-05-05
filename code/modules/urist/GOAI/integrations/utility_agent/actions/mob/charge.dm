@@ -49,7 +49,7 @@
 			tracker.BBSet("walk_initiated", TRUE)
 
 			/*
-			var/new_path = StartNavigateTo(threat, 1, adjproc = /proc/fCardinalTurfsNoblocksObjpermissive)
+			var/new_path = StartNavigateTo(threat, 1, adjproc = GLOBAL_PROC_REF(fCardinalTurfsNoblocksObjpermissive))
 
 			if(isnull(new_path))
 				tracker.failed_ticks++

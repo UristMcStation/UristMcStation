@@ -18,10 +18,10 @@
 	params["goal"] = goal
 	/* For functional API variant:
 	params["graph"] = available_actions
-	params["adjacent"] = /proc/get_actions_agent
-	params["check_preconds"] = /proc/check_preconds_agent
-	params["goal_check"] = /proc/goal_checker_agent
-	params["get_effects"] = /proc/get_effects_agent
+	params["adjacent"] = GLOBAL_PROC_REF(get_actions_agent)
+	params["check_preconds"] = GLOBAL_PROC_REF(check_preconds_agent)
+	params["goal_check"] = GLOBAL_PROC_REF(goal_checker_agent)
+	params["get_effects"] = GLOBAL_PROC_REF(get_effects_agent)
 	*/
 	params["cutoff_iter"] = planning_iter_cutoff
 

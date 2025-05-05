@@ -311,14 +311,14 @@
 
 /proc/TurfDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null, var/check_glancing_angles = TRUE, var/maxdist = null)
 	// Effectively a partial function on Raytrace, for convenience usage
-	return Raytrace(From, To, /proc/basicBlockCheck, ignored, raytype, dispersion, check_glancing_angles, maxdist)
+	return Raytrace(From, To, GLOBAL_PROC_REF(basicBlockCheck), ignored, raytype, dispersion, check_glancing_angles, maxdist)
 
 
 /proc/AtomDensityRaytrace(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null, var/check_glancing_angles = TRUE, var/maxdist = null)
 	// Effectively a partial function on Raytrace, for convenience usage
-	return Raytrace(From, To, /proc/denseCheck, ignored, raytype, dispersion, check_glancing_angles, maxdist)
+	return Raytrace(From, To, GLOBAL_PROC_REF(denseCheck), ignored, raytype, dispersion, check_glancing_angles, maxdist)
 
 
 /proc/AtomDensityRaytraceLogged(var/atom/From, var/atom/To, var/list/ignored = null, var/raytype = null, var/dispersion = null, var/check_glancing_angles = TRUE, var/maxdist = null)
 	// Effectively a partial function on Raytrace, for convenience usage
-	return Raytrace(From, To, /proc/denseCheckLogged, ignored, raytype, dispersion, check_glancing_angles, maxdist)
+	return Raytrace(From, To, GLOBAL_PROC_REF(denseCheckLogged), ignored, raytype, dispersion, check_glancing_angles, maxdist)
