@@ -84,7 +84,7 @@
 		path = src.AiAStar(
 			start = get_turf(pawn.loc),
 			end = get_turf(position),
-			adjacent = /proc/fCardinalTurfsNoblocks,
+			adjacent = GLOBAL_PROC_REF(fCardinalTurfsNoblocks),
 			dist = DEFAULT_GOAI_DISTANCE_PROC,
 			max_nodes = 0,
 			max_node_depth = _max_node_depth,

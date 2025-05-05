@@ -127,7 +127,7 @@
 
 	mobclient.mode ^= MODE_SELECT
 	var/select_enabled = (mobclient.mode & MODE_SELECT)
-	mobclient.current_click_callback = select_enabled ? /proc/PrintPairCB : null
+	mobclient.current_click_callback = select_enabled ? GLOBAL_PROC_REF(PrintPairCB) : null
 
 	// for simplicity, wipe the blackboard anytime the callback changes
 	mobclient.blackboard = list()
@@ -224,7 +224,7 @@
 
 	mobclient.mode ^= MODE_SELECT
 	var/select_enabled = (mobclient.mode & MODE_SELECT)
-	mobclient.current_click_callback = select_enabled ? /proc/CreateGoapSolverOrderCB : null
+	mobclient.current_click_callback = select_enabled ? GLOBAL_PROC_REF(CreateGoapSolverOrderCB) : null
 
 	// for simplicity, wipe the blackboard anytime the callback changes
 	mobclient.blackboard = list()
@@ -257,7 +257,7 @@
 
 	mobclient.mode ^= MODE_SELECT
 	var/select_enabled = (mobclient.mode & MODE_SELECT)
-	mobclient.current_click_callback = select_enabled ? /proc/CreateMoveOrderCB : null
+	mobclient.current_click_callback = select_enabled ? GLOBAL_PROC_REF(CreateMoveOrderCB) : null
 
 	// for simplicity, wipe the blackboard anytime the callback changes
 	mobclient.blackboard = list()

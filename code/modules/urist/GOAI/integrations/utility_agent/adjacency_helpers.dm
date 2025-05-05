@@ -49,7 +49,7 @@
 	if(!s)
 		return
 
-	var/list/out_adjs = call(s, /turf/proc/CombatantAdjacents)(owner)
+	var/list/out_adjs = call(s, TYPE_PROC_REF(/turf, CombatantAdjacents))(owner)
 
 	return out_adjs
 

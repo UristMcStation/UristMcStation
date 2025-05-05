@@ -14,7 +14,7 @@
 	//var/list/processed = list(_startpos)
 	var/list/processed = list()
 
-	var/PriorityQueue/cover_queue = new DEFAULT_PRIORITY_QUEUE_IMPL(/datum/Quadruple/proc/TriCompare)
+	var/PriorityQueue/cover_queue = new DEFAULT_PRIORITY_QUEUE_IMPL(TYPE_PROC_REF(/datum/Quadruple, TriCompare))
 
 	var/datum/chunkserver/chunkserver = GetOrSetChunkserver()
 	var/datum/chunk/startchunk = chunkserver.ChunkForAtom(_startpos)
@@ -240,7 +240,7 @@
 		cover_queue.Enqueue(cover_quad)
 
 	if(cover_queue.L?.len)
-		best_local_pos = ValidateWaypoint(cover_queue, trust_first, /proc/fCardinalTurfsNoblocksObjpermissive)
+		best_local_pos = ValidateWaypoint(cover_queue, trust_first, GLOBAL_PROC_REF(fCardinalTurfsNoblocksObjpermissive))
 	return best_local_pos
 
 
@@ -353,7 +353,7 @@
 		var/list/path = src.AiAStar(
 			start = get_turf(pawn),
 			end = get_turf(best_local_pos),
-			adjacent = /proc/fCardinalTurfsNoblocks,
+			adjacent = GLOBAL_PROC_REF(fCardinalTurfsNoblocks),
 			dist = DEFAULT_GOAI_DISTANCE_PROC,
 			max_nodes = 0,
 			max_node_depth = null,

@@ -139,7 +139,7 @@ GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_ALWAYS(/datum/path_smartobject)
 	path = owner.AiAStar(
 		start = get_turf(pawn),
 		end = target,
-		adjacent = /proc/fCardinalTurfsNoblocks,
+		adjacent = GLOBAL_PROC_REF(fCardinalTurfsNoblocks),
 		dist = DEFAULT_GOAI_DISTANCE_PROC,
 		max_nodes = 0,
 		max_node_depth = _max_node_depth,
@@ -153,7 +153,7 @@ GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_ALWAYS(/datum/path_smartobject)
 		path = owner.AiAStar(
 			start = get_turf(pawn),
 			end = target,
-			adjacent = /proc/fCardinalTurfsNoblocksObjpermissive,
+			adjacent = GLOBAL_PROC_REF(fCardinalTurfsNoblocksObjpermissive),
 			dist = DEFAULT_GOAI_DISTANCE_PROC,
 			max_nodes = 0,
 			max_node_depth = _max_node_depth,
@@ -169,7 +169,7 @@ GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_ALWAYS(/datum/path_smartobject)
 		path = owner.AiAStar(
 			start = get_turf(pawn),
 			end = target,
-			adjacent = /proc/fCardinalTurfsNoblocksObjpermissive,
+			adjacent = GLOBAL_PROC_REF(fCardinalTurfsNoblocksObjpermissive),
 			dist = DEFAULT_GOAI_DISTANCE_PROC,
 			max_nodes = 0,
 			max_node_depth = _max_node_depth,

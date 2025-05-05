@@ -89,6 +89,6 @@
 			CRASH("MergeAsLists: Memory [src] is not an arraymem and autoconvert is not enabled to fix it.")
 
 	if(istype(curr_submems) && istype(new_submems))
-		. = UpdateWith(new_submems, /proc/merge_lists)
+		. = UpdateWith(new_submems, GLOBAL_PROC_REF(merge_lists))
 
 	return src

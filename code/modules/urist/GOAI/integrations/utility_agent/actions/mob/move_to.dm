@@ -156,7 +156,7 @@
 		return
 
 	var/use_permissive_adjacencies = DEFAULT_IF_NULL(permissive_adjacents, FALSE)
-	var/used_adjproc = use_permissive_adjacencies ? /proc/fCardinalTurfsNoblocksObjpermissive : null
+	var/used_adjproc = use_permissive_adjacencies ? GLOBAL_PROC_REF(fCardinalTurfsNoblocksObjpermissive) : null
 
 	if((isnull(src.active_path) || src.active_path.target != true_position))
 		RUN_ACTION_DEBUG_LOG("SteerTo: Searching for a new path to [true_position] for [src.name] AI, current is [json_encode(src.active_path?.path)] with target [src.active_path?.target] @ L[__LINE__] in [__FILE__]")

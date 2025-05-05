@@ -354,7 +354,7 @@
 
 	var/datum/utility_action_template/new_action_template = new(
 		considerations, //considerations,
-		/datum/utility_ai/mob_commander/proc/PlanForGoal, //handler,
+		TYPE_PROC_REF(/datum/utility_ai/mob_commander, PlanForGoal), //handler,
 		HANDLERTYPE_SRCMETHOD, //handler_type,
 		ctxprocs, //ctxprocs,
 		context_args, //context_args,
@@ -456,8 +456,8 @@
 		// the higher hiMark is, the more permissive this will be.
 		// Should probably be done using some optional JSON var; not gonna bother for now.
 		var/datum/consideration/not_cyclic_consideration = new(
-			input_val_proc = /proc/consideration_actiontemplate_effects_cycling,
-			curve_proc = /proc/curve_antilinear,
+			input_val_proc = GLOBAL_PROC_REF(consideration_actiontemplate_effects_cycling),
+			curve_proc = GLOBAL_PROC_REF(curve_antilinear),
 			loMark = 0,
 			hiMark = 1,
 			noiseScale = 0,
@@ -469,8 +469,8 @@
 		)
 
 		var/datum/consideration/effects_consideration = new(
-			input_val_proc = /proc/consideration_actiontemplate_effects_not_all_met,
-			curve_proc = /proc/curve_linear,
+			input_val_proc = GLOBAL_PROC_REF(consideration_actiontemplate_effects_not_all_met),
+			curve_proc = GLOBAL_PROC_REF(curve_linear),
 			loMark = 0,
 			hiMark = 1,
 			noiseScale = 0,
@@ -480,8 +480,8 @@
 		)
 
 		var/datum/consideration/preconds_consideration = new(
-			input_val_proc = /proc/consideration_actiontemplate_preconditions_met,
-			curve_proc = /proc/curve_linear,
+			input_val_proc = GLOBAL_PROC_REF(consideration_actiontemplate_preconditions_met),
+			curve_proc = GLOBAL_PROC_REF(curve_linear),
 			loMark = 0,
 			hiMark = 1,
 			noiseScale = 0,
@@ -521,12 +521,12 @@
 
 			context_args["output_context_key"] = "location" // always this for the hardcoded decorator
 
-			handler_proc = /datum/utility_ai/mob_commander/proc/MoveToAndExecuteWrapper
+			handler_proc = TYPE_PROC_REF(/datum/utility_ai/mob_commander, MoveToAndExecuteWrapper)
 
 			// TODO this could be more sophisticated, e.g. a pair of distance considerations (Too Near/Too Far)
 			var/datum/consideration/distance_consideration = new(
-				input_val_proc = /proc/consideration_input_manhattan_distance_to_requester,
-				curve_proc = /proc/curve_linear_leaky,
+				input_val_proc = GLOBAL_PROC_REF(consideration_input_manhattan_distance_to_requester),
+				curve_proc = GLOBAL_PROC_REF(curve_linear_leaky),
 				loMark = 1,
 				hiMark = 20,
 				noiseScale = 0,
@@ -541,7 +541,7 @@
 
 		var/raw_override_ctxproc = action_data[JSON_KEY_PLANACTION_CTXFETCHER_OVERRIDE]
 		var/override_ctxproc = (isnull(raw_override_ctxproc) ? null : STR_TO_PROC(raw_override_ctxproc))
-		var/contextfetcher = (isnull(override_ctxproc) ? /proc/ctxfetcher_read_another_contextarg : override_ctxproc)
+		var/contextfetcher = (isnull(override_ctxproc) ? GLOBAL_PROC_REF(ctxfetcher_read_another_contextarg) : override_ctxproc)
 
 		var/list/ctxprocs = list(
 			// by default, the context is the target of the plan

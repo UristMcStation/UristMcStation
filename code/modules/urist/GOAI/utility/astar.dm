@@ -31,7 +31,7 @@
 	//                        The dist proc needs to be a good heuristic. This means it might not behave nice for the purpose of checking min-dist.
 	//                        For example, if you want a Euclid-squared heuristic for efficiency, but the mob should be adjacent to the goal at the end (Chebyshev).
 	*/
-	var/PriorityQueue/open = new DEFAULT_PRIORITY_QUEUE_IMPL(/proc/PathWeightCompare)
+	var/PriorityQueue/open = new DEFAULT_PRIORITY_QUEUE_IMPL(GLOBAL_PROC_REF(PathWeightCompare))
 	var/list/closed = list()
 	var/list/path
 	var/list/path_node_by_position = list()

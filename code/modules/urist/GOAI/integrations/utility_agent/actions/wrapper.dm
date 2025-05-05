@@ -134,7 +134,7 @@
 		path = src.AiAStar(
 			start = pawnloc,
 			end = targloc,
-			adjacent = /proc/fCardinalTurfsNoblocks,
+			adjacent = GLOBAL_PROC_REF(fCardinalTurfsNoblocks),
 			dist = DEFAULT_GOAI_DISTANCE_PROC,
 			max_nodes = 0,
 			max_node_depth = _max_node_depth,

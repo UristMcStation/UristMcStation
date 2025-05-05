@@ -40,7 +40,7 @@
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "ladder11"
 
-	script = /proc/spawn_ladders
+	script = GLOBAL_PROC_REF(spawn_ladders)
 
 	var/lower_position_x = null
 	var/lower_position_y = null
@@ -127,7 +127,7 @@
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "rampbottom"
 
-	script = /proc/spawn_stairs
+	script = GLOBAL_PROC_REF(spawn_stairs)
 
 	var/other_position_x = null
 	var/other_position_y = null

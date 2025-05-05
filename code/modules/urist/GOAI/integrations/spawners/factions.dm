@@ -47,7 +47,7 @@
 /obj/goai_spawner/oneshot/faction
 	var/factionspec_filepath = null
 	var/generate_faction_name = null
-	script = /proc/spawn_faction_commander
+	script = GLOBAL_PROC_REF(spawn_faction_commander)
 
 
 /obj/goai_spawner/oneshot/faction/CallScript()

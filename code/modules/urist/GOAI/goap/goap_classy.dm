@@ -172,7 +172,7 @@ X================================================================X
 	for(var/statekey in state)
 		var/val = state[statekey]
 		var/statestring = "[statekey]@[val]"
-		ADD_SORTED(sorted_list, statestring, /proc/TextSort)
+		ADD_SORTED(sorted_list, statestring, GLOBAL_PROC_REF(TextSort))
 
 	var/hashstring = sorted_list.Join(";")
 	return hashstring
