@@ -2200,6 +2200,9 @@
 	dir = 8
 	},
 /obj/item/storage/box/donut,
+/obj/machinery/rotating_alarm/supermatter{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/monotile,
 /area/bridge)
 "dV" = (
@@ -3609,7 +3612,6 @@
 /obj/machinery/shield_diffuser,
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "closed";
 	id_tag = "bridge_eva_outer";
 	locked = 1;
 	name = "Bridge EVA External Access"
@@ -4564,7 +4566,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "closed";
 	id_tag = "bridge_eva_inner";
 	locked = 1;
 	name = "Bridge EVA Internal Access"
@@ -4574,7 +4575,6 @@
 "jZ" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "closed";
 	id_tag = "bridge_eva_inner";
 	locked = 1;
 	name = "Bridge EVA Internal Access"
@@ -4718,6 +4718,9 @@
 	name = "plastic table frame"
 	},
 /obj/item/toy/desk/newtoncradle,
+/obj/machinery/rotating_alarm/supermatter{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/crew_quarters/heads/office/ce)
 "kJ" = (
@@ -8758,7 +8761,6 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
-	icon_state = "closed";
 	name = "Bridge Solar Access"
 	},
 /obj/structure/cable{
@@ -8833,7 +8835,6 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "closed";
 	id_tag = "solar_bridge_inner";
 	locked = 1;
 	name = "Engineering External Access"
@@ -8856,7 +8857,6 @@
 /obj/machinery/shield_diffuser,
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "closed";
 	id_tag = "solar_bridge_outer";
 	locked = 1;
 	name = "Engineering External Access"
@@ -12409,7 +12409,6 @@
 /obj/machinery/door/airlock/external{
 	autoset_access = 0;
 	frequency = 1331;
-	icon_state = "closed";
 	id_tag = "aquila_shuttle_inner";
 	locked = 1;
 	name = "Aquila External Access";
@@ -14479,7 +14478,6 @@
 /obj/machinery/door/airlock/external{
 	autoset_access = 0;
 	frequency = 1331;
-	icon_state = "closed";
 	id_tag = "aquila_shuttle_dock_inner";
 	locked = 1;
 	name = "Docking Port Airlock";
@@ -14681,7 +14679,6 @@
 /obj/machinery/door/airlock/external{
 	autoset_access = 0;
 	frequency = 1331;
-	icon_state = "closed";
 	id_tag = "aquila_shuttle_dock_outer";
 	locked = 1;
 	name = "Docking Port Airlock";
@@ -14865,7 +14862,6 @@
 /obj/machinery/door/airlock/external{
 	autoset_access = 0;
 	frequency = 1331;
-	icon_state = "closed";
 	id_tag = "aquila_shuttle_outer";
 	locked = 1;
 	name = "Aquila External Access";
