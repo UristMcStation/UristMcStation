@@ -1,0 +1,111 @@
+[
+	{
+		"//": "Having steel and the know-how to apply it improves farm yields at scale.",
+		"recipe_name": "Farm upgrade",
+		"source_asset": "farm_upgrade_tech",
+		"requires": {
+			"farm_upgrade_tech": 1
+		},
+		"consumes": {
+			"planetary_farmland": 1,
+			"/obj/steel_bar": 50
+		},
+		"produces": {
+			"planetary_farmland_upgraded": 1
+		}
+	},
+	
+	{
+		"//": "Provides a tiny trickle of food to avoid total stagnation of production.",
+		"recipe_name": "Farming (Hydroponics)",
+		"source_asset": "hydroponics",
+		"consumes": {
+			"hydroponics": 1
+		},
+		"produces": {
+			"hydroponics": 1,
+			"/obj/food": 5
+		}
+	},
+	
+	{
+		"//": "Basic food production asset.",
+		"recipe_name": "Farming (Planetary)",
+		"source_asset": "planetary_farmland",
+		"consumes": {
+			"workers": 1
+		},
+		"produces": {
+			"hungry_workers": 1,
+			"/obj/food": 30
+		}
+	},
+	
+	{
+		"//": "Upgraded food production asset.",
+		"recipe_name": "Farming (Planetary)+",
+		"source_asset": "planetary_farmland_upgraded",
+		"consumes": {
+			"planetary_farmland_upgraded": 1,
+			"workers": 1
+		},
+		"produces": {
+			"hungry_workers": 1,
+			"planetary_farmland": 1,
+			"/obj/food": 300
+		}
+	},
+	
+	{
+		"//": "Basic steel production asset; requires fairly high volumes.",
+		"recipe_name": "Steelmaking (Furnace)",
+		"source_asset": "industrial_furnace",
+		"consumes": {
+			"workers": 100,
+			"/obj/ore": 1000
+		},
+		"produces": {
+			"hungry_workers": 100,
+			"/obj/steel_bar": 100
+			
+		}
+	},
+	
+	{
+		"//": "Basic ore production asset.",
+		"recipe_name": "Mining (Outpost)",
+		"source_asset": "mining_outpost",
+		"consumes": {
+			"workers": 50
+		},
+		"produces": {
+			"hungry_workers": 50,
+			"/obj/ore": 100
+		}
+	},
+	
+	{
+		"//": "Unassigned workers still get hungry.",
+		"recipe_name": "Idle Hunger",
+		"source_asset": "workers",
+		"consumes": {
+			"workers": 1
+		},
+		"produces": {
+			"hungry_workers": 1
+		}
+	},
+	
+	{
+		"//": "Workers are 'regenerated' to usable state by using up food.",
+		"recipe_name": "Feeding workers",
+		"source_asset": "hungry_workers",
+		"consumes": {
+			"hungry_workers": 1,
+			"/obj/food": 1
+		},
+		"produces": {
+			"workers": 1
+		}
+	}
+]
