@@ -69,6 +69,7 @@ exactly 0 "istype /icon where isicon should be used" 'istype\(.*?,\s*/icon\s*\)'
 exactly 0 "istype /list where islist should be used" 'istype\(.*?,\s*/list\s*\)' -P
 exactly 0 "istype /atom where isloc should be used" 'istype\(.*?,\s*/atom\s*\)' -P
 exactly 0 "istype atom/movable where ismovable should be used" 'istype\(.*?,\s*/atom/movable\s*\)' -P
+exactly 0 "callback proc/ or verb/ where PROC_REF, VERB_REF, etc should be used" 'Callback\([\w/]*,\s*[\w\./]*proc' -P # Callback(src, .proc/foo) should be Callback(src, PROC_REF(foo)), or equivalent. See code\__defines\procs.dm
 # If you increase any of these numbers you're probably doing it wrong
 
 num=`find ./html/changelogs -not -name "*.yml" | wc -l`
