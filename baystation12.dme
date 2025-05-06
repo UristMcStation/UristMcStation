@@ -3460,6 +3460,7 @@
 #include "code\modules\urist\items\tgbedsheets.dm"
 #include "code\modules\urist\items\tgitems.dm"
 #include "code\modules\urist\items\trash_material.dm"
+#include "code\modules\urist\items\urist_viet_us.dm"
 #include "code\modules\urist\items\urist_ww2_ger.dm"
 #include "code\modules\urist\items\urist_ww2_rus.dm"
 #include "code\modules\urist\items\urist_ww2_us.dm"

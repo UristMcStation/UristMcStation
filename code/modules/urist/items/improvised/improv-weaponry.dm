@@ -132,11 +132,6 @@
 	sharp = 1
 	edge = 1
 
-/*	suicide_act(mob/user)
-		viewers(user)to_target(, pick("<span class='danger'>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</span>", \)
-							"<span class='danger'>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</span>")
-		return (BRUTELOSS)*/
-
 /obj/item/material/shard/use_tool(obj/item/I, mob/living/user, list/click_params)
 	..()
 	if(istype(I, /obj/item/bedsheet))
@@ -214,11 +209,6 @@
 	w_class = 2
 	item_icons = DEF_URIST_INHANDS
 	var/parentassembly = /obj/item/improvised/scissorsassembly
-
-	/*suicide_act(mob/user)
-		viewers(user)to_target(, pick("<span class='danger'>[user] is slitting \his wrists with the [src]! It looks like \he's trying to commit suicide.</span>", \)
-							"<span class='danger'>[user] is slitting \his throat with the [src]! It looks like \he's trying to commit suicide.</span>")
-		return (BRUTELOSS)*/
 
 /obj/item/improvised/scissorknife/use_tool(obj/item/I, mob/living/user, list/click_params)
 	..()
