@@ -21,10 +21,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb = list("cleaved", "slashed", "sliced", "torn", "ripped", "diced", "cut")
 
-	/*suicide_act(mob/user)
-		viewers(user)to_target(, "<span class='danger'>[user] is slitting \his stomach open with the [src.name]! It looks like \he's trying to commit suicide.</span>")
-		return (BRUTELOSS)*/
-
 //dual saber proc
 
 /obj/item/melee/energy/sword/use_tool(obj/item/tool, mob/living/user, list/click_params)

@@ -169,7 +169,7 @@
 	item_icons = URIST_ALL_ONMOBS
 	name = "\improper A22 Combat Rifle"
 	desc = "20 high-powered rounds of 5.56mm. Staple rifle for the ANFOR Marine Corps and the Terran Confederacy Marine Corps, perfect for punching 5.56 millimetre holes in alien scum. Can fire semi automatic or in 3 or 5 round bursts."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/anfor.dmi'
 	icon_state = "ANFOR-rifle"
 	item_state = "ANFOR-rifle"
 	w_class = 4
@@ -200,7 +200,7 @@
 
 /obj/item/ammo_magazine/rifle/a22
 	name = "A22 magazine"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/ammo_anfor.dmi'
 	icon_state = "ANFOR-riflemag"
 	mag_type = MAGAZINE
 	caliber = CALIBER_RIFLE_MILITARY
@@ -217,7 +217,7 @@
 	item_icons = URIST_ALL_ONMOBS
 	name = "\improper A18 Marksman's Rifle"
 	desc = "30 high-powered rounds of 7.62mm. The standard-issue marksman's rifle for the ANFOR Marine Corps and the Terran Confederacy Marine Corps. Can mount either a scope or a grenade launcher, making it a versatile, accurate semi-automatic rifle perfect for those serving in support roles."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/anfor.dmi'
 	icon_state = "ANFOR-battlerifle"
 	item_state = "ANFOR-battlerifle"
 	w_class = 4
@@ -354,7 +354,7 @@
 		)
 */
 
-/obj/item/gunattachment
+/obj/item/gunattachment // FIX ME ALEX!!!!
 	icon = 'icons/urist/items/guns.dmi'
 
 /*
@@ -371,7 +371,7 @@
 
 /obj/item/ammo_magazine/rifle/military/a18
 	name = "A18 magazine"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/ammo_anfor.dmi'
 	icon_state = "ANFOR-battleriflemag"
 	mag_type = MAGAZINE
 	caliber = CALIBER_RIFLE_MILITARY
@@ -387,7 +387,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper A37 SMG"
 	desc = "The standard submachine gun of the ANFOR Marine Corps and the Terran Confederacy Marine Corps. Has 40 rounds of 9mm ammo, and can fire semi automatic or in 3 or 5 round bursts.."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/anfor.dmi'
 	icon_state = "ANFOR-SMG"
 	item_state = "ANFOR-SMG"
 	wielded_item_state = "ANFOR-SMG"
@@ -418,7 +418,7 @@
 
 /obj/item/ammo_magazine/a9mm
 	name = "A37 magazine"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/ammo_anfor.dmi'
 	icon_state = "ASMGmag"
 	mag_type = MAGAZINE
 	caliber = CALIBER_PISTOL_SMALL
@@ -435,7 +435,7 @@
 	max_shells = 10
 	name = "\improper A41 combat shotgun"
 	desc = "The standard issue ANFOR shotgun. Holds 10 rounds (11 with one in the chamber). Pump-action, it's perfect for CQB and tight hallway clearing."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/anfor.dmi'
 	icon_state = "ANFOR-shotgun"
 	item_state = "ANFOR-shotgun"
 	wielded_item_state = "ANFOR-shotgun-wielded"
@@ -453,11 +453,11 @@
 	ammo_type = /obj/item/ammo_casing/pistol
 	slot_flags = SLOT_BELT | SLOT_HOLSTER | SLOT_POCKET
 	icon_state = "ANFOR-pistol"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/anfor.dmi'
 	load_method = MAGAZINE
 
 /obj/item/ammo_magazine/pistol/a7
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/ammo_anfor.dmi'
 	name = "A7 magazine"
 	icon_state = "ANFOR-pistolmag"
 	ammo_type = /obj/item/ammo_casing/pistol
@@ -470,7 +470,7 @@
 
 /obj/item/gun/projectile/manualcycle/a50
 	name = "A50 Heavy Rifle"
-	icon = 'icons/urist/items/guns48x32.dmi'
+	icon = 'icons/urist/guns/anfor_48x.dmi'
 	desc = "A bolt action anti-material rifle used by ANFOR support units. Chambered in 13.2x108mm, it is intended to breach the thin hulls of light landing craft, but in a pinch, could be used against the hardened carapaces of xenomorphs. Using state of the art technology, the gun manages to negate the majority of the recoil."
 	wielded_item_state = "ANFOR-sniper-wielded"
 	icon_state = "ANFOR-sniper"
@@ -502,7 +502,7 @@
 /obj/item/ammo_magazine/manualcycle/a50_sniper
 	name = "A50 Magazine"
 	desc = "A 14.5mm magazine clip for the A50 anti-material rifle."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/ammo_anfor.dmi'
 	icon_state = "ANFOR-snipermag"
 	max_ammo = 5
 	multiple_sprites = 1
@@ -514,7 +514,7 @@
 /obj/item/ammo_casing/a50sniper
 	name = "shell casing"
 	desc = "A 14.5mm shell."
-	icon = 'icons/urist/items/ammo.dmi'
+	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 	caliber = CALIBER_ANTIMATERIAL
