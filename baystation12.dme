@@ -3482,7 +3482,6 @@
 #include "code\modules\urist\items\clothes\gloves.dm"
 #include "code\modules\urist\items\clothes\head.dm"
 #include "code\modules\urist\items\clothes\mask.dm"
-#include "code\modules\urist\items\clothes\namert.dm"
 #include "code\modules\urist\items\clothes\ntclothes.dm"
 #include "code\modules\urist\items\clothes\shoes.dm"
 #include "code\modules\urist\items\clothes\tgclothes.dm"
