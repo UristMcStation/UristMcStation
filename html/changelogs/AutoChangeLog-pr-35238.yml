@@ -1,4 +1,0 @@
-author: Banditoz
-changes:
-  - {bugfix: Fix hardsuit thrusters never activating.}
-delete-after: true
