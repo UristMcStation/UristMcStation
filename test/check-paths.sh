@@ -38,7 +38,7 @@ exactly 156 "to_world uses" '\sto_world\('
 exactly 0 "globals with leading /" '^/var' -P
 exactly 0 "globals without global sugar" '^var/(?!global/)' -P
 exactly 0 "apparent paths with trailing /" '\w/[,\)\n]' -P
-exactly 98 "to_world_log uses" '\sto_world_log\('
+exactly 99 "to_world_log uses" '\sto_world_log\('
 exactly 2 "world<< uses" 'world<<|world[[:space:]]<<'
 exactly 2 "world.log<< uses" 'world.log<<|world.log[[:space:]]<<'
 exactly 16 "<< uses" '(?<!<)<<(?!<)' -P
@@ -48,7 +48,7 @@ exactly 36 "text2path uses" 'text2path'
 exactly 5 "update_icon() override" '/update_icon\((.*)\)'  -P
 exactly 4 "goto use" 'goto '
 exactly 1 "NOOP match" 'NOOP'
-exactly 440 "spawn uses" '^\s*spawn\s*\(\s*(-\s*)?\d*\s*\)' -P
+exactly 439 "spawn uses" '^\s*spawn\s*\(\s*(-\s*)?\d*\s*\)' -P
 exactly 0 "tag uses" '\stag = ' -P '**/*.dmm'
 exactly 0 "anchored = 0/1" 'anchored\s*=\s*\d' -P
 exactly 2 "density = 0/1" 'density\s*=\s*\d' -P
