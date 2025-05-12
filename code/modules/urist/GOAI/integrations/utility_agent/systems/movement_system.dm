@@ -1,36 +1,41 @@
 // This is a System, i.e. a proc called by an endless loop spawned by the Commander class on init.
 
+// Defines what proc to use and what args to pass it for the purpose
+#define STEERING_ADJACENCY_CALL(Ref) (fAdjacentTurfs(Ref, TRUE, FALSE, TRUE, TRUE, TRUE))
+
 /datum/utility_ai/mob_commander/proc/MovementSystem()
 	var/atom/movable/pawn = src.GetPawn()
 
-	if(!istype(pawn))
-		MOVEMENT_DEBUG_LOG("Pawn is not a movable atom | <@[src]> | [__FILE__] -> L[__LINE__]")
-		return
-
 	if(src.is_moving)
-		MOVEMENT_DEBUG_LOG("MovementSystem cannot run; already moving | [__FILE__] -> L[__LINE__]")
+		MOVEMENT_DEBUG_LOG("MovementSystem cannot run; [src] already moving | [__FILE__] -> L[__LINE__]")
 		return
 
-	if(src.is_moving || isnull(pawn))
-		MOVEMENT_DEBUG_LOG("MovementSystem idle; pawn is null for [src] | [__FILE__] -> L[__LINE__]")
+	var/ordered_halt = src.brain?.GetMemoryValue("HaltManeouverActive")
+
+	if(ordered_halt)
+		MOVEMENT_DEBUG_LOG("MovementSystem cannot run; [src] is deliberately halting as part of a maneouver. | [__FILE__] -> L[__LINE__]")
 		return
 
-	if(!(pawn.MayMove()))
-		MOVEMENT_DEBUG_LOG("MovementSystem idle; pawn [pawn] cannot move. | [__FILE__] -> L[__LINE__]")
+	if(!istype(pawn))
+		MOVEMENT_DEBUG_LOG("MovementSystem cannot run; Pawn [NULL_TO_TEXT(pawn)] for [src] is not a movable atom | <@[src]> | [__FILE__] -> L[__LINE__]")
 		return
 
 	var/turf/curr_loc = get_turf(pawn)
 	if(isnull(curr_loc))
-		MOVEMENT_DEBUG_LOG("MovementSystem idle; curr_loc is null! | [__FILE__] -> L[__LINE__]")
+		MOVEMENT_DEBUG_LOG("MovementSystem cannot run; curr_loc of Pawn [pawn] for [src] is null! | [__FILE__] -> L[__LINE__]")
 		return
 
-	var/list/curr_path = src.brain.GetMemoryValue(MEM_PATH_ACTIVE)
+	if(!(pawn.MayMove()))
+		MOVEMENT_DEBUG_LOG("MovementSystem cannot run; Pawn [pawn] for [src] cannot move. | [__FILE__] -> L[__LINE__]")
+		return
+
+	var/list/curr_path = src.brain?.GetMemoryValue(MEM_PATH_ACTIVE)
 	//var/trg = src?.brain?.GetMemoryValue("PendingMovementTarget")
 	var/trg = (isnull(curr_path) || !(curr_path?.len)) ? null : curr_path[curr_path.len]
 
 	var/turf/trgturf = get_turf(trg)
 
-	var/safe_trg = trg || src.brain.GetMemoryValue("last_pathing_target") || src.brain.GetMemoryValue("PendingMovementTarget")
+	var/safe_trg = trg || src.brain?.GetMemoryValue("last_pathing_target") || src.brain?.GetMemoryValue("PendingMovementTarget")
 	var/turf/safe_trgturf = !isnull(safe_trg) ? get_turf(safe_trg) : null
 
 	if(isnull(safe_trgturf))
@@ -111,7 +116,7 @@
 				continue
 
 			// Score potential steps for steering purposes
-			var/list/cardinals = fCardinalTurfs(curr_loc)
+			var/list/cardinals = fCardinalTurfsNoblocksObjpermissive(curr_loc)
 
 			cardinals.Add(curr_loc)
 
@@ -178,6 +183,10 @@
 
 			var/obj/structure/stairs/currloc_staircase = (locate() in curr_loc)
 
+			// Have we already passed our current location in the loop?
+			// If TRUE, this means we are backtracking, which is generally bad.
+			//var/seen_current = FALSE //disabled because we might as well just break
+
 			while(path_idx > 0)
 				// this could be optimized to search only the part of the path close to curr_loc
 				// (check distance to both ends and search that half only)
@@ -187,6 +196,10 @@
 
 				var/turf/pathstep = curr_path[path_idx--]
 				MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: processing [pathstep] @ [COORDS_TUPLE(pathstep)] with idx [path_idx] (--'d) <-")
+
+				if(curr_loc == pathstep)
+					//seen_current = TRUE //disabled because we might as well just break
+					break
 
 				if(pathstep.z != curr_loc.z)
 					last_is_delta_z = TRUE
@@ -243,8 +256,10 @@
 					// (1) if we're near a ladder or such, stop and wait for the action
 					// (2) if we're next to the next path step, go there
 
-					if(!( (pathstep == curr_loc) || (pathstep in fAdjacentTurfs(curr_loc)) ))
-						MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: skipping [pathstep] @ [COORDS_TUPLE(pathstep)] - not *actually* adjacent <-")
+					var/list/adjacent_steps = STEERING_ADJACENCY_CALL(curr_loc)
+
+					if(!( (pathstep == curr_loc) || (pathstep in adjacent_steps) ))
+						MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: skipping [pathstep] @ [COORDS_TUPLE(pathstep)] - not *actually* adjacent (allowed: [json_encode(adjacent_steps)]) <-")
 						continue
 
 					MOVEMENT_DEBUG_LOG("-> [pawn] MOVEMENT SYSTEM: found candidate [pathstep] @ [COORDS_TUPLE(pathstep)] - zcross: [zcross_action_step], at dist: [flat_dist]/[cand_dist] <-")

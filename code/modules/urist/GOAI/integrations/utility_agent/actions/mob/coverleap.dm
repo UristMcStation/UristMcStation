@@ -14,7 +14,7 @@
 	//var/list/processed = list(_startpos)
 	var/list/processed = list()
 
-	var/PriorityQueue/cover_queue = new DEFAULT_PRIORITY_QUEUE_IMPL(TYPE_PROC_REF(/datum/Quadruple, TriCompare))
+	var/PriorityQueue/cover_queue = new DEFAULT_PRIORITY_QUEUE_IMPL(/datum/Quadruple/proc/TriCompare)
 
 	var/datum/chunkserver/chunkserver = GetOrSetChunkserver()
 	var/datum/chunk/startchunk = chunkserver.ChunkForAtom(_startpos)

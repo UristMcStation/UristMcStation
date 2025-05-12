@@ -27,6 +27,7 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_in_pawn_turf)
 	var/list/contexts = list()
 	var/context_key = context_args?["output_context_key"] || "position"
 	var/raw_type = context_args?[CTX_KEY_FILTERTYPE]
+	var/require_filtered_type = DEFAULT_IF_NULL(context_args?["require_filtered_type"], TRUE)
 	var/filter_output_key = null
 
 	var/filter_type = null
@@ -36,14 +37,16 @@ CTXFETCHER_CALL_SIGNATURE(/proc/ctxfetcher_in_pawn_turf)
 		filter_output_key = context_args?["filter_output_key"]
 
 	var/list/ctx = list()
+	var/found_type = null
 
 	if(filter_type)
-		var/found_type = locate(filter_type) in requester_tile.contents
+		found_type = locate(filter_type) in requester_tile.contents
 		if(!isnull(found_type) && !isnull(filter_output_key))
 			ctx[filter_output_key] = found_type
 
-	ctx[context_key] = requester_tile
-	contexts[++(contexts.len)] = ctx
+	if(!isnull(found_type) || !(filter_type && require_filtered_type))
+		ctx[context_key] = requester_tile
+		contexts[++(contexts.len)] = ctx
 
 	//UTILITYBRAIN_DEBUG_LOG("INFO: added position #[posidx] [pos] context [ctx] (len: [ctx?.len]) to contexts (len: [contexts.len]) @ L[__LINE__] in [__FILE__]!")
 

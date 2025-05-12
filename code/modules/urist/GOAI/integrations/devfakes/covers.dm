@@ -134,7 +134,7 @@
 		directional_blocker.is_active = FALSE
 
 	UpdateIcon()
-	return flipped
+	return !flipped
 
 
 /obj/cover/table/verb/Flip()
@@ -213,6 +213,16 @@
 	return !open
 
 
+/obj/cover/door/Bumped(var/atom/movable/AM as mob|obj)
+	. = ..()
+
+	if(!istype(AM))
+		return
+
+	src.pOpen()
+	return
+
+
 /* Automated, self-closing door */
 /obj/cover/autodoor
 	icon = 'icons/obj/doors/Door1.dmi'
@@ -229,6 +239,8 @@
 	var/start_bolted = FALSE
 
 	density = FALSE
+
+	var/bump_open = TRUE
 
 
 /obj/cover/autodoor/proc/UpdateOpen()
@@ -442,5 +454,15 @@
 	set src in view(1)
 	var/result = Toggle(TRUE)
 	return result
+
+
+/obj/cover/autodoor/Bumped(var/atom/movable/AM as mob|obj)
+	. = ..()
+
+	if(!istype(AM))
+		return
+
+	src.pOpen()
+	return
 
 # endif

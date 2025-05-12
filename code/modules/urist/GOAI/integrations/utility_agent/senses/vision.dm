@@ -180,7 +180,7 @@
 					if(istype(searchloc))
 						// If we got here, we do not have a better memory for a target position
 						owner_brain.SetMemory(trg_memkey, searchloc, owner.ai_tick_delay * MEM_AITICK_MULT_MIDTERM)
-						ADD_GOAI_TEMP_GIZMO(searchloc, "greyE")
+						ADD_GOAI_TEMP_GIZMO_SAFEINIT(searchloc, "greyE")
 
 	/*
 	// Disabled because it takes a lot of memory for not a lot of obvious benefit

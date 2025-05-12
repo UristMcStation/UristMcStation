@@ -171,7 +171,7 @@
 
 
 
-/datum/utility_ai/mob_commander/proc/StepAway(var/datum/ActionTracker/tracker, var/turf/location, var/obj/cover/table/target)
+/datum/utility_ai/mob_commander/proc/StepAway(var/datum/ActionTracker/tracker, var/turf/location, var/obj/cover/table/target, var/order_halt_time = 0)
 	/*
 	//
 	*/
@@ -224,16 +224,16 @@
 		succeeded = FALSE
 
 	src.StartNavigateTo(bestcand)
+	ADD_GOAI_TEMP_GIZMO_SAFEINIT(bestcand, "greyO")
 
 	if(!(pawn.x == location.x && pawn.y == location.y && pawn.z == location.z))
 		tracker.SetDone()
+		if(order_halt_time) { src.brain.SetMemory("HaltManeouverActive", TRUE, order_halt_time) }
 
 	if(tracker.IsStopped())
 		return
 
-	if(succeeded)
-		tracker.SetDone()
-	else
+	if(!succeeded)
 		var/bb_failures = tracker.BBSetDefault("failed_steps", 0)
 		tracker.BBSet("failed_steps", ++bb_failures)
 

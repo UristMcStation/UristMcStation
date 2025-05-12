@@ -40,16 +40,18 @@
 		MOVEMENT_DEBUG_LOG("No start loc found for [src.name] AI")
 		return
 
-	var/list/true_avoid = DEFAULT_IF_NULL(avoid, list())
+	var/list/true_avoid = null
 
 	var/datum/brain/aibrain = src.brain
 	if(istype(aibrain))
 		var/list/enemy_positions = aibrain.GetMemoryValue(MEM_ENEMIES_POSITIONS)
 		if(enemy_positions)
+			true_avoid = DEFAULT_IF_NULL(true_avoid, list())
 			true_avoid.Add(enemy_positions)
 
 		var/list/friends_positions = aibrain.GetMemoryValue(MEM_FRIENDS_POSITIONS)
 		if(friends_positions)
+			true_avoid = DEFAULT_IF_NULL(true_avoid, list())
 			true_avoid.Add(friends_positions)
 
 		/*
@@ -341,16 +343,11 @@
 		movedir = dir2opposite(movedir)
 
 	step_result = true_pawn.DoMove(movedir, true_pawn, FALSE)
+	var/turf/new_loc = get_turf(true_pawn)
 
 	# ifdef GOAI_LIBRARY_FEATURES
-	if(step_result)
-		src.brain?.SetMemory("MyPrevLocation", curr_pos)
-		step_result = TRUE
-	# endif
-
-	# ifdef GOAI_SS13_SUPPORT
-	// DoMove returns zero on success in ss13
-	if(step_result == MOVEMENT_HANDLED)
+	// If we moved *somewhere*
+	if(new_loc != curr_pos)
 		src.brain?.SetMemory("MyPrevLocation", curr_pos)
 		step_result = TRUE
 
@@ -359,8 +356,30 @@
 		var/turf/bump_pos = get_step(pawn, movedir)
 		if(istype(bump_pos))
 			for(var/obj/border_obstacle in bump_pos)
+				var/datum/directional_blocker/blocker = border_obstacle.GetBlockerData(TRUE, TRUE)
+
+				if(istype(blocker) && blocker.BlocksEntry(movedir, true_pawn))
+					true_pawn.Bump(border_obstacle, 1)
+					step_result = FALSE
+					break
+	# endif
+
+	# ifdef GOAI_SS13_SUPPORT
+
+	// If we moved *somewhere*
+	if(new_loc != curr_pos)
+		src.brain?.SetMemory("MyPrevLocation", curr_pos)
+		step_result = TRUE
+
+	else
+		// Bump stuff - to open doors etc.
+		var/turf/bump_pos = get_step(true_pawn, movedir)
+		if(istype(bump_pos))
+			for(var/obj/border_obstacle in bump_pos)
 				if(!border_obstacle.CanPass(true_pawn, true_pawn.loc, 1, 0))
 					true_pawn.Bump(border_obstacle, 1)
+					step_result = FALSE
+					to_world_log("GOAI Pawn [true_pawn] bumped into [border_obstacle] (@[LOCATION_WITH_COORDS(border_obstacle)])")
 					break
 	# endif
 

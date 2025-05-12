@@ -127,9 +127,8 @@
 				generated = TRUE
 				# endif
 
-				spawn(0)
-					myblocker = src.GenerateBlocker()
-					src.directional_blocker = myblocker
+				myblocker = src.GenerateBlocker()
+				src.directional_blocker = myblocker
 
 			# ifdef DIRBLOCKER_DEBUG_LOGGING
 			if(!generated && log_on_missing)

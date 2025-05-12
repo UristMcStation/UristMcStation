@@ -1,5 +1,19 @@
 # ifdef GOAI_LIBRARY_FEATURES
 
+// Surprisingly, this is not a builtin.
+/atom/proc/Bumped(AM as mob|obj)
+	return
+
+
+/atom/movable/Bump(var/atom/obstacle)
+	. = ..()
+
+	if(!istype(obstacle))
+		return .
+
+	obstacle.Bumped(src)
+	return .
+
 
 /atom/movable/proc/DoMove(var/dir, var/mover, var/external = FALSE)
 	var/turf/curr_loc = get_turf(src)
@@ -10,8 +24,11 @@
 
 	var/enterable = src.MayEnterTurf(new_loc, curr_loc, FALSE)
 
+	/*
+	// Removed - I believe this prevents step() from calling Bump()
 	if(!enterable && new_loc.IsBlocked(TRUE, TRUE))
 		return FALSE
+	*/
 
 	. = step(src, dir)
 	return .

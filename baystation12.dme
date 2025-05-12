@@ -3443,6 +3443,7 @@
 #include "code\modules\urist\gamemodes\scom\turfs&areas.dm"
 #include "code\modules\urist\gamemodes\scom\weapons&armour.dm"
 #include "code\modules\urist\GOAI\__goai_ss13_support.dm"
+#include "code\modules\urist\GOAI\_a_debug_mode.dm"
 #include "code\modules\urist\GOAI\_b_debug_modules.dm"
 #include "code\modules\urist\GOAI\_defines.dm"
 #include "code\modules\urist\GOAI\_lod_defines.dm"
