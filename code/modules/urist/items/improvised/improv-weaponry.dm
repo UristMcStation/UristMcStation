@@ -6,7 +6,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "Wired rod"
 	desc = "A rod with some wire wrapped around the top. It'd be easy to attach something to the top bit."
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'icons/urist/weapons/improvised_weapons.dmi'
 	icon_state = "wiredrod"
 	item_state = "rods"
 	flags = CONDUCT
@@ -93,7 +93,7 @@
 
 /obj/item/material/twohanded/quarterstaff
 	item_icons = DEF_URIST_INHANDS
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'icons/urist/weapons/improvised_weapons.dmi'
 	item_state = "qstaff0"
 	icon_state = "qstaff0"
 	name = "quarterstaff"
@@ -108,7 +108,7 @@
 
 /obj/item/material/twohanded/quarterstaff/on_update_icon()
 	item_icons = DEF_URIST_INHANDS
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'icons/urist/weapons/improvised_weapons.dmi'
 	icon_state = "qstaff[wielded]"
 	item_state = "qstaff[wielded]"
 	return
@@ -121,7 +121,7 @@
 /obj/item/shiv
 	name = "shiv"
 	desc = "A small improvised blade made out of a glass shard. Looks like it could do some damage to a kidney or two..."
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'icons/urist/weapons/improvised_weapons.dmi'
 	icon_state = "shiv"
 	item_state = "shard-glass"
 	force = 12
@@ -150,7 +150,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "scrapper shield"
 	desc = "A large rectangular shield made out of hastily assembled chunks of plasteel."
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'icons/urist/weapons/improvised_weapons.dmi'
 	icon_state = "scrappershield"
 	item_state = "scrappershield"
 	force = 6.0
@@ -167,7 +167,7 @@
 /obj/item/baseballbat/nailed
 	name = "nailed baseball bat"
 	desc = "A wooden baseball bat with a bunch of sharpened rods attached to it."
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'icons/urist/weapons/improvised_weapons.dmi'
 	icon_state = "nailed"
 	item_state = "nailed"
 	force = 18
@@ -196,7 +196,7 @@
 /obj/item/improvised/scissorknife
 	name = "Knife"
 	desc = "The seperated part of a scissor. Where's the other half?"
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'icons/urist/weapons/improvised_weapons.dmi'
 	icon_state = "scissors_knife"
 	item_state = "scissors" // Sure, it's the same icon as the whole one, but at that scale it doesn't matter too much
 	force = 11
@@ -249,7 +249,7 @@
 /obj/item/improvised/mbrick
 	name = "Millwall brick"
 	desc = "two newspapers folded and rolled together to create an improvised blunt weapon."
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'icons/urist/weapons/improvised_weapons.dmi'
 	icon_state = "mbrick"
 	force = 8
 	throwforce = 4
@@ -283,7 +283,7 @@
 /obj/item/improvised/mbrick/sharp
 	name = "sharp Millwall brick"
 	desc = "two newspapers folded and rolled together around a sharp object to create an improvised weapon."
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'icons/urist/weapons/improvised_weapons.dmi'
 	icon_state = "mbricks"
 	force = 12
 	throwforce = 6
@@ -304,7 +304,7 @@
 //wood shit
 
 /obj/item/material/twohanded/woodspear
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'icons/urist/weapons/improvised_weapons.dmi'
 	icon_state = "woodspearglass0"
 	item_state = "spearglass0"
 	name = "spear"
@@ -328,7 +328,7 @@
 
 /obj/item/material/twohanded/woodquarterstaff
 	item_icons = DEF_URIST_INHANDS
-	icon = 'icons/urist/items/improvised.dmi'
+	icon = 'icons/urist/weapons/improvised_weapons.dmi'
 	item_state = "woodqstaff0"
 	icon_state = "qstaff0"
 	name = "quarterstaff"

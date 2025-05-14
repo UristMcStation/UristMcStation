@@ -4,7 +4,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "energy pistol"
 	desc = "An energy pistol with a wooden handle."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/senergy.dmi'
 	icon_state = "senergy"
 	item_state = "gun"
 	fire_sound = 'sound/weapons/Taser.ogg'
@@ -26,7 +26,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "Umbrella"
 	desc = "An umbrella with a small hole at the end, doesn't seem to open."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/misc.dmi'
 	icon_state = "umbrellagun"
 	item_state = "umbrellagun"
 	w_class = ITEM_SIZE_SMALL
@@ -41,7 +41,7 @@
 
 /obj/item/gag/BANG
 	item_icons = DEF_URIST_INHANDS
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/legacy_unused.dmi'
 	name = "BANG gun"
 	desc = "Shoots out a BANG"
 	icon_state = "gun"
@@ -51,7 +51,7 @@
 
 /obj/item/gag/BANG/attack_self(mob/user as mob)
 	item_icons = DEF_URIST_INHANDS
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/legacy_unused.dmi'
 	on = !on
 	if(on)
 		user.visible_message("<span class='warning'> [user] fires the gun, BANG.</span>",\
@@ -86,7 +86,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_icons = DEF_URIST_INHANDS
 	name = "phoron pistol"
 	desc = "An experimental weapon that works by ionizing phoron and firing it in a particular direction, poisoning someone."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/plasma_pistol.dmi'
 	icon_state = "plasmapistol"
 	item_state = "gun"
 	fire_sound = 'sound/weapons/Genhit.ogg'
@@ -100,7 +100,7 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/projectile/energy/plasma2
 	name = "ionized phoron"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/projectiles.dmi'
 	icon_state = "plasma"
 	damage = 20
 	damage_type = DAMAGE_TOXIN
@@ -111,7 +111,7 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/gun/projectile/silenced/knight
 	name = "Knight-45"
 	desc = "A lightweight, suppressed weapon. Intended for operations where subtlety is preferred, if only for a little while."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/knight-45.dmi'
 	icon_state = "knight45"
 	item_state = "knight45"
 	item_icons = URIST_ALL_ONMOBS
@@ -136,7 +136,7 @@ the sprite and make my own projectile -Glloyd*/
 
 ///// Deckard .44 - old Bay custom item rip for UMcS Blueshields
 /obj/item/gun/projectile/revolver/detective/deckard
-	icon = 'icons/urist/items/revolvers.dmi'
+	icon = 'icons/urist/guns/revolvers_detective.dmi'
 	item_icons = DEF_URIST_INHANDS
 	name = "Deckard .44" //changed from .44 for internal consistency - it takes .38 bullets - now it takes 44 again :)
 	desc = "A custom autorevolver chambered in .44 issued to high-ranking specialists, based on the obsoleted Detective Special forensics issue models."
@@ -177,7 +177,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_icons = DEF_URIST_INHANDS
 	name = "Shotmachinegun"
 	desc = "A product of a warped imagination, a fully automatic machine-shotgun."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/vietnam_us.dmi'
 	icon_state = "M60closed75"
 	item_state = "M60closed"
 	caliber = CALIBER_SHOTGUN
@@ -247,7 +247,7 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/gun/projectile/manualcycle/imprifle
 	item_icons = URIST_ALL_ONMOBS
 	name = "improvised rifle"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/improvised_308.dmi'
 	desc = "A shoddy 7.62 improvised rifle."
 	wielded_item_state = "woodarifle-wielded"
 	icon_state = "308bolt"
@@ -269,7 +269,7 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/gun/projectile/manualcycle/imprifle/impriflesawn
 	item_icons = URIST_ALL_ONMOBS
 	name = "improvised short rifle"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/improvised_308.dmi'
 	desc = "A crudely cut down 7.62 improvised rifle."
 	icon_state = "308boltsawed"
 	item_state = "sawnshotgun" //placeholder
@@ -291,14 +291,14 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/imprifleframe/imprifleframesawn
 	name = "unfinished improvised short rifle"
 	desc = "An almost-complete improvised short rifle."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/improvised_308.dmi'
 	icon_state = "308boltsawed"
 	item_state = "sawnshotgun"
 
 /obj/item/imprifleframe
 	name = "improvised rifle stock"
 	desc = "A half-finished improvised rifle."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/improvised_308.dmi'
 	icon_state = "308boltframe0"
 	item_state = "sawnshotgun"
 	var/buildstate = 0
@@ -446,7 +446,7 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/gun/projectile
 	name = ""
 	desc = ""
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/projectiles.dmi'
 	icon_state = ""
 	caliber = "pistol"
 	ammo_type = /obj/item/ammo_casing/pistol
@@ -459,7 +459,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper U2442 Assault Rifle"
 	desc = "A bullpup assault rifle loosely based on the AK-47. Originally manufactured by the USSSR, the design has since become popular among pirates and traders for its affordability, reliability and ease of use."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/bullpup_ak.dmi'
 	icon_state = "sexyrifle"
 	item_state = "sexyrifle"
 	w_class = 4
@@ -491,7 +491,7 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/ammo_magazine/rifle/military/spaceak
 	name = "U2442 magazine box"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "sexyrifle-mag"
 	max_ammo = 30
 
@@ -499,7 +499,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper Gold Plated U2442 Assault Rifle"
 	desc = "A bullpup assault rifle loosely based on the AK-47. Originally manufactured by the USSSR, the design has since become popular among pirates and traders for its affordability, reliability and ease of use. This one has been in the hands of someone with incredibly tacky tastes."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/bullpup_ak.dmi'
 	icon_state = "goldspaceak"
 	item_state = "goldspaceak"
 	wielded_item_state = "goldspaceak-wielded"
@@ -514,7 +514,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper HI-2521-SMG"
 	desc = "A light, compact bullpup SMG chambered in 9mm with a sleek design. Manufactured by Hephaestus Industries as part of the 2521 series, this model is a relatively recent design, popular among wealthier spacers."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/crew_SMG.dmi'
 	icon_state = "combatSMG"
 	item_state = "combatSMG"
 	wielded_item_state = "combatSMG"
@@ -545,7 +545,7 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/ammo_magazine/hi2521smg9mm
 	name = "HI-2521-SMG magazine"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "combatSMG-mag"
 	mag_type = MAGAZINE
 	caliber = CALIBER_PISTOL_SMALL
@@ -559,7 +559,7 @@ the sprite and make my own projectile -Glloyd*/
 	initial_ammo = 0
 
 /obj/item/gun/projectile/revolver/coltsaa
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/colt_revolvers.dmi'
 	item_icons = DEF_URIST_INHANDS
 	name = "Colt Single Action Army"
 	desc = "An antique Colt Single Action Army revolver dating from the late 19th century. Sometimes referred to as 'the gun that won the west,' this piece is the pride and joy of any 26th century gun collector."
@@ -581,7 +581,7 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/ammo_magazine/a45r
 	name = "speed loader"
 	desc = "A speed loader for revolvers."
-	icon = 'icons/urist/items/ammo.dmi'
+	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "38"
 	ammo_type = /obj/item/ammo_casing/pistol
 	matter = list(DEFAULT_WALL_MATERIAL = 450)
@@ -595,7 +595,7 @@ the sprite and make my own projectile -Glloyd*/
 	ammo_type = /obj/item/ammo_casing/pistol/rubber
 
 /obj/item/gun/projectile/revolver/hi2521r
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/crew_revolver.dmi'
 	item_icons = DEF_URIST_INHANDS
 	name = "HI-2521-R revolver"
 	desc = "A sleek modern revolver manufactured by Hephaestus Industries as part of the 2521 series."
@@ -618,7 +618,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_icons = URIST_ALL_ONMOBS
 	name = "\improper HI-2521-P pistol"
 	desc = "A light, compact pistol chambered in 9mm with a sleek design. Manufactured by Hephaestus Industries as part of the 2521 series, this model is a relatively recent design, popular among wealthier spacers."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/crew_pistol.dmi'
 	icon_state = "crewpistol"
 	item_state = "crewpistol"
 	wielded_item_state = "crewpistol"
@@ -643,7 +643,7 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/ammo_magazine/hi2521pistol9mm
 	name = "HI-2521-P pistol magazine"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "crewpistol-mag"
 	mag_type = MAGAZINE
 	caliber = CALIBER_PISTOL_SMALL
@@ -656,20 +656,20 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/gun/energy/taser/old
 	name = "antique taser"
 	desc = "An old model taser. They don't make 'em like they used to"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/legacy_classic.dmi'
 	icon_state = "taser"
 	max_shots = 8
 
 /obj/item/gun/energy/laser/old
 	name = "vintage laser carbine"
 	desc = "a pre-Crisis model laser carbine formerly deployed broadly by human forces."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/legacy_classic.dmi'
 	icon_state = "oldlaser"
 
 /obj/item/ammo_magazine/speedloader/broomstick
 	name = "broomstick stripper clip"
 	desc = "A stripper clip for antique broomstick pistols."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "broomclip"
 	caliber = CALIBER_PISTOL_SMALL
 	ammo_type = /obj/item/ammo_casing/pistol/small

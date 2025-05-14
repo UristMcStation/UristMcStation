@@ -45,7 +45,7 @@
 	ammo_type = /obj/item/ammo_casing/pistol/small/rubber
 
 /obj/item/ammo_magazine/a50
-	icon = 'icons/urist/items/ammo.dmi'
+	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "50ae"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
@@ -59,7 +59,7 @@
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/a75
-	icon = 'icons/urist/items/ammo.dmi'
+	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "20mm"
 	mag_type = MAGAZINE
 	caliber = CALIBER_GYROJET
@@ -70,7 +70,7 @@
 /obj/item/ammo_magazine/bundle/shotbundle
 	name = "fistful of shotgun shells"
 	desc = "A fistful of shotgun shells."
-	icon = 'icons/urist/items/shotbundle.dmi'
+	icon = 'icons/urist/guns/shotbundle.dmi'
 	icon_state = "slshell-1"
 	caliber = CALIBER_SHOTGUN
 	ammo_type = /obj/item/ammo_casing/shotgun
@@ -107,6 +107,6 @@
 /obj/item/ammo_casing/a75
 	caliber = CALIBER_GYROJET
 	projectile_type = /obj/item/projectile/bullet/gyro
-	icon = 'icons/urist/items/ammo.dmi'
+	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"

@@ -14,7 +14,7 @@ Contents:
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper M16 Assault Rifle"
 	desc = "25 rounds of 5.56mm. Staple rifle for the Nanotrasen Servicemen. A 2557AD spin on the classic rifle."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/vietnam_us.dmi'
 	icon_state = "M16"
 	item_state = "arifle"
 	w_class = 4
@@ -94,7 +94,7 @@ Contents:
 
 	name = "\improper M14 Rifle"
 	desc = "A selective-fire rifle for when you need more stopping power. Has a 15-round magazine of 7.62mm. Unlike the M16s that have the ability to fire in bursts or semi-auto, the M14 can only fire in either long bursts or semi-auto."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/vietnam_us.dmi'
 	icon_state = "M14"
 	item_state = "woodarifle-wielded"
 	wielded_item_state = "woodarifle-wielded"
@@ -129,7 +129,7 @@ Contents:
 	item_icons = DEF_URIST_INHANDS
 	name = "M60 Machinegun"
 	desc = "The general-purpose machinegun and the main firearm for the Machinegunner. Chambered in 7.62mm , it is fed through a 75-round belt. Fires in short and long bursts, perfect for support and suppresive fire."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/vietnam_us.dmi'
 	icon_state = "M60closed75"
 	item_state = "genericLMG-wielded"
 	max_shells = 75
@@ -183,7 +183,7 @@ Contents:
 /obj/item/gun/projectile/shotgun/pump/combat/ithaca
 	name = "Ithaca 37 combat shotgun"
 	desc = "A modernized Ithaca 37 pump-action shotgun, bearing a NT Logo. Capable of loading 7+1 of .12 Gauge. Perfect for clearing tight corridors, or tunnels."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/pump_shotgun.dmi'
 	icon_state = "ithaca"
 
 
@@ -193,7 +193,7 @@ Contents:
 
 /obj/item/ammo_magazine/rifle/m16
 	name = "M16 magazine"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/ammo_vietnam.dmi'
 	caliber = CALIBER_RIFLE_MILITARY
 	ammo_type = /obj/item/ammo_casing/rifle/military
 	icon_state = "M16MAG"
@@ -206,7 +206,7 @@ Contents:
 
 /obj/item/ammo_magazine/box/rifle/military/m60
 	name = "M60 magazine box"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/ammo_vietnam.dmi'
 	icon_state = "M60MAG"
 	caliber = CALIBER_RIFLE_MILITARY
 	max_ammo = 75
@@ -219,7 +219,7 @@ Contents:
 
 /obj/item/ammo_magazine/rifle/military/m14
 	name = "M14 magazine box"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/ammo_vietnam.dmi'
 	caliber = CALIBER_RIFLE_MILITARY
 	icon_state = "M14MAG"
 	max_ammo = 15

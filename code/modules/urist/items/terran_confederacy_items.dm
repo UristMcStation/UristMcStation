@@ -104,7 +104,7 @@
 
 /obj/item/ammo_magazine/c10mm
 	name = "TD-10 SMG magazine"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "smg10mm"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
@@ -126,7 +126,7 @@
 /obj/item/gun/projectile/td10_pistol
 	name = "\improper TD-10 Pistol"
 	desc = "The standard 10mm service pistol of the Terran Defence Force. It shares a number of parts with the SMG version of the TD-10 series. Rugged and durable, the TD-10 pistol is the best choice for frontier rangers."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/fallout.dmi'
 	icon_state = "pistol10mm"
 	item_state = "gun"
 	w_class = 2
@@ -149,7 +149,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper TD-10 SMG"
 	desc = "The standard 10mm submachine gun of the Terran Defence Force. It shares many parts with the pistol version of the TD-10, and even accepts TD-10 pistol magazines. This is handy for far flung frontier worlds where parts may be scarce."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/fallout.dmi'
 	icon_state = "smg10mm-fo"
 	item_state = "smg10mm-fo"
 	w_class = 3

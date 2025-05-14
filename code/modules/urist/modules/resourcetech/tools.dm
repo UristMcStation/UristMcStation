@@ -39,7 +39,7 @@
 /obj/item/gun/projectile/manualcycle/hunterrifle
 	item_icons = DEF_URIST_INHANDS
 	name = "hunting rifle"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/hunting_rifle.dmi'
 	desc = "A standard issue Nanotrasen bolt-action rifle for its crew serving on hostile planetary environments."
 	wielded_item_state = "huntrifle2"
 	icon_state = "huntrifle"
@@ -113,6 +113,7 @@
 
 /obj/item/gunattachment/scope/huntrifle
 	icon_state = "huntriflescope"
+	icon = 'icons/urist/guns/gun_attachments.dmi'
 	name = "hunting rifle attachable scope"
 	desc = "A marksman's scope designed to be attached to a hunting rifle."
 	matter = list(DEFAULT_WALL_MATERIAL = 1000,"glass" = 500)
@@ -120,7 +121,7 @@
 //hunterknife
 
 /obj/item/material/knife/hunting
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_physical.dmi'
 	icon_state = "huntknife"
 	force_multiplier = 0.2 // 12 with hardness 60 (steel)
 	thrown_force_multiplier = 0.15 // 9 when wielded with hardness 60 (steel)
@@ -134,7 +135,7 @@
 /obj/item/material/knife/survivalknife
 	name = "survival knife"
 	desc = "A serrated survival knife, used for hunting, gutting, prying, skewering and just about everything else a traditional knife does."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_physical.dmi'
 	icon_state = "survivalknife"
 	force_multiplier = 0.2
 	thrown_force_multiplier = 0.10
