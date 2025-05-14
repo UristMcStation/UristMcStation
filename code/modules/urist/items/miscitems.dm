@@ -4,7 +4,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "necromancer's staff"
 	desc = "A staff that emits a threatening aura of death."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'icons/urist/weapons/melee_casting.dmi'
 	icon_state = "necrostaff"
 	item_state = "necrostaff"
 
