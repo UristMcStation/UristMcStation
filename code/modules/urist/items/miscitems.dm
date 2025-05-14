@@ -376,7 +376,7 @@
 /obj/item/paddle
 	name = "paddle"
 	desc = "A shaped piece of wood, best used for manually propelling waterborne objects."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'icons/urist/vehicles/raft.dmi'
 	icon_state = "paddle"
 	slot_flags = SLOT_BACK
 	force = 8.0
@@ -605,7 +605,7 @@
 /obj/item/material/coin/challenge/loot/copper
 	name = "\improper old copper coin"
 	desc = "A copper coin stamped with the image of a sailing ship."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'icons/urist/items/loot_treasure.dmi'
 	icon_state = "oldcoin4"
 	default_material = MATERIAL_COPPER
 	applies_material_name = FALSE
@@ -613,7 +613,7 @@
 /obj/item/material/coin/challenge/loot/plat
 	name = "\improper old platinum coin"
 	desc = "A platinum coin stamped with the image of a king."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'icons/urist/items/loot_treasure.dmi'
 	icon_state = "oldcoin1"
 	default_material = MATERIAL_PLATINUM
 	applies_material_name = FALSE
@@ -621,7 +621,7 @@
 /obj/item/material/coin/challenge/loot/gold
 	name = "\improper old gold coin"
 	desc = "A gold coin stamped with the image of a castle."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'icons/urist/items/loot_treasure.dmi'
 	icon_state = "oldcoin2"
 	default_material = MATERIAL_GOLD
 	applies_material_name = FALSE
@@ -629,7 +629,7 @@
 /obj/item/material/coin/challenge/loot/silver
 	name = "\improper old silver coin"
 	desc = "A silver coin stamped with the image of a dragon."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'icons/urist/items/loot_treasure.dmi'
 	icon_state = "oldcoin3"
 	default_material = MATERIAL_SILVER
 	applies_material_name = FALSE
@@ -637,6 +637,7 @@
 /obj/item/treasure/gem
 	name = "astonishing amethyst"
 	desc = "An amethyst crystal with the deepest purple."
+	icon = 'icons/urist/items/loot_treasure.dmi'
 	icon_state = "amethyst"
 
 /obj/item/treasure/gem/pearl
@@ -718,7 +719,7 @@
 /obj/item/toy/plushie/loot
 	name = "old cartoon doll"
 	desc = "A cute doll of an old cartoon from early in the millennium."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'icons/urist/items/urist_plushie.dmi'
 	icon_state = "rareplush1"
 
 /obj/item/toy/plushie/loot/pink
