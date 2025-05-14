@@ -2262,6 +2262,11 @@
 /obj/structure/lattice,
 /turf/simulated/open,
 /area/maintenance/fourthdeck/starboard)
+"hD" = (
+/obj/machinery/door/firedoor,
+/obj/wallframe_spawn/reinforced/no_grille,
+/turf/simulated/floor/plating,
+/area/quartermaster/hangar/catwalks)
 "hE" = (
 /obj/wallframe_spawn/no_grille,
 /turf/simulated/floor/plating,
@@ -4224,9 +4229,6 @@
 /area/maintenance/fourthdeck/starboard)
 "oV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/floor_decal/corner/green{
 	dir = 4
 	},
@@ -4738,7 +4740,6 @@
 /turf/simulated/floor/plating,
 /area/hallway/primary/fourthdeck/fore)
 "rg" = (
-/obj/machinery/light,
 /obj/floor_decal/corner/brown{
 	dir = 4
 	},
@@ -6782,7 +6783,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/fourthdeck/aft)
 "xL" = (
@@ -12360,7 +12360,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/fourthdeck/fore)
 "QD" = (
@@ -14281,6 +14280,7 @@
 /obj/floor_decal/corner/brown{
 	dir = 1
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/monotile,
 /area/hallway/primary/fourthdeck/aft)
 "VQ" = (
@@ -32342,9 +32342,9 @@ TT
 TT
 fl
 fl
-le
+hD
 NR
-le
+hD
 le
 iI
 wS
@@ -36786,9 +36786,9 @@ PJ
 PJ
 PJ
 PJ
-Xn
+hD
 NR
-Xn
+hD
 we
 Xn
 Xn
