@@ -186,11 +186,12 @@ Contents:
 /obj/item/ammo_magazine/a792x57mm
 	caliber = CALIBER_RIFLE_MAUSER
 	ammo_type = /obj/item/ammo_casing/a792x57mm
-	icon = 'icons/urist/guns/ammo_ww2.dmi'
+	icon = 'icons/urist/guns/ammo.dmi'
 	mag_type = MAGAZINE
 
 /obj/item/ammo_magazine/a792x57mm/stripper
 	name = "stripper clip"
+	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	icon_state = "stripper" //change
 	max_ammo = 5
 	multiple_sprites = 1
@@ -216,6 +217,7 @@ Contents:
 /obj/item/ammo_casing/a792x33mm
 	name = "shell casing"
 	desc = "A 7.92x33mm shell."
+	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 	caliber = CALIBER_RIFLE_GER_AR

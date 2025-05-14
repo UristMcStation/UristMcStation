@@ -174,6 +174,7 @@ Contents:
 
 /obj/item/ammo_magazine/rifle/military/stripper
 	name = "stripper clip"
+	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	icon_state = "stripper"
 	max_ammo = 5
 	multiple_sprites = 1
@@ -182,6 +183,7 @@ Contents:
 
 /obj/item/ammo_magazine/rifle/military/svt40mag
 	name = "SVT-40 magazine"
+	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	icon_state = "svtmag"
 	max_ammo = 10
 

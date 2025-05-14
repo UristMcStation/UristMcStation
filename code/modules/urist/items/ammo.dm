@@ -43,6 +43,8 @@
 /obj/item/ammo_magazine/hi2521smg9mm/rubber
 	name = "HI-2521-SMG magazine (rubber)"
 	ammo_type = /obj/item/ammo_casing/pistol/small/rubber
+	icon = 'icons/urist/guns/ammo.dmi'
+	icon_state = "combatSMG-mag"
 
 /obj/item/ammo_magazine/a50
 	icon = 'icons/urist/guns/ammo.dmi'

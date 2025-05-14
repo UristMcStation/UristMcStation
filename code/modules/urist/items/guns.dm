@@ -138,7 +138,7 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/gun/projectile/revolver/detective/deckard
 	icon = 'icons/urist/guns/revolvers_detective.dmi'
 	item_icons = DEF_URIST_INHANDS
-	name = "Deckard .44" //changed from .44 for internal consistency - it takes .38 bullets - now it takes 44 again :)
+	name = "Deckard .44" //changed from .44 for internal consistency - it takes .38 bullets - now it takes .44/15mm again :)
 	desc = "A custom autorevolver chambered in .44 issued to high-ranking specialists, based on the obsoleted Detective Special forensics issue models."
 	//what do you know, it was restored-ish in revolver.dm
 	icon_state = "deckard-empty"
@@ -591,6 +591,7 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/ammo_magazine/a45r/rubber
 	name = "speed loader (rubber)"
+	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "R38"
 	ammo_type = /obj/item/ammo_casing/pistol/rubber
 
