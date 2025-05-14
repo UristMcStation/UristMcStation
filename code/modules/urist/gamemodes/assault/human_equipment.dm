@@ -3,7 +3,7 @@
 /obj/item/grenade/frag/anforgrenade
 	desc = "A small explosive meant for anti-personnel use."
 	name = "ANFOR grenade"
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/grenades.dmi'
 	icon_state = "large_grenade"
 	item_state = "flashbang"
 	origin_tech = "materials=3;magnets=3"
@@ -22,6 +22,7 @@
 	name = "frag mine"
 	desc = "A frag mine. Press the button to set it up and move the fuck away."
 	icon = 'icons/obj/weapons/other.dmi'
+	#WARN - FIX ITEM/MINE/FRAG!!!
 	icon_state = "uglymine" //should probably ask olly or nien for a better sprite
 
 /obj/item/mine/attack_self(mob/user as mob)

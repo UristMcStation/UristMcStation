@@ -33,7 +33,7 @@
 /obj/item/scom/aliengun
 	name = "alien weapon"
 	desc = "An inert alien weapon, dropped by the lactera."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/lactera.dmi'
 
 /obj/item/scom/aliengun/a1
 	icon_state = "xeno-pistol"

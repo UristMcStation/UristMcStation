@@ -2,7 +2,7 @@
 	var/unique_name
 	var/datum/detective_gun_skin/unique_reskin
 	var/static/list/gun_options
-	icon = 'icons/urist/items/pistols.dmi'
+	icon = 'icons/urist/guns/pistols.dmi'
 
 /obj/item/gun/projectile/pistol/sec/detective/Initialize()
 	. = ..()
@@ -84,24 +84,24 @@
 /datum/detective_gun_skin/colt
 	name = "\improper Colt M1911"
 	icon_state = "colt"
-	icon = 'icons/urist/items/pistols.dmi'
+	icon = 'icons/urist/guns/pistols.dmi'
 
 /datum/detective_gun_skin/mk_standard
 	name = "\improper NT Mk. 58"
 	icon_state = "secguncomp"
-	icon = 'icons/obj/guns/pistol.dmi'
+	icon = 'icons/urist/guns/pistols.dmi'
 
 /datum/detective_gun_skin/mk_custom
 	name = "\improper NT Mk. 58 Custom"
 	icon_state = "secgundark"
-	icon = 'icons/urist/items/pistols.dmi'
+	icon = 'icons/urist/guns/pistols.dmi'
 
 /datum/detective_gun_skin/usp
 	name = "\improper USP"
 	icon_state = "usp"
-	icon = 'icons/urist/items/pistols.dmi'
+	icon = 'icons/urist/guns/pistols.dmi'
 
 /datum/detective_gun_skin/vp
 	name = "\improper H&K VP"
 	icon_state = "VP78"
-	icon = 'icons/urist/items/pistols.dmi'
+	icon = 'icons/urist/guns/pistols.dmi'

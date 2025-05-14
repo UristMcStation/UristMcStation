@@ -4,7 +4,7 @@
 	item_icons = URIST_ALL_ONMOBS
 	magazine_type = /obj/item/ammo_magazine/pistol
 	allowed_magazines = /obj/item/ammo_magazine/pistol
-	icon = 'icons/urist/items/pistols.dmi'
+	icon = 'icons/urist/guns/pistols.dmi'
 	item_state = "colt"
 	icon_state = "colt"
 	wielded_item_state = "colt"
@@ -73,7 +73,7 @@
 /obj/item/gun/projectile/pistol/sec/wood
 	desc = "The NT Mk58 is a cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. This one has a sweet wooden grip, among other modifications."
 	name = "custom pistol"
-	icon = 'icons/urist/items/pistols.dmi'
+	icon = 'icons/urist/guns/pistols.dmi'
 	icon_state = "secgundark"
 	item_state = "secgundark"
 	wielded_item_state = "secgundark"

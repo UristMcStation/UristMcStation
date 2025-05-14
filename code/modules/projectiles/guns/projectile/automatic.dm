@@ -1,7 +1,7 @@
 /obj/item/gun/projectile/automatic
 	name = "prototype SMG"
 	desc = "A protoype lightweight, fast firing submachine gun. Uses 4mm rounds."
-	icon = 'icons/urist/items/machine_pistol.dmi'
+	icon = 'icons/urist/guns/machine_pistol.dmi'
 	icon_state = "prototype"
 	item_icons = URIST_ALL_ONMOBS
 	item_state = "saber"
@@ -31,7 +31,7 @@
 /obj/item/gun/projectile/automatic/machine_pistol
 	name = "machine pistol"
 	desc = "The Hephaestus Industries MP6 Vesper, A fairly common machine pistol based off a mid 20th century design. Sometimes refered to as an 'uzi' by the backwater spacers it is often associated with."
-	icon = 'icons/urist/items/machine_pistol.dmi'
+	icon = 'icons/urist/guns/machine_pistol.dmi'
 	icon_state = "mpistolen"
 	item_state = "mpistolen"
 	item_icons = URIST_ALL_ONMOBS
@@ -70,7 +70,7 @@
 /obj/item/gun/projectile/automatic/c20r
 	name = "10mm submachine gun"
 	desc = "The Novaya Zemlya Arms C-20r is a lightweight and rapid firing SMG. In production since the 2280s, the C-20r has proliferated across human space, in some part due to it being issued to smaller ICCGN vessels."
-	icon = 'icons/urist/items/c20r.dmi'
+	icon = 'icons/urist/guns/c20r.dmi'
 	icon_state = "c20r"
 	item_state = "c20r"
 	safety_icon = "safety"
@@ -107,7 +107,7 @@
 /obj/item/gun/projectile/automatic/sts35
 	name = "assault rifle"
 	desc = "The rugged STS-35 is a durable automatic weapon of a make popular on the frontier worlds. Originally designed in the mid 20th century, today variants are made by most firearm producers. This one appears to be HI made, with the serial number conveniently absent."
-	icon = 'icons/obj/guns/assault_rifle.dmi'
+	icon = 'icons/urist/guns/assault_rifle.dmi'
 	icon_state = "arifle"
 	item_state = "arifle"
 	wielded_item_state = "arifle-wielded"
@@ -188,7 +188,7 @@
 /obj/item/gun/projectile/automatic/z8
 	name = "bullpup assault rifle"
 	desc = "The Z8 Bulldog is an older model bullpup carbine, made by the now defunct Zendai Foundries. Uses armor piercing 7.62mm rounds. Makes you feel like a space marine when you hold it."
-	icon = 'icons/urist/items/z8carbine.dmi'
+	icon = 'icons/urist/guns/z8carbine.dmi'
 	icon_state = "carbine"
 	item_state = "z8carbine"
 	item_icons = URIST_ALL_ONMOBS
