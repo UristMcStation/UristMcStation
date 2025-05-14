@@ -22,7 +22,6 @@
 	name = "frag mine"
 	desc = "A frag mine. Press the button to set it up and move the fuck away."
 	icon = 'icons/obj/weapons/other.dmi'
-	#WARN - FIX ITEM/MINE/FRAG!!!
 	icon_state = "uglymine" //should probably ask olly or nien for a better sprite
 
 /obj/item/mine/attack_self(mob/user as mob)

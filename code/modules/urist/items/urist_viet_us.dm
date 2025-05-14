@@ -173,7 +173,6 @@ Contents:
 	caliber = CALIBER_RIFLE
 	handle_casings = HOLD_CASINGS
 	max_shells = 5
-	ammo_type = obj/item/ammo_casing/rifle
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	accuracy_power = 6
 	screen_shake = 1

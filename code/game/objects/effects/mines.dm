@@ -1,12 +1,12 @@
 /obj/structure/mine
 	name = "Mine"
-	desc = "I Better stay away from that thing."
+	desc = "An explosive device that tends to detonate if you look at it wrong."
 	density = FALSE
 	anchored = TRUE
 	layer = OBJ_LAYER
-	icon = 'icons/obj/weapons/other.dmi'
+	icon = 'icons/obj/weapons/mines.dmi'
 	icon_state = "uglymine"
-	var/triggerproc = "explode" //name of the proc thats called when the mine is triggered
+	var/triggerproc = "explode" //name of the proc thats called when the mine is triggered // we have two of these now...
 	var/triggered = 0
 
 

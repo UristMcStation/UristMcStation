@@ -356,7 +356,6 @@
 
 /obj/item/gunattachment // FIX ME ALEX!!!!
 	icon = 'icons/urist/guns/gun_attachments.dmi'
-	#WARN - FIX ME YOU FUCK - GUN ATTACHMENTS
 
 /*
 /obj/item/gunattachment/grenadelauncher
