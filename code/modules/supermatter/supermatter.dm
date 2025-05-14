@@ -684,6 +684,7 @@
 	construct_state = /singleton/machine_construction/default/item_chassis
 	base_type = /obj/machinery/rotating_alarm/supermatter
 
+	angle = 15
 	sound_file = 'sound/obj/machinery/rotating_alarm/supermatter.ogg'
 
 /obj/machinery/rotating_alarm/supermatter/Initialize()
