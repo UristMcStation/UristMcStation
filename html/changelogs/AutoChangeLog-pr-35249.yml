@@ -1,0 +1,5 @@
+author: SierraKomodo
+changes:
+  - {tweak: 'The supermatter alarm is now yellow, to differentiate it from orange
+      alert.'}
+delete-after: true
