@@ -1,0 +1,6 @@
+author: JebediahTechnic
+changes:
+  - {maptweak: Added windows to deck four catwalk access so all can witness the glory
+      of the catwalks.}
+  - {maptweak: 'Removed floating/window lights from deck four, no magic allowed.'}
+delete-after: true
