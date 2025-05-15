@@ -59,14 +59,11 @@
 
 /obj/urist_intangible/triggers/template_loader/on_init/submap/Load(list/potentialRuins = SSmapping.submap_templates, datum/map_template/template = null)
 	if(mapfile)
-		to_world("submap loading")
 		for(var/A in potentialRuins)
 			var/datum/map_template/T = potentialRuins[A]
 			if(T.name == src.mapfile)
-				to_world("[T.name] found")
 				template = T
 		if(template)
-			to_world("template loading. centre = [centre]")
 			template.load(get_turf(src), centered = centre)
 		QDEL_IN(src,0)
 
