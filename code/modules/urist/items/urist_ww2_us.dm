@@ -82,6 +82,7 @@ Contents:
 
 /obj/item/ammo_magazine/pistol/m3
 	name = "M3 magazine"
+	desc = "A M3 Grease Gun stick magazine, chambered in 10mm."
 	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	icon_state = "M3MAG"
 	mag_type = MAGAZINE
@@ -122,7 +123,7 @@ Contents:
 
 /obj/item/ammo_magazine/pistol/bhp
 	icon = 'icons/urist/guns/ammo_ww2.dmi'
-	name = "Browning HP magazine"
+	name = "Browning HP pistol magazine, chambered in 9mm."
 	icon_state = "BROWNHPMAG"
 	caliber = CALIBER_PISTOL_SMALL
 	mag_type = MAGAZINE
@@ -138,6 +139,7 @@ Contents:
 
 /obj/item/ammo_magazine/rifle/military/barmag
 	name = "BAR magazine" //shhhh
+	desc = "A BAR box magazine, chambered in .30-06."
 	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	icon_state = "bar_mag"
 	ammo_type = /obj/item/ammo_casing/rifle/military

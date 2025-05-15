@@ -60,9 +60,9 @@ Contents:
 
 // Firearms - Machine Guns
 
-/obj/item/gun/projectile/automatic/degtyaryov
-	name = "Degtyaryov machine gun"
-	desc = "The standard light machinegun of the Red Army. Only fires in short and long bursts. Takes pan magazines of 60 7.62mm rounds."
+/obj/item/gun/projectile/automatic/dp27
+	name = "DP-27" // It's more recognisable as this than the other name, personally - Y
+	desc = "The standard infantry light machinegun of the Red Army. Only fires in short, long and automatic bursts. Takes pan magazines of 60 7.62mm rounds."
 	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/guns/ww2_rus.dmi'
 	icon_state = "DT"
@@ -72,8 +72,8 @@ Contents:
 	caliber = CALIBER_RIFLE_MILITARY
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/rifle/military/degtyaryov
-	allowed_magazines = /obj/item/ammo_magazine/rifle/military/degtyaryov
+	magazine_type = /obj/item/ammo_magazine/rifle/military/dp27
+	allowed_magazines = /obj/item/ammo_magazine/rifle/military/dp27
 	ammo_type = /obj/item/ammo_casing/rifle/military
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	one_hand_penalty = 6
@@ -85,7 +85,7 @@ Contents:
 		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=0.3, one_hand_penalty=7, burst_accuracy = list(0,-1,-2,-3,-4,-4,-4,-4,-4), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/gun/projectile/automatic/degtyaryov/on_update_icon()
+/obj/item/gun/projectile/automatic/dp27/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "DT"
@@ -183,6 +183,7 @@ Contents:
 
 /obj/item/ammo_magazine/rifle/military/svt40mag
 	name = "SVT-40 magazine"
+	desc = "A box magazine for the SVT-40. Chambered in 5.56mm." // It isn't 5.56, but we ball.
 	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	icon_state = "svtmag"
 	max_ammo = 10
@@ -192,8 +193,8 @@ Contents:
 
 // Machine Guns - Ammo & Magazines
 
-/obj/item/ammo_magazine/rifle/military/degtyaryov
-	name = "Degtyaryov pan magazine"
+/obj/item/ammo_magazine/rifle/military/dp27
+	name = "DP-27 pan magazine"
 	icon_state = "DTmag"
 	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	mag_type = MAGAZINE
@@ -201,13 +202,14 @@ Contents:
 	ammo_type = /obj/item/ammo_casing/rifle/military
 	max_ammo = 60 //only the vehicle mounted version had 60 round mags, but fuck it.
 
-/obj/item/ammo_magazine/rifle/military/degtyaryov/empty
+/obj/item/ammo_magazine/rifle/military/dp27/empty
 	initial_ammo = 0
 
 // SMG - Ammo & Magazines
 
 /obj/item/ammo_magazine/pistol/ppsh
 	name = "PPSh-41 drum magazine" //7.62x25 is close enough to 9mm actually, so fuck it
+	desc = "A drum magazine for the PPSh-41, capable of holding 71 rounds of 9mm."
 	icon_state = "ppsh_drum"
 	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	mag_type = MAGAZINE
@@ -223,6 +225,7 @@ Contents:
 /obj/item/ammo_magazine/pistol/tt33
 	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	name = "TT-33 magazine"
+	desc = "A TT-33 pistol magazine, chambered in 9mm."
 	icon_state = "tt33mag"
 	mag_type = MAGAZINE
 	caliber = CALIBER_PISTOL_SMALL
@@ -234,6 +237,7 @@ Contents:
 
 /obj/item/ammo_magazine/r762
 	name = "nagant revolver speed loader"
+	desc = "A 7.62mm speedloader for the Nagant Revolver."
 	icon_state = "T38"
 	caliber = CALIBER_RIFLE_MILITARY
 	ammo_type = /obj/item/ammo_casing/rifle/military
@@ -245,7 +249,7 @@ Contents:
 // Russia - Explosives
 
 /obj/item/grenade/frag/sovietgrenade
-	desc = "A small explosive meant for anti-personnel use."
+	desc = "A small fragmenting grenade meant for anti-personnel use."
 	name = "F1 fragmentation grenade"
 	icon = 'icons/urist/weapons/grenades.dmi'
 	icon_state = "rusk_nade"

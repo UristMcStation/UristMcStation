@@ -219,11 +219,11 @@
 		belt = /obj/item/ammo_magazine/rifle/military/svt40mag
 
 	else if(prob(5))
-		back = /obj/item/gun/projectile/automatic/degtyaryov
-		l_pocket = /obj/item/ammo_magazine/rifle/military/degtyaryov
-		r_hand = /obj/item/ammo_magazine/rifle/military/degtyaryov
-		l_hand = /obj/item/ammo_magazine/rifle/military/degtyaryov
-		belt = 	/obj/item/ammo_magazine/rifle/military/degtyaryov
+		back = /obj/item/gun/projectile/automatic/dp27
+		l_pocket = /obj/item/ammo_magazine/rifle/military/dp27
+		r_hand = /obj/item/ammo_magazine/rifle/military/dp27
+		l_hand = /obj/item/ammo_magazine/rifle/military/dp27
+		belt = 	/obj/item/ammo_magazine/rifle/military/dp27
 
 	else if(prob(1)) //why not a BAR
 		back = /obj/item/gun/projectile/automatic/bar

@@ -143,40 +143,6 @@ Contents:
 /obj/item/gun/projectile/automatic/l6_saw/m60/on_update_icon()
 	icon_state = "M60[cover_open ? "open" : "closed"][ammo_magazine ? round(length(ammo_magazine.stored_ammo), 15) : "-empty"]"
 
-// Firearms - Grenade Launcher
-
-/obj/item/gun/launcher/grenade/m79
-	item_icons = DEF_URIST_INHANDS
-	name = "M79 Grenade Launcher"
-	desc = "The M79 Grenade Launcher is a single-shot break action launcher, capable of firing a multitude of grenades. It's iconic sound has given it the nickname 'Bloop Tube'"
-	wielded_item_state = ""
-	icon_state = ""
-	item_state = ""
-	w_class = ITEM_SIZE_LARGE
-	one_hand_penalty = 3
-	force = 5
-	slot_flags = SLOT_BACK
-
-// Firearms - Sniper Rifles
-
-/obj/item/gun/projectile/manualcycle/m40
-	item_icons = DEF_URIST_INHANDS
-	name = "M40 rifle"
-	desc = "A bolt-action sniper rifle with an aged wooden stock. Chambered in 7.62mm. It has a magnifying scope to assist in hitting far away targets."
-	wielded_item_state = "huntrifle2"
-	icon_state = "huntrifle"
-	item_state = "huntrifle"
-	w_class = ITEM_SIZE_LARGE
-	one_hand_penalty = 5
-	force = 10
-	slot_flags = SLOT_BACK
-	caliber = CALIBER_RIFLE
-	handle_casings = HOLD_CASINGS
-	max_shells = 5
-	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
-	accuracy_power = 6
-	screen_shake = 1
-
 // Firearms - Shotguns
 
 /obj/item/gun/projectile/shotgun/pump/combat/ithaca
@@ -192,6 +158,7 @@ Contents:
 
 /obj/item/ammo_magazine/rifle/m16
 	name = "M16 magazine"
+	desc = "A M16 STANAG Magazine capable of holding 25 5.56mm rounds."
 	icon = 'icons/urist/guns/ammo_vietnam.dmi'
 	caliber = CALIBER_RIFLE_MILITARY
 	ammo_type = /obj/item/ammo_casing/rifle/military
@@ -205,6 +172,7 @@ Contents:
 
 /obj/item/ammo_magazine/box/rifle/military/m60
 	name = "M60 magazine box"
+	desc = "A M60 box magazine capable of holding 75 5.56mm rounds."
 	icon = 'icons/urist/guns/ammo_vietnam.dmi'
 	icon_state = "M60MAG"
 	caliber = CALIBER_RIFLE_MILITARY
@@ -218,6 +186,7 @@ Contents:
 
 /obj/item/ammo_magazine/rifle/military/m14
 	name = "M14 magazine box"
+	desc = "A M14 box magazine capable of storing 15 rounds of 5.56mm."
 	icon = 'icons/urist/guns/ammo_vietnam.dmi'
 	caliber = CALIBER_RIFLE_MILITARY
 	icon_state = "M14MAG"
@@ -231,8 +200,8 @@ Contents:
 // Under
 
 /obj/item/clothing/under/urist/nam
-	name = "jungle camo BDU"
-	desc = "A BDU styled with jungle camouflage."
+	name = "jungle camo BDU uniform"
+	desc = "A BDU styled uniformwith jungle camouflage."
 	icon_state = "namjumpsuit"
 	item_state = "namjumpsuit"
 
@@ -264,7 +233,7 @@ Contents:
 
 /obj/item/clothing/shoes/urist/nam
 	name = "jungle camo boots"
-	desc = "A pair of boots styled with jungle camouflage."
+	desc = "A pair of combat boots styled with jungle camouflage, equipped with non-slip soles and weather resistant coating." // So people know it's no slips.
 	icon_state = "namboots"
 	item_state = "namboots"
 	permeability_coefficient = 0.05
@@ -281,7 +250,7 @@ Contents:
 
 /obj/item/clothing/gloves/urist/nam
 	name = "jungle camo gloves"
-	desc = "A pair of gloves styled with jungle camouflage."
+	desc = "A pair of gloves styled with jungle camouflage and special weather resistant coating."
 	icon_state = "namgloves"
 	item_state = "namgloves"
 	siemens_coefficient = 0
@@ -295,16 +264,16 @@ Contents:
 // Storage
 
 /obj/item/storage/backpack/urist/nam
-	name = "jungle camo backpack"
-	desc = "A backpack styled with jungle camouflage."
+	name = "jungle camo rucksack"
+	desc = "A rucksack styled with jungle camouflage."
 	icon_state = "nambackpack"
 	item_state = "nambackpack"
 
 // Belts
 
-/obj/item/storage/belt/holster/urist/nam
+/obj/item/storage/belt/urist/nam
 	name = "jungle camo belt"
-	desc = "A belt with a holster, styled with jungle camouflage. Can hold a plethora of security & general gear, as well as a pistol."
+	desc = "A belt with a holster, styled with jungle camouflage. Can hold a plethora of security & general gear, as well as a backup pistol."
 	icon_state = "nambelt"
 	item_state = "nambelt"
 	overlay_flags = BELT_OVERLAY_ITEMS |BELT_OVERLAY_HOLSTER
