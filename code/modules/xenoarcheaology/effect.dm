@@ -12,7 +12,7 @@
 	var/on_time //time artifact should stay on for when toggled
 
 	var/datum/artifact_trigger/trigger
-	var/effect_icon = 'icons/urist/effects.dmi'
+	var/effect_icon = 'icons/urist/effects/effects.dmi'
 	var/effect_state = "sparkles"
 	var/last_activation = 0
 

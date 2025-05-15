@@ -1,149 +1,114 @@
-var/global/list/datum/map_template/map_templates = list()
-var/global/list/datum/map_template/space_ruins_templates = list()
-var/global/list/datum/map_template/planet_templates = list()
-var/global/list/datum/map_template/underground_templates = list()
-var/global/list/datum/map_template/ship/ship_templates = list()
-
-/datum/controller/subsystem/mapping/proc/preloadOtherTemplates()
-	var/list/potentialSpaceRuins = generateMapList(filename = "config/spaceRuins.txt")
-	for(var/ruin in potentialSpaceRuins)
-		var/datum/map_template/T = new(list(ruin), ruin)
-		space_ruins_templates[T.name] = T
-
-	var/list/potentialPlanetTemplates = generateMapList(filename = "config/planetTemplates.txt")
-	for(var/ruin in potentialPlanetTemplates)
-		var/datum/map_template/T = new(list(ruin), ruin)
-		planet_templates[T.name] = T
-
-	var/list/potentialUndergroundTemplates = generateMapList(filename = "config/undergroundTemplates.txt")
-	for(var/ruin in potentialUndergroundTemplates)
-		var/datum/map_template/T = new(list(ruin), ruin)
-		underground_templates[T.name] = T
-
-	var/list/potentialShipTemplates = generateMapList(filename = "config/shipTemplates.txt")
-	for(var/ruin in potentialShipTemplates)
-		var/datum/map_template/ship/T = new(list(ruin), ruin)
-		ship_templates[T.name] = T
-		SSmapping.map_templates[T.name] = T
-
-/obj/urist_intangible/trigger/template_loader
+/obj/urist_intangible/triggers/template_loader
 	name = "random ruin"
 	icon = 'icons/obj/weapons/other.dmi'
 	icon_state = "syndballoon"
 	invisibility = 101
-	var/gamemode = 0
+	var/gamemode
+// what triggers us loading. TEMPLATE_LOADER_LOAD defined in _uristdefines.dm.
+// Defaults to false, which is being called to load by something other than Initialize() or the misc late init subsystem
+	var/load_trigger
+// allows you to define a map file by name (usually the filename for things loaded by the mapping subsystem)
+// if your map template isn't in SSmapping.map_templates, this probably won't do anything
+// on_call template_loaders need a mapfile set or they won't load. see overmapships.dm for an example of how this works in practice
+	var/mapfile
+	var/centre = TRUE //do we centre the map file we're loading
 
-/obj/urist_intangible/trigger/template_loader/proc/Load()
+/obj/urist_intangible/triggers/template_loader/Initialize()
+	. = ..()
+	if(load_trigger == TEMPLATE_LOADER_LOAD_ON_SPAWN)
+		Load()
+		return INITIALIZE_HINT_QDEL
+
+/obj/urist_intangible/triggers/template_loader/proc/Load(list/potentialRuins, datum/map_template/template = null)
 	return
 
-/obj/urist_intangible/trigger/template_loader/space/Load(list/potentialRuins = space_ruins_templates, datum/map_template/template = null)
+/obj/urist_intangible/triggers/template_loader/on_init
+	load_trigger = TEMPLATE_LOADER_LOAD_ON_INIT
+
+/obj/urist_intangible/triggers/template_loader/on_init/Load(list/potentialRuins, datum/map_template/template = null)
 	var/list/possible_ruins = list()
 	for(var/A in potentialRuins)
 		var/datum/map_template/T = potentialRuins[A]
 		if(!T.loaded)
 			possible_ruins += T
 	if(!template && length(possible_ruins))
-		template = difflist(possible_ruins)
+		template = pick(possible_ruins)
 	if(!template)
 		return
 	var/turf/central_turf = get_turf(src)
-	template.load(central_turf,centered = TRUE)
-//	template.loaded++
+	template.load(central_turf,centered = centre)
+	template.loaded = TRUE
 	QDEL_IN(src,0)
 
-/obj/urist_intangible/trigger/template_loader/planet/Load(list/potentialRuins = planet_templates, datum/map_template/template = null)
-	var/list/possible_ruins = list()
-	for(var/A in potentialRuins)
-		var/datum/map_template/T = potentialRuins[A]
-		if(!T.loaded)
-			possible_ruins += T
-//	report_progress(Loading ruins...")
-	if(!template && length(possible_ruins))
-		template = difflist(possible_ruins)
-	if(!template)
-//		report_progress(No ruins found.")
-		return
-	template.load(get_turf(src),centered = TRUE)
-	template.loaded++
-//	report_progress(Ruins loaded.")
-	QDEL_IN(src,0)
+/obj/urist_intangible/triggers/template_loader/on_init/space/Load(list/potentialRuins = SSmapping.space_ruins_templates, datum/map_template/template = null)
+	..()
 
-/obj/urist_intangible/trigger/template_loader/underground/Load(list/potentialRuins = underground_templates, datum/map_template/template = null)
-	var/list/possible_ruins = list()
-	for(var/A in potentialRuins)
-		var/datum/map_template/T = potentialRuins[A]
-		if(!T.loaded)
-			possible_ruins += T
-	if(!template && length(possible_ruins))
-		template = difflist(possible_ruins)
-	if(!template)
-		return
-	var/turf/central_turf = get_turf(src)
-	template.load(central_turf,centered = TRUE)
-//	template.loaded++
-	QDEL_IN(src,0)
+/obj/urist_intangible/triggers/template_loader/on_init/planet/Load(list/potentialRuins = SSmapping.planet_templates, datum/map_template/template = null)
+	..()
 
-/obj/urist_intangible/trigger/template_loader/gamemode
-	var/mapfile = null
-	invisibility = 101
+/obj/urist_intangible/triggers/template_loader/on_init/underground/Load(list/potentialRuins = SSmapping.underground_templates, datum/map_template/template = null)
+	..()
 
-/obj/urist_intangible/trigger/template_loader/gamemode/Load(list/potentialRuins = map_templates, datum/map_template/template = null)
+/obj/urist_intangible/triggers/template_loader/on_init/submap //we don't load maps at runtime, so we need to get funky if we want to use submaps on the nerva
+	centre = FALSE
+	name = "submap template loader"
+	icon = 'icons/urist/effects/map_effects_96x96.dmi'
+	icon_state = "mapmanip_loader"
+	pixel_x = -32
+	pixel_y = -32
 
-	for(var/A in potentialRuins)
-		var/datum/map_template/T = potentialRuins[A]
-//		log_debug("T = [T.name]")
-		if(T.name == src.mapfile)
-			template = T
-//	log_debug(Template = [template] Mapfile = [mapfile]")
-	template.load(get_turf(src), centered = TRUE)
-//	template.loaded++
+/obj/urist_intangible/triggers/template_loader/on_init/submap/Load(list/potentialRuins = SSmapping.submap_templates, datum/map_template/template = null)
+	if(mapfile)
+		to_world("submap loading")
+		for(var/A in potentialRuins)
+			var/datum/map_template/T = potentialRuins[A]
+			if(T.name == src.mapfile)
+				to_world("[T.name] found")
+				template = T
+		if(template)
+			to_world("template loading. centre = [centre]")
+			template.load(get_turf(src), centered = centre)
+		QDEL_IN(src,0)
 
-	QDEL_IN(src,0)
+/obj/urist_intangible/triggers/template_loader/on_call/Load(list/potentialRuins = SSmapping.map_templates, datum/map_template/template = null)
+	if(mapfile) //on_call template loaders need a mapfile set or they will not load
+		for(var/A in potentialRuins)
+			var/datum/map_template/T = potentialRuins[A]
+			if(T.name == src.mapfile)
+				template = T
+		if(template)
+			template.load(get_turf(src), centered = centre)
+		QDEL_IN(src,0)
 
-/obj/urist_intangible/trigger/template_loader/gamemode/assault
+/obj/urist_intangible/triggers/template_loader/on_call/gamemode/assault
 	var/maptype = 0
 	gamemode = "assault"
 
-/obj/urist_intangible/trigger/template_loader/ships
-	var/mapfile = null
+/obj/urist_intangible/triggers/template_loader/on_call/ships
 	var/mob/living/simple_animal/hostile/overmapship/home_ship = null //what ship are we connected to
-	gamemode = "ships" //this is dumb, but i don't want to rewrite it
 
-/obj/urist_intangible/trigger/template_loader/ships/Load(list/potentialRuins = ship_templates, datum/map_template/ship/template = null)
+/obj/urist_intangible/triggers/template_loader/on_call/ships/Load(list/potentialRuins = SSmapping.ship_templates, datum/map_template/template = null)
+	if(mapfile)
+		for(var/A in potentialRuins)
+			var/datum/map_template/ship/T = potentialRuins[A]
+			if(T.name == src.mapfile)
+				template = T
 
-	for(var/A in potentialRuins)
-		var/datum/map_template/ship/T = potentialRuins[A]
-//		report_progress("<span>T = [T.name]</span>")
-		if(T.name == src.mapfile)
-			template = T
-//	report_progress("<span>Template = [template] Mapfile = [mapfile]</span>")
+		if(template.load(get_turf(src), centered = TRUE))
+			home_ship.map_spawned = TRUE
+			QDEL_IN(src,0)
 
-	if(template.load(get_turf(src), centered = TRUE))
-//	template.loaded++
-		home_ship.map_spawned = TRUE
-		QDEL_IN(src,0)
+/obj/urist_intangible/triggers/template_loader/on_spawn
+	load_trigger = TEMPLATE_LOADER_LOAD_ON_SPAWN
 
-/* MATRIXCOMMENT
-/obj/urist_intangible/trigger/template_loader/matrix/Initialize()
-	GLOB.SSmatrix.init_matrix_memory(src)
-	. = ..()
-
-/obj/urist_intangible/trigger/template_loader/matrix/Load(security_rating = LOW_SEC, datum/map_template/template = null)
-	switch(security_rating)
-		if(LOW_SEC)
-			template = safepick(low_matrix_templates)
-		if(MED_SEC)
-			template = safepick(med_matrix_templates)
-		if(HIGH_SEC)
-			template = safepick(high_matrix_templates)
-	if(!template)
-		return
-	return template.load(get_turf(src),centered = TRUE)
-*/
-
-/obj/urist_intangible/trigger/template_loader/volcanic
-
-/obj/urist_intangible/trigger/template_loader/housing
+/obj/urist_intangible/triggers/template_loader/on_spawn/Load(list/potentialRuins = SSmapping.map_templates, datum/map_template/template = null)
+	if(mapfile)
+		for(var/A in potentialRuins)
+			var/datum/map_template/T = potentialRuins[A]
+			if(T.name == src.mapfile)
+				template = T
+		if(template)
+			template.load(get_turf(src), centered = centre)
 
 /datum/map_template/ship
 	template_flags = TEMPLATE_FLAG_CLEAR_CONTENTS | TEMPLATE_FLAG_ALLOW_DUPLICATES

@@ -9,6 +9,7 @@
 	#include "nerva_overmap.dm"
 	#include "nerva_setup.dm"
 	#include "nerva_shuttles.dm"
+	#include "nerva_submaps.dm"
 	#include "nerva_unit_testing.dm"
 	#include "datums/nerva_jobs.dm"
 	#include "datums/nerva_access_datums.dm"

@@ -106,7 +106,7 @@
 */
 /mob/living/simple_animal/hostile/overmapship/proc/spawnmap()
 	if(target_ship == GLOB.using_map.overmap_ship && boardingmap)
-		for(var/obj/urist_intangible/trigger/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
+		for(var/obj/urist_intangible/triggers/template_loader/on_call/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
 			S.mapfile = src.boardingmap
 			S.home_ship = src //checking whether the map has been loaded is now handled by the template loader, so it properly checks for completion
 			S.Load()
@@ -119,7 +119,7 @@
 
 /mob/living/simple_animal/hostile/overmapship/proc/despawnmap()
 	if(target_ship == GLOB.using_map.overmap_ship)
-		for(var/obj/urist_intangible/trigger/template_loader/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
+		for(var/obj/urist_intangible/triggers/template_loader/on_call/ships/S in GLOB.trigger_landmarks) //there can only ever be one of these atm
 			S.mapfile = "maps/shipmaps/ship_blank.dmm"
 			S.Load()
 		return
