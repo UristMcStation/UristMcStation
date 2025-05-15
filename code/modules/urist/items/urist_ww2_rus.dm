@@ -24,11 +24,8 @@ Contents:
 	slot_flags = SLOT_BACK
 	caliber = CALIBER_RIFLE_MILITARY
 	handle_casings = HOLD_CASINGS
-//	load_method = SINGLE_CASING
 	max_shells = 5
 	ammo_type = /obj/item/ammo_casing/rifle/military
-//	accuracy = -1
-//	jam_chance = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 
 /obj/item/gun/projectile/svt40
@@ -62,7 +59,7 @@ Contents:
 
 /obj/item/gun/projectile/automatic/dp27
 	name = "DP-27" // It's more recognisable as this than the other name, personally - Y
-	desc = "The standard infantry light machinegun of the Red Army. Only fires in short, long and automatic bursts. Takes pan magazines of 60 7.62mm rounds."
+	desc = "The standard infantry light machinegun of the Red Army. Capable of firing in short & long bursts and full-auto. Takes pan magazines of 60 7.62mm rounds."
 	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/guns/ww2_rus.dmi'
 	icon_state = "DT"
@@ -161,10 +158,11 @@ Contents:
 	w_class = ITEM_SIZE_SMALL
 	slot_flags = SLOT_BELT | SLOT_POCKET | SLOT_HOLSTER
 	handle_casings = CYCLE_CASINGS
+	load_method = SPEEDLOADER
 	max_shells = 7
 	ammo_type = /obj/item/ammo_casing/rifle/military
-	allowed_magazines = /obj/item/ammo_magazine/r762
-	magazine_type = /obj/item/ammo_magazine/r762
+	allowed_magazines = /obj/item/ammo_magazine/speedloader/nagant
+	magazine_type = /obj/item/ammo_magazine/speedloader/nagant
 
 
 
@@ -175,6 +173,7 @@ Contents:
 /obj/item/ammo_magazine/rifle/military/stripper
 	name = "stripper clip"
 	icon = 'icons/urist/guns/ammo_ww2.dmi'
+	desc = "A stripper clip capable of holding 5.56 rounds."
 	icon_state = "stripper"
 	max_ammo = 5
 	multiple_sprites = 1
@@ -195,6 +194,7 @@ Contents:
 
 /obj/item/ammo_magazine/rifle/military/dp27
 	name = "DP-27 pan magazine"
+	desc = "A pan magazined for the DP-27, capable of holding 60 rounds of 5.56mm."
 	icon_state = "DTmag"
 	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	mag_type = MAGAZINE
@@ -224,7 +224,7 @@ Contents:
 
 /obj/item/ammo_magazine/pistol/tt33
 	icon = 'icons/urist/guns/ammo_ww2.dmi'
-	name = "TT-33 magazine"
+	name = "TT-33 pistol magazine"
 	desc = "A TT-33 pistol magazine, chambered in 9mm."
 	icon_state = "tt33mag"
 	mag_type = MAGAZINE
@@ -235,7 +235,7 @@ Contents:
 /obj/item/ammo_magazine/pistol/tt33/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/r762
+/obj/item/ammo_magazine/speedloader/nagant
 	name = "nagant revolver speed loader"
 	desc = "A 7.62mm speedloader for the Nagant Revolver."
 	icon_state = "T38"
@@ -261,21 +261,27 @@ Contents:
 
 // Under / Uniforms
 
-/obj/item/clothing/under/urist/wwii/sovietrifleman
+/obj/item/clothing/under/urist/ww2/sovietrifleman
 	name = "Red Army rifleman's uniform"
 	desc = "A uniform commonly worn by Red Army riflemen."
 	icon_state = "ru_rifleman"
 	item_state = "ru_rifleman"
+	armor = list(
+		melee = ARMOR_MELEE_MINOR,
+		bullet = ARMOR_BALLISTIC_MINOR) // Better than nothing.
 
-/obj/item/clothing/under/urist/wwii/sovietofficer
+/obj/item/clothing/under/urist/ww2/sovietofficer
 	name = "Red Army officer's uniform"
 	desc = "A uniform commonly worn by Red Army officers."
 	icon_state = "ru_officer"
 	item_state = "ru_officer"
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_SMALL) // Better than nothing.
 
 // Suits
 
-/obj/item/clothing/suit/urist/wwii/soviet
+/obj/item/clothing/suit/urist/ww2/soviet
 	name = "Red Army overcoat"
 	desc = "An overcoat worn by Soviet soldiers."
 	icon_state = "ru_rmcoat"
@@ -283,18 +289,20 @@ Contents:
 	blood_overlay_type = "coatblood"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 	allowed = list(/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/grenade)
-	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR)
 
 // Head
 
-/obj/item/clothing/head/helmet/urist/wwii/soviethelm
+/obj/item/clothing/head/helmet/urist/ww2/soviethelm
 	name = "Red Army helmet"
 	desc = "The standard helmet of the Red Army."
 	icon_state = "ru_helmet"
 	item_state = "ru_helmet"
 	armor = list(melee = 50, bullet = 15, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
 
-/obj/item/clothing/head/urist/wwii/sovietofficer
+/obj/item/clothing/head/urist/ww2/sovietofficer
 	name = "Red Army officer's cap"
 	desc = "A cap commonly worn by Red Army officers."
 	icon_state = "ru_officap"
@@ -302,7 +310,7 @@ Contents:
 
 // Shoes
 
-/obj/item/clothing/shoes/urist/wwii/sovietboots
+/obj/item/clothing/shoes/urist/ww2/sovietboots
 	name = "Red Army jackboots"
 	desc = "A pair of boots, typically found on dead people named Ivan."
 	icon_state = "ru_boots"
@@ -311,16 +319,18 @@ Contents:
 
 // Storage
 
-/obj/item/storage/backpack/urist/soviet
+/obj/item/storage/backpack/urist/ww2/soviet
 	name = "Red Army rucksack"
 	desc = "A rucksack typically worn by Red Army riflemen."
 	icon_state = "ru_rucksack"
 	item_state = "ru_rucksack"
 
-/obj/item/clothing/accessory/storage/webbing_soviet
+/obj/item/clothing/accessory/storage/ww2/webbing_soviet
 	name = "Red Army webbing"
 	desc = "A large collection of pockets and pouches worn by Red Army riflemen."
 	icon = 'icons/urist/items/clothes/ties.dmi'
 	icon_override = 'icons/uristmob/ties.dmi'
+	accessory_icons = list(slot_w_uniform_str = 'icons/uristmob/ties.dmi')
 	icon_state = "ru_webbing"
-	slots = 4
+	slots = 4 STORAGE_SLOTS
+	body_location = UPPER_TORSO

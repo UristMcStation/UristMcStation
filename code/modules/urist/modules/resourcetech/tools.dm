@@ -50,11 +50,8 @@
 	slot_flags = SLOT_BACK
 	caliber = CALIBER_RIFLE_MILITARY
 	handle_casings = HOLD_CASINGS
-//	load_method = SINGLE_CASING
 	max_shells = 5
 	ammo_type = /obj/item/ammo_casing/rifle/military
-//	accuracy = -1
-//	jam_chance = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	accuracy_power = 6
 	screen_shake = 1

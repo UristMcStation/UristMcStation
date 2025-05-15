@@ -24,11 +24,8 @@ Contents:
 	slot_flags = SLOT_BACK
 	caliber = CALIBER_RIFLE_MAUSER
 	handle_casings = HOLD_CASINGS
-//	load_method = SINGLE_CASING
 	max_shells = 5
 	ammo_type = /obj/item/ammo_casing/a792x57mm
-//	accuracy = -1
-//	jam_chance = 5
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 
 /obj/item/gun/projectile/g43
@@ -296,13 +293,13 @@ Contents:
 
 // Under
 
-/obj/item/clothing/under/urist/wwii/germanrifleman
+/obj/item/clothing/under/urist/ww2/germanrifleman
 	name = "Wehrmacht rifleman's uniform"
 	desc = "A uniform commonly worn by Wehrmacht riflemen."
 	icon_state = "kr_rifleman"
 	item_state = "kr_rifleman"
 
-/obj/item/clothing/under/urist/wwii/germanofficer
+/obj/item/clothing/under/urist/ww2/germanofficer
 	name = "Wehrmacht officer's uniform"
 	desc = "A uniform commonly worn by Wehrmacht officers."
 	icon_state = "kr_officer"
@@ -310,14 +307,14 @@ Contents:
 
 // Head
 
-/obj/item/clothing/head/helmet/urist/wwii/germanhelm
+/obj/item/clothing/head/helmet/urist/ww2/germanhelm
 	name = "Wehrmacht Stahlhelm"
 	desc = "The standard helmet of the Wehrmacht."
 	icon_state = "kr_helm"
 	item_state = "kr_helm"
 	armor = list(melee = 50, bullet = 15, laser = 0,energy = 0, bomb = 10, bio = 0, rad = 0)
 
-/obj/item/clothing/head/urist/wwii/germanofficer
+/obj/item/clothing/head/urist/ww2/germanofficer
 	name = "Wehrmacht officer's cap"
 	desc = "A cap commonly worn by Wehrmacht officers."
 	icon_state = "kr_officap"
@@ -325,7 +322,7 @@ Contents:
 
 // Shoes
 
-/obj/item/clothing/shoes/urist/wwii/germanboots
+/obj/item/clothing/shoes/urist/ww2/germanboots
 	name = "Wehrmacht jackboots"
 	desc = "Ah, good German jackboots. Thank you Heinrich."
 	icon_state = "kr_boots"

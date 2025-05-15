@@ -119,14 +119,14 @@
 	id_types = list(/obj/item/card/id/engineering)
 
 /* World War 13 */
-/singleton/hierarchy/outfit/wwii
+/singleton/hierarchy/outfit/ww2
 	name = "Naked, 1941-style" //just to shut Travis up
 
-/singleton/hierarchy/outfit/wwii/germanrifleman
+/singleton/hierarchy/outfit/ww2/germanrifleman
 	name = "German Rifleman"
-	head = /obj/item/clothing/head/helmet/urist/wwii/germanhelm
-	uniform = /obj/item/clothing/under/urist/wwii/germanrifleman
-	shoes = /obj/item/clothing/shoes/urist/wwii/germanboots
+	head = /obj/item/clothing/head/helmet/urist/ww2/germanhelm
+	uniform = /obj/item/clothing/under/urist/ww2/germanrifleman
+	shoes = /obj/item/clothing/shoes/urist/ww2/germanboots
 	back = /obj/item/gun/projectile/manualcycle/kar98
 	r_pocket = /obj/item/grenade/frag/stielhandgranate
 	l_pocket = /obj/item/ammo_magazine/a792x57mm/stripper
@@ -134,7 +134,7 @@
 	l_hand = /obj/item/ammo_magazine/a792x57mm/stripper
 	belt = 	/obj/item/ammo_magazine/a792x57mm/stripper
 
-/singleton/hierarchy/outfit/wwii/germanrifleman/pre_equip(mob/living/carbon/human/H)
+/singleton/hierarchy/outfit/ww2/germanrifleman/pre_equip(mob/living/carbon/human/H)
 	if(prob(10))
 		back = /obj/item/gun/projectile/automatic/stg44
 		l_pocket = /obj/item/ammo_magazine/a792x33mm
@@ -159,7 +159,7 @@
 	else
 		return
 
-/singleton/hierarchy/outfit/wwii/germanrifleman/post_equip(mob/living/carbon/human/H)
+/singleton/hierarchy/outfit/ww2/germanrifleman/post_equip(mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/uniform = H.w_uniform
 	if(uniform)
@@ -169,11 +169,11 @@
 		else
 			qdel(gear)
 
-/singleton/hierarchy/outfit/wwii/germanofficer
+/singleton/hierarchy/outfit/ww2/germanofficer
 	name = "German Officer"
-	head = /obj/item/clothing/head/urist/wwii/germanofficer
-	uniform = /obj/item/clothing/under/urist/wwii/germanofficer
-	shoes = /obj/item/clothing/shoes/urist/wwii/germanboots
+	head = /obj/item/clothing/head/urist/ww2/germanofficer
+	uniform = /obj/item/clothing/under/urist/ww2/germanofficer
+	shoes = /obj/item/clothing/shoes/urist/ww2/germanboots
 	back = /obj/item/gun/projectile/automatic/mp40
 	r_pocket = /obj/item/grenade/frag/stielhandgranate
 	l_pocket = /obj/item/ammo_magazine/pistol/mp40
@@ -181,7 +181,7 @@
 	l_hand = /obj/item/ammo_magazine/pistol/p38
 	belt = /obj/item/gun/projectile/p38
 
-/singleton/hierarchy/outfit/wwii/germanofficer/post_equip(mob/living/carbon/human/H)
+/singleton/hierarchy/outfit/ww2/germanofficer/post_equip(mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/uniform = H.w_uniform
 	if(uniform)
@@ -191,11 +191,11 @@
 		else
 			qdel(gear)
 
-/singleton/hierarchy/outfit/wwii/sovietrifleman
+/singleton/hierarchy/outfit/ww2/sovietrifleman
 	name = "Soviet Rifleman"
-	head = /obj/item/clothing/head/helmet/urist/wwii/soviethelm
-	uniform = /obj/item/clothing/under/urist/wwii/sovietrifleman
-	shoes = /obj/item/clothing/shoes/urist/wwii/sovietboots
+	head = /obj/item/clothing/head/helmet/urist/ww2/soviethelm
+	uniform = /obj/item/clothing/under/urist/ww2/sovietrifleman
+	shoes = /obj/item/clothing/shoes/urist/ww2/sovietboots
 	back = /obj/item/gun/projectile/manualcycle/mosinnagant
 	r_pocket = /obj/item/grenade/frag/sovietgrenade
 	l_pocket = /obj/item/ammo_magazine/speedloader/clip
@@ -203,7 +203,7 @@
 	l_hand = /obj/item/ammo_magazine/speedloader/clip
 	belt = /obj/item/ammo_magazine/speedloader/clip
 
-/singleton/hierarchy/outfit/wwii/sovietrifleman/pre_equip(mob/living/carbon/human/H)
+/singleton/hierarchy/outfit/ww2/sovietrifleman/pre_equip(mob/living/carbon/human/H)
 	if(prob(5))
 		back = /obj/item/gun/projectile/automatic/ppsh
 		l_pocket = /obj/item/ammo_magazine/pistol/ppsh
@@ -235,21 +235,21 @@
 	else
 		return
 
-/singleton/hierarchy/outfit/wwii/sovietrifleman/post_equip(mob/living/carbon/human/H)
+/singleton/hierarchy/outfit/ww2/sovietrifleman/post_equip(mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/uniform = H.w_uniform
 	if(uniform)
-		var/obj/item/clothing/accessory/storage/webbing_soviet/gear = new()
+		var/obj/item/clothing/accessory/storage/ww2/webbing_soviet/gear = new()
 		if(uniform.can_attach_accessory(gear))
 			uniform.attach_accessory(null, gear)
 		else
 			qdel(gear)
 
-/singleton/hierarchy/outfit/wwii/sovietofficer
+/singleton/hierarchy/outfit/ww2/sovietofficer
 	name = "Soviet Officer"
-	head = /obj/item/clothing/head/urist/wwii/sovietofficer
-	uniform = /obj/item/clothing/under/urist/wwii/sovietofficer
-	shoes = /obj/item/clothing/shoes/urist/wwii/sovietboots
+	head = /obj/item/clothing/head/urist/ww2/sovietofficer
+	uniform = /obj/item/clothing/under/urist/ww2/sovietofficer
+	shoes = /obj/item/clothing/shoes/urist/ww2/sovietboots
 	back = /obj/item/gun/projectile/automatic/ppsh
 	r_pocket = /obj/item/grenade/frag/sovietgrenade
 	l_pocket = /obj/item/ammo_magazine/pistol/ppsh
@@ -257,20 +257,20 @@
 	l_hand = /obj/item/ammo_magazine/pistol/tt33
 	belt = /obj/item/gun/projectile/pistol/tt33
 
-/singleton/hierarchy/outfit/wwii/sovietofficer/pre_equip(mob/living/carbon/human/H)
+/singleton/hierarchy/outfit/ww2/sovietofficer/pre_equip(mob/living/carbon/human/H)
 	if(prob(50))
-		l_hand = /obj/item/ammo_magazine/r762
+		l_hand = /obj/item/ammo_magazine/speedloader/nagant
 		belt = /obj/item/gun/projectile/revolver/nagantm1895
-		suit = /obj/item/clothing/suit/urist/wwii/soviet //full commissar
-		suit_store = /obj/item/ammo_magazine/r762
+		suit = /obj/item/clothing/suit/urist/ww2/soviet //full commissar
+		suit_store = /obj/item/ammo_magazine/speedloader/nagant
 	else
 		return
 
-/singleton/hierarchy/outfit/wwii/sovietofficer/post_equip(mob/living/carbon/human/H)
+/singleton/hierarchy/outfit/ww2/sovietofficer/post_equip(mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/uniform = H.w_uniform
 	if(uniform)
-		var/obj/item/clothing/accessory/storage/webbing_soviet/gear = new()
+		var/obj/item/clothing/accessory/storage/ww2/webbing_soviet/gear = new()
 		if(uniform.can_attach_accessory(gear))
 			uniform.attach_accessory(null, gear)
 		else

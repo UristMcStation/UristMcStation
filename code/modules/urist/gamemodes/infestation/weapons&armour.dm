@@ -354,7 +354,7 @@
 		)
 */
 
-/obj/item/gunattachment // FIX ME ALEX!!!!
+/obj/item/gunattachment
 	icon = 'icons/urist/guns/gun_attachments.dmi'
 
 /*
@@ -386,7 +386,7 @@
 /obj/item/gun/projectile/automatic/asmg
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper A37 SMG"
-	desc = "The standard submachine gun of the ANFOR Marine Corps and the Terran Confederacy Marine Corps. Has 40 rounds of 9mm ammo, and can fire semi automatic or in 3 or 5 round bursts.."
+	desc = "The standard submachine gun of the ANFOR Marine Corps and the Terran Confederacy Marine Corps. Has 40 rounds of 9mm ammo, and can fire semi automatic or in 3 or 5 round bursts."
 	icon = 'icons/urist/guns/anfor.dmi'
 	icon_state = "ANFOR-SMG"
 	item_state = "ANFOR-SMG"
@@ -471,7 +471,7 @@
 /obj/item/gun/projectile/manualcycle/a50
 	name = "A50 Heavy Rifle"
 	icon = 'icons/urist/guns/anfor_48x.dmi'
-	desc = "A bolt action anti-material rifle used by ANFOR support units. Chambered in 13.2x108mm, it is intended to breach the thin hulls of light landing craft, but in a pinch, could be used against the hardened carapaces of xenomorphs. Using state of the art technology, the gun manages to negate the majority of the recoil."
+	desc = "A bolt action anti-material rifle used by ANFOR support units. Chambered in 14.5mm, it is intended to breach the thin hulls of light landing craft, but in a pinch, could be used against the hardened carapaces of xenomorphs. Using state of the art technology, the gun manages to negate the majority of the recoil."
 	wielded_item_state = "ANFOR-sniper-wielded"
 	icon_state = "ANFOR-sniper"
 	item_state = "ANFOR-sniper"
