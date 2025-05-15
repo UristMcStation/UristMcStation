@@ -52,7 +52,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           # Get the code.
-          git config user.name AuroraBuildBot
+          git config user.name UristBuildBot
           git config user.email "action@github.com"
           git pull origin "$PR_BRANCH" --depth=$((ahead_by + 1))
           git remote add upstream "https://github.com/$BASE_REPOSITORY.git"
