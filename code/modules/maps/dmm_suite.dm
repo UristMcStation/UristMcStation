@@ -108,9 +108,11 @@ GLOBAL_TYPED_NEW(maploader, /dmm_suite)
 		if(lastchar == "/" || lastchar == "\\")
 			log_debug("Attempted to load map template without filename (Attempted [tfile])")
 			return
-		// use bapi to read, parse, process, mapmanip etc. unless we're measuring
+		// use bapi to read, parse, process, mapmanip etc. unless we're measuring or unit tests are running
+#if !defined(UNIT_TEST) && !defined(DEBUG_GENERATE_WORTHS)
 		if(!measureOnly)
 			tfile = bapi_read_dmm_file("[tfilepath]")
+#endif
 		// if bapi for whatever reason fails and returns null, or we're measuring
 		// try to load it the old dm way instead
 		if(!tfile)
