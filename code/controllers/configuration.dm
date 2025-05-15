@@ -1,6 +1,6 @@
 /datum/configuration
 	/// server name (for world name / status)
-	var/static/server_name = "Space Station 13"
+	var/static/server_name = "Urist McStation"
 
 	/// for topic status requests
 	var/static/game_version = "Baystation"

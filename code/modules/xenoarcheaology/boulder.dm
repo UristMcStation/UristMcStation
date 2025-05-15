@@ -43,7 +43,7 @@
 			SPAN_NOTICE("\The [user] extends \a [tool] towards \the [src]."),
 			SPAN_NOTICE("You extend \the [tool] towards \the [src].")
 		)
-		if (!user.do_skilled(1.5 SECONDS, SKILL_SCIENCE, src) || !user.use_sanity_check(src, tool))
+		if (!do_after(user, 1.5 SECONDS, src) || !user.use_sanity_check(src, tool))
 			return TRUE
 		to_chat(user, SPAN_INFO("\The [src] has been excavated to a depth of [excavation_level]cm."))
 		return TRUE

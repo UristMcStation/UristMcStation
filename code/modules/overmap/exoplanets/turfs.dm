@@ -61,7 +61,7 @@
 
 /turf/simulated/floor/exoplanet/Initialize()
 	. = ..()
-	update_icon(1)
+	queue_icon_update(1)
 
 /turf/simulated/floor/exoplanet/on_update_icon(update_neighbors)
 	ClearOverlays()

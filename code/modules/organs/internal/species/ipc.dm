@@ -81,10 +81,6 @@
 			to_chat(user, SPAN_WARNING("\The [src] is damaged beyond repair."))
 			return TRUE
 
-		if (!user.skill_check(SKILL_DEVICES, SKILL_EXPERIENCED))
-			to_chat(user, SPAN_WARNING("You don't know how to fix \the [src]."))
-			return TRUE
-
 		var/obj/item/stack/paste = item
 
 		if (!paste.use(1))

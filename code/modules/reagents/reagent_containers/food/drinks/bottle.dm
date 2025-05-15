@@ -475,10 +475,8 @@
 		SPAN_NOTICE("You prepare to swing \the [attacking_item] at \the [src].")
 	)
 
-	if (!user.do_skilled(2 SECONDS, SKILL_COOKING, user))
+	if (!do_after(user, 2 SECONDS, user))
 		return TRUE
-	if(!prob(user.skill_fail_chance(SKILL_COOKING, 80, SKILL_EXPERIENCED)))
-		return open(user, sabrage = TRUE, froth_severity = 3)
 	else
 		var/datum/pronouns/pronouns = user.choose_from_pronouns()
 		user.visible_message(

@@ -14,19 +14,22 @@
 	var/stump = 0
 	atom_flags = ATOM_FLAG_CLIMBABLE
 
-/obj/structure/bush/New()
-
-	icon_state = "bushnew[rand(1,4)]"
-
-	if(prob(20))
-		name = "thick foliage"
-		opacity = 1
-		desc = "Very thick scrub that blocks your vision. It'll take something sharp and a lot of determination to clear away"
-		icon_state = "thickbush[rand(1,2)]"
+/obj/structure/bush/Initialize()
+	. = ..()
 
 	if(indestructable)
 		icon_state = "thickbush[rand(1,2)]"
-	..()
+
+	else
+		if(prob(20))
+			name = "thick foliage"
+			opacity = 1
+			desc = "Very thick scrub that blocks your vision. It'll take something sharp and a lot of determination to clear away"
+			icon_state = "thickbush[rand(1,2)]"
+
+		else
+			icon_state = "bushnew[rand(1,4)]"
+
 
 /obj/structure/bush/Bumped(M as mob)
 	if (istype(M, /mob/living/simple_animal))
@@ -107,15 +110,6 @@
 // Strange, fruit-bearing plants //
 //*******************************//
 
-var/global/list/fruit_icon_states = list("badrecipe","kudzupod","reishi","lime","grapes","boiledrorocore","chocolateegg")
-var/global/list/reagent_effects = list("toxin","anti_toxin","stoxin","space_drugs","mindbreaker","zombiepowder","impedrezene")
-var/global/jungle_plants_init = 0
-
-/proc/init_jungle_plants()
-	jungle_plants_init = 1
-	fruit_icon_states = shuffle(fruit_icon_states)
-	reagent_effects = shuffle(reagent_effects)
-
 /obj/item/reagent_containers/food/snacks/grown/jungle_fruit
 	name = "jungle fruit"
 	desc = "It smells weird and looks off."
@@ -130,10 +124,10 @@ var/global/jungle_plants_init = 0
 /obj/structure/jungle_plant
 	icon = 'icons/jungle.dmi'
 	icon_state = "plant1"
-	desc = "Looks like some of that fruit might be edible."
+	desc = "A strange jungle plant. Looks like some of that fruit might be edible."
 	anchored = TRUE
-	var/fruits_left = 3
-	var/fruit_type = -1
+	var/fruits_left
+	var/fruit_type
 	var/icon/fruit_overlay
 //	var/plant_strength = 1
 	var/fruit_r
@@ -141,21 +135,26 @@ var/global/jungle_plants_init = 0
 	var/fruit_b
 
 
-/obj/structure/jungle_plant/New()
-	if(!jungle_plants_init)
-		init_jungle_plants()
-
+/obj/structure/jungle_plant/Initialize()
+	. = ..()
+	pixel_x = rand(-6,6)
+	pixel_y = rand(-6,6)
 	fruit_type = rand(1,7)
-	icon_state = "plant[fruit_type]"
 	fruits_left = rand(1,5)
-	fruit_overlay = icon('icons/jungle.dmi',"fruit[fruits_left]")
-	fruit_r = 255 - fruit_type * 36
-	fruit_g = rand(1,255)
-	fruit_b = fruit_type * 36
-	fruit_overlay.Blend(rgb(fruit_r, fruit_g, fruit_b), ICON_ADD)
-	AddOverlays(fruit_overlay)
+	queue_icon_update()
+
 //	plant_strength = rand(20,200)
-	..()
+
+/obj/structure/jungle_plant/on_update_icon()
+	. = ..()
+	if(fruit_type && !fruit_overlay)
+		icon_state = "plant[fruit_type]"
+		fruit_overlay = icon('icons/jungle.dmi',"fruit[fruits_left]")
+		fruit_r = 255 - fruit_type * 36
+		fruit_g = rand(1,255)
+		fruit_b = fruit_type * 36
+		fruit_overlay.Blend(rgb(fruit_r, fruit_g, fruit_b), ICON_ADD)
+		AddOverlays(fruit_overlay)
 
 /obj/structure/jungle_plant/attack_hand(mob/user as mob)
 	if(fruits_left > 0)
@@ -163,10 +162,6 @@ var/global/jungle_plants_init = 0
 		to_chat(user, "<span class='notice'> You pick a fruit off [src].</span>")
 
 		var/obj/item/reagent_containers/food/snacks/grown/jungle_fruit/J = new (src.loc)
-//		J.potency = plant_strength
-//		J.icon_state = fruit_icon_states[fruit_type]
-//		J.reagents.add_reagent(reagent_effects[fruit_type], 1+round((plant_strength / 20), 1))
-//		J.bitesize = 1+round(J.reagents.total_volume / 2, 1)
 		J.attack_hand(user)
 
 		CutOverlays(fruit_overlay)
@@ -201,16 +196,9 @@ var/global/jungle_plants_init = 0
 	icon_state = "reedbush_1"
 	anchored = TRUE
 
-/obj/structure/flora/reeds/New()
-	if(prob(25))
-		icon_state = "reedbush_1"
-	if(prob(25))
-		icon_state = "reedbush_2"
-	if(prob(25))
-		icon_state = "reedbush_3"
-	if(prob(25))
-		icon_state = "reedbush_4"
-	..()
+/obj/structure/flora/reeds/Initialize()
+	icon_state = "reedbush_[rand(1,4)]"
+	. = ..()
 
 /obj/structure/flora/reeds/use_tool(obj/item/I, mob/living/user, list/click_params)
 	if(istype(I, /obj/item/material/hatchet) || istype(I, /obj/item/material/sword/machete) || istype(I, /obj/item/carpentry/axe))
@@ -232,6 +220,6 @@ var/global/jungle_plants_init = 0
 	desc = "Some dry, virtually dead grass."
 	icon_state = "tall_grass_1"
 
-/obj/structure/flora/grass/arid/New()
-	..()
+/obj/structure/flora/grass/arid/Initialize()
+	. = ..()
 	icon_state = "tall_grass_[rand(1,8)]"

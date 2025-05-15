@@ -14,6 +14,7 @@
 
 #define LIGHTMODE_EMERGENCY "emergency_lighting"
 #define LIGHTMODE_READY "ready"
+#define LIGHTMODE_COMBAT "combat_lighting"
 
 #define LIGHT_PHORON_EXPLODE_THRESHOLD 5 // This many units of phoron have to be in the bulb for it to explode
 
@@ -226,6 +227,7 @@
 	light_type = /obj/item/light/tube/large
 	construct_type = /obj/machinery/light_construct/spot
 
+
 // create a new lighting fixture
 /obj/machinery/light/Initialize(mapload, obj/machinery/light_construct/construct = null)
 	. = ..(mapload)
@@ -305,7 +307,11 @@
 	if(istype(lightbulb, /obj/item/light))
 		if (on)
 			AddOverlays(emissive_appearance(icon, _state))
-		AddOverlays(overlay_image(icon, _state, lightbulb.color))
+
+		if(current_mode && (current_mode in lightbulb.lighting_modes))
+			AddOverlays(overlay_image(icon, _state, lightbulb.lighting_modes[current_mode]["l_color"]))
+		else
+			AddOverlays(overlay_image(icon, _state, lightbulb.color))
 
 	if(on)
 
@@ -717,9 +723,10 @@
 	item_state = "c_tube"
 	matter = list(MATERIAL_GLASS = 100, MATERIAL_ALUMINIUM = 20)
 
-	b_range = 5
+	b_range = 6
 	lighting_modes = list(
 		LIGHTMODE_EMERGENCY = list(l_range = 4, l_power = 1, l_color = LIGHT_COLOUR_E_RED),
+		LIGHTMODE_COMBAT = list(l_range = 4, l_power = 0.8, l_color = LIGHT_COLOUR_COMBAT)
 	)
 	sound_on = 'sound/machines/lightson.ogg'
 
@@ -746,6 +753,10 @@
 	w_class = ITEM_SIZE_SMALL
 	name = "large light tube"
 	b_range = 8
+	lighting_modes = list(
+		LIGHTMODE_EMERGENCY = list(l_range = 4, l_power = 1, l_color = LIGHT_COLOUR_E_RED),
+		LIGHTMODE_COMBAT = list(l_range = 6, l_power = 0.8, l_color = LIGHT_COLOUR_COMBAT)
+	)
 
 /obj/item/light/tube/large/warm
 	name = "large light tube (warm)"
@@ -778,7 +789,8 @@
 	b_power = 0.7
 	b_range = 4
 	lighting_modes = list(
-		LIGHTMODE_EMERGENCY = list(l_range = 3, l_power = 1, l_color = LIGHT_COLOUR_E_RED)
+		LIGHTMODE_EMERGENCY = list(l_range = 3, l_power = 1, l_color = LIGHT_COLOUR_E_RED),
+		LIGHTMODE_COMBAT = list(l_range = 3, l_power = 1, l_color = LIGHT_COLOUR_COMBAT)
 	)
 
 /obj/item/light/bulb/warm

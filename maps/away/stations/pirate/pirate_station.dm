@@ -31,15 +31,15 @@ var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 	icon = 'icons/obj/overmap.dmi'
 	icon_state = "meteor4"
 	faction = /datum/factions/pirate
-	color = "#a08444"
+	color = "#fc1100"
 	station_holder = /mob/living/simple_animal/hostile/overmapship/station_holder/pirate
 	total_ships = 2
 	remaining_ships = 4
-	layer = ABOVE_LIGHTING_LAYER
-	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	sensor_visibility = 10
 	hidden = TRUE
+	sector_flags = FLAGS_OFF
 	spawn_ships = TRUE
-	spawn_types = list(/mob/living/simple_animal/hostile/overmapship/pirate/small, /mob/living/simple_animal/hostile/overmapship/pirate/med, /mob/living/simple_animal/hostile/overmapship/pirate/gantry)
+	spawn_types = list(/mob/living/simple_animal/hostile/overmapship/pirate/small, /mob/living/simple_animal/hostile/overmapship/pirate/gantry)
 	assigned_contracts = list(/datum/contract/shiphunt/pirate, /datum/contract/station_destroy/pirate)
 	initial_generic_waypoints = list(
 		"nav_piratestation_1",
@@ -102,6 +102,8 @@ var/global/const/access_away_pirate_station = "ACCESS_AWAY_PIRATE_STATION"
 		color = "#660000"
 		hidden = FALSE
 		make_known(TRUE)
+		layer = ABOVE_LIGHTING_LAYER
+		plane = EFFECTS_ABOVE_LIGHTING_PLANE
 
 //money values are very much in flux
 

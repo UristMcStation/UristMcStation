@@ -63,7 +63,7 @@
 
 	// schedule another check
 	// not TIMER_LOOP because we only want to do this if we have a talking_atom
-	addtimer(new Callback(src, /obj/proc/check_still_listening, 2 MINUTES), TIMER_UNIQUE | TIMER_NO_HASH_WAIT | TIMER_OVERRIDE)
+	addtimer(new Callback(src, TYPE_PROC_REF(/obj, check_still_listening), 2 MINUTES), TIMER_UNIQUE | TIMER_NO_HASH_WAIT | TIMER_OVERRIDE)
 	return
 
 
@@ -107,7 +107,7 @@
 			I.talking_atom = new_parrot
 			GLOB.listening_objects |= I
 			live_parrots.Add(weakref(I))
-			addtimer(new Callback(I, /obj/proc/check_still_listening, 2 MINUTES), TIMER_UNIQUE | TIMER_NO_HASH_WAIT | TIMER_OVERRIDE)
+			addtimer(new Callback(I, TYPE_PROC_REF(/obj, check_still_listening), 2 MINUTES), TIMER_UNIQUE | TIMER_NO_HASH_WAIT | TIMER_OVERRIDE)
 			break
 
 	// update stored refs with the refreshed ones
@@ -154,7 +154,7 @@
 				GLOB.listening_objects |= I
 				live_parrots.Add(weakref(I))
 
-				addtimer(new Callback(I, /obj/proc/check_still_listening, 2 MINUTES), TIMER_UNIQUE | TIMER_NO_HASH_WAIT | TIMER_OVERRIDE)
+				addtimer(new Callback(I, TYPE_PROC_REF(/obj, check_still_listening), 2 MINUTES), TIMER_UNIQUE | TIMER_NO_HASH_WAIT | TIMER_OVERRIDE)
 
 				if(++parrotified >= src.parrotify_chance_pulse_maxdo || !prob(src.parrotify_chance_pulse_domore))
 					break

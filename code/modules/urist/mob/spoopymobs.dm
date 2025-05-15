@@ -174,7 +174,7 @@
 	if(regen)
 		to_chat(src, "You begin to regenerate. This will take about [regen_delay/60] minutes.")
 		to_chat(src, "If you ghost, you can re-enter the mob assuming it still exists.")
-		addtimer(new Callback(src, /mob/living/simple_animal/hostile/urist/zombie/proc/deathregen), regen_delay SECONDS, TIMER_STOPPABLE)
+		addtimer(new Callback(src, TYPE_PROC_REF(/mob/living/simple_animal/hostile/urist/zombie, deathregen)), regen_delay SECONDS, TIMER_STOPPABLE)
 
 	if(src.contents)
 		var/inv_size = length(contents)
@@ -268,7 +268,7 @@
 
 	// unless the odds are messing with you, as soon as you get the message your only hope is a *good* death
 	to_chat(src, "<span class='warning'>[pick(transformation_msgs)]</span>")
-	addtimer(new Callback(src, /mob/living/carbon/human/proc/uZombifyInstant, regens, infects, hitpoints), time SECONDS, TIMER_STOPPABLE)
+	addtimer(new Callback(src, TYPE_PROC_REF(/mob/living/carbon/human, uZombifyInstant), regens, infects, hitpoints), time SECONDS, TIMER_STOPPABLE)
 
 
 /mob/living/carbon/human/proc/uZombifyInstant(regens = 0, infects = 0, hitpoints = 40) //I swear officer, that Animalize() proc fell out the back of a truck.

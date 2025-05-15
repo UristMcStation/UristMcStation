@@ -71,6 +71,6 @@
 /obj/machinery/radio_beacon/destroyed_colony/Destroy()
 	if(contract_enabled)
 		for(var/datum/contract/destroyed_colony/contract in GLOB.using_map.contracts)
-			addtimer(new Callback(contract, /datum/contract/proc/Complete, 1), 2 SECONDS)
+			addtimer(new Callback(contract, TYPE_PROC_REF(/datum/contract, Complete), 1), 2 SECONDS)
 
 	.=..()

@@ -2005,7 +2005,8 @@
 /area/maintenance/fourth_deck/afp)
 "dX" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/maintenance/fourth_deck/afp)
 "dY" = (
@@ -2931,7 +2932,8 @@
 /area/antonine_hangar/start)
 "fw" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/maintenance/fourth_deck/fp)
 "fx" = (
@@ -12543,6 +12545,8 @@
 	dir = 4;
 	pixel_x = 24
 	},
+/obj/structure/table/standard,
+/obj/machinery/reagent_temperature,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemlab)
 "vS" = (
@@ -13562,7 +13566,8 @@
 /area/engineering/bdstarengine)
 "xM" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/maintenance/fourth_deck/afs)
 "xN" = (
@@ -22123,7 +22128,8 @@
 /area/logistics/lockers)
 "RS" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/maintenance/fourth_deck/fs)
 "RT" = (
