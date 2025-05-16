@@ -62,7 +62,7 @@
 /area/turbolift/main_fourth_deck		//These are backwards somehow, and it really hurts my head - Shippy //Ships are backwards. First deck is the top floor.
 	name = "Fourth Deck"
 	base_turf = /turf/simulated/floor/plating
-	lift_announce_str = "Arriving at Fourth Deck: Expedition Hangar. AI Upload. Science. Virology. Emergency Escape Pods."
+	lift_announce_str = "Arriving at Fourth Deck: Expedition Hangar. AI Upload. Science. Fabrication Bay. Emergency Escape Pods."
 
 /area/turbolift/main_third_deck
 	name = "Third Deck"
@@ -77,7 +77,7 @@
 /area/turbolift/main_first_deck
 	name = "First Deck"
 	base_turf = /turf/simulated/open
-	lift_announce_str = "Arriving at First Deck: AI Core. Docking Port. Security Checkpoint. Bluspace Drive."
+	lift_announce_str = "Arriving at First Deck: AI Core. Docking Ports. Security Checkpoint. Bluespace Drive."
 
 /obj/nerva_lift_map_holder
 	name = "turbolift map placeholder"
