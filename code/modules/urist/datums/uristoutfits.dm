@@ -575,3 +575,30 @@
 	r_pocket = /obj/item/gun/projectile/pistol/colt/a7
 	l_pocket = /obj/item/device/radio
 	suit_store = /obj/item/gun/projectile/automatic/m14
+
+// Columbo
+
+/singleton/hierarchy/outfit/gimmick/columbo
+	name = "Gimmick - Detective Columbo" // Columbo doesn't need any weapons, his wits are enough
+	mask = /obj/item/clothing/mask/smokable/cigarette/cigar/green
+	suit = /obj/item/clothing/suit/urist/raincoat
+	shoes = /obj/item/clothing/shoes/laceup
+	uniform = /obj/item/clothing/under/det
+	l_ear = /obj/item/device/radio/headset/headset_sec
+	belt = /obj/item/storage/briefcase/crimekit
+	r_pocket = /obj/item/device/taperecorder
+	l_pocket = /obj/item/taperoll/police
+	r_hand = /obj/item/reagent_containers/food/drinks/coffee
+	back = /obj/item/storage/backpack/satchel/leather
+	backpack_contents = list(/obj/item/flame/lighter/zippo = 1, /obj/item/storage/box/evidence = 1, /obj/item/device/holowarrant = 1, /obj/item/clothing/mask/smokable/cigarette/cigar/green = 1, /obj/item/paper = 1, /obj/item/pen/fancy = 1, /obj/item/material/folder = 1, /obj/item/device/camera = 1, /obj/item/device/camera_film = 1)
+
+// Doom Guy
+
+/singleton/hierarchy/outfit/gimmick/doom_guy
+	name = "Gimmick - Doom Marine" // Even though this is armor is trash protection-wise, atleast someone can think they can be the doom guy.
+	uniform = /obj/item/clothing/under/syndicate/tacticool
+	suit = /obj/item/clothing/suit/urist/armor/trash/doom
+	r_pocket = /obj/item/ammo_magazine/shotholder/shell
+	l_pocket = /obj/item/ammo_magazine/shotholder/shell
+	back = /obj/item/gun/projectile/shotgun/doublebarrel
+	belt = /obj/item/ammo_magazine/shotholder/shell
