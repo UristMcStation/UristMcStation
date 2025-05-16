@@ -7,10 +7,10 @@
 /// Look for .dll/.so in the build location first, then in `.`, then in standard places.
 /proc/__detect_bapi()
 	if(world.system_type == UNIX)
-#ifdef CIBUILDING
+#ifdef UNIT_TEST
 		// CI override, use libbapi_ci.so if possible.
-		if(fexists("./tools/ci/libbapi_ci.so"))
-			return __bapi = "tools/ci/libbapi_ci.so"
+		if(fexists("./tools/bapi/libbapi_ci.so"))
+			return __bapi = "tools/bapi/libbapi_ci.so"
 #endif
 		// First check if it's built in the usual place.
 		if(fexists("./rust/bapi/target/i686-unknown-linux-gnu/release/libbapi.so"))
