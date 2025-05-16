@@ -8361,11 +8361,11 @@
 /area/centcom/specops)
 "auD" = (
 /obj/structure/table/rack,
-/obj/item/storage/belt/holster/urist/nam,
-/obj/item/storage/belt/holster/urist/nam,
-/obj/item/storage/belt/holster/urist/nam,
-/obj/item/storage/belt/holster/urist/nam,
-/obj/item/storage/belt/holster/urist/nam,
+/obj/item/storage/belt/urist/nam,
+/obj/item/storage/belt/urist/nam,
+/obj/item/storage/belt/urist/nam,
+/obj/item/storage/belt/urist/nam,
+/obj/item/storage/belt/urist/nam,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
