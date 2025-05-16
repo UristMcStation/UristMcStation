@@ -48,7 +48,7 @@
 /obj/item/organ/internal/stack/Initialize()
 	. = ..()
 	robotize()
-	addtimer(new Callback(src, .proc/do_backup), 2 SECONDS)
+	addtimer(new Callback(src, PROC_REF(do_backup)), 2 SECONDS)
 
 /obj/item/organ/internal/stack/proc/backup_inviable()
 	return 	(!istype(backup) || backup == owner.mind || backup.current?.stat != DEAD)
