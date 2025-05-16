@@ -26825,6 +26825,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
+/obj/urist_intangible/triggers/template_loader/on_init/submap/nerva/cargo_storage,
 /turf/simulated/floor/tiled/monotile,
 /area/logistics/uppercargo)
 "aUI" = (

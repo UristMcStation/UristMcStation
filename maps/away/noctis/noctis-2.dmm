@@ -899,10 +899,7 @@
 /turf/simulated/floor/plating,
 /area/noctis/fpm)
 "bU" = (
-/obj/spawner/bomb_simulator{
-	ex_range = 9;
-	severity = EX_ACT_HEAVY
-	},
+/obj/spawner/bomb_simulator/heavy,
 /turf/space,
 /area/space)
 "bV" = (

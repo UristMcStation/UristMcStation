@@ -4137,7 +4137,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/teleporter)
 "lm" = (
-/obj/urist_intangible/triggers/template_loader/space,
+/obj/urist_intangible/triggers/template_loader/on_init/space,
 /turf/space,
 /area/space)
 "ln" = (

@@ -17,7 +17,9 @@ SUBSYSTEM_DEF(init_misc_late)
 	asset_cache.load()
 	init_recipes()
 	init_xenoarch()
-
+	for(var/obj/urist_intangible/triggers/template_loader/template in GLOB.trigger_landmarks)
+		if(template.load_trigger == TEMPLATE_LOADER_LOAD_ON_INIT)
+			template.Load()
 
 GLOBAL_VAR_AS(microwave_maximum_item_storage, 0)
 GLOBAL_LIST_EMPTY(microwave_recipes)

@@ -3,7 +3,7 @@
 /turf/space,
 /area/space)
 "G" = (
-/obj/urist_intangible/triggers/template_loader/ships,
+/obj/urist_intangible/triggers/template_loader/on_call/ships,
 /turf/space,
 /area/space)
 

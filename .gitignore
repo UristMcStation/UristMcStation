@@ -56,3 +56,6 @@ package-lock.json
 
 # ignore local selected map
 /maps/using.dm
+
+# ignore bapi panic files
+bapi_panic.txt

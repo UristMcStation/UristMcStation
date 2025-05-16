@@ -52,3 +52,7 @@ slot_l_ear_str = 'icons/uristmob/l_ear.dmi', slot_r_ear_str = 'icons/uristmob/l_
 // Works like FAKEDEATH, but does NOT paralyze the user
 # define STATUS_UNDEAD 0x1000
 
+//template defines
+
+# define TEMPLATE_LOADER_LOAD_ON_SPAWN 1 //do we load when we are created
+# define TEMPLATE_LOADER_LOAD_ON_INIT  2 //do we load when the game is initializing

@@ -7336,7 +7336,7 @@
 /turf/simulated/floor/planet/jungle/clear,
 /area/planet/jungle)
 "pb" = (
-/obj/urist_intangible/triggers/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/on_call/gamemode/assault{
 	mapfile = "assault_planet_aship.dmm";
 	maptype = 1
 	},
@@ -7374,7 +7374,7 @@
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/jungle)
 "pi" = (
-/obj/urist_intangible/triggers/template_loader/planet,
+/obj/urist_intangible/triggers/template_loader/on_init/planet,
 /turf/simulated/floor/planet/jungle/thick,
 /area/planet/jungle)
 "pj" = (
@@ -7382,11 +7382,11 @@
 /turf/simulated/floor/planet/jungle/clear,
 /area/planet/jungle)
 "pk" = (
-/obj/urist_intangible/triggers/template_loader/planet,
+/obj/urist_intangible/triggers/template_loader/on_init/planet,
 /turf/simulated/floor/planet/jungle/med,
 /area/planet/jungle)
 "pl" = (
-/obj/urist_intangible/triggers/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/on_call/gamemode/assault{
 	mapfile = "assault_planet_5.dmm";
 	maptype = 1
 	},
@@ -8017,7 +8017,7 @@
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/hallway)
 "rf" = (
-/obj/urist_intangible/triggers/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/on_call/gamemode/assault{
 	mapfile = "assault_planet_1.dmm";
 	maptype = 1
 	},
@@ -8231,7 +8231,7 @@
 /turf/simulated/floor/tiled,
 /area/shuttle/elevator/mining/surface)
 "rK" = (
-/obj/urist_intangible/triggers/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/on_call/gamemode/assault{
 	mapfile = "assault_planet_3.dmm";
 	maptype = 1
 	},
@@ -8989,7 +8989,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/urist_intangible/triggers/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/on_call/gamemode/assault{
 	mapfile = "assault_planet_4.dmm";
 	maptype = 1
 	},
@@ -11752,7 +11752,7 @@
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
 "zq" = (
-/obj/urist_intangible/triggers/template_loader/gamemode/assault{
+/obj/urist_intangible/triggers/template_loader/on_call/gamemode/assault{
 	mapfile = "assault_planet_2.dmm";
 	maptype = 1
 	},
