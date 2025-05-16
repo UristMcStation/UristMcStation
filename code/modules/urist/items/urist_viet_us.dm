@@ -288,8 +288,6 @@ Contents:
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_magazine,
 		/obj/item/reagent_containers/food/snacks/donut,
-		/obj/item/melee/baton,
-		/obj/item/melee/telebaton,
 		/obj/item/gun/energy/taser,
 		/obj/item/flame/lighter,
 		/obj/item/clothing/glasses/hud/security,
@@ -307,5 +305,5 @@ Contents:
 		/obj/item/device/binoculars,
 		/obj/item/clothing/gloves,
 		/obj/item/clothing/head/beret,
-		/obj/item/material/knife/folding
+		/obj/item/material/knife,
 		)

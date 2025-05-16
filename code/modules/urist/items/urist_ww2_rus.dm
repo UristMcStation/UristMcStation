@@ -22,10 +22,12 @@ Contents:
 	one_hand_penalty = 4
 	force = 10
 	slot_flags = SLOT_BACK
-	caliber = CALIBER_RIFLE_MILITARY
+	caliber = CALIBER_RIFLE
 	handle_casings = HOLD_CASINGS
 	max_shells = 5
-	ammo_type = /obj/item/ammo_casing/rifle/military
+	ammo_type = /obj/item/ammo_casing/rifle
+	allowed_magazines = /obj/item/ammo_magazine/speedloader/clip
+	magazine_type = /obj/item/ammo_magazine/speedloader/clip
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 
 /obj/item/gun/projectile/svt40
@@ -37,12 +39,12 @@ Contents:
 	item_state = "rifle2"
 	w_class = ITEM_SIZE_LARGE
 	force = 10
-	caliber = CALIBER_RIFLE_MILITARY
+	caliber = CALIBER_RIFLE
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/rifle/military/svt40mag
-	allowed_magazines = /obj/item/ammo_magazine/rifle/military/svt40mag
-	ammo_type = /obj/item/ammo_casing/rifle/military
+	magazine_type = /obj/item/ammo_magazine/rifle/svt40mag
+	allowed_magazines = /obj/item/ammo_magazine/rifle/svt40mag
+	ammo_type = /obj/item/ammo_casing/rifle
 	one_hand_penalty = 4
 	wielded_item_state = "woodarifle-wielded"
 	max_shells = 10
@@ -66,12 +68,12 @@ Contents:
 	item_state = "genericLMG-wielded" // fixes weird sprite changes for now.
 	wielded_item_state = "genericLMG-wielded"
 	w_class = ITEM_SIZE_LARGE
-	caliber = CALIBER_RIFLE_MILITARY
+	caliber = CALIBER_RIFLE
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/rifle/military/dp27
-	allowed_magazines = /obj/item/ammo_magazine/rifle/military/dp27
-	ammo_type = /obj/item/ammo_casing/rifle/military
+	magazine_type = /obj/item/ammo_magazine/rifle/dp27
+	allowed_magazines = /obj/item/ammo_magazine/rifle/dp27
+	ammo_type = /obj/item/ammo_casing/rifle
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	one_hand_penalty = 6
 	max_shells = 60
@@ -95,7 +97,7 @@ Contents:
 /obj/item/gun/projectile/automatic/ppsh
 	item_icons = DEF_URIST_INHANDS
 	name = "PPSh-41"
-	desc = "The standard sub-machinegun of the Red Army. Only fires in short and long bursts. Takes drum magazines of 71 7.62x25mm rounds."
+	desc = "The standard sub-machinegun of the Red Army. Only fires in short and long bursts. Takes drum magazines of 71 9mm rounds."
 	icon = 'icons/urist/guns/ww2_rus.dmi'
 	icon_state = "ppsh41"
 	item_state = "ppsh"
@@ -127,7 +129,7 @@ Contents:
 
 /obj/item/gun/projectile/pistol/tt33
 	name = "\improper TT-33"
-	desc = "The standard service pistol of the Red Army. Chambered in 7.62x25mm, the magazine holds 8 rounds."
+	desc = "The standard service pistol of the Red Army. Chambered in 9mm, the magazine holds 8 rounds."
 	icon = 'icons/urist/guns/ww2_rus.dmi'
 	icon_state = "tt33"
 	item_state = "gun"
@@ -154,13 +156,12 @@ Contents:
 	icon_state = "nagant"
 	icon = 'icons/urist/guns/ww2_rus.dmi'
 	item_state = "revolver"
-	caliber = CALIBER_RIFLE_MILITARY
+	caliber = CALIBER_RIFLE
 	w_class = ITEM_SIZE_SMALL
 	slot_flags = SLOT_BELT | SLOT_POCKET | SLOT_HOLSTER
 	handle_casings = CYCLE_CASINGS
-	load_method = SPEEDLOADER
 	max_shells = 7
-	ammo_type = /obj/item/ammo_casing/rifle/military
+	ammo_type = /obj/item/ammo_casing/rifle
 	allowed_magazines = /obj/item/ammo_magazine/speedloader/nagant
 	magazine_type = /obj/item/ammo_magazine/speedloader/nagant
 
@@ -170,7 +171,9 @@ Contents:
 
 // Rifles & Semi-Automatic - Ammo & Magazines
 
-/obj/item/ammo_magazine/rifle/military/stripper
+// Mosin Ammo is /obj/item/ammo_magazine/speedloader/clip :)
+
+/obj/item/ammo_magazine/rifle/military/stripper // This is for the hunting rifle.
 	name = "stripper clip"
 	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	desc = "A stripper clip capable of holding 5.56 rounds."
@@ -180,29 +183,29 @@ Contents:
 	mag_type = SPEEDLOADER
 	matter = list(DEFAULT_WALL_MATERIAL = 1500)
 
-/obj/item/ammo_magazine/rifle/military/svt40mag
+/obj/item/ammo_magazine/rifle/svt40mag
 	name = "SVT-40 magazine"
-	desc = "A box magazine for the SVT-40. Chambered in 5.56mm." // It isn't 5.56, but we ball.
+	desc = "A box magazine for the SVT-40. Chambered in 7.62mm."
 	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	icon_state = "svtmag"
 	max_ammo = 10
 
-/obj/item/ammo_magazine/rifle/military/svt40mag/empty
+/obj/item/ammo_magazine/rifle/svt40mag/empty
 	initial_ammo = 0
 
 // Machine Guns - Ammo & Magazines
 
-/obj/item/ammo_magazine/rifle/military/dp27
+/obj/item/ammo_magazine/rifle/dp27
 	name = "DP-27 pan magazine"
-	desc = "A pan magazined for the DP-27, capable of holding 60 rounds of 5.56mm."
+	desc = "A pan magazined for the DP-27, capable of holding 60 rounds of 7.62mm."
 	icon_state = "DTmag"
 	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	mag_type = MAGAZINE
-	caliber = CALIBER_RIFLE_MILITARY
+	caliber = CALIBER_RIFLE
 	ammo_type = /obj/item/ammo_casing/rifle/military
 	max_ammo = 60 //only the vehicle mounted version had 60 round mags, but fuck it.
 
-/obj/item/ammo_magazine/rifle/military/dp27/empty
+/obj/item/ammo_magazine/rifle/dp27/empty
 	initial_ammo = 0
 
 // SMG - Ammo & Magazines
@@ -239,8 +242,8 @@ Contents:
 	name = "nagant revolver speed loader"
 	desc = "A 7.62mm speedloader for the Nagant Revolver."
 	icon_state = "T38"
-	caliber = CALIBER_RIFLE_MILITARY
-	ammo_type = /obj/item/ammo_casing/rifle/military
+	caliber = CALIBER_RIFLE
+	ammo_type = /obj/item/ammo_casing/rifle
 	max_ammo = 7
 	multiple_sprites = 1
 

@@ -25,7 +25,7 @@ Contents:
 	caliber = CALIBER_RIFLE_MAUSER
 	handle_casings = HOLD_CASINGS
 	max_shells = 5
-	ammo_type = /obj/item/ammo_casing/a792x57mm
+	ammo_type = /obj/item/ammo_casing/ww2/mauser
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 
 /obj/item/gun/projectile/g43
@@ -40,9 +40,10 @@ Contents:
 	caliber = CALIBER_RIFLE_MAUSER
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a792x57mm/g43mag
-	allowed_magazines = list(/obj/item/ammo_magazine/a792x57mm/g43mag,/obj/item/ammo_magazine/a792x57mm/stripper)
+	magazine_type = /obj/item/ammo_magazine/ww2/g43mag
+	allowed_magazines = list(/obj/item/ammo_magazine/ww2/g43mag, /obj/item/ammo_magazine/ww2/stripper_mauser)
 	one_hand_penalty = 4
+	ammo_type = /obj/item/ammo_casing/ww2/mauser
 	wielded_item_state = "woodarifle-wielded"
 	max_shells = 10
 
@@ -65,8 +66,9 @@ Contents:
 	item_state = "genericLMG-wielded" // override for no sprites.
 	wielded_item_state = "genericLMG-wielded"
 	max_shells = 250
-	magazine_type = /obj/item/ammo_magazine/a792x57mm/mg42
-	allowed_magazines = list(/obj/item/ammo_magazine/a792x57mm/mg42)
+	magazine_type = /obj/item/ammo_magazine/ww2/mg42
+	allowed_magazines = /obj/item/ammo_magazine/ww2/mg42
+	ammo_type = /obj/item/ammo_casing/ww2/mauser
 	one_hand_penalty = 6
 	wielded_item_state = "genericLMG-wielded"
 	caliber = CALIBER_RIFLE_MAUSER
@@ -93,9 +95,9 @@ Contents:
 	caliber = CALIBER_RIFLE_GER_AR
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a792x33mm
-	allowed_magazines = list(/obj/item/ammo_magazine/a792x33mm)
-	ammo_type = /obj/item/ammo_casing/a792x33mm
+	magazine_type = /obj/item/ammo_magazine/ww2/stg44
+	allowed_magazines = list(/obj/item/ammo_magazine/ww2/stg44)
+	ammo_type = /obj/item/ammo_casing/ww2/kurz
 	one_hand_penalty = 4
 	fire_sound = 'sound/weapons/gunshot/gunshot2.ogg'
 	force = 10
@@ -129,8 +131,8 @@ Contents:
 	caliber = CALIBER_PISTOL_SMALL
 	slot_flags = SLOT_BELT || SLOT_BACK
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/pistol/mp40
-	allowed_magazines = /obj/item/ammo_magazine/pistol/mp40
+	magazine_type = /obj/item/ammo_magazine/pistol/ww2/mp40
+	allowed_magazines = /obj/item/ammo_magazine/pistol/ww2/mp40
 	ammo_type = /obj/item/ammo_casing/pistol/small
 	one_hand_penalty = 1
 	force = 8
@@ -162,8 +164,8 @@ Contents:
 	fire_sound = 'sound/weapons/gunshot/Gunshot_pistol.ogg'
 	slot_flags = SLOT_BELT | SLOT_POCKET | SLOT_HOLSTER
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/pistol/p38
-	allowed_magazines = /obj/item/ammo_magazine/pistol/p38
+	magazine_type = /obj/item/ammo_magazine/pistol/ww2/p38
+	allowed_magazines = /obj/item/ammo_magazine/pistol/ww2/p38
 	ammo_type = /obj/item/ammo_casing/pistol/small
 
 /obj/item/gun/projectile/p38/on_update_icon()
@@ -179,96 +181,116 @@ Contents:
 // Germany - Firearm Magazines
 
 // Rifles & Semi-Automatic - Ammo & Magazines
+// Mauser is 59mm
+// Kurz is 39mm.
 
-/obj/item/ammo_magazine/a792x57mm
-	caliber = CALIBER_RIFLE_MAUSER
-	ammo_type = /obj/item/ammo_casing/a792x57mm
-	icon = 'icons/urist/guns/ammo.dmi'
-	mag_type = MAGAZINE
-
-/obj/item/ammo_magazine/a792x57mm/stripper
-	name = "stripper clip"
-	icon = 'icons/urist/guns/ammo_ww2.dmi'
-	icon_state = "stripper" //change
-	max_ammo = 5
-	multiple_sprites = 1
-	mag_type = SPEEDLOADER
-
-/obj/item/ammo_magazine/a792x57mm/g43mag
-	name = "Gewehr 43 magazine"
-	icon_state = "g43mag"
-	max_ammo = 10
-
-/obj/item/ammo_magazine/a792x57mm/g43mag/empty
-	initial_ammo = 0
-
-/obj/item/ammo_casing/a792x57mm
+/obj/item/ammo_casing/ww2/mauser
 	name = "shell casing"
-	desc = "A 7.92x57mm shell."
+	desc = "A 7.92x57mm Mauser shell."
 	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "lcasing"
 	spent_icon = "lcasing-spent"
 	caliber = CALIBER_RIFLE_MAUSER
-	projectile_type = /obj/item/projectile/bullet/rifle //no need to make a new projectile
+	projectile_type = /obj/item/projectile/bullet/rifle // change this
 
-/obj/item/ammo_casing/a792x33mm
+/obj/item/ammo_casing/ww2/kurz
 	name = "shell casing"
-	desc = "A 7.92x33mm shell."
+	desc = "A 7.92x33mm Kurz shell."
 	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "rifle-casing"
 	spent_icon = "rifle-casing-spent"
 	caliber = CALIBER_RIFLE_GER_AR
-	projectile_type = /obj/item/projectile/bullet/rifle //no need to make a new projectile
+	projectile_type = /obj/item/projectile/bullet/rifle // change this
+
+/obj/item/ammo_magazine/ww2/ger_rifle
+	caliber = CALIBER_RIFLE_MAUSER
+	ammo_type = /obj/item/ammo_casing/ww2/mauser
+	icon = 'icons/urist/guns/ammo.dmi'
+	mag_type = MAGAZINE
+
+/obj/item/ammo_magazine/ww2/stripper_mauser
+	name = "stripper clip"
+	desc = "A stripper clip of 7.92x55mm Mauser."
+	icon = 'icons/urist/guns/ammo_ww2.dmi'
+	icon_state = "stripper" //change
+	max_ammo = 5
+	multiple_sprites = 1
+	ammo_type = /obj/item/ammo_casing/ww2/mauser
+	mag_type = SPEEDLOADER
+	caliber = CALIBER_RIFLE_MAUSER
+
+/obj/item/ammo_magazine/ww2/g43mag
+	name = "Gewehr 43 magazine"
+	desc = "A Gewehr 43 box magazine capable of holding 10 rounds of 7.92x57mm Mauser."
+	icon = 'icons/urist/guns/ammo_ww2.dmi'
+	icon_state = "g43mag"
+	max_ammo = 10
+	multiple_sprites = 1
+	ammo_type = /obj/item/ammo_casing/ww2/mauser
+	mag_type = MAGAZINE
+	caliber = CALIBER_RIFLE_MAUSER
+
+/obj/item/ammo_magazine/ww2/g43mag/empty
+	initial_ammo = 0
+
 
 // Machineguns & Automatic Rifles - Ammo & Magazines
 
-/obj/item/ammo_magazine/a792x57mm/mg42
+/obj/item/ammo_magazine/ww2/mg42
 	name = "MG 42 belt"
+	desc = "A MG42 belt capable of holding 250 7.92x57mm Mauser rounds."
+	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	icon_state = "mg42belt"
 	max_ammo = 250
+	ammo_type = /obj/item/ammo_casing/ww2/mauser
+	caliber = CALIBER_RIFLE_MAUSER
 	mag_type = MAGAZINE
 
-/obj/item/ammo_magazine/a792x57mm/mg42/empty
+/obj/item/ammo_magazine/ww2/mg42/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/a792x33mm
+/obj/item/ammo_magazine/ww2/stg44
 	name = "StG 44 magazine"
+	desc = "A magazine for the StG-44, capable of holding 30 rounds of 7.92x33mm."
+	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	icon_state = "stg44mag"
 	caliber = CALIBER_RIFLE_GER_AR
-	ammo_type = /obj/item/ammo_casing/a792x33mm
-	icon = 'icons/urist/guns/ammo_ww2.dmi'
+	ammo_type = /obj/item/ammo_casing/ww2/kurz
 	max_ammo = 30
+	multiple_sprites = 1
 	mag_type = MAGAZINE
 
-/obj/item/ammo_magazine/a792x33mm/empty
+/obj/item/ammo_magazine/ww2/stg44/empty
 	initial_ammo = 0
 
 // SMG - Ammo & Magazines
 
-/obj/item/ammo_magazine/pistol/mp40
+/obj/item/ammo_magazine/pistol/ww2/mp40
 	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	name = "MP 40 stick magazine"
+	desc = "A stick magazine for the MP-40, capable of holding 32 rounds of 9mm."
 	icon_state = "mpmag"
 	mag_type = MAGAZINE
 	caliber = CALIBER_PISTOL_SMALL
 	ammo_type = /obj/item/ammo_casing/pistol/small
 	max_ammo = 32
 
-/obj/item/ammo_magazine/pistol/mp40/empty
+/obj/item/ammo_magazine/pistol/ww2/mp40/empty
 	initial_ammo = 0
 
 // Firearms - Pistols & Revolvers - Ammo & Magazines
 
-/obj/item/ammo_magazine/pistol/p38
+/obj/item/ammo_magazine/pistol/ww2/p38
 	icon = 'icons/urist/guns/ammo_ww2.dmi'
 	name = "Walther P38 magazine"
+	desc = "A pistol magazine for the Walther P38, capable of holding 8 rounds of 9mm."
 	icon_state = "p38mag"
 	mag_type = MAGAZINE
 	caliber = CALIBER_PISTOL_SMALL
 	ammo_type = /obj/item/ammo_casing/pistol/small
 	max_ammo = 8
 
-/obj/item/ammo_magazine/pistol/p38/empty
+/obj/item/ammo_magazine/pistol/ww2/p38/empty
 	initial_ammo = 0
 
 
@@ -298,12 +320,18 @@ Contents:
 	desc = "A uniform commonly worn by Wehrmacht riflemen."
 	icon_state = "kr_rifleman"
 	item_state = "kr_rifleman"
+	armor = list(
+		melee = ARMOR_MELEE_MINOR,
+		bullet = ARMOR_BALLISTIC_MINOR) // Better than nothing.
 
 /obj/item/clothing/under/urist/ww2/germanofficer
 	name = "Wehrmacht officer's uniform"
 	desc = "A uniform commonly worn by Wehrmacht officers."
 	icon_state = "kr_officer"
 	item_state = "kr_officer"
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_SMALL) // Better than nothing.
 
 // Head
 
@@ -331,16 +359,18 @@ Contents:
 
 // Storage
 
-/obj/item/storage/backpack/urist/german
+/obj/item/storage/backpack/urist/ww2/german
 	name = "Wehrmacht rucksack"
 	desc = "A rucksack typically worn by Wehrmacht riflemen."
 	icon_state = "kr_rucksack"
 	item_state = "kr_rucksack"
 
-/obj/item/clothing/accessory/storage/webbing_german
+/obj/item/clothing/accessory/storage/ww2/webbing_german
 	name = "Wehrmacht webbing"
 	desc = "A large collection of pockets and pouches worn by Wehrmacht riflemen."
 	icon = 'icons/urist/items/clothes/ties.dmi'
 	icon_override = 'icons/uristmob/ties.dmi'
+	accessory_icons = list(slot_w_uniform_str = 'icons/uristmob/ties.dmi')
 	icon_state = "kr_webbing"
-	slots = 4
+	slots = 4 STORAGE_SLOTS
+	body_location = UPPER_TORSO
