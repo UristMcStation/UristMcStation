@@ -153,7 +153,7 @@
 	)
 	cloaking = TRUE
 	animate(src, alpha = 0, time = 1 SECOND)
-	addtimer(new Callback(src, .proc/post_cloak, TRUE), 1 SECOND)
+	addtimer(new Callback(src, PROC_REF(post_cloak), TRUE), 1 SECOND)
 	playsound(loc, pick(cloak_sounds), 50, TRUE)
 
 
@@ -168,7 +168,7 @@
 	)
 	cloaking = TRUE
 	animate(src, alpha = 255, time = 1 SECOND)
-	addtimer(new Callback(src, .proc/post_cloak, FALSE), 1 SECOND)
+	addtimer(new Callback(src, PROC_REF(post_cloak), FALSE), 1 SECOND)
 	playsound(loc, pick(uncloak_sounds), 50, TRUE)
 
 
@@ -199,7 +199,7 @@
 	if (time < 2 SECONDS)
 		time = 2 SECONDS
 	uncloak()
-	addtimer(new Callback(src, .proc/cloak), time, TIMER_UNIQUE)
+	addtimer(new Callback(src, PROC_REF(cloak)), time, TIMER_UNIQUE)
 
 
 /// A brief cloaking flicker effect. Intended to partially reveal the mob's location without fully decloaking. See `FLICKER_TIME` for some configuration.
