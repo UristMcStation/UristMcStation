@@ -116,7 +116,7 @@
 
 /datum/trade_item/refreshments/hamburger
 	name = "hamburger"
-	item_type = /obj/item/reagent_containers/food/snacks/plainburger
+	item_type = /obj/item/reagent_containers/food/snacks/meatburger
 	category = "refreshments"
 	quantity = 30
 	value = 12
@@ -137,7 +137,7 @@
 
 /datum/trade_item/refreshments/meatsteak
 	name = "meat steak"
-	item_type = /obj/item/reagent_containers/food/snacks/meatsteak
+	item_type = /obj/item/reagent_containers/food/snacks/plainsteak
 	category = "refreshments"
 	quantity = 30
 	value = 20

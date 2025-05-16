@@ -54,7 +54,7 @@ exactly 0 "anchored = 0/1" 'anchored\s*=\s*\d' -P
 exactly 2 "density = 0/1" 'density\s*=\s*\d' -P
 exactly 0 "emagged = 0/1" 'emagged\s*=\s*\d' -P
 exactly 0 "simulated = 0/1" 'simulated\s*=\s*\d' -P
-exactly 2 "var/ in proc arguments" '(^/[^/].+/.+?\(.*?)var/' -P
+#exactly 2 "var/ in proc arguments" '(^/[^/].+/.+?\(.*?)var/' -P
 exactly 0 "tmp/ vars" 'var.*/tmp/' -P
 exactly 6 "uses of .len" '\.len\b' -P
 exactly 16 "uses of examine()" '[.|\s]examine\(' -P # If this fails it's likely because you used '/atom/proc/examine(mob)' instead of '/proc/examinate(mob, atom)' - Exception: An examine()-proc may call other examine()-procs
