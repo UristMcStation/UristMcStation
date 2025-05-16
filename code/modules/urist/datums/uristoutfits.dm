@@ -578,7 +578,7 @@
 
 // Columbo
 
-/singleton/hierarchy/outfit/gimmick/columbo
+/singleton/hierarchy/outfit/columbo
 	name = "Gimmick - Detective Columbo" // Columbo doesn't need any weapons, his wits are enough
 	mask = /obj/item/clothing/mask/smokable/cigarette/cigar/green
 	suit = /obj/item/clothing/suit/urist/raincoat
@@ -594,7 +594,7 @@
 
 // Doom Guy
 
-/singleton/hierarchy/outfit/gimmick/doom_guy
+/singleton/hierarchy/outfit/doom_guy
 	name = "Gimmick - Doom Marine" // Even though this is armor is trash protection-wise, atleast someone can think they can be the doom guy.
 	uniform = /obj/item/clothing/under/syndicate/tacticool
 	suit = /obj/item/clothing/suit/urist/armor/trash/doom
