@@ -268,7 +268,7 @@
 	)
 
 /obj/item/projectile/beam/scom
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/lactera.dmi'
 	muzzle_type = /obj/projectile/laser/xray/muzzle
 	tracer_type = /obj/projectile/laser/xray/tracer
 	impact_type = /obj/projectile/laser/xray/impact

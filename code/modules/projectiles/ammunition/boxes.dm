@@ -171,7 +171,7 @@
 
 /obj/item/ammo_magazine/pistol
 	name = "pistol magazine"
-	icon = 'icons/urist/items/ammo.dmi'
+	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "45"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
@@ -194,7 +194,7 @@
 
 /obj/item/ammo_magazine/pistol/double
 	name = "doublestack pistol magazine"
-	icon = 'icons/urist/items/ammo.dmi'
+	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "9mmds"
 	matter = list(MATERIAL_STEEL = 1050)
 	max_ammo = 15

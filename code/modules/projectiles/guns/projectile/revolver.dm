@@ -1,7 +1,7 @@
 /obj/item/gun/projectile/revolver
 	name = "revolver"
 	desc = "The Lumoco Arms HE Colt is a choice revolver for when you absolutely, positively need to put a hole in the other guy. You feelin' lucky punk?"
-	icon = 'icons/urist/items/revolvers.dmi'
+	icon = 'icons/urist/guns/revolver_generic.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"
 	item_icons = URIST_ALL_ONMOBS
@@ -156,4 +156,3 @@
 	caliber = CALIBER_PISTOL_MAGNUM
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/pistol/magnum
-

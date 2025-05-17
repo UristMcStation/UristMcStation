@@ -47,7 +47,7 @@
 	name = "captain's daughter"
 	desc = "Used to discipline disobediant spacers who've let the cat out of the bag."
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_physical.dmi'
 	item_icons = DEF_URIST_INHANDS
 	icon_state = "catwhip"
 	item_state = "catwhip"

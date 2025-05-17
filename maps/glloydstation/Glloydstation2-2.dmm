@@ -8149,7 +8149,7 @@
 	},
 /area/centcom/specops)
 "aum" = (
-/obj/item/gun/projectile/shotgun/pump/combat/ithaca,
+/obj/item/gun/projectile/shotgun/pump/ithaca,
 /obj/structure/table/rack,
 /obj/item/storage/box/ammo/shotgunammo,
 /obj/item/storage/box/ammo/shotgunshells,
