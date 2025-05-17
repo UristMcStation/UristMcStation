@@ -16,19 +16,17 @@
 
 
 /atom/movable/proc/DoMove(var/dir, var/mover, var/external = FALSE)
-	var/turf/curr_loc = get_turf(src)
 	var/turf/new_loc = get_step(src, dir)
 
 	if(!istype(new_loc))
 		return FALSE
 
+	var/turf/curr_loc = get_turf(src)
+
 	var/enterable = src.MayEnterTurf(new_loc, curr_loc, FALSE)
 
-	/*
-	// Removed - I believe this prevents step() from calling Bump()
 	if(!enterable && new_loc.IsBlocked(TRUE, TRUE))
 		return FALSE
-	*/
 
 	. = step(src, dir)
 	return .
