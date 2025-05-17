@@ -66,7 +66,7 @@
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
 	desc = "A shotgun slug."
-	icon = 'icons/urist/guns/ammo.dmi'
+	icon = 'icons/urist/guns/shot_bundle_ammo.dmi'
 	icon_state = "slshell"
 	spent_icon = "slshell-spent"
 	var/global_icon = "slshell-casing"

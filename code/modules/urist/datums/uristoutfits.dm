@@ -531,7 +531,7 @@
 	holster = /obj/item/clothing/accessory/storage/holster/knife
 	r_pocket = /obj/item/ammo_magazine/shotholder/shell
 	l_pocket = /obj/item/flame/lighter/zippo/vanity/engraved
-	suit_store = /obj/item/gun/projectile/shotgun/pump/combat/ithaca
+	suit_store = /obj/item/gun/projectile/shotgun/pump/ithaca
 
 // 'Nam Grenadier
 
@@ -602,3 +602,81 @@
 	l_pocket = /obj/item/ammo_magazine/shotholder/shell
 	back = /obj/item/gun/projectile/shotgun/doublebarrel
 	belt = /obj/item/ammo_magazine/shotholder/shell
+
+// Dorf Fort
+// wish we had a dorf race...
+
+/singleton/hierarchy/outfit/dwarf_fort
+	name = "Gimmick - Dwarf Fortress - Miner"
+	uniform = /obj/item/clothing/under/rank/miner
+	r_pocket = /obj/item/reagent_containers/food/snacks/plumphelmetbiscuit
+	l_pocket = /obj/item/stack/medical/bruise_pack
+	back = /obj/item/storage/backpack/industrial
+	backpack_contents = list(/obj/item/reagent_containers/food/snacks/plumphelmetbiscuit = 2,
+	/obj/item/device/flashlight/lantern = 1, /obj/item/material/knife/utility = 1, /obj/item/crowbar = 1)
+	belt = /obj/item/storage/ore
+	gloves = /obj/item/clothing/gloves/thick
+	shoes = /obj/item/clothing/shoes/workboots
+
+
+/singleton/hierarchy/outfit/dwarf_fort/peasant // totally useless...
+	name = "Gimmick - Dwarf Fortress - Peasant"
+	uniform = /obj/item/clothing/under/color/brown
+	belt = null
+	r_pocket = null
+	gloves = null
+	back = null
+
+
+/singleton/hierarchy/outfit/dwarf_fort/swords_dwarf
+	name = "Gimmick - Dwarf Fortress - Swordsdwarf"
+	uniform = /obj/item/clothing/under/overalls
+	head = /obj/item/clothing/head/urist/historic/armor/medieval1
+	suit = /obj/item/clothing/suit/armor/makeshift // no cool plate armor on bay....
+	r_hand = /obj/item/material/sword/urist/basic
+	l_hand = /obj/item/shield/buckler
+	back = /obj/item/storage/backpack/satchel/eng
+	backpack_contents = list(/obj/item/reagent_containers/food/snacks/plumphelmetbiscuit = 1,
+	/obj/item/device/flashlight/lantern = 1, /obj/item/material/knife/utility = 1, /obj/item/crowbar = 1)
+	shoes = /obj/item/clothing/shoes/jackboots/medievalboots
+
+
+/singleton/hierarchy/outfit/dwarf_fort/marksdwarf // Crossbow and Bow seperation
+	name = "Gimmick - Dwarf Fortress Marksdwarf"
+	uniform = /obj/item/clothing/under/overalls
+	suit = null
+	belt = null
+	r_hand = /obj/item/gun/launcher/crossbow
+	back = /obj/item/storage/backpack/satchel/eng
+	backpack_contents = list(/obj/item/arrow = 10, /obj/item/reagent_containers/food/snacks/plumphelmetbiscuit = 1,
+	/obj/item/device/flashlight/lantern = 1, /obj/item/material/knife/utility = 1, /obj/item/crowbar = 1)
+	r_pocket = /obj/item/arrow
+	l_pocket = /obj/item/arrow
+
+/singleton/hierarchy/outfit/dwarf_fort/bowsdwarf
+	name = "Gimmick - Dwarf Fortress Bowsdwarf"
+	uniform = /obj/item/clothing/under/overalls
+	suit = null
+	belt = null
+	r_hand = /obj/item/gun/launcher/crossbow/bow
+	back = /obj/item/storage/backpack/satchel/eng
+	backpack_contents = list(/obj/item/arrow/woodarrow = 10, /obj/item/reagent_containers/food/snacks/plumphelmetbiscuit = 1,
+	/obj/item/device/flashlight/lantern = 1, /obj/item/material/knife/utility = 1, /obj/item/crowbar = 1)
+	r_pocket = /obj/item/arrow/woodarrow
+	l_pocket = /obj/item/arrow/woodarrow
+
+/singleton/hierarchy/outfit/dwarf_fort/starkravingmad
+	name = "Gimmick - Dwarf Fortress - Stark Raving Mad Dwarf!"
+	uniform = null // he do be fucking crazy
+	gloves = null
+	r_hand = /obj/item/pickaxe
+	l_hand = /obj/item/reagent_containers/food/drinks/bottle/uristmoonshine
+	l_pocket = null
+	r_pocket = null
+	back = /obj/item/storage/backpack/industrial
+	backpack_contents = list(/material/bone = 3, /obj/item/stack/material/sandstone = 1) // not enough materials to built your crud...
+
+/singleton/hierarchy/outfit/dwarf_fort/smithy
+	name = "Gimmick - Dwarf Fortress - Smithy"
+	uniform = /obj/item/clothing/under/overalls
+	backpack_contents = list(/obj/item/hammer/smithing = 1, /obj/item/stack/material/iron = 1)

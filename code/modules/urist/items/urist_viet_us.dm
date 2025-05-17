@@ -145,7 +145,7 @@ Contents:
 
 // Firearms - Shotguns
 
-/obj/item/gun/projectile/shotgun/pump/combat/ithaca
+/obj/item/gun/projectile/shotgun/pump/ithaca
 	name = "Ithaca 37 combat shotgun"
 	desc = "A modernized Ithaca 37 pump-action shotgun, bearing a NT Logo. Capable of loading 7+1 of .12 Gauge. Perfect for clearing tight corridors, or tunnels."
 	icon = 'icons/urist/guns/pump_shotgun.dmi'
