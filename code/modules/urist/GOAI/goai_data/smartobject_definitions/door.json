@@ -1,0 +1,95 @@
+{
+	"name": "DoorActs", 
+	"active": 1, 
+	"actions": [
+		{
+			"name": "Open Door", 
+			"description": "Opens a nearby door", 
+			"handler": "/datum/utility_ai/mob_commander/proc/OpenDoor", 
+			"context_procs": ["/proc/ctxfetcher_adjacent_turfs"], 
+			"context_args": [
+				{
+					"if_contains_type": "/obj/cover/door",
+					"context_output_key": "position",
+					"filter_output_key": "location"
+				}
+			],
+			"preconditions": {
+				"global": {
+					"DoorDebugWelded": -1,
+					"DoorDebugScrewed": -1,
+					"DoorDebugBolted": -1
+				},
+				"target": {
+					"IsOpen": 0
+				}
+			},
+			"effects": {
+				"target": {
+					"IsOpen": 1
+				}
+			},
+			"priority": 4, 
+			"considerations": [
+				{
+					"name": "Closed Door Nearby",
+					"lo_mark": 0.1, 
+					"hi_mark": 1, 
+					"input_proc": "/proc/consideration_input_is_passable", 
+					"input_args": {
+						"locate_type_as_target": "/obj/cover/door"
+					},
+					"curve_proc": "/proc/curve_antibinary"
+				},
+				{
+					"name": "Door Nearby",
+					"lo_mark": 1, 
+					"hi_mark": 10, 
+					"noise_scale": 0,
+					"input_proc": "/proc/consideration_input_manhattan_distance_to_requester", 
+					"input_args": {
+						"input_key": "position",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_antisquare"
+				},
+				{
+					"name": "IsOnPath",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"noise_scale": 2,
+					"input_proc": "/proc/consideration_input_is_on_path_gradient", 
+					"input_args": {
+						"input_key": "location",
+						"from_context": 1,
+						"default_on_null": 0,
+						"minimum_distance_to_path_tile": 0
+					},
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "EffectsNotMet",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"input_proc": "/proc/consideration_actiontemplate_effects_not_all_met", 
+					"input_args": {
+						"target_key": "target",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_linear"
+				},
+				{
+					"name": "PrecondsAllMet",
+					"lo_mark": 0, 
+					"hi_mark": 1, 
+					"input_proc": "/proc/consideration_actiontemplate_preconditions_met", 
+					"input_args": {
+						"target_key": "target",
+						"from_context": 1
+					},
+					"curve_proc": "/proc/curve_linear"
+				}
+			]
+		}
+	]
+}

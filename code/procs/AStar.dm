@@ -57,7 +57,25 @@ length to avoid portals or something i guess?? Not that they're counted right no
 
 
 /proc/PathWeightCompare(PathNode/a, PathNode/b)
-	return a.estimated_cost - b.estimated_cost
+	var/a_cost = a?.estimated_cost
+	var/b_cost = b?.estimated_cost
+
+	var/a_null = isnull(a_cost)
+	var/b_null = isnull(b_cost)
+
+	if(a_null && b_null)
+		return 0
+
+	if(b_null)
+		if(a_null)
+			return 0
+
+		return -a_cost
+
+	if(a_null)
+		return b_cost
+
+	return a_cost - b_cost
 
 
 /proc/AStar(start, end, adjacent, dist, max_nodes, max_node_depth = 30, min_target_dist = 0, min_node_dist, id, datum/exclude)
