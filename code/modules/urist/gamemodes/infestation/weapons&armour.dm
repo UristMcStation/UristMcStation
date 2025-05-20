@@ -431,7 +431,7 @@
 /obj/item/ammo_magazine/a9mm/empty
 	initial_ammo = 0
 
-/obj/item/gun/projectile/shotgun/pump/combat/A41
+/obj/item/gun/projectile/shotgun/pump/A41
 	max_shells = 10
 	name = "\improper A41 combat shotgun"
 	desc = "The standard issue ANFOR shotgun. Holds 10 rounds (11 with one in the chamber). Pump-action, it's perfect for CQB and tight hallway clearing."

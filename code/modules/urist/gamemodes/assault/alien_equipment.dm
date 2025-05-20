@@ -27,8 +27,8 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "alien gun"
 	desc = "A weapon of unknown origin, carried by the Lactera soldiers."
-	icon_state = "alienrifle"
-	item_state = "alienrifle"
+	icon_state = "xeno-pistol"
+	item_state = "xeno-pistol"
 	fire_sound = 'sound/weapons/laser3.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 3

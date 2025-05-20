@@ -1,7 +1,7 @@
 /obj/item/gun/projectile/revolver
 	name = "revolver"
 	desc = "The Lumoco Arms HE Colt is a choice revolver for when you absolutely, positively need to put a hole in the other guy. You feelin' lucky punk?"
-	icon = 'icons/urist/guns/revolver_generic.dmi'
+	icon = 'icons/urist/guns/revolvers.dmi' // Urist Specific override
 	icon_state = "revolver"
 	item_state = "revolver"
 	item_icons = URIST_ALL_ONMOBS
