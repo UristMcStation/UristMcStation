@@ -177,7 +177,7 @@ Contents:
 	icon_state = "M60MAG"
 	caliber = CALIBER_RIFLE_MILITARY
 	max_ammo = 75
-	multiple_sprites = 0
+	multiple_sprites = 1
 
 /obj/item/ammo_magazine/box/rifle/military/m60/empty
 	initial_ammo = 0

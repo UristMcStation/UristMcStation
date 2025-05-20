@@ -46,6 +46,16 @@
 	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "combatSMG-mag"
 
+/obj/item/ammo_magazine/rifle/military/stripper // This is for the hunting rifle.
+	name = "stripper clip"
+	icon = 'icons/urist/guns/ammo_ww2.dmi'
+	desc = "A stripper clip capable of holding 5.56 rounds."
+	icon_state = "stripper"
+	max_ammo = 5
+	multiple_sprites = 1
+	mag_type = SPEEDLOADER
+	matter = list(DEFAULT_WALL_MATERIAL = 1500)
+
 /obj/item/ammo_magazine/a50
 	icon = 'icons/urist/guns/ammo.dmi'
 	icon_state = "50ae"
