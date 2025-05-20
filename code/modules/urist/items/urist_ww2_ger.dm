@@ -202,12 +202,6 @@ Contents:
 	caliber = CALIBER_RIFLE_GER_AR
 	projectile_type = /obj/item/projectile/bullet/rifle // change this
 
-/obj/item/ammo_magazine/ww2/ger_rifle
-	caliber = CALIBER_RIFLE_MAUSER
-	ammo_type = /obj/item/ammo_casing/ww2/mauser
-	icon = 'icons/urist/guns/ammo.dmi'
-	mag_type = MAGAZINE
-
 /obj/item/ammo_magazine/ww2/stripper_mauser
 	name = "stripper clip"
 	desc = "A stripper clip of 7.92x55mm Mauser."
