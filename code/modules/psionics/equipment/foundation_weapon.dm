@@ -9,9 +9,10 @@
 /obj/item/gun/projectile/revolver/foundation/on_update_icon()
 	..()
 	if(length(loaded))
-		icon_state = "[initial(icon_state)]"
+		icon_state = "[initial(icon_state)]-loaded"
 	else
-		icon_state = "[initial(icon_state)]"
+		icon_state = "[initial(icon_state)]-empty"
+
 
 /obj/item/gun/projectile/revolver/foundation/disrupts_psionics()
 	return FALSE
