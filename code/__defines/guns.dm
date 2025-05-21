@@ -12,7 +12,6 @@
 #define CALIBER_RIFLE_MAUSER			"7.92x57mm"
 
 #define CALIBER_SHOTGUN			"12g"
-#define CALIBER_SHOTGUN_10G		"10g"
 #define CALIBER_GYROJET			"20mmG"
 #define CALIBER_CAPS			"caps"
 #define CALIBER_DART			"darts"
