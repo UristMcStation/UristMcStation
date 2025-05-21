@@ -19,7 +19,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "pulse pistol"
 	desc = "A heavy-duty, pulse-based energy pistol, preferred as a sidearm by front-line combat personnel."
-	icon = 'icons/urist/guns/plasma_pistol.dmi'
+	icon = 'icons/urist/guns/pulse_pistol.dmi'
 	icon_state = "pulse_pistol"
 	item_state = "pulse_pistol"
 	force = 7

@@ -80,13 +80,13 @@
 
 /obj/item/mech_equipment/mounted_system/taser/laser/rapid/alien
 	name = "\improper Alien Burst laser"
-	icon_state = "mecha_laser"
+	icon_state = "mecha_laser" // this seems to be missing now.
 	//projectile = /obj/item/projectile/beam/scom/alien6
 	holding_type = /obj/item/gun/energy/lactera/mounted/mech/alien
 
 /obj/item/gun/energy/lactera/mounted/mech/alien
 	name = "\improper Alien Burst laser"
-	icon_state = "mecha_laser"
+	icon_state = "mecha_laser" // this seems to be missing now.
 	use_external_power = TRUE
 	burst = 4
 	fire_sound = 'sound/weapons/Laser.ogg'

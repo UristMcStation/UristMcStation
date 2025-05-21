@@ -5,7 +5,7 @@
 	name = "energy pistol"
 	desc = "An energy pistol with a wooden handle."
 	icon = 'icons/urist/guns/senergy.dmi'
-	icon_state = "senergy"
+	icon_state = "senergystun"
 	item_state = "gun"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	w_class = 1
@@ -136,12 +136,12 @@ the sprite and make my own projectile -Glloyd*/
 
 ///// Deckard .44 - old Bay custom item rip for UMcS Blueshields
 /obj/item/gun/projectile/revolver/detective/deckard
-	icon = 'icons/urist/guns/revolvers_detective.dmi'
+	icon = 'icons/urist/guns/revolvers.dmi'
 	item_icons = DEF_URIST_INHANDS
 	name = "Deckard .44" //changed from .44 for internal consistency - it takes .38 bullets - now it takes .44/15mm again :)
 	desc = "A custom autorevolver chambered in .44 issued to high-ranking specialists, based on the obsoleted Detective Special forensics issue models."
 	//what do you know, it was restored-ish in revolver.dm
-	icon_state = "deckard-empty"
+	icon_state = "deckard"
 
 /obj/item/gun/projectile/revolver/detective/deckard/on_update_icon()
 	..()
@@ -592,7 +592,7 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/ammo_magazine/a45r/rubber
 	name = "speed loader (rubber)"
 	icon = 'icons/urist/guns/ammo.dmi'
-	icon_state = "R38"
+	icon_state = "38-r"
 	ammo_type = /obj/item/ammo_casing/pistol/rubber
 
 /obj/item/gun/projectile/revolver/hi2521r
