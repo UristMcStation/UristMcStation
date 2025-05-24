@@ -5,7 +5,7 @@
 	name = "energy pistol"
 	desc = "An energy pistol with a wooden handle."
 	icon = 'icons/urist/guns/senergy.dmi'
-	icon_state = "senergystun"
+	icon_state = "senergy"
 	item_state = "gun"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	w_class = 1
@@ -591,8 +591,6 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/ammo_magazine/a45r/rubber
 	name = "speed loader (rubber)"
-	icon = 'icons/urist/guns/ammo.dmi'
-	icon_state = "38-r"
 	ammo_type = /obj/item/ammo_casing/pistol/rubber
 
 /obj/item/gun/projectile/revolver/hi2521r

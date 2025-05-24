@@ -55,17 +55,12 @@
 
 /obj/item/gun/projectile/automatic/machine_pistol/on_update_icon()
 	..()
-	icon_state = "mpistolen"
 	if(ammo_magazine)
-		AddOverlays(image(icon, "mag"))
+		if(length(ammo_magazine.stored_ammo))
+			icon_state = "mpistolen"
+		else
+			icon_state = "mpistolen-empty"
 
-	if(!ammo_magazine || !LAZYLEN(ammo_magazine.stored_ammo))
-		icon_state = "mpistolen-empty"
-		AddOverlays(image(icon, "[initial(icon_state)]-ammo0"))
-	else if(LAZYLEN(ammo_magazine.stored_ammo) <= 0.5 * ammo_magazine.max_ammo)
-		AddOverlays(image(icon, "[initial(icon_state)]-ammo1"))
-	else
-		AddOverlays(image(icon, "[initial(icon_state)]-ammo2"))
 
 /obj/item/gun/projectile/automatic/c20r
 	name = "10mm submachine gun"
