@@ -106,7 +106,7 @@
 	icon_state = "arifle"
 	item_state = "arifle"
 	wielded_item_state = "arifle-wielded"
-	item_icons = URIST_ALL_ONMOBS
+	item_icons = DEF_URIST_INHANDS
 	w_class = ITEM_SIZE_HUGE
 	force = 10
 	caliber = CALIBER_RIFLE
@@ -119,7 +119,6 @@
 	accuracy_power = 7
 	accuracy = 2
 	bulk = GUN_BULK_HEAVY_RIFLE
-	wielded_item_state = "arifle-wielded"
 	mag_insert_sound = 'sound/weapons/guns/interaction/ltrifle_magin.ogg'
 	mag_remove_sound = 'sound/weapons/guns/interaction/ltrifle_magout.ogg'
 	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
@@ -138,7 +137,7 @@
 		wielded_item_state = "arifle-wielded"
 	else
 		icon_state = "arifle-empty"
-		wielded_item_state = "arifle-wielded-empty"
+		wielded_item_state = "arifle-0-wielded"
 
 /obj/item/gun/projectile/automatic/wt550
 	name = "9mm submachine gun"
