@@ -224,7 +224,7 @@
 /obj/item/ammo_magazine/hi2521smg9mm
 	name = "HI-2521-SMG magazine"
 	icon = 'icons/urist/guns/ammo.dmi'
-	icon_state = "combatSMG-mag"
+	icon_state = "crewSMG"
 	mag_type = MAGAZINE
 	caliber = CALIBER_PISTOL_SMALL
 	origin_tech = list(TECH_COMBAT = 2)
@@ -236,7 +236,12 @@
 /obj/item/ammo_magazine/hi2521smg9mm/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/hi2521smg9mm/rubber
+	labels = list("rubber")
+	ammo_type = /obj/item/ammo_casing/pistol/small/rubber
 
+/obj/item/ammo_magazine/hi2521smg9mm/rubber/empty
+	initial_ammo = 0
 
 // Rifles & Automatic Rifles
 

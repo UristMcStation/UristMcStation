@@ -40,11 +40,8 @@
 	desc = "A rubber bullet casing."
 	projectile_type = /obj/item/projectile/bullet/rifle/military/rubber
 
-/obj/item/ammo_magazine/hi2521smg9mm/rubber
-	name = "HI-2521-SMG magazine (rubber)"
-	ammo_type = /obj/item/ammo_casing/pistol/small/rubber
-	icon = 'icons/urist/guns/ammo.dmi'
-	icon_state = "combatSMG-mag"
+// If you end up debugging rubber ammo sprites, for your sanity, look at code\modules\projectiles\ammunition.dm, around 451.dm at the time of this commit
+// essentially, just add _r to the end of your magazines and shit.
 
 /obj/item/ammo_magazine/rifle/military/stripper // This is for the hunting rifle.
 	name = "stripper clip"
