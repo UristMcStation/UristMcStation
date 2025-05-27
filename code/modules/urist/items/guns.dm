@@ -1,110 +1,143 @@
-//Energy pistol, Energy gun with less shots. Can be put in player's pockets.
+/* Urist Firearms
+// Organized based on type of firearms - Try to keep it within categories/clean - Y
+	Revolver & Pistols
+	SMGs
+	Rifles & Automatic Rifles
+	Energy Weapons
+	Misc Weapons
 
-/obj/item/gun/energy/gun/tiny
+		Projectiles
+		Crafting
+*/
+
+
+
+// Revolvers & Pistols
+
+// Colt Single Action Army - Nerva: Captain Revolver
+
+/obj/item/gun/projectile/revolver/coltsaa
+	icon = 'icons/urist/guns/colt_revolvers.dmi'
 	item_icons = DEF_URIST_INHANDS
-	name = "energy pistol"
-	desc = "An energy pistol with a wooden handle."
-	icon = 'icons/urist/guns/senergy.dmi'
-	icon_state = "senergy"
-	item_state = "gun"
-	fire_sound = 'sound/weapons/Taser.ogg'
-	w_class = 1
-	charge_cost = 10 //How much energy is needed to fire.
-	projectile_type = /obj/item/projectile/energy/electrode
-	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
-	modifystate = "senergystun"
-	cell_type = /obj/item/cell/device/standard
-
-	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="senergystun", fire_sound='sound/weapons/Taser.ogg', fire_delay=null, charge_cost=null),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="senergykill", fire_sound='sound/weapons/Laser.ogg', fire_delay=null, charge_cost=null),
-		)
-
-//umbrella gun
-
-/obj/item/gun/projectile/umbrellagun
-	item_icons = DEF_URIST_INHANDS
-	name = "Umbrella"
-	desc = "An umbrella with a small hole at the end, doesn't seem to open."
-	icon = 'icons/urist/guns/misc.dmi'
-	icon_state = "umbrellagun"
-	item_state = "umbrellagun"
-	w_class = ITEM_SIZE_SMALL
-	max_shells = 2
-	caliber = CALIBER_PISTOL_SMALL
-	load_method = SINGLE_CASING
-	silenced = 1
+	name = "Colt Single Action Army"
+	desc = "An antique Colt Single Action Army revolver dating from the late 19th century. Sometimes referred to as 'the gun that won the west,' this piece is the pride and joy of any 26th century gun collector."
+	icon_state = "antiquerevolver"
+	item_state = "antiquerevolver"
+	wielded_item_state = "antiquerevolver"
+	max_shells = 6
+	caliber = CALIBER_PISTOL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/pistol/small
+	ammo_type = /obj/item/ammo_casing/pistol
 
-//BANG BANG BANG, BANG BANG
-
-/obj/item/gag/BANG
-	item_icons = DEF_URIST_INHANDS
-	icon = 'icons/urist/guns/legacy_unused.dmi'
-	name = "BANG gun"
-	desc = "Shoots out a BANG"
-	icon_state = "gun"
-	item_state = "gun"
-	var/on = 0
-	w_class = ITEM_SIZE_NORMAL
-
-/obj/item/gag/BANG/attack_self(mob/user as mob)
-	item_icons = DEF_URIST_INHANDS
-	icon = 'icons/urist/guns/legacy_unused.dmi'
-	on = !on
-	if(on)
-		user.visible_message("<span class='warning'> [user] fires the gun, BANG.</span>",\
-		"<span class='warning'> You fire the gun.</span>",\
-		"You hear a BANG.")
-		icon_state = "gunbang"
-		item_state = "gunbang"
-		w_class = 2
-		force = 3
-		attack_verb = list("smacked", "struck", "slapped")
+/obj/item/gun/projectile/revolver/coltsaa/on_update_icon()
+	..()
+	if(length(loaded))
+		icon_state = "antiquerevolver"
 	else
-		user.visible_message("<span class='notice'> [user] pushes the BANG back into the barrel.</span>",\
-		"<span class='notice'> You push the BANG back into the barrel.</span>",\
-		"You hear a click.")
-		icon_state = "gun"
-		item_state = "gun"
-		w_class = 2
-		force = 3
-		attack_verb = list("smacked", "struck", "slapped")
+		icon_state = "antiquerevolver_empty"
 
-	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
+// Colt Single Action Army - Ammo & Speedloaders
 
-/*plasma pistol. does toxic damage. I want to add this to research soonish. icons by Susan from BS12, editing and projectile by Glloyd
---Okay, they implemented this on BS12, and I dislike how they did it. The top is green, and shoots a green pulse. It also has different values then the one I coded.
-The point is that theirs is closer to the X-COM plasma pistol, despite the fact that all depictions of plasma in SS13 are purple, thus my choice to edit
-the sprite and make my own projectile -Glloyd*/
+/obj/item/ammo_magazine/a45r
+	name = "speed loader"
+	desc = "A speed loader for revolvers."
+	icon = 'icons/urist/guns/ammo.dmi'
+	icon_state = "38"
+	ammo_type = /obj/item/ammo_casing/pistol
+	matter = list(DEFAULT_WALL_MATERIAL = 450)
+	caliber = CALIBER_PISTOL
+	max_ammo = 6
+	multiple_sprites = 1
 
-/obj/item/gun/energy/plasmapistol
+/obj/item/ammo_magazine/a45r/rubber
+	name = "speed loader (rubber)"
+	ammo_type = /obj/item/ammo_casing/pistol/rubber
+
+//  HI-2521-R - Nerva: Crew Revolver
+
+/obj/item/gun/projectile/revolver/hi2521r
+	icon = 'icons/urist/guns/crew_revolver.dmi'
 	item_icons = DEF_URIST_INHANDS
-	name = "phoron pistol"
-	desc = "An experimental weapon that works by ionizing phoron and firing it in a particular direction, poisoning someone."
-	icon = 'icons/urist/guns/plasma_pistol.dmi'
-	icon_state = "plasmapistol"
-	item_state = "gun"
-	fire_sound = 'sound/weapons/Genhit.ogg'
-	w_class = 1
-	charge_cost = 20 //How much energy is needed to fire.
-	projectile_type = /obj/item/projectile/energy/plasma2
-	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 3)
-	modifystate = "plasmapistol"
-	cell_type = /obj/item/cell/device/premium
+	name = "HI-2521-R revolver"
+	desc = "A sleek modern revolver manufactured by Hephaestus Industries as part of the 2521 series."
+	icon_state = "combatrevolver"
+	item_state = "combatrevolver"
+	wielded_item_state = "combatrevolver"
+	max_shells = 6
+	caliber = CALIBER_PISTOL
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	ammo_type = /obj/item/ammo_casing/pistol
 
+/obj/item/gun/projectile/revolver/hi2521r/on_update_icon()
+	..()
+	if(length(loaded))
+		icon_state = "combatrevolver"
+	else
+		icon_state = "combatrevolver_empty"
 
-/obj/item/projectile/energy/plasma2
-	name = "ionized phoron"
-	icon = 'icons/urist/guns/projectiles.dmi'
-	icon_state = "plasma"
-	damage = 20
-	damage_type = DAMAGE_TOXIN
-	irradiate = 20
+//  Deckard .44 Revolver - Bay Custom Weapon Rip
+
+/obj/item/gun/projectile/revolver/detective/deckard
+	icon = 'icons/urist/guns/revolvers.dmi'
+	item_icons = DEF_URIST_INHANDS
+	name = "Deckard .44" //changed from .44 for internal consistency - it takes .38 bullets - now it takes .44/15mm again :)
+	desc = "A custom autorevolver chambered in .44 issued to high-ranking specialists, based on the obsoleted Detective Special forensics issue models."
+	icon_state = "deckard"
+
+/obj/item/gun/projectile/revolver/detective/deckard/on_update_icon()
+	..()
+	if(length(loaded))
+		icon_state = "deckard-loaded"
+	else
+		icon_state = "deckard-empty"
+
+/obj/item/gun/projectile/revolver/detective/deckard/load_ammo(obj/item/A, mob/user)
+	if(istype(A, /obj/item/ammo_magazine))
+		flick("deckard-reloading",src)
+	..()
+
+//  HI-2521-P - Nerva: Crew Pistol
+
+/obj/item/gun/projectile/hi2521pistol
+	item_icons = URIST_ALL_ONMOBS
+	name = "\improper HI-2521-P pistol"
+	desc = "A light, compact pistol chambered in 9mm with a sleek design. Manufactured by Hephaestus Industries as part of the 2521 series, this model is a relatively recent design, popular among wealthier spacers."
+	icon = 'icons/urist/guns/crew_pistol.dmi'
+	icon_state = "crewpistol"
+	item_state = "crewpistol"
+	wielded_item_state = "crewpistol"
+	w_class = 2
+	caliber = CALIBER_PISTOL_SMALL
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ESOTERIC = 1)
+	slot_flags = SLOT_BELT | SLOT_HOLSTER
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/hi2521pistol9mm
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+
+/obj/item/gun/projectile/hi2521pistol/on_update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "crewpistol-[round(length(ammo_magazine.stored_ammo), 2)]"
+		item_state = "crewpistol-[round(length(ammo_magazine.stored_ammo), 2)]"
+		wielded_item_state = "crewpistol-[round(length(ammo_magazine.stored_ammo), 2)]"
+	else
+		icon_state = "crewpistol-empty"
+		item_state = "crewpistol-0"
+		wielded_item_state = "crewpistol-0"
+
+//  HI-2521-P - Ammo & Magazines
+
+/obj/item/ammo_magazine/hi2521pistol9mm
+	name = "HI-2521-P pistol magazine"
+	icon = 'icons/urist/guns/ammo.dmi'
+	icon_state = "crewpistol-mag"
+	mag_type = MAGAZINE
+	caliber = CALIBER_PISTOL_SMALL
+	origin_tech = list(TECH_COMBAT = 2)
+	matter = list(DEFAULT_WALL_MATERIAL = 600)
+	ammo_type = /obj/item/ammo_casing/pistol/small
+	max_ammo = 10
+	multiple_sprites = 1
 
 //Knight .45 - suppressed PDW
 
@@ -134,72 +167,80 @@ the sprite and make my own projectile -Glloyd*/
 	else
 		icon_state = "knight45-empty"
 
-///// Deckard .44 - old Bay custom item rip for UMcS Blueshields
-/obj/item/gun/projectile/revolver/detective/deckard
-	icon = 'icons/urist/guns/revolvers.dmi'
+// Broomstick Pistol - Ammo & Magazines
+
+/obj/item/ammo_magazine/speedloader/broomstick
+	name = "broomstick stripper clip"
+	desc = "A stripper clip for antique broomstick pistols."
+	icon = 'icons/urist/guns/ammo.dmi'
+	icon_state = "broomclip"
+	caliber = CALIBER_PISTOL_SMALL
+	ammo_type = /obj/item/ammo_casing/pistol/small
+	matter = list(MATERIAL_STEEL = 1300)
+	max_ammo = 10
+	multiple_sprites = 1
+
+
+
+// Submachine Guns
+
+//  HI-2521-SMG - Nerva: Crew SMG
+
+/obj/item/gun/projectile/automatic/hi2521smg
 	item_icons = DEF_URIST_INHANDS
-	name = "Deckard .44" //changed from .44 for internal consistency - it takes .38 bullets - now it takes .44/15mm again :)
-	desc = "A custom autorevolver chambered in .44 issued to high-ranking specialists, based on the obsoleted Detective Special forensics issue models."
-	//what do you know, it was restored-ish in revolver.dm
-	icon_state = "deckard"
-
-/obj/item/gun/projectile/revolver/detective/deckard/on_update_icon()
-	..()
-	if(length(loaded))
-		icon_state = "deckard-loaded"
-	else
-		icon_state = "deckard-empty"
-
-/obj/item/gun/projectile/revolver/detective/deckard/load_ammo(obj/item/A, mob/user)
-	if(istype(A, /obj/item/ammo_magazine))
-		flick("deckard-reloading",src)
-	..()
-
-//NamERT
-
-/obj/item/ammo_magazine/box/rifle/military
-	caliber = CALIBER_RIFLE_MILITARY
-	ammo_type = /obj/item/ammo_casing/rifle/military
-	mag_type = MAGAZINE
-
-/obj/item/ammo_magazine/rifle
-	caliber = CALIBER_RIFLE
-	ammo_type = /obj/item/ammo_casing/rifle
-	mag_type = MAGAZINE
-
-/obj/item/ammo_magazine/box/rifle
-	caliber = CALIBER_RIFLE
-	ammo_type = /obj/item/ammo_casing/rifle
-	mag_type = MAGAZINE
-
-//adminfuckery gun slash proof of concept
-/obj/item/gun/projectile/automatic/shotmachinegun
-	item_icons = DEF_URIST_INHANDS
-	name = "Shotmachinegun"
-	desc = "A product of a warped imagination, a fully automatic machine-shotgun."
-	icon = 'icons/urist/guns/vietnam_us.dmi'
-	icon_state = "M60closed75"
-	item_state = "M60closed"
-	caliber = CALIBER_SHOTGUN
-	max_shells = 75
-	allowed_magazines = list(/obj/item/ammo_magazine/shotmachinegun)
-	magazine_type = /obj/item/ammo_magazine/shotmachinegun
-	one_hand_penalty = 6
-	wielded_item_state = "genericLMG-wielded"
-	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
+	name = "\improper HI-2521-SMG"
+	desc = "A light, compact bullpup SMG chambered in 9mm with a sleek design. Manufactured by Hephaestus Industries as part of the 2521 series, this model is a relatively recent design, popular among wealthier spacers."
+	icon = 'icons/urist/guns/crew_SMG.dmi'
+	icon_state = "combatSMG"
+	item_state = "combatSMG"
+	wielded_item_state = "combatSMG"
+	w_class = 3
+	force = 10
+	caliber = CALIBER_PISTOL_SMALL
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 1, TECH_ESOTERIC = 1)
+	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/hi2521smg9mm/rubber
+	allowed_magazines = /obj/item/ammo_magazine/hi2521smg9mm
+	one_hand_penalty = 3
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	jam_chance = 0
+
 	firemodes = list(
-		list(mode_name="short bursts",	burst=5, move_delay=12, one_hand_penalty=8, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
-		list(mode_name="long bursts",	burst=8, move_delay=15, one_hand_penalty=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 1, move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="3-round bursts", burst=3, move_delay=6, fire_delay=null, one_hand_penalty = 2, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
 		)
 
-/obj/item/ammo_magazine/shotmachinegun
-	caliber = CALIBER_SHOTGUN
-	ammo_type = /obj/item/ammo_casing/shotgun
-	initial_ammo = 75
-	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+/obj/item/gun/projectile/automatic/hi2521smg/on_update_icon()
+	..()
+	if(ammo_magazine && length(ammo_magazine.stored_ammo))
+		icon_state = "combatSMG"
+	else
+		icon_state = "combatSMG_empty"
+
+//  HI-2521-SMG - Ammo & Magazines
+
+/obj/item/ammo_magazine/hi2521smg9mm
+	name = "HI-2521-SMG magazine"
+	icon = 'icons/urist/guns/ammo.dmi'
+	icon_state = "combatSMG-mag"
 	mag_type = MAGAZINE
-	multiple_sprites = 0
+	caliber = CALIBER_PISTOL_SMALL
+	origin_tech = list(TECH_COMBAT = 2)
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
+	ammo_type = /obj/item/ammo_casing/pistol/small
+	max_ammo = 15
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/hi2521smg9mm/empty
+	initial_ammo = 0
+
+
+
+// Rifles & Automatic Rifles
+
+// Manual Cycle Rifle Setup - (Bolt Action)
 
 /obj/item/gun/projectile/manualcycle
 	var/bolt_open = 0
@@ -244,49 +285,280 @@ the sprite and make my own projectile -Glloyd*/
 		return
 	..()
 
+// Improvised 308 Rifle
+
 /obj/item/gun/projectile/manualcycle/imprifle
 	item_icons = URIST_ALL_ONMOBS
 	name = "improvised rifle"
+	desc = "A crude bolt-action improvised rifle capable of firing 7.62mm, with a internal magazine capacity of 3."
 	icon = 'icons/urist/guns/improvised_308.dmi'
-	desc = "A shoddy 7.62 improvised rifle."
-	wielded_item_state = "woodarifle-wielded"
 	icon_state = "308bolt"
 	item_state = "dshotgun" //placeholder
-	w_class = 5
-	one_hand_penalty = 4
-	force = 10
+	wielded_item_state = "woodarifle-wielded"
+	w_class = ITEM_SIZE_LARGE
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 1)
-	caliber = CALIBER_RIFLE_MILITARY
-	//fire_sound = 'sound/weapons/sniper.ogg'
+	force = 10
+	one_hand_penalty = 4
+	caliber = CALIBER_RIFLE // At some point, this changed to 5.56, it's 7.62 again.
 	handle_casings = HOLD_CASINGS
 	load_method = SINGLE_CASING
+	ammo_type = /obj/item/ammo_casing/rifle
+	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	max_shells = 3
-	ammo_type = /obj/item/ammo_casing/rifle/military
 	accuracy = -1
 
+// Improvised 308 Rifle - Obrez/Sawn-Off
 
 /obj/item/gun/projectile/manualcycle/imprifle/impriflesawn
 	item_icons = URIST_ALL_ONMOBS
-	name = "improvised short rifle"
+	name = "improvised sawn-off rifle"
+	desc = "A crude bolt-action improvised rifle capable of firing 7.62mm, the barrel has been sawn-off for concealment."
 	icon = 'icons/urist/guns/improvised_308.dmi'
-	desc = "A crudely cut down 7.62 improvised rifle."
 	icon_state = "308boltsawed"
 	item_state = "sawnshotgun" //placeholder
-	w_class = 4
-	one_hand_penalty = 0
-	force = 4
+	wielded_item_state = "sawnshotgun"
+	w_class = ITEM_SIZE_NORMAL
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	origin_tech = list(TECH_COMBAT = 1)
-	caliber = CALIBER_RIFLE_MILITARY
-	//fire_sound = 'sound/weapons/sniper.ogg'
-	handle_casings = HOLD_CASINGS
-	load_method = SINGLE_CASING
-	max_shells = 3
-	ammo_type = /obj/item/ammo_casing/rifle/military
+	force = 4
+	one_hand_penalty = 0
 	accuracy = -2
 
-//rifle construction
+// U2442 Bullpup AK
+
+/obj/item/gun/projectile/automatic/spaceak
+	item_icons = DEF_URIST_INHANDS
+	name = "\improper U2442 Assault Rifle"
+	desc = "A bullpup assault rifle loosely based on the AK-47. Originally manufactured by the USSSR, the design has since become popular among pirates and traders for its affordability, reliability and ease of use."
+	icon = 'icons/urist/guns/bullpup_ak.dmi'
+	icon_state = "sexyrifle"
+	item_state = "sexyrifle"
+	wielded_item_state = "sexyrifle-wielded"
+	w_class = ITEM_SIZE_LARGE
+	force = 10
+	caliber = CALIBER_RIFLE_MILITARY
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 1, TECH_ESOTERIC = 1)
+	slot_flags = SLOT_BACK
+	load_method = MAGAZINE
+	magazine_type = /obj/item/ammo_magazine/rifle/military/spaceak
+	allowed_magazines = list(/obj/item/ammo_magazine/rifle/military/spaceak)
+	ammo_type = /obj/item/ammo_casing/rifle/military
+	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
+	one_hand_penalty = 6
+
+
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 4, move_delay=null, burst_accuracy=null, dispersion=null),
+		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
+		)
+
+/obj/item/gun/projectile/automatic/spaceak/on_update_icon()
+	..()
+	if(ammo_magazine && length(ammo_magazine.stored_ammo))
+		icon_state = "sexyrifle"
+	else
+		icon_state = "sexyrifle_empty"
+	return
+
+// U2442 Bullpup AK - Gold Variant
+
+/obj/item/gun/projectile/automatic/spaceak/gold
+	item_icons = DEF_URIST_INHANDS
+	name = "\improper Gold Plated U2442 Assault Rifle"
+	desc = "A bullpup assault rifle loosely based on the AK-47. Originally manufactured by the USSSR, the design has since become popular among pirates and traders for its affordability, reliability and ease of use. This one has been in the hands of someone with incredibly tacky tastes."
+	icon = 'icons/urist/guns/bullpup_ak.dmi'
+	icon_state = "goldspaceak"
+	item_state = "goldspaceak"
+	wielded_item_state = "goldspaceak-wielded"
+
+/obj/item/gun/projectile/automatic/spaceak/gold/on_update_icon()
+	..()
+	if(ammo_magazine && length(ammo_magazine.stored_ammo))
+		icon_state = "goldspaceak"
+	else
+		icon_state = "goldspaceak-empty"
+
+// U2442 Bullpup AK - Ammo & Magazines
+
+/obj/item/ammo_magazine/rifle/military/spaceak
+	name = "U2442 magazine box"
+	icon = 'icons/urist/guns/ammo.dmi'
+	icon_state = "sexyrifle-mag"
+	max_ammo = 30
+
+
+
+// Energy Firearms
+
+// Tiny Energy Pistol - Storable in players pockets.
+
+/obj/item/gun/energy/gun/tiny
+	item_icons = DEF_URIST_INHANDS
+	name = "energy pistol"
+	desc = "An energy pistol with a wooden handle."
+	icon = 'icons/urist/guns/senergy.dmi'
+	icon_state = "senergy"
+	item_state = "gun"
+	fire_sound = 'sound/weapons/Taser.ogg'
+	w_class = 1
+	charge_cost = 10 //How much energy is needed to fire.
+	projectile_type = /obj/item/projectile/energy/electrode
+	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
+	modifystate = "senergystun"
+	cell_type = /obj/item/cell/device/standard
+
+	firemodes = list(
+		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="senergystun", fire_sound='sound/weapons/Taser.ogg', fire_delay=null, charge_cost=null),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="senergykill", fire_sound='sound/weapons/Laser.ogg', fire_delay=null, charge_cost=null),
+		)
+
+/*phoron pistol. does toxic damage. I want to add this to research soonish. icons by Susan from BS12, editing and projectile by Glloyd
+--Okay, they implemented this on BS12, and I dislike how they did it. The top is green, and shoots a green pulse. It also has different values then the one I coded.
+The point is that theirs is closer to the X-COM plasma pistol, despite the fact that all depictions of plasma in SS13 are purple, thus my choice to edit
+the sprite and make my own projectile -Glloyd*/
+
+/obj/item/gun/energy/plasmapistol
+	item_icons = DEF_URIST_INHANDS
+	name = "phoron pistol"
+	desc = "An experimental weapon that works by ionizing phoron and firing it in a particular direction, poisoning someone."
+	icon = 'icons/urist/guns/plasma_pistol.dmi'
+	icon_state = "plasmapistol"
+	item_state = "gun"
+	fire_sound = 'sound/weapons/Genhit.ogg'
+	w_class = 1
+	charge_cost = 20 //How much energy is needed to fire.
+	projectile_type = /obj/item/projectile/energy/plasma2
+	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 3)
+	modifystate = "plasmapistol"
+	cell_type = /obj/item/cell/device/premium
+
+// Legacy Taser -
+
+/obj/item/gun/energy/taser/old
+	name = "antique taser"
+	desc = "An old model taser. They don't make 'em like they used to"
+	icon = 'icons/urist/guns/legacy_classic.dmi'
+	icon_state = "taser"
+	max_shots = 8
+
+// Legacy Laser Carbine
+
+/obj/item/gun/energy/laser/old
+	name = "vintage laser carbine"
+	desc = "a pre-Crisis model laser carbine formerly deployed broadly by human forces."
+	icon = 'icons/urist/guns/legacy_classic.dmi'
+	icon_state = "oldlaser"
+
+
+
+// Misc/Gimmick Firearms
+
+// Umbrella Gun
+
+/obj/item/gun/projectile/umbrellagun
+	item_icons = DEF_URIST_INHANDS
+	name = "Umbrella"
+	desc = "An umbrella with a small hole at the end, doesn't seem to open."
+	icon = 'icons/urist/guns/misc.dmi'
+	icon_state = "umbrellagun"
+	item_state = "umbrellagun"
+	w_class = ITEM_SIZE_SMALL
+	max_shells = 2
+	caliber = CALIBER_PISTOL_SMALL
+	load_method = SINGLE_CASING
+	silenced = 1
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	ammo_type = /obj/item/ammo_casing/pistol/small
+
+// BANG Gun
+// BANG BANG BANG BANG BANG BANG BANG!!!
+
+/obj/item/gag/BANG
+	item_icons = DEF_URIST_INHANDS
+	icon = 'icons/urist/guns/legacy_unused.dmi'
+	name = "BANG gun"
+	desc = "Shoots out a BANG"
+	icon_state = "gun"
+	item_state = "gun"
+	var/on = 0
+	w_class = ITEM_SIZE_NORMAL
+
+/obj/item/gag/BANG/attack_self(mob/user as mob)
+	item_icons = DEF_URIST_INHANDS
+	icon = 'icons/urist/guns/legacy_unused.dmi'
+	on = !on
+	if(on)
+		user.visible_message("<span class='warning'> [user] fires the gun, BANG.</span>",\
+		"<span class='warning'> You fire the gun.</span>",\
+		"You hear a BANG.")
+		icon_state = "gunbang"
+		item_state = "gunbang"
+		w_class = 2
+		force = 3
+		attack_verb = list("smacked", "struck", "slapped")
+	else
+		user.visible_message("<span class='notice'> [user] pushes the BANG back into the barrel.</span>",\
+		"<span class='notice'> You push the BANG back into the barrel.</span>",\
+		"You hear a click.")
+		icon_state = "gun"
+		item_state = "gun"
+		w_class = 2
+		force = 3
+		attack_verb = list("smacked", "struck", "slapped")
+
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
+// Shotmachinegun - Adminbus shitter deleter
+/obj/item/gun/projectile/automatic/shotmachinegun
+	item_icons = DEF_URIST_INHANDS
+	name = "Shotmachinegun"
+	desc = "A product of a warped imagination, a fully automatic machine-shotgun."
+	icon = 'icons/urist/guns/vietnam_us.dmi'
+	icon_state = "M60closed75"
+	item_state = "M60closed"
+	caliber = CALIBER_SHOTGUN
+	max_shells = 75
+	allowed_magazines = list(/obj/item/ammo_magazine/shotmachinegun)
+	magazine_type = /obj/item/ammo_magazine/shotmachinegun
+	one_hand_penalty = 6
+	wielded_item_state = "genericLMG-wielded"
+	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
+	load_method = MAGAZINE
+	firemodes = list(
+		list(mode_name="short bursts",	burst=5, move_delay=12, one_hand_penalty=8, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
+		list(mode_name="long bursts",	burst=8, move_delay=15, one_hand_penalty=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
+		)
+
+/obj/item/ammo_magazine/shotmachinegun
+	caliber = CALIBER_SHOTGUN
+	ammo_type = /obj/item/ammo_casing/shotgun
+	initial_ammo = 75
+	matter = list(DEFAULT_WALL_MATERIAL = 1200)
+	mag_type = MAGAZINE
+	multiple_sprites = 0
+
+
+
+// Projectiles
+
+/obj/item/projectile/energy/plasma2
+	name = "ionized phoron"
+	icon = 'icons/urist/guns/projectiles.dmi'
+	icon_state = "plasma"
+	damage = 20
+	damage_type = DAMAGE_TOXIN
+	irradiate = 20
+
+
+
+// Firearm Crafting -
+
+// Improvised Rifle Crafting:
 
 /obj/item/imprifleframe/imprifleframesawn
 	name = "unfinished improvised short rifle"
@@ -297,7 +569,7 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/imprifleframe
 	name = "improvised rifle stock"
-	desc = "A half-finished improvised rifle."
+	desc = "A half-finished improvised rifle, missing some sort of barrel or pipe."
 	icon = 'icons/urist/guns/improvised_308.dmi'
 	icon_state = "308boltframe0"
 	item_state = "sawnshotgun"
@@ -309,15 +581,15 @@ the sprite and make my own projectile -Glloyd*/
 /obj/item/imprifleframe/examine(mob/user)
 	..(user)
 	switch(buildstate)
-		if(1) to_chat(user, "It has an unfinished pipe barrel in place on the wooden furniture.")
-		if(2) to_chat(user, "It has an unfinished pipe barrel wired in place.")
-		if(3) to_chat(user, "It has an unfinished reinforced pipe barrel wired in place.")
-		if(4) to_chat(user, "It has a reinforced pipe barrel secured on the wooden furniture.")
-		if(5) to_chat(user, "It has an unsecured reciever in place.")
-		if(6) to_chat(user, "It has a secured reciever in place.")
-		if(7) to_chat(user, "It has an unfinished pipe bolt in place.")
-		if(8) to_chat(user, "It has a finished unsecured pipe bolt in place.")
-		if(9) to_chat(user, "It has a finished secured bolt in place.")
+		if(1) to_chat(user, "It has an unfinished pipe barrel needing fastening in place on the wooden furniture with coil.")
+		if(2) to_chat(user, "It has an unfinished pipe barrel fastened in place that needs securing with a screwdriver.")
+		if(3) to_chat(user, "It has an secured pipe barrel wired in place that requires reinforcement with plasteel.")
+		if(4) to_chat(user, "It has a reinforced pipe barrel that requires further securing with a wrench.")
+		if(5) to_chat(user, "It has an unsecured reciever that needs reinforcement with steel.")
+		if(6) to_chat(user, "It has a secured reciever that requires further securing with a screwdriver.")
+		if(7) to_chat(user, "It has an unfinished bolt mechanism that requires a atmospheric pipe.")
+		if(8) to_chat(user, "It has a finished unsecured pipe bolt that needs reinforcing with metal rods.")
+		if(9) to_chat(user, "It has a finished secured bolt in place and needs to be welding to finalize, or be sawn-off with a circular saw.")
 
 /obj/item/imprifleframe/use_tool(obj/item/W, mob/living/user, list/click_params)
 	switch(buildstate)
@@ -441,239 +713,3 @@ the sprite and make my own projectile -Glloyd*/
 			qdel(src)
 		return TRUE
 	return ..()
-
-/*
-/obj/item/gun/projectile
-	name = ""
-	desc = ""
-	icon = 'icons/urist/guns/projectiles.dmi'
-	icon_state = ""
-	caliber = "pistol"
-	ammo_type = /obj/item/ammo_casing/pistol
-*/
-
-
-//nerva guns
-
-/obj/item/gun/projectile/automatic/spaceak
-	item_icons = DEF_URIST_INHANDS
-	name = "\improper U2442 Assault Rifle"
-	desc = "A bullpup assault rifle loosely based on the AK-47. Originally manufactured by the USSSR, the design has since become popular among pirates and traders for its affordability, reliability and ease of use."
-	icon = 'icons/urist/guns/bullpup_ak.dmi'
-	icon_state = "sexyrifle"
-	item_state = "sexyrifle"
-	wielded_item_state = "sexyrifle-wielded"
-	w_class = ITEM_SIZE_LARGE
-	force = 10
-	caliber = CALIBER_RIFLE_MILITARY
-	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 1, TECH_ESOTERIC = 1)
-	slot_flags = SLOT_BACK
-	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/rifle/military/spaceak
-	allowed_magazines = list(/obj/item/ammo_magazine/rifle/military/spaceak)
-	ammo_type = /obj/item/ammo_casing/rifle/military
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
-	one_hand_penalty = 6
-
-
-	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 4, move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
-		list(mode_name="long bursts",	burst=8, fire_delay=null, move_delay=8, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2)),
-		)
-
-/obj/item/gun/projectile/automatic/spaceak/on_update_icon()
-	..()
-	if(ammo_magazine && length(ammo_magazine.stored_ammo))
-		icon_state = "sexyrifle"
-	else
-		icon_state = "sexyrifle_empty"
-	return
-
-/obj/item/gun/projectile/automatic/spaceak/gold
-	item_icons = DEF_URIST_INHANDS
-	name = "\improper Gold Plated U2442 Assault Rifle"
-	desc = "A bullpup assault rifle loosely based on the AK-47. Originally manufactured by the USSSR, the design has since become popular among pirates and traders for its affordability, reliability and ease of use. This one has been in the hands of someone with incredibly tacky tastes."
-	icon = 'icons/urist/guns/bullpup_ak.dmi'
-	icon_state = "goldspaceak"
-	item_state = "goldspaceak"
-	wielded_item_state = "goldspaceak-wielded"
-
-/obj/item/gun/projectile/automatic/spaceak/gold/on_update_icon()
-	..()
-	if(ammo_magazine && length(ammo_magazine.stored_ammo))
-		icon_state = "goldspaceak"
-	else
-		icon_state = "goldspaceak-empty"
-
-/obj/item/ammo_magazine/rifle/military/spaceak
-	name = "U2442 magazine box"
-	icon = 'icons/urist/guns/ammo.dmi'
-	icon_state = "sexyrifle-mag"
-	max_ammo = 30
-
-/obj/item/gun/projectile/automatic/hi2521smg
-	item_icons = DEF_URIST_INHANDS
-	name = "\improper HI-2521-SMG"
-	desc = "A light, compact bullpup SMG chambered in 9mm with a sleek design. Manufactured by Hephaestus Industries as part of the 2521 series, this model is a relatively recent design, popular among wealthier spacers."
-	icon = 'icons/urist/guns/crew_SMG.dmi'
-	icon_state = "combatSMG"
-	item_state = "combatSMG"
-	wielded_item_state = "combatSMG"
-	w_class = 3
-	force = 10
-	caliber = CALIBER_PISTOL_SMALL
-	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 1, TECH_ESOTERIC = 1)
-	slot_flags = SLOT_BELT
-	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/hi2521smg9mm/rubber
-	allowed_magazines = /obj/item/ammo_magazine/hi2521smg9mm
-	one_hand_penalty = 3
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
-	jam_chance = 0
-
-	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 1, move_delay=null, burst_accuracy=null, dispersion=null),
-		list(mode_name="3-round bursts", burst=3, move_delay=6, fire_delay=null, one_hand_penalty = 2, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.0, 0.6, 0.6)),
-		list(mode_name="short bursts", 	burst=5, move_delay=6, fire_delay=null, one_hand_penalty = 3, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(0.6, 1.0, 1.0, 1.0, 1.2)),
-		)
-
-/obj/item/gun/projectile/automatic/hi2521smg/on_update_icon()
-	..()
-	if(ammo_magazine && length(ammo_magazine.stored_ammo))
-		icon_state = "combatSMG"
-	else
-		icon_state = "combatSMG_empty"
-
-/obj/item/ammo_magazine/hi2521smg9mm
-	name = "HI-2521-SMG magazine"
-	icon = 'icons/urist/guns/ammo.dmi'
-	icon_state = "combatSMG-mag"
-	mag_type = MAGAZINE
-	caliber = CALIBER_PISTOL_SMALL
-	origin_tech = list(TECH_COMBAT = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 1800)
-	ammo_type = /obj/item/ammo_casing/pistol/small
-	max_ammo = 15
-	multiple_sprites = 1
-
-/obj/item/ammo_magazine/hi2521smg9mm/empty
-	initial_ammo = 0
-
-/obj/item/gun/projectile/revolver/coltsaa
-	icon = 'icons/urist/guns/colt_revolvers.dmi'
-	item_icons = DEF_URIST_INHANDS
-	name = "Colt Single Action Army"
-	desc = "An antique Colt Single Action Army revolver dating from the late 19th century. Sometimes referred to as 'the gun that won the west,' this piece is the pride and joy of any 26th century gun collector."
-	icon_state = "antiquerevolver"
-	item_state = "antiquerevolver"
-	wielded_item_state = "antiquerevolver"
-	max_shells = 6
-	caliber = CALIBER_PISTOL
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/pistol
-
-/obj/item/gun/projectile/revolver/coltsaa/on_update_icon()
-	..()
-	if(length(loaded))
-		icon_state = "antiquerevolver"
-	else
-		icon_state = "antiquerevolver_empty"
-
-/obj/item/ammo_magazine/a45r
-	name = "speed loader"
-	desc = "A speed loader for revolvers."
-	icon = 'icons/urist/guns/ammo.dmi'
-	icon_state = "38"
-	ammo_type = /obj/item/ammo_casing/pistol
-	matter = list(DEFAULT_WALL_MATERIAL = 450)
-	caliber = CALIBER_PISTOL
-	max_ammo = 6
-	multiple_sprites = 1
-
-/obj/item/ammo_magazine/a45r/rubber
-	name = "speed loader (rubber)"
-	ammo_type = /obj/item/ammo_casing/pistol/rubber
-
-/obj/item/gun/projectile/revolver/hi2521r
-	icon = 'icons/urist/guns/crew_revolver.dmi'
-	item_icons = DEF_URIST_INHANDS
-	name = "HI-2521-R revolver"
-	desc = "A sleek modern revolver manufactured by Hephaestus Industries as part of the 2521 series."
-	icon_state = "combatrevolver"
-	item_state = "combatrevolver"
-	wielded_item_state = "combatrevolver"
-	max_shells = 6
-	caliber = CALIBER_PISTOL
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/pistol
-
-/obj/item/gun/projectile/revolver/hi2521r/on_update_icon()
-	..()
-	if(length(loaded))
-		icon_state = "combatrevolver"
-	else
-		icon_state = "combatrevolver_empty"
-
-/obj/item/gun/projectile/hi2521pistol
-	item_icons = URIST_ALL_ONMOBS
-	name = "\improper HI-2521-P pistol"
-	desc = "A light, compact pistol chambered in 9mm with a sleek design. Manufactured by Hephaestus Industries as part of the 2521 series, this model is a relatively recent design, popular among wealthier spacers."
-	icon = 'icons/urist/guns/crew_pistol.dmi'
-	icon_state = "crewpistol"
-	item_state = "crewpistol"
-	wielded_item_state = "crewpistol"
-	w_class = 2
-	caliber = CALIBER_PISTOL_SMALL
-	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ESOTERIC = 1)
-	slot_flags = SLOT_BELT | SLOT_HOLSTER
-	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/hi2521pistol9mm
-	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
-
-/obj/item/gun/projectile/hi2521pistol/on_update_icon()
-	..()
-	if(ammo_magazine)
-		icon_state = "crewpistol-[round(length(ammo_magazine.stored_ammo), 2)]"
-		item_state = "crewpistol-[round(length(ammo_magazine.stored_ammo), 2)]"
-		wielded_item_state = "crewpistol-[round(length(ammo_magazine.stored_ammo), 2)]"
-	else
-		icon_state = "crewpistol-empty"
-		item_state = "crewpistol-0"
-		wielded_item_state = "crewpistol-0"
-
-/obj/item/ammo_magazine/hi2521pistol9mm
-	name = "HI-2521-P pistol magazine"
-	icon = 'icons/urist/guns/ammo.dmi'
-	icon_state = "crewpistol-mag"
-	mag_type = MAGAZINE
-	caliber = CALIBER_PISTOL_SMALL
-	origin_tech = list(TECH_COMBAT = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 600)
-	ammo_type = /obj/item/ammo_casing/pistol/small
-	max_ammo = 10
-	multiple_sprites = 1
-
-/obj/item/gun/energy/taser/old
-	name = "antique taser"
-	desc = "An old model taser. They don't make 'em like they used to"
-	icon = 'icons/urist/guns/legacy_classic.dmi'
-	icon_state = "taser"
-	max_shots = 8
-
-/obj/item/gun/energy/laser/old
-	name = "vintage laser carbine"
-	desc = "a pre-Crisis model laser carbine formerly deployed broadly by human forces."
-	icon = 'icons/urist/guns/legacy_classic.dmi'
-	icon_state = "oldlaser"
-
-/obj/item/ammo_magazine/speedloader/broomstick
-	name = "broomstick stripper clip"
-	desc = "A stripper clip for antique broomstick pistols."
-	icon = 'icons/urist/guns/ammo.dmi'
-	icon_state = "broomclip"
-	caliber = CALIBER_PISTOL_SMALL
-	ammo_type = /obj/item/ammo_casing/pistol/small
-	matter = list(MATERIAL_STEEL = 1300)
-	max_ammo = 10
-	multiple_sprites = 1
