@@ -3,7 +3,7 @@
 	name = "master shotgun object"
 	desc = "You should not see this."
 	fire_sound = 'sound/weapons/gunshot/shotgun.ogg'
-	icon = 'icons/urist/items/shotguns.dmi'
+	icon = 'icons/urist/guns/pump_shotgun.dmi'
 
 /obj/item/gun/projectile/shotgun/load_ammo(obj/item/A, mob/user)
 	if(istype(A, /obj/item/ammo_magazine))

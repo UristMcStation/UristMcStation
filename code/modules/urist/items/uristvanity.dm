@@ -139,7 +139,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 //unathi doll and doll parent type
 
 /obj/item/vanity/doll
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'icons/urist/items/urist_plushie.dmi'
 	w_class = 2
 	item_icons = DEF_URIST_INHANDS
 

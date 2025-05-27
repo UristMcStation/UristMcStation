@@ -119,158 +119,163 @@
 	id_types = list(/obj/item/card/id/engineering)
 
 /* World War 13 */
-/singleton/hierarchy/outfit/wwii
-	name = "Naked, 1941-style" //just to shut Travis up
+/singleton/hierarchy/outfit/ww2
+	name = "WW2 - Naked, 1941-style" //just to shut Travis up
 
-/singleton/hierarchy/outfit/wwii/germanrifleman
-	name = "German Rifleman"
-	head = /obj/item/clothing/head/helmet/urist/wwii/germanhelm
-	uniform = /obj/item/clothing/under/urist/wwii/germanrifleman
-	shoes = /obj/item/clothing/shoes/urist/wwii/germanboots
-	back = /obj/item/gun/projectile/manualcycle/kar98
+/singleton/hierarchy/outfit/ww2/german // copypasta-ing nam shit and changing it, doubt this'll ever get used anyways.
+	name = "WW2 - German Rifleman"
+	head = /obj/item/clothing/head/helmet/urist/ww2/germanhelm
+	uniform = /obj/item/clothing/under/urist/ww2/germanrifleman
+	shoes = /obj/item/clothing/shoes/urist/ww2/germanboots
+	back = /obj/item/storage/backpack/urist/ww2/german
+	backpack_contents = list(
+		/obj/item/ammo_magazine/ww2/stripper_mauser = 4, /obj/item/grenade/frag/stielhandgranate = 1, /obj/item/device/flashlight/seclite = 1)
+	r_hand = /obj/item/gun/projectile/manualcycle/kar98
+	r_pocket = /obj/item/grenade/smokebomb
+	l_pocket = /obj/item/ammo_magazine/ww2/stripper_mauser
+
+/singleton/hierarchy/outfit/ww2/german/medic
+	name = "WW2 - German Medic"
+	back = /obj/item/storage/backpack/urist/ww2/german
+	gloves = /obj/item/clothing/gloves/latex/nitrile
+	backpack_contents = list(
+		/obj/item/device/flashlight/seclite = 1, /obj/item/roller_bed = 1,
+		/obj/item/storage/firstaid/surgery = 1, /obj/item/storage/firstaid/combat = 1, /obj/item/storage/firstaid/adv = 1, /obj/item/ammo_magazine/pistol/ww2/p38 = 2)
+	r_hand = /obj/item/gun/projectile/p38
+	r_pocket = /obj/item/ammo_magazine/pistol/ww2/p38
+	l_pocket = /obj/item/ammo_magazine/pistol/ww2/p38
+	holster = /obj/item/clothing/accessory/storage/holster/armpit
+
+/singleton/hierarchy/outfit/ww2/german/stormtrooper
+	name = "WW2 - German Stormtrooper"
+	back = /obj/item/storage/backpack/urist/ww2/german
+	backpack_contents = list(
+		/obj/item/device/flashlight/seclite = 1, /obj/item/ammo_magazine/pistol/ww2/mp40 = 3,
+		/obj/item/grenade/smokebomb = 2, /obj/item/grenade/frag/stielhandgranate = 2)
+	r_hand = /obj/item/gun/projectile/automatic/mp40
+	r_pocket = /obj/item/ammo_magazine/pistol/ww2/mp40
+	l_pocket = /obj/item/ammo_magazine/pistol/ww2/mp40
+
+/singleton/hierarchy/outfit/ww2/german/automatic_rifleman
+	name = "WW2 - German Automatic Rifleman"
+	back = /obj/item/storage/backpack/urist/ww2/german
+	backpack_contents = list(
+		/obj/item/device/flashlight/seclite = 1, /obj/item/ammo_magazine/ww2/stg44 = 3,
+		/obj/item/grenade/smokebomb = 1, /obj/item/grenade/frag/stielhandgranate = 1)
+	r_hand = /obj/item/gun/projectile/automatic/stg44
+	r_pocket = /obj/item/ammo_magazine/ww2/stg44
+	l_pocket = /obj/item/ammo_magazine/ww2/stg44
+
+/singleton/hierarchy/outfit/ww2/german/machinegunner
+	name = "WW2 - German Machinegunner"
+	back = /obj/item/storage/backpack/urist/ww2/german
+	backpack_contents = list(
+		/obj/item/device/flashlight/seclite = 1, /obj/item/ammo_magazine/ww2/mg42 = 4,
+		/obj/item/grenade/smokebomb = 1)
+	r_hand = /obj/item/gun/projectile/automatic/l6_saw/mg42
+	r_pocket = /obj/item/grenade/smokebomb
+	l_pocket = /obj/item/grenade/frag/stielhandgranate
+
+/singleton/hierarchy/outfit/ww2/german/officer
+	name = "WW2 - German Officer"
+	head = /obj/item/clothing/head/urist/ww2/germanofficer
+	uniform = /obj/item/clothing/under/urist/ww2/germanofficer
+	shoes = /obj/item/clothing/shoes/urist/ww2/germanboots
+	backpack_contents = list(
+		/obj/item/device/flashlight/seclite = 1, /obj/item/ammo_magazine/ww2/g43mag = 2, /obj/item/ammo_magazine/pistol/ww2/p38 = 2,
+		/obj/item/grenade/smokebomb = 1, /obj/item/device/binoculars = 1)
+	r_hand = /obj/item/gun/projectile/g43
 	r_pocket = /obj/item/grenade/frag/stielhandgranate
-	l_pocket = /obj/item/ammo_magazine/a792x57mm/stripper
-	r_hand = /obj/item/ammo_magazine/a792x57mm/stripper
-	l_hand = /obj/item/ammo_magazine/a792x57mm/stripper
-	belt = 	/obj/item/ammo_magazine/a792x57mm/stripper
-
-/singleton/hierarchy/outfit/wwii/germanrifleman/pre_equip(mob/living/carbon/human/H)
-	if(prob(10))
-		back = /obj/item/gun/projectile/automatic/stg44
-		l_pocket = /obj/item/ammo_magazine/a792x33mm
-		r_hand = /obj/item/ammo_magazine/a792x33mm
-		l_hand = /obj/item/ammo_magazine/a792x33mm
-		belt = 	/obj/item/ammo_magazine/a792x33mm
-
-	else if(prob(10))
-		back = /obj/item/gun/projectile/g43
-		l_pocket = /obj/item/ammo_magazine/a792x57mm/g43mag
-		r_hand = /obj/item/ammo_magazine/a792x57mm/g43mag
-		l_hand = /obj/item/ammo_magazine/a792x57mm/g43mag
-		belt = 	/obj/item/ammo_magazine/a792x57mm/g43mag
-
-	else if(prob(5))
-		back = /obj/item/gun/projectile/automatic/l6_saw/mg42
-		l_pocket = /obj/item/grenade/frag/stielhandgranate
-		r_hand = /obj/item/ammo_magazine/a792x57mm/mg42
-		l_hand = /obj/item/ammo_magazine/a792x57mm/mg42
-		belt = 	/obj/item/ammo_magazine/a792x57mm/g43mag
-
-	else
-		return
-
-/singleton/hierarchy/outfit/wwii/germanrifleman/post_equip(mob/living/carbon/human/H)
-	..()
-	var/obj/item/clothing/uniform = H.w_uniform
-	if(uniform)
-		var/obj/item/clothing/accessory/storage/webbing_german/gear = new()
-		if(uniform.can_attach_accessory(gear))
-			uniform.attach_accessory(null, gear)
-		else
-			qdel(gear)
-
-/singleton/hierarchy/outfit/wwii/germanofficer
-	name = "German Officer"
-	head = /obj/item/clothing/head/urist/wwii/germanofficer
-	uniform = /obj/item/clothing/under/urist/wwii/germanofficer
-	shoes = /obj/item/clothing/shoes/urist/wwii/germanboots
-	back = /obj/item/gun/projectile/automatic/mp40
-	r_pocket = /obj/item/grenade/frag/stielhandgranate
-	l_pocket = /obj/item/ammo_magazine/pistol/mp40
-	r_hand = /obj/item/ammo_magazine/pistol/mp40
-	l_hand = /obj/item/ammo_magazine/pistol/p38
+	l_pocket = /obj/item/ammo_magazine/pistol/ww2/p38
 	belt = /obj/item/gun/projectile/p38
 
-/singleton/hierarchy/outfit/wwii/germanofficer/post_equip(mob/living/carbon/human/H)
+/singleton/hierarchy/outfit/ww2/german/post_equip(mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/uniform = H.w_uniform
 	if(uniform)
-		var/obj/item/clothing/accessory/storage/webbing_german/gear = new()
+		var/obj/item/clothing/accessory/storage/ww2/webbing_german/gear = new()
 		if(uniform.can_attach_accessory(gear))
 			uniform.attach_accessory(null, gear)
 		else
 			qdel(gear)
 
-/singleton/hierarchy/outfit/wwii/sovietrifleman
-	name = "Soviet Rifleman"
-	head = /obj/item/clothing/head/helmet/urist/wwii/soviethelm
-	uniform = /obj/item/clothing/under/urist/wwii/sovietrifleman
-	shoes = /obj/item/clothing/shoes/urist/wwii/sovietboots
-	back = /obj/item/gun/projectile/manualcycle/mosinnagant
-	r_pocket = /obj/item/grenade/frag/sovietgrenade
+/singleton/hierarchy/outfit/ww2/russian
+	name = "WW2 - Soviet Rifleman"
+	head = /obj/item/clothing/head/helmet/urist/ww2/soviethelm
+	uniform = /obj/item/clothing/under/urist/ww2/sovietrifleman
+	shoes = /obj/item/clothing/shoes/urist/ww2/sovietboots
+	back = /obj/item/storage/backpack/urist/ww2/soviet
+	backpack_contents = list(
+		/obj/item/device/flashlight/seclite = 1, /obj/item/ammo_magazine/speedloader/clip = 4, /obj/item/grenade/frag/sovietgrenade = 1)
+	r_hand = /obj/item/gun/projectile/manualcycle/mosinnagant
+	r_pocket = /obj/item/grenade/smokebomb
 	l_pocket = /obj/item/ammo_magazine/speedloader/clip
-	r_hand = /obj/item/ammo_magazine/speedloader/clip
-	l_hand = /obj/item/ammo_magazine/speedloader/clip
-	belt = /obj/item/ammo_magazine/speedloader/clip
 
-/singleton/hierarchy/outfit/wwii/sovietrifleman/pre_equip(mob/living/carbon/human/H)
-	if(prob(5))
-		back = /obj/item/gun/projectile/automatic/ppsh
-		l_pocket = /obj/item/ammo_magazine/pistol/ppsh
-		r_hand = /obj/item/ammo_magazine/pistol/ppsh
-		l_hand = /obj/item/ammo_magazine/pistol/ppsh
-		belt = /obj/item/ammo_magazine/pistol/ppsh
+/singleton/hierarchy/outfit/ww2/russian/automatic_rifleman
+	name = "WW2 - Soviet Automatic Rifleman"
+	back = /obj/item/storage/backpack/urist/ww2/soviet
+	backpack_contents = list(
+		/obj/item/device/flashlight/seclite = 1, /obj/item/ammo_magazine/rifle/svt40mag = 4, /obj/item/grenade/frag/sovietgrenade = 1, /obj/item/grenade/smokebomb = 1)
+	r_hand = /obj/item/gun/projectile/svt40
+	r_pocket = /obj/item/grenade/smokebomb
+	l_pocket = /obj/item/ammo_magazine/rifle/svt40mag
 
-	else if(prob(10))
-		back = /obj/item/gun/projectile/svt40
-		l_pocket = /obj/item/ammo_magazine/rifle/military/svt40mag
-		r_hand = /obj/item/ammo_magazine/rifle/military/svt40mag
-		l_hand = /obj/item/ammo_magazine/rifle/military/svt40mag
-		belt = /obj/item/ammo_magazine/rifle/military/svt40mag
+/singleton/hierarchy/outfit/ww2/russian/medic
+	name = "WW2 - Soviet Medic"
+	back = /obj/item/storage/backpack/urist/ww2/soviet
+	backpack_contents = list(
+		/obj/item/device/flashlight/seclite = 1, /obj/item/roller_bed = 1,
+		/obj/item/storage/firstaid/surgery = 1, /obj/item/storage/firstaid/combat = 1, /obj/item/storage/firstaid/adv = 1, /obj/item/ammo_magazine/pistol/tt33 = 2)
+	r_hand = /obj/item/gun/projectile/pistol/tt33
+	r_pocket = /obj/item/grenade/smokebomb
+	l_pocket = /obj/item/ammo_magazine/pistol/tt33
+	holster = /obj/item/clothing/accessory/storage/holster/armpit
 
-	else if(prob(5))
-		back = /obj/item/gun/projectile/automatic/degtyaryov
-		l_pocket = /obj/item/ammo_magazine/rifle/military/degtyaryov
-		r_hand = /obj/item/ammo_magazine/rifle/military/degtyaryov
-		l_hand = /obj/item/ammo_magazine/rifle/military/degtyaryov
-		belt = 	/obj/item/ammo_magazine/rifle/military/degtyaryov
-
-	else if(prob(1)) //why not a BAR
-		back = /obj/item/gun/projectile/automatic/bar
-		l_pocket = /obj/item/ammo_magazine/rifle/military/barmag
-		r_hand = /obj/item/ammo_magazine/rifle/military/barmag
-		l_hand = /obj/item/ammo_magazine/rifle/military/barmag
-		belt = 	/obj/item/ammo_magazine/rifle/military/barmag
-
-	else
-		return
-
-/singleton/hierarchy/outfit/wwii/sovietrifleman/post_equip(mob/living/carbon/human/H)
-	..()
-	var/obj/item/clothing/uniform = H.w_uniform
-	if(uniform)
-		var/obj/item/clothing/accessory/storage/webbing_soviet/gear = new()
-		if(uniform.can_attach_accessory(gear))
-			uniform.attach_accessory(null, gear)
-		else
-			qdel(gear)
-
-/singleton/hierarchy/outfit/wwii/sovietofficer
-	name = "Soviet Officer"
-	head = /obj/item/clothing/head/urist/wwii/sovietofficer
-	uniform = /obj/item/clothing/under/urist/wwii/sovietofficer
-	shoes = /obj/item/clothing/shoes/urist/wwii/sovietboots
-	back = /obj/item/gun/projectile/automatic/ppsh
-	r_pocket = /obj/item/grenade/frag/sovietgrenade
+/singleton/hierarchy/outfit/ww2/russian/stormtrooper
+	name = "WW2 - Soviet Stormtrooper"
+	back = /obj/item/storage/backpack/urist/ww2/soviet
+	backpack_contents = list(
+		/obj/item/device/flashlight/seclite = 1, /obj/item/ammo_magazine/pistol/ppsh = 4, /obj/item/grenade/frag/sovietgrenade = 3)
+	r_hand = /obj/item/gun/projectile/automatic/ppsh
+	r_pocket = /obj/item/grenade/smokebomb
 	l_pocket = /obj/item/ammo_magazine/pistol/ppsh
-	r_hand = /obj/item/ammo_magazine/pistol/ppsh
-	l_hand = /obj/item/ammo_magazine/pistol/tt33
-	belt = /obj/item/gun/projectile/pistol/tt33
 
-/singleton/hierarchy/outfit/wwii/sovietofficer/pre_equip(mob/living/carbon/human/H)
-	if(prob(50))
-		l_hand = /obj/item/ammo_magazine/r762
-		belt = /obj/item/gun/projectile/revolver/nagantm1895
-		suit = /obj/item/clothing/suit/urist/wwii/soviet //full commissar
-		suit_store = /obj/item/ammo_magazine/r762
-	else
-		return
+/singleton/hierarchy/outfit/ww2/russian/machinegunner
+	name = "WW2 - Soviet Machinegunner"
+	back = /obj/item/storage/backpack/urist/ww2/soviet
+	backpack_contents = list(
+		/obj/item/device/flashlight/seclite = 1, /obj/item/ammo_magazine/rifle/dp27 = 5, /obj/item/grenade/frag/sovietgrenade = 1, /obj/item/grenade/smokebomb = 1)
+	r_hand = /obj/item/gun/projectile/automatic/ppsh
+	r_pocket = /obj/item/grenade/smokebomb
+	l_pocket = /obj/item/ammo_magazine/rifle/dp27
 
-/singleton/hierarchy/outfit/wwii/sovietofficer/post_equip(mob/living/carbon/human/H)
+/singleton/hierarchy/outfit/ww2/russian/machinegunner
+	name = "WW2 - Very Lost 'Soviet' Machinegunner" // Keeping the legacy BAR guy
+	back = /obj/item/storage/backpack/urist/ww2/soviet
+	backpack_contents = list(
+		/obj/item/device/flashlight/seclite = 1, /obj/item/ammo_magazine/rifle/military/barmag = 3, /obj/item/grenade/frag/sovietgrenade = 1, /obj/item/grenade/smokebomb = 1)
+	r_hand = /obj/item/gun/projectile/automatic/bar
+	r_pocket = /obj/item/grenade/smokebomb
+	l_pocket = /obj/item/ammo_magazine/rifle/military/barmag
+
+/singleton/hierarchy/outfit/ww2/russian/officer
+	name = "WW2 - Soviet Officer" // we just going full commissar now
+	head = /obj/item/clothing/head/urist/ww2/sovietofficer
+	uniform = /obj/item/clothing/under/urist/ww2/sovietofficer
+	shoes = /obj/item/clothing/shoes/urist/ww2/sovietboots
+	back = /obj/item/storage/backpack/urist/ww2/soviet
+	backpack_contents = list(
+		/obj/item/device/flashlight/seclite = 1, /obj/item/ammo_magazine/speedloader/nagant = 3, /obj/item/device/binoculars = 1)
+	r_hand = /obj/item/gun/projectile/revolver/nagantm1895
+	r_pocket = /obj/item/grenade/smokebomb
+	l_pocket = /obj/item/ammo_magazine/speedloader/nagant
+	holster = /obj/item/clothing/accessory/storage/holster/armpit
+
+/singleton/hierarchy/outfit/ww2/russian/post_equip(mob/living/carbon/human/H)
 	..()
 	var/obj/item/clothing/uniform = H.w_uniform
 	if(uniform)
-		var/obj/item/clothing/accessory/storage/webbing_soviet/gear = new()
+		var/obj/item/clothing/accessory/storage/ww2/webbing_soviet/gear = new()
 		if(uniform.can_attach_accessory(gear))
 			uniform.attach_accessory(null, gear)
 		else
@@ -462,3 +467,216 @@
 	suit = /obj/item/clothing/suit/space/syndicate/black/pirate
 	head = /obj/item/clothing/head/helmet/space/syndicate/black/pirate
 	suit_store = /obj/item/tank/oxygen
+
+// Vietnam ERT.
+
+// 'Nam Rifleman
+
+/singleton/hierarchy/outfit/vietnam_ert
+	name = "Vietnam - ERT: Rifleman"
+	uniform = /obj/item/clothing/under/urist/nam
+	suit = /obj/item/clothing/suit/urist/armor/nam
+	head = /obj/item/clothing/head/helmet/urist/nam
+	gloves = /obj/item/clothing/gloves/urist/nam
+	shoes = /obj/item/clothing/shoes/urist/nam
+	back = /obj/item/storage/backpack/urist/nam
+	backpack_contents = list(/obj/item/ammo_magazine/rifle/m16 = 4,
+		/obj/item/device/flashlight/seclite = 1, /obj/item/material/knife/combat = 1, /obj/item/grenade/frag = 1, /obj/item/grenade/smokebomb = 1)
+	belt = /obj/item/storage/belt/urist/nam
+	r_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/ammo_magazine/rifle/m16
+	suit_store = /obj/item/gun/projectile/automatic/m16
+
+// 'Nam Medic
+
+/singleton/hierarchy/outfit/vietnam_ert/medic
+	name = "Vietnam - ERT: Medic"
+	head = /obj/item/clothing/head/helmet/urist/anfor/med // I'm stealing this Gloydd, sorry.
+	gloves = /obj/item/clothing/gloves/latex/nitrile
+	back = /obj/item/storage/backpack/dufflebag/med
+	backpack_contents = list(/obj/item/ammo_magazine/pistol/a7 = 3,
+		/obj/item/device/flashlight/seclite = 1, /obj/item/bodybag/cryobag = 1, /obj/item/defibrillator/compact/combat/loaded =  1,
+		/obj/item/storage/firstaid/surgery = 1, /obj/item/storage/firstaid/combat = 1, /obj/item/storage/firstaid/adv = 1)
+	belt = /obj/item/storage/belt/medical
+	r_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/ammo_magazine/pistol/a7
+	holster = /obj/item/clothing/accessory/storage/holster/armpit
+	suit_store = /obj/item/gun/projectile/pistol/colt/a7
+
+// 'Nam Machinegunner
+
+/singleton/hierarchy/outfit/vietnam_ert/machinegunner
+	name = "Vietnam - ERT: Machinegunner"
+	gloves = /obj/item/clothing/gloves/thick
+	head = /obj/item/clothing/mask/bandana/camo
+	back = /obj/item/storage/backpack/urist/nam
+	backpack_contents = list(/obj/item/ammo_magazine/box/rifle/military/m60 = 4,
+		/obj/item/device/flashlight/seclite = 1, /obj/item/clothing/head/helmet/urist/nam = 1, /obj/item/grenade/smokebomb = 1)
+	belt = /obj/item/storage/belt/urist/nam
+	r_pocket = /obj/item/device/radio
+	l_pocket = /obj/item/material/knife/combat
+	suit_store = /obj/item/gun/projectile/automatic/l6_saw/m60
+
+// 'Nam Pointman
+
+/singleton/hierarchy/outfit/vietnam_ert/pointman
+	name = "Vietnam - ERT: Pointman"
+	gloves = /obj/item/clothing/gloves/thick/combat
+	head = /obj/item/clothing/head/welding
+	mask = /obj/item/clothing/mask/smokable/cigarette
+	back = /obj/item/storage/backpack/industrial
+	backpack_contents = list(/obj/item/ammo_magazine/shotholder/shell = 2, /obj/item/ammo_magazine/shotholder = 3, /obj/item/material/knife/combat = 1,
+	/obj/item/device/multitool = 1, /obj/item/grenade/frag = 1, /obj/item/grenade/smokebomb = 2, /obj/item/device/flashlight/seclite = 1, /obj/item/clothing/head/helmet/urist/nam = 1, /obj/item/storage/fancy/smokable/luckystars = 1, /obj/item/device/radio = 1)
+	belt = /obj/item/storage/belt/utility/full
+	holster = /obj/item/clothing/accessory/storage/holster/knife
+	r_pocket = /obj/item/ammo_magazine/shotholder/shell
+	l_pocket = /obj/item/flame/lighter/zippo/vanity/engraved
+	suit_store = /obj/item/gun/projectile/shotgun/pump/ithaca
+
+// 'Nam Grenadier
+
+/singleton/hierarchy/outfit/vietnam_ert/grenadier
+	name = "Vietnam - ERT: Grenadier"
+	back = /obj/item/storage/backpack/urist/nam
+	backpack_contents = list(/obj/item/ammo_magazine/rifle/m16 = 3,
+	/obj/item/device/flashlight/seclite = 1, /obj/item/material/knife/combat = 1, /obj/item/grenade/frag/shell = 4, /obj/item/grenade/smokebomb = 3)
+	belt = /obj/item/storage/belt/urist/nam
+	r_pocket = /obj/item/grenade/frag
+	l_pocket = /obj/item/device/radio
+	suit_store = /obj/item/gun/projectile/automatic/m16/gl
+
+
+/singleton/hierarchy/outfit/vietnam_ert/marksman
+	name = "Vietnam - ERT: Marksman"
+	back = /obj/item/storage/backpack/urist/nam
+	mask = /obj/item/clothing/mask/balaclava/tactical
+	head = /obj/item/clothing/mask/bandana/camo
+	gloves =  /obj/item/clothing/gloves/tactical
+	backpack_contents = list(/obj/item/ammo_magazine/rifle/military/stripper = 4, /obj/item/device/binoculars = 1, /obj/item/material/knife/combat = 1,
+	/obj/item/grenade/smokebomb = 1, /obj/item/device/flashlight/seclite = 1, /obj/item/ammo_magazine/pistol/a7 = 2)
+	belt = /obj/item/storage/belt/urist/nam
+	holster = /obj/item/clothing/accessory/storage/holster/armpit
+	r_pocket = /obj/item/gun/projectile/pistol/colt/a7
+	l_pocket = /obj/item/device/radio
+	suit_store = /obj/item/gun/projectile/manualcycle/hunterrifle/scoped
+
+
+// 'Nam Squad Leader
+
+/singleton/hierarchy/outfit/vietnam_ert/squadleader
+	name = "Vietnam - ERT: Squad Leader"
+	gloves = /obj/item/clothing/gloves/thick/combat
+	head = /obj/item/clothing/head/helmet/urist/nam/officer
+	back = /obj/item/storage/backpack/urist/nam
+	backpack_contents = list(/obj/item/ammo_magazine/rifle/military/m14 = 5, /obj/item/device/flashlight/flare = 2, /obj/item/device/binoculars = 1, /obj/item/material/knife/combat = 1,
+	/obj/item/grenade/smokebomb = 2, /obj/item/device/flashlight/seclite = 1, /obj/item/storage/fancy/smokable/carcinomas = 1, /obj/item/ammo_magazine/pistol/a7 = 2, /obj/item/flame/lighter/zippo/vanity/gold = 1)
+	belt = /obj/item/storage/belt/urist/nam
+	holster = /obj/item/clothing/accessory/storage/holster/armpit
+	r_pocket = /obj/item/gun/projectile/pistol/colt/a7
+	l_pocket = /obj/item/device/radio
+	suit_store = /obj/item/gun/projectile/automatic/m14
+
+// Columbo
+
+/singleton/hierarchy/outfit/columbo
+	name = "Gimmick - Detective Columbo" // Columbo doesn't need any weapons, his wits are enough
+	mask = /obj/item/clothing/mask/smokable/cigarette/cigar/green
+	suit = /obj/item/clothing/suit/urist/raincoat
+	shoes = /obj/item/clothing/shoes/laceup
+	uniform = /obj/item/clothing/under/det
+	l_ear = /obj/item/device/radio/headset/headset_sec
+	belt = /obj/item/storage/briefcase/crimekit
+	r_pocket = /obj/item/device/taperecorder
+	l_pocket = /obj/item/taperoll/police
+	r_hand = /obj/item/reagent_containers/food/drinks/coffee
+	back = /obj/item/storage/backpack/satchel/leather
+	backpack_contents = list(/obj/item/flame/lighter/zippo = 1, /obj/item/storage/box/evidence = 1, /obj/item/device/holowarrant = 1, /obj/item/clothing/mask/smokable/cigarette/cigar/green = 1, /obj/item/paper = 1, /obj/item/pen/fancy = 1, /obj/item/material/folder = 1, /obj/item/device/camera = 1, /obj/item/device/camera_film = 1)
+
+// Doom Guy
+
+/singleton/hierarchy/outfit/doom_guy
+	name = "Gimmick - Doom Marine" // Even though this is armor is trash protection-wise, atleast someone can think they can be the doom guy.
+	uniform = /obj/item/clothing/under/syndicate/tacticool
+	suit = /obj/item/clothing/suit/urist/armor/trash/doom
+	r_pocket = /obj/item/ammo_magazine/shotholder/shell
+	l_pocket = /obj/item/ammo_magazine/shotholder/shell
+	back = /obj/item/gun/projectile/shotgun/doublebarrel
+	belt = /obj/item/ammo_magazine/shotholder/shell
+
+// Dorf Fort
+// wish we had a dorf race...
+
+/singleton/hierarchy/outfit/dwarf_fort
+	name = "Gimmick - Dwarf Fortress - Miner"
+	uniform = /obj/item/clothing/under/rank/miner
+	r_pocket = /obj/item/reagent_containers/food/snacks/plumphelmetbiscuit
+	l_pocket = /obj/item/stack/medical/bruise_pack
+	back = /obj/item/storage/backpack/industrial
+	backpack_contents = list(/obj/item/reagent_containers/food/snacks/plumphelmetbiscuit = 2,
+	/obj/item/device/flashlight/lantern = 1, /obj/item/material/knife/utility = 1, /obj/item/crowbar = 1)
+	belt = /obj/item/storage/ore
+	gloves = /obj/item/clothing/gloves/thick
+	shoes = /obj/item/clothing/shoes/workboots
+
+
+/singleton/hierarchy/outfit/dwarf_fort/peasant // totally useless...
+	name = "Gimmick - Dwarf Fortress - Peasant"
+	uniform = /obj/item/clothing/under/color/brown
+	belt = null
+	r_pocket = null
+	gloves = null
+	back = null
+
+
+/singleton/hierarchy/outfit/dwarf_fort/swords_dwarf
+	name = "Gimmick - Dwarf Fortress - Swordsdwarf"
+	uniform = /obj/item/clothing/under/overalls
+	head = /obj/item/clothing/head/urist/historic/armor/medieval1
+	suit = /obj/item/clothing/suit/armor/makeshift // no cool plate armor on bay....
+	r_hand = /obj/item/material/sword/urist/basic
+	l_hand = /obj/item/shield/buckler
+	back = /obj/item/storage/backpack/satchel/eng
+	backpack_contents = list(/obj/item/reagent_containers/food/snacks/plumphelmetbiscuit = 1,
+	/obj/item/device/flashlight/lantern = 1, /obj/item/material/knife/utility = 1, /obj/item/crowbar = 1)
+	shoes = /obj/item/clothing/shoes/jackboots/medievalboots
+
+
+/singleton/hierarchy/outfit/dwarf_fort/marksdwarf // Crossbow and Bow seperation
+	name = "Gimmick - Dwarf Fortress Marksdwarf"
+	uniform = /obj/item/clothing/under/overalls
+	suit = null
+	belt = null
+	r_hand = /obj/item/gun/launcher/crossbow
+	back = /obj/item/storage/backpack/satchel/eng
+	backpack_contents = list(/obj/item/arrow = 10, /obj/item/reagent_containers/food/snacks/plumphelmetbiscuit = 1,
+	/obj/item/device/flashlight/lantern = 1, /obj/item/material/knife/utility = 1, /obj/item/crowbar = 1)
+	r_pocket = /obj/item/arrow
+	l_pocket = /obj/item/arrow
+
+/singleton/hierarchy/outfit/dwarf_fort/bowsdwarf
+	name = "Gimmick - Dwarf Fortress Bowsdwarf"
+	uniform = /obj/item/clothing/under/overalls
+	suit = null
+	belt = null
+	r_hand = /obj/item/gun/launcher/crossbow/bow
+	back = /obj/item/storage/backpack/satchel/eng
+	backpack_contents = list(/obj/item/arrow/woodarrow = 10, /obj/item/reagent_containers/food/snacks/plumphelmetbiscuit = 1,
+	/obj/item/device/flashlight/lantern = 1, /obj/item/material/knife/utility = 1, /obj/item/crowbar = 1)
+	r_pocket = /obj/item/arrow/woodarrow
+	l_pocket = /obj/item/arrow/woodarrow
+
+/singleton/hierarchy/outfit/dwarf_fort/starkravingmad
+	name = "Gimmick - Dwarf Fortress - Stark Raving Mad Dwarf!"
+	uniform = null // he do be fucking crazy
+	gloves = null
+	r_hand = /obj/item/pickaxe
+	l_hand = /obj/item/reagent_containers/food/drinks/bottle/uristmoonshine
+	l_pocket = null
+	r_pocket = null
+	back = /obj/item/storage/backpack/industrial
+	backpack_contents = list(/material/bone = 3, /obj/item/stack/material/sandstone = 1) // not enough materials to built your crud...
+
+/singleton/hierarchy/outfit/dwarf_fort/smithy
+	name = "Gimmick - Dwarf Fortress - Smithy"
+	uniform = /obj/item/clothing/under/overalls
+	backpack_contents = list(/obj/item/hammer/smithing = 1, /obj/item/stack/material/iron = 1)

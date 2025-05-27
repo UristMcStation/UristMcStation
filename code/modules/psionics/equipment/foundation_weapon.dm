@@ -1,7 +1,8 @@
 /obj/item/gun/projectile/revolver/foundation
 	name = "\improper Foundation revolver"
 	icon = 'icons/obj/guns/foundation.dmi'
-	item_icons = null
+	item_icons = DEF_URIST_INHANDS // Urist specific override.
+	item_state = "revolver" // Urist Specific override.
 	icon_state = "foundation"
 	desc = "The CF 'Troubleshooter', a compact plastic-composite weapon designed for concealed carry by Cuchulain Foundation field agents. Smells faintly of copper."
 	ammo_type = /obj/item/ammo_casing/pistol/magnum/nullglass
@@ -9,9 +10,10 @@
 /obj/item/gun/projectile/revolver/foundation/on_update_icon()
 	..()
 	if(length(loaded))
-		icon_state = "[initial(icon_state)]"
+		icon_state = "[initial(icon_state)]-loaded"
 	else
-		icon_state = "[initial(icon_state)]"
+		icon_state = "[initial(icon_state)]-empty"
+
 
 /obj/item/gun/projectile/revolver/foundation/disrupts_psionics()
 	return FALSE

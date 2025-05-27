@@ -21,7 +21,7 @@
 /obj/item/fish
 	name = "fish"
 	desc = "It's a dead freshly caught fish. Use a knife or something to fillet it."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'icons/urist/items/uristfood.dmi'
 	icon_state = "fish1"
 	force = 5
 	w_class = 2 //pocket fish!

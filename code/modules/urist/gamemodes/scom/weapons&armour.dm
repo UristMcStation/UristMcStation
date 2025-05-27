@@ -4,9 +4,10 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper pulse sniper rifle"
 	desc = "A pulse rifle constructed of lightweight materials, fitted with a SMART aiming-system scope."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/pulse_sniper.dmi'
 	icon_state = "psniper"
 	item_state = "psniper"
+	wielded_item_state = "psniper"
 	fire_sound = 'sound/weapons/marauder.ogg'
 	projectile_type = /obj/item/projectile/beam/sniper/pulse
 	slot_flags = SLOT_BACK
@@ -19,7 +20,7 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "pulse pistol"
 	desc = "A heavy-duty, pulse-based energy pistol, preferred as a sidearm by front-line combat personnel."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/pulse_pistol.dmi'
 	icon_state = "pulse_pistol"
 	item_state = "pulse_pistol"
 	force = 7
@@ -40,9 +41,10 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "pulse cannon"
 	desc = "A heavy-duty, pulse-based energy cannon, preferred by front-line heavy infantry."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/pulse_cannon.dmi'
 	icon_state = "pulse_cannon"
 	item_state = "pulse_cannon"
+	wielded_item_state = "pulse_cannon"
 	force = 12
 	fire_sound = 'sound/weapons/marauder.ogg'
 	charge_cost = 250
@@ -58,9 +60,10 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "laser pistol"
 	desc = "A basic pistol designed to kill with concentrated energy bolts."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/laser_pistol.dmi'
 	icon_state = "lpistol"
 	item_state = "lpistol"
+	wielded_item_state = "lpistol"
 	w_class = 2.0
 	projectile_type = /obj/item/projectile/beam/light
 
@@ -68,9 +71,10 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "laser rifle"
 	desc = "A basic weapon designed to kill with concentrated energy bolts."
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/laser_rifle.dmi'
 	icon_state = "lrifle"
 	item_state = "lrifle"
+	wielded_item_state = "lrifle"
 	w_class = 3.0
 	projectile_type = /obj/item/projectile/beam //maybe change this
 	one_hand_penalty = 4
@@ -81,7 +85,7 @@
 	desc = "A powerful semi automatic sniper, perfect for long-range warfare."
 	icon_state = "SVD"
 	item_state = "SVD"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/svd.dmi'
 	force = 10
 	caliber = CALIBER_RIFLE_MILITARY
 	ammo_type = /obj/item/ammo_casing/rifle/military/sniper
@@ -110,7 +114,7 @@
 /obj/item/ammo_magazine/rifle/military
 	name = "rifle magazine"
 	icon_state = "7.62mm"
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/ammo.dmi'
 	origin_tech = "combat=2"
 	ammo_type = /obj/item/ammo_casing/rifle/military
 	mag_type = MAGAZINE

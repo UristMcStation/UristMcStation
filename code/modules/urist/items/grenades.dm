@@ -1,7 +1,7 @@
 /obj/item/grenade/chem_grenade/hhg
 	name = "The Holy Hand Grenade of Antioch"
 	desc = "The Holy Hand Grenade of Antioch."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/grenades.dmi'
 	icon_state = "hhg"
 	item_state = "hhg"
 	path = 1

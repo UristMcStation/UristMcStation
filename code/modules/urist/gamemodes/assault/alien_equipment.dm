@@ -27,12 +27,12 @@
 	item_icons = DEF_URIST_INHANDS
 	name = "alien gun"
 	desc = "A weapon of unknown origin, carried by the Lactera soldiers."
-	icon_state = "alienrifle"
-	item_state = "alienrifle"
+	icon_state = "xeno-pistol"
+	item_state = "xeno-pistol"
 	fire_sound = 'sound/weapons/laser3.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = 3
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/lactera.dmi'
 	force = 10
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	origin_tech = "combat=7;magnets=5;materials=4;engineering=2;powerstorage=4;"
@@ -129,19 +129,19 @@
 /obj/item/grenade/aliengrenade
 	desc = "An explosive of unknown origin used by Lactera soldiers to sow destruction and chaos."
 	name = "alien grenade"
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/lactera_explosives.dmi'
 	icon_state = "aliengrenade"
 	item_state = "flashbang"
 	origin_tech = "materials=5;magnets=5"
 
 /obj/item/grenade/aliengrenade/detonate()
-	explosion(src.loc, 0, 0, 3, 3)
+	explosion(src.loc, 5, EX_ACT_DEVASTATING)
 	qdel(src)
 
 /obj/item/plastique/alienexplosive
 	name = "alien explosives"
 	desc = "Used by Lactera soldiers to put holes in specific areas without too much extra hole."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/lactera_explosives.dmi'
 	icon_state = "plastic-explosive0"
 	item_state = "device"
 
@@ -151,18 +151,16 @@
 	if(!target)
 		target = src
 	if(location)
-		explosion(location, -1, -1, 2, 3)
+		explosion(location, 2, EX_ACT_LIGHT)
 
 	if(target)
 		if (istype(target, /turf/simulated/wall))
 			var/turf/simulated/wall/W = target
-			W.dismantle_wall(1)
-		else if (istype(target, /turf/simulated/floor))
-			target.ex_act(3) //no destroying floors for the shitter aliums
+			W.kill_health()
 		else if(istype(target, /mob/living))
-			target.ex_act(2) // c4 can't gib mobs anymore.
+			target.ex_act(EX_ACT_HEAVY) // c4 can't gib mobs anymore.
 		else
-			target.ex_act(1)
+			target.ex_act(EX_ACT_DEVASTATING)
 	if(target)
 		target.CutOverlays(image_overlay)
 	qdel(src)

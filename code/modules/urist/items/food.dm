@@ -1,6 +1,6 @@
 //trash
 /obj/item/trash/urist
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'icons/urist/items/uristtrash.dmi'
 	w_class = 2.0
 	desc = "This is rubbish."
 

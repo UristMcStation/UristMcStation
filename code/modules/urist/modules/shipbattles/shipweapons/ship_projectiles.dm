@@ -238,7 +238,7 @@
 	impact_type = /obj/projectile/laser/heavy/impact
 
 /obj/item/projectile/beam/ship/alien
-	icon = 'icons/urist/items/guns.dmi'
+	icon = 'icons/urist/guns/projectiles.dmi'
 	muzzle_type = /obj/projectile/laser/xray/muzzle
 	tracer_type = /obj/projectile/laser/xray/tracer
 	impact_type = /obj/projectile/laser/xray/impact
