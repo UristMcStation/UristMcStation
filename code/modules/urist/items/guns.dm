@@ -462,18 +462,19 @@ the sprite and make my own projectile -Glloyd*/
 	icon = 'icons/urist/guns/bullpup_ak.dmi'
 	icon_state = "sexyrifle"
 	item_state = "sexyrifle"
-	w_class = 4
+	wielded_item_state = "sexyrifle-wielded"
+	w_class = ITEM_SIZE_LARGE
 	force = 10
 	caliber = CALIBER_RIFLE_MILITARY
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 1, TECH_ESOTERIC = 1)
 	slot_flags = SLOT_BACK
-	ammo_type = /obj/item/ammo_casing/rifle/military
-	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle/military/spaceak
 	allowed_magazines = list(/obj/item/ammo_magazine/rifle/military/spaceak)
+	ammo_type = /obj/item/ammo_casing/rifle/military
+	fire_sound = 'sound/weapons/gunshot/gunshot3.ogg'
 	one_hand_penalty = 6
-	wielded_item_state = "sexyrifle-wielded"
+
 
 	firemodes = list(
 		list(mode_name="semiauto", burst=1, fire_delay=0, one_hand_penalty = 4, move_delay=null, burst_accuracy=null, dispersion=null),
@@ -489,12 +490,6 @@ the sprite and make my own projectile -Glloyd*/
 		icon_state = "sexyrifle_empty"
 	return
 
-/obj/item/ammo_magazine/rifle/military/spaceak
-	name = "U2442 magazine box"
-	icon = 'icons/urist/guns/ammo.dmi'
-	icon_state = "sexyrifle-mag"
-	max_ammo = 30
-
 /obj/item/gun/projectile/automatic/spaceak/gold
 	item_icons = DEF_URIST_INHANDS
 	name = "\improper Gold Plated U2442 Assault Rifle"
@@ -505,10 +500,17 @@ the sprite and make my own projectile -Glloyd*/
 	wielded_item_state = "goldspaceak-wielded"
 
 /obj/item/gun/projectile/automatic/spaceak/gold/on_update_icon()
-	if(length(ammo_magazine.stored_ammo))
+	..()
+	if(ammo_magazine && length(ammo_magazine.stored_ammo))
 		icon_state = "goldspaceak"
 	else
 		icon_state = "goldspaceak-empty"
+
+/obj/item/ammo_magazine/rifle/military/spaceak
+	name = "U2442 magazine box"
+	icon = 'icons/urist/guns/ammo.dmi'
+	icon_state = "sexyrifle-mag"
+	max_ammo = 30
 
 /obj/item/gun/projectile/automatic/hi2521smg
 	item_icons = DEF_URIST_INHANDS

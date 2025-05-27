@@ -7,6 +7,7 @@
 	icon = 'icons/urist/guns/pulse_sniper.dmi'
 	icon_state = "psniper"
 	item_state = "psniper"
+	wielded_item_state = "psniper"
 	fire_sound = 'sound/weapons/marauder.ogg'
 	projectile_type = /obj/item/projectile/beam/sniper/pulse
 	slot_flags = SLOT_BACK
@@ -43,6 +44,7 @@
 	icon = 'icons/urist/guns/pulse_cannon.dmi'
 	icon_state = "pulse_cannon"
 	item_state = "pulse_cannon"
+	wielded_item_state = "pulse_cannon"
 	force = 12
 	fire_sound = 'sound/weapons/marauder.ogg'
 	charge_cost = 250
@@ -61,6 +63,7 @@
 	icon = 'icons/urist/guns/laser_pistol.dmi'
 	icon_state = "lpistol"
 	item_state = "lpistol"
+	wielded_item_state = "lpistol"
 	w_class = 2.0
 	projectile_type = /obj/item/projectile/beam/light
 
@@ -71,6 +74,7 @@
 	icon = 'icons/urist/guns/laser_rifle.dmi'
 	icon_state = "lrifle"
 	item_state = "lrifle"
+	wielded_item_state = "lrifle"
 	w_class = 3.0
 	projectile_type = /obj/item/projectile/beam //maybe change this
 	one_hand_penalty = 4
