@@ -6,12 +6,16 @@
 
 /obj/item/ammo_magazine/rifle/military/rubber
 	ammo_type = /obj/item/ammo_casing/rifle/military/rubber
+	icon = 'icons/urist/guns/ammo.dmi'
+	icon_state = "assault_rifle_r"
 
 /obj/item/ammo_magazine/rifle/military/flash
 	ammo_type = /obj/item/ammo_casing/rifle/military/flash
 
 /obj/item/ammo_magazine/rifle/rubber
 	ammo_type = /obj/item/ammo_casing/rifle/rubber
+	icon = 'icons/urist/guns/ammo.dmi'
+	icon_state = "7.62mm_r"
 
 /obj/item/ammo_magazine/rifle/flash
 	ammo_type = /obj/item/ammo_casing/rifle/flash
