@@ -175,7 +175,7 @@
 	w_class = 4
 	force = 10
 	caliber = CALIBER_RIFLE_MILITARY
-	origin_tech = "combat=6;materials=1;syndicate=4"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ESOTERIC = 4)
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle/a22
@@ -204,7 +204,7 @@
 	icon_state = "ANFOR-riflemag"
 	mag_type = MAGAZINE
 	caliber = CALIBER_RIFLE_MILITARY
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 3500)
 	ammo_type = /obj/item/ammo_casing/rifle
 	max_ammo = 30
@@ -223,7 +223,7 @@
 	w_class = 4
 	force = 10
 	caliber = CALIBER_RIFLE_MILITARY
-	origin_tech = "combat=6;materials=1;syndicate=4"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ESOTERIC = 4)
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/rifle/military/a18
@@ -234,8 +234,10 @@
 	scoped_accuracy = 2
 	scope_zoom = 1
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, fire_delay=0, use_launcher = null, move_delay=null, burst_accuracy=null, dispersion=null)
+		list(mode_name="semiauto", burst=1, fire_delay=0, move_delay=null, burst_accuracy=null, dispersion=null)
 		)
+
+// list(mode_name="semiauto", burst=1, fire_delay=0, use_launcher = null, move_delay=null, burst_accuracy=null, dispersion=null) more commented out code for the code throne
 
 //	var/obj/item/gun/launcher/grenade/underslung/launcher
 
@@ -375,7 +377,7 @@
 	icon_state = "ANFOR-battleriflemag"
 	mag_type = MAGAZINE
 	caliber = CALIBER_RIFLE_MILITARY
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 4500)
 	ammo_type = /obj/item/ammo_casing/rifle/military
 	max_ammo = 30
