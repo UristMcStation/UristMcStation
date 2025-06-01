@@ -42,6 +42,7 @@
 
 	override_limb_types = list(
 		BP_HEAD =   /obj/item/organ/external/head/yeosa
+		BP_GROIN = /obj/item/organ/external/groin/yeosa
 	)
 
 	ingest_amount = 15

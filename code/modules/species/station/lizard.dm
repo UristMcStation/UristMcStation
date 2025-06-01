@@ -82,6 +82,10 @@
 		/mob/living/carbon/human/proc/diona_heal_toggle
 		)*/
 
+	override_limb_types = list(
+		BP_GROIN = /obj/item/organ/external/groin/unathi
+	)
+
 	has_organ = list(
 		BP_HEART =    /obj/item/organ/internal/heart,
 		BP_STOMACH =  /obj/item/organ/internal/stomach,
