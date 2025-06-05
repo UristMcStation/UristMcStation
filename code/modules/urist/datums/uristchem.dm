@@ -71,7 +71,5 @@
 	name = "Urists Moonshine"
 	description = "Pure 100% distilled plump helmet ethanol"
 	taste_description = "liquid fire, plump helmets"
-	color = "#b31978"
-	strength = 5 // STRIKE THE MEDBAY!
-	glass_name = "urist's"
-	glass_desc = "It smells like pure grain alcohol, and has small clumps of plump helmet floating in it."
+	color = "#4c3100" // Looks more spirit-like instead of wine to be less noticable.
+	strength = 2 // STRIKE THE MEDBAY!
