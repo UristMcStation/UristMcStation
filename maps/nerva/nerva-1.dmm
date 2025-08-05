@@ -18313,6 +18313,10 @@
 	},
 /turf/simulated/floor/tiled/old_tile,
 /area/command/aiupload)
+"Gm" = (
+/obj/structure/lattice,
+/turf/simulated/floor/plating,
+/area/space)
 "Gn" = (
 /obj/machinery/suit_cycler/science,
 /obj/machinery/camera/network/research{
@@ -22102,6 +22106,11 @@
 /turf/simulated/floor/tiled/white,
 /area/command/seniorntoffice)
 "RP" = (
+/obj/structure/sign/monkey_painting{
+	pixel_y = -32;
+	name = "\improper Pun Pun portrait";
+	desc = "Under the painting a plaque reads: "Sleep well, Pun Pun. You valiantly tore up the bar every shift until you tragically fell into disposals for the last time.'"
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/freezer)
 "RQ" = (
@@ -41251,7 +41260,7 @@ af
 ZW
 TC
 af
-tf
+Gm
 ap
 Ps
 ap
@@ -41453,7 +41462,7 @@ af
 wH
 XY
 SJ
-tf
+Gm
 ap
 YL
 ap
