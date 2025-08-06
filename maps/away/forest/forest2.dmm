@@ -1081,7 +1081,7 @@
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
 "Vi" = (
-/obj/structure/flora/tree/planet/snowy,
+/obj/structure/flora/tree/pine,
 /turf/simulated/floor/planet/snow,
 /area/planet/forest)
 "Vm" = (

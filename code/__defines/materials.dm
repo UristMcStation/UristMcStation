@@ -61,6 +61,7 @@
 #define MATERIAL_BAMBOO                  "bamboo"
 #define MATERIAL_YEW                     "yew"
 #define MATERIAL_VOXRES                  "vox bioresin"
+#define MATERIAL_UNPROCESSED_WOOD                  "unprocessed wood"
 
 // skins and bones
 #define MATERIAL_SKIN_GENERIC            "skin"
@@ -85,6 +86,7 @@
 #define MATERIAL_SKIN_FEATHERS_RED       "red feathers"
 #define MATERIAL_SKIN_FEATHERS_BLACK     "black feathers"
 #define MATERIAL_HIDE_GENERIC			 "scraped hide"
+#define MATERIAL_HIDE_PLANT_MATTER		 "scraped plant hide"
 
 #define MATERIAL_BONE_GENERIC            "bone"
 #define MATERIAL_BONE_CARTILAGE          "cartilage"
@@ -94,6 +96,7 @@
 #define MATERIAL_LEATHER_LIZARD          "scaled hide"
 #define MATERIAL_LEATHER_FUR             "furred hide"
 #define MATERIAL_LEATHER_CHITIN          "treated chitin"
+#define MATERIAL_LEATHER_PLANT_LEATHER   "plant leather"
 
 // defaults
 #define DEFAULT_WALL_MATERIAL      MATERIAL_STEEL
