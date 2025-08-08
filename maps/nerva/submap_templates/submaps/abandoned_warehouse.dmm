@@ -1,0 +1,1193 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ad" = (
+/obj/item/ammo_casing/pistol/small,
+/turf/template_noop,
+/area/template_noop)
+"bh" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/abandoned_warehouse,
+/obj/random/junk,
+/obj/item/table_parts/rack,
+/turf/template_noop,
+/area/template_noop)
+"bL" = (
+/obj/structure/scrap,
+/turf/template_noop,
+/area/template_noop)
+"bR" = (
+/obj/structure/table/poker,
+/obj/random/drinkbottle,
+/obj/random/drinkbottle,
+/obj/random/drinkbottle,
+/obj/item/reagent_containers/food/drinks/glass2/shot,
+/obj/item/reagent_containers/food/drinks/glass2/shot,
+/turf/template_noop,
+/area/template_noop)
+"cn" = (
+/obj/item/reagent_containers/food/snacks/monkeycube,
+/obj/structure/table/rack,
+/turf/template_noop,
+/area/template_noop)
+"cs" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/reagent_containers/syringe,
+/turf/template_noop,
+/area/template_noop)
+"cz" = (
+/obj/structure/table,
+/obj/random/smokes,
+/turf/template_noop,
+/area/template_noop)
+"da" = (
+/obj/random/storage,
+/obj/item/reagent_containers/food/snacks/meat/monkey,
+/obj/item/reagent_containers/food/snacks/meat/monkey,
+/obj/item/reagent_containers/food/snacks/meat/monkey,
+/obj/structure/table/steel_reinforced,
+/turf/template_noop,
+/area/template_noop)
+"dQ" = (
+/obj/structure/bed/chair/couch/middle/brown,
+/obj/item/reagent_containers/food/drinks/glass2/coffeecup/heart,
+/turf/template_noop,
+/area/template_noop)
+"dW" = (
+/obj/random/trash,
+/obj/random/snack,
+/turf/template_noop,
+/area/template_noop)
+"dY" = (
+/obj/structure/table/steel_reinforced,
+/turf/template_noop,
+/area/template_noop)
+"ea" = (
+/obj/structure/barricade/wooden,
+/turf/template_noop,
+/area/template_noop)
+"er" = (
+/obj/structure/largecrate,
+/obj/random/firstaid,
+/obj/random/maintenance,
+/obj/random/maintenance,
+/obj/random/maintenance/clean,
+/obj/random/maintenance/clean,
+/obj/random/medical,
+/turf/template_noop,
+/area/template_noop)
+"fO" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/abandoned_warehouse,
+/obj/item/deck/tarot,
+/turf/template_noop,
+/area/template_noop)
+"gY" = (
+/obj/item/table_parts/rack,
+/turf/template_noop,
+/area/template_noop)
+"hd" = (
+/obj/structure/closet/crate,
+/obj/random/coin,
+/obj/random/contraband,
+/obj/random/storage,
+/turf/template_noop,
+/area/template_noop)
+"hW" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/material/knife/kitchen,
+/turf/template_noop,
+/area/template_noop)
+"iG" = (
+/obj/structure/bed/chair/couch/left/beige{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"iO" = (
+/obj/structure/bed/chair/couch/right/beige{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"jf" = (
+/obj/structure/table/steel_reinforced,
+/obj/structure/window/reinforced,
+/obj/random/junk,
+/obj/item/stack/cable_coil,
+/turf/template_noop,
+/area/template_noop)
+"kB" = (
+/obj/item/stool,
+/turf/template_noop,
+/area/template_noop)
+"lm" = (
+/obj/random/snack,
+/obj/random/trash,
+/turf/template_noop,
+/area/template_noop)
+"mv" = (
+/obj/structure/curtain/open/bed,
+/obj/machinery/chem_master,
+/turf/template_noop,
+/area/template_noop)
+"nE" = (
+/obj/random/tank,
+/turf/template_noop,
+/area/template_noop)
+"oj" = (
+/obj/item/clothing/head/collectable/slime,
+/turf/template_noop,
+/area/template_noop)
+"oP" = (
+/mob/living/simple_animal/passive/mouse,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/material/knife/survivalknife,
+/turf/template_noop,
+/area/template_noop)
+"pv" = (
+/obj/structure/sign/painting/dogpoker{
+	pixel_y = -32
+	},
+/turf/template_noop,
+/area/template_noop)
+"py" = (
+/obj/item/ammo_casing/pistol/small,
+/obj/structure/windoor_assembly{
+	dir = 2
+	},
+/turf/template_noop,
+/area/template_noop)
+"qK" = (
+/obj/item/trash/cigbutt/rand,
+/obj/item/trash/cigbutt/rand,
+/obj/item/trash/cigbutt/rand,
+/turf/template_noop,
+/area/template_noop)
+"sp" = (
+/mob/living/simple_animal/passive/mouse,
+/turf/template_noop,
+/area/template_noop)
+"sA" = (
+/obj/random/junk,
+/mob/living/simple_animal/hostile/rogue_drone,
+/turf/template_noop,
+/area/template_noop)
+"sV" = (
+/obj/item/reagent_containers/glass/rag,
+/turf/template_noop,
+/area/template_noop)
+"tx" = (
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/obj/random/trash,
+/turf/template_noop,
+/area/template_noop)
+"up" = (
+/obj/random/junk,
+/turf/template_noop,
+/area/template_noop)
+"uE" = (
+/obj/item/device/flashlight/lamp/green,
+/turf/template_noop,
+/area/template_noop)
+"vU" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/item/paper/crumpled/bloody{
+	info = "I found a big rat near the Supermatter yesterday, I'm going to keep him here and see how big he gets. I need to steal some more food from the Chef because damn, this fella is hungry..."
+	},
+/obj/decal/cleanable/blood/splatter/human,
+/turf/template_noop,
+/area/template_noop)
+"wb" = (
+/obj/structure/bed/chair/couch/right/brown{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"wj" = (
+/obj/item/ammo_casing/pistol/small/used,
+/obj/random/junk,
+/turf/template_noop,
+/area/template_noop)
+"wx" = (
+/obj/item/ammo_casing/pistol/small/used,
+/obj/random/trash,
+/turf/template_noop,
+/area/template_noop)
+"wy" = (
+/mob/living/simple_animal/passive/mouse/rat,
+/turf/template_noop,
+/area/template_noop)
+"wI" = (
+/obj/structure/bed/chair/couch/right/brown,
+/turf/template_noop,
+/area/template_noop)
+"wO" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/abandoned_warehouse,
+/obj/random/trash,
+/obj/item/reagent_containers/food/snacks/meat/monkey,
+/obj/item/reagent_containers/food/snacks/meat/monkey,
+/turf/template_noop,
+/area/template_noop)
+"xc" = (
+/obj/item/table_parts,
+/turf/template_noop,
+/area/template_noop)
+"yD" = (
+/obj/machinery/door/window/brigdoor,
+/obj/machinery/door/window/northright,
+/turf/template_noop,
+/area/template_noop)
+"zu" = (
+/obj/structure/table/poker,
+/obj/item/material/ashtray/bronze,
+/turf/template_noop,
+/area/template_noop)
+"zM" = (
+/obj/structure/table/woodentable,
+/obj/item/reagent_containers/food/drinks/bottle/whiskey,
+/obj/item/reagent_containers/food/drinks/glass2/shot,
+/obj/item/reagent_containers/food/drinks/glass2/shot,
+/turf/template_noop,
+/area/template_noop)
+"Au" = (
+/obj/item/stock_parts/circuitboard/broken,
+/turf/template_noop,
+/area/template_noop)
+"AK" = (
+/obj/structure/table/reinforced,
+/obj/item/gun/launcher/foam,
+/turf/template_noop,
+/area/template_noop)
+"Bf" = (
+/mob/living/carbon/slime,
+/turf/template_noop,
+/area/template_noop)
+"Bg" = (
+/obj/item/stool,
+/obj/random/junk,
+/mob/living/simple_animal/hostile/rogue_drone,
+/turf/template_noop,
+/area/template_noop)
+"CT" = (
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/turf/template_noop,
+/area/template_noop)
+"Dl" = (
+/obj/item/clothing/glasses/science,
+/turf/template_noop,
+/area/template_noop)
+"Dr" = (
+/obj/structure/table/poker,
+/turf/template_noop,
+/area/template_noop)
+"Dy" = (
+/obj/random/trash,
+/obj/item/stock_parts/circuitboard/broken,
+/turf/template_noop,
+/area/template_noop)
+"DO" = (
+/obj/random/snack,
+/turf/template_noop,
+/area/template_noop)
+"DW" = (
+/obj/item/trash/cigbutt/rand,
+/turf/template_noop,
+/area/template_noop)
+"Ec" = (
+/obj/random/junk,
+/obj/structure/log,
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/abandoned_warehouse,
+/turf/template_noop,
+/area/template_noop)
+"Eo" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/abandoned_warehouse,
+/obj/structure/closet/crate,
+/turf/template_noop,
+/area/template_noop)
+"Ep" = (
+/obj/structure/bed/chair,
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/turf/template_noop,
+/area/template_noop)
+"EN" = (
+/obj/item/beartrap,
+/turf/template_noop,
+/area/template_noop)
+"EZ" = (
+/obj/random/closet,
+/obj/random/medical,
+/obj/structure/curtain/open/bed,
+/turf/template_noop,
+/area/template_noop)
+"Fb" = (
+/obj/item/table_parts/rack,
+/obj/item/clothing/suit/storage/hazardvest/armor,
+/turf/template_noop,
+/area/template_noop)
+"Fr" = (
+/obj/structure/table/poker,
+/obj/item/deck/cards,
+/turf/template_noop,
+/area/template_noop)
+"FG" = (
+/turf/template_noop,
+/area/template_noop)
+"FH" = (
+/obj/item/ammo_casing/pistol/small/used,
+/turf/template_noop,
+/area/template_noop)
+"FI" = (
+/obj/item/reagent_containers/syringe,
+/turf/template_noop,
+/area/template_noop)
+"Hd" = (
+/obj/item/extinguisher/mini/empty,
+/turf/template_noop,
+/area/template_noop)
+"Hg" = (
+/mob/living/simple_animal/hostile/mutated_rat,
+/turf/template_noop,
+/area/template_noop)
+"HW" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/reagent_containers/food/snacks/monkeycube,
+/obj/item/reagent_containers/food/snacks/monkeycube,
+/turf/template_noop,
+/area/template_noop)
+"If" = (
+/obj/structure/largecrate,
+/turf/template_noop,
+/area/template_noop)
+"Ig" = (
+/obj/random/junk,
+/obj/structure/scrap/large,
+/turf/template_noop,
+/area/template_noop)
+"IQ" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"Jh" = (
+/obj/structure/table/steel_reinforced,
+/obj/structure/window/reinforced,
+/obj/random/smokes,
+/obj/random/coin,
+/turf/template_noop,
+/area/template_noop)
+"Kq" = (
+/obj/item/reagent_containers/food/drinks/cans/waterbottle,
+/turf/template_noop,
+/area/template_noop)
+"Kz" = (
+/obj/structure/table/reinforced,
+/obj/item/clothing/ears/earmuffs,
+/turf/template_noop,
+/area/template_noop)
+"KO" = (
+/mob/living/simple_animal/passive/mouse/rat,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"Ld" = (
+/obj/random/soap,
+/obj/structure/scrap,
+/turf/template_noop,
+/area/template_noop)
+"Le" = (
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/obj/structure/table/rack,
+/turf/template_noop,
+/area/template_noop)
+"LC" = (
+/obj/item/material/shard,
+/obj/item/ammo_casing/pistol/small/used,
+/obj/item/ammo_casing/pistol/small,
+/turf/template_noop,
+/area/template_noop)
+"ME" = (
+/obj/item/clothing/accessory/storage/holster/knife,
+/obj/decal/cleanable/blood/splatter/human,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"MN" = (
+/obj/structure/largecrate,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/storage,
+/obj/random/medical,
+/obj/random/ammo_magazine_smug,
+/obj/item/ammo_casing/musket/flintlock,
+/turf/template_noop,
+/area/template_noop)
+"MS" = (
+/obj/structure/table/poker,
+/obj/item/reagent_containers/food/drinks/glass2/square,
+/obj/item/reagent_containers/food/drinks/glass2/square,
+/obj/item/reagent_containers/food/drinks/glass2/rocks,
+/turf/template_noop,
+/area/template_noop)
+"Nu" = (
+/mob/living/simple_animal/hostile/rogue_drone,
+/turf/template_noop,
+/area/template_noop)
+"NF" = (
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/turf/template_noop,
+/area/template_noop)
+"Qe" = (
+/obj/item/material/shard,
+/turf/template_noop,
+/area/template_noop)
+"Qp" = (
+/obj/item/material/shard,
+/obj/random/maintenance,
+/obj/random/maintenance/clean,
+/obj/item/table_parts/rack,
+/turf/template_noop,
+/area/template_noop)
+"Qs" = (
+/obj/structure/table/steel_reinforced,
+/obj/structure/windoor_assembly{
+	dir = 2
+	},
+/obj/item/device/assembly/mousetrap/armed,
+/turf/template_noop,
+/area/template_noop)
+"QJ" = (
+/obj/structure/closet/crate,
+/turf/template_noop,
+/area/template_noop)
+"QR" = (
+/obj/structure/table/rack,
+/obj/item/broken_bottle,
+/turf/template_noop,
+/area/template_noop)
+"Sc" = (
+/obj/wallframe_spawn/reinforced,
+/turf/template_noop,
+/area/template_noop)
+"Sq" = (
+/obj/item/reagent_containers/syringe/drugs,
+/obj/random/junk,
+/turf/template_noop,
+/area/template_noop)
+"Ti" = (
+/obj/structure/table/reinforced,
+/obj/item/clothing/glasses/sunglasses/aviators,
+/turf/template_noop,
+/area/template_noop)
+"TG" = (
+/obj/structure/table/steel_reinforced,
+/obj/item/material/shard,
+/obj/structure/window/reinforced,
+/obj/random/officetoy,
+/turf/template_noop,
+/area/template_noop)
+"UB" = (
+/obj/random/junk,
+/obj/structure/closet/crate,
+/obj/random/junk,
+/obj/random/junk,
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/turf/template_noop,
+/area/template_noop)
+"UP" = (
+/obj/item/table_parts,
+/obj/structure/table/steel_reinforced,
+/turf/template_noop,
+/area/template_noop)
+"UX" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/abandoned_warehouse,
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/template_noop,
+/area/template_noop)
+"Ve" = (
+/obj/decal/cleanable/remains,
+/obj/decal/cleanable/blood/splatter/human,
+/obj/random/contraband,
+/turf/template_noop,
+/area/template_noop)
+"Vv" = (
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/obj/item/storage/box/mousetraps/empty,
+/turf/template_noop,
+/area/template_noop)
+"Vw" = (
+/obj/item/table_parts/rack,
+/obj/item/melee/baton/cattleprod,
+/obj/structure/curtain/open/bed,
+/obj/random/contraband,
+/turf/template_noop,
+/area/template_noop)
+"VD" = (
+/obj/item/broken_bottle,
+/turf/template_noop,
+/area/template_noop)
+"VW" = (
+/obj/item/storage/box/foam_darts,
+/turf/template_noop,
+/area/template_noop)
+"Wj" = (
+/obj/random/trash,
+/turf/template_noop,
+/area/template_noop)
+"Wx" = (
+/obj/item/broken_bottle,
+/obj/item/material/shard{
+	icon_state = "small"
+	},
+/turf/template_noop,
+/area/template_noop)
+"XD" = (
+/obj/structure/table/steel_reinforced,
+/obj/structure/curtain/open/bed,
+/obj/machinery/reagent_temperature,
+/turf/template_noop,
+/area/template_noop)
+"Yr" = (
+/obj/structure/table,
+/turf/template_noop,
+/area/template_noop)
+"Ys" = (
+/obj/structure/closet/crate,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/toolbox,
+/obj/random/tech_supply,
+/obj/random/medical,
+/turf/template_noop,
+/area/template_noop)
+"Zq" = (
+/obj/random/smokes,
+/obj/random/trash,
+/turf/template_noop,
+/area/template_noop)
+"ZJ" = (
+/obj/structure/bed/chair/couch/left/brown{
+	dir = 6
+	},
+/obj/random/cash,
+/turf/template_noop,
+/area/template_noop)
+
+(1,1,1) = {"
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+"}
+(2,1,1) = {"
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+"}
+(3,1,1) = {"
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+"}
+(4,1,1) = {"
+FG
+FG
+FG
+Ys
+QJ
+lm
+gY
+FG
+Wj
+Ec
+FG
+FG
+FG
+cn
+IQ
+Kq
+tx
+up
+DO
+UX
+FG
+FG
+FG
+"}
+(5,1,1) = {"
+FG
+FG
+FG
+hd
+UB
+Nu
+CT
+nE
+NF
+FG
+FG
+FG
+FG
+Sc
+Sc
+Sc
+FG
+Kq
+CT
+cs
+FG
+FG
+FG
+"}
+(6,1,1) = {"
+FG
+FG
+FG
+Bg
+xc
+Wj
+Ig
+Zq
+up
+gY
+FG
+FG
+FG
+FG
+Hd
+yD
+FI
+FG
+kB
+HW
+FG
+FG
+FG
+"}
+(7,1,1) = {"
+FG
+FG
+FG
+MN
+er
+Ld
+VD
+up
+CT
+sA
+FG
+FG
+FG
+Bf
+Dl
+Sc
+Au
+oj
+dY
+hW
+FG
+FG
+FG
+"}
+(8,1,1) = {"
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+"}
+(9,1,1) = {"
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+"}
+(10,1,1) = {"
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+"}
+(11,1,1) = {"
+FG
+FG
+FG
+EZ
+Fb
+jf
+ea
+FG
+Wx
+bh
+FG
+FG
+FG
+ZJ
+wb
+up
+FG
+kB
+Dr
+fO
+FG
+FG
+FG
+"}
+(12,1,1) = {"
+FG
+FG
+FG
+Vw
+Ep
+Qs
+kB
+EN
+FG
+iG
+FG
+FG
+FG
+dQ
+cz
+kB
+FG
+CT
+zu
+sV
+FG
+FG
+FG
+"}
+(13,1,1) = {"
+FG
+FG
+FG
+XD
+Dy
+TG
+FG
+up
+Wj
+iO
+FG
+FG
+FG
+wI
+Yr
+uE
+FG
+FG
+Fr
+pv
+FG
+FG
+FG
+"}
+(14,1,1) = {"
+FG
+FG
+FG
+mv
+Qp
+Jh
+ea
+If
+Vv
+zM
+FG
+FG
+FG
+Sq
+kB
+CT
+up
+kB
+MS
+bR
+FG
+FG
+FG
+"}
+(15,1,1) = {"
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+"}
+(16,1,1) = {"
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+"}
+(17,1,1) = {"
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+"}
+(18,1,1) = {"
+FG
+FG
+FG
+da
+Wj
+xc
+qK
+ea
+KO
+wO
+FG
+FG
+FG
+Le
+FG
+Ti
+wj
+ad
+Qe
+Eo
+FG
+FG
+FG
+"}
+(19,1,1) = {"
+FG
+FG
+FG
+bL
+DO
+DW
+up
+ea
+vU
+Hg
+FG
+FG
+FG
+Le
+Qe
+AK
+FH
+ad
+up
+QJ
+FG
+FG
+FG
+"}
+(20,1,1) = {"
+FG
+FG
+FG
+sp
+FG
+CT
+dW
+ea
+oP
+Ve
+FG
+FG
+FG
+QR
+FG
+py
+LC
+FH
+Wj
+up
+FG
+FG
+FG
+"}
+(21,1,1) = {"
+FG
+FG
+FG
+UP
+up
+bL
+CT
+ea
+ME
+wy
+FG
+FG
+FG
+Le
+FG
+Kz
+wx
+VW
+FG
+gY
+FG
+FG
+FG
+"}
+(22,1,1) = {"
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+"}
+(23,1,1) = {"
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+"}
+(24,1,1) = {"
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+FG
+"}

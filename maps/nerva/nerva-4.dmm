@@ -1001,36 +1001,27 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "ci" = (
-/obj/structure/closet/crate,
-/obj/random/tool,
-/obj/random/tool,
-/obj/random/toolbox,
-/obj/random/tech_supply,
-/obj/random/medical,
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 8
+	},
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "cj" = (
-/obj/structure/closet/crate,
-/obj/random/coin,
-/obj/random/contraband,
-/obj/random/storage,
-/turf/simulated/floor/plating,
-/area/civilian/abandonedwarehouse)
-"ck" = (
-/obj/item/stool,
-/obj/random/junk,
-/mob/living/simple_animal/hostile/rogue_drone,
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "cl" = (
-/obj/structure/largecrate,
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/storage,
-/obj/random/medical,
-/obj/random/ammo_magazine_smug,
-/obj/item/ammo_casing/musket/flintlock,
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 4
+	},
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "cm" = (
@@ -1113,31 +1104,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "cv" = (
-/obj/structure/closet/crate,
-/turf/simulated/floor/plating,
-/area/civilian/abandonedwarehouse)
-"cw" = (
-/obj/random/junk,
-/obj/structure/closet/crate,
-/obj/random/junk,
-/obj/random/junk,
-/obj/item/material/shard{
-	icon_state = "small"
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/civilian/abandonedwarehouse)
-"cx" = (
-/obj/item/table_parts,
-/turf/simulated/floor/plating,
-/area/civilian/abandonedwarehouse)
-"cy" = (
-/obj/structure/largecrate,
-/obj/random/firstaid,
-/obj/random/maintenance,
-/obj/random/maintenance,
-/obj/random/maintenance/clean,
-/obj/random/maintenance/clean,
-/obj/random/medical,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "cz" = (
@@ -1252,30 +1221,26 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "cL" = (
-/obj/random/snack,
-/obj/random/trash,
 /obj/item/device/radio/intercom{
 	dir = 4;
 	name = "Station Intercom (General)";
 	pixel_x = -22
 	},
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "cM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/mob/living/simple_animal/hostile/rogue_drone,
-/turf/simulated/floor/plating,
-/area/civilian/abandonedwarehouse)
-"cN" = (
-/obj/random/trash,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "cO" = (
-/obj/random/soap,
-/obj/structure/scrap,
 /obj/machinery/light_construct{
-	dir = 4;
-	icon_state = "tube-construct-stage1"
+	dir = 4
+	},
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
@@ -1441,11 +1406,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/table_parts/rack,
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
+	},
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
@@ -1457,18 +1424,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/item/material/shard{
-	icon_state = "small"
-	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "di" = (
-/obj/random/junk,
-/obj/structure/scrap/large,
-/turf/simulated/floor/plating,
-/area/civilian/abandonedwarehouse)
-"dj" = (
-/obj/item/broken_bottle,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "dk" = (
@@ -1715,7 +1673,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/centralfirst)
 "dE" = (
-/obj/random/tech_supply,
 /obj/structure/cable{
 	d1 = 1;
 	d2 = 2;
@@ -1726,6 +1683,9 @@
 	dir = 8;
 	pixel_x = -24
 	},
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "dF" = (
@@ -1733,20 +1693,16 @@
 	dir = 1;
 	icon_state = "map_vent_out"
 	},
-/obj/random/tank,
-/turf/simulated/floor/plating,
-/area/civilian/abandonedwarehouse)
-"dG" = (
-/obj/random/smokes,
-/obj/random/trash,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "dH" = (
-/obj/random/junk,
 /obj/machinery/alarm{
 	dir = 8;
 	icon_state = "alarm0";
 	pixel_x = 24
+	},
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
@@ -1963,23 +1919,11 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/random/trash,
-/turf/simulated/floor/plating,
-/area/civilian/abandonedwarehouse)
-"ee" = (
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
-/obj/structure/scrap/large,
-/turf/simulated/floor/plating,
-/area/civilian/abandonedwarehouse)
-"ef" = (
-/obj/random/junk,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "eg" = (
-/obj/item/material/shard{
-	icon_state = "small"
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
@@ -2106,7 +2050,6 @@
 /turf/simulated/floor/tiled/techmaint,
 /area/security/dockingcheckpoint)
 "eu" = (
-/obj/random/junk,
 /obj/machinery/power/apc{
 	cell_type = /obj/item/cell/high;
 	dir = 2;
@@ -2114,7 +2057,7 @@
 	pixel_y = -24
 	},
 /obj/structure/cable,
-/obj/structure/log,
+/obj/urist_intangible/triggers/template_loader/on_init/submap/nerva/abandoned_warehouse,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "ev" = (
@@ -2122,16 +2065,18 @@
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "ew" = (
-/obj/item/table_parts/rack,
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "ex" = (
-/obj/random/junk,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 27;
 	pixel_y = 1
 	},
-/mob/living/simple_animal/hostile/rogue_drone,
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 4
+	},
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge,
 /turf/simulated/floor/plating,
 /area/civilian/abandonedwarehouse)
 "ey" = (
@@ -29288,11 +29233,11 @@ bv
 bG
 bU
 cj
-cw
+di
 cM
 dh
 dF
-ee
+di
 ev
 bU
 fk
@@ -29489,12 +29434,12 @@ bi
 bw
 bH
 bU
-ck
-cx
-cN
+cj
 di
-dG
-ef
+di
+di
+di
+di
 ew
 bU
 fl
@@ -29692,9 +29637,9 @@ bu
 bI
 bU
 cl
-cy
+eg
 cO
-dj
+eg
 dH
 eg
 ex
