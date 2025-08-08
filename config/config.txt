@@ -277,7 +277,7 @@ GUEST_BAN
 
 ## Wiki address
 ## Where your server's documentation lives
-WIKI_URL https://bay.ss13.me/en/Guides
+WIKI_URL https://baystation.xyz/index.php?title=Guides
 
 ## Rules address
 ## Where your server's rules can be found
@@ -578,9 +578,9 @@ ALLOW_DRONE_SPAWN
 ## Anything in between balances CPU load and simulation responsiveness on empty Z-levels.
 RUN_EMPTY_LEVELS_THROTTLED_PERC 80
 
-## 
+##
 ## Bluespace Revenant antag balance stuff:
-## 
+##
 
 ## Personal Distortion growth per tick
 BLUESPACE_REVENANT_DISTORTION_RATE 100
