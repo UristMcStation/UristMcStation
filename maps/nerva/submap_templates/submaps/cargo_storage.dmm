@@ -28,8 +28,185 @@
 /obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
 /turf/template_noop,
 /area/template_noop)
+"h" = (
+/obj/item/paper{
+	info = "MANIFEST: Deliver requested for: MEDICAL DEPARTMENT."
+	},
+/turf/template_noop,
+/area/template_noop)
+"i" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
+/obj/item/pack/saintsandsins,
+/obj/item/pack/saintsandsins,
+/obj/structure/closet/crate,
+/turf/template_noop,
+/area/template_noop)
+"j" = (
+/obj/item/clothing/gloves/latex,
+/turf/template_noop,
+/area/template_noop)
+"k" = (
+/obj/random/action_figure,
+/obj/random/action_figure,
+/obj/structure/closet/crate,
+/turf/template_noop,
+/area/template_noop)
+"l" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
+/obj/structure/closet/lasertag/blue,
+/turf/template_noop,
+/area/template_noop)
+"m" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
+/obj/random/action_figure,
+/obj/random/action_figure,
+/obj/structure/closet/crate,
+/turf/template_noop,
+/area/template_noop)
+"o" = (
+/obj/structure/largecrate/animal/goose,
+/turf/template_noop,
+/area/template_noop)
+"p" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
+/obj/machinery/botany,
+/turf/template_noop,
+/area/template_noop)
+"q" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
+/obj/structure/iv_stand,
+/turf/template_noop,
+/area/template_noop)
+"s" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
+/obj/item/airlock_brace,
+/obj/item/airlock_brace,
+/obj/item/airlock_brace,
+/obj/structure/closet/crate,
+/turf/template_noop,
+/area/template_noop)
+"t" = (
+/obj/structure/closet/lasertag/red,
+/turf/template_noop,
+/area/template_noop)
+"v" = (
+/obj/item/paper{
+	info = "MANIFEST: Delivery to Department - SCIENCE"
+	},
+/turf/template_noop,
+/area/template_noop)
+"w" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
+/obj/item/pizzabox/mushroom,
+/turf/template_noop,
+/area/template_noop)
+"x" = (
+/obj/structure/closet/crate,
+/obj/item/soap/random,
+/turf/template_noop,
+/area/template_noop)
+"y" = (
+/obj/structure/closet,
+/obj/random/loot,
+/obj/item/storage/mre/random,
+/turf/template_noop,
+/area/template_noop)
+"A" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/template_noop,
+/area/template_noop)
+"B" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
+/obj/structure/largecrate/animal/mulebot,
+/turf/template_noop,
+/area/template_noop)
+"C" = (
+/obj/machinery/anomaly_container,
+/obj/machinery/artifact,
+/turf/template_noop,
+/area/template_noop)
+"F" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
+/obj/structure/largecrate/animal/goose,
+/turf/template_noop,
+/area/template_noop)
+"G" = (
+/obj/item/reagent_containers/glass/bucket,
+/turf/template_noop,
+/area/template_noop)
+"H" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
+/obj/machinery/power/port_gen/pacman,
+/turf/template_noop,
+/area/template_noop)
+"J" = (
+/obj/structure/closet/crate,
+/obj/item/seeds/random,
+/obj/item/seeds/random,
+/turf/template_noop,
+/area/template_noop)
+"K" = (
+/obj/item/clothing/head/chefhat,
+/turf/template_noop,
+/area/template_noop)
+"M" = (
+/obj/structure/mech_wreckage/powerloader,
+/turf/template_noop,
+/area/template_noop)
+"O" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
+/obj/item/soap/pink_soap,
+/obj/structure/closet/crate,
+/turf/template_noop,
+/area/template_noop)
+"P" = (
+/obj/structure/bed/chair/wheelchair,
+/turf/template_noop,
+/area/template_noop)
+"Q" = (
+/obj/item/pizzabox/margherita,
+/turf/template_noop,
+/area/template_noop)
+"T" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
+/obj/structure/closet/crate,
+/turf/template_noop,
+/area/template_noop)
+"U" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
+/obj/structure/closet/crate,
+/obj/item/material/coin/gold,
+/turf/template_noop,
+/area/template_noop)
+"V" = (
+/obj/item/pipe,
+/obj/item/tape_roll,
+/obj/structure/closet/crate,
+/turf/template_noop,
+/area/template_noop)
+"X" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
+/obj/item/clothing/under/rank/mailman,
+/turf/template_noop,
+/area/template_noop)
+"Y" = (
+/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/template_noop,
+/area/template_noop)
+"Z" = (
+/obj/item/clothing/head/mailman,
+/turf/template_noop,
+/area/template_noop)
 
 (1,1,1) = {"
+a
+a
 a
 a
 a
@@ -53,13 +230,15 @@ d
 a
 a
 a
-a
 e
 a
 a
+Q
+w
 a
 a
 a
+H
 a
 a
 "}
@@ -69,10 +248,12 @@ b
 a
 a
 a
-a
 f
 a
 a
+a
+a
+K
 a
 a
 a
@@ -81,6 +262,8 @@ a
 a
 "}
 (4,1,1) = {"
+a
+a
 a
 a
 a
@@ -113,42 +296,50 @@ a
 a
 a
 a
+a
+a
 "}
 (6,1,1) = {"
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-"}
-(7,1,1) = {"
 a
 c
 e
 a
 a
 a
-a
 g
 a
 a
+Z
+X
 a
 a
+a
+Y
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+A
 a
 a
 a
 "}
 (8,1,1) = {"
+a
+a
 a
 a
 a
@@ -181,21 +372,25 @@ a
 a
 a
 a
+a
+a
 "}
 (10,1,1) = {"
 a
+M
+e
+a
+a
+o
+F
 a
 a
 a
+e
 a
 a
-a
-a
-a
-a
-a
-a
-a
+j
+e
 a
 a
 "}
@@ -209,14 +404,18 @@ a
 a
 a
 a
+A
 a
 a
 a
-a
+v
+C
 a
 a
 "}
 (12,1,1) = {"
+a
+a
 a
 a
 a
@@ -249,10 +448,52 @@ a
 a
 a
 a
+a
+a
 "}
 (14,1,1) = {"
 a
 a
+T
+a
+a
+J
+e
+a
+a
+k
+m
+a
+a
+a
+l
+a
+a
+"}
+(15,1,1) = {"
+a
+a
+a
+a
+a
+a
+y
+a
+a
+a
+k
+a
+a
+a
+t
+a
+a
+"}
+(16,1,1) = {"
+a
+a
+a
+a
 a
 a
 a
@@ -267,7 +508,142 @@ a
 a
 a
 "}
-(15,1,1) = {"
+(17,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(18,1,1) = {"
+a
+a
+U
+a
+a
+V
+e
+a
+a
+a
+q
+a
+a
+a
+s
+a
+a
+"}
+(19,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+h
+P
+a
+a
+a
+a
+a
+a
+"}
+(20,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(21,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(22,1,1) = {"
+a
+a
+B
+a
+a
+a
+i
+a
+a
+a
+O
+a
+a
+a
+p
+a
+a
+"}
+(23,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+x
+a
+a
+a
+a
+G
+a
+a
+"}
+(24,1,1) = {"
+a
+a
 a
 a
 a
