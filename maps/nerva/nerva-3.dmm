@@ -6082,15 +6082,6 @@
 /obj/item/stack/material/wood/walnut/ten,
 /turf/simulated/floor/plating,
 /area/civilian/lounge)
-"lq" = (
-/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
-	dir = 1
-	},
-/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afs)
 "ls" = (
 /obj/paint_stripe/gunmetal,
 /turf/simulated/wall/prepainted,
@@ -7082,10 +7073,6 @@
 /obj/structure/flora/pottedplant/flower,
 /turf/simulated/floor/wood/walnut,
 /area/command/captain)
-"nx" = (
-/obj/urist_intangible/mapmanip/marker/helper/submap_edge,
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afs)
 "ny" = (
 /obj/paint_stripe/blue,
 /turf/simulated/wall/r_wall/prepainted,
@@ -13752,6 +13739,12 @@
 /obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/blue,
 /area/chapel/office)
+"Af" = (
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/afs)
 "Ah" = (
 /obj/floor_decal/corner/lightgrey{
 	dir = 9;
@@ -15335,28 +15328,6 @@
 /obj/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced,
 /area/security/boardarmoury)
-"HX" = (
-/obj/structure/catwalk,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afs)
 "HZ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
@@ -15726,6 +15697,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/fore/second_deck)
+"JN" = (
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 1
+	},
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/afs)
 "JO" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -15982,6 +15962,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/civilian/journalist)
+"Ld" = (
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge,
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/afs)
 "Le" = (
 /obj/item/tank/oxygen_emergency_double,
 /obj/structure/reagent_dispensers/beerkeg,
@@ -16164,6 +16148,28 @@
 /obj/item/clothing/glasses/meson,
 /turf/simulated/floor/plating,
 /area/maintenance/second_deck/fs)
+"LX" = (
+/obj/structure/catwalk,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/afs)
 "LY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4;
@@ -16517,12 +16523,6 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/chapel/office)
-"Ny" = (
-/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afs)
 "NE" = (
 /obj/structure/catwalk,
 /obj/structure/cable{
@@ -17578,12 +17578,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/chapel)
-"RV" = (
-/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/second_deck/afs)
 "RW" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
@@ -18130,6 +18124,12 @@
 /obj/item/caution/cone,
 /turf/simulated/floor/plating,
 /area/civilian/dorms)
+"Vk" = (
+/obj/urist_intangible/mapmanip/marker/helper/submap_edge{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/second_deck/afs)
 "Vl" = (
 /obj/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -19124,6 +19124,18 @@
 "ZQ" = (
 /turf/simulated/floor/reinforced,
 /area/security/prison)
+"ZV" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/command{
+	name = "Bridge"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id_tag = "bridgeoutlock";
+	name = "Bridge Outer Lockdown"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/command/bridge)
 "ZW" = (
 /obj/random/tool,
 /turf/simulated/floor/plating,
@@ -39463,7 +39475,7 @@ xj
 rn
 yd
 rr
-Ny
+Af
 qh
 Po
 qh
@@ -39665,10 +39677,10 @@ xk
 rn
 WU
 rr
-Ny
+Af
 qh
 TV
-nx
+Ld
 pe
 ah
 ah
@@ -39867,9 +39879,9 @@ xl
 rn
 PZ
 rr
-lq
-RV
-HX
+JN
+Vk
+LX
 Xn
 pe
 ah
@@ -49146,7 +49158,7 @@ fr
 fr
 oW
 pZ
-pZ
+ZV
 oW
 sI
 tB
