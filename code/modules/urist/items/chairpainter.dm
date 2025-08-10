@@ -9,7 +9,7 @@
 
 	w_class = 2.0
 
-	origin_tech = "engineering=1"
+	origin_tech = list(TECH_ENGINEERING = 1)
 
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
 	slot_flags = SLOT_BELT

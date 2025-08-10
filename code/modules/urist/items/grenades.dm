@@ -56,7 +56,7 @@
 //Sonic Grenades: Shatter windows and stun people.
 /obj/item/grenade/sonic
 	name = "sonic grenade"
-	origin_tech = "combat=2;illegal=1"
+	origin_tech = list(TECH_COMBAT = 2, TECH_ESOTERIC = 1)
 	desc = "A grenade which blows out windows and stuns people. Probably illegal."
 	icon_state = "emp"
 	item_state = "emp"

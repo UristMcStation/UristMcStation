@@ -111,7 +111,7 @@
 	name = "rifle magazine"
 	icon_state = "7.62mm"
 	icon = 'icons/urist/items/guns.dmi'
-	origin_tech = "combat=2"
+	origin_tech = list(TECH_COMBAT = 2)
 	ammo_type = /obj/item/ammo_casing/rifle/military
 	mag_type = MAGAZINE
 	caliber = CALIBER_RIFLE_MILITARY
