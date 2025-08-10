@@ -12,177 +12,341 @@
 /turf/simulated/wall/r_wall,
 /area/djstation)
 "ak" = (
-/obj/random/junk,
-/turf/simulated/floor/asteroid,
-/area/mine/explored)
-"al" = (
-/obj/random/trash,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"am" = (
-/obj/machinery/constructable_frame/computerframe,
-/turf/simulated/floor/airless,
-/area/djstation)
-"an" = (
-/obj/machinery/tele_projector,
-/turf/simulated/floor/airless,
-/area/djstation)
-"ao" = (
-/obj/machinery/tele_pad,
-/turf/simulated/floor/airless,
-/area/djstation)
-"ap" = (
-/obj/structure/table/glass,
-/obj/random/maintenance,
-/obj/item/stock_parts/keyboard,
-/turf/simulated/floor/airless,
-/area/djstation)
-"aq" = (
-/obj/structure/table/glass,
-/obj/random/maintenance,
-/obj/item/stock_parts/console_screen,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"ar" = (
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"as" = (
-/obj/random/junk,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"at" = (
-/turf/simulated/floor/airless,
-/area/djstation)
-"av" = (
-/obj/structure/table/glass,
-/obj/random/loot,
-/turf/simulated/floor/airless,
-/area/djstation)
-"aw" = (
-/obj/random/loot,
-/obj/item/stock_parts/circuitboard/teleporter,
-/obj/structure/table/glass,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"ax" = (
-/obj/random/junk,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	id_tag = "lp_north_airlock";
-	pixel_x = 22;
-	tag_airpump = "lp_north_pump";
-	tag_chamber_sensor = "lp_north_sensor";
-	tag_exterior_door = "lp_north_outer";
-	tag_interior_door = "lp_north_inner";
-	dir = 8
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1;
+	icon_state = "map"
 	},
 /turf/simulated/floor/airless,
+/area/mine/explored)
+"al" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/floor_decal/corner/beige/half{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_grid,
 /area/djstation)
-"ay" = (
-/obj/machinery/constructable_frame/computerframe,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"az" = (
-/obj/structure/table/rack,
-/obj/random/maintenance,
-/obj/random/tool,
-/turf/simulated/floor/airless,
-/area/djstation)
-"aA" = (
-/obj/structure/table/reinforced,
-/obj/random/maintenance,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"aB" = (
-/obj/random/trash,
-/turf/simulated/floor/airless,
-/area/djstation)
-"aC" = (
-/obj/structure/table/reinforced,
-/turf/simulated/floor/airless,
-/area/djstation)
-"aE" = (
-/obj/structure/table/reinforced,
-/obj/random/loot,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"aF" = (
-/obj/structure/table/reinforced,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"aG" = (
-/obj/random/maintenance,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"aH" = (
-/obj/structure/barricade,
-/turf/simulated/floor/airless,
-/area/djstation)
-"aI" = (
+"am" = (
 /obj/random/closet,
 /turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"an" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/floor_decal/corner/beige/half{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel_grid,
 /area/djstation)
-"aJ" = (
-/obj/structure/table,
+"ao" = (
+/obj/structure/largecrate,
 /turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"ap" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/civilian,
+/turf/simulated/floor/tiled/steel_ridged,
 /area/djstation)
-"aK" = (
-/obj/machinery/door/airlock/maintenance,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"aL" = (
-/turf/simulated/wall,
-/area/djstation)
-"aM" = (
-/obj/structure/grille,
-/turf/simulated/floor/airless,
-/area/djstation)
-"aN" = (
-/obj/structure/grille/broken,
+"aq" = (
 /obj/random/trash,
-/turf/simulated/floor/airless,
-/area/djstation)
-"aO" = (
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"ar" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
+"as" = (
 /obj/random/maintenance,
 /turf/simulated/floor/airless,
+/area/mine/unexplored)
+"at" = (
+/turf/simulated/floor/plating,
 /area/djstation)
-"aP" = (
-/obj/structure/grille/broken,
+"ax" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"ay" = (
+/mob/living/simple_animal/hostile/hivebot,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"az" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"aA" = (
+/obj/item/storage/belt/utility,
+/obj/structure/table/rack,
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 1
+	},
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 4
+	},
+/obj/item/device/flashlight,
+/obj/item/device/suit_cooling_unit,
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"aB" = (
+/obj/floor_decal/corner/purple{
+	dir = 10;
+	icon_state = "corner_white"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22
+	},
+/turf/simulated/floor/tiled/white,
+/area/djstation)
+"aC" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"aG" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/djstation)
+"aH" = (
+/turf/simulated/wall/r_wall,
+/area/mine/unexplored)
+"aJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/catwalk,
 /turf/simulated/floor/airless,
 /area/djstation)
+"aK" = (
+/obj/machinery/atmospherics/unary/tank/air{
+	dir = 1;
+	initialize_directions = 0;
+	level = 1
+	},
+/turf/simulated/floor/plating,
+/area/djstation)
+"aO" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/airless,
+/area/mine/explored)
 "aQ" = (
-/obj/random/medical,
+/obj/machinery/door/airlock/maintenance,
 /turf/simulated/floor/tiled/airless,
-/area/djstation)
-"aR" = (
-/obj/structure/bed,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
+/area/mine/unexplored)
 "aS" = (
 /turf/unsimulated/mask,
 /area/mine/explored)
-"aT" = (
-/obj/random/loot,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"aU" = (
-/obj/random/closet,
-/obj/random/maintenance,
-/turf/simulated/floor/airless,
-/area/djstation)
 "aV" = (
-/obj/structure/flora/pottedplant/dead,
 /turf/simulated/floor/tiled/airless,
-/area/djstation)
+/area/mine/unexplored)
 "aW" = (
-/obj/machinery/door/airlock/maintenance,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/civilian,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/djstation)
+"aZ" = (
+/turf/simulated/wall,
+/area/mine/explored)
+"bb" = (
+/obj/structure/cable/orange,
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"bd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/plating,
+/area/djstation)
+"bf" = (
+/obj/structure/ore_box,
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
+"bh" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"bp" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"bw" = (
+/obj/structure/bookcase/manuals/xenoarchaeology,
+/obj/floor_decal/corner/purple/three_quarters{
+	dir = 1;
+	icon_state = "corner_white_three_quarters"
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"bB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/catwalk,
 /turf/simulated/floor/airless,
 /area/djstation)
-"aX" = (
+"bK" = (
+/obj/structure/disposalpipe/segment,
+/turf/unsimulated/mask,
+/area/mine/unexplored)
+"bR" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid,
+/obj/floor_decal/corner/purple{
+	dir = 6;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"bT" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "closed";
+	id_tag = "lp_north_inner";
+	locked = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"ch" = (
+/obj/structure/table/reinforced,
+/obj/random/maintenance,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"ci" = (
+/obj/floor_decal/solarpanel,
+/obj/machinery/power/solar{
+	id = "auxsolarsbridge";
+	name = "Bridge Auxiliary Solar Array"
+	},
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2";
+	dir = 4
+	},
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
+"cn" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
+"ct" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
+"cX" = (
+/obj/random/contraband,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"cY" = (
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 8
+	},
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 4
+	},
+/obj/machinery/suit_cycler,
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"dT" = (
+/obj/random/maintenance,
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
+"ek" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"eB" = (
+/obj/structure/table/reinforced,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"eM" = (
 /obj/structure/table/steel,
 /obj/random/maintenance,
 /turf/simulated/floor/tiled/airless,
-/area/djstation)
-"aY" = (
+/area/mine/unexplored)
+"eV" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
+"fb" = (
+/turf/simulated/wall,
+/area/mine/unexplored)
+"fj" = (
+/obj/machinery/constructable_frame/computerframe,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"fy" = (
 /obj/random/closet,
 /obj/machinery/power/apc{
 	dir = 1;
@@ -195,211 +359,217 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/airless,
-/area/djstation)
-"aZ" = (
-/obj/structure/table/rack,
-/obj/random/maintenance,
-/obj/random/maintenance,
-/obj/random/action_figure,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"ba" = (
-/obj/structure/table/rack,
-/obj/random/maintenance,
-/obj/random/maintenance,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"bb" = (
-/obj/structure/table/rack,
-/obj/random/junk,
-/obj/random/maintenance,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"bc" = (
-/obj/structure/girder,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"bd" = (
-/obj/structure/largecrate,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"be" = (
-/obj/random/maintenance,
+/area/mine/unexplored)
+"fC" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
-"bf" = (
-/obj/overmap/visitable/sector/cluster,
-/turf/simulated/floor/asteroid,
-/area/mine/explored)
-"cb" = (
-/obj/shuttle_landmark/cluster/nav5,
-/turf/simulated/floor/asteroid,
-/area/mine/explored)
-"db" = (
-/obj/shuttle_landmark/cluster/nav6,
-/turf/space,
-/area/space)
-"eb" = (
-/obj/shuttle_landmark/cluster/nav4,
-/turf/space,
-/area/space)
-"fb" = (
-/obj/shuttle_landmark/cluster/nav2,
-/turf/space,
-/area/space)
-"fh" = (
-/obj/structure/table/steel,
-/obj/random/maintenance,
-/obj/item/stack/material/tritium/ten,
-/obj/item/stack/material/tritium/ten,
-/obj/random/tech_supply,
-/obj/random/tool,
-/obj/item/storage/belt/utility/full,
-/obj/item/device/radio,
-/obj/item/shuttle_beacon,
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
 "gb" = (
-/obj/shuttle_landmark/cluster/nav3,
-/turf/space,
-/area/space)
-"hb" = (
-/obj/shuttle_landmark/cluster/nav1,
-/turf/space,
-/area/space)
-"ib" = (
-/obj/shuttle_landmark/cluster/nav7,
-/turf/simulated/floor/asteroid,
-/area/mine/explored)
-"jb" = (
-/obj/machinery/access_button/airlock_exterior{
-	master_tag = "lp_north_airlock";
-	name = "exterior access button";
-	pixel_y = -24
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/asteroid,
 /area/mine/explored)
-"jY" = (
-/obj/machinery/power/smes/buildable,
-/obj/structure/cable,
+"go" = (
+/obj/random/loot,
 /turf/simulated/floor/tiled/airless,
-/area/djstation)
-"kb" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "closed";
-	id_tag = "lp_north_outer";
-	locked = 1
-	},
+/area/mine/unexplored)
+"gW" = (
+/obj/structure/table/glass,
+/obj/random/loot,
 /turf/simulated/floor/airless,
-/area/djstation)
-"lb" = (
-/turf/unsimulated/mask,
-/area/djstation)
-"mb" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
-	id_tag = "lp_north_pump"
-	},
-/obj/machinery/airlock_sensor{
-	id_tag = "lp_north_sensor";
-	master_tag = "lp_north_airlock";
-	pixel_x = 24
-	},
-/turf/simulated/floor/airless,
-/area/djstation)
-"nb" = (
-/obj/machinery/door/airlock/multi_tile{
-	name = "Glass Airlock"
-	},
-/turf/simulated/floor/airless,
-/area/djstation)
-"ob" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1379;
-	icon_state = "closed";
-	id_tag = "lp_north_inner";
-	locked = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor/airless,
-/area/djstation)
-"pA" = (
+/area/mine/unexplored)
+"gX" = (
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 4;
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"hb" = (
+/obj/random/loot,
+/obj/item/stock_parts/circuitboard/teleporter,
+/obj/structure/table/glass,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"hi" = (
+/obj/random/medical,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"hz" = (
+/obj/structure/girder,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"hD" = (
+/obj/machinery/power/smes/buildable{
+	charge = 5e+006;
+	input_attempt = 1;
+	inputting = 1;
+	output_attempt = 1;
+	output_level = 250000;
+	outputting = 2;
+	RCon_tag = "Mining Underground"
+	},
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
 /area/djstation)
-"qb" = (
-/obj/machinery/atmospherics/portables_connector{
+"hK" = (
+/obj/machinery/light{
+	icon_state = "tube1";
 	dir = 4
 	},
+/turf/simulated/floor/plating/glloydplanet,
+/area/mine/explored)
+"ib" = (
+/obj/machinery/light,
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
+"iT" = (
+/obj/floor_decal/steeldecal/steel_decals_central5{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"jb" = (
+/turf/simulated/wall/r_wall,
+/area/mine/explored)
+"jm" = (
+/obj/machinery/power/solar_control/autostart{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2";
+	dir = 4
+	},
+/obj/structure/catwalk,
 /turf/simulated/floor/airless,
 /area/djstation)
-"qH" = (
-/obj/structure/cable{
+"jp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/turf/simulated/wall/r_wall,
+/area/djstation)
+"jF" = (
+/obj/structure/table/glass,
+/obj/random/maintenance,
+/obj/item/stock_parts/keyboard,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"jI" = (
+/obj/machinery/mining/drill,
+/obj/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating/glloydplanet,
+/area/mine/explored)
+"kb" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/yellow{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor/airless,
 /area/djstation)
-"rb" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+"kt" = (
+/obj/floor_decal/steeldecal/steel_decals_central5{
 	dir = 4
 	},
-/turf/simulated/floor/airless,
-/area/djstation)
-"sb" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/access_button/airlock_interior{
-	master_tag = "lp_north_airlock";
-	name = "interior access button";
-	pixel_y = 24
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/airless,
 /area/djstation)
-"sx" = (
-/obj/machinery/power/port_gen/pacman/mrs{
-	anchored = 1
+"kz" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/mob/living/simple_animal/hostile/hivebot,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"kA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/structure/cable/orange{
-	dir = 1
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/airless,
 /area/djstation)
-"tb" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 9
+"kJ" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
 	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/airless,
-/area/djstation)
-"ub" = (
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1379;
-	master_tag = "lp_east_airlock";
-	name = "interior access button";
-	pixel_x = 24;
-	req_access = null
-	},
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"vb" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1379;
-	master_tag = "lp_east_airlock";
-	name = "exterior access button";
-	pixel_x = -24;
-	req_access = null
-	},
-/turf/simulated/floor/asteroid,
 /area/mine/explored)
-"wb" = (
+"lb" = (
+/turf/unsimulated/mask,
+/area/djstation)
+"ld" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock{
+	start_pressure = 6000
+	},
+/turf/simulated/floor/plating,
+/area/djstation)
+"lm" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "closed";
@@ -410,8 +580,178 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
+/area/mine/unexplored)
+"lJ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white/monotile,
 /area/djstation)
-"xb" = (
+"mb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/airless,
+/area/djstation)
+"ml" = (
+/obj/machinery/floodlight,
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
+"mU" = (
+/obj/machinery/disposal,
+/obj/floor_decal/industrial/hatch/yellow,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_ridged,
+/area/djstation)
+"ny" = (
+/obj/machinery/tele_pad,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"nA" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"ob" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/airless,
+/area/djstation)
+"of" = (
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/unsimulated/mask,
+/area/mine/unexplored)
+"oj" = (
+/obj/structure/grille/broken,
+/obj/random/trash,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"ol" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1";
+	pixel_x = 0
+	},
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
+"on" = (
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/airless,
+/area/djstation)
+"oH" = (
+/obj/floor_decal/steeldecal/steel_decals_central2,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"qb" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/airless,
+/area/djstation)
+"qH" = (
+/obj/structure/table/standard,
+/obj/item/storage/toolbox/nanotrasen,
+/obj/floor_decal/corner/purple{
+	icon_state = "corner_white";
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"qZ" = (
+/obj/floor_decal/steeldecal/steel_decals_central5{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/airless,
+/area/djstation)
+"rb" = (
+/obj/wallframe_spawn/reinforced,
+/turf/simulated/floor/tiled,
+/area/djstation)
+"rH" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/cable{
+	d1 = 0;
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/structure/catwalk,
+/obj/machinery/light/small{
+	dir = 4;
+	icon_state = "bulb1"
+	},
+/turf/simulated/floor/airless,
+/area/djstation)
+"sb" = (
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"sq" = (
+/obj/floor_decal/corner/purple{
+	dir = 6;
+	icon_state = "corner_white"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/white,
+/area/djstation)
+"sB" = (
 /obj/random/trash,
 /obj/machinery/airlock_sensor{
 	id_tag = "lp_east_sensor";
@@ -422,8 +762,78 @@
 	id_tag = "lp_east_pump"
 	},
 /turf/simulated/floor/airless,
+/area/mine/unexplored)
+"tl" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/obj/machinery/access_button/airlock_interior{
+	master_tag = "lp_north_airlock";
+	name = "interior access button";
+	pixel_y = 24
+	},
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"tB" = (
+/obj/random/junk,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	id_tag = "lp_north_airlock";
+	pixel_x = 22;
+	tag_airpump = "lp_north_pump";
+	tag_chamber_sensor = "lp_north_sensor";
+	tag_exterior_door = "lp_north_outer";
+	tag_interior_door = "lp_north_inner";
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"tP" = (
+/mob/living/simple_animal/hostile/hivebot,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"ub" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"uc" = (
+/obj/structure/bed/chair{
+	dir = 8
+	},
+/obj/floor_decal/corner/beige/three_quarters{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_grid,
 /area/djstation)
-"yb" = (
+"vb" = (
+/obj/machinery/disposal/deliveryChute,
+/obj/structure/disposalpipe/trunk{
+	dir = 1;
+	icon_state = "pipe-t"
+	},
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
+"vz" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"vC" = (
+/obj/structure/table/standard,
+/obj/item/material/ashtray/plastic,
+/obj/random/smokes,
+/obj/floor_decal/corner/beige/half,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"wb" = (
+/obj/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating/glloydplanet,
+/area/mine/explored)
+"wf" = (
 /obj/random/maintenance,
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "lp_east_airlock";
@@ -434,8 +844,386 @@
 	tag_interior_door = "lp_east_inner"
 	},
 /turf/simulated/floor/airless,
+/area/mine/unexplored)
+"wk" = (
+/obj/structure/bed,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"wr" = (
+/obj/wallframe_spawn/reinforced,
+/turf/simulated/floor/tiled,
+/area/mine/unexplored)
+"wD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"wT" = (
+/obj/machinery/power/port_gen/pacman{
+	anchored = 1
+	},
+/obj/structure/cable{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
 /area/djstation)
+"xi" = (
+/obj/machinery/power/port_gen/pacman/mrs{
+	anchored = 1
+	},
+/obj/structure/cable/orange{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"ye" = (
+/obj/structure/table/rack,
+/obj/random/maintenance,
+/obj/random/tool,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"yz" = (
+/obj/structure/closet/excavation,
+/obj/floor_decal/corner/purple/three_quarters,
+/turf/simulated/floor/tiled/white,
+/area/djstation)
+"yU" = (
+/obj/random/legion/hivebot/ranged,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
 "zb" = (
+/turf/simulated/floor/asteroid,
+/area/mine/unexplored)
+"zF" = (
+/obj/structure/table/rack,
+/obj/random/maintenance,
+/obj/random/maintenance,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"zS" = (
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
+"Ab" = (
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"AR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"AU" = (
+/obj/structure/table/standard,
+/obj/item/gun/projectile/flare,
+/obj/item/clothing/accessory/buddy_tag,
+/obj/item/clothing/accessory/buddy_tag,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/djstation)
+"Bh" = (
+/obj/structure/table/rack,
+/obj/random/maintenance,
+/obj/random/maintenance,
+/obj/random/action_figure,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"BI" = (
+/obj/structure/grille,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"BM" = (
+/obj/structure/table/glass,
+/obj/random/maintenance,
+/obj/item/stock_parts/console_screen,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"Ca" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 9
+	},
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"Cj" = (
+/obj/decal/cleanable/remains,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"Cm" = (
+/obj/random/trash,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"Cv" = (
+/obj/machinery/access_button/airlock_exterior{
+	master_tag = "lp_north_airlock";
+	name = "exterior access button";
+	pixel_y = -24
+	},
+/turf/simulated/floor/asteroid,
+/area/mine/unexplored)
+"CG" = (
+/obj/wallframe_spawn/reinforced,
+/turf/simulated/floor/tiled,
+/area/mine/explored)
+"CI" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"CT" = (
+/obj/machinery/tele_projector,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"Df" = (
+/obj/machinery/power/smes/buildable,
+/obj/structure/cable,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"Dr" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	id_tag = "lp_north_pump"
+	},
+/obj/machinery/airlock_sensor{
+	id_tag = "lp_north_sensor";
+	master_tag = "lp_north_airlock";
+	pixel_x = 24
+	},
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"DS" = (
+/obj/structure/bed/chair{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white/monotile,
+/area/mine/unexplored)
+"Eb" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
+"Eg" = (
+/obj/structure/dispenser/oxygen,
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 4
+	},
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -23
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"Eq" = (
+/obj/structure/bed/chair{
+	dir = 4
+	},
+/obj/floor_decal/corner/beige/three_quarters,
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"Ew" = (
+/obj/machinery/door/airlock/multi_tile{
+	name = "Glass Airlock"
+	},
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"EP" = (
+/obj/machinery/mech_recharger,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/bluegrid{
+	icon_state = "gcircuit"
+	},
+/area/djstation)
+"EX" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"Fx" = (
+/obj/floor_decal/corner/purple{
+	dir = 9;
+	icon_state = "corner_white"
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"Ga" = (
+/obj/machinery/power/tracker,
+/obj/structure/cable/yellow,
+/obj/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"Gy" = (
+/obj/machinery/airlock_sensor{
+	id_tag = "lp_north_sensor";
+	master_tag = "lp_north_airlock";
+	pixel_x = 24
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	dir = 8;
+	id_tag = "lp_east_pump"
+	},
+/obj/machinery/light/small,
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"GF" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/turf/unsimulated/mask,
+/area/mine/unexplored)
+"Hv" = (
+/obj/machinery/mining/brace,
+/obj/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating/glloydplanet,
+/area/mine/explored)
+"HA" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"Ic" = (
+/obj/random/closet,
+/obj/random/maintenance,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"Ik" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/catwalk,
+/obj/item/remains/mouse,
+/turf/simulated/floor/airless,
+/area/djstation)
+"In" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"IX" = (
+/obj/machinery/alarm{
+	dir = 4;
+	pixel_x = -23
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"IZ" = (
+/obj/structure/barricade,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"Jg" = (
+/obj/floor_decal/steeldecal/steel_decals_central5,
+/obj/floor_decal/steeldecal/steel_decals_central2,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"JA" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/floor_decal/steeldecal/steel_decals_central5{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"JR" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock{
+	start_pressure = 6000
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/alarm{
+	dir = 8;
+	pixel_x = 24
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -5;
+	pixel_y = 30
+	},
+/turf/simulated/floor/plating,
+/area/djstation)
+"JX" = (
+/obj/structure/table/reinforced,
+/obj/random/loot,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"Ks" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1379;
+	master_tag = "lp_east_airlock";
+	name = "exterior access button";
+	pixel_x = -24;
+	req_access = null
+	},
+/turf/simulated/floor/asteroid,
+/area/mine/unexplored)
+"Kx" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"KA" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10;
+	icon_state = "intact"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/catwalk,
+/turf/simulated/floor/airless,
+/area/djstation)
+"Lc" = (
+/obj/structure/table/rack,
+/obj/random/junk,
+/obj/random/maintenance,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"Le" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/wall/r_wall,
+/area/djstation)
+"Lr" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"Mj" = (
+/obj/structure/cable,
+/obj/machinery/power/terminal,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"MF" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
 	icon_state = "closed";
@@ -443,47 +1231,280 @@
 	locked = 1
 	},
 /turf/simulated/floor/airless,
-/area/djstation)
-"Ab" = (
-/obj/machinery/atmospherics/pipe/simple/visible{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/airless,
-/area/djstation)
-"Ar" = (
-/obj/structure/cable/orange,
-/obj/machinery/power/terminal{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/djstation)
-"Db" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
-/turf/simulated/floor/airless,
-/area/djstation)
-"Eb" = (
-/obj/machinery/atmospherics/portables_connector{
+/area/mine/unexplored)
+"MZ" = (
+/obj/structure/bed/chair{
 	dir = 1
 	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"Nd" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/bluegrid{
+	icon_state = "gcircuit"
+	},
+/area/djstation)
+"Od" = (
+/obj/floor_decal/solarpanel,
+/obj/machinery/power/solar{
+	id = "auxsolarsbridge";
+	name = "Bridge Auxiliary Solar Array"
+	},
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2";
+	dir = 8
+	},
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
+"Ok" = (
+/obj/random/junk,
+/obj/random/single/hivebot/ranged,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"OC" = (
+/obj/machinery/mining/brace,
+/obj/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating/glloydplanet,
+/area/mine/explored)
+"Px" = (
+/obj/item/storage/box/lights/bulbs,
+/turf/simulated/floor/plating,
+/area/djstation)
+"PN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/catwalk,
 /turf/simulated/floor/airless,
 /area/djstation)
-"Il" = (
-/obj/structure/cable,
-/obj/machinery/power/terminal,
+"QF" = (
+/obj/machinery/jukebox/old,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/djstation)
+"QK" = (
+/obj/random/junk,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"QN" = (
+/obj/random/maintenance,
+/turf/simulated/floor/asteroid,
+/area/mine/unexplored)
+"RU" = (
+/obj/machinery/vending/urist/sustenance,
+/turf/simulated/floor/tiled/steel_ridged,
+/area/djstation)
+"Sc" = (
+/obj/machinery/access_button{
+	command = "cycle_interior";
+	frequency = 1379;
+	master_tag = "lp_east_airlock";
+	name = "interior access button";
+	pixel_x = 24;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"Sj" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1379;
+	icon_state = "closed";
+	id_tag = "lp_north_outer";
+	locked = 1
+	},
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"So" = (
+/obj/structure/table/steel,
+/obj/random/maintenance,
+/obj/item/stack/material/tritium/ten,
+/obj/item/stack/material/tritium/ten,
+/obj/random/tech_supply,
+/obj/random/tool,
+/obj/item/storage/belt/utility/full,
+/obj/item/device/radio,
+/obj/item/shuttle_beacon,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"SM" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/catwalk,
 /turf/simulated/floor/airless,
 /area/djstation)
 "SY" = (
-/obj/shuttle_landmark/ntminingshuttle,
-/turf/space,
-/area/space)
-"Ua" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/structure/table/standard,
+/obj/item/paper/crumpled{
+	info = "Reminder: Me and Cooper setup a small drill storage to the south east of here, once you leave the entrance. In case you forgot to bring a drill again...";
+	name = "excavation drill shed directions"
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/item/pickaxe/old,
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
+	},
+/turf/simulated/floor/tiled/steel_ridged,
 /area/djstation)
+"TH" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/anomaly_container,
+/obj/floor_decal/corner/purple/three_quarters{
+	dir = 4;
+	icon_state = "corner_white_three_quarters"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/djstation)
+"TN" = (
+/obj/structure/table/reinforced,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"Ua" = (
+/turf/simulated/floor/plating/glloydplanet,
+/area/mine/explored)
+"Ux" = (
+/obj/machinery/constructable_frame/computerframe,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"UL" = (
+/obj/structure/flora/pottedplant/dead,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"UO" = (
+/obj/structure/grille/broken,
+/turf/simulated/floor/airless,
+/area/mine/unexplored)
+"Vo" = (
+/obj/floor_decal/corner/purple/mono,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/civilian,
+/turf/simulated/floor/tiled/white,
+/area/djstation)
+"Vv" = (
+/obj/random/maintenance,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"VQ" = (
+/obj/floor_decal/corner/purple{
+	dir = 9;
+	icon_state = "corner_white"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/djstation)
+"VV" = (
+/obj/structure/table,
+/turf/simulated/floor/tiled/airless,
+/area/mine/unexplored)
+"Wi" = (
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	id_tag = "lp_north_airlock";
+	pixel_x = 22;
+	tag_airpump = "lp_north_pump";
+	tag_chamber_sensor = "lp_north_sensor";
+	tag_exterior_door = "lp_north_outer";
+	tag_interior_door = "lp_north_inner";
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/airlock{
+	dir = 8;
+	id_tag = "lp_east_pump"
+	},
+/turf/simulated/floor/airless,
+/area/mine/explored)
+"Wp" = (
+/obj/structure/disposalpipe/segment,
+/turf/unsimulated/mask,
+/area/djstation)
+"WE" = (
+/obj/shuttle_landmark/ntminingshuttle,
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
+"WX" = (
+/obj/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating/glloydplanet,
+/area/mine/explored)
+"XN" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 4
+	},
+/obj/floor_decal/steeldecal/steel_decals_central5{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"Yw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/plating,
+/area/djstation)
+"YQ" = (
+/obj/structure/table/standard,
+/obj/machinery/cell_charger,
+/obj/item/cell/super/empty,
+/obj/floor_decal/corner/purple/three_quarters{
+	dir = 8;
+	icon_state = "corner_white_three_quarters"
+	},
+/turf/simulated/floor/tiled/white,
+/area/mine/unexplored)
+"YX" = (
+/obj/floor_decal/steeldecal/steel_decals_central2{
+	dir = 4
+	},
+/obj/machinery/power/apc{
+	cell_type = /obj/item/cell/high;
+	dir = 2;
+	name = "south bump";
+	pixel_y = -24
+	},
+/obj/structure/cable/yellow,
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/nanotrasen,
+/turf/simulated/floor/tiled/steel_grid,
+/area/djstation)
+"ZF" = (
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/djstation)
+"ZK" = (
+/obj/random/junk,
+/turf/simulated/floor/asteroid,
+/area/mine/unexplored)
+"ZQ" = (
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 8
+	},
+/turf/simulated/floor/asteroid,
+/area/mine/explored)
 
 (1,1,1) = {"
 aa
@@ -5670,7 +6691,7 @@ aa
 aa
 aa
 aa
-fb
+aa
 aa
 aa
 aa
@@ -13371,26 +14392,26 @@ ab
 ab
 ab
 ab
+aH
+aH
+aH
+aH
+aH
+aH
+aH
 ab
 ab
 ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aH
+aH
+aH
+aH
+aH
+aH
+aH
 ab
 ab
 ab
@@ -13573,26 +14594,26 @@ ab
 ab
 ab
 ab
+aH
+bh
+ye
+Ab
+Ab
+am
+aH
 ab
 ab
 ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aH
+eM
+Bh
+zF
+Lc
+So
+aH
 ab
 ab
 ab
@@ -13775,29 +14796,29 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aH
+CI
+aq
+aV
+aV
+VV
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aV
+Ab
+aV
+QK
+aV
+aH
+aH
+aH
+aH
 ab
 ab
 ab
@@ -13971,35 +14992,35 @@ ab
 ab
 ab
 ab
+zb
+zb
 ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aH
+CI
+aV
+Ab
+aV
+tP
+aQ
+as
+Ab
+Ab
+Ab
+Ab
+Cm
+HA
+Ab
+aV
+as
+aV
+aV
+Ab
+xi
+bb
+aH
 ab
 ab
 ab
@@ -14173,35 +15194,35 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+zb
+zb
+Cv
+aH
+aH
+aH
+aH
+tl
+aV
+QK
+aV
+Cj
+aQ
+aV
+aV
+aV
+aV
+aV
+yU
+aQ
+gX
+In
+Lr
+In
+Lr
+In
+Mj
+Df
+aH
 ab
 ab
 ab
@@ -14375,35 +15396,35 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+zb
+zb
+zb
+Sj
+tB
+Dr
+bT
+Ca
+aV
+aV
+Ab
+aV
+fb
+UO
+BI
+BI
+UO
+IZ
+UO
+fb
+fy
+aV
+aV
+Cj
+Ab
+aV
+hz
+hz
+aH
 ab
 ab
 ab
@@ -14577,35 +15598,35 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+zb
+ZK
+zb
+aH
+aH
+aH
+aH
+aV
+aV
+Cj
+Vv
+aV
+fb
+VV
+aV
+aV
+aV
+go
+UL
+fb
+QK
+Ab
+Sc
+aV
+aV
+as
+ay
+ao
+aH
 ab
 ab
 ab
@@ -14781,33 +15802,33 @@ ab
 ab
 ab
 ab
+zb
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aH
+ch
+TN
+JX
+aV
+aq
+Ew
+hi
+Ab
+QK
+aV
+Ab
+aH
+aH
+aH
+aH
+aH
+nA
+EX
+kz
+EX
+vz
+aH
 ab
 ab
 ab
@@ -14987,29 +16008,29 @@ ab
 ab
 ab
 ab
+aH
+aV
+Ab
+eB
+Ab
+aV
+Ab
+aV
+aV
+Ab
+Vv
+aV
+aH
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aH
+lm
+aH
+aH
+aH
+aH
+aH
 ab
 ab
 ab
@@ -15189,25 +16210,25 @@ ab
 ab
 ab
 ab
+aH
+ay
+Cm
+Ab
+aV
+aV
+oj
+aV
+Vv
+aq
+aV
+ay
+aH
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aH
+sB
+aH
 ab
 ab
 ab
@@ -15391,25 +16412,25 @@ ab
 ab
 ab
 ab
+aH
+aV
+aV
+aV
+aV
+aV
+fb
+aV
+wk
+aV
+wk
+Ic
+aH
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aH
+wf
+aH
 ab
 ab
 ab
@@ -15593,25 +16614,25 @@ ab
 ab
 ab
 ab
+aH
+aH
+aH
+aH
+IZ
+aH
+aH
+aH
+aH
+aH
+aH
+aH
+aH
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aH
+MF
+aH
 ab
 ab
 ab
@@ -15789,6 +16810,18 @@ ab
 ab
 ab
 ab
+aH
+aH
+aH
+aH
+aH
+aH
+ab
+ab
+ab
+aH
+Ab
+aH
 ab
 ab
 ab
@@ -15799,21 +16832,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+Ks
+zb
+zb
 ab
 ab
 ab
@@ -15991,6 +17012,18 @@ ab
 ab
 ab
 ab
+aH
+aq
+BM
+gW
+aV
+aH
+ab
+ab
+ab
+aH
+Ab
+aH
 ab
 ab
 ab
@@ -16001,22 +17034,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+zb
+zb
+QN
+zb
 ab
 ab
 ab
@@ -16166,6 +17187,8 @@ ab
 ab
 ab
 ab
+af
+af
 ab
 ab
 ab
@@ -16191,6 +17214,18 @@ ab
 ab
 ab
 ab
+aH
+fj
+aV
+Ab
+Ab
+aH
+aH
+aH
+aH
+aH
+tP
+aH
 ab
 ab
 ab
@@ -16201,24 +17236,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+zb
+zb
+zb
+zb
 ab
 ab
 ab
@@ -16366,6 +17387,10 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
 ab
 ab
 ab
@@ -16391,6 +17416,18 @@ ab
 ab
 ab
 ab
+aH
+CT
+Ok
+aV
+aV
+aV
+aV
+Cm
+aV
+aV
+aV
+aH
 ab
 ab
 ab
@@ -16401,25 +17438,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+zb
+zb
+zb
 ab
 ab
 ab
@@ -16568,6 +17589,10 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
 ab
 ab
 ab
@@ -16593,6 +17618,18 @@ ab
 ab
 ab
 ab
+aH
+ny
+cX
+Ab
+aV
+aH
+aH
+aH
+aH
+aH
+aH
+aH
 ab
 ab
 ab
@@ -16603,25 +17640,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+zb
+zb
+zb
 ab
 ab
 ab
@@ -16769,6 +17790,12 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -16793,6 +17820,12 @@ ab
 ab
 ab
 ab
+aH
+jF
+aV
+hb
+Ux
+aH
 ab
 ab
 ab
@@ -16810,19 +17843,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+zb
 ab
 ab
 ab
@@ -16972,6 +17993,10 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
 ab
 ab
 ab
@@ -16997,16 +18022,12 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aH
+aH
+aH
+aH
+aH
+aH
 ab
 ab
 ab
@@ -17174,10 +18195,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
+af
+af
+af
+af
 ab
 ab
 ab
@@ -17379,7 +18400,7 @@ ab
 ab
 ab
 ab
-ab
+af
 ab
 ab
 ab
@@ -17580,8 +18601,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+af
+af
 ab
 ab
 ab
@@ -17782,8 +18803,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+af
+af
 ab
 ab
 ab
@@ -17984,8 +19005,8 @@ ab
 ab
 ab
 ab
-ab
-ab
+af
+af
 ab
 ab
 ab
@@ -18145,6 +19166,10 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
 ab
 ab
 ab
@@ -18182,12 +19207,8 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
 ab
 ab
 ab
@@ -18346,6 +19367,13 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -18381,15 +19409,8 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
 ab
 ab
 ab
@@ -18548,6 +19569,13 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -18583,15 +19611,8 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
 ab
 ab
 ab
@@ -18750,6 +19771,13 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -18785,15 +19813,8 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
 ab
 ab
 ab
@@ -18949,6 +19970,17 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -18983,19 +20015,8 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
 ab
 ab
 ab
@@ -19151,6 +20172,17 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -19186,18 +20218,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -19353,6 +20374,17 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -19388,18 +20420,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -19555,6 +20576,17 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -19590,18 +20622,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -19759,6 +20780,14 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -19795,15 +20824,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -19962,6 +20983,14 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -19997,15 +21026,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -20164,6 +21185,16 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -20197,6 +21228,7 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
@@ -20214,18 +21246,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -20341,7 +21362,6 @@ aa
 aa
 aa
 aa
-gb
 aa
 aa
 aa
@@ -20354,6 +21374,7 @@ aa
 aa
 aa
 aa
+aa
 ab
 ab
 ab
@@ -20366,7 +21387,16 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
+af
+af
+af
 ab
+af
+af
 ab
 ab
 ab
@@ -20400,6 +21430,7 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
@@ -20411,28 +21442,18 @@ ab
 ab
 ab
 ab
+af
+af
 ab
 ab
 ab
+af
+af
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
 ab
 ab
 ab
@@ -20568,7 +21589,16 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
+af
+af
+af
 ab
+af
+af
 ab
 ab
 ab
@@ -20602,6 +21632,7 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
@@ -20613,29 +21644,19 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -20771,12 +21792,15 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
 ab
 ab
 ab
+af
+af
 ab
 ab
 ab
@@ -20810,6 +21834,7 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
@@ -20820,24 +21845,20 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
+ci
+ci
+ci
+ci
+ci
+ci
+ci
+ci
+ci
+ci
+af
+af
 ab
 ab
 ab
@@ -20973,12 +21994,15 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
 ab
 ab
 ab
+af
+af
 ab
 ab
 ab
@@ -21012,6 +22036,7 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
@@ -21022,25 +22047,21 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+gb
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+aO
+Ga
+af
+af
 ab
 ab
 ab
@@ -21175,12 +22196,15 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
 ab
 ab
 ab
+af
+af
 ab
 ab
 ab
@@ -21214,35 +22238,32 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+eV
+ci
+ci
+ci
+ci
+ci
+ci
+ci
+ci
+ci
+ci
+af
+af
+af
 ab
 ab
 ab
@@ -21377,6 +22398,15 @@ ab
 ab
 ab
 ab
+af
+ab
+ab
+ab
+ab
+ab
+ab
+af
+af
 ab
 ab
 ab
@@ -21393,16 +22423,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -21426,25 +22447,25 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
+af
+af
+af
+fC
+kJ
+kJ
+kJ
+kJ
+kJ
+kJ
+kJ
+kJ
+kJ
+kJ
+af
+af
+af
 ab
 ab
 ab
@@ -21579,24 +22600,15 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
 ab
 ab
 ab
@@ -21616,6 +22628,12 @@ ab
 af
 af
 af
+ab
+ab
+ab
+ab
+ab
+ab
 af
 af
 af
@@ -21627,25 +22645,28 @@ af
 af
 af
 af
+af
+af
+ml
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
+af
+af
+af
+eV
+Od
+Od
+Od
+Od
+Od
+Od
+Od
+Od
+Od
+Od
+af
+af
 ab
 ab
 ab
@@ -21781,21 +22802,15 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
 ab
 ab
 ab
@@ -21816,7 +22831,6 @@ af
 af
 af
 af
-bf
 af
 af
 af
@@ -21831,23 +22845,30 @@ af
 af
 af
 af
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+eV
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -21983,6 +23004,7 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
@@ -21990,13 +23012,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -22034,21 +23050,26 @@ af
 af
 af
 af
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
+af
+af
+af
+gb
+ar
+ar
+Eb
+af
+af
+aH
+wr
+wr
+wr
+aH
+af
+af
+af
+af
 ab
 ab
 ab
@@ -22185,6 +23206,7 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
@@ -22192,14 +23214,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -22236,19 +23251,25 @@ af
 af
 af
 af
+af
+af
+af
+af
+af
+af
+eV
+af
+af
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aj
+wT
+Ik
+jm
+aj
+lb
+lb
 ab
 ab
 ab
@@ -22387,6 +23408,7 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
@@ -22394,14 +23416,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -22438,19 +23453,25 @@ af
 af
 af
 af
+af
+af
+af
+af
+af
+af
+eV
+af
+bf
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aj
+hD
+rH
+SM
+aj
+lb
+lb
 ab
 ab
 ab
@@ -22589,6 +23610,15 @@ ab
 ab
 ab
 ab
+af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+af
 ab
 ab
 ab
@@ -22604,21 +23634,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+ml
 af
 af
 af
@@ -22640,19 +23656,24 @@ af
 af
 af
 af
+af
+af
+af
+af
+af
+eV
+af
 ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aj
+aj
+aj
+ap
+aj
+aj
+lb
 ab
 ab
 ab
@@ -22799,12 +23820,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -22843,19 +23859,24 @@ af
 af
 af
 af
+af
+af
+af
+af
+eV
 ab
 ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aj
+QF
+IX
+JA
+mU
+aj
+aj
+aH
 ab
 ab
 ab
@@ -23001,12 +24022,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -23045,20 +24061,23 @@ af
 af
 af
 af
-ab
-ab
-ab
+af
+af
+af
+af
+eV
 ab
 ab
 ab
 ab
 ab
 aj
-aj
-aj
-aj
-aj
-aj
+RU
+ek
+bB
+qZ
+an
+Eq
 aj
 ab
 ab
@@ -23066,13 +24085,15 @@ ab
 ab
 ab
 ab
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -23203,12 +24224,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -23247,20 +24263,23 @@ af
 af
 af
 af
-ab
-ab
-ab
+af
+af
+af
+af
+eV
 ab
 ab
 ab
 ab
 ab
 aj
+SY
+MZ
+kA
 qb
 az
-at
-at
-aI
+vC
 aj
 ab
 ab
@@ -23268,13 +24287,15 @@ ab
 ab
 ab
 ab
-aj
-aX
-aZ
-ba
-bb
-fh
-aj
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -23405,14 +24426,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -23449,37 +24463,44 @@ af
 af
 af
 af
-ab
-ab
-ab
+af
+af
+af
+af
+af
+af
+eV
 ab
 ab
 ab
 ab
 ab
 aj
-rb
+AU
+MZ
+kt
+on
 al
-ar
-ar
-aJ
+uc
 aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-ar
-at
-ar
-as
-ar
-aj
-aj
-aj
-aj
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -23607,14 +24628,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -23651,37 +24665,44 @@ af
 af
 af
 af
+af
+af
+af
+af
+af
+af
+eV
 ab
 ab
 ab
 ab
 ab
-ab
-ab
-ab
+aj
 aj
 rb
-ar
-at
-ar
-at
-aK
-aO
-at
-at
-at
-at
-aB
 aW
-at
-ar
-aO
-ar
-ar
-at
-sx
-Ar
+rb
 aj
+aj
+aj
+aj
+aj
+lb
+lb
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -23809,6 +24830,7 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
@@ -23823,14 +24845,6 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 af
 af
 af
@@ -23857,33 +24871,40 @@ af
 af
 af
 af
+af
+af
+ct
+jb
+zS
+jb
+jb
 jb
 aj
-aj
-aj
-aj
+Eg
+cY
+iT
 sb
-ar
-as
-ar
-ar
-aK
-ar
-ar
-ar
-ar
-ar
-ar
-aK
-pA
-Ua
-qH
-Ua
-qH
-Ua
-Il
-jY
+YX
 aj
+aK
+Px
+aj
+lb
+lb
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -24011,6 +25032,7 @@ ab
 ab
 ab
 ab
+af
 ab
 ab
 ab
@@ -24025,14 +25047,6 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 af
 af
 af
@@ -24060,32 +25074,39 @@ af
 af
 af
 af
+af
+cn
+ar
+ar
+bp
+AR
+wD
 kb
 ax
 mb
 ob
-tb
-ar
-ar
+aJ
+oH
+jp
+ZF
 at
-ar
-aL
-aP
-aM
-aM
-aP
-aH
-aP
-aL
-aY
-ar
-ar
-ar
-at
-ar
-bc
-bc
 aj
+lb
+lb
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -24180,7 +25201,6 @@ aa
 aa
 aa
 aa
-hb
 aa
 aa
 aa
@@ -24190,29 +25210,7 @@ aa
 aa
 aa
 aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+aa
 ab
 ab
 ab
@@ -24241,11 +25239,20 @@ af
 af
 af
 af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 af
 af
 af
 af
-ib
 af
 af
 af
@@ -24260,34 +25267,48 @@ af
 af
 af
 af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+CG
 ak
-aS
-aj
-aj
-aj
-aj
-ar
-ar
-ar
-aG
-ar
-aL
-aJ
-ar
-ar
-ar
-aT
-aV
-aL
-as
-at
 ub
-ar
-ar
-aO
-ar
+rb
+Kx
+aJ
+KA
+PN
+Jg
+Yw
+aG
 bd
 aj
+lb
+lb
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -24418,6 +25439,8 @@ ab
 ab
 ab
 ab
+af
+af
 ab
 ab
 ab
@@ -24429,14 +25452,19 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+WE
 af
 af
 af
@@ -24451,45 +25479,38 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ib
+jb
 aS
-aS
-lb
-lb
-lb
+jb
+Wi
+Gy
 aj
+EP
+Nd
+XN
 aA
 aC
-aE
-ar
-al
-nb
-aQ
-at
-as
-ar
-at
 aj
+JR
+ld
 aj
-aj
-aj
-aj
-Ab
-Db
-Db
-Db
-Eb
-aj
+lb
+lb
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -24621,12 +25642,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -24661,37 +25677,42 @@ af
 af
 af
 af
+af
+af
+af
+af
+af
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-aj
-ar
-at
-aF
-at
-ar
-at
-ar
-ar
-at
-aG
-ar
-aj
-ab
-ab
-ab
-aj
-wb
+aH
+aH
+aH
+aH
+aH
+wr
+Vo
+rb
 aj
 aj
 aj
 aj
 aj
+lb
+lb
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -24823,13 +25844,7 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
 ab
 ab
 ab
@@ -24863,34 +25878,40 @@ af
 af
 af
 af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
 ab
 ab
-ab
-ab
-ab
-aj
-ar
-aB
-at
-ar
-ar
-aN
-ar
-aG
-al
-ar
-ar
-aj
-ab
-ab
-ab
-aj
-xb
+aH
+YQ
+Fx
+VQ
+yz
 aj
 lb
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -25025,24 +26046,6 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 af
 af
 af
@@ -25065,35 +26068,53 @@ af
 af
 af
 af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
 ab
 ab
-ab
-ab
-ab
-aj
-ar
-ar
-ar
-ar
-ar
-aL
-ar
-aR
-ar
-aR
-aU
-aj
-ab
-ab
-ab
-aj
-yb
+aH
+qH
+DS
+lJ
+aB
 aj
 lb
 ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+af
 ab
 ab
 ab
@@ -25238,66 +26259,66 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
 ab
 ab
-ab
-ab
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-aj
-aj
-aj
-aj
 aH
-aj
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+bw
+bR
+sq
+TH
+Le
+Wp
+GF
 ab
 ab
 ab
-aj
-zb
-aj
-lb
 ab
 ab
 ab
+ab
+ab
+ab
+ab
+ab
+ab
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -25440,13 +26461,6 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 af
 af
 af
@@ -25468,42 +26482,49 @@ af
 af
 af
 af
-ab
-ab
-ab
-aj
-aj
-aj
-aj
-aj
-aj
-ab
-ab
-ab
-aj
-at
-aj
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
 ab
 ab
 ab
+aH
+aH
+aH
+aH
+aH
+aH
 ab
-ab
-ab
-ab
+of
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
+bK
 vb
 af
 af
-aS
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -25642,13 +26663,6 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 af
 af
 af
@@ -25670,21 +26684,13 @@ af
 af
 af
 af
-ab
-ab
-ab
-aj
-al
-aq
-av
-ar
-aj
-ab
-ab
-ab
-aj
-at
-aj
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -25695,11 +26701,26 @@ ab
 ab
 ab
 ab
-af
-af
-af
-af
 ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+af
+af
+af
+af
+dT
 ab
 ab
 ab
@@ -25844,13 +26865,6 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 af
 af
 af
@@ -25872,21 +26886,13 @@ af
 af
 af
 af
-ab
-ab
-ab
-aj
-am
-ar
-at
-at
-aj
-aj
-aj
-aj
-aj
-at
-aj
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -25897,11 +26903,26 @@ ab
 ab
 ab
 ab
-af
-af
-af
-af
 ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -26046,6 +27067,32 @@ ab
 ab
 ab
 ab
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -26053,42 +27100,16 @@ ab
 ab
 ab
 ab
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
 ab
 ab
 ab
 ab
 ab
-aj
-an
-as
-ar
-ar
-ar
-ar
-aB
-ar
-ar
-ar
-aj
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -26248,13 +27269,6 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 af
 af
 af
@@ -26274,23 +27288,30 @@ af
 af
 af
 af
+af
+af
+af
+af
+af
+af
+af
 ab
 ab
 ab
 ab
 ab
-aj
-ao
-at
-at
-ar
-aj
-aj
-aj
-aj
-aj
-aj
-aj
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -26313,7 +27334,7 @@ ab
 ab
 ab
 ab
-ab
+af
 ab
 ab
 ab
@@ -26450,13 +27471,6 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 af
 af
 af
@@ -26475,34 +27489,9 @@ af
 af
 af
 af
-ab
-ab
-ab
-ab
-ab
-ab
-aj
-ap
-ar
-aw
-ay
-aj
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
+af
 af
 af
 af
@@ -26516,6 +27505,38 @@ ab
 ab
 ab
 ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+fb
+zS
+af
+af
+af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+af
+af
 ab
 ab
 ab
@@ -26655,9 +27676,6 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
 af
 af
 af
@@ -26677,18 +27695,21 @@ af
 af
 af
 af
+af
+af
+af
 ab
 ab
 ab
 ab
 ab
 ab
-aj
-aj
-aj
-aj
-aj
-aj
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -26707,16 +27728,16 @@ ab
 ab
 af
 af
+aS
+aS
+ab
+ab
+ab
+ab
 af
+ab
+ab
 af
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
 ab
 ab
 ab
@@ -26857,7 +27878,6 @@ ab
 ab
 ab
 ab
-ab
 af
 af
 af
@@ -26879,6 +27899,7 @@ af
 af
 af
 af
+af
 ab
 ab
 ab
@@ -26909,16 +27930,16 @@ af
 af
 af
 af
+aS
+aS
+af
+aS
+ab
 af
 af
 af
-be
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
 ab
 ab
 ab
@@ -27059,50 +28080,12 @@ ab
 ab
 ab
 ab
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+af
+af
+af
+af
+af
+af
 af
 af
 af
@@ -27121,6 +28104,44 @@ af
 af
 ab
 ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+fb
+ab
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+af
+aZ
+aZ
+aZ
 ab
 ab
 ab
@@ -27262,28 +28283,28 @@ ab
 ab
 aa
 aa
+af
+af
+af
 aa
 aa
 aa
 aa
 aa
 aa
+af
+af
+af
+af
+af
+af
+af
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
 ab
 ab
 ab
@@ -27303,6 +28324,7 @@ af
 af
 af
 af
+ZQ
 af
 af
 af
@@ -27314,16 +28336,15 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+Ua
+Ua
+Ua
+Ua
+Ua
+wb
+jI
+aZ
+ab
 ab
 ab
 ab
@@ -27474,19 +28495,19 @@ aa
 aa
 aa
 aa
-aa
-SY
-aa
-aa
-aa
-aa
-aa
+af
+af
+af
+af
+af
 aa
 aa
 aa
 aa
-aa
-aa
+af
+af
+af
+af
 ab
 ab
 ab
@@ -27517,16 +28538,16 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+Ua
+Ua
+Ua
+Ua
+Ua
+wb
+WX
+aZ
+ab
+ab
 ab
 ab
 ab
@@ -27685,20 +28706,17 @@ aa
 aa
 aa
 aa
+af
+af
+af
+af
+af
 aa
 aa
 aa
 aa
 aa
 aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
-aa
 af
 af
 af
@@ -27722,14 +28740,17 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
+Ua
+hK
+Ua
+Ua
+Ua
+OC
+Hv
+aZ
+ab
+ab
+ab
 ab
 ab
 ab
@@ -27899,9 +28920,6 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
 af
 af
 af
@@ -27910,29 +28928,32 @@ af
 af
 af
 af
+ab
+ab
 af
 af
 af
 af
 af
 af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+fb
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+aZ
+aZ
+aZ
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -28102,40 +29123,40 @@ aa
 aa
 aa
 aa
-aa
-aa
 af
 af
 af
 af
 af
 af
+ab
+ab
+ab
+af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+dT
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -28304,40 +29325,40 @@ aa
 aa
 aa
 aa
-aa
-aa
+af
+ol
 af
 af
 af
 af
+ab
+ab
+ab
+af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -28506,40 +29527,40 @@ aa
 aa
 aa
 aa
-aa
-aa
+ib
+aZ
 af
 af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -28709,39 +29730,39 @@ aa
 aa
 aa
 aa
-aa
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -28915,35 +29936,35 @@ aa
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -29119,34 +30140,34 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -29321,34 +30342,34 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -29523,34 +30544,34 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -29725,34 +30746,34 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-cb
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+zb
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -29927,34 +30948,34 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+zb
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -30129,34 +31150,34 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -30331,34 +31352,34 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -30532,35 +31553,35 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -30733,35 +31754,35 @@ aa
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -30935,35 +31956,35 @@ aa
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -31117,7 +32138,6 @@ aa
 aa
 aa
 aa
-db
 aa
 aa
 aa
@@ -31134,38 +32154,39 @@ aa
 aa
 aa
 aa
+aa
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -31341,32 +32362,32 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -31543,32 +32564,32 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+zb
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -31745,31 +32766,31 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+zb
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -31947,30 +32968,30 @@ af
 af
 af
 af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+zb
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -32147,31 +33168,31 @@ aa
 af
 ab
 ab
+zb
+zb
 ab
 ab
 ab
 ab
 ab
 ab
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -32359,13 +33380,13 @@ ab
 ab
 ab
 ab
-af
-af
-af
-af
-af
-af
-af
+ab
+ab
+ab
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -32562,10 +33583,10 @@ ab
 ab
 ab
 ab
-af
-af
-af
-af
+ab
+ab
+ab
+ab
 ab
 ab
 ab
@@ -32889,7 +33910,7 @@ aa
 aa
 aa
 aa
-eb
+aa
 aa
 aa
 aa
@@ -33340,10 +34361,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
+zb
+zb
+zb
+zb
 ab
 ab
 ab
@@ -33543,13 +34564,13 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
-ab
-ab
+zb
+zb
+zb
+zb
+zb
+zb
+zb
 ab
 ab
 ab
@@ -33746,12 +34767,12 @@ ab
 ab
 ab
 ab
+zb
+zb
+zb
+zb
 ab
-ab
-ab
-ab
-ab
-ab
+zb
 ab
 ab
 ab
@@ -33948,10 +34969,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
+zb
+zb
+zb
+zb
 ab
 ab
 ab
@@ -34151,9 +35172,9 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
+zb
+zb
+zb
 ab
 ab
 ab
@@ -34353,11 +35374,11 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
-ab
+zb
+zb
+zb
+zb
+zb
 ab
 ab
 ab
@@ -34555,10 +35576,10 @@ ab
 ab
 ab
 ab
-ab
-ab
-ab
-ab
+zb
+zb
+zb
+zb
 ab
 ab
 ab
