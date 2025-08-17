@@ -2,7 +2,24 @@
 // Generic undergrowth //
 //*********************//
 
-/obj/structure/bush //time to rewrite this shit
+/obj/structure/flora/bush // Jungle Bushes
+	name = "foliage"
+	desc = "A dense overgrown shrub."
+	icon = 'icons/urist/jungle/plants.dmi'
+	icon_state = "bushnew1" //FUCKED UP THE ICON STATE, EVERYTHING IS MUSHROOMS
+//	density = TRUE
+	anchored = TRUE
+	atom_flags = ATOM_FLAG_CLIMBABLE
+
+
+/obj/structure/flora/bush/Initialize()
+	. = ..()
+	var/state = rand(3)
+	if (state)
+		icon_state = "[initial(icon_state)]_[state]"
+
+
+/obj/structure/bush //time to rewrite this shit - It has been done, god willing. - Lania
 	name = "foliage"
 	desc = "Pretty thick scrub, it'll take something sharp and a lot of determination to clear away."
 	icon = 'icons/urist/jungle/plants.dmi'
