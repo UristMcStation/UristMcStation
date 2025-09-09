@@ -85,7 +85,8 @@
 		/obj/item/reagent_containers/glass,
 		/obj/item/storage/pill_bottle,
 		/obj/item/reagent_containers/pill,
-		/obj/item/reagent_containers/ivbag
+		/obj/item/reagent_containers/ivbag,
+		/obj/item/reagent_containers/hypospray
 	)
 
 /obj/machinery/smartfridge/secure/virology
