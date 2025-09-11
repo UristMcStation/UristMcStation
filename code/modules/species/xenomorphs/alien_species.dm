@@ -2,71 +2,66 @@
 /singleton/species/xenos
 	name = SPECIES_XENO
 	name_plural = "Xenophages"
-
-	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
-	hud_type = /datum/hud_data/alien
-	rarity_value = 3
-	health_hud_intensity = 1
-
+	blood_color = "#05ee05"
+	base_color =  "#00060c"
+	flesh_color = "#282846"
+	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE | SPECIES_FLAG_NO_LACE
+	spawn_flags = SPECIES_IS_RESTRICTED
+	appearance_flags = SPECIES_APPEARANCE_HAS_EYE_COLOR | SPECIES_APPEARANCE_HAS_SKIN_COLOR
+	vision_flags = SEE_SELF|SEE_MOBS
+	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
+	speech_chance = 100
+	death_message = "lets out a waning guttural screech, green blood bubbling from its maw."
+	death_sound = 'sound/voice/hiss6.ogg'
+	knockout_message = "collapses, looking as if it had been knocked unconscious."
+	brute_mod =     0.75 // Hardened carapace.
+	burn_mod =      0.75 // ~~Weak to fire.~~ scratch that, we :original_character: now
+	oxy_mod =      0 // no o2 needed
+	radiation_mod = 0    // No feasible way of curing radiation.
+	stun_mod =      0.5  // Halved stun times.
+	weaken_mod =    0    // Cannot be weakened.
+	flash_mod =     0    // Denied.
+	paralysis_mod = 0.25 // Quartered paralysis times.
+	show_coma = null
 	slowdown = -2
+	warning_low_pressure = 50
+	hazard_low_pressure = -1
+	breath_type = null
+	poison_types = null
+	cold_level_1 = 50
+	cold_level_2 = -1
+	cold_level_3 = -1
+	hidden_from_codex = TRUE
 
+
+// Additional Stats
 	natural_armour_values = list(melee = 30, bullet = 15, laser = 25, energy = 30, bomb = 30, bio = 100, rad = 100)
-
-	icon_template = 'icons/mob/human_races/species/xenos/template.dmi'
-
-	// temp until someone who isn't me makes some for this icon set
-	damage_overlays = null
-	damage_mask =     null
-	blood_mask =      null
-	// end temp
-
-	pixel_offset_x = -16
+	unarmed_types = list(/datum/unarmed_attack/claws/strong, /datum/unarmed_attack/bite/strong)
 	has_fine_manipulation = 0
 	siemens_coefficient = 0
 	gluttonous = GLUT_ANYTHING
 	stomach_capacity = MOB_MEDIUM
 
-	brute_mod =     0.75 // Hardened carapace.
-	burn_mod =      0.75 // ~~Weak to fire.~~ scratch that, we :original_character: now
-	radiation_mod = 0    // No feasible way of curing radiation.
-	flash_mod =     0    // Denied.
-	stun_mod =      0.5  // Halved stun times.
-	paralysis_mod = 0.25 // Quartered paralysis times.
-	weaken_mod =    0    // Cannot be weakened.
 
-	warning_low_pressure = 50
-	hazard_low_pressure = -1
+// HUD
+	hud_type = /datum/hud_data/alien
+	health_hud_intensity = 1
 
-	cold_level_1 = 50
-	cold_level_2 = -1
-	cold_level_3 = -1
-
-	species_flags = SPECIES_FLAG_NO_MINOR_CUT | SPECIES_FLAG_NO_SCAN | SPECIES_FLAG_NO_PAIN | SPECIES_FLAG_NO_SLIP | SPECIES_FLAG_NO_POISON | SPECIES_FLAG_NO_EMBED | SPECIES_FLAG_NO_TANGLE
-	appearance_flags = SPECIES_APPEARANCE_HAS_EYE_COLOR | SPECIES_APPEARANCE_HAS_SKIN_COLOR
-
-	spawn_flags = SPECIES_IS_RESTRICTED
-
+// Icons
+	icon_template = 'icons/mob/human_races/species/xenos/template.dmi'
+	damage_overlays = null
+	damage_mask =     null
+	blood_mask =      null
+	// temp until someone who isn't me makes some for this icon set
+	pixel_offset_x = -16
 	darksight_range = 7
 	darksight_tint = "#bbbbbb" // effectively night vision except you can tell which areas are dark
-
 	move_trail = /obj/decal/cleanable/blood/tracks/body
-
-	blood_color = "#05ee05"
-	flesh_color = "#282846"
-	base_color =  "#00060c"
-
 	gibbed_anim = "gibbed-a"
 	dusted_anim = "dust-a"
-	death_message = "lets out a waning guttural screech, green blood bubbling from its maw."
-	death_sound = 'sound/voice/hiss6.ogg'
 
-	speech_sounds = list('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
-	speech_chance = 100
 
-	breath_type = null
-	poison_types = null
-
-	vision_flags = SEE_SELF|SEE_MOBS
+// Organs & Limbs
 
 	has_organ = list(
 		BP_EYES =     /obj/item/organ/internal/eyes/xeno,
@@ -126,6 +121,7 @@
 
 /singleton/species/xenos/handle_post_spawn(mob/living/carbon/human/H)
 
+	H.mutations |= MUTATION_FERAL
 	H.faction = "alien"
 	if(H.mind)
 		H.mind.reset()
@@ -240,11 +236,13 @@
 
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
+		/mob/living/carbon/human/proc/pry_open,
 		/mob/living/carbon/human/proc/plant,
 		/mob/living/carbon/human/proc/transfer_plasma,
 		/mob/living/carbon/human/proc/evolve,
 		/mob/living/carbon/human/proc/resin,
-		/mob/living/carbon/human/proc/corrosive_acid
+		/mob/living/carbon/human/proc/corrosive_acid,
+		/mob/living/carbon/human/proc/psychic_whisper
 		)
 
 /singleton/species/xenos/drone/handle_post_spawn(mob/living/carbon/human/H)
@@ -282,7 +280,8 @@
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
 		/mob/living/carbon/human/proc/pry_open,
-		/mob/living/carbon/human/proc/psychic_whisper
+		/mob/living/carbon/human/proc/psychic_whisper,
+		/mob/living/carbon/human/proc/transfer_plasma,
 		)
 
 	force_cultural_info = list(
@@ -315,6 +314,7 @@
 
 	inherent_verbs = list(
 		/mob/living/proc/ventcrawl,
+		/mob/living/carbon/human/proc/psychic_whisper,
 		/mob/living/carbon/human/proc/transfer_plasma,
 		/mob/living/carbon/human/proc/corrosive_acid,
 		/mob/living/carbon/human/proc/neurotoxin
