@@ -17,11 +17,8 @@
 	},
 /area/yacht/bridge)
 "ae" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/monotile,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
 /area/yacht/bridge)
 "af" = (
 /obj/shuttle_landmark/nav_yacht/nav2,
@@ -35,73 +32,80 @@
 /turf/simulated/wall/titanium,
 /area/yacht/bridge)
 "ai" = (
+/obj/decal/cleanable/dirt,
 /obj/machinery/computer/ship/helm,
-/turf/simulated/floor/tiled/monotile,
+/turf/simulated/floor/wood/walnut,
 /area/yacht/bridge)
 "aj" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/monotile,
+/turf/simulated/floor/wood/walnut,
 /area/yacht/bridge)
 "ak" = (
-/obj/structure/bed/chair/comfy/captain{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/monotile,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/bed/chair/comfy/captain,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
 /area/yacht/bridge)
 "al" = (
 /obj/machinery/computer/ship/engines{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/monotile,
+/turf/simulated/floor/wood/walnut,
 /area/yacht/bridge)
 "am" = (
-/obj/item/reagent_containers/food/drinks/bottle/small/beer,
-/turf/simulated/floor/beach/water/ocean,
-/area/yacht/living)
+/obj/item/material/folder/blue,
+/obj/item/form_printer,
+/obj/structure/table/woodentable,
+/obj/item/reagent_containers/food/drinks/glass2/coffeecup,
+/obj/item/newspaper,
+/obj/spider/stickyweb,
+/obj/decal/cleanable/dirt,
+/obj/random/energy,
+/obj/item/paper{
+	info = "I used up all of my energy. I am hopelessly lost. This ship has become my grave. They did it. The intelligence agency that no one ever talks about. Sol Gov wanted their revenge, and they got it. They easily could have killed me on my ship, or tortured me, but they knew that floating here through space would be the worst possible torture. "
+	},
+/turf/simulated/floor/wood/walnut,
+/area/yacht/bridge)
 "an" = (
-/obj/machinery/hologram/holopad/longrange,
-/turf/simulated/floor/tiled/monotile,
+/mob/living/simple_animal/hostile/giant_spider/spitter,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
 /area/yacht/bridge)
 "ao" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/table/steel_reinforced,
-/obj/item/form_printer,
-/obj/item/material/folder/blue,
-/turf/simulated/floor/tiled/monotile,
+/obj/decal/cleanable/dirt,
+/obj/random/maintenance/clean,
+/turf/simulated/floor/wood/walnut,
 /area/yacht/bridge)
 "ap" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/table/rack/steel,
-/obj/item/clothing/suit/space/void,
-/obj/item/clothing/head/helmet/space/void,
-/obj/item/clothing/mask/breath/scba,
-/obj/item/tank/oxygen_emergency,
-/obj/catwalk_plated/dark,
-/turf/simulated/floor{
-	map_airless = 1
-	},
+/obj/structure/filingcabinet/chestdrawer,
+/obj/decal/cleanable/cobweb2,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
 /area/yacht/bridge)
 "aq" = (
-/obj/structure/displaycase,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/safe,
+/obj/item/reagent_containers/pill/cyanide,
+/obj/item/rig/medical/equipped,
 /obj/item/gun/energy/captain,
-/turf/simulated/floor/tiled/monotile,
+/obj/spider/stickyweb,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
 /area/yacht/bridge)
 "ar" = (
 /obj/machinery/alarm{
 	dir = 1;
 	pixel_y = -22
 	},
-/obj/catwalk_plated,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor{
-	map_airless = 1
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
 /area/yacht/bridge)
 "as" = (
 /obj/structure/cable{
@@ -109,48 +113,35 @@
 	d1 = 2;
 	d2 = 4
 	},
-/obj/catwalk_plated,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/turf/simulated/floor{
-	map_airless = 1
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
 /area/yacht/bridge)
 "at" = (
 /obj/structure/cable{
-	icon_state = "4-8";
-	d1 = 4;
+	icon_state = "0-8";
 	d2 = 8
 	},
-/obj/catwalk_plated,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+/obj/machinery/power/apc{
+	name = "Yacht bridge";
+	pixel_y = -24
 	},
-/turf/simulated/floor{
-	map_airless = 1
-	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
 /area/yacht/bridge)
 "au" = (
-/obj/machinery/light,
-/obj/machinery/door/window/westleft,
-/obj/structure/cable{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
 	},
-/obj/catwalk_plated/dark,
-/turf/simulated/floor{
-	map_airless = 1
-	},
+/obj/structure/reagent_dispensers/water_cooler,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
 /area/yacht/bridge)
 "av" = (
-/obj/floor_decal/corner/green/diagonal,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/obj/item/storage/mirror,
+/turf/simulated/wall/walnut,
 /area/yacht/living)
 "aw" = (
 /obj/structure/cable{
@@ -161,39 +152,35 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/silver,
-/turf/simulated/floor/wood/walnut,
+/turf/simulated/floor/wood/yew,
 /area/yacht/bridge)
 "ax" = (
 /turf/simulated/wall/walnut,
 /area/yacht/bridge)
 "ay" = (
-/obj/floor_decal/corner/green/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled,
+/obj/structure/disposalpipe/segment{
+	icon_state = "pipe-c";
+	dir = 4
+	},
+/turf/simulated/wall/walnut,
 /area/yacht/living)
 "az" = (
 /obj/structure/disposalpipe/segment{
-	icon_state = "pipe-c";
 	dir = 4
 	},
 /turf/simulated/wall/titanium,
 /area/yacht/living)
 "aA" = (
-/obj/decal/cleanable/ash,
-/obj/decal/cleanable/blood/oil/streak,
-/obj/decal/cleanable/generic,
-/obj/decal/cleanable/molten_item,
-/obj/structure/cable{
-	icon_state = "0-2";
-	pixel_y = 1;
-	d2 = 2
+/obj/structure/disposalpipe/trunk{
+	dir = 8
 	},
-/obj/decal/cleanable/dirt,
-/obj/landmark/scorcher,
+/obj/structure/disposaloutlet{
+	dir = 4
+	},
 /turf/simulated/floor{
 	map_airless = 1
 	},
-/area/yacht/engine)
+/area/yacht/living)
 "aB" = (
 /turf/simulated/wall/titanium,
 /area/yacht/living)
@@ -201,8 +188,7 @@
 /obj/structure/hygiene/shower{
 	pixel_y = 20
 	},
-/obj/item/towel/random,
-/obj/structure/curtain/open/shower,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
 /area/yacht/living)
 "aE" = (
@@ -213,33 +199,47 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/wood/walnut,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "aF" = (
-/obj/item/stool/bar,
-/turf/simulated/floor/wood/walnut,
+/obj/structure/bed/chair/wood/wings{
+	dir = 4
+	},
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "aG" = (
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/machinery/vending/boozeomat,
-/obj/floor_decal/corner/green/diagonal,
+/obj/structure/table/marble,
+/obj/item/trash/snack_bowl,
+/obj/machinery/reagentgrinder/juicer,
+/obj/item/reagent_containers/glass/beaker/large,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/obj/item/paper{
+	info = "Tonight I woke up to a sound I hoped to have never heard, a small explosion. I rushed to the bridge to diagnose the damage and saw the worst possible news. My solar tracker is gone, and so is the fucking computer. No way to override the settings now, because the assholes EMPd  the computer. No way to charge my SMES reliably, and no way to heat the fuel. I am stuck in the water! Unheated, this gas will not be enough to get absolutely anywhere near a port. This is bad. Real bad. The current charge on SMES is 20 percent, so I'll just try and orient the ship to hit the current star at maximum efficiency so we will charge at 100, and maybe make it to the next solar system. The next port is in the orbit of a Gas giant named Duma. Maybe I can dock there and repair my array. I freaking knew I needed to get a generator. I spent all of the money the Terrans gave me, and this piece of shit is all I could get.  "
+	},
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "aH" = (
-/obj/floor_decal/corner/green/diagonal,
-/obj/item/trash/carpegg,
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/turf/simulated/floor/wood/yew,
+/area/yacht/living)
+"aI" = (
+/obj/item/towel/random,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/freezer,
 /area/yacht/living)
 "aJ" = (
 /obj/structure/hygiene/toilet{
 	dir = 8
 	},
-/obj/machinery/light/small,
-/obj/item/newspaper,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
 /area/yacht/living)
 "aK" = (
@@ -253,190 +253,218 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/wood/walnut,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "aL" = (
-/mob/living/bot/farmbot,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "aM" = (
-/obj/floor_decal/corner/green/diagonal,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/vending/dinnerware,
+/obj/structure/table/marble,
+/obj/item/pizzabox/vegetable,
+/obj/item/reagent_containers/glass/rag,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood/yew,
+/area/yacht/living)
+"aN" = (
+/obj/decal/cleanable/dirt,
+/obj/random/junk,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "aO" = (
-/obj/floor_decal/corner/green/diagonal,
-/obj/random/junk,
-/turf/simulated/floor/tiled,
+/obj/machinery/vending/wallmed1,
+/turf/simulated/wall/titanium,
 /area/yacht/living)
 "aP" = (
 /obj/machinery/door/airlock/silver,
-/obj/random/soap,
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/wood,
 /area/yacht/living)
 "aQ" = (
 /obj/structure/table/marble,
+/obj/item/deck/cards,
+/obj/item/dice,
 /obj/decal/cleanable/dirt,
-/obj/floor_decal/corner/green/diagonal,
-/obj/item/reagent_containers/food/drinks/pitcher{
-	pixel_x = -6
-	},
-/obj/item/reagent_containers/food/drinks/glass2/coffeecup{
-	pixel_x = 7
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "aR" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/decal/cleanable/blood/gibs/robot/up,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/wood/walnut,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "aS" = (
-/obj/floor_decal/corner/green/diagonal,
 /obj/structure/table/marble,
-/obj/machinery/reagentgrinder/juicer,
-/obj/item/reagent_containers/glass/beaker,
-/turf/simulated/floor/tiled,
+/obj/machinery/microwave,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "aT" = (
 /obj/decal/cleanable/cobweb,
-/obj/structure/closet/wardrobe,
-/obj/item/clothing/under/lawyer/oldman,
-/obj/item/clothing/suit/storage/det_trench/grey,
-/obj/item/cane,
-/turf/simulated/floor/carpet/blue,
+/obj/spider/stickyweb,
+/turf/simulated/floor/carpet/blue2,
 /area/yacht/living)
 "aU" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/carpet/blue,
+/mob/living/simple_animal/hostile/giant_spider/hunter,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/decal/cleanable/blood/drip,
+/obj/spider/stickyweb,
+/turf/simulated/floor/wood/walnut,
 /area/yacht/living)
 "aV" = (
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 1
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/decal/cleanable/blood/drip,
+/obj/spider/stickyweb,
 /turf/simulated/floor/wood/walnut,
 /area/yacht/living)
 "aW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/closet/walllocker/emerglocker/north,
 /obj/decal/cleanable/blood/drip,
-/obj/item/ammo_casing/pistol/used,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/carpet/blue,
+/obj/machinery/door/airlock/silver,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "aX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
 	d2 = 2
 	},
-/turf/simulated/floor/wood/walnut,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "aY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10;
-	icon_state = "intact-scrubbers"
+	dir = 4
 	},
-/turf/simulated/floor/wood/walnut,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "aZ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /obj/structure/table/marble,
+/obj/item/book/manual/chef_recipes,
+/obj/item/reagent_containers/food/drinks/pitcher,
 /obj/decal/cleanable/dirt,
-/obj/floor_decal/corner/green/diagonal,
-/obj/item/reagent_containers/food/condiment/small/saltshaker{
-	pixel_x = -9
+/obj/random/drinkbottle,
+/turf/simulated/floor/wood/yew,
+/area/yacht/living)
+"ba" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
-/obj/item/reagent_containers/food/condiment/small/peppermill{
-	pixel_x = -3;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/food/snacks/old/burger{
-	pixel_x = 6
-	},
-/turf/simulated/floor/tiled,
+/obj/decal/cleanable/blood/gibs/robot/down,
+/obj/decal/cleanable/blood/gibs/robot/up,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "bb" = (
-/obj/floor_decal/corner/green/diagonal,
-/obj/structure/table/marble,
-/obj/machinery/reagent_temperature,
-/turf/simulated/floor/tiled,
+/obj/machinery/light{
+	icon_state = "tube1";
+	dir = 4
+	},
+/obj/machinery/vending/dinnerware,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "bc" = (
-/obj/structure/bed/nice,
-/obj/item/bedsheet/brown,
-/turf/simulated/floor/carpet/blue,
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/obj/spider/stickyweb,
+/turf/simulated/floor/carpet/blue2,
 /area/yacht/living)
 "bd" = (
+/obj/spider/stickyweb,
 /turf/simulated/floor/wood/walnut,
 /area/yacht/living)
 "bf" = (
-/obj/structure/bed/chair/comfy/red{
-	dir = 8
-	},
-/obj/decal/cleanable/blood/drip,
-/obj/decal/cleanable/blood/splatter,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/turf/simulated/floor/carpet/blue,
+/obj/decal/cleanable/blood/gibs/robot/limb,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "bg" = (
-/obj/floor_decal/corner/green/diagonal,
-/obj/structure/table/marble,
-/obj/machinery/reagentgrinder,
+/obj/structure/closet/fridge,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood/yew,
+/area/yacht/living)
+"bh" = (
+/obj/structure/cable{
+	icon_state = "1-2";
+	d1 = 1;
+	d2 = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/spider/stickyweb,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "bk" = (
 /obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/plating,
 /area/yacht/living)
 "bl" = (
-/obj/item/paper{
-	info = "I used up all of my energy. I am hopelessly lost. This ship has become my grave. They did it. The intelligence agency that no one ever talks about. Sol Gov wanted their revenge, and they got it. They easily could have killed me on my ship, or tortured me, but they knew that floating here through space would be the worst possible torture. "
+/obj/machinery/light{
+	dir = 8
 	},
-/turf/space,
-/area/space)
+/obj/spider/stickyweb,
+/turf/simulated/floor/beach/water/ocean,
+/area/yacht/living)
+"bm" = (
+/obj/spider/stickyweb,
+/turf/simulated/floor/beach/water/ocean,
+/area/yacht/living)
 "bn" = (
+/obj/spider/stickyweb,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/freezer,
 /area/yacht/living)
 "bo" = (
-/obj/decal/cleanable/blood/drip,
-/obj/item/stack/medical/bruise_pack/makeshift_bandage,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/blue,
+/obj/machinery/door/airlock/silver,
+/turf/simulated/floor/tiled/freezer,
 /area/yacht/living)
 "bp" = (
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/wood/walnut,
+/obj/item/paper{
+	info = "I have accepted my fate. I will go into EVA with one of the cyanide pills in my mouth, and I will float off. I want a military funeral, and I will arrange it myself. Good bye all. I have earned and sealed my fate. "
+	},
+/turf/simulated/floor/wood/yew,
+/area/yacht/living)
+"bq" = (
+/obj/structure/bookcase,
+/turf/simulated/floor/carpet/purple,
 /area/yacht/living)
 "br" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1;
-	icon_state = "map_scrubber_on"
+/obj/machinery/light/small{
+	dir = 1
 	},
-/turf/simulated/floor/wood/walnut,
+/obj/structure/bookcase,
+/turf/simulated/floor/carpet/purple,
 /area/yacht/living)
 "bs" = (
 /obj/item/inflatable_duck,
+/obj/spider/stickyweb,
 /turf/simulated/floor/beach/water/ocean,
 /area/yacht/living)
 "bt" = (
@@ -444,50 +472,31 @@
 	icon_state = "tube1";
 	dir = 4
 	},
-/obj/decal/cleanable/blood/gibs/robot/down,
-/turf/simulated/floor/wood/walnut,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "bu" = (
-/obj/machinery/power/solar,
-/turf/space,
-/area/space)
+/turf/simulated/floor/carpet/purple,
+/area/yacht/living)
 "bv" = (
-/obj/structure/cable{
-	icon_state = "0-2";
-	dir = 4;
-	d1 = 16;
-	d2 = 0
-	},
-/obj/floor_decal/solarpanel,
-/obj/machinery/power/solar,
-/turf/simulated/floor{
-	map_airless = 1
-	},
-/area/yacht/engine)
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/carpet/purple,
+/area/yacht/living)
 "bw" = (
-/obj/structure/lattice,
-/turf/space,
-/area/yacht/engine)
+/obj/structure/bed/chair/comfy/red{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/purple,
+/area/yacht/living)
 "bx" = (
 /turf/simulated/floor/beach/water/ocean,
 /area/yacht/living)
+"by" = (
+/mob/living/simple_animal/hostile/giant_spider/hunter,
+/turf/simulated/floor/beach/water/ocean,
+/area/yacht/living)
 "bz" = (
-/obj/item/clothing/under/swimsuit/black,
-/obj/item/clothing/under/swimsuit/blue,
-/obj/item/clothing/under/swimsuit/green,
-/obj/item/clothing/under/swimsuit/purple,
-/obj/item/clothing/under/swimsuit/red,
-/obj/item/clothing/under/shorts,
-/obj/item/clothing/under/shorts/black,
-/obj/item/clothing/under/shorts/blue,
-/obj/item/clothing/under/shorts/green,
-/obj/item/clothing/under/shorts/grey,
 /obj/decal/cleanable/dirt,
-/obj/structure/closet/walllocker{
-	pixel_y = 32
-	},
-/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
-/obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /turf/simulated/floor/tiled/freezer,
 /area/yacht/living)
 "bA" = (
@@ -502,7 +511,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor/wood/walnut,
+/obj/spider/stickyweb,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "bB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -511,7 +522,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/wood/walnut,
+/obj/spider/stickyweb,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "bC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -521,15 +534,52 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/silver,
-/turf/simulated/floor/tiled/freezer,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "bD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/purple,
+/area/yacht/living)
+"bE" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/purple,
+/area/yacht/living)
+"bF" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/item/storage/bible,
+/obj/item/pen/blue,
+/obj/structure/table/woodentable,
 /obj/item/paper{
 	info = "Let me introduce myself. My name is Commander Archibald McKinley, although the Fleet fucks think that I do not deserve the title. Well, fuck them. They accused me of facilitating a destruction of the ship I was CO of. A small missile cruiser, with zero to fucking none point defenses was attacked, and they  first accuse me of escaping before any of my crew. What kind of person wouldn't expect someone to escape when their ship is on fire? It's lunacy. But it only got worse. Then they said that I helped the Terrans take the ship. Well fuck them, they are wrong. That's non sense. I have no connection to the Terrans. They said that I got a large sum of money from them in order to betray my ship's position, which is once again total nonsense. I've got about 20 years of life left here, and I know that I will be safe with my ship here. I need to resupply once every 5 years, given how much food and fuel I have, and I've got enough range to go to pretty much any known part of the galaxy, in complete silence, as we are totally solar powered. I wish I could afford ion thrusters to not have to rely on gas for propulsion, but, our gas heaters should provide us with enough pressure to get anywhere in relative decent speed. Also, I got a robot butler who cooks delicious food for me! No more crappy lance corporal food, eh"
 	},
-/turf/space,
-/area/space)
-"bE" = (
+/obj/item/device/flashlight/lamp/green,
+/turf/simulated/floor/carpet/purple,
+/area/yacht/living)
+"bG" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/beach/water/ocean,
+/area/yacht/living)
+"bI" = (
+/obj/machinery/light,
+/obj/item/clothing/shoes/swimmingfins,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/freezer,
+/area/yacht/living)
+"bJ" = (
 /obj/structure/cable{
 	icon_state = "1-2";
 	d1 = 1;
@@ -537,36 +587,26 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
+/obj/decal/cleanable/blood/gibs/robot/limb,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
-"bF" = (
-/obj/item/clothing/shoes/swimmingfins,
-/turf/simulated/floor/beach/water/ocean,
-/area/yacht/living)
-"bG" = (
-/obj/structure/table/woodentable/walnut,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/item/storage/box/survivalkit,
-/obj/item/reagent_containers/pill/cyanide,
-/turf/simulated/floor/carpet/blue,
-/area/yacht/living)
-"bI" = (
-/obj/structure/bookcase,
-/obj/item/storage/bible,
-/obj/item/book/manual/robotics_cyborgs,
-/turf/simulated/floor/carpet/blue,
+"bK" = (
+/obj/decal/cleanable/blood/gibs/robot/down,
+/obj/decal/cleanable/dirt,
+/obj/machinery/floodlight,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "bL" = (
-/obj/machinery/light,
-/obj/structure/reagent_dispensers/beerkeg,
-/turf/simulated/floor/tiled/freezer,
+/obj/machinery/light/small,
+/obj/structure/filingcabinet,
+/turf/simulated/floor/carpet/purple,
 /area/yacht/living)
 "bM" = (
-/obj/item/plastique,
-/turf/space,
-/area/yacht/engine)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/carpet/purple,
+/area/yacht/living)
 "bN" = (
 /turf/simulated/wall/titanium,
 /area/yacht/engine)
@@ -580,7 +620,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/decal/cleanable/blood/gibs/robot/down,
 /obj/machinery/door/airlock/silver,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "bP" = (
 /turf/simulated/wall/walnut,
@@ -637,26 +677,30 @@
 /turf/simulated/floor/plating,
 /area/yacht/engine)
 "bW" = (
-/obj/machinery/seed_storage/garden,
+/obj/item/extinguisher,
+/obj/machinery/portable_atmospherics/hydroponics,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/monotile,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "bX" = (
-/obj/item/extinguisher,
-/turf/simulated/floor/tiled,
+/obj/machinery/vending/hydronutrients,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "bY" = (
+/obj/machinery/seed_storage/garden,
 /obj/decal/cleanable/dirt,
-/obj/machinery/vending/hydronutrients,
-/turf/simulated/floor/tiled/monotile,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "bZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor/plating,
 /area/yacht/engine)
 "ca" = (
 /obj/structure/closet/kitchen,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/yacht/engine)
 "cb" = (
@@ -667,19 +711,19 @@
 /area/yacht/engine)
 "cc" = (
 /obj/structure/cable{
-	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "0-2";
+	d2 = 2
 	},
-/obj/floor_decal/solarpanel,
 /obj/machinery/power/solar,
+/obj/floor_decal/solarpanel,
 /turf/simulated/floor{
 	map_airless = 1
 	},
 /area/yacht/engine)
 "cd" = (
-/obj/structure/janitorialcart,
+/obj/structure/closet/crate/hydroponics,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/monotile,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "ce" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -720,7 +764,7 @@
 	dir = 4
 	},
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "cj" = (
 /obj/structure/cable{
@@ -732,18 +776,20 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "ck" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "cl" = (
-/obj/structure/reagent_dispensers/watertank,
+/obj/structure/janitorialcart,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/monotile,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "cm" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -767,60 +813,103 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 4
 	},
+/obj/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/powered/pump,
 /turf/simulated/floor/plating,
 /area/yacht/engine)
-"cr" = (
+"cp" = (
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
+	icon_state = "0-2";
+	dir = 4;
+	d1 = 16;
+	d2 = 0
 	},
-/obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/obj/decal/cleanable/dirt,
-/obj/landmark/scorcher,
+/obj/decal/cleanable/ash,
+/obj/decal/cleanable/blood/oil/streak,
+/obj/decal/cleanable/generic,
+/obj/decal/cleanable/molten_item,
 /turf/simulated/floor{
 	map_airless = 1
 	},
 /area/yacht/engine)
-"cs" = (
-/obj/decal/cleanable/blood/drip,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4;
-	level = 2
-	},
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/carpet/blue,
-/area/yacht/living)
-"ct" = (
+"cq" = (
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
 	},
 /obj/structure/cable{
 	icon_state = "2-4";
 	d1 = 2;
 	d2 = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	d1 = 1;
+	d2 = 8
+	},
+/obj/item/stock_parts/circuitboard/broken,
+/turf/simulated/floor{
+	map_airless = 1
+	},
+/area/yacht/engine)
+"cr" = (
+/obj/structure/cable{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/structure/cable{
+	icon_state = "2-4";
+	d1 = 2;
+	d2 = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	d1 = 1;
+	d2 = 8
+	},
+/obj/item/storage/toolbox/syndicate,
+/turf/simulated/floor{
+	map_airless = 1
+	},
+/area/yacht/engine)
+"cs" = (
+/obj/structure/cable{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/structure/cable{
+	icon_state = "2-4";
+	d1 = 2;
+	d2 = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	d1 = 1;
+	d2 = 8
+	},
+/obj/item/plastique,
+/turf/simulated/floor{
+	map_airless = 1
+	},
+/area/yacht/engine)
+"ct" = (
+/obj/structure/cable{
+	icon_state = "4-8";
+	d1 = 4;
+	d2 = 8
+	},
+/obj/structure/cable{
+	icon_state = "2-4";
+	d1 = 2;
+	d2 = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8";
+	d1 = 1;
+	d2 = 8
 	},
 /turf/simulated/floor{
 	map_airless = 1
@@ -845,17 +934,24 @@
 	pixel_x = -24
 	},
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/tiled/monotile,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "cD" = (
+/mob/living/bot/farmbot,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/item/shovel/spade,
-/turf/simulated/floor/tiled,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
+/area/yacht/living)
+"cE" = (
+/obj/spider/stickyweb,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "cF" = (
-/obj/machinery/portable_atmospherics/hydroponics,
+/obj/structure/reagent_dispensers/watertank,
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/monotile,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "cG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -881,20 +977,9 @@
 	},
 /area/yacht/engine)
 "cL" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
+/obj/structure/cable,
+/obj/machinery/power/solar,
+/obj/floor_decal/solarpanel,
 /turf/simulated/floor{
 	map_airless = 1
 	},
@@ -906,6 +991,7 @@
 /area/yacht/engine)
 "cO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/yacht/engine)
 "cQ" = (
@@ -918,29 +1004,43 @@
 	},
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/decal/cleanable/dirt,
-/obj/item/reagent_containers/glass/bucket,
-/turf/simulated/floor/tiled/monotile,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "cR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
-/turf/simulated/floor/tiled,
+/obj/item/shovel/spade,
+/obj/item/reagent_containers/glass/bucket,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "cS" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/tiled/monotile,
+/obj/machinery/light,
+/obj/structure/reagent_dispensers/beerkeg,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "cT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/yacht/engine)
 "cW" = (
-/obj/structure/closet/crate/hydroponics,
-/turf/simulated/floor/tiled/monotile,
+/obj/structure/closet/kitchen,
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
+"cY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/yacht/engine)
 "cZ" = (
 /obj/machinery/vending/tool,
 /turf/simulated/floor/plating,
@@ -948,6 +1048,7 @@
 "da" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/item/caution/cone,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/yacht/engine)
 "db" = (
@@ -955,11 +1056,14 @@
 /turf/simulated/floor/plating,
 /area/yacht/engine)
 "dc" = (
-/obj/structure/closet/wardrobe/suit,
-/turf/simulated/floor/tiled/monotile,
+/obj/structure/closet/wardrobe/pjs,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "dd" = (
-/turf/simulated/floor/tiled/monotile,
+/obj/structure/closet/wardrobe/suit,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 "df" = (
 /obj/structure/closet/secure_closet/bar,
@@ -967,6 +1071,14 @@
 /area/yacht/engine)
 "dg" = (
 /obj/structure/closet/crate/freezer/rations,
+/obj/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/yacht/engine)
+"dh" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/yacht/engine)
@@ -984,6 +1096,7 @@
 /turf/simulated/floor/plating,
 /area/yacht/engine)
 "dm" = (
+/obj/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
@@ -994,6 +1107,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/yacht/engine)
 "do" = (
@@ -1102,6 +1216,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
+/obj/machinery/radio_beacon,
 /turf/simulated/floor/plating,
 /area/yacht/engine)
 "dD" = (
@@ -1127,21 +1242,21 @@
 /obj/shuttle_landmark/nav_yacht/nav4,
 /turf/space,
 /area/space)
-"dZ" = (
-/obj/item/wirecutters,
-/turf/simulated/floor{
-	map_airless = 1
-	},
-/area/yacht/engine)
 "eb" = (
-/obj/decal/cleanable/blood/drip,
-/obj/item/ammo_casing/pistol/used,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/machinery/light{
+	icon_state = "tube1";
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
+/obj/item/cane,
+/obj/item/clothing/suit/storage/det_trench/grey,
+/obj/item/clothing/ring/cti,
+/obj/item/clothing/under/lawyer/oldman,
+/obj/structure/table/woodentable,
+/obj/spider/stickyweb,
+/obj/random/cash,
+/obj/random/cash,
+/obj/random/cash,
+/obj/random/projectile,
 /turf/simulated/floor/wood/walnut,
 /area/yacht/living)
 "fb" = (
@@ -1150,30 +1265,8 @@
 	frequency = 1439;
 	master_tag = "yacht_airlock"
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/lattice,
 /turf/space,
 /area/space)
-"ff" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/structure/table/woodentable/walnut,
-/obj/item/clothing/ring/cti,
-/turf/simulated/floor/wood/walnut,
-/area/yacht/living)
-"fN" = (
-/obj/structure/table/woodentable/walnut,
-/obj/item/ammo_magazine/pistol,
-/obj/item/gun/projectile/colt,
-/obj/machinery/light/small{
-	dir = 2;
-	icon_state = "bulb1"
-	},
-/turf/simulated/floor/carpet/blue,
-/area/yacht/living)
 "gb" = (
 /obj/structure/cable{
 	icon_state = "0-2";
@@ -1197,22 +1290,12 @@
 	d2 = 2
 	},
 /obj/item/storage/toolbox/electrical,
+/obj/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/yacht/engine)
-"hD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/decal/cleanable/blood/drip,
-/obj/machinery/door/airlock/silver,
-/turf/simulated/floor/wood/walnut,
-/area/yacht/living)
 "ib" = (
 /obj/structure/cable{
 	icon_state = "1-4";
@@ -1222,6 +1305,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
@@ -1285,21 +1369,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/yacht/engine)
-"lA" = (
-/obj/structure/disposalpipe/segment,
-/turf/simulated/wall/titanium,
-/area/yacht/living)
-"lR" = (
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/obj/structure/disposaloutlet{
-	dir = 4
-	},
-/turf/simulated/floor{
-	map_airless = 1
-	},
-/area/yacht/living)
 "mb" = (
 /obj/structure/cable{
 	icon_state = "1-8";
@@ -1317,23 +1386,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/yacht/engine)
-"ml" = (
-/obj/structure/lattice,
-/obj/item/stack/material/rods,
-/turf/space,
-/area/space)
 "nb" = (
 /obj/structure/cable{
 	icon_state = "4-8";
 	d1 = 4;
 	d2 = 8
 	},
+/obj/decal/cleanable/dirt,
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/yacht/engine)
-"nI" = (
 /turf/simulated/floor/plating,
 /area/yacht/engine)
 "ob" = (
@@ -1343,30 +1405,23 @@
 	d2 = 8
 	},
 /obj/decal/cleanable/dirt,
+/obj/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/yacht/engine)
-"oC" = (
-/obj/floor_decal/corner/green/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/yacht/living)
 "pb" = (
 /obj/machinery/alarm{
 	dir = 8;
 	pixel_x = 24
 	},
+/obj/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/yacht/engine)
-"pX" = (
-/obj/structure/grille,
-/turf/space,
-/area/space)
 "qb" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1
@@ -1377,40 +1432,12 @@
 /obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/yacht/engine)
-"qL" = (
-/obj/decal/cleanable/blood/drip,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/turf/simulated/floor/carpet/blue,
-/area/yacht/living)
 "rb" = (
 /obj/machinery/atmospherics/unary/tank/air{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/yacht/engine)
-"rz" = (
-/obj/machinery/floodlight,
-/turf/simulated/floor/plating,
-/area/yacht/engine)
-"rY" = (
-/obj/machinery/power/apc{
-	name = "Yacht bridge";
-	pixel_y = -24
-	},
-/obj/structure/cable{
-	icon_state = "0-8";
-	d2 = 8
-	},
-/obj/catwalk_plated/dark,
-/turf/simulated/floor{
-	map_airless = 1
-	},
-/area/yacht/bridge)
 "sb" = (
 /obj/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1418,9 +1445,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/yacht/engine)
-"sd" = (
-/turf/simulated/wall/titanium,
-/area/space)
 "tb" = (
 /obj/structure/closet/firecloset,
 /obj/decal/cleanable/dirt,
@@ -1431,20 +1455,9 @@
 /area/yacht/engine)
 "ub" = (
 /obj/structure/closet/fridge/meat,
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/yacht/engine)
-"uD" = (
-/obj/structure/table/marble,
-/obj/floor_decal/corner/green/diagonal,
-/obj/item/book/manual/barman_recipes,
-/obj/item/book/manual/chef_recipes,
-/obj/machinery/light{
-	icon_state = "tube1";
-	dir = 4
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/yacht/living)
 "vb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -1453,122 +1466,20 @@
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
 /area/yacht/engine)
-"vc" = (
-/obj/machinery/door/airlock/silver,
-/turf/simulated/floor/tiled/freezer,
-/area/yacht/living)
-"vZ" = (
-/obj/decal/cleanable/dirt,
-/obj/item/reagent_containers/food/drinks/bottle/small/beer,
-/turf/simulated/floor/tiled/freezer,
-/area/yacht/living)
 "wb" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
 /obj/structure/hygiene/sink{
 	pixel_y = 20
 	},
 /obj/item/bikehorn/rubberducky,
-/obj/item/storage/mirror{
-	pixel_x = -32;
-	pixel_y = -2
-	},
+/obj/decal/cleanable/dirt,
+/obj/random/soap,
 /turf/simulated/floor/tiled/freezer,
-/area/yacht/living)
-"wh" = (
-/obj/floor_decal/corner/green/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/yacht/living)
-"xc" = (
-/obj/item/stack/material/rods,
-/turf/space,
-/area/space)
-"xh" = (
-/obj/machinery/disposal,
-/obj/floor_decal/industrial/outline/yellow,
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/obj/structure/sign/warning/deathsposal{
-	pixel_x = 32
-	},
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/yacht/living)
-"xs" = (
-/obj/structure/disposalpipe/segment{
-	icon_state = "conpipe-c";
-	dir = 8
-	},
-/turf/simulated/wall/titanium,
 /area/yacht/living)
 "xB" = (
 /turf/simulated/wall/walnut,
-/area/yacht/living)
-"yn" = (
-/obj/structure/table/marble,
-/obj/decal/cleanable/dirt,
-/obj/floor_decal/corner/green/diagonal,
-/obj/machinery/microwave,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/yacht/living)
-"yq" = (
-/obj/decal/cleanable/cobweb2,
-/obj/machinery/radio_beacon,
-/obj/catwalk_plated/dark,
-/turf/simulated/floor{
-	map_airless = 1
-	},
-/area/yacht/bridge)
-"yJ" = (
-/obj/spider/stickyweb,
-/turf/space,
-/area/space)
-"zF" = (
-/obj/structure/closet/kitchen,
-/obj/machinery/light,
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/monotile,
-/area/yacht/engine)
-"zI" = (
-/obj/decal/cleanable/dirt,
-/obj/landmark/scorcher,
-/turf/simulated/floor{
-	map_airless = 1
-	},
-/area/yacht/engine)
-"AB" = (
-/obj/structure/safe,
-/obj/item/rig/medical/equipped,
-/obj/item/stack/material/silver/ten,
-/obj/item/stack/material/gold/ten,
-/obj/random/cash,
-/obj/random/cash,
-/obj/random/cash,
-/obj/item/disk/cloning_charge,
-/turf/simulated/floor/carpet/blue,
-/area/yacht/living)
-"DB" = (
-/mob/living/simple_animal/hostile/giant_spider/spitter,
-/turf/space,
-/area/space)
-"DT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/freezer,
-/area/yacht/living)
-"EA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10;
-	icon_state = "intact-scrubbers"
-	},
-/turf/simulated/floor/tiled/freezer,
 /area/yacht/living)
 "Hj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1578,230 +1489,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/yacht/engine)
-"HT" = (
-/obj/floor_decal/corner/green/diagonal,
-/obj/machinery/vending/wallmed1{
-	pixel_x = 32
-	},
-/obj/structure/hygiene/sink{
-	dir = 4;
-	icon_state = "sink";
-	pixel_x = 11
-	},
-/turf/simulated/floor/tiled,
-/area/yacht/living)
-"HU" = (
-/obj/structure/lattice,
-/turf/space,
-/area/space)
-"Jh" = (
-/turf/space,
-/area/yacht/living)
-"KB" = (
-/obj/structure/barricade/wooden,
-/turf/simulated/floor/carpet/blue,
-/area/yacht/living)
-"KF" = (
-/obj/structure/bookcase,
-/obj/item/book/manual/chemistry_recipes,
-/turf/simulated/floor/carpet/blue,
-/area/yacht/living)
-"Lp" = (
-/obj/structure/cable{
-	icon_state = "4-8";
-	d1 = 4;
-	d2 = 8
-	},
-/turf/simulated/floor{
-	map_airless = 1
-	},
-/area/yacht/engine)
-"Nm" = (
-/obj/item/stock_parts/circuitboard/broken,
-/turf/space,
-/area/space)
-"Nt" = (
-/obj/structure/window/reinforced,
-/obj/structure/lattice,
-/turf/space,
-/area/space)
-"NK" = (
-/obj/structure/table/woodentable/walnut,
-/obj/item/paper{
-	info = "Let me introduce myself. My name is Commander Archibald McKinley, although the Fleet fucks think that I do not deserve the title. Well, fuck them. They accused me of facilitating a destruction of the ship I was CO of. A small missile cruiser, with zero to fucking none point defenses was attacked, and they  first accuse me of escaping before any of my crew. What kind of person wouldn't expect someone to escape when their ship is on fire? It's lunacy. But it only got worse. Then they said that I helped the Terrans take the ship. Well fuck them, they are wrong. That's non sense. I have no connection to the Terrans. They said that I got a large sum of money from them in order to betray my ship's position, which is once again total nonsense. I've got about 20 years of life left here, and I know that I will be safe with my ship here. I need to resupply once every 5 years, given how much food and fuel I have, and I've got enough range to go to pretty much any known part of the galaxy, in complete silence, as we are totally solar powered. I wish I could afford ion thrusters to not have to rely on gas for propulsion, but, our gas heaters should provide us with enough pressure to get anywhere in relative decent speed. Also, I got a robot butler who cooks delicious food for me! No more crappy lance corporal food, eh"
-	},
-/obj/item/pen/blue,
-/obj/item/clothing/mask/smokable/pipe,
-/turf/simulated/floor/carpet/blue,
-/area/yacht/living)
-"NR" = (
-/obj/machinery/door/airlock/silver,
-/obj/structure/barricade/wooden,
-/obj/decal/cleanable/blood/drip,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/carpet/blue,
-/area/yacht/living)
-"Oo" = (
-/obj/floor_decal/corner/green/diagonal,
-/obj/structure/closet/fridge,
-/obj/item/reagent_containers/food/snacks/spagetti,
-/obj/item/reagent_containers/food/snacks/dough,
-/obj/item/reagent_containers/food/snacks/dough,
-/obj/item/reagent_containers/glass/rag{
-	pixel_x = -3;
-	pixel_y = 3
-	},
-/obj/item/reagent_containers/food/condiment/enzyme,
-/obj/item/material/rollingpin,
-/obj/item/reagent_containers/food/drinks/pitcher,
-/obj/decal/cleanable/cobweb2,
-/obj/item/reagent_containers/food/drinks/glass2/shot,
-/obj/item/reagent_containers/food/drinks/glass2/rocks,
-/obj/item/reagent_containers/food/drinks/glass2/rocks,
-/obj/item/reagent_containers/food/drinks/glass2/shot,
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 0;
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled,
-/area/yacht/living)
 "Ow" = (
+/mob/living/simple_animal/hostile/giant_spider/hunter,
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
+/obj/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/yacht/engine)
-"PA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled,
-/area/yacht/living)
-"Qq" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/item/ammo_casing/pistol/used,
-/turf/simulated/floor/wood/walnut,
-/area/yacht/living)
-"Rt" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	d1 = 1;
-	d2 = 2
-	},
-/turf/simulated/floor/wood/walnut,
-/area/yacht/living)
-"Te" = (
-/obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/yacht/living)
-"Ti" = (
-/obj/structure/table/woodentable/walnut,
-/obj/item/device/flashlight/lamp/green,
-/turf/simulated/floor/carpet/blue,
-/area/yacht/living)
-"TQ" = (
-/obj/item/material/shard,
-/turf/space,
-/area/space)
-"Uo" = (
-/obj/floor_decal/corner/green/diagonal,
-/obj/machinery/light{
-	dir = 1
-	},
+"Ty" = (
 /obj/structure/closet/fridge/meat,
-/turf/simulated/floor/tiled,
-/area/yacht/living)
-"Up" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/structure/cable{
-	icon_state = "1-4";
-	d1 = 1;
-	d2 = 4
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/obj/item/storage/toolbox/syndicate,
-/turf/simulated/floor{
-	map_airless = 1
-	},
-/area/yacht/engine)
-"Ux" = (
-/obj/item/paper{
-	info = "I have accepted my fate. I will go into EVA with one of the cyanide pills in my mouth, and I will float off. I want a military funeral, and I will arrange it myself. Good bye all. I have earned and sealed my fate. "
-	},
-/turf/space,
-/area/space)
-"VH" = (
-/mob/living/simple_animal/hostile/giant_spider/hunter,
-/turf/space,
-/area/space)
-"WC" = (
 /obj/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/freezer,
-/area/yacht/living)
-"WQ" = (
-/obj/item/wrench,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/turf/simulated/floor/carpet/blue,
-/area/yacht/living)
-"Xo" = (
-/obj/machinery/jukebox/old,
-/obj/floor_decal/corner/green/diagonal,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
-/area/yacht/living)
-"XU" = (
-/obj/floor_decal/corner/green/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/item/reagent_containers/food/snacks/old/pizza,
-/turf/simulated/floor/tiled,
-/area/yacht/living)
-"Yd" = (
-/obj/floor_decal/corner/green/diagonal,
-/obj/item/reagent_containers/food/snacks/old/pizza,
-/turf/simulated/floor/tiled,
-/area/yacht/living)
-"Zx" = (
-/obj/item/paper{
-	info = "Tonight I woke up to a sound I hoped to have never heard, a small explosion. I rushed to the bridge to diagnose the damage and saw the worst possible news. My solar tracker is gone, and so is the fucking computer. No way to override the settings now, because the assholes EMPd  the computer. No way to charge my SMES reliably, and no way to heat the fuel. I am stuck in the water! Unheated, this gas will not be enough to get absolutely anywhere near a port. This is bad. Real bad. The current charge on SMES is 20 percent, so I'll just try and orient the ship to hit the current star at maximum efficiency so we will charge at 100, and maybe make it to the next solar system. The next port is in the orbit of a Gas giant named Duma. Maybe I can dock there and repair my array. I freaking knew I needed to get a generator. I spent all of the money the Terrans gave me, and this piece of shit is all I could get.  "
-	},
-/turf/space,
-/area/space)
-"ZC" = (
-/obj/structure/bookcase,
-/obj/decal/cleanable/blood/drip,
-/obj/item/book/manual/engineering_guide,
-/obj/item/book/manual/engineering_construction,
-/obj/item/book/manual/engineering_hacking,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/wood/yew,
 /area/yacht/living)
 
 (1,1,1) = {"
@@ -3684,7 +3384,7 @@ aa
 aa
 aa
 aa
-aa
+cp
 aa
 aa
 aa
@@ -3785,9 +3485,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cc
+cq
+cL
 aa
 aa
 aa
@@ -3887,9 +3587,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cc
+cr
+cL
 aa
 aa
 aa
@@ -3989,9 +3689,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cc
+cs
+cL
 aa
 aa
 aa
@@ -4091,9 +3791,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cc
+ct
+cL
 aa
 aa
 aa
@@ -4193,9 +3893,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cc
+ct
+cL
 aa
 aa
 aa
@@ -4295,9 +3995,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cc
+ct
+cL
 aa
 aa
 aa
@@ -4397,9 +4097,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cc
+ct
+cL
 aa
 aa
 aa
@@ -4499,9 +4199,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cc
+ct
+cL
 aa
 aa
 aa
@@ -4601,9 +4301,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cc
+ct
+cL
 aa
 aa
 aa
@@ -4685,7 +4385,6 @@ aa
 aa
 aa
 aa
-ag
 aa
 aa
 aa
@@ -4704,8 +4403,9 @@ aa
 aa
 aa
 aa
-aa
-aa
+cc
+ct
+cL
 aa
 aa
 aa
@@ -4805,9 +4505,9 @@ aa
 aa
 aa
 aa
-aa
-aa
-aa
+cc
+ct
+cL
 aa
 aa
 aa
@@ -4898,7 +4598,6 @@ aa
 aa
 aa
 aa
-TQ
 aa
 aa
 aa
@@ -4908,8 +4607,9 @@ aa
 aa
 aa
 aa
-aa
-aa
+cc
+ct
+cL
 aa
 aa
 aa
@@ -4996,7 +4696,6 @@ aa
 aa
 aa
 aa
-bu
 aa
 aa
 aa
@@ -5010,8 +4709,9 @@ aa
 aa
 aa
 aa
-aa
-aa
+cc
+ct
+cL
 aa
 aa
 aa
@@ -5094,12 +4794,8 @@ aa
 aa
 aa
 aa
+ag
 aa
-aa
-aa
-aa
-aa
-TQ
 aa
 aa
 aa
@@ -5114,6 +4810,10 @@ aa
 aa
 aa
 aa
+aa
+cc
+ct
+cL
 aa
 aa
 aa
@@ -5203,7 +4903,6 @@ aa
 aa
 aa
 aa
-bu
 aa
 aa
 aa
@@ -5214,8 +4913,9 @@ aa
 aa
 aa
 aa
-aa
-aa
+cc
+ct
+cL
 aa
 aa
 aa
@@ -5299,14 +4999,6 @@ aa
 aa
 aa
 aa
-TQ
-xc
-aa
-aa
-aa
-Nm
-aa
-xc
 aa
 aa
 aa
@@ -5318,6 +5010,14 @@ aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+cc
+ct
+cL
 aa
 aa
 aa
@@ -5404,10 +5104,6 @@ aa
 aa
 aa
 aa
-xc
-aa
-aa
-TQ
 aa
 aa
 aa
@@ -5420,6 +5116,10 @@ aa
 aa
 aa
 aa
+aa
+cc
+ct
+cL
 aa
 aa
 aa
@@ -5502,34 +5202,34 @@ aa
 aa
 aa
 aa
-xc
 aa
 aa
 aa
 aa
-zI
-bw
-bv
-bv
-bv
-bv
-bv
-bv
-bv
-bv
-bv
-bv
-bv
-bv
-bv
-bv
-bv
-bv
-bv
-bv
-bv
-pX
-HU
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cc
+ct
+cL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5604,34 +5304,34 @@ aa
 aa
 aa
 aa
-TQ
 aa
-xc
 aa
-aA
-cr
-cr
-cr
-Up
-cL
-cL
-cL
-cL
-cL
-cL
-cL
-cL
-cL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+cc
 ct
 cL
-cL
-cL
-cL
-cL
-cL
-cL
-dZ
-pX
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5711,29 +5411,29 @@ aa
 aa
 aa
 aa
-bw
-zI
-bM
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 cc
-cc
-cc
-cc
-cc
-cc
-cc
-cc
-cc
-cc
-Lp
-cc
-cc
-cc
-cc
-cc
-cc
-cc
-ml
-HU
+ct
+cL
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5813,12 +5513,12 @@ aa
 aa
 aa
 aa
-Nm
-TQ
 aa
-HU
-pX
-HU
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5827,15 +5527,15 @@ aa
 aa
 fb
 cu
-Nt
 aa
 aa
 aa
 aa
-HU
-pX
-HU
-xc
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5911,16 +5611,16 @@ aa
 aa
 aa
 aa
-TQ
-aa
-bu
-xc
 aa
 aa
-bu
-pX
-HU
-TQ
+aa
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5935,8 +5635,8 @@ aa
 aa
 aa
 aa
-HU
-pX
+aa
+aa
 aa
 aa
 aa
@@ -6018,10 +5718,10 @@ aa
 aa
 aa
 aa
-TQ
-xc
-pX
-HU
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6037,8 +5737,8 @@ aa
 aa
 aa
 aa
-HU
-pX
+aa
+aa
 aa
 aa
 aa
@@ -6118,17 +5818,17 @@ aa
 aa
 aa
 aa
-xc
-TQ
-aa
-aa
-HU
-pX
-HU
 aa
 aa
 aa
 aa
+aa
+aa
+aa
+aa
+aa
+aa
+aB
 bN
 bN
 bN
@@ -6139,8 +5839,8 @@ bN
 aa
 aa
 aa
-HU
-pX
+aa
+aa
 aa
 aa
 aa
@@ -6225,12 +5925,12 @@ aa
 aa
 aa
 aa
-aa
-Jh
+aB
 aB
 bk
 bk
 bk
+aB
 bN
 bS
 gb
@@ -6240,9 +5940,9 @@ bN
 bN
 bN
 bN
-sd
-pX
-HU
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6323,15 +6023,15 @@ aa
 aa
 aa
 aa
-bu
+aa
 aB
 aB
 aB
 aB
 aB
-aB
-Ti
-bf
+bl
+bm
+bm
 bG
 bN
 bT
@@ -6340,7 +6040,7 @@ nb
 cN
 bN
 cZ
-rz
+bN
 bN
 bN
 bN
@@ -6430,11 +6130,11 @@ aB
 xB
 aT
 bc
-AB
 xB
-cs
-bo
-NK
+bm
+bs
+bx
+bx
 bN
 bU
 hb
@@ -6442,7 +6142,7 @@ ob
 sb
 cO
 da
-dm
+dh
 dn
 dv
 dz
@@ -6522,21 +6222,21 @@ aa
 aa
 aa
 aa
+aa
 ah
-ad
 ah
 ah
-xB
+av
 wb
-bn
+aI
 aP
 aU
-qL
-aW
-NR
-ZC
-WQ
-fN
+bd
+xB
+bm
+bm
+by
+bx
 bN
 bV
 ib
@@ -6623,10 +6323,10 @@ aa
 aa
 aa
 aa
-aa
+ad
 ah
-ac
 ah
+am
 aq
 xB
 aD
@@ -6634,10 +6334,10 @@ aJ
 xB
 aV
 eb
-ff
 xB
-KB
-KF
+bn
+bn
+bz
 bI
 bN
 bN
@@ -6734,10 +6434,10 @@ xB
 xB
 xB
 xB
+aW
 xB
-hD
 xB
-xB
+bo
 xB
 xB
 xB
@@ -6837,18 +6537,18 @@ aE
 aK
 aE
 aX
-Rt
-Qq
 aE
-aR
+bh
+aE
+bh
 bA
-aE
+bJ
 bO
-bE
+aE
 cj
 cD
-PA
 cR
+aL
 dd
 dj
 dx
@@ -6935,22 +6635,22 @@ al
 ao
 at
 ax
-bd
-bd
 aF
-aF
+aL
+aL
 aY
-br
+aL
+aL
 bp
 bt
 bB
-bd
+bK
 xB
 bX
 ck
+cE
 aL
-Te
-Te
+Ty
 cd
 dj
 dr
@@ -7032,7 +6732,7 @@ aa
 aa
 aa
 aa
-ac
+ah
 ah
 ap
 au
@@ -7041,8 +6741,8 @@ aG
 aM
 aQ
 aZ
-wh
-Xo
+bf
+xB
 xB
 xB
 bC
@@ -7052,7 +6752,7 @@ bY
 cl
 cF
 cS
-zF
+bN
 bN
 bN
 dp
@@ -7136,18 +6836,18 @@ aa
 aa
 aa
 ah
-yq
-rY
-xB
-aH
+ah
+ah
 ay
-oC
-oC
-XU
-av
+aH
+aN
+aR
+ba
+aL
 xB
-bz
-WC
+bq
+bu
+bD
 bL
 bP
 bP
@@ -7155,7 +6855,7 @@ bP
 bP
 bP
 bN
-bN
+df
 dk
 dt
 dw
@@ -7237,26 +6937,26 @@ aa
 aa
 aa
 aa
+aa
+aa
 ah
-ah
-ah
-xB
-Uo
+az
+aB
 aO
 aS
 bb
 bg
-Yd
-vc
-vZ
-EA
-DT
+xB
+br
+bv
+bE
+bM
 bQ
-bZ
 bZ
 cm
 cG
 cT
+cY
 Hj
 dm
 du
@@ -7334,26 +7034,25 @@ aa
 aa
 aa
 aa
-Zx
-bl
 aa
 aa
 aa
 aa
 aa
-ah
+aa
+aa
+aa
+aA
+aa
 aB
-Oo
-HT
-yn
-uD
-xh
-av
 aB
-bx
-bs
+aB
+aB
+aB
+bq
+bw
 bF
-bN
+aB
 bN
 ca
 Ow
@@ -7361,8 +7060,9 @@ cn
 ub
 bN
 dg
-df
-nI
+bN
+bN
+bN
 bN
 bN
 aa
@@ -7436,26 +7136,25 @@ aa
 aa
 aa
 aa
-bD
-Ux
 aa
 aa
 aa
 aa
 aa
 aa
-az
-lA
-lA
-lA
-lA
-xs
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 aB
 aB
-bx
-bx
-am
-bN
+aB
+bk
+bk
+aB
 bR
 cb
 co
@@ -7465,7 +7164,8 @@ bN
 bN
 bN
 bN
-bN
+aa
+aa
 aa
 aa
 aa
@@ -7546,7 +7246,10 @@ aa
 aa
 aa
 aa
-lR
+aa
+aa
+aa
+aa
 aa
 aa
 aa
@@ -7554,14 +7257,11 @@ aa
 aa
 aa
 aB
-bk
-bk
-bk
-bN
 bN
 bN
 bN
 cJ
+bN
 bN
 bN
 aa
@@ -7662,8 +7362,8 @@ aa
 aa
 aa
 aa
-aa
 cK
+aa
 aa
 aa
 aa
@@ -7743,9 +7443,9 @@ aa
 aa
 aa
 aa
-DB
-VH
-yJ
+aa
+aa
+aa
 aa
 aa
 aa
@@ -7845,8 +7545,8 @@ aa
 aa
 aa
 aa
-VH
-VH
+aa
+aa
 aa
 aa
 aa

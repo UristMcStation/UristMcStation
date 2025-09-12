@@ -174,7 +174,6 @@
 	},
 /area/yacht/living)
 "ax" = (
-/obj/structure/grille,
 /obj/urist_intangible/triggers/template_loader/on_init/submap/yacht/yacht_critters,
 /turf/space,
 /area/space)
@@ -5934,9 +5933,9 @@ aa
 Nm
 TQ
 aa
-HU
-pX
-HU
+aa
+aa
+aa
 aa
 aa
 aa
@@ -5950,8 +5949,8 @@ aa
 aa
 aa
 aa
-HU
-pX
+aa
+aa
 HU
 xc
 aa
@@ -6036,8 +6035,8 @@ xc
 aa
 aa
 bu
-pX
-HU
+aa
+aa
 TQ
 aa
 aa
@@ -6053,8 +6052,8 @@ aa
 aa
 aa
 aa
-HU
-pX
+aa
+aa
 aa
 aa
 aa
@@ -6138,8 +6137,8 @@ aa
 aa
 TQ
 xc
-pX
-HU
+aa
+aa
 aa
 aa
 aa
@@ -6155,8 +6154,8 @@ aa
 aa
 aa
 aa
-HU
-pX
+aa
+aa
 aa
 aa
 aa
@@ -6240,9 +6239,9 @@ xc
 TQ
 aa
 aa
-HU
-pX
-HU
+aa
+aa
+aa
 aa
 aa
 aa
@@ -6257,7 +6256,7 @@ bN
 aa
 aa
 aa
-HU
+aa
 ax
 aa
 aa
@@ -6359,8 +6358,8 @@ bN
 bN
 bN
 sd
-pX
-HU
+aa
+aa
 aa
 aa
 aa
