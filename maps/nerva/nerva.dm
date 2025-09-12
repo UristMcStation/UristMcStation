@@ -63,7 +63,7 @@
 	#include "../away/crystalized_drugs/crystalized_drugs.dm"
 	#include "../away/magshield/magshield.dm"
 	#include "../away/casino/casino.dm"
-	#include "../away/yacht/yacht.dm"
+	#include "../away/urist/yacht/yacht.dm"
 	#include "../away/blueriver/blueriver.dm"
 	#include "../away/slavers_base/slavers_base.dm"
 	#include "../away/mobius_rift/mobius_rift.dm"
@@ -85,6 +85,10 @@
 	#include "../away/skrellscoutship/skrellscoutship.dm"
 	#include "../bluespace_interlude/bluespace_interlude.dm"
 	#include "../bluespace_interlude/bluespace_interlude.dmm"
+
+// Submaps for Aways
+
+	#include "../away/urist/yacht\yacht_submaps.dm"
 
 	//keep your clothing hacks to yourself
 	// #include "../torch/items/clothing/solgov-accessory.dm"	These don't seem to actually be used, but are causing issues with double-importing
