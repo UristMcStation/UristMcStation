@@ -155,7 +155,7 @@
 	w_class = 3
 	force = 10
 	caliber = CALIBER_PISTOL
-	origin_tech = "combat=4;materials=1;syndicate=1"
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 1, TECH_ESOTERIC = 1)
 	slot_flags = SLOT_BELT
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c10mm

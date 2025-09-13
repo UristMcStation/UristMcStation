@@ -80,7 +80,7 @@
 /obj/item/ore/clown
 	name = "Bananium ore"
 	icon_state = "Clown ore"
-	origin_tech = "materials=4"
+	origin_tech = list(TECH_MATERIAL = 4)
 
 //planet
 

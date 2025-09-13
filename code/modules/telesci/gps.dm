@@ -6,7 +6,7 @@ var/global/list/GPS_list = list()
 	icon_state = "gps-c"
 	w_class = 2.0
 	slot_flags = SLOT_BELT
-	origin_tech = "programming=2;engineering=2"
+	origin_tech = list(TECH_DATA = 2, TECH_ENGINEERING = 2)
 	var/gpstag = "COM0"
 	emped = 0
 

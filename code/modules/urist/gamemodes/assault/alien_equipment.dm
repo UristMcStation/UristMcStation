@@ -35,7 +35,7 @@
 	icon = 'icons/urist/items/guns.dmi'
 	force = 10
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	origin_tech = "combat=7;magnets=5;materials=4;engineering=2;powerstorage=4;"
+	origin_tech = list(TECH_COMBAT = 7, TECH_MAGNET = 5, TECH_MATERIAL = 4, TECH_ENGINEERING = 2, TECH_POWER = 4)
 	projectile_type = /obj/item/projectile/beam
 	fire_delay = 1 //rapid fire
 	max_shots = 8
@@ -53,7 +53,7 @@
 	item_state = "xeno-pistol"
 	projectile_type = /obj/item/projectile/beam/scom/alien2
 	max_shots = 4
-	origin_tech = "combat=6;magnets=4;materials=3;engineering=1;powerstorage=3;"
+	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 4, TECH_MATERIAL = 3, TECH_ENGINEERING = 1, TECH_POWER = 3)
 	inertstate = /obj/item/scom/aliengun/a1
 	w_class = 2
 
@@ -75,7 +75,7 @@
 	wielded_item_state = "xeno-rifle-wielded"
 	slot_flags = SLOT_BACK
 	projectile_type = /obj/item/projectile/beam/scom/alien2
-	origin_tech = "combat=8;magnets=6;materials=5;engineering=3;powerstorage=5;"
+	origin_tech = list(TECH_COMBAT = 8, TECH_MAGNET = 6, TECH_MATERIAL = 5, TECH_ENGINEERING = 3, TECH_POWER = 5)
 	inertstate = /obj/item/scom/aliengun/a3
 	one_hand_penalty = 2
 	max_shots = 12
@@ -93,7 +93,7 @@
 	wielded_item_state = "xeno-hmg-wielded"
 	slot_flags = SLOT_BACK
 	projectile_type = /obj/item/projectile/beam/scom/alien1
-	origin_tech = "combat=9;magnets=7;materials=6;engineering=4;powerstorage=6;"
+	origin_tech = list(TECH_COMBAT = 9, TECH_MAGNET = 7, TECH_MATERIAL = 6, TECH_ENGINEERING = 4, TECH_POWER = 6)
 	inertstate = /obj/item/scom/aliengun/a4
 	max_shots = 20
 	one_hand_penalty = 6
@@ -132,7 +132,7 @@
 	icon = 'icons/urist/items/uristweapons.dmi'
 	icon_state = "aliengrenade"
 	item_state = "flashbang"
-	origin_tech = "materials=5;magnets=5"
+	origin_tech = list(TECH_MATERIAL = 5, TECH_MAGNET = 5)
 
 /obj/item/grenade/aliengrenade/detonate()
 	explosion(src.loc, 0, 0, 3, 3)
