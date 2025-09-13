@@ -49,3 +49,18 @@
 	It is unconcealable from body-scanners, and easily detectable due to it's weight. It requires NON-ORGANIC arms."
 	item_cost = 60
 	path = /obj/item/device/augment_implanter/powerfist
+
+/datum/uplink_item/item/augment/aug_engineerig_toolset
+	name = "Covert Engineering Toolset CBM (hand)"
+	desc = "A covert CBM augmentation allowing you to configure your hand into multiple common tools, perfect for breaking and entry or for the a clean prison break. \
+	It is detectable in body-scanners, however remains undetectable to close inspection. It can be installed in both ORGANIC or SYNTHETIC hands."
+	item_cost = 28
+	path = /obj/item/device/augment_implanter/engineering_toolset_syndicate
+
+/datum/uplink_item/item/augment/aug_surgical_toolset
+	name = "Advanced Surgical Toolset CBM (hand)"
+	desc = "A highly advanced surgical CBM toolset that allows it's user to access an entire surgical suite of tools, capable of treating the most grevious of wounds. It additionally comes with a robot component scanner. \
+	It is unconceable in both body-scanner and manual inspection. Can be installed on both ORGANIC or SYNTHETIC hands."
+	item_cost = 48 // Bone Gel, FixoVein, Bruise Packs for Organs & Robotic Component Scanner.
+	path = /obj/item/device/augment_implanter/surgical_toolset_syndicate
+	antag_roles = list(MODE_MERCENARY)
