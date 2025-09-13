@@ -1,0 +1,24 @@
+
+# ifdef GOAI_LIBRARY_FEATURES
+
+/* Plain Old Doors */
+GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(/obj/cover/door, GOAI_SMARTOBJECT_PATH("door.json"))
+GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_CHEBYSHEV(/obj/cover/door, 1)
+
+/* Autodoors */
+GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(/obj/cover/autodoor, GOAI_SMARTOBJECT_PATH("autodoor.json"))
+GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_CHEBYSHEV(/obj/cover/autodoor, 1)
+
+# endif
+
+# ifdef GOAI_SS13_SUPPORT
+
+/* Plain Old Doors */
+GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(/obj/machinery/door/unpowered, GOAI_SMARTOBJECT_PATH("ss13_door.json"))
+GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_CHEBYSHEV(/obj/machinery/door/unpowered, 1)
+
+/* Autodoors */
+GOAI_ACTIONSET_FROM_FILE_BOILERPLATE(/obj/machinery/door/airlock, GOAI_SMARTOBJECT_PATH("ss13_autodoor.json"))
+GOAI_HAS_UTILITY_ACTIONS_BOILERPLATE_PROXIMITY_CHEBYSHEV(/obj/machinery/door/airlock, 1)
+
+# endif

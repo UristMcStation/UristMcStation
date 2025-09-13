@@ -1,0 +1,25 @@
+{
+	"name": "Debug Faction",
+	"tags": [
+		"debug"
+	],
+	"relationships": {},
+	"actionset_files": [
+		"faction_base.json",
+		"faction_trade_test.json"
+	],
+	"needs": {
+		"food_generic": 50,
+		"wealth": 1000,
+		"prestige": 50
+	},
+	"need_weights": {
+		"food_generic": 4,
+		"wealth": 3,
+		"prestige": 1
+	},
+	"preferred_trades": {
+		"food_generic": "/obj/food",
+		"prestige": "/obj/decor"
+	}
+}
