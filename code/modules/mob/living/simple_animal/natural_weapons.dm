@@ -36,6 +36,7 @@
 /obj/item/natural_weapon/claws
 	name = "claws"
 	attack_verb = list("mauled", "clawed", "slashed")
+	hitsound = 'sound/weapons/bladeslice.ogg'
 	force = 15
 	sharp = TRUE
 	edge = TRUE
