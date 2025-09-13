@@ -132,7 +132,7 @@
 	w_class = 2
 	caliber = CALIBER_PISTOL
 	fire_sound = 'sound/weapons/gunshot/Gunshot_pistol.ogg'
-	slot_flags = SLOT_BELT
+	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_POCKET
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/c10mm/TD10
 	allowed_magazines = list(/obj/item/ammo_magazine/c10mm/TD10)
