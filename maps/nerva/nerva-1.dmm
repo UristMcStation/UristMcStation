@@ -15794,13 +15794,6 @@
 "Bw" = (
 /turf/simulated/floor/tiled/dark,
 /area/rnd/storage)
-"By" = (
-/obj/structure/disposaloutlet/unwrap{
-	dir = 8;
-	icon_state = "outlet"
-	},
-/turf/space,
-/area/space)
 "Bz" = (
 /obj/floor_decal/industrial/warning{
 	dir = 1;
@@ -18695,30 +18688,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
-"GU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/disposalpipe/junction{
-	dir = 4;
-	icon_state = "pipe-j2"
-	},
-/obj/structure/catwalk,
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "GV" = (
 /obj/machinery/mining/drill,
 /obj/floor_decal/spline/plain/yellow{
@@ -19705,10 +19674,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
-"IR" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/white,
-/area/rnd/office)
 "IS" = (
 /obj/machinery/portable_atmospherics/canister/phoron,
 /obj/floor_decal/industrial/hatch/yellow,
@@ -20629,6 +20594,10 @@
 /obj/machinery/light/small/red/maintenance,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afp)
+"LQ" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/white,
+/area/rnd/office)
 "LR" = (
 /turf/simulated/floor/tiled/white/monotile,
 /area/medical/extstorage)
@@ -21008,13 +20977,6 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/logistics/hangar)
-"NE" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/office)
 "NF" = (
 /obj/floor_decal/industrial/warning{
 	dir = 8
@@ -21191,6 +21153,13 @@
 /obj/wallframe_spawn/reinforced,
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
+"Op" = (
+/obj/structure/disposaloutlet/unwrap{
+	dir = 8;
+	icon_state = "outlet"
+	},
+/turf/space,
+/area/space)
 "Oq" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -21487,6 +21456,7 @@
 	dir = 1;
 	icon_state = "pipe-j1"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "Py" = (
@@ -22377,6 +22347,30 @@
 /obj/random/masks,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
+"Sz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 4;
+	icon_state = "pipe-j2"
+	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
 "SA" = (
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
@@ -22810,6 +22804,13 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/genprep)
+"Uy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/office)
 "Uz" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/floor_decal/industrial/outline/blue,
@@ -34709,7 +34710,7 @@ aa
 aa
 aa
 aa
-By
+Op
 aa
 aa
 aa
@@ -48864,7 +48865,7 @@ sY
 MI
 uF
 Ij
-NE
+Uy
 xv
 yr
 zf
@@ -49068,7 +49069,7 @@ uG
 vN
 wz
 VH
-IR
+LQ
 Mn
 ZX
 AQ
@@ -49881,7 +49882,7 @@ VV
 zZ
 rH
 rH
-GU
+Sz
 CK
 Du
 CK
