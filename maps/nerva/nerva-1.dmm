@@ -11734,7 +11734,7 @@
 	dir = 8;
 	icon_state = "corner_white_three_quarters"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/steel_grid,
 /area/logistics/advwork)
 "ut" = (
 /obj/structure/table/standard,
@@ -11745,7 +11745,7 @@
 /obj/floor_decal/corner/yellow{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/steel_grid,
 /area/logistics/advwork)
 "uu" = (
 /obj/structure/table/standard,
@@ -11753,7 +11753,7 @@
 /obj/floor_decal/corner/yellow{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/steel_grid,
 /area/logistics/advwork)
 "uv" = (
 /obj/floor_decal/corner/yellow/three_quarters{
@@ -11761,7 +11761,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/reagent_containers/spray/cleaner,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/steel_grid,
 /area/logistics/advwork)
 "uw" = (
 /obj/floor_decal/industrial/hatch/yellow,
@@ -12282,7 +12282,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/steel_grid,
 /area/logistics/advwork)
 "vt" = (
 /turf/simulated/floor/tiled/white,
@@ -12294,7 +12294,7 @@
 /obj/landmark/start{
 	name = "Supply Technician"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/steel_grid,
 /area/logistics/advwork)
 "vv" = (
 /obj/floor_decal/corner/yellow{
@@ -12303,7 +12303,10 @@
 	},
 /obj/structure/table/standard,
 /obj/item/device/integrated_circuit_printer,
-/turf/simulated/floor/tiled/white,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel_grid,
 /area/logistics/advwork)
 "vw" = (
 /obj/machinery/conveyor{
@@ -12738,11 +12741,11 @@
 	dir = 8;
 	pixel_x = -24
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/steel_grid,
 /area/logistics/advwork)
 "wm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/steel_grid,
 /area/logistics/advwork)
 "wn" = (
 /obj/structure/table/standard,
@@ -12752,7 +12755,7 @@
 	dir = 6;
 	icon_state = "corner_white"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/steel_grid,
 /area/logistics/advwork)
 "wo" = (
 /obj/structure/plasticflaps/mining,
@@ -13206,7 +13209,8 @@
 /obj/item/integrated_circuit/filter/ref/obj,
 /obj/item/integrated_circuit/filter/ref/mob,
 /obj/floor_decal/corner/yellow/three_quarters,
-/turf/simulated/floor/tiled/white,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled/steel_grid,
 /area/logistics/advwork)
 "xh" = (
 /obj/structure/table/standard,
@@ -13219,7 +13223,8 @@
 	dir = 10;
 	icon_state = "corner_white"
 	},
-/turf/simulated/floor/tiled/white,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled/steel_grid,
 /area/logistics/advwork)
 "xi" = (
 /obj/floor_decal/corner/yellow{
@@ -13227,7 +13232,7 @@
 	icon_state = "corner_white"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/steel_grid,
 /area/logistics/advwork)
 "xj" = (
 /obj/structure/closet/crate{
@@ -13246,13 +13251,10 @@
 	dir = 8;
 	icon_state = "camera"
 	},
-/turf/simulated/floor/tiled/white,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled/steel_grid,
 /area/logistics/advwork)
 "xk" = (
-/obj/machinery/firealarm{
-	dir = 8;
-	pixel_x = -24
-	},
 /obj/floor_decal/corner/yellow{
 	dir = 10
 	},
@@ -13260,6 +13262,9 @@
 	dir = 1
 	},
 /obj/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/logistics/fabwork)
 "xl" = (
@@ -13857,7 +13862,7 @@
 	dir = 1;
 	icon_state = "railing0-1"
 	},
-/obj/machinery/disposal/deliveryChute/wrap{
+/obj/machinery/disposal/deliveryChute{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/monotile,
@@ -14298,17 +14303,15 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/requests_console{
-	department = "Cargo Workshop";
-	departmentType = 3;
-	name = "Workshop RC";
-	pixel_x = 30
-	},
 /turf/simulated/floor/tiled/white,
 /area/logistics/advwork)
 "yP" = (
 /obj/floor_decal/corner/yellow{
 	dir = 9
+	},
+/obj/machinery/firealarm{
+	dir = 8;
+	pixel_x = -24
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
@@ -14853,16 +14856,13 @@
 /turf/simulated/floor/tiled/white,
 /area/logistics/advwork)
 "zN" = (
-/obj/item/device/radio/intercom{
-	dir = 4;
-	frequency = 1459;
-	name = "Station Intercom (General)";
-	pixel_x = -22
-	},
 /obj/floor_decal/corner/yellow{
 	dir = 9
 	},
 /obj/machinery/carpentry/planer,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "zO" = (
@@ -15302,14 +15302,13 @@
 /area/logistics/fabwork)
 "AA" = (
 /obj/machinery/fabricator,
-/obj/machinery/alarm{
-	dir = 1;
-	icon_state = "alarm0";
-	pixel_y = -22
-	},
 /obj/floor_decal/corner/yellow{
 	dir = 10;
 	icon_state = "corner_white"
+	},
+/obj/machinery/alarm{
+	dir = 1;
+	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
@@ -15322,13 +15321,9 @@
 	dir = 10;
 	icon_state = "corner_white"
 	},
-/obj/machinery/camera/network/cargo{
-	c_tag = "Cargo Workshop";
-	dir = 1;
-	icon_state = "camera"
-	},
 /obj/item/stack/material/plastic/fifty,
 /obj/item/stack/material/plastic/fifty,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "AC" = (
@@ -15336,12 +15331,16 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
-/obj/machinery/light,
 /obj/floor_decal/corner/yellow{
 	dir = 10;
 	icon_state = "corner_white"
 	},
 /obj/floor_decal/industrial/hatch/yellow,
+/obj/machinery/camera/network/cargo{
+	c_tag = "Cargo Workshop";
+	dir = 1;
+	icon_state = "camera"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "AD" = (
@@ -15600,6 +15599,13 @@
 	},
 /obj/landmark/start{
 	name = "Supply Technician"
+	},
+/obj/machinery/requests_console{
+	department = "Cargo Workshop";
+	departmentType = 3;
+	name = "Workshop RC";
+	pixel_x = 30;
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/white,
 /area/logistics/advwork)
@@ -16869,6 +16875,7 @@
 	dir = 10;
 	icon_state = "corner_white"
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/prep)
 "DE" = (
@@ -18891,6 +18898,16 @@
 /obj/shuttle_landmark/skipjack/deck4,
 /turf/space,
 /area/space)
+"Hu" = (
+/obj/floor_decal/industrial/warning{
+	dir = 1;
+	icon_state = "warning"
+	},
+/obj/landmark{
+	name = "lightsout"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/logistics/lowercargo)
 "Hw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/wall/r_wall/prepainted,
@@ -18927,10 +18944,13 @@
 /obj/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/machinery/carpentry/woodprocessor,
+/obj/item/device/radio/intercom{
+	dir = 4;
+	frequency = 1459;
+	name = "Station Intercom (General)";
+	pixel_x = -22
+	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "HD" = (
@@ -20037,6 +20057,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/command/seniorntoffice)
+"Km" = (
+/turf/simulated/floor/tiled/steel_grid,
+/area/logistics/advwork)
 "Ko" = (
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -22401,6 +22424,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
+"SZ" = (
+/obj/landmark{
+	name = "lightsout"
+	},
+/turf/simulated/floor/tiled/steel_grid,
+/area/logistics/advwork)
 "Tb" = (
 /obj/structure/kitchenspike,
 /obj/structure/curtain/medical,
@@ -23655,6 +23684,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenoflora)
+"XM" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "smelt"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/logistics/fabwork)
 "XN" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating,
@@ -43695,8 +43734,8 @@ nw
 sM
 tz
 ut
-vt
-vt
+Km
+SZ
 xh
 xW
 yM
@@ -44705,7 +44744,7 @@ bh
 sK
 tB
 Se
-vx
+XM
 sT
 xl
 yb
@@ -46131,7 +46170,7 @@ Bm
 BX
 Cx
 Df
-DI
+Hu
 Ea
 MG
 Fc
