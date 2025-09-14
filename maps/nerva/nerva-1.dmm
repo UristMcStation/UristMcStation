@@ -14974,6 +14974,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/disposalpipe/segment,
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/rnd/office)
 "Aa" = (
@@ -15793,6 +15794,13 @@
 "Bw" = (
 /turf/simulated/floor/tiled/dark,
 /area/rnd/storage)
+"By" = (
+/obj/structure/disposaloutlet/unwrap{
+	dir = 8;
+	icon_state = "outlet"
+	},
+/turf/space,
+/area/space)
 "Bz" = (
 /obj/floor_decal/industrial/warning{
 	dir = 1;
@@ -16068,6 +16076,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "Cf" = (
@@ -16786,6 +16795,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "Du" = (
@@ -18523,6 +18533,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/afs)
 "GC" = (
@@ -18682,6 +18693,30 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/fs)
+"GU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4;
+	icon_state = "intact-scrubbers"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4;
+	icon_state = "intact-supply"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 4;
+	icon_state = "pipe-j2"
+	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "GV" = (
@@ -19670,6 +19705,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
+"IR" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/white,
+/area/rnd/office)
 "IS" = (
 /obj/machinery/portable_atmospherics/canister/phoron,
 /obj/floor_decal/industrial/hatch/yellow,
@@ -20630,25 +20669,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/security/nuke_storage)
-"Me" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9;
-	icon_state = "intact-scrubbers"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 8;
-	icon_state = "pipe-c"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "Mf" = (
 /obj/paint/red,
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
@@ -20988,6 +21008,13 @@
 	},
 /turf/simulated/floor/tiled/monotile,
 /area/logistics/hangar)
+"NE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/office)
 "NF" = (
 /obj/floor_decal/industrial/warning{
 	dir = 8
@@ -21786,13 +21813,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
-"QA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/office)
 "QD" = (
 /obj/machinery/atmospherics/tvalve/digital{
 	dir = 8;
@@ -22023,13 +22043,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/exploration_shuttle/cockpit)
-"Rm" = (
-/obj/structure/disposaloutlet/unwrap{
-	dir = 8;
-	icon_state = "outlet"
-	},
-/turf/space,
-/area/space)
 "Rn" = (
 /obj/structure/disposalpipe/segment{
 	dir = 2;
@@ -22129,10 +22142,6 @@
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/logistics/genprep)
-"RH" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/white,
-/area/rnd/office)
 "RI" = (
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/tiled/techfloor/grid,
@@ -22315,29 +22324,6 @@
 "Sm" = (
 /turf/simulated/floor/redgrid,
 /area/security/nuke_storage)
-"So" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4;
-	icon_state = "intact-scrubbers"
-	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4;
-	icon_state = "intact-supply"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/disposalpipe/junction{
-	dir = 4;
-	icon_state = "pipe-j2"
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/fourth_deck/fs)
 "Sp" = (
 /obj/floor_decal/industrial/warning{
 	dir = 10
@@ -23487,6 +23473,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/fourth_deck/fs)
 "WD" = (
@@ -34722,7 +34709,7 @@ aa
 aa
 aa
 aa
-Rm
+By
 aa
 aa
 aa
@@ -48877,7 +48864,7 @@ sY
 MI
 uF
 Ij
-QA
+NE
 xv
 yr
 zf
@@ -49081,7 +49068,7 @@ uG
 vN
 wz
 VH
-RH
+IR
 Mn
 ZX
 AQ
@@ -49706,7 +49693,7 @@ Fg
 Fg
 Fg
 Fg
-Me
+ZA
 oI
 oI
 aa
@@ -49892,9 +49879,9 @@ xA
 yw
 VV
 zZ
-SA
-SA
-So
+rH
+rH
+GU
 CK
 Du
 CK

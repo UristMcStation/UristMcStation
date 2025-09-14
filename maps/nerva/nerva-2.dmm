@@ -21072,6 +21072,7 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aKP" = (
@@ -21136,6 +21137,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aKS" = (
@@ -25762,6 +25764,7 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aSX" = (
@@ -25783,6 +25786,7 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aSY" = (
@@ -25807,6 +25811,7 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aSZ" = (
@@ -25831,6 +25836,7 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aTa" = (
@@ -26147,6 +26153,14 @@
 	dir = 4;
 	icon_state = "pipe-j2"
 	},
+/obj/structure/catwalk,
+/turf/simulated/floor/plating,
+/area/maintenance/third_deck/afs)
+"aTR" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aTS" = (
@@ -26154,6 +26168,7 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
+/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aTT" = (
@@ -50076,7 +50091,7 @@ aPM
 aQX
 aSa
 aSX
-joO
+aTR
 aRQ
 aRQ
 aTI
@@ -50278,7 +50293,7 @@ uyU
 uyU
 xfG
 aSX
-joO
+aTR
 aRQ
 aSQ
 aSQ
@@ -50480,7 +50495,7 @@ aNr
 aQY
 tYN
 aSY
-joO
+aTR
 aRQ
 aUV
 aVk
