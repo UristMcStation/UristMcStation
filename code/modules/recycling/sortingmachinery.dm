@@ -652,7 +652,7 @@
 		audible_message("No destination tag set")
 		return
 	var/obj/structure/bigDelivery/P = new /obj/structure/bigDelivery(get_turf(AM.loc))
-	P.icon_state = "deliverycrate"
+	P.icon_state = "parcelcrate"
 	P.wrapped = AM
 	AM.forceMove(P)
 	P.sortTag = src.currTag
