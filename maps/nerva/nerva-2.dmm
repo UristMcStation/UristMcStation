@@ -19323,8 +19323,9 @@
 	dir = 5;
 	icon_state = "edge"
 	},
-/obj/structure/extinguisher_cabinet{
-	pixel_x = 26
+/obj/machinery/light{
+	dir = 1;
+	icon_state = "tube1"
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
@@ -20060,9 +20061,8 @@
 	dir = 4;
 	icon_state = "edge"
 	},
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 26
 	},
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
@@ -24833,10 +24833,6 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/floor_decal/corner/beige{
-	dir = 10;
-	icon_state = "corner_white"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/uppercargo)
 "aRf" = (
@@ -24853,7 +24849,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/uppercargo)
 "aRm" = (
@@ -25307,18 +25302,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/logistics/qm)
-"aSf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2";
-	pixel_y = 0
-	},
-/obj/floor_decal/corner/beige/full,
-/turf/simulated/floor/tiled/dark,
-/area/logistics/uppercargo)
 "aSg" = (
 /obj/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/monotile,
@@ -25925,7 +25908,6 @@
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/uppercargo)
 "aTg" = (
@@ -25942,10 +25924,6 @@
 /turf/simulated/open,
 /area/logistics/uppercargo)
 "aTk" = (
-/obj/machinery/light{
-	dir = 4;
-	icon_state = "tube1"
-	},
 /obj/machinery/computer/shuttle_control/liftnerva,
 /obj/structure/catwalk,
 /turf/simulated/open,
@@ -26580,7 +26558,6 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/floor_decal/corner/beige/full,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/uppercargo)
@@ -26789,7 +26766,6 @@
 	icon_state = "1-2";
 	pixel_y = 0
 	},
-/obj/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/uppercargo)
 "aVc" = (
@@ -26935,7 +26911,6 @@
 	icon_state = "intact-supply"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/floor_decal/corner/beige/full,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/uppercargo)
 "aVq" = (
@@ -27818,7 +27793,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/command/eva)
 "dYg" = (
-/obj/floor_decal/corner/beige/full,
+/obj/floor_decal/corner/beige/three_quarters{
+	dir = 1;
+	icon_state = "corner_white_three_quarters"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/uppercargo)
 "dZX" = (
@@ -28461,6 +28439,10 @@
 /obj/item/storage/box/lights/mixed,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
+"gIN" = (
+/obj/machinery/light,
+/turf/simulated/open,
+/area/logistics/uppercargo)
 "gKK" = (
 /obj/structure/catwalk,
 /obj/machinery/light/small,
@@ -30501,6 +30483,10 @@
 /obj/item/clothing/head/welding,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/device/multitool,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/robotics)
 "rVz" = (
@@ -30925,7 +30911,7 @@
 /area/maintenance/third_deck/cents)
 "tTn" = (
 /obj/floor_decal/corner/beige{
-	dir = 6;
+	dir = 4;
 	icon_state = "corner_white"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -52329,7 +52315,7 @@ aNu
 aVc
 aPU
 aRe
-aSf
+aRe
 aTf
 aRj
 aUF
@@ -53540,12 +53526,12 @@ aMl
 fWu
 aOM
 tTn
-vTz
+euq
 aQa
 aQa
 aUd
 aUJ
-aUd
+gIN
 sRB
 aVF
 aVV
@@ -53742,7 +53728,7 @@ aMm
 fWu
 aON
 dYg
-dYg
+vTz
 ggv
 aTk
 aUd
