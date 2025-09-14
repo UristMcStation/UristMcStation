@@ -21060,7 +21060,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 9
 	},
-/obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable{
@@ -21116,7 +21115,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aKR" = (
-/obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
@@ -22535,11 +22533,11 @@
 	dir = 1;
 	icon_state = "camera"
 	},
-/obj/catwalk_plated/dark,
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
 	},
+/obj/catwalk_plated/dark,
 /turf/simulated/floor/plating,
 /area/engineering/genstorage)
 "aNj" = (
@@ -25748,7 +25746,6 @@
 /turf/simulated/floor/tiled/white/server,
 /area/engineering/tcomms)
 "aSW" = (
-/obj/structure/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -25786,7 +25783,6 @@
 	dir = 4;
 	icon_state = "intact-supply"
 	},
-/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aSY" = (
@@ -25798,7 +25794,6 @@
 	dir = 4;
 	icon_state = "intact-scrubbers"
 	},
-/obj/structure/catwalk,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -25823,7 +25818,6 @@
 	dir = 4;
 	icon_state = "intact-scrubbers"
 	},
-/obj/structure/catwalk,
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -26149,18 +26143,10 @@
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aTQ" = (
-/obj/structure/catwalk,
 /obj/structure/disposalpipe/junction{
 	dir = 4;
 	icon_state = "pipe-j2"
 	},
-/turf/simulated/floor/plating,
-/area/maintenance/third_deck/afs)
-"aTR" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aTS" = (
@@ -26168,7 +26154,6 @@
 	dir = 8;
 	icon_state = "pipe-c"
 	},
-/obj/structure/catwalk,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
 "aTT" = (
@@ -28439,10 +28424,6 @@
 /obj/item/storage/box/lights/mixed,
 /turf/simulated/floor/plating,
 /area/maintenance/third_deck/afs)
-"gIN" = (
-/obj/machinery/light,
-/turf/simulated/open,
-/area/logistics/uppercargo)
 "gKK" = (
 /obj/structure/catwalk,
 /obj/machinery/light/small,
@@ -50095,7 +50076,7 @@ aPM
 aQX
 aSa
 aSX
-aTR
+joO
 aRQ
 aRQ
 aTI
@@ -50297,7 +50278,7 @@ uyU
 uyU
 xfG
 aSX
-aTR
+joO
 aRQ
 aSQ
 aSQ
@@ -50499,7 +50480,7 @@ aNr
 aQY
 tYN
 aSY
-aTR
+joO
 aRQ
 aUV
 aVk
@@ -53531,7 +53512,7 @@ aQa
 aQa
 aUd
 aUJ
-gIN
+aUd
 sRB
 aVF
 aVV
