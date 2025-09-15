@@ -11,6 +11,7 @@
 	slot_flags = SLOT_BELT
 	key_type = list(/obj/item/clothing/mask/smokable/cigarette)
 	atom_flags = ATOM_FLAG_NO_REACT | ATOM_FLAG_OPEN_CONTAINER
+	sealed = FALSE // just so it isn't adding another click for basically no difference.
 
 	/// A map? of reagents to add to this container on initialization.
 	var/list/datum/reagent/initial_reagents
