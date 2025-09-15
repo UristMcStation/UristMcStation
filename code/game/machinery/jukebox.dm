@@ -75,7 +75,7 @@
 /obj/machinery/jukebox/old
 	name = "space jukebox"
 	desc = "A battered and hard-loved jukebox in some forgotten style, carefully restored to some semblance of working condition."
-	icon = 'icons/obj/machines/jukebox.dmi'
-	icon_state = "jukebox2"
+	icon = 'icons/urist/items/tgstructures.dmi' // Credits to /tg/station.
+	icon_state = "jukebox"
 	pixel_x = 0
 	layer = STRUCTURE_LAYER
