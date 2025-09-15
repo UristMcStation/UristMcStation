@@ -15,6 +15,16 @@
 		return TRUE
 	return ..()
 
+/obj/item/board/examine(mob/user)
+	. = ..()
+	to_chat(user, SPAN_SUBTLE("Can be viewed & refreshed with Alt + LMB."))
+
+/obj/item/board/get_mechanics_info()
+	. = ..()
+	. += "<p>You can view the chessboard & refresh it using Alt + Left Click</p>"
+	. += "<p>You can move a chess piece by clicking on the piece you want to move, refreshing the board and selecting where you want it to move to</p>"
+	. += "<p>You can remove a chess piece from play by selecting the piece you want to remove and refreshing the board and choosing the option remove selected piece</p>"
+
 /obj/item/board/use_tool(obj/item/item, mob/living/user, list/click_params)
 	if(addPiece(item,user))
 		return TRUE
