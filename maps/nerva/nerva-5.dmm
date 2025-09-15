@@ -989,13 +989,10 @@
 	},
 /area/rescue_base/base)
 "cc" = (
-/obj/structure/closet{
-	icon_state = "syndicate1";
-	name = "emergency response team wardrobe"
-	},
 /obj/item/clothing/accessory/solgov/fleet_patch/fifth,
 /obj/item/clothing/head/solgov/utility/fleet,
 /obj/item/clothing/accessory/badge/solgov/tags,
+/obj/structure/closet,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -1606,10 +1603,6 @@
 	},
 /area/rescue_base/base)
 "cY" = (
-/obj/structure/closet{
-	icon_state = "syndicate1";
-	name = "insignias closet"
-	},
 /obj/item/clothing/accessory/solgov/department/medical/fleet,
 /obj/item/clothing/accessory/solgov/department/medical/fleet,
 /obj/item/clothing/accessory/solgov/department/medical/fleet,
@@ -1618,6 +1611,7 @@
 /obj/item/clothing/head/beret/solgov/fleet/medical,
 /obj/item/clothing/head/beret/solgov/fleet/medical,
 /obj/item/clothing/head/beret/solgov/fleet/medical,
+/obj/structure/closet,
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -1713,10 +1707,6 @@
 	},
 /area/rescue_base/base)
 "di" = (
-/obj/structure/closet{
-	icon_state = "syndicate1";
-	name = "insignias closet"
-	},
 /obj/item/clothing/accessory/solgov/department/security/fleet,
 /obj/item/clothing/accessory/solgov/department/security/fleet,
 /obj/item/clothing/accessory/solgov/department/security/fleet,
@@ -1725,6 +1715,7 @@
 /obj/item/clothing/head/beret/solgov/fleet/security,
 /obj/item/clothing/head/beret/solgov/fleet/security,
 /obj/item/clothing/head/beret/solgov/fleet/security,
+/obj/structure/closet,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2213,10 +2204,6 @@
 	},
 /area/rescue_base/base)
 "ed" = (
-/obj/structure/closet{
-	icon_state = "syndicate1";
-	name = "insignias closet"
-	},
 /obj/item/clothing/accessory/solgov/department/engineering/fleet,
 /obj/item/clothing/accessory/solgov/department/engineering/fleet,
 /obj/item/clothing/accessory/solgov/department/engineering/fleet,
@@ -2225,6 +2212,7 @@
 /obj/item/clothing/head/beret/solgov/fleet/engineering,
 /obj/item/clothing/head/beret/solgov/fleet/engineering,
 /obj/item/clothing/head/beret/solgov/fleet/engineering,
+/obj/structure/closet,
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -5150,16 +5138,13 @@
 	},
 /area/map_template/syndicate_mothership/raider_base)
 "kO" = (
-/obj/structure/closet{
-	icon_state = "cabinet_closed";
-	name = "Clothing Storage"
-	},
 /obj/floor_decal/carpet,
 /obj/item/clothing/under/lawyer/black,
 /obj/item/clothing/under/lawyer/bluesuit,
 /obj/item/clothing/under/rank/mailman,
 /obj/item/clothing/accessory/toggleable/suit_vest,
 /obj/item/clothing/under/rank/dispatch,
+/obj/structure/closet/wardrobe,
 /turf/unsimulated/floor{
 	icon_state = "carpet";
 	name = "carpet"
@@ -9468,7 +9453,8 @@
 	},
 /obj/structure/showcase{
 	icon_state = "relay";
-	name = "Shuttle Remote Control Relay"
+	name = "Shuttle Remote Control Relay";
+	icon = 'icons/obj/machines/telecomms.dmi'
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -10366,14 +10352,11 @@
 	},
 /area/map_template/syndicate_mothership)
 "ze" = (
-/obj/structure/closet{
-	icon_state = "cabinet_closed";
-	name = "Wardrobe"
-	},
 /obj/item/clothing/shoes/leather,
 /obj/item/clothing/under/blazer,
 /obj/item/clothing/under/lawyer/black,
 /obj/item/clothing/under/suit_jacket/navy,
+/obj/structure/closet/wardrobe,
 /turf/simulated/floor/carpet,
 /area/merchant_station)
 "zf" = (
@@ -10607,13 +10590,10 @@
 /turf/simulated/floor/carpet,
 /area/merchant_station)
 "zE" = (
-/obj/structure/closet{
-	icon_state = "cabinet_closed";
-	name = "Wardrobe"
-	},
 /obj/item/clothing/shoes/black,
 /obj/item/clothing/under/overalls,
 /obj/item/clothing/under/skirt,
+/obj/structure/closet/wardrobe,
 /turf/simulated/floor/carpet/blue,
 /area/merchant_station)
 "zF" = (
@@ -10763,50 +10743,42 @@
 	},
 /area/map_template/wizard_station)
 "zX" = (
-/obj/structure/closet{
-	icon_state = "cabinet_closed"
-	},
 /obj/item/clothing/suit/wizrobe/red,
 /obj/item/clothing/shoes/sandal,
 /obj/item/clothing/head/wizard/red,
 /obj/item/staff,
+/obj/structure/closet/wardrobe,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
 /area/map_template/wizard_station)
 "zY" = (
-/obj/structure/closet{
-	icon_state = "cabinet_closed"
-	},
 /obj/item/clothing/suit/wizrobe/marisa,
 /obj/item/clothing/shoes/sandal/marisa,
 /obj/item/clothing/head/wizard/marisa,
 /obj/item/staff/broom,
+/obj/structure/closet/wardrobe,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
 /area/map_template/wizard_station)
 "zZ" = (
-/obj/structure/closet{
-	icon_state = "cabinet_closed"
-	},
 /obj/item/clothing/suit/wizrobe/magusblue,
 /obj/item/clothing/head/wizard/magus,
 /obj/item/staff,
+/obj/structure/closet/wardrobe,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
 /area/map_template/wizard_station)
 "Aa" = (
-/obj/structure/closet{
-	icon_state = "cabinet_closed"
-	},
 /obj/item/reagent_containers/food/drinks/bottle/bottleofnothing,
 /obj/item/reagent_containers/food/drinks/bottle/pwine,
 /obj/item/reagent_containers/food/drinks/bottle/specialwhiskey,
 /obj/item/reagent_containers/food/drinks/bottle/cognac,
 /obj/item/clothing/suit/wizrobe/urist/dresden,
 /obj/item/clothing/head/wizard/urist/dresdendora,
+/obj/structure/closet/wardrobe,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
@@ -11330,19 +11302,14 @@
 	},
 /area/map_template/wizard_station)
 "Bq" = (
-/obj/structure/closet{
-	icon_state = "cabinet_closed"
-	},
 /obj/item/clothing/under/psysuit,
 /obj/item/clothing/suit/wizrobe/psypurple,
+/obj/structure/closet/wardrobe,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
 /area/map_template/wizard_station)
 "Br" = (
-/obj/structure/closet{
-	icon_state = "cabinet_closed"
-	},
 /obj/item/clothing/shoes/sandal/marisa{
 	desc = "A set of fancy shoes that are as functional as they are comfortable.";
 	name = "Gentlemans Shoes"
@@ -11355,28 +11322,25 @@
 	dir = 1;
 	pixel_y = -28
 	},
+/obj/structure/closet/wardrobe,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
 /area/map_template/wizard_station)
 "Bs" = (
-/obj/structure/closet{
-	icon_state = "cabinet_closed"
-	},
 /obj/item/clothing/suit/wizrobe/magusred,
 /obj/item/clothing/head/wizard/magus,
 /obj/item/staff,
+/obj/structure/closet/wardrobe,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
 /area/map_template/wizard_station)
 "Bt" = (
-/obj/structure/closet{
-	icon_state = "cabinet_closed"
-	},
 /obj/item/storage/briefcase,
 /obj/item/clothing/suit/wizrobe/urist/necro,
 /obj/item/clothing/head/wizard/urist/necro,
+/obj/structure/closet/wardrobe,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
@@ -12895,7 +12859,8 @@
 "ES" = (
 /obj/structure/showcase{
 	icon_state = "relay";
-	name = "Shuttle Remote Control Relay"
+	name = "Shuttle Remote Control Relay";
+	icon = 'icons/obj/machines/telecomms.dmi'
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
