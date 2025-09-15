@@ -386,6 +386,49 @@
 	name = "Smoking"
 	icon_state = "ipc_smoking"
 
+/datum/sprite_accessory/facial_hair/ipc/visor
+	name = "Visor"
+	icon_state = "ipc_visor"
+
+/datum/sprite_accessory/facial_hair/ipc/nt
+	name = "Nanotrasen"
+	icon_state = "ipc_nt"
+
+/datum/sprite_accessory/facial_hair/ipc/nerva
+	name = "Nerva"
+	icon_state = "ipc_nerva"
+
+/datum/sprite_accessory/facial_hair/ipc/pirate
+	name = "Pirate - Blinking"
+	icon_state = "ipc_pirate"
+
+/datum/sprite_accessory/facial_hair/ipc/piratescroll
+	name = "Pirate - Scrolling"
+	icon_state = "ipc_pirate2"
+
+/datum/sprite_accessory/facial_hair/ipc/medical
+	name = "Medical"
+	icon_state = "ipc_medical"
+
+/datum/sprite_accessory/facial_hair/ipc/lifeline
+	name = "Heartbeat"
+	icon_state = "ipc_lifeline"
+
+/datum/sprite_accessory/facial_hair/ipc/caution
+	name = "Caution"
+	icon_state = "ipc_yellow2"
+
+/datum/sprite_accessory/facial_hair/ipc/smug
+	name = "Smug"
+	icon_state = "ipc_smug"
+
+/datum/sprite_accessory/facial_hair/ipc/confused
+	name = "Confused"
+	icon_state = "ipc_confused"
+
+/datum/sprite_accessory/facial_hair/ipc/err
+	name = "Err"
+	icon_state = "ipc_err"
 
 /datum/sprite_accessory/hair/ipc
 	abstract_type = /datum/sprite_accessory/hair/ipc
