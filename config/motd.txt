@@ -1,15 +1,19 @@
-<h1>Welcome to Urist McStation! Before you begin...</h1>
+<center><h1>Welcome to Urist McStation!</h1></center>
 
-<i>This server is running a BayStation13 Git build with a custom map and features.</i>
-<i>This is a medium roleplay server.  Roleplay is encouraged, and please don't be egregiously out of character.</i>
-<h2>Server Rules:</h2>
-Click the "Rules" tab at the top of this window and read them!
-If you aren't aware of our rules, you could be warned by an admin or jobbanned! Poor conduct as a member of the security force/a head/a silicon will not be tolerated. These roles will be treated more harshly should rules be broken.<br>
-Keep IC in IC chat and OOC in OOC chat.  Please don't discuss ongoing rounds in OOC or you will be muted.
-No killing, except in self defense, or as an antagonist (and show restraint even then).  Sitting around watching isn't fun.<br>
-If you have a problem or a question, <b>adminhelp it!</b> You can do so at any time by pressing F1.<br>
-We exist for a reason, and would like to keep the server fun. We can't predict everything, and questions are likely to crop up during play, especially with regard to antagonists. Asking won't hurt anyone.<br>
-<b>We recently updated our ruleset, click the rules tab at the top of your screen to read through them. In the case of an incident, it will be assumed that you have already read them.</b><br>
-<b>Golden Rule:</b> Do unto others as you would have done unto you.  Try to keep things enjoyable for everyone.
-<hr>
+<center><i>This server is running a <a href="http://github.com/Baystation12/Baystation12/">Baystation 12</a> fork modification with our own custom maps & game features such as overmap ship combat, bluespace revenant gamemode, urist-specific away missions, traitor expansions, firearm combat changes, re-added Bay12 cloning, etc.</i></center>
+<center><i>This is a medium roleplay server.  Roleplay is encouraged, and please don't be egregiously out of character.</i></center>
 <center><b>Important Links: <a href="https://discord.gg/0oRsdvoS1DDd5Rv0">Discord!</a> <a href="https://pastebin.com/4aHMMJeP">Nerva Lore!</a> <a href="https://github.com/UristMcStation/UristMcStation/issues/new">Bug Reports!</a> <a href="https://github.com/UristMcStation/UristMcStation">Github!</a> <a href="http://steamcommunity.com/groups/SS13forlife">Steam Group!</a></b></center></p>
+<h2>Server Rules:</h2>
+Check our server rules by clicking on the <b>Rules</b> Tab in the top right, it will be assumed that you have already read them in the case of an incident. If you aren't aware of our rules, you could be warned by an admin or jobbanned! Game & Job Bans can be appealed on our <a href="https://discord.gg/0oRsdvoS1DDd5Rv0">Discord</a> in the <i>#ban-appeals</i> channel. <br>
+Poor conduct as Command Staff, Security or Silicons roles will not be tolerated, and will be treated more harshly should rules be broken.
+Do not discuss on-going events in OOC chat, or you will be muted.<br>
+If you are not an antagonist, do not kill unless in self defense within sufficent escalation.
+As an antagonist, avoid murderboning the crew (unless they instigate) as it isn't fun to sit and watch!<br>
+If you have a problem or have a question, <b>adminhelp it!</b> You can do this by pressing <b>F1.</b>
+<i>We exist for a reason, and would like to keep the server fun. We can't predict everything, and questions are likely to crop up during play, especially with regard to antagonists. Asking won't hurt anyone.</i>
+<center><b>Golden Rule:</b> <i>Do unto others as you would have done unto you, try to keep things enjoyable for everyone!</i></center>
+<h3>New Player Information:</h3>
+Ensure you enable your neural lace in <b>Character Setup</b> under <b>Body</b> to be cloned, or your body will be unrecoverable without cyborgification or a full-body prosthesis! <br>
+You are able to respawn after a 10 minute timer has passed on death. You can respawn by going to the <b>OOC</b> Tab and clicking the <b>Respawn</b> Verb.
+Ensure you choose a new character on respawn and don't use your previous character's knowledge for your new character during the round!
+<hr>
