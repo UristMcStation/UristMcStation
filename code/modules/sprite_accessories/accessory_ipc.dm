@@ -342,6 +342,10 @@
 	name = "Tetris"
 	icon_state = "ipc_tetris"
 
+/datum/sprite_accessory/facial_hair/ipc/doom // yes, it can run doom
+	name = "Doom"
+	icon_state = "ipc_doom"
+
 /datum/sprite_accessory/facial_hair/ipc/dot
 	name = "Dot"
 	icon_state = "ipc_dot"
