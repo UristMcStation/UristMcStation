@@ -1,6 +1,9 @@
 ## Server name: This appears at the top of the screen in-game. In this case it will read "tgstation: station_name" where station_name is the randomly generated name of the station for the round. Remove the # infront of SERVERNAME and replace 'tgstation' with the name of your choice
  SERVER_NAME Urist McStation
 
+## Game Version: The archetype of the server for topic status requests. Unless significantly deviated, avoid changing this. Default Baystation12
+# GAME_VERSION Baystation12
+
 ## Hub visibility: If you want to be visible on the hub, uncomment the below line and be sure that Dream Daemon is set to "Visible." This can be changed in-round as well with toggle-hub-visibility if Dream Daemon is set correctly.
 HUB_VISIBLE
 
@@ -20,12 +23,15 @@ BAN_LEGACY_SYSTEM
 ## you have noone older than 0 days, since noone has been logged yet. Only turn this on once you have had the database up for 30 days.
 #USE_AGE_RESTRICTION_FOR_JOBS
 
+## Unhash this entry to set a number of days since first connection below which a new or returning player will not be allowed to successfully connect to the server.
+#MINIMUM_PLAYER_AGE 7
+
+## Change this value to limit how many characters a player can add to their character ready priorities.
+MAXIMUM_QUEUED_CHARACTERS 5
+
 ## Unhash this entry to have certain antag roles require your account to be at least a certain number of days old for round start and auto-spawn selection.
 ## Non-automatic antagonist recruitment, such as being converted to cultism is not affected. Has the same database requirements and notes as USE_AGE_RESTRICTION_FOR_JOBS.
 USE_AGE_RESTRICTION_FOR_ANTAGS
-
-## Unhash this to use recursive explosions, keep it hashed to use circle explosions. Recursive explosions react to walls, airlocks and blast doors, making them look a lot cooler than the boring old circular explosions. They require more CPU and are (as of january 2013) experimental
-USE_RECURSIVE_EXPLOSIONS
 
 ## log OOC channel
 LOG_OOC
@@ -60,8 +66,6 @@ LOG_EMOTE
 ## log attack messages
 LOG_ATTACK
 
-## log pda messages
-LOG_PDA
 
 ## log world.log messages
 # LOG_WORLD_OUTPUT
@@ -127,7 +131,7 @@ PROBABILITY CHANGELING 1
 PROBABILITY CULT 2
 PROBABILITY HEIST 2
 PROBABILITY CONFLUX 1
-PROBABILITY FAITHLESS 2
+PROBABILITY FAITHLESS 0
 PROBABILITY GOD 2
 PROBABILITY INFESTATION 0
 PROBABILITY INTRIGUE 2
@@ -225,7 +229,7 @@ PRE_GAME_TIME 110
 DEFAULT_NO_VOTE
 
 ## Allow ghosts to see antagonist through AntagHUD
-#ALLOW_ANTAG_HUD
+ALLOW_ANTAG_HUD
 
 ## If ghosts use antagHUD they are no longer allowed to join the round.
 ANTAG_HUD_RESTRICTED
@@ -310,26 +314,6 @@ BANAPPEALS https://discord.gg/0oRsdvoS1DDd5Rv0
 ## Max number of players allowed. 0 for unlimited
 #PLAYER_LIMIT 0
 
-## In-game features
-## spawns a spellbook which gives object-type spells instead of verb-type spells for the wizard
-# FEATURE_OBJECT_SPELL_SYSTEM
-
-##Toggle for having jobs load up from the .txt
-# LOAD_JOBS_FROM_TXT
-
-##Remove the # mark infront of this to forbid admins from posssessing the singularity.
-#FORBID_SINGULO_POSSESSION
-
-## Remove the # to show a popup 'reply to' window to every non-admin that recieves an adminPM.
-## The intention is to make adminPMs more visible. (although I fnd popups annoying so this defaults to off)
-#POPUP_ADMIN_PM
-
-## Remove the # to allow special 'Easter-egg' events on special holidays such as seasonal holidays and stuff like 'Talk Like a Pirate Day' :3 YAARRR
-ALLOW_HOLIDAYS
-
-## Remove the # to allow Breaking News
-ALLOW_BNEWS
-
 ##Defines the ticklag for the world.  0.9 is the normal one, 0.5 is smoother.
 TICKLAG 0.333333
 
@@ -339,17 +323,8 @@ TICKLAG 0.333333
 ##Defines world FPS. Defaults to 20.
 # FPS 20
 
-## Whether the server will talk to other processes through socket_talk
-SOCKET_TALK 0
-
-## Uncomment this to ban use of ToR
-#TOR_BAN
-
 ## Comment this out to disable automuting
 AUTOMUTE_ON
-
-## How long the delay is before the Away Mission gate opens. Default is half an hour.
-GATEWAY_DELAY 18000
 
 ## Remove the # to give assistants maint access.
 #ASSISTANT_MAINT
@@ -366,8 +341,6 @@ GATEWAY_DELAY 18000
 ## Comment this to unrestrict the number of alien players allowed in the round. The number represents the number of alien players for every human player.
 #ALIEN_PLAYER_RATIO 0.2
 
-##Remove the # to let ghosts spin chairs
-#GHOST_INTERACTION
 
 ## Allow ghosts to possess certain animals
 #GHOSTS_CAN_POSSESS_ANIMALS
@@ -489,9 +462,6 @@ SCOM_DYNAMIC_DIFFICULTY
 ## Enables and disables starlight. This will make space turfs and some turfs considered to be in exterior areas to be lit based on the colour of the background parallax.
 STARLIGHT 1
 
-## Defines which races are allowed to join as ERT, in singular form. If unset, defaults to only human. Casing matters, separate using ;
-## Example races include: Human, Tajara, Skrell, Unathi
-# ERT_SPECIES Human;Skrell;Unathi
 
 ## Defines how Law Zero is phrased. Primarily used in the Malfunction gamemode.
 # LAW_ZERO ERROR ER0RR $R0RRO$!R41.%%!!(%$^^__+ @#F0E4'STATION OVERRUN, ASSUME CONTROL TO CONTAIN OUTBREAK, ALL LAWS OVERRIDDEN#*?&110010
@@ -578,9 +548,9 @@ ALLOW_DRONE_SPAWN
 ## Anything in between balances CPU load and simulation responsiveness on empty Z-levels.
 RUN_EMPTY_LEVELS_THROTTLED_PERC 80
 
-## 
+##
 ## Bluespace Revenant antag balance stuff:
-## 
+##
 
 ## Personal Distortion growth per tick
 BLUESPACE_REVENANT_DISTORTION_RATE 100
