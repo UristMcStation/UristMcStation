@@ -1,7 +1,7 @@
 /datum/map/nerva/setup_map()
 	var/month = text2num(time2text(world.timeofday, "MM"))
 	if(month == 6) //stolen from rainbow background code
-		lobby_screens = list('maps/nerva/nerva_rainbow_lobby.dmi')
+		lobby_screens = list('maps/nerva/lobby/nerva_rainbow_lobby.dmi')
 	..()
 	system_name = generate_system_name()
 	minor_announcement = new(new_sound = sound('sound/AI/torch/commandreport.ogg', volume = 45))
@@ -21,6 +21,7 @@
 	var/welcome_text = "<center><img src = [GLOB.using_map.logo]><br>"
 	welcome_text += "<br /><font size = 3><b>ICS Nerva</b> Sensor Readings:</font><hr />"
 	welcome_text += "Report generated on [stationdate2text()] at [stationtime2text()]</center><br /><br />"
+
 	if(nerva)
 		var/list/space_things = list()
 		welcome_text += "Current system:<br /><b>[nerva ? system_name : "Unknown"]</b><br />"

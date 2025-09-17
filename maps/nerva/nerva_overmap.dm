@@ -1,26 +1,28 @@
 /obj/overmap/visitable/ship/combat/nerva
 	name = "ICS Nerva"
-	ship_name = "ICS Nerva"
-	classification = "large class vessel"	//???
-	shipid = "nerva"
-	vessel_mass = 25000 //bigger than wyrm, smaller than torch //:fuckbay:
+	desc = "A independently commissioned salvage freighter class ship, broadcasting the designation \"ICS Nerva\"."
 	fore_dir = EAST
-	start_x = 6
-	start_y = 7
+	vessel_mass = 25000 //bigger than wyrm, smaller than torch //:fuckbay:
+	ship_name = "ICS Nerva"
+	shipid = "nerva"
+	classification = "large class vessel"	//???
 	can_board = TRUE
-	target_x_bounds = list(78,165)
-	target_y_bounds = list(63,130)
-	announcement_channel = list("public" = "Common", "private" = "Command", "technical" = "Engineering", "combat" = "Combat")
-	evac_x = 143
-	evac_y = 97
-	evac_z = 3
-	target_zs = list(1,2,3)
-	target_dirs = list(NORTH, SOUTH, EAST)
 	sector_flags = OVERMAP_SECTOR_KNOWN|OVERMAP_SECTOR_IN_SPACE|OVERMAP_SECTOR_BASE
 	known_ships = list(
 		/obj/overmap/visitable/ship/landable/trajan,
 		/obj/overmap/visitable/ship/landable/hadrian
 	)
+
+	start_x = 6
+	start_y = 7
+	target_x_bounds = list(78,165)
+	target_y_bounds = list(63,130)
+	evac_x = 143
+	evac_y = 97
+	evac_z = 3
+	target_zs = list(1,2,3)
+	target_dirs = list(NORTH, SOUTH, EAST)
+	announcement_channel = list("public" = "Common", "private" = "Command", "technical" = "Engineering", "combat" = "Combat")
 
 	initial_generic_waypoints = list(
 		"nerva_north_dock",
@@ -60,6 +62,7 @@
 
 /obj/overmap/visitable/ship/landable/trajan
 	name = "Trajan"
+	desc = "A TL-432 long range exploration shuttle, broading the callsign \"Nerva-1 Trajan\"" // We'll keep Nerva - 2 for ole antoninus even if you can't see it
 	shuttle = "Trajan"
 	fore_dir = NORTH
 	vessel_mass = 1000
@@ -71,6 +74,7 @@
 
 /obj/overmap/visitable/ship/landable/hadrian
 	name = "Hadrian"
+	desc = "A Nanotrasen NT-SV research shuttle, broadcasting the callsign \"Nerva-3 NT-Hadrian\""
 	shuttle = "Hadrian"
 	fore_dir = EAST
 	vessel_mass = 750

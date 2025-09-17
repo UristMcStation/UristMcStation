@@ -11,6 +11,16 @@
 						/datum/job/ai, /datum/job/cyborg
 						)
 
+	species_to_job_blacklist = list(
+		/singleton/species/unathi  = list(/datum/job/captain),
+		/singleton/species/skrell  = list(/datum/job/captain),
+		/singleton/species/machine = list(/datum/job/captain),
+		/singleton/species/diona   = list(/datum/job/captain),
+		/singleton/species/teshari = list(/datum/job/captain),
+		/singleton/species/vox = list(/datum/job/captain),
+		/singleton/species/unathi/yeosa = list(/datum/job/captain)
+		)
+
 	access_modify_region = list(
 		ACCESS_REGION_SECURITY = list(access_change_ids),
 		ACCESS_REGION_MEDBAY = list(access_change_ids),

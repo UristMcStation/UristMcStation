@@ -9,6 +9,7 @@
 	#include "nerva_overmap.dm"
 	#include "nerva_setup.dm"
 	#include "nerva_shuttles.dm"
+	#include "nerva_lobby.dm"
 	#include "nerva_unit_testing.dm"
 	#include "datums/nerva_jobs.dm"
 	#include "datums/nerva_access_datums.dm"
@@ -82,8 +83,6 @@
 	#include "../away/scavver_gantry/scavver_gantry.dm"
 	#include "../away/abandoned_hotel/abandoned_hotel.dm"
 	#include "../away/skrellscoutship/skrellscoutship.dm"
-	#include "../bluespace_interlude/bluespace_interlude.dm"
-	#include "../bluespace_interlude/bluespace_interlude.dmm"
 
 	//keep your clothing hacks to yourself
 	// #include "../torch/items/clothing/solgov-accessory.dm"	These don't seem to actually be used, but are causing issues with double-importing
