@@ -114,14 +114,7 @@
 	icon_state = "loom"
 	w_class = 4 //a table loom is small only by comparison to a floor loom.
 
-/datum/reagent/cottonfiber
-	name = "cotton fiber"
-	description = "A mass of cotton fibers."
-	taste_description = "cotton"
-	reagent_state = SOLID
-	color = "#f0f0f0"
-
-/datum/seed/cotton
+/datum/seed/cotton // move dis
 	name = "cotton"
 	seed_name = "cotton"
 	display_name = "cotton plant"

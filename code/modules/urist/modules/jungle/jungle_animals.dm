@@ -127,7 +127,7 @@
 	maxHealth = 30
 	health = 30
 	turns_per_move = 5
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/monkey
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "stomps"
@@ -160,7 +160,7 @@
 	icon_dead = "panther_dead"
 	icon_gib = "panther_dead"
 	turns_per_move = 3
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/panther
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "hits"
@@ -290,7 +290,7 @@
 	icon_dead = "snake_green_dead"
 	icon_gib = null
 	turns_per_move = 1
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/snake
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "hits"
@@ -387,7 +387,7 @@
 	icon_dead = "deer_dead"
 	icon_gib = "deer_dead"
 	turns_per_move = 3
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/venison
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "hits"
@@ -467,6 +467,7 @@
 	icon_dead = "cougar_dead"
 	icon_gib = "cougar_dead"
 	skin_material = MATERIAL_SKIN_FUR
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/cougar
 
 /mob/living/simple_animal/hostile/huntable/bear/grey
 	desc = "A big scary bear, probably best to stay away"
@@ -522,6 +523,7 @@
 	response_harm = "hits"
 	maxHealth = 70
 	health = 70
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/wolf
 	natural_weapon = /obj/item/natural_weapon/bite
 	meat_amount = 5
 	bone_amount = 5
