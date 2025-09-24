@@ -113,8 +113,8 @@ var/global/list/wireColours = list("red", "blue", "green", "darkred", "orange", 
 		html += "<A href='byond://?src=\ref[src];action=1;cut=[colour]'>[IsColourCut(colour) ? "Mend" :  "Cut"]</A>"
 		html += " <A href='byond://?src=\ref[src];action=1;pulse=[colour]'>Pulse</A>"
 		html += " <A href='byond://?src=\ref[src];action=1;attach=[colour]'>[IsAttached(colour) ? "Detach" : "Attach"] Signaller</A>"
-		var/label = "Examine"
-		html += " <A href='byond://?src=\ref[src];action=1;examine=[colour]'>[label]</A></td></tr>"
+//		var/label = "Examine"
+//		html += " <A href='byond://?src=\ref[src];action=1;examine=[colour]'>[label]</A></td></tr>"
 	html += "</table>"
 	html += "</div>"
 
