@@ -39,6 +39,7 @@
 	#include "../away/voxship/voxship.dm"
 	#include "../away/yacht/yacht.dm"
 	#include "../away/abandoned_hotel/abandoned_hotel.dm"
+	#include "../away/bluespace_tundra/bluespace_tundra.dm"
 
 	#ifndef DEBUG_GENERATE_WORTHS
 	#define using_map_DATUM /datum/map/away_sites_testing
