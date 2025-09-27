@@ -176,7 +176,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 "T" = (
-/obj/machinery/floor_light/mapped_on,
+/obj/machinery/floor_light/developer/mapped_on,
 /turf/simulated/floor/tiled,
 /area/maintenance/fsmaint2)
 
