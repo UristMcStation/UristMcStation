@@ -115,7 +115,7 @@
 	if(!scommapsloaded)
 		report_progress("Loading S-COM Maps...")
 
-		var/file = file("maps/GamemodeMaps/missions2.dmm")
+		var/file = file("maps/legacy_maps/SCOM/missions2.dmm")
 		if(isfile(file))
 			GLOB.maploader.load_map(file)
 

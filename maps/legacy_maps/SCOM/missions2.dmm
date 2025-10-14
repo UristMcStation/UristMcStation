@@ -133,7 +133,7 @@
 "cC" = (/obj/structure/table/reinforced,/obj/floor_decal/corner/grey/diagonal,/turf/unsimulated/floor{icon_state = "white"},/area/scom/mission/nolighting)
 "cD" = (/obj/structure/bed/chair{dir = 8},/obj/floor_decal/corner/grey/diagonal,/turf/unsimulated/floor{icon_state = "white"},/area/scom/mission/nolighting)
 "cE" = (/obj/structure/table/rack,/obj/floor_decal/industrial/hatch,/turf/unsimulated/floor{icon_state = "dark"},/area/scom/mission/nolighting)
-"cF" = (/obj/item/ammo_casing/a45,/turf/unsimulated/floor{icon_state = "dark"},/area/scom/mission/nolighting)
+"cF" = (/obj/item/ammo_casing/pistol,/turf/unsimulated/floor{icon_state = "dark"},/area/scom/mission/nolighting)
 "cG" = (/obj/landmark/scom/enemyspawn/easy{mission = 1; spawntype = 11},/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "cH" = (/turf/unsimulated/wall/urist/other{icon_state = "pdoor1 0,1 0,0"},/area/scom/mission/nolighting)
 "cI" = (/obj/landmark/scom/enemyspawn/hard{mission = 1; spawntype = 11},/turf/unsimulated/floor{icon_state = "dark"},/area/scom/mission/nolighting)
@@ -174,11 +174,11 @@
 "dr" = (/obj/item/hand_labeler,/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "ds" = (/obj/floor_decal/corner/white{icon_state = "corner_white"; dir = 9},/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "dt" = (/turf/unsimulated/floor{icon_state = "steel"},/turf/simulated/shuttle/wall{icon_state = "swall_c"; dir = 8},/area/scom/mission/nolighting)
-"du" = (/turf/unsimulated/floor{icon_state = "steel"},/obj/floor_decal/corner/red,/turf/simulated/shuttle/wall{icon_state = "swall_c"; dir = 8},/area/scom/mission/nolighting)
+"du" = (/obj/floor_decal/corner/red,/turf/unsimulated/floor{icon_state = "steel"},/turf/simulated/shuttle/wall{icon_state = "swall_c"; dir = 8},/area/scom/mission/nolighting)
 "dv" = (/turf/simulated/shuttle/wall{icon_state = "swall"; dir = 9},/area/scom/mission/nolighting)
 "dw" = (/obj/floor_decal/corner/brown{icon_state = "corner_white"; dir = 9},/obj/floor_decal/corner/brown{icon_state = "corner_white"; dir = 9},/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "dx" = (/obj/landmark/scom/enemyspawn/hard{mission = 1; spawntype = 6},/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
-"dy" = (/obj/gibspawner/xeno,/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
+"dy" = (/obj/gibspawner/generic,/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "dz" = (/obj/item/ammo_casing/pistol/magnum,/obj/item/ammo_casing/pistol/magnum,/obj/item/gun/projectile/revolver/mateba,/obj/decal/cleanable/blood,/obj/item/clothing/head/beret/centcom/captain,/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "dA" = (/obj/machinery/door/airlock/hatch{name = "Telecoms Satellite"; req_access = newlist()},/obj/floor_decal/corner/white{icon_state = "corner_white"; dir = 1},/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "dB" = (/obj/machinery/door/airlock/hatch{name = "Telecoms Satellite"; req_access = newlist()},/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
@@ -195,7 +195,7 @@
 "dM" = (/obj/floor_decal/industrial/warning,/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "dN" = (/obj/floor_decal/industrial/warning/corner{icon_state = "warningcorner"; dir = 8},/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "dO" = (/obj/floor_decal/corner/white{icon_state = "corner_white"; dir = 9},/obj/floor_decal/corner/white{icon_state = "corner_white"; dir = 9},/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
-"dP" = (/turf/unsimulated/floor{icon_state = "steel"},/obj/floor_decal/corner/red{icon_state = "corner_white"; dir = 4},/turf/simulated/shuttle/wall{icon_state = "swall_c"; dir = 2},/area/scom/mission/nolighting)
+"dP" = (/obj/floor_decal/corner/red{icon_state = "corner_white"; dir = 4},/turf/unsimulated/floor{icon_state = "steel"},/turf/simulated/shuttle/wall{icon_state = "swall_c"; dir = 2},/area/scom/mission/nolighting)
 "dQ" = (/obj/item/ammo_casing/pistol,/obj/structure/table/standard/flipped/w,/turf/unsimulated/floor{icon_state = "steel"},/area/scom/mission/nolighting)
 "dR" = (/turf/simulated/shuttle/wall{icon_state = "swall"; dir = 10},/area/scom/mission/nolighting)
 "dS" = (/obj/structure/closet/crate/secure/weapon,/obj/floor_decal/industrial/hatch/yellow,/turf/unsimulated/floor{icon_state = "dark"},/area/scom/mission/nolighting)
@@ -346,7 +346,7 @@
 "gH" = (/obj/landmark/scom/enemyspawn/norm{spawntype = 10},/turf/unsimulated/floor{icon_state = "carpet"; dir = 2},/area/scom/mission/nolighting)
 "gI" = (/turf/unsimulated/floor{icon_state = "wood"},/area/scom/mission/nolighting)
 "gJ" = (/obj/structure/hygiene/sink{icon_state = "sink"; dir = 8; pixel_x = -12; pixel_y = 2},/obj/item/storage/mirror{pixel_x = -32},/turf/unsimulated/floor{icon_state = "white"},/area/scom/mission/nolighting)
-"gK" = (/turf/unsimulated/floor{icon_state = "freezerfloor"; dir = 2},/obj/structure/hygiene/shower{icon_state = "shower"; dir = 4},/turf/unsimulated/floor/uristturf/other{icon_state = "hatch"; dir = 1},/area/scom/mission/nolighting)
+"gK" = (/obj/structure/hygiene/shower{icon_state = "shower"; dir = 4},/turf/unsimulated/floor{icon_state = "freezerfloor"; dir = 2},/turf/unsimulated/floor/uristturf/other{icon_state = "hatch"; dir = 1},/area/scom/mission/nolighting)
 "gL" = (/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor"},/area/scom/mission/nolighting)
 "gM" = (/obj/item/stool,/turf/unsimulated/floor{icon = 'icons/turf/shuttle.dmi'; icon_state = "floor"},/area/scom/mission/nolighting)
 "gN" = (/obj/landmark/scom/enemyspawn/hard{mission = 14; spawntype = 8},/turf/unsimulated/floor/uristturf/other/scom{icon_state = "0,15.1"},/area/scom/mission/nolighting)
@@ -751,9 +751,9 @@
 "ow" = (/obj/shuttle_landmark/SCOM/S1/M14,/turf/unsimulated/beach/sand{icon_state = "desert0"},/area/scom/mission/nolighting)
 "ox" = (/obj/landmark/scom/enemyspawn/easy{mission = 2; spawntype = 11},/turf/unsimulated/floor/uristturf/other/scom{icon_state = "0,15.1"},/area/scom/mission/nolighting)
 "oy" = (/obj/shuttle_landmark/SCOM/S2/M14,/turf/unsimulated/beach/sand{icon_state = "desert0"},/area/scom/mission/nolighting)
-"oz" = (/turf/unsimulated/floor/snow,/obj/structure/flora/tree/pine,/turf/unsimulated/floor/snow{icon_state = "gravsnow_corner"},/area/scom/mission/nolighting)
+"oz" = (/obj/structure/flora/tree/pine,/turf/unsimulated/floor/snow,/turf/unsimulated/floor/snow{icon_state = "gravsnow_corner"},/area/scom/mission/nolighting)
 "oA" = (/turf/unsimulated/floor/snow,/turf/unsimulated/floor/snow{icon_state = "gravsnow_corner"},/area/scom/mission/nolighting)
-"oB" = (/turf/unsimulated/floor/snow,/obj/structure/flora/grass/both,/turf/unsimulated/floor/snow{icon_state = "gravsnow_corner"},/area/scom/mission/nolighting)
+"oB" = (/obj/structure/flora/grass/both,/turf/unsimulated/floor/snow,/turf/unsimulated/floor/snow{icon_state = "gravsnow_corner"},/area/scom/mission/nolighting)
 "oC" = (/turf/unsimulated/floor/snow,/turf/unsimulated/floor/snow{icon_state = "gravsnow_surround"; dir = 4},/area/scom/mission/nolighting)
 "oD" = (/obj/landmark/scom/enemyspawn/hard{mission = 2; spawntype = 1},/turf/unsimulated/floor/snow,/area/scom/mission/nolighting)
 "oE" = (/obj/structure/window/reinforced{dir = 8},/obj/structure/window/reinforced{dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/scom/mission/nolighting)
@@ -805,7 +805,7 @@
 "py" = (/obj/landmark/scom/enemyspawn/norm{mission = 2; spawntype = 6},/turf/unsimulated/floor{icon_state = "dark"},/area/scom/mission/nolighting)
 "pz" = (/obj/machinery/door/unpowered/shuttle,/turf/simulated/floor,/area/scom/mission/nolighting)
 "pA" = (/obj/landmark/scom/bomb{bombdelay = 218},/turf/unsimulated/floor/uristturf/other/scom{icon_state = "1,1"},/area/scom/mission/nolighting)
-"pB" = (/turf/unsimulated/floor/uristturf/other/scom{icon_state = "1,1"},/obj/landmark/scom/enemyspawn/easy{mission = 7; spawntype = 16},/turf/unsimulated/floor/uristturf/other/scom{icon_state = "6,12"},/area/scom/mission/nolighting)
+"pB" = (/obj/landmark/scom/enemyspawn/easy{mission = 7; spawntype = 16},/turf/unsimulated/floor/uristturf/other/scom{icon_state = "1,1"},/turf/unsimulated/floor/uristturf/other/scom{icon_state = "6,12"},/area/scom/mission/nolighting)
 "pC" = (/obj/landmark/scom/enemyspawn/easy{mission = 7; spawntype = 2},/turf/unsimulated/floor/uristturf/other/scom{icon_state = "2,1"},/area/scom/mission/nolighting)
 "pD" = (/obj/landmark/scom/bomb{bombdelay = 118},/turf/unsimulated/floor/uristturf/other/scom{icon_state = "2,1"},/area/scom/mission/nolighting)
 "pE" = (/obj/structure/flora/tree/pine,/turf/unsimulated/floor{icon = 'icons/turf/snow.dmi'; icon_state = "snow"},/area/scom/mission/nolighting)
@@ -826,7 +826,7 @@
 "pT" = (/obj/structure/scom/science{dir = 1; icon_state = "8,15"; scommoney = 600},/turf/unsimulated/floor/uristturf/other/scom{icon_state = "5,1"},/area/scom/mission/nolighting)
 "pU" = (/obj/landmark/scom/enemyspawn/hard{mission = 12; spawntype = 1},/turf/unsimulated/floor/snow,/area/scom/mission/nolighting)
 "pV" = (/obj/landmark/scom/enemyspawn/easy{mission = 11; spawntype = 0},/obj/floor_decal/corner/paleblue/diagonal,/turf/unsimulated/floor{icon_state = "white"},/area/scom/mission/nolighting)
-"pW" = (/turf/unsimulated/floor/uristturf/other/scom{icon_state = "1,1"},/obj/landmark/scom/enemyspawn/easy{mission = 7; spawntype = 13},/turf/unsimulated/floor/uristturf/other/scom{icon_state = "6,12"},/area/scom/mission/nolighting)
+"pW" = (/obj/landmark/scom/enemyspawn/easy{mission = 7; spawntype = 13},/turf/unsimulated/floor/uristturf/other/scom{icon_state = "1,1"},/turf/unsimulated/floor/uristturf/other/scom{icon_state = "6,12"},/area/scom/mission/nolighting)
 "pX" = (/obj/landmark/scom/bomb{bombdelay = 571},/turf/unsimulated/floor/uristturf/other/scom{icon_state = "2,1"},/area/scom/mission/nolighting)
 "pY" = (/obj/structure/scom/science{icon_state = "8,14"; scommoney = 600},/turf/unsimulated/floor/uristturf/other/scom{icon_state = "5,1"},/area/scom/mission/nolighting)
 "pZ" = (/obj/landmark/scom/enemyspawn/easy{mission = 3; spawntype = 8},/turf/unsimulated/floor/uristturf/other/scom{icon_state = "9,7"},/area/scom/mission/nolighting)
@@ -1410,7 +1410,6 @@ ababababababababababababababababababababababababababababababflmdmdmdotmdmdmdmdmd
 ababababababababababababababababababababababababababababababflmdmdmdmdmdmdmdmdmdotmdmdmdmdmdmdmdotflabababababababfaqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSqSfafaqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVgWgXgYqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqVqViXiWfaababababababababababababababababababababababababababababababababababababababababab
 ababababababababababababababababababababababababababababababflgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfgfggabababababababfafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafafagOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOgOfaababababababababababababababababababababababababababababababababababababababababab
 "}
-
 (1,1,2) = {"
 ababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab
 ababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab

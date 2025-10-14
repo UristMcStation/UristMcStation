@@ -5,25 +5,25 @@
 "ae" = (/obj/weathertype/snow/cryo,/turf/unsimulated/wall/other/transparent{icon_state = "metal12"},/area/awaymission/train)
 "af" = (/obj/weathertype/snow/cryo,/turf/unsimulated/wall/other/transparent{icon_state = "metal10"},/area/awaymission/train)
 "ag" = (/turf/unsimulated/wall/other{icon_state = "metal6"},/area/awaymission/train/snow)
-"ah" = (/obj/structure/train/engine/snow2{icon_state = "intact-f"; dir = 6},/turf/unsimulated/wall/other{icon_state = "metal12"},/area/awaymission/train/snow)
-"ai" = (/obj/structure/train/engine/snow2{icon_state = "manifold-f"; dir = 1},/turf/unsimulated/wall/other{icon_state = "metal12"},/area/awaymission/train/snow)
-"aj" = (/obj/structure/train/engine/snow2{icon_state = "manifold-f"; dir = 1},/obj/structure/train/engine/snow2{icon_state = "high>low"; dir = 1},/turf/unsimulated/wall/other{icon_state = "metal12"},/area/awaymission/train/snow)
-"ak" = (/obj/structure/train/engine/snow2{icon_state = "intact-f"; dir = 10},/turf/unsimulated/wall/other{icon_state = "metal12"},/area/awaymission/train/snow)
+"ah" = (/obj/structure/train/engine/snow2{icon_state = "intact-f"; dir = 6; icon = "icons\obj\atmospherics\pipes.dmi"},/turf/unsimulated/wall/other{icon_state = "metal12"},/area/awaymission/train/snow)
+"ai" = (/obj/structure/train/engine/snow2{icon_state = "manifold-f"; dir = 1; icon = "icons\obj\atmospherics\pipes.dmi"},/turf/unsimulated/wall/other{icon_state = "metal12"},/area/awaymission/train/snow)
+"aj" = (/obj/structure/train/engine/snow2{icon_state = "manifold-f"; dir = 1; icon = "icons\obj\atmospherics\pipes.dmi"},/obj/structure/train/engine/snow2{icon_state = "high>low"; dir = 1; icon = "icons\obj\atmospherics\pipes.dmi"},/turf/unsimulated/wall/other{icon_state = "metal12"},/area/awaymission/train/snow)
+"ak" = (/obj/structure/train/engine/snow2{icon_state = "intact-f"; dir = 10; icon = "icons\obj\atmospherics\pipes.dmi"},/turf/unsimulated/wall/other{icon_state = "metal12"},/area/awaymission/train/snow)
 "al" = (/turf/unsimulated/wall/other{icon_state = "metal10"},/area/awaymission/train/snow)
 "am" = (/obj/weathertype/snow/cryo,/turf/unsimulated/wall/other/transparent{icon_state = "metal3"},/area/awaymission/train)
 "an" = (/obj/weathertype/snow/cryo,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train)
 "ao" = (/turf/unsimulated/wall/other{icon_state = "metal3"},/area/awaymission/train/snow)
-"ap" = (/obj/structure/train/engine/snow2{icon_state = "exposed"},/obj/structure/train/engine/snow2{dir = 1; icon = 'icons/obj/pipeturbine.dmi'; icon_state = "motor"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"aq" = (/obj/machinery/light/small{dir = 1; luminosity = 2},/obj/structure/train/engine/snow2{icon_state = "one-way-db"; dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"ar" = (/obj/structure/train/engine/snow2{icon_state = "compressor"; dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"ap" = (/obj/structure/train/engine/snow2{icon_state = "exposed"; icon = "icons\obj\atmospherics\pipes.dmi"},/obj/structure/train/engine/snow2{dir = 1; icon_state = "motor"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"aq" = (/obj/machinery/light/small{dir = 1; luminosity = 2},/obj/structure/train/engine/snow2{icon_state = "one-way-db"; dir = 1; icon = "icons\obj\atmospherics\pipes.dmi"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"ar" = (/obj/structure/train/engine/snow2{icon_state = "compressor"; dir = 1; icon = "icons\obj\atmospherics\pipes.dmi"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
 "as" = (/obj/structure/train/engine/snow,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"at" = (/obj/structure/train/engine/snow2{icon_state = "inlet_filter-0"; dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"au" = (/obj/structure/train/engine/snow2{icon_state = "one-way-db"; dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"at" = (/obj/structure/train/engine/snow2{icon_state = "inlet_filter-0"; dir = 1; icon = "icons\obj\atmospherics\pipes.dmi"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"au" = (/obj/structure/train/engine/snow2{icon_state = "one-way-db"; dir = 1; icon = "icons\obj\atmospherics\pipes.dmi"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
 "av" = (/obj/structure/train/engine/snow2,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
 "aw" = (/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
 "ax" = (/obj/machinery/light/small{dir = 8; luminosity = 3},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"ay" = (/obj/structure/train/engine/snow2{icon_state = "trunk"; dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"az" = (/obj/structure/train/engine/snow2{icon_state = "inlet_filter-3"; dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"ay" = (/obj/structure/train/engine/snow2{icon_state = "trunk"; dir = 1; icon = "icons\obj\atmospherics\pipes.dmi"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
+"az" = (/obj/structure/train/engine/snow2{icon_state = "inlet_filter-3"; dir = 1; icon = "icons\obj\atmospherics\pipes.dmi"},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
 "aA" = (/obj/decal/cleanable/blood/splatter,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
 "aB" = (/obj/machinery/light/small{dir = 4},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
 "aC" = (/obj/machinery/power/apc/hyper{cell_type = /obj/item/cell/infinite},/turf/unsimulated/wall/other{icon_state = "metal3"},/area/awaymission/train/snow)
@@ -56,7 +56,6 @@
 "bd" = (/obj/weathertype/snow/cryo,/turf/unsimulated/wall/other/transparent{icon_state = "metal9"},/area/awaymission/train)
 "be" = (/obj/machinery/door/airlock,/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
 "bf" = (/obj/machinery/light/small{dir = 1},/turf/unsimulated/floor{icon_state = "dark"},/area/awaymission/train/snow)
-"bg" = (/obj/machinery/door/airlock,/turf/unsimulated/floor{icon_state = "wood"},/area/awaymission/train/snow)
 "bh" = (/turf/unsimulated/wall/other{icon_state = "metal1"},/area/awaymission/train/snow)
 "bi" = (/obj/structure/bed/chair/comfy/brown,/obj/machinery/light/small{brightness_range = 8; dir = 8; flickering = 1; luminosity = 3},/turf/unsimulated/floor{icon_state = "wood"},/area/awaymission/train/snow)
 "bj" = (/turf/unsimulated/floor{icon_state = "wood"},/area/awaymission/train/snow)
@@ -278,7 +277,7 @@ abababababababbcafanananananadbdababababababababaaacacacacacacacaKaLaLaMbeaOaLaL
 ababababababababamanananananamabababababababababaaacacacacacacacaobfawawawawawbfaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamanananananamabababababababababaaacacacacacacacaKaMawawawawawaOaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamanananananamabababababababababaaacacacacacacacaoaHawawaHawawaHaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababadbdanananananbcafababababababababaaacacacacacacacaKaMbgbgagaLaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababadbdanananananbcafababababababababaaacacacacacacacaKaMbpbpagaLaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbhbibjbkbhblbjbmbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbnbobjbjbpbjbjbjbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbqbrbjbjbqbsbtbubqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
@@ -294,11 +293,11 @@ abababababababamanananananananamababababababababaaacacacacacacacbqbxbjbkaKaLaLaL
 abababababababamanananananananamababababababababaaacacacacacacacbhbybjbjbhblbjbwbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbnbobjbjbpbjbjbjbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbqbxbjbkbqbsbtbubqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababbcafanananananadbdababababababababaaacacacacacacacaKaLbgbgbzaLaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababbcafanananananadbdababababababababaaacacacacacacacaKaLbpbpbzaLaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamanananananamabababababababababaaacacacacacacacaobfawawawawawbfaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamanananananamabababababababababaaacacacacacacacaKaMawawawawawaOaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamananananbAamabababababababababaaacacacacacacacaoaHawawaHawawbBaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababadbdanananananbcafababababababababaaacacacacacacacaKaMbgbgaOaLaLaLbCacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababadbdanananananbcafababababababababaaacacacacacacacaKaMbpbpaOaLaLaLbCacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbhbDbjbjbpbjbEbjbFacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbnbGbjbjbqbHbIbHbJacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbKbDbjbkbzaLaLaLaMacacacacacacacacacacaaaaaaaaaaaaaaaaaa
@@ -312,14 +311,14 @@ abababababababamanananananananamababababababababaaacacacacacacacbnbGbjbjbpbjbEbj
 abababababababamanananananananamababababababababaaacacacacacacacbqbjbjbjbqbHbIbHbJacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbhbDbjbkaKaLaLaLalacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbnbMbjbjbhbNbNbNaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbKbjbjbjbgbjbjbOaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbnbGbjbjbgbjbjbPaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbKbjbjbjbpbjbjbOaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbnbGbjbjbpbjbjbPaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbqbQbjbjbqbRbRbRaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababbcafanananananadbdababababababababaaacacacacacacacaKaMbgbgbzaLaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababbcafanananananadbdababababababababaaacacacacacacacaKaMbpbpbzaLaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamanananananamabababababababababaaacacacacacacacaobfawawawawawbfaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamanananananamabababababababababaaacacacacacacacaKaMawawawawawaOaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamananananbSamabababababababababaaacacacacacacacaoaHawawaHawawbTaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababadbdanananananbcafababababababababaaacacacacacacacaKaMbgbgaOaLaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababadbdanananananbcafababababababababaaacacacacacacacaKaMbpbpaOaLaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbhbibjbjbUbVbWbXbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbnbobjbjbYbZbjcabnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbqbrbjbjcbbobjccbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
@@ -328,16 +327,16 @@ abababababababamanananananananamababababababababaaacacacacacacacbnbobjbjbYcfbjbV
 abababababababamanananananananamababababababababaaacacacacacacacbqbrbjbjcbbVbjcgbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbhbibjbjcbbobjchbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbnbobjbjcbbVbjcibnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababamanananananananamababababababababaaacacacacacacacbqbrbjbjbjbgbjcjbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababamanananananananamababababababababaaacacacacacacacbqbrbjbjbjbpbjcjbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbhbvbjbjcbbVbjckbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbnbobjbjcbbVbjclbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbqbrbjbjbYbVbjcmbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbhbibjbjcbbobjcnbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababbccocpcpcpcpancqbdababababababababaaacacacacacacacaKaMbgbgaOaLaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababbccocpcpcpcpancqbdababababababababaaacacacacacacacaKaMbpbpaOaLaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamanananananamabababababababababaaacacacacacacacaobfawawawawawbfaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamanananananamabababababababababaaacacacacacacacaKaMawawawawawaOaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamanananancramabababababababababaaacacacacacacacaoawaHawawawaHcsaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababadbdanananananbcafababababababababaaacacacacacacacaKaLaLaMbgaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababadbdanananananbcafababababababababaaacacacacacacacaKaLaLaMbpaOaLaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbhbictbEbjbEctcubhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbncdbobjbjbjbocdbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbqbxbrbjbjbjbrcvbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
@@ -347,7 +346,7 @@ abababababababamanananananananamababababababababaaacacacacacacacbqcxbrbjbjbjbrcv
 abababababababamanananananananamababababababababaaacacacacacacacbhctctbjbjbjbyctbhacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbncdbobjbjbjbocdbnacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 abababababababamanananananananamababababababababaaacacacacacacacbqbrcybjbjbjcybrbqacacacacacacacacacacaaaaaaaaaaaaaaaaaa
-abababababababbcafanananananadbdababababababababaaacacacacacacacaKaLaMbgbgbgaOaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
+abababababababbcafanananananadbdababababababababaaacacacacacacacaKaLaMbpbpbpaOaLaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamanananananamabababababababababaaacacacacacacacaobfawawawawawbfaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamanananananamabababababababababaaacacacacacacacaKaMawawawawawaOaPacacacacacacacacacacaaaaaaaaaaaaaaaaaa
 ababababababababamananananczamabababababababababaaacacacacacacacaoaHawawaHawaHcAaoacacacacacacacacacacaaaaaaaaaaaaaaaaaa
