@@ -20997,6 +20997,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/storage)
+"NZ" = (
+/obj/structure/lattice,
+/turf/simulated/floor/plating,
+/area/maintenance/fourth_deck/afp)
 "Oa" = (
 /obj/machinery/hologram/holopad,
 /obj/floor_decal/industrial/outline/yellow,
@@ -22102,6 +22106,11 @@
 /turf/simulated/floor/tiled/white,
 /area/command/seniorntoffice)
 "RP" = (
+/obj/structure/sign/monkey_painting{
+	name = "\improper Pun Pun portrait";
+	desc = "Under the painting a plaque reads: 'Sleep well, Pun Pun. You valiantly tore up the bar every shift until you tragically fell into disposals for the last time.'";
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/civilian/freezer)
 "RQ" = (
@@ -41251,7 +41260,7 @@ af
 ZW
 TC
 af
-tf
+NZ
 ap
 Ps
 ap
@@ -41453,7 +41462,7 @@ af
 wH
 XY
 SJ
-tf
+NZ
 ap
 YL
 ap

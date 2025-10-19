@@ -14550,9 +14550,6 @@
 	codes = list("patrol" = 1, "next_patrol" = "Bridge Starboard");
 	location = "Bar"
 	},
-/mob/living/carbon/human/monkey/punpun{
-	real_name = "Pun Pun"
-	},
 /turf/simulated/floor/wood/walnut,
 /area/civilian/bar)
 "azx" = (
@@ -19387,9 +19384,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/rnd/office)
 "aHN" = (
-/obj/machinery/computer/modular/preset/nervasci{
-	icon_state = "console"
-	},
+/obj/machinery/computer/modular/preset/nervasci,
 /obj/structure/extinguisher_cabinet{
 	pixel_x = 0;
 	pixel_y = 28
@@ -23637,7 +23632,6 @@
 	icon_state = "alarm0";
 	pixel_x = -22
 	},
-/obj/floor_decal/borderfloor/corner,
 /turf/simulated/floor/carpet,
 /area/rnd/dorms)
 "aOS" = (
