@@ -260,6 +260,7 @@
 
 /datum/sprite_accessory/facial_hair/ipc/ipc_text
 	name = "Text"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
 	icon_state = "ipc_text"
 
 /datum/sprite_accessory/facial_hair/ipc/red
