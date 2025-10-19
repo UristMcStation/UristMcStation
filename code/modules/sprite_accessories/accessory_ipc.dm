@@ -260,6 +260,7 @@
 
 /datum/sprite_accessory/facial_hair/ipc/ipc_text
 	name = "Text"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
 	icon_state = "ipc_text"
 
 /datum/sprite_accessory/facial_hair/ipc/red
@@ -342,50 +343,120 @@
 	name = "Tetris"
 	icon_state = "ipc_tetris"
 
+/datum/sprite_accessory/facial_hair/ipc/doom // yes, it can run doom
+	name = "Doom"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
+	icon_state = "ipc_doom"
+
 /datum/sprite_accessory/facial_hair/ipc/dot
 	name = "Dot"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
 	icon_state = "ipc_dot"
 
 /datum/sprite_accessory/facial_hair/ipc/four
 	name = "Four"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
 	icon_state = "ipc_four"
 
 /datum/sprite_accessory/facial_hair/ipc/eye
 	name = "Eye"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
 	icon_state = "ipc_eye"
 
 /datum/sprite_accessory/facial_hair/ipc/eyes
 	name = "Eyes"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
 	icon_state = "ipc_eyes"
 
 /datum/sprite_accessory/facial_hair/ipc/color_array
 	name = "Color Array"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
 	icon_state = "ipc_color_array"
 
 /datum/sprite_accessory/facial_hair/ipc/array_horizontal
 	name = "Array Horizontal"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
 	icon_state = "ipc_color_array_horizontal"
 
 /datum/sprite_accessory/facial_hair/ipc/array_vertical
 	name = "Array Vertical"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
 	icon_state = "ipc_color_array_vertical"
 
 /datum/sprite_accessory/facial_hair/ipc/television
 	name = "Television"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
 	icon_state = "ipc_television"
 
 /datum/sprite_accessory/facial_hair/ipc/miami
 	name = "Miami"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
 	icon_state = "ipc_miami"
 
 /datum/sprite_accessory/facial_hair/ipc/waiting
 	name = "Waiting"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
 	icon_state = "ipc_waiting"
 
 /datum/sprite_accessory/facial_hair/ipc/smoking
 	name = "Smoking"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
 	icon_state = "ipc_smoking"
 
+/datum/sprite_accessory/facial_hair/ipc/visor
+	name = "Visor"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
+	icon_state = "ipc_visor"
+
+/datum/sprite_accessory/facial_hair/ipc/nt
+	name = "Nanotrasen"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
+	icon_state = "ipc_nt"
+
+/datum/sprite_accessory/facial_hair/ipc/nerva
+	name = "Nerva"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
+	icon_state = "ipc_nerva"
+
+/datum/sprite_accessory/facial_hair/ipc/pirate
+	name = "Pirate - Blinking"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
+	icon_state = "ipc_pirate"
+
+/datum/sprite_accessory/facial_hair/ipc/piratescroll
+	name = "Pirate - Scrolling"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
+	icon_state = "ipc_pirate2"
+
+/datum/sprite_accessory/facial_hair/ipc/medical
+	name = "Medical"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
+	icon_state = "ipc_medical"
+
+/datum/sprite_accessory/facial_hair/ipc/lifeline
+	name = "Heartbeat"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
+	icon_state = "ipc_lifeline"
+
+/datum/sprite_accessory/facial_hair/ipc/caution
+	name = "Caution"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
+	icon_state = "ipc_yellow2"
+
+/datum/sprite_accessory/facial_hair/ipc/smug
+	name = "Smug"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
+	icon_state = "ipc_smug"
+
+/datum/sprite_accessory/facial_hair/ipc/confused
+	name = "Confused"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
+	icon_state = "ipc_confused"
+
+/datum/sprite_accessory/facial_hair/ipc/err
+	name = "Err"
+	icon = 'icons/uristmob/species/ipc/facial.dmi'
+	icon_state = "ipc_err"
 
 /datum/sprite_accessory/hair/ipc
 	abstract_type = /datum/sprite_accessory/hair/ipc
