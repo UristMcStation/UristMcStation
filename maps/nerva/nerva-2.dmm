@@ -20564,7 +20564,8 @@
 	id_tag = "roboprivacy";
 	name = "Robotics Privacy Shutter";
 	pixel_x = 32;
-	pixel_y = -26
+	pixel_y = -26;
+	dir = 8
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -21211,11 +21212,13 @@
 	pixel_x = 22;
 	pixel_y = 6;
 	range = 7;
-	req_access = list("ACCESS_ROBOTICS")
+	req_access = list("ACCESS_ROBOTICS");
+	dir = 8
 	},
 /obj/machinery/light_switch{
 	pixel_x = 22;
-	pixel_y = -6
+	pixel_y = -6;
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -25319,6 +25322,7 @@
 	},
 /obj/floor_decal/industrial/shutoff,
 /obj/floor_decal/industrial/outline/yellow,
+/obj/urist_intangible/mapmanip/marker/submap/insert/nerva/cargo_storage,
 /turf/simulated/floor/tiled/dark/monotile,
 /area/logistics/uppercargo)
 "aSl" = (
@@ -25933,6 +25937,10 @@
 "aTk" = (
 /obj/machinery/computer/shuttle_control/liftnerva,
 /obj/structure/catwalk,
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube1"
+	},
 /turf/simulated/open,
 /area/logistics/uppercargo)
 "aTo" = (
@@ -26583,14 +26591,6 @@
 	d2 = 8;
 	icon_state = "4-8";
 	pixel_y = 0
-/obj/urist_intangible/triggers/template_loader/on_init/submap/nerva/cargo_storage,
-/turf/simulated/floor/tiled/monotile,
-/area/logistics/uppercargo)
-"aUI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9;
-	icon_state = "intact-supply"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/logistics/uppercargo)
