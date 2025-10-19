@@ -137,10 +137,9 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 		core.forceMove(src)
 		core.replaced(src, chest)
 		core = null
-	var/obj/item/organ/external/parent = H.get_organ(BP_CHEST)
 	var/obj/item/organ/internal/brain/mbrain = H.internal_organs_by_name[BP_BRAIN]
 	mbrain.parent_organ = BP_CHEST
-	mbrain.forceMove(parent)
+	mbrain.forceMove(H)
 	var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
 	for(var/obj/item/organ/internal/I in head.internal_organs)
 		if(istype(I,/obj/item/organ/internal/brain))
