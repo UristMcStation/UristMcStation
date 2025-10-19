@@ -117,14 +117,14 @@ the sprite and make my own projectile -Glloyd*/
 
 /obj/item/gun/projectile/silenced/knight
 	name = "Knight-45"
-	desc = "A lightweight, suppressed weapon. Intended for operations where subtlety is preferred, if only for a little while."
-	icon = 'icons/urist/items/guns.dmi'
+	desc = "A lightweight, integrally suppressed weapon. Intended for operations where subtlety is preferred, if only for a little while."
+	icon = 'icons/urist/guns/knight-45.dmi'
 	icon_state = "knight45"
 	item_state = "knight45"
 	item_icons = URIST_ALL_ONMOBS
 	wielded_item_state = "knight45"
 	fire_sound = 'sound/urist/suppshot.ogg'
-	w_class = 2
+	w_class = ITEM_SIZE_SMALL
 	max_shells = 7
 	slot_flags = SLOT_BELT | SLOT_POCKET | SLOT_HOLSTER
 	load_method = MAGAZINE
@@ -133,13 +133,16 @@ the sprite and make my own projectile -Glloyd*/
 	magazine_type = /obj/item/ammo_magazine/pistol
 	allowed_magazines = /obj/item/ammo_magazine/pistol
 	auto_eject = 1
+	auto_eject_sound = 'sound/urist/guns/casing_quiet.ogg'
+	mag_insert_sound = 'sound/urist/guns/pistol_magin_quiet.ogg'
+	mag_remove_sound = 'sound/urist/guns/pistol_magout_quiet.ogg'
 
 /obj/item/gun/projectile/silenced/knight/on_update_icon()
 	..()
 	if(ammo_magazine)
 		icon_state = "knight45"
 	else
-		icon_state = "knight45-empty"
+		icon_state = "knight45-e"
 
 ///// Deckard .44 - old Bay custom item rip for UMcS Blueshields
 /obj/item/gun/projectile/revolver/detective/deckard
