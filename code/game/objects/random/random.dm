@@ -264,7 +264,13 @@
 				/obj/item/reagent_containers/food/snacks/egg/lizard = 3,
 				/obj/item/reagent_containers/glass/bottle/dye/polychromic/strong = 1,
 				/obj/item/storage/backpack/satchel/syndie_kit/clerical = 1,
-				/obj/item/clothing/shoes/laceup/sneakies = 1)
+				/obj/item/clothing/shoes/laceup/sneakies = 1,
+				/obj/item/clothing/mask/fakemoustache = 1,
+				/obj/item/storage/toolbox/ancienttoolbox = 1,
+				/obj/item/rig_module/fabricator/energy_net = 1,
+				/obj/item/storage/box/syndie_kit/jetfuel = 2,
+				/obj/item/gun/launcher/syringe/disguised = 1, // rare enough
+				/obj/item/silencer = 2)
 
 /obj/random/drinkbottle
 	name = "random drink"
@@ -367,8 +373,15 @@
 				/obj/item/ammo_magazine/pistol = 2,
 				/obj/item/ammo_magazine/pistol/flash = 4,
 				/obj/item/ammo_magazine/pistol/rubber = 4,
-				/obj/item/ammo_magazine/pistol = 2,
-				/obj/item/ammo_magazine/pistol/throwback = 1)
+				/obj/item/ammo_magazine/pistol/small = 2,
+				/obj/item/ammo_magazine/pistol/throwback = 1,
+				/obj/item/ammo_casing/shotgun/emp = 1, // singlular shell
+				/obj/item/ammo_magazine/speedloader/small = 2,
+				/obj/item/ammo_magazine/chemdart = 1,
+				/obj/item/ammo_magazine/speedloader/broomstick = 2,
+				/obj/item/ammo_magazine/speedloader/clip = 1,
+				/obj/item/ammo_magazine/rifle/military/stripper = 1,
+				/obj/item/ammo_magazine/speedloader = 2)
 
 /obj/random/action_figure
 	name = "random action figure"
