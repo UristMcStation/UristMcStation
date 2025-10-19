@@ -183,12 +183,9 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ESOTERIC = 2)
 	magazine_type = /obj/item/ammo_magazine/pistol/small
 	allowed_magazines = /obj/item/ammo_magazine/pistol/small
-	#ifdef INCLUDE_URIST_CODE
 	auto_eject_sound = 'sound/urist/guns/casing_quiet.ogg'
 	mag_insert_sound = 'sound/urist/guns/pistol_magin_quiet.ogg'
 	mag_remove_sound = 'sound/urist/guns/pistol_magout_quiet.ogg'
-	#else
-	#endif
 	var/obj/item/silencer/silencer
 
 /obj/item/gun/projectile/pistol/holdout/attack_hand(mob/user)
@@ -201,10 +198,7 @@
 				to_chat(user, SPAN_NOTICE("You unscrew \the [silencer] from \the [src]."))
 				user.put_in_hands(silencer)
 				silencer = null
-				#ifdef INCLUDE_URIST_CODE
 				fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
-				#else
-				#endif
 			silenced = FALSE
 			w_class = initial(w_class)
 			update_icon()
@@ -227,10 +221,7 @@
 		silenced = TRUE
 		silencer = tool
 		w_class = ITEM_SIZE_NORMAL
-		#ifdef INCLUDE_URIST_CODE
 		fire_sound = 'sound/urist/suppshot.ogg'
-		#else
-		#endif
 		update_icon()
 		user.visible_message(
 			SPAN_NOTICE("\The [user] screws \a [tool] onto \a [src]."),
