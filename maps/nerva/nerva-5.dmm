@@ -992,7 +992,9 @@
 /obj/item/clothing/accessory/solgov/fleet_patch/fifth,
 /obj/item/clothing/head/solgov/utility/fleet,
 /obj/item/clothing/accessory/badge/solgov/tags,
-/obj/structure/closet,
+/obj/structure/closet{
+	name = "insignia closet"
+	},
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -1611,7 +1613,9 @@
 /obj/item/clothing/head/beret/solgov/fleet/medical,
 /obj/item/clothing/head/beret/solgov/fleet/medical,
 /obj/item/clothing/head/beret/solgov/fleet/medical,
-/obj/structure/closet,
+/obj/structure/closet{
+	name = "insignia closet"
+	},
 /turf/unsimulated/floor{
 	icon_state = "dark"
 	},
@@ -1715,7 +1719,9 @@
 /obj/item/clothing/head/beret/solgov/fleet/security,
 /obj/item/clothing/head/beret/solgov/fleet/security,
 /obj/item/clothing/head/beret/solgov/fleet/security,
-/obj/structure/closet,
+/obj/structure/closet{
+	name = "insignia closet"
+	},
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -2212,7 +2218,9 @@
 /obj/item/clothing/head/beret/solgov/fleet/engineering,
 /obj/item/clothing/head/beret/solgov/fleet/engineering,
 /obj/item/clothing/head/beret/solgov/fleet/engineering,
-/obj/structure/closet,
+/obj/structure/closet{
+	name = "insignia closet"
+	},
 /turf/unsimulated/floor{
 	dir = 1;
 	icon_state = "vault"
@@ -3256,7 +3264,9 @@
 /turf/simulated/floor/plating,
 /area/rescue_base/start)
 "gc" = (
-/obj/structure/closet,
+/obj/structure/closet{
+	name = "insignia closet"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "gd" = (
@@ -3319,7 +3329,9 @@
 /turf/simulated/floor/plating,
 /area/rescue_base/start)
 "gj" = (
-/obj/structure/closet,
+/obj/structure/closet{
+	name = "insignia closet"
+	},
 /obj/item/storage/box/donkpocket_premium,
 /obj/item/storage/box/donkpocket_premium,
 /turf/simulated/floor/tiled/dark,
@@ -3343,7 +3355,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/rescue_base/start)
 "gn" = (
-/obj/structure/closet,
+/obj/structure/closet{
+	name = "insignia closet"
+	},
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
@@ -8971,10 +8985,10 @@
 "vD" = (
 /obj/machinery/button/blast_door{
 	dir = 1;
-	icon_state = "computer";
 	id_tag = "thunderdomeaxe";
 	name = "Thunderdome Axe Supply"
 	},
+/obj/structure/table/standard,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
@@ -8985,6 +8999,7 @@
 	id_tag = "thunderdomegen";
 	name = "Thunderdome General Supply"
 	},
+/obj/structure/table/standard,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
@@ -8995,6 +9010,7 @@
 	id_tag = "thunderdomehea";
 	name = "Thunderdome Heavy Supply"
 	},
+/obj/structure/table/standard,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
@@ -9005,6 +9021,7 @@
 	id_tag = "thunderdome";
 	name = "Thunderdome Blast Door Control"
 	},
+/obj/structure/table/standard,
 /turf/unsimulated/floor{
 	icon_state = "lino"
 	},
@@ -12220,7 +12237,9 @@
 	},
 /area/ninja_dojo/dojo)
 "Dw" = (
-/obj/structure/closet,
+/obj/structure/closet{
+	name = "insignia closet"
+	},
 /turf/simulated/floor/shuttle/darkred,
 /area/syndicate_station/start)
 "Dx" = (
@@ -15692,7 +15711,9 @@
 	dir = 4;
 	pixel_y = 8
 	},
-/obj/structure/closet,
+/obj/structure/closet{
+	name = "insignia closet"
+	},
 /obj/item/clothing/shoes/sandal,
 /obj/item/clothing/shoes/sandal,
 /obj/item/clothing/under/rank/psych/turtleneck{
@@ -15959,7 +15980,9 @@
 /turf/simulated/floor/plating,
 /area/merchant_station)
 "LK" = (
-/obj/structure/closet,
+/obj/structure/closet{
+	name = "insignia closet"
+	},
 /obj/item/clothing/shoes/laceup,
 /obj/item/clothing/under/vox/vox_casual,
 /turf/simulated/floor/plating,
@@ -16164,7 +16187,9 @@
 	},
 /area/ninja_dojo/start)
 "Mj" = (
-/obj/structure/closet,
+/obj/structure/closet{
+	name = "insignia closet"
+	},
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube1"
@@ -17546,6 +17571,10 @@
 	icon_state = "dark"
 	},
 /area/map_template/syndicate_mothership)
+"TU" = (
+/obj/item/clothing/head/beret/solgov/fleet/medical,
+/turf/space,
+/area/space)
 "TW" = (
 /obj/floor_decal/beach{
 	dir = 4;
@@ -18100,6 +18129,15 @@
 /obj/urist_intangible/weather/invariant/holo_rain,
 /turf/simulated/floor/holofloor/urist/jungle_water,
 /area/holodeck/source_jungle)
+"Yl" = (
+/obj/item/clothing/accessory/solgov/fleet_patch/fifth,
+/obj/item/clothing/head/solgov/utility/fleet,
+/obj/item/clothing/accessory/badge/solgov/tags,
+/turf/unsimulated/floor{
+	dir = 1;
+	icon_state = "vault"
+	},
+/area/rescue_base/base)
 "Yn" = (
 /obj/floor_decal/corner/blue{
 	dir = 4
@@ -31581,7 +31619,7 @@ tG
 ui
 uL
 uf
-uf
+vK
 mz
 ab
 vX
@@ -34381,7 +34419,7 @@ ab
 ab
 ab
 ab
-ab
+TU
 ab
 ab
 ab
@@ -51085,7 +51123,7 @@ bp
 at
 at
 at
-cc
+Yl
 aF
 aF
 cc
