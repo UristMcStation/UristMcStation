@@ -270,8 +270,7 @@
 				/obj/item/rig_module/fabricator/energy_net = 1,
 				/obj/item/storage/box/syndie_kit/jetfuel = 2,
 				/obj/item/gun/launcher/syringe/disguised = 1, // rare enough
-				/obj/item/silencer = 2
-				)
+				/obj/item/silencer = 2)
 
 /obj/random/drinkbottle
 	name = "random drink"
@@ -382,8 +381,7 @@
 				/obj/item/ammo_magazine/speedloader/broomstick = 2,
 				/obj/item/ammo_magazine/speedloader/clip = 1,
 				/obj/item/ammo_magazine/rifle/military/stripper = 1,
-				/obj/item/ammo_magazine/speedloader = 2,
-				)
+				/obj/item/ammo_magazine/speedloader = 2)
 
 /obj/random/action_figure
 	name = "random action figure"
