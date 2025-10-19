@@ -29,7 +29,7 @@
 		var/mob/living/carbon/human/M = pick(nearby_mobs)
 		if (get_dist(M, T) <= effectrange && M.health > 20 && !M.isSynthetic())
 			bloodcall(M)
-			holder.Beam(M, icon_state = "r_beam", time = 1 SECOND)
+			holder?.Beam(M, icon_state = "r_beam", time = 1 SECOND)
 
 	if (world.time - last_eat >= eat_interval)
 		var/obj/decal/cleanable/blood/B = locate() in range(2,holder)
@@ -58,7 +58,7 @@
 	if (charges >= 1 && length(nearby_mobs) && prob(15 * length(nearby_mobs)))
 		var/mob/living/L = pick(nearby_mobs)
 		if (!L.isSynthetic())
-			holder.Beam(L, icon_state = "r_beam", time = 1 SECOND)
+			holder?.Beam(L, icon_state = "r_beam", time = 1 SECOND)
 			L.apply_damage(40, DAMAGE_PAIN, damage_flags = DAMAGE_FLAG_DISPERSED)
 			to_chat(L, SPAN_WARNING("Horrendous pain rocks through your body!"))
 
