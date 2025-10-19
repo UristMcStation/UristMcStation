@@ -231,3 +231,6 @@
 /obj/spawner/bomb_simulator/LateInitialize()
 	. = ..()
 	explosion(loc, ex_range, severity, adminlog = FALSE)
+
+/obj/spawner/bomb_simulator/heavy
+	severity = EX_ACT_HEAVY

@@ -349,7 +349,8 @@
 /area/maintenance/second_deck/afp)
 "aY" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/maintenance/second_deck/afp)
 "aZ" = (
@@ -8324,7 +8325,8 @@
 /area/maintenance/second_deck/afs)
 "qi" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/maintenance/second_deck/afs)
 "qj" = (
@@ -11496,6 +11498,7 @@
 /obj/structure/table/standard,
 /obj/structure/bedsheetbin,
 /obj/floor_decal/corner/paleblue/diagonal,
+/obj/item/storage/box/detergent,
 /turf/simulated/floor/tiled/white,
 /area/civilian/personal)
 "vW" = (
@@ -15100,7 +15103,8 @@
 /area/logistics/auxtool)
 "Iw" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/maintenance/second_deck/fs)
 "IE" = (
@@ -17561,7 +17565,8 @@
 /area/engineering/substation/atmos)
 "UK" = (
 /turf/simulated/wall/r_wall/false{
-	icon_state = "rdebug"
+	icon_state = "rdebug";
+	stripe_color = "#545c68"
 	},
 /area/maintenance/second_deck/fp)
 "UO" = (

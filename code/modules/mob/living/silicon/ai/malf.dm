@@ -117,6 +117,8 @@
 	if(!src.stat)
 		stat("Hardware integrity", "[hardware_integrity()]%")
 		stat("Internal capacitor", "[backup_capacitor()]%")
+		stat("Local Time:", "[stationtime2text()]")
+		stat("Local Date:", "[stationdate2text()]")
 	else
 		stat("Systems nonfunctional")
 

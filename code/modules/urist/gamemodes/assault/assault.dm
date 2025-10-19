@@ -24,7 +24,7 @@ var/global/remaininggens = 6
 
 	respawntime = 100 //ten second respawn time, instant action
 
-	for(var/obj/urist_intangible/trigger/template_loader/gamemode/assault/L in landmarks_list)
+	for(var/obj/urist_intangible/triggers/template_loader/on_call/gamemode/assault/L in GLOB.trigger_landmarks)
 		if(maptype == L.maptype)
 			L.Load()
 

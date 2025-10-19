@@ -14,6 +14,7 @@
 	var/initial_delay = FALSE
 	var/bypass_shields = FALSE
 	var/counterboarding = FALSE
+	var/hostile_counterboarding_chance = 60 //what is the chance that we open a portal to the enemy's ship that will let players board us back
 
 /datum/shipcomponents/teleporter/DoActivate()
 	if(mastership.boarding && !counterboarding)
@@ -41,14 +42,13 @@
 	if(!boarding_turf) //Locate where we're boarding, give them a warning.
 		var/obj/machinery/tele_beacon/active_beacon //what beacon are we locking onto?
 		var/list/beacon_list = list()
-		for(var/obj/machinery/tele_beacon/B in world)
+		for(var/obj/machinery/tele_beacon/B in SSmachines.machinery)
 			if(B.z in mastership.target_ship.map_z)
 				beacon_list += B
 		active_beacon = pick(beacon_list)
 		boarding_turf = get_turf(active_beacon)
 		var/area/boarding_area = get_area(active_beacon)
 		mastership.target_ship.autoannounce("<b>[boarding_message] [boarding_area.name].</b>", "public")
-		mastership.target_ship.autoannounce("<b>[boarding_hint]</b>", "public")
 
 	if(prob(boarding_failure_chance))
 		for(var/obj/machinery/power/shield_generator/S in SSmachines.machinery) //Calculate our failure chance.
@@ -70,13 +70,18 @@
 			if(!istype(T, /turf/simulated/floor))
 				continue
 			turfs_in_range.Add(T)
-		new /obj/structure/boarding/shipportal/shipside(boarding_turf)
+		if(mastership.boardingmap && mastership.map_spawned && !mastership.defenders_spawned && mastership.target_ship == GLOB.using_map.overmap_ship) //right now only the main ship can board
+			if(prob(hostile_counterboarding_chance))
+				mastership.target_ship.autoannounce("<b>[boarding_hint]</b>", "public")
+				mastership.boarded(TRUE)
+				new /obj/structure/boarding/shipportal/shipside(boarding_turf)
 		for(var/S = 1 to boarding_number)
 			var/boarding_type = pick(boarding_mobs)
 			var/spawnturf = pick(turfs_in_range)
 			spawn(0.5 SECONDS)
 				new boarding_type(spawnturf)
 				playsound(spawnturf, 'sound/effects/teleport.ogg', 90, 1)
+				sparks(5,1,spawnturf)
 
 		if(prob(80))
 			boarding_turf = null //pick somewhere new to board.
@@ -86,10 +91,12 @@
 
 //boarding modules
 /datum/shipcomponents/teleporter/robotic
-	name = "robotic boarding module"
+	name = "hivebot remote warp module"
 	boarding_mobs = list(/mob/living/simple_animal/hostile/hivebot, /mob/living/simple_animal/hostile/hivebot/range, /mob/living/simple_animal/hostile/hivebot/strong, /mob/living/simple_animal/hostile/hivebot/tele)
 	boarding_number = 8
 	boarded_max = 5
+	hostile_counterboarding_chance = 0
+	boarding_message = "Unknown electro-magnetic fluctuations detected! Incoming hivebot attack likely. Expected breach point:"
 
 /datum/shipcomponents/teleporter/alien
 	name = "alien matter deconstructor/reconstructor"
@@ -100,6 +107,7 @@
 	boarding_message = "Severe bluespace fluctuations detected! Incoming Lactera boarding party likely. Expected breach point:"
 	bypass_shields = TRUE
 	counterboarding = TRUE
+	hostile_counterboarding_chance = 0
 
 /datum/shipcomponents/teleporter/alien/small
 	boarded_max = 3
@@ -116,6 +124,7 @@
 	boarding_number = 4
 	boarding_delay = 4 MINUTES
 	boarding_mobs = list(/mob/living/simple_animal/hostile/urist/newpirate,/mob/living/simple_animal/hostile/urist/newpirate/laser)
+	hostile_counterboarding_chance = 65
 
 /datum/shipcomponents/teleporter/terran
 	name = "high-flux Terran Naval teleporter"
@@ -123,11 +132,13 @@
 	boarding_delay = 1 MINUTE
 	boarding_number = 4
 	boarded_max = 2
+	hostile_counterboarding_chance = 15
 
 /datum/shipcomponents/teleporter/terran/large
 	name = "large high-flux Terran Naval teleporter"
 	boarding_number = 5
 	boarded_max = 3
+	hostile_counterboarding_chance = 10
 
 /datum/shipcomponents/teleporter/bluespace_artillery
 	name = "bluespace artillery"
@@ -137,6 +148,7 @@
 	boarding_message = "Severe bluespace fluctuations detected, hostile Bluespace Artillery inbound! Immediately evacuate the affected area. Expected impact point:"
 	boarded_max = 5 //if it manages to fire this many times, we have bigger issues
 	counterboarding = TRUE
+	hostile_counterboarding_chance = 0
 
 //Shield Disruptors
 /datum/shipcomponents/shield_disruptor

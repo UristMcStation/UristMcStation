@@ -11,11 +11,18 @@
 	GLOB.trigger_landmarks -= src
 	return ..()
 
-//where we tele in
+//where we tele in. right now there can only be one of these.
+//if we ever allow multiple ships to be boarded at the same time, then this will need to be tweaked
+///obj/structure/boarding/shipportal/shipside/Initialize() relies on there only being one, as does /mob/living/simple_animal/hostile/overmapship/proc/boarded()
 
 /obj/urist_intangible/triggers/boarding_landmark
+	var/obj/structure/boarding/shipportal/linked_portal //for clearing up counterboarding portals
 	icon_state = "x3"
 	icon = 'icons/mob/screen1.dmi'
+
+/obj/urist_intangible/triggers/boarding_landmark/Destroy()
+	qdel(linked_portal)
+	..()
 
 //ai spawns
 

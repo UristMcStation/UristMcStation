@@ -227,6 +227,7 @@
 	if(W)
 		remove_from_mob(W, target)
 		if(!(W && W.loc)) return 1 // self destroying objects (tk, grabs)
+		W.do_drop_animation(src)
 		update_icons()
 		return 1
 	return 0

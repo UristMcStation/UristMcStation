@@ -124,7 +124,7 @@
 			SPAN_NOTICE("\The [user] starts sawing \a [src]'s stock off with \a [tool]."),
 			SPAN_NOTICE("You start sawing \the [src]'s stock off with \the [tool].")
 		)
-		if (!user.do_skilled(5 SECONDS, SKILL_CONSTRUCTION, src, do_flags = DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool, SANITY_CHECK_TARGET_UNEQUIP))
+		if (!do_after(user, 5 SECONDS, src, do_flags = DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, tool, SANITY_CHECK_TARGET_UNEQUIP))
 			return TRUE
 		user.unEquip(src)
 		var/obj/item/gun/projectile/shotgun/pump/sawn/sawn = new (get_turf(src))
@@ -277,7 +277,7 @@
 				SPAN_DANGER("You hear a gunshot!")
 			)
 			return TRUE
-		if (!user.do_skilled(3 SECONDS, SKILL_CONSTRUCTION, src) || !user.use_sanity_check(src, tool, SANITY_CHECK_TARGET_UNEQUIP))
+		if (!do_after(user, 3 SECONDS, src) || !user.use_sanity_check(src, tool, SANITY_CHECK_TARGET_UNEQUIP))
 			return TRUE
 		if (istype(tool, /obj/item/melee/energy))
 			var/obj/item/melee/energy/energy = tool

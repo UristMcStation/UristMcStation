@@ -81,6 +81,8 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	var/base_turf_special_handling = FALSE
 	/// Boolean (Default `FALSE`) - If set, floor turfs in the area will be set to airless when they initialize. This is unset during `LateInitialize()` to avoid interfering with player-placed tiles.
 	var/turfs_airless = FALSE
+	/// Boolean, defaults to FALSE. Is this area critical to the ship's functioning? Currently used only for combat lighting changes, but could be used for other things in the future.__global_init.
+	var/is_critical = FALSE
 
 /*-----------------------------------------------------------------------------*/
 

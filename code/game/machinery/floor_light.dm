@@ -17,7 +17,7 @@ var/global/list/floor_light_cache = list()
 
 	var/damaged
 	var/default_light_power = 0.75
-	var/default_light_range = 3
+	var/default_light_range = 4
 	var/default_light_colour = "#ffffff"
 
 

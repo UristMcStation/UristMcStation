@@ -35,9 +35,6 @@
 			if (!isturf(loc))
 				USE_FEEDBACK_FAILURE("\The [src] must be on a turf to lift \the [dropped] onto it.")
 				return TRUE
-			if (!user.skill_check(SKILL_HAULING, SKILL_BASIC))
-				USE_FEEDBACK_FAILURE("You're not strong enough to lift \the [dropped] onto \the [src].")
-				return TRUE
 			var/has_blocker = FALSE
 			for (var/atom/thing as anything in get_turf(src))
 				if (thing == src)
@@ -52,7 +49,7 @@
 				SPAN_NOTICE("\The [user] starts lifting \the [dropped] onto \the [src]."),
 				SPAN_NOTICE("You start lifting \the [dropped] onto \the [src].")
 			)
-			if (!user.do_skilled(6 SECONDS, SKILL_HAULING, src, do_flags = DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, dropped))
+			if (!do_after(user, 6 SECONDS, src, do_flags = DO_PUBLIC_UNIQUE) || !user.use_sanity_check(src, dropped))
 				return TRUE
 			if (!HAS_FLAGS(obj_flags, OBJ_FLAG_RECEIVE_TABLE))
 				USE_FEEDBACK_FAILURE("\The [src]'s state has changed.")
@@ -221,7 +218,7 @@
 		SPAN_NOTICE("You begin [anchored ? "un" : ""]securing \the [src] [anchored ? "from" : "to"] the floor with \the [tool].")
 	)
 	playsound(src, 'sound/items/Ratchet.ogg', 50, TRUE)
-	if (!user.do_skilled((tool.toolspeed * delay), SKILL_CONSTRUCTION, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+	if (!do_after(user, (tool.toolspeed * delay), src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
 		return
 	user.visible_message(
 		SPAN_NOTICE("\The [user] [anchored ? "un" : ""]secures \the [src] [anchored ? "from" : "to"] the floor with \a [tool]."),

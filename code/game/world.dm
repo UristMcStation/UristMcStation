@@ -56,8 +56,8 @@ GLOBAL_VAR(href_logfile)
 	return match
 
 
-/proc/stack_trace(msg)
-	CRASH(msg)
+///proc/stack_trace(msg)
+//	CRASH(msg)
 
 
 /proc/enable_debugging(mode, port)

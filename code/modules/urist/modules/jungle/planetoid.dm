@@ -1,7 +1,7 @@
 /obj/overmap/visitable/sector/planetoid
 	name = "a generic planetoid"
 	is_planet = TRUE
-	sector_flags = FLAGS_OFF  // unknown, untargetable & non-starting-loc - it's a planet(oid)
+	sector_flags = OVERMAP_SECTOR_KNOWN //planetoids are known, like exoplanets. still can't spacewalk to them though.
 
 	var/static_name = null // if we don't want to generate a name
 	var/atmo_color = COLOR_WHITE //do we have atmos, and if so, what color are the clouds

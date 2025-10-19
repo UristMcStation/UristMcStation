@@ -88,7 +88,10 @@
 	base_color = get_color()
 
 	update_connections(1)
-	update_icon()
+	if(GAME_STATE < RUNLEVEL_SETUP) //if we're in init or still in the lobby, we don't care if there's visual lag to updating the colour of windows
+		queue_icon_update() //i'm including the lobby to allow for pre-round spawning of things to be quicker for events and such
+	else
+		update_icon()
 	update_nearby_tiles(need_rebuild=1)
 
 /obj/structure/window/Destroy()
@@ -348,7 +351,7 @@
 			SPAN_NOTICE("\The [user] starts slicing \the [src] apart with \a [tool]."),
 			SPAN_NOTICE("You start slicing \the [src] apart with \the [tool].")
 		)
-		if (!user.do_skilled((tool.toolspeed * 2) SECONDS, SKILL_CONSTRUCTION, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+		if (!do_after(user, (tool.toolspeed * 2) SECONDS, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
 			return TRUE
 		playsound(src, 'sound/items/Welder.ogg', 50, TRUE)
 		user.visible_message(

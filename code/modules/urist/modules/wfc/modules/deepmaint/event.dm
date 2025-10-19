@@ -12,7 +12,10 @@
 	set waitfor = FALSE
 
 	sleep(-1) // detach immediately and background
-	var/list/predicates = list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects)
+	var/list/predicates = list(
+		GLOBAL_PROC_REF(not_turf_contains_dense_objects),
+		GLOBAL_PROC_REF(IsTurfAtmosSafe)
+	)
 
 	if(isnull(src.spawned_teleporters))
 		src.spawned_teleporters = list()
@@ -24,7 +27,7 @@
 		if(length(src.spawned_teleporters) >= src.entrypoints)
 			break
 
-		var/area/location = pick_area(list(/proc/is_not_space_area, /proc/is_station_area, /proc/is_maint_area))
+		var/area/location = pick_area(list(GLOBAL_PROC_REF(is_not_space_area), GLOBAL_PROC_REF(is_station_area), GLOBAL_PROC_REF(is_maint_area)))
 
 		if(isnull(location))
 			continue

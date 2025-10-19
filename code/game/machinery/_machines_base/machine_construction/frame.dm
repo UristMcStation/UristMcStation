@@ -20,7 +20,7 @@
 			SPAN_NOTICE("You begin securing \the [machine] to the floor with \the [tool].")
 		)
 		playsound(machine, 'sound/items/Ratchet.ogg', 50, TRUE)
-		if (!user.do_skilled((tool.toolspeed * 2 SECONDS), SKILL_CONSTRUCTION, machine, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(machine, tool))
+		if (!do_after(user, (tool.toolspeed * 2 SECONDS), machine, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(machine, tool))
 			return TRUE
 		TRANSFER_STATE(/singleton/machine_construction/frame/wrenched)
 		user.visible_message(
@@ -40,7 +40,7 @@
 			SPAN_NOTICE("\The [user] starts dismantling \a [machine] with \a [tool]."),
 			SPAN_NOTICE("You start dismantling \the [machine] with \the [tool].")
 		)
-		if (!user.do_skilled(tool.toolspeed * 2 SECONDS, SKILL_CONSTRUCTION, machine, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(machine, tool))
+		if (!do_after(user, (tool.toolspeed * 2 SECONDS), machine, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(machine, tool))
 			return TRUE
 		if (!welder.remove_fuel(3, user))
 			return TRUE
@@ -78,7 +78,7 @@
 			SPAN_NOTICE("You begin unsecuring \the [machine] from the floor with \the [tool].")
 		)
 		playsound(machine, 'sound/items/Ratchet.ogg', 50, TRUE)
-		if (!user.do_skilled((tool.toolspeed * 2 SECONDS), SKILL_CONSTRUCTION, machine, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(machine, tool))
+		if (!do_after(user, (tool.toolspeed * 2 SECONDS), machine, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(machine, tool))
 			return TRUE
 		TRANSFER_STATE(/singleton/machine_construction/frame/unwrenched)
 		user.visible_message(
@@ -100,7 +100,7 @@
 			SPAN_NOTICE("\The [user] starts wiring \a [machine] with [cable_coil.get_vague_name(TRUE)]."),
 			SPAN_NOTICE("You start wiring \the [machine] with [cable_coil.get_exact_name(5)].")
 		)
-		if (!user.do_skilled(2 SECONDS, SKILL_ELECTRICAL, machine, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(machine, tool))
+		if (!do_after(user, 2 SECONDS, machine, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(machine, tool))
 			return TRUE
 		if (!cable_coil.use(5))
 			USE_FEEDBACK_STACK_NOT_ENOUGH(cable_coil, 5, "to wire \the [machine].")

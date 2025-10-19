@@ -100,9 +100,21 @@ GLOBAL_TYPED_NEW(maploader, /dmm_suite)
 	Master.StopLoadingMap()
 
 /dmm_suite/proc/load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, clear_contents, x_lower = -INFINITY, x_upper = INFINITY, y_lower = -INFINITY, y_upper = INFINITY, initialized_areas_by_type)
-	var/tfile = dmm_file//the map file we're creating
+	var/tfile = dmm_file //the map file we're creating
 	if(isfile(tfile))
-		tfile = file2text(tfile)
+		var/tfilepath = "[tfile]"
+		tfile = null
+		var/lastchar = copytext(tfilepath, -1)
+		if(lastchar == "/" || lastchar == "\\")
+			log_debug("Attempted to load map template without filename (Attempted [tfile])")
+			return
+		// use bapi to read, parse, process, mapmanip etc. unless we're measuring or unit tests are running
+		if(!measureOnly)
+			tfile = bapi_read_dmm_file("[tfilepath]")
+		// if bapi for whatever reason fails and returns null, or we're measuring
+		// try to load it the old dm way instead
+		if(!tfile)
+			tfile = file2text(tfilepath)
 
 	if(!x_offset)
 		x_offset = 1

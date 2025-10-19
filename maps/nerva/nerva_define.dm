@@ -16,8 +16,8 @@
 		/singleton/audio/track/ambispace
 	)
 	station_levels = list(1,2,3,4)
-	contact_levels = list(1,2,3,4)
-	player_levels = list(1,2,3,4)
+	contact_levels = list(1,2,3,4,6)
+	player_levels = list(1,2,3,4,6)
 	admin_levels = list(5)
 	empty_levels = list(6)
 	accessible_z_levels = list("1"=5,"2"=5,"3"=5,"4"=5,"6"=30)

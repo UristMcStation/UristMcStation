@@ -322,12 +322,12 @@
 	supervisors = "everyone"
 	access = list(access_prim_tool)
 	outfit_type = /singleton/hierarchy/outfit/job/nerva/assistant
-	alt_titles = list(
-	"Technical Assistant","Medical Intern","Cargo Assistant",
-	"Botanist" = /singleton/hierarchy/outfit/job/service/gardener,
-	"Librarian" = /singleton/hierarchy/outfit/job/librarian,
-	"Journalist" = /singleton/hierarchy/outfit/job/librarian,
 	minimal_player_age = 0
+	alt_titles = list(
+	    "Technical Assistant","Medical Intern","Cargo Assistant",
+	    "Botanist" = /singleton/hierarchy/outfit/job/service/gardener,
+	    "Librarian" = /singleton/hierarchy/outfit/job/librarian,
+	    "Journalist" = /singleton/hierarchy/outfit/job/librarian
 	)
 
 /datum/job/assistant/get_description_blurb()

@@ -153,7 +153,8 @@
 		return
 	if (!user_can_move_target_inside(target, user))
 		return
-	put_in(target)
+	put_in(target, user)
+	return
 
 /obj/machinery/dna_scannernew/use_grab(obj/item/grab/grab, list/click_params) //Grab is deleted at the level of put_in if all checks are passed.
 	MouseDrop_T(grab.affecting, grab.assailant)
@@ -182,8 +183,6 @@
 	target.remove_grabs_and_pulls()
 
 	user.visible_message("<span class='notice'>\The [user] begins placing \the [target] into \the [src].</span>", "<span class='notice'>You start placing \the [target] into \the [src].</span>")
-	if(!do_after(user, 30, src))
-		return
 
 /obj/machinery/dna_scannernew/proc/set_occupant(mob/living/carbon/occupant)
 	src.occupant = occupant

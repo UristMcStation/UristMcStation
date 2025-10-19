@@ -38,7 +38,7 @@ var/global/list/floating_chat_colors = list()
 	if(small)
 		fontsize = 6
 
-	if(copytext_char(message, length_char(message) - 1) == "!!")
+	if(copytext_char(message, length_char(message) - 1) in list("!!","?!"))
 		fontsize = 8
 		limit = 60
 		style += "font-weight: bold;"

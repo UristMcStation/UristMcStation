@@ -44,7 +44,9 @@
 	var/tries = 1
 	var/success = FALSE
 
-	var/list/predicates = list(/proc/not_turf_contains_dense_objects)
+	var/list/predicates = list(
+		GLOBAL_PROC_REF(not_turf_contains_dense_objects)
+	)
 
 	while(tries --> 0)
 		var/turf/T = pick_area_turf(/area/map_template/deepmaint_wfc/alpha, predicates)
@@ -86,10 +88,10 @@
 	var/tries = 1
 	var/success = FALSE
 
-	var/list/predicates = list(/proc/is_station_turf, /proc/not_turf_contains_dense_objects, /proc/IsTurfAtmosSafe)
+	var/list/predicates = list(GLOBAL_PROC_REF(is_station_turf), GLOBAL_PROC_REF(not_turf_contains_dense_objects), GLOBAL_PROC_REF(IsTurfAtmosSafe))
 
 	while(tries --> 0)
-		var/area/location = pick_area(list(/proc/is_not_space_area, /proc/is_station_area, /proc/is_maint_area))
+		var/area/location = pick_area(list(GLOBAL_PROC_REF(is_not_space_area), GLOBAL_PROC_REF(is_station_area), GLOBAL_PROC_REF(is_maint_area)))
 
 		if(isnull(location))
 			continue
@@ -150,14 +152,14 @@
 
 
 /obj/wfc_step_trigger/deepmaint_teleport
-	step_callback = /proc/deepmaint_conditional_yeet
+	step_callback = GLOBAL_PROC_REF(deepmaint_conditional_yeet)
 
 
 /obj/wfc_step_trigger/deepmaint_entrance
 	icon_state = "rdn"
-	step_callback = /proc/deepmaint_conditional_send
+	step_callback = GLOBAL_PROC_REF(deepmaint_conditional_send)
 
 
 /obj/wfc_step_trigger/deepmaint_exit
 	icon_state = "rup"
-	step_callback = /proc/deepmaint_conditional_stationyeet
+	step_callback = GLOBAL_PROC_REF(deepmaint_conditional_stationyeet)

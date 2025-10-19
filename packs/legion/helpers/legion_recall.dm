@@ -35,7 +35,7 @@
 		return
 	var/mob/recallee = pick_n_take(remaining)
 	legion_recall(recallee)
-	addtimer(new Callback(GLOBAL_PROC, /proc/legion_mass_recall_recurse, remaining), 0.1 SECONDS)
+	addtimer(new Callback(GLOBAL_PROC, GLOBAL_PROC_REF(legion_mass_recall_recurse), remaining), 0.1 SECONDS)
 
 
 /client/proc/cmd_legion_mass_recall()

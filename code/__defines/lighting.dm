@@ -86,6 +86,7 @@
 #define LIGHT_COLOUR_E_RED	"#da0205" // Emergency red lighting
 #define LIGHT_COLOUR_READY	"#00ff00" // Green 'READY' lighting
 #define LIGHT_COLOUR_SKRELL	"#66ccff" // Skrellian cyan lighting
+#define LIGHT_COLOUR_COMBAT	"#fc2c30" // A slightly lighter red for combat lighting
 
 #define LIGHT_STANDARD_COLORS list(LIGHT_COLOUR_WHITE, LIGHT_COLOUR_WARM, LIGHT_COLOUR_COOL) // List of standard light colors used for randomized lighting and selectable printed lights.
 

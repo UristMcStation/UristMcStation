@@ -84,7 +84,9 @@
 		sleep(-1)
 
 		if (radius == -1)
-			T = pick_area_turf(area, list(/proc/not_turf_contains_dense_objects))
+			T = pick_area_turf(area, list(
+				GLOBAL_PROC_REF(not_turf_contains_dense_objects)
+				))
 
 			if (!T) //no open spaces to spawn on
 				T = pick_area_turf(area)

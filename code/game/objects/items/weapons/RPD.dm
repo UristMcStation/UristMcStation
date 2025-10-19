@@ -150,11 +150,7 @@ GLOBAL_LIST_AS(rpd_pipe_selection_skilled, list(
 			playsound (get_turf(user), 'sound/items/Deconstruct.ogg', 50, 1)
 
 		var/obj/item/pipe/pipe = P.Build(P, T, pipe_colors[pipe_color])
-		var/num_rotations
-		if (user.skill_check(SKILL_ATMOS, SKILL_EXPERIENCED))
-			num_rotations = get_placement_rotation(user, P.placement_mode, click_parameters)
-		else
-			num_rotations = rand(3)
+		var/num_rotations = get_placement_rotation(user, P.placement_mode, click_parameters)
 		for (var/i = 0, i < num_rotations, i++)
 			pipe.dir = GLOB.cw_dir[pipe.dir]
 		if (prob(20))

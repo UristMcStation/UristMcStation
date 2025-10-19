@@ -186,5 +186,5 @@
 	origin_tech = list(TECH_MATERIAL = 3, TECH_MAGNET = 4, TECH_ESOTERIC = 4)
 
 /obj/item/grenade/syndieminibomb/detonate()
-	explosion(src.loc, 7, EX_ACT_DEVASTATING)
+	explosion(src.loc, 6, EX_ACT_HEAVY)
 	qdel(src)

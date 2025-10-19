@@ -44,6 +44,8 @@
   "gitlens.advanced.blame.customArguments": [
     "--ignore-revs-file", ".git-blame-ignore-revs"
   ],
-
+  "rust-analyzer.linkedProjects": [
+    "rust/bapi/Cargo.toml"
+  ],
   "diffEditor.ignoreTrimWhitespace": false
 }

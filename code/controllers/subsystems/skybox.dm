@@ -44,8 +44,19 @@ SUBSYSTEM_DEF(skybox)
 		space.icon_state = "white"
 		space.AddOverlays(dust)
 		space_appearance_cache[index] = space.appearance
-	background_color = RANDOM_RGB
-
+	var/month = text2num(time2text(world.timeofday, "MM"))
+	if(month == 6) //There's probably a better way to do this, but this works -Vak
+		if(prob(50))
+			background_icon = "rainbow"
+			background_color = null
+		else
+			background_color = RANDOM_RGB
+	else
+		if(prob(5))
+			background_icon = "rainbow"
+			background_color = null
+		else
+			background_color = RANDOM_RGB
 
 /datum/controller/subsystem/skybox/proc/get_skybox(z)
 	if (!skybox_cache["[z]"])
@@ -111,19 +122,3 @@ SUBSYSTEM_DEF(skybox)
 		skybox_cache.Cut()
 		for (var/client/client as anything in GLOB.clients)
 			client.update_skybox(TRUE)
-
-/datum/controller/subsystem/skybox/Initialize(timeofday)
-	..(timeofday)
-	var/month = text2num(time2text(world.timeofday, "MM"))
-	if(month == 6) //There's probably a better way to do this, but this works -Vak
-		if(prob(50))
-			background_icon = "rainbow"
-			background_color = null
-		else
-			background_color = RANDOM_RGB
-	else
-		if(prob(5))
-			background_icon = "rainbow"
-			background_color = null
-		else
-			background_color = RANDOM_RGB

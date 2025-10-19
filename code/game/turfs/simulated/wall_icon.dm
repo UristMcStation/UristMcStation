@@ -27,7 +27,10 @@
 
 	SSradiation.resistance_cache.Remove(src)
 	update_connections(1)
-	update_icon()
+	if(GAME_STATE < RUNLEVEL_SETUP) //if we're in init or still in the lobby, we don't care if there's visual lag to updating the colour of walls
+		queue_icon_update() //i'm including the lobby to allow for pre-round spawning of things to be quicker for events and such
+	else
+		update_icon()
 	calculate_damage_data()
 
 /turf/simulated/wall/proc/paint_wall(new_paint_color)
@@ -145,7 +148,7 @@
 			if(propagate)
 				var/turf/simulated/wall/W = T
 				W.update_connections()
-				W.update_icon()
+				W.queue_icon_update()
 		var/success = 0
 		for(var/O in T)
 			for(var/b_type in GLOB.wall_blend_objects)

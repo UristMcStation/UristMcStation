@@ -251,7 +251,7 @@
 			SPAN_NOTICE("\The [user] starts repairing \the [src] with \a [tool]."),
 			SPAN_NOTICE("You start repairing \the [src] with \the [tool].")
 		)
-		if (!user.do_skilled((tool.toolspeed * 2) SECONDS, SKILL_CONSTRUCTION, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+		if (!do_after(user, (tool.toolspeed * 2) SECONDS, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
 			return TRUE
 		if (!health_damaged())
 			USE_FEEDBACK_FAILURE("\The [src] doesn't require repairs.")
@@ -284,7 +284,7 @@
 			SPAN_NOTICE("\The [user] starts dismantling \the [src] with \a [tool]."),
 			SPAN_NOTICE("You start dismantling \the [src] with \the [tool].")
 		)
-		if (!user.do_skilled((tool.toolspeed * 2) SECONDS, SKILL_CONSTRUCTION, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+		if (!do_after(user, (tool.toolspeed * 2) SECONDS, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
 			return TRUE
 		if (anchored)
 			USE_FEEDBACK_FAILURE("\The [src]'s state has changed.")
@@ -309,7 +309,7 @@
 			SPAN_NOTICE("\The [user] starts [anchored ? "un" : null]fastening \the [src] [anchored ? "from" : "to"] the floor with \a [tool]."),
 			SPAN_NOTICE("You start [anchored ? "un" : null]fastening \the [src] [anchored ? "from" : "to"] the floor with \the [tool].")
 		)
-		if (!user.do_skilled((tool.toolspeed * 1) SECONDS, SKILL_CONSTRUCTION, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+		if (!do_after(user, (tool.toolspeed * 1) SECONDS, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
 			return TRUE
 		if (!density)
 			USE_FEEDBACK_FAILURE("\The [src] needs to be closed before you can unanchor it.")
@@ -360,14 +360,9 @@
 
 /obj/structure/railing/hitby(atom/movable/AM, datum/thrownthing/TT)
 	var/mob/living/L = AM
-	var/chance
 	if (!istype(L))
 		return
-	if (istype(TT.thrower, L))
-		chance = TT.thrower.skill_check(SKILL_HAULING, SKILL_EXPERIENCED) ? 100 : 50
-	else
-		chance = 50
-	if (prob(chance))
+	if (prob(50))
 		slam_into(L)
 
 

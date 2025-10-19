@@ -1,0 +1,12 @@
+[
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 2,
+		"submap_size_y": 2,
+		"submap_size_z": 1,
+		"submaps_dmm": "submaps/cargo_storage.dmm",
+		"marker_extract": "/obj/urist_intangible/mapmanip/marker/submap/extract/nerva/cargo_storage",
+		"marker_insert": "/obj/urist_intangible/mapmanip/marker/submap/insert/nerva/cargo_storage",
+		"submaps_can_repeat": true
+	}
+]

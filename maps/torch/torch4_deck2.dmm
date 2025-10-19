@@ -330,7 +330,6 @@
 "aE" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "closed";
 	id_tag = "solar_starboard_outer";
 	locked = 1;
 	name = "Engineering External Access"
@@ -616,7 +615,6 @@
 "bk" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "closed";
 	id_tag = "solar_starboard_inner";
 	locked = 1;
 	name = "Engineering External Access"
@@ -694,7 +692,6 @@
 "bt" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/highsecurity{
-	icon_state = "closed";
 	locked = 1;
 	name = "Auxiliary Armory"
 	},
@@ -794,7 +791,6 @@
 "bF" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "closed";
 	id_tag = "auxdock_outer";
 	locked = 1;
 	name = "Auxiliary Docking Port Exterior"
@@ -1769,7 +1765,6 @@
 "du" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "closed";
 	id_tag = "auxdock_inner";
 	locked = 1;
 	name = "Auxiliary Docking Port Interior"
@@ -1796,7 +1791,6 @@
 "dy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/engineering{
-	icon_state = "closed";
 	name = "Starboard Solar Access"
 	},
 /obj/machinery/door/firedoor,
@@ -3859,6 +3853,7 @@
 /area/engineering/engine_room)
 "ig" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/rotating_alarm/supermatter,
 /turf/simulated/floor/tiled/techfloor,
 /area/engineering/engine_room)
 "ih" = (
@@ -4257,7 +4252,6 @@
 "jk" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "closed";
 	id_tag = "escape_pod_11_hatch";
 	locked = 1;
 	name = "Escape Pod Six Hatch"
@@ -4395,7 +4389,6 @@
 /area/engineering/bluespacebay)
 "jH" = (
 /obj/machinery/door/airlock/hatch{
-	icon_state = "closed";
 	id_tag = "engine_electrical_maintenance";
 	locked = 1;
 	name = "SMES Access"
@@ -4477,7 +4470,6 @@
 /area/engineering/foyer)
 "jQ" = (
 /obj/machinery/door/airlock/external/escapepod{
-	icon_state = "closed";
 	id_tag = "escape_pod_11_berth_hatch";
 	name = "Escape Pod Six"
 	},
@@ -4911,7 +4903,6 @@
 "kQ" = (
 /obj/structure/table/steel_reinforced,
 /obj/item/device/geiger,
-/obj/machinery/rotating_alarm/supermatter,
 /turf/simulated/floor/tiled/steel_grid,
 /area/engineering/engine_monitoring)
 "kR" = (
@@ -5024,6 +5015,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
+/obj/machinery/rotating_alarm/supermatter,
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/engineering/engine_room)
 "le" = (
@@ -6049,11 +6041,11 @@
 	dir = 4;
 	icon_state = "warning"
 	},
-/obj/machinery/rotating_alarm/supermatter{
-	dir = 8
-	},
 /obj/machinery/camera/network/engineering{
 	c_tag = "Engineering - Engine Room Center";
+	dir = 8
+	},
+/obj/machinery/rotating_alarm/supermatter{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/techfloor,
@@ -7030,6 +7022,14 @@
 "qw" = (
 /turf/simulated/wall/r_wall/hull,
 /area/engineering/prototype/engine)
+"qx" = (
+/obj/floor_decal/industrial/warning{
+	dir = 8;
+	icon_state = "warning"
+	},
+/obj/machinery/rotating_alarm/supermatter,
+/turf/simulated/floor/tiled,
+/area/engineering/engineering_bay)
 "qy" = (
 /obj/structure/cable/cyan{
 	d1 = 1;
@@ -8433,7 +8433,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
 	frequency = 1441;
-	icon_state = "map_injector";
 	id = "co2_in";
 	use_power = 1
 	},
@@ -8981,7 +8980,6 @@
 "vv" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
-	icon_state = "closed";
 	id_tag = "escape_pod_10_hatch";
 	locked = 1;
 	name = "Escape Pod Five Hatch"
@@ -9350,6 +9348,9 @@
 /obj/floor_decal/techfloor{
 	dir = 9
 	},
+/obj/machinery/rotating_alarm/supermatter{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/engineering/engineering_bay)
 "wL" = (
@@ -9633,7 +9634,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 4;
 	frequency = 1441;
-	icon_state = "map_injector";
 	id = "n2_in";
 	use_power = 1
 	},
@@ -9977,7 +9977,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
 	frequency = 1441;
-	icon_state = "map_injector";
 	id = "n2o_in";
 	use_power = 1
 	},
@@ -11147,7 +11146,6 @@
 "Ca" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/engineering{
-	icon_state = "closed";
 	name = "Port Solar Access"
 	},
 /obj/machinery/door/firedoor,
@@ -11471,7 +11469,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
 	frequency = 1443;
-	icon_state = "map_injector";
 	id = "air_in";
 	use_power = 1
 	},
@@ -11821,8 +11818,7 @@
 "DG" = (
 /obj/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/freezer{
-	dir = 1;
-	icon_state = "freezer"
+	dir = 1
 	},
 /obj/structure/sign/warning/secure_area{
 	dir = 1;
@@ -11910,7 +11906,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "closed";
 	id_tag = "solar_port_inner";
 	locked = 1;
 	name = "Engineering External Access"
@@ -12089,7 +12084,6 @@
 	},
 /obj/machinery/door/airlock/external{
 	frequency = 1379;
-	icon_state = "closed";
 	id_tag = "solar_port_outer";
 	locked = 1;
 	name = "Engineering External Access"
@@ -12741,6 +12735,7 @@
 /obj/machinery/power/smes/buildable/preset/torch/substation_full{
 	RCon_tag = "Substation - Atmospherics"
 	},
+/obj/machinery/rotating_alarm/supermatter,
 /turf/simulated/floor/plating,
 /area/engineering/engine_smes)
 "Gf" = (
@@ -12964,6 +12959,9 @@
 "GJ" = (
 /obj/machinery/light/small{
 	dir = 4
+	},
+/obj/machinery/rotating_alarm/supermatter{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/engine_monitoring)
@@ -14432,7 +14430,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 4;
 	frequency = 1441;
-	icon_state = "map_injector";
 	id = "o2_in";
 	use_power = 1
 	},
@@ -14909,7 +14906,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
 	frequency = 1441;
-	icon_state = "map_injector";
 	id = "waste_in";
 	use_power = 1
 	},
@@ -15215,7 +15211,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
 	frequency = 1441;
-	icon_state = "map_injector";
 	id = "h2_in";
 	use_power = 1
 	},
@@ -16046,7 +16041,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
 	frequency = 1438;
-	icon_state = "map_injector";
 	id = "cooling_in";
 	name = "Coolant Injector";
 	power_rating = 30000;
@@ -16163,7 +16157,6 @@
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
 	frequency = 1441;
-	icon_state = "map_injector";
 	id = "fuel_in";
 	pixel_y = 1;
 	use_power = 1
@@ -17164,7 +17157,6 @@
 /area/engineering/prototype/control)
 "Vg" = (
 /obj/machinery/door/airlock/hatch{
-	icon_state = "closed";
 	id_tag = "prototype_access_hatch";
 	locked = 1
 	},
@@ -18457,6 +18449,9 @@
 	tag_east = 2;
 	tag_north = 1;
 	tag_west = 6
+	},
+/obj/machinery/rotating_alarm/supermatter{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/techfloor/grid,
 /area/engineering/engine_room)
@@ -39701,7 +39696,7 @@ gq
 sA
 gq
 iN
-FL
+qx
 FL
 FL
 kU

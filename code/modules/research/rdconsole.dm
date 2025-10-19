@@ -1005,53 +1005,53 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			dat += GetResearchListInfo()
 		//PROTOLATHE SUBMENUS START HERE. Kind of awful, but better than my first idea.
 		if(5.1)
-			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
 			dat += GetCategoryDesigns(MACHINE_PARTS)
 		if(5.2)
-			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
 			dat += GetCategoryDesigns(WEAPON_DESIGNS)
 		if(5.3)
-			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
 			dat += GetCategoryDesigns(BLUESPACE_DEVICES)
 		if(5.4)
-			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
 			dat += GetCategoryDesigns(BIOMEDICAL_DEVICES)
 		if(5.5)
-			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
 			dat += GetCategoryDesigns(TOOL_DESIGNS)
 		if(5.6)
-			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
 			dat += GetCategoryDesigns(GENERAL_DEVICES)
 		if(5.7)
-			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
 			dat += GetCategoryDesigns(MODULAR_COMPUTER_DEVICES)
 		if(5.8)
-			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
 			dat += GetCategoryDesigns(RIG_MODULES)
 		if(5.9)
-			dat += "<A href='?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=3.1'>Protolathe Menu</A><BR>"
 			dat += GetCategoryDesigns("Misc")
 		//CIRCUIT IMPRINTER SUBMENUS START HERE
 		if(6)
-			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
 			dat += GetCategoryDesigns(GENERAL_CIRCUITS)
 		if(6.1)
-			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
 			dat += GetCategoryDesigns(EXOSUIT_CIRCUITS)
 		if(6.2)
-			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
 			dat += GetCategoryDesigns(AI_CIRCUITS)
 		if(6.3)
-			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
 			dat += GetCategoryDesigns(MACHINERY_CIRCUITS)
 		if(6.4)
-			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
 			dat += GetCategoryDesigns(TELECOMMS_CIRCUITS)
 		if(6.5)
-			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
 			dat += GetCategoryDesigns(COMPUTER_CIRCUITS)
 		if(6.6)
-			dat += "<A href='?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
+			dat += "<A href='byond://?src=\ref[src];menu=4.1'>Circuit Imprinter Menu</A><BR>"
 			dat += GetCategoryDesigns(MODULAR_COMPUTER_CIRCUIT)
 
 	var/datum/browser/popup = new(user, "rdconsolenew", "Core Fabricator Console", 850, 600)
@@ -1080,12 +1080,12 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			temp_dat = " \[[copytext(temp_dat, 3)]\]"
 		if(D.build_type & PROTOLATHE)
 			if(linked_lathe.canBuild(D))
-				dat += "<LI><B><A href='?src=\ref[src];build=[D.id]'>[D.name]</A> <A href='?src=\ref[src];buildmult=[D.id]'>Build Multiple</A></B>[temp_dat]"
+				dat += "<LI><B><A href='byond://?src=\ref[src];build=[D.id]'>[D.name]</A> <A href='byond://?src=\ref[src];buildmult=[D.id]'>Build Multiple</A></B>[temp_dat]"
 			else
 				dat += "<LI><B>[D.name]</B>[temp_dat]"
 		if(D.build_type & IMPRINTER)
 			if(linked_imprinter.canBuild(D))
-				dat += "<LI><B><A href='?src=\ref[src];imprint=[D.id]'>[D.name]</A> <A href='?src=\ref[src];imprintmult=[D.id]'>Build Multiple</A></B>[temp_dat]"
+				dat += "<LI><B><A href='byond://?src=\ref[src];imprint=[D.id]'>[D.name]</A> <A href='byond://?src=\ref[src];imprintmult=[D.id]'>Build Multiple</A></B>[temp_dat]"
 			else
 				dat += "<LI><B>[D.name]</B>[temp_dat]"
 	return dat

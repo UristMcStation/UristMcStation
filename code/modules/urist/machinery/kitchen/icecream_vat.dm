@@ -185,14 +185,14 @@
 	if(reagents.total_volume <= 500)
 		dat += "<HR>"
 		dat += "<strong>Add fillings:</strong><BR>"
-		dat += "<A href='?src=\ref[src];synthcond=1;type=2'>Soda</A><BR>"
-		dat += "<A href='?src=\ref[src];synthcond=1;type=3'>Alcohol</A><BR>"
+		dat += "<A href='byond://?src=\ref[src];synthcond=1;type=2'>Soda</A><BR>"
+		dat += "<A href='byond://?src=\ref[src];synthcond=1;type=3'>Alcohol</A><BR>"
 		dat += "<strong>Finish With:</strong><BR>"
-		dat += "<A href='?src=\ref[src];synthcond=1;type=4'>Cream</A><BR>"
-		dat += "<A href='?src=\ref[src];synthcond=1;type=5'>Water</A><BR>"
+		dat += "<A href='byond://?src=\ref[src];synthcond=1;type=4'>Cream</A><BR>"
+		dat += "<A href='byond://?src=\ref[src];synthcond=1;type=5'>Water</A><BR>"
 		dat += "<strong>Dispense in:</strong><BR>"
-		dat += "<A href='?src=\ref[src];createcup=1'>Chocolate Cone</A><BR>"
-		dat += "<A href='?src=\ref[src];createcone=1'>Cone</A><BR>"
+		dat += "<A href='byond://?src=\ref[src];createcup=1'>Chocolate Cone</A><BR>"
+		dat += "<A href='byond://?src=\ref[src];createcone=1'>Cone</A><BR>"
 	return dat
 
 
@@ -205,20 +205,20 @@
 		dat += "The container has:<BR>"
 		for(var/datum/reagent/G in R.reagent_list)
 			dat += "[G.volume] unit(s) of [G.name] | "
-			dat += "<A href='?src=\ref[src];add=[G.id];amount=5'>(5)</A> "
-			dat += "<A href='?src=\ref[src];add=[G.id];amount=10'>(10)</A> "
-			dat += "<A href='?src=\ref[src];add=[G.id];amount=15'>(15)</A> "
-			dat += "<A href='?src=\ref[src];add=[G.id];amount=[G.volume]'>(All)</A>"
+			dat += "<A href='byond://?src=\ref[src];add=[G.id];amount=5'>(5)</A> "
+			dat += "<A href='byond://?src=\ref[src];add=[G.id];amount=10'>(10)</A> "
+			dat += "<A href='byond://?src=\ref[src];add=[G.id];amount=15'>(15)</A> "
+			dat += "<A href='byond://?src=\ref[src];add=[G.id];amount=[G.volume]'>(All)</A>"
 			dat += "<BR>"
 	else if(container == 2)
 		dat += "<BR>The Cream-Master has:<BR>"
 		if(reagents.total_volume)
 			for(var/datum/reagent/N in reagents.reagent_list)
 				dat += "[N.volume] unit(s) of [N.name] | "
-				dat += "<A href='?src=\ref[src];remove=[N.id];amount=5'>(5)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.id];amount=10'>(10)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.id];amount=15'>(15)</A> "
-				dat += "<A href='?src=\ref[src];remove=[N.id];amount=[N.volume]'>(All)</A>"
+				dat += "<A href='byond://?src=\ref[src];remove=[N.id];amount=5'>(5)</A> "
+				dat += "<A href='byond://?src=\ref[src];remove=[N.id];amount=10'>(10)</A> "
+				dat += "<A href='byond://?src=\ref[src];remove=[N.id];amount=15'>(15)</A> "
+				dat += "<A href='byond://?src=\ref[src];remove=[N.id];amount=[N.volume]'>(All)</A>"
 				dat += "<BR>"
 	else
 		dat += "<BR>SOMEONE ENTERED AN INVALID REAGENT CONTAINER; QUICK, BUG REPORT!<BR>"
@@ -233,11 +233,11 @@
 		dat += "No container is loaded into the machine, external transfer offline.<BR>"
 		dat += show_reagents(2)
 		dat += show_toppings()
-		dat += "<A href='?src=\ref[src];close=1'>Close</A>"
+		dat += "<A href='byond://?src=\ref[src];close=1'>Close</A>"
 	else
 		var/obj/item/reagent_containers/glass/A = beaker
 		var/datum/reagents/R = A.reagents
-		dat += "<A href='?src=\ref[src];eject=1'>Eject container and end transfer.</A><BR>"
+		dat += "<A href='byond://?src=\ref[src];eject=1'>Eject container and end transfer.</A><BR>"
 		if(!R.total_volume)
 			dat += "Container is empty.<BR><HR>"
 		else

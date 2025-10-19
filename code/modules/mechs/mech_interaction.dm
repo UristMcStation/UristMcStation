@@ -490,7 +490,7 @@
 			SPAN_NOTICE("\The [user] starts removing \the [src]'s power cell with \a [tool]."),
 			SPAN_NOTICE("You start removing \the [src]'s power cell with \the [tool].")
 		)
-		if (!user.do_skilled((tool.toolspeed * 2) SECONDS, SKILL_DEVICES, src) || !user.use_sanity_check(src, tool))
+		if (!do_after(user, (tool.toolspeed * 2) SECONDS, SKILL_DEVICES, src) || !user.use_sanity_check(src, tool))
 			return
 		if (!maintenance_protocols)
 			USE_FEEDBACK_FAILURE("\The [src]'s maintenance protocols must be enabled to access the power cell.")
@@ -535,7 +535,7 @@
 			SPAN_NOTICE("\The [user] starts removing \the [src]'s securing bolts with \a [tool]."),
 			SPAN_NOTICE("You start removing \the [src]'s securing bolts with \the [tool].")
 		)
-		if (!user.do_skilled((tool.toolspeed * 6) SECONDS, SKILL_DEVICES, src) || !user.use_sanity_check(src, tool))
+		if (!do_after(user, (tool.toolspeed * 6) SECONDS, src) || !user.use_sanity_check(src, tool))
 			return TRUE
 		if (!maintenance_protocols)
 			USE_FEEDBACK_FAILURE("\The [src]'s maintenance protocols must be enabled to access the securing bolts.")

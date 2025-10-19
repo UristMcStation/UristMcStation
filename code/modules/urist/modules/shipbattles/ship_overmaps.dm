@@ -1,7 +1,7 @@
 /obj/overmap/visitable/ship/combat
 	var/list/hostile_factions = list() //who hates us rn
 	var/canfight = 0 //will this ship engage with the combat system? Why is this zero? well, if the ship moves, we're part of the combat system. this is to compensate for lowpop rounds where noone ever moves the ship, to avoid them getting fucked by chance
-	var/incombat = 0 //are we fighting
+	var/incombat = FALSE //are we fighting
 	var/shipid = null
 	var/crossed = 0 //have we crossed another ship
 	var/docked = 0 //are we docked?
@@ -47,22 +47,45 @@
 	if(!target_zs)
 		assign_target_zs()
 
-	src.incombat = 1
-	target.incombat = 1
+	src.incombat = TRUE
+	target.incombat = TRUE
+	target.ai_holder.wander = FALSE
+
 	autoannounce("<b>A hostile [target.ship_category] has engaged the [ship_name]</b>", "public")	//Because it's weird to be told there's a ship -after- you've been shot at
-	if(!target.map_spawned)
+
+	if(!target.map_spawned && target.boardingmap)
 		target.spawnmap()
 
-		for(var/datum/shipcomponents/M in target.components)
-			if(M.broken)
-				continue
-			else
-				M.DoActivate()
+	for(var/datum/shipcomponents/M in target.components)
+		if(M.broken)
+			continue
+		else
+			M.DoActivate()
 
 	if(src == GLOB.using_map.overmap_ship)
 		var/singleton/security_state/security_state = GET_SINGLETON(GLOB.using_map.security_state)
 		security_state.stored_security_level = security_state.current_security_level
 		security_state.set_security_level(security_state.high_security_level)
+
+	set_combat_lighting(TRUE)
+
+/obj/overmap/visitable/ship/combat/proc/set_combat_lighting(set_lighting) //atmospheric combat lighting
+	set waitfor = FALSE
+	sleep(0)
+	
+	for(var/obj/machinery/light/light in SSmachines.machinery)
+		if(light.z in map_z)
+			if(light.lightbulb && light.current_mode != LIGHTMODE_EMERGENCY)
+				var/area/light_area = get_area(light)
+				if(!light_area.is_critical)
+					if(set_lighting)
+						if(LIGHTMODE_COMBAT in light.lightbulb.lighting_modes)
+							light.set_mode(LIGHTMODE_COMBAT)
+							light.update_power_channel(ENVIRON)
+					else
+						if(light.current_mode == LIGHTMODE_COMBAT)
+							light.set_mode(null)
+							light.update_power_channel(initial(light.power_channel))
 
 /obj/overmap/visitable/ship/combat/proc/set_targets(new_target = null)
 	if(!target)
@@ -98,18 +121,20 @@
 
 /obj/overmap/visitable/ship/combat/proc/leave_combat()
 	if(target)
-		target.incombat = 0
-		target.ai_holder.wander = 0
+		target.incombat = FALSE
+		target.ai_holder.wander = TRUE
 
 		src.set_targets()
 
-	incombat = 0
-	crossed = 0
+	incombat = FALSE
+	crossed = FALSE
 	src.unhalt()
 
 	if(src == GLOB.using_map.overmap_ship)
 		var/singleton/security_state/security_state = GET_SINGLETON(GLOB.using_map.security_state)
 		security_state.set_security_level(security_state.stored_security_level)
+
+	set_combat_lighting(FALSE)
 
 /obj/overmap/visitable/ship/combat/Crossed(O as mob)
 	..()
@@ -225,7 +250,7 @@
 /obj/overmap/visitable/ship/combat/proc/enter_pvp_combat(attacker = FALSE)
 	if(!target)	return
 	var/obj/overmap/visitable/ship/combat/OM = target
-	incombat = 1
+	incombat = TRUE
 
 	if(attacker)
 		autoannounce("<b>[OM.ship_name] intercepted - Entering combat</b>", "public")
@@ -243,7 +268,7 @@
 	var/obj/overmap/visitable/ship/combat/T = target
 	cancel_restabilize_engines()	//Reset any timers incase both ships were escaping
 	can_escape = TRUE
-	incombat = 0
+	incombat = FALSE
 	crossed = 0
 	unhalt()
 	set_targets()

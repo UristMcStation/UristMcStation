@@ -234,7 +234,7 @@
 			SPAN_NOTICE("\The [user] starts removing \a [src]'s circuit with \a [tool]."),
 			SPAN_NOTICE("You start removing \the [src]'s circuit with \the [tool].")
 		)
-		if (!user.do_skilled(tool.toolspeed, SKILL_CONSTRUCTION, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
+		if (!do_after(user, tool.toolspeed, src, do_flags = DO_REPAIR_CONSTRUCT) || !user.use_sanity_check(src, tool))
 			return TRUE
 		if (buildstage > 1)
 			USE_FEEDBACK_FAILURE("\The [src]'s wiring needs to be removed before you can remove the circuit.")

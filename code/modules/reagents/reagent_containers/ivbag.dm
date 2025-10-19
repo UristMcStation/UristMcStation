@@ -225,8 +225,7 @@
 	if (origin != src)
 		title = "[title] - [src]"
 	var/list/options = allowed_transfer_amounts.Copy()
-	if (user.skill_check(SKILL_MEDICAL, SKILL_EXPERIENCED))
-		options += "Custom"
+	options += "Custom"
 	var/response = input(user, "Set Drip Rate:", title) as null | anything in options
 	if (isnull(response))
 		return

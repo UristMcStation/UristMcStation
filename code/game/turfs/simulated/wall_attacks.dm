@@ -184,7 +184,7 @@
 			SPAN_NOTICE("You start patching all the bullet holes in \the [src] with \the [W].")
 		)
 		for (var/obj/overlay/bullet_hole/bullet_hole in src)
-			if (!user.do_skilled(0.5 SECONDS, SKILL_CONSTRUCTION, bullet_hole) || !user.use_sanity_check(bullet_hole, W))
+			if (!do_after(user, 0.5 SECONDS, bullet_hole) || !user.use_sanity_check(bullet_hole, W))
 				return TRUE
 			if (!weldingtool.remove_fuel(1, user))
 				return TRUE

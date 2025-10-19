@@ -329,7 +329,6 @@
 		to_chat(user, "It has \a [ammo_magazine] loaded.")
 	if(distance <= 1)
 		to_chat(user, "Has [getAmmo()] round\s remaining.")
-	if (user.skill_check(SKILL_WEAPONS, SKILL_EXPERIENCED))
 		to_chat(user, "[src.DrawChamber()]")
 
 /obj/item/gun/projectile/proc/getAmmo()

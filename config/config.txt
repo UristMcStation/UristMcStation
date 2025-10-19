@@ -1,5 +1,5 @@
 ## Server name: This appears at the top of the screen in-game. In this case it will read "tgstation: station_name" where station_name is the randomly generated name of the station for the round. Remove the # infront of SERVERNAME and replace 'tgstation' with the name of your choice
- SERVERNAME Urist McStation
+ SERVER_NAME Urist McStation
 
 ## Hub visibility: If you want to be visible on the hub, uncomment the below line and be sure that Dream Daemon is set to "Visible." This can be changed in-round as well with toggle-hub-visibility if Dream Daemon is set correctly.
 HUB_VISIBLE
@@ -210,7 +210,10 @@ VOTE_AUTOTRANSFER_INTERVAL 60
 #TRANSFER_VOTE_BLOCK_ANTAG_TIME 20
 
 ## Time left (seconds) before round start when automatic gamemote vote is called (default 100).
-VOTE_AUTOGAMEMODE_TIMELEFT 100
+VOTE_AUTOGAMEMODE_TIMELEFT 75
+
+## Time (seconds) before the server will attempt to start a round.
+PRE_GAME_TIME 110
 
 ## prevents dead players from voting or starting votes
 #NO_DEAD_VOTE

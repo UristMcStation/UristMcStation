@@ -15,7 +15,7 @@ var/global/list/current_mob_ambience = list()
 	var/mobref = weakref(M)
 	if(!(mobref in mobs_on_cooldown))
 		mobs_on_cooldown[mobref] = TRUE
-		addtimer(new Callback(src, .proc/clear_cooldown, mobref), delay)
+		addtimer(new Callback(src, PROC_REF(clear_cooldown), mobref), delay)
 		return TRUE
 	return FALSE
 

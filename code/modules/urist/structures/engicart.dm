@@ -122,23 +122,23 @@
 	user.set_machine(src)
 	var/dat
 	if(myglass)
-		dat += "<a href='?src=\ref[src];glass=1'>[myglass.name]</a><br>"
+		dat += "<a href='byond://?src=\ref[src];glass=1'>[myglass.name]</a><br>"
 	if(mymetal)
-		dat += "<a href='?src=\ref[src];metal=1'>[mymetal.name]</a><br>"
+		dat += "<a href='byond://?src=\ref[src];metal=1'>[mymetal.name]</a><br>"
 	if(myplasteel)
-		dat += "<a href='?src=\ref[src];plasteel=1'>[myplasteel.name]</a><br>"
+		dat += "<a href='byond://?src=\ref[src];plasteel=1'>[myplasteel.name]</a><br>"
 	if(myflashlight)
-		dat += "<a href='?src=\ref[src];flashlight=1'>[myflashlight.name]</a><br>"
+		dat += "<a href='byond://?src=\ref[src];flashlight=1'>[myflashlight.name]</a><br>"
 	if(mybluetoolbox)
-		dat += "<a href='?src=\ref[src];bluetoolbox=1'>[mybluetoolbox.name]</a><br>"
+		dat += "<a href='byond://?src=\ref[src];bluetoolbox=1'>[mybluetoolbox.name]</a><br>"
 	if(myredtoolbox)
-		dat += "<a href='?src=\ref[src];redtoolbox=1'>[myredtoolbox.name]</a><br>"
+		dat += "<a href='byond://?src=\ref[src];redtoolbox=1'>[myredtoolbox.name]</a><br>"
 	if(myyellowtoolbox)
-		dat += "<a href='?src=\ref[src];yellowtoolbox=1'>[myyellowtoolbox.name]</a><br>"
+		dat += "<a href='byond://?src=\ref[src];yellowtoolbox=1'>[myyellowtoolbox.name]</a><br>"
 	if(myengitape)
-		dat += "<a href='?src=\ref[src];engitape=1'>[myengitape.name]</a><br>"
+		dat += "<a href='byond://?src=\ref[src];engitape=1'>[myengitape.name]</a><br>"
 	if(myinflate)
-		dat += "<a href='?src=\ref[src];inflate=1'>[myinflate.name]</a><br>"
+		dat += "<a href='byond://?src=\ref[src];inflate=1'>[myinflate.name]</a><br>"
 	var/datum/browser/popup = new(user, "engicart", name, 240, 160)
 	popup.set_content(dat)
 	popup.open()

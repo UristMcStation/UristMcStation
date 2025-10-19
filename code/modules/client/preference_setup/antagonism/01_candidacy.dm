@@ -54,7 +54,6 @@
 			. += "<a href='byond://?src=\ref[src];add_special=[antag.id]'>High</a> <a href='byond://?src=\ref[src];del_special=[antag.id]'>Low</a> [SPAN_CLASS("linkOn", "Never")]</br>"
 		else
 			. += "<a href='byond://?src=\ref[src];add_special=[antag.id]'>High</a> <a href='byond://?src=\ref[src];add_maybe=[antag.id]'>Low</a> [SPAN_CLASS("linkOn", "Never")]</br>"
-			. += "<a href='byond://?src=\ref[src];add_special=[antag.id]'>High</a> [SPAN_CLASS("linkOn", "Low")] <a href='byond://?src=\ref[src];add_never=[antag.id]'>Never</a></br>"
 		. += "</td></tr>"
 
 	// Special handling for pAI role

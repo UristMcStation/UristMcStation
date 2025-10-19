@@ -17,7 +17,9 @@ SUBSYSTEM_DEF(init_misc_late)
 	asset_cache.load()
 	init_recipes()
 	init_xenoarch()
-
+	for(var/obj/urist_intangible/triggers/template_loader/template in GLOB.trigger_landmarks)
+		if(template.load_trigger == TEMPLATE_LOADER_LOAD_ON_INIT)
+			template.Load()
 
 GLOBAL_VAR_AS(microwave_maximum_item_storage, 0)
 GLOBAL_LIST_EMPTY(microwave_recipes)
@@ -36,12 +38,14 @@ GLOBAL_LIST_EMPTY(microwave_accepts_items)
 		for (var/tag in recipe.required_produce)
 			recipe.produce_amount += recipe.required_produce[tag]
 		var/objects_amount = recipe.produce_amount + length(recipe.required_items)
-		recipe.weight = objects_amount + length(recipe.required_reagents)
+		recipe.weight = objects_amount + length(recipe.required_reagents) + length(recipe.consumed_reagents)
 		if (!recipe.result_path || !recipe.weight)
 			log_error("Recipe [recipe.type] has invalid results or requirements.")
 			continue
 		GLOB.microwave_recipes += recipe
 		for (var/type in recipe.required_reagents)
+			reagents[type] = TRUE
+		for (var/type in recipe.consumed_reagents)
 			reagents[type] = TRUE
 		for (var/type in recipe.required_items)
 			items[type] = TRUE
