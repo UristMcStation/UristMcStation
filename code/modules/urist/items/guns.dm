@@ -123,7 +123,7 @@ the sprite and make my own projectile -Glloyd*/
 	item_state = "knight45"
 	item_icons = URIST_ALL_ONMOBS
 	wielded_item_state = "knight45"
-	w_class = ITEM_SIZE_NORMAL
+	w_class = ITEM_SIZE_SMALL
 	max_shells = 7
 	slot_flags = SLOT_BELT | SLOT_POCKET | SLOT_HOLSTER
 	load_method = MAGAZINE
