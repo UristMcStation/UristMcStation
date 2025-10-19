@@ -243,8 +243,13 @@
 	magazine_type = /obj/item/ammo_magazine/pistol/flash
 
 /obj/item/silencer
+	#ifdef INCLUDE_URIST_CODE
+	name = "universal suppressor" // Rename for Urist.
+	desc = "A universal suppressor that can be attached to any weapon with a threaded barrel."
+	#else
 	name = "silencer"
 	desc = "A silencer."
+	#endif
 	icon = 'icons/obj/guns/holdout_pistol.dmi'
 	icon_state = "silencer"
 	w_class = ITEM_SIZE_SMALL
