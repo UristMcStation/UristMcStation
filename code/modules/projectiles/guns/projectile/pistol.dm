@@ -171,6 +171,10 @@
 
 /obj/item/gun/projectile/pistol/holdout
 	name = "holdout pistol"
+	#ifdef INCLUDE_URIST_CODE
+	desc = "The Lumoco Arms P3 Whisper. A small conceable pistol with a threaded barrel. Uses 9mm rounds."
+	#else
+	#endif
 	desc = "The Lumoco Arms P3 Whisper. A small, easily concealable gun. Uses 9mm rounds."
 	icon = 'icons/obj/guns/holdout_pistol.dmi'
 	item_icons = URIST_ALL_ONMOBS
@@ -183,6 +187,9 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ESOTERIC = 2)
 	magazine_type = /obj/item/ammo_magazine/pistol/small
 	allowed_magazines = /obj/item/ammo_magazine/pistol/small
+	auto_eject_sound = 'sound/urist/guns/casing_quiet.ogg'
+	mag_insert_sound = 'sound/urist/guns/pistol_magin_quiet.ogg'
+	mag_remove_sound = 'sound/urist/guns/pistol_magout_quiet.ogg'
 	barrel_thread = TRUE
 	silencer_offset = -6
 
@@ -200,9 +207,16 @@
 	magazine_type = /obj/item/ammo_magazine/pistol/flash
 
 /obj/item/silencer
+
+	#ifdef INCLUDE_URIST_CODE
+	name = "universal suppressor"
+	desc = "A universal suppressor that can be attached to any weapon with a threaded barrel."
+	icon = 'icons/urist/guns/attachments/gun_barrels.dmi'
+	#else
 	name = "silencer"
 	desc = "A silencer."
 	icon = 'icons/obj/guns/holdout_pistol.dmi'
+	#endif
 	icon_state = "silencer"
 	w_class = ITEM_SIZE_SMALL
 	var/caliber = CALIBER_PISTOL_SMALL
