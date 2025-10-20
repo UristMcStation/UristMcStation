@@ -146,7 +146,7 @@
 	icon_state = "plastic-explosive0"
 	item_state = "device"
 
-/obj/item/plastique/alienexplosive/Initialize()
+/obj/item/plastique/alienexplosive/New()
 	wires = new(src)
 	image_overlay = image('icons/urist/weapons/lactera_explosives.dmi', "plastic-explosive1")
 	..()
