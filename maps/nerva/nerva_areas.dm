@@ -67,7 +67,7 @@
 	icon_state = "bridge"*/
 
 /area/command/seniorntoffice
-	name = "\improper Senior Researcher's Office."
+	name = "\improper Senior Researcher's Office"
 	req_access = list(access_seniornt)
 	icon_state = "bridge"
 

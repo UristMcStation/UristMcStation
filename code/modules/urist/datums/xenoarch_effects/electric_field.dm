@@ -5,11 +5,13 @@
 
 /datum/artifact_effect/electric_field/proc/zap(damage, mob/living/toucher)
 	var/list/nearby_mobs = list()
-	for (var/mob/living/L in oview(effectrange, get_turf(holder)))
+	var/turf/T = get_turf(holder)
+
+	for (var/mob/living/L in oview(src.effectrange, T))
 		if (!L.stat)
 			nearby_mobs |= L
 	nearby_mobs -= toucher
-	for (var/obj/machinery/light/light in range(effectrange, get_turf(holder)))
+	for (var/obj/machinery/light/light in range(effectrange, holder))
 		light.flicker()
 	for (var/mob/living/L in nearby_mobs)
 		if (L.isSynthetic())
