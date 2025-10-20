@@ -39,7 +39,7 @@
 		/obj/item/gun/projectile/automatic/a22 = 10,
 		/obj/item/gun/projectile/a18 = 10,
 		/obj/item/gun/projectile/automatic/asmg = 10,
-		/obj/item/gun/projectile/shotgun/pump/combat/A41 = 10,
+		/obj/item/gun/projectile/shotgun/pump/A41 = 10,
 		/obj/item/gun/projectile/pistol/colt/a7 = 20,
 		/obj/item/gun/projectile/manualcycle/a50 = 2,
 		//attachments,

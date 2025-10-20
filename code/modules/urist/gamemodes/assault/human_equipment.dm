@@ -1,12 +1,12 @@
 //human
 
 /obj/item/grenade/frag/anforgrenade
-	desc = "A small explosive meant for anti-personnel use."
 	name = "ANFOR grenade"
-	icon = 'icons/urist/items/uristweapons.dmi'
+	desc = "A small explosive meant for anti-personnel use."
+	icon = 'icons/urist/weapons/grenades.dmi'
 	icon_state = "large_grenade"
 	item_state = "flashbang"
-	origin_tech = "materials=3;magnets=3"
+	origin_tech = list(TECH_MATERIAL = 3, TECH_MAGNET = 3)
 
 ///obj/item/grenade/anforgrenade/detonate()
 //	explosion(src.loc, 0, 0, 2, 2)

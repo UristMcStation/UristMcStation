@@ -112,7 +112,8 @@
 	scope_zoom = 2
 
 /obj/item/gunattachment/scope/huntrifle
-	icon_state = "huntriflescope"
+	icon = 'icons/urist/guns/attachments/gun_scopes.dmi'
+	icon_state = "hunting-rifle-scope"
 	name = "hunting rifle attachable scope"
 	desc = "A marksman's scope designed to be attached to a hunting rifle."
 	matter = list(DEFAULT_WALL_MATERIAL = 1000,"glass" = 500)
