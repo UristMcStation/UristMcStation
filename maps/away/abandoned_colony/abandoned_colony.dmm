@@ -1774,6 +1774,11 @@
 /obj/structure/table/woodentable/walnut,
 /turf/simulated/floor/wood/walnut,
 /area/planet/abandoned_colony)
+"fp" = (
+/turf/simulated/floor/wood/walnut{
+	icon_state = "walnut_broken0"
+	},
+/area/planet/abandoned_colony)
 "fq" = (
 /obj/machinery/light/colored{
 	icon_state = "yellow1";
@@ -1834,19 +1839,14 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "fA" = (
-/obj/decal/cleanable/dirt,
-/obj/decal/cleanable/blood/drip,
-/turf/simulated/floor/fixed/uristturf/geminus{
-	icon_state = "square_grey";
-	color = "#cccccc"
+/turf/simulated/floor/wood/walnut{
+	icon_state = "walnut_broken1"
 	},
 /area/planet/abandoned_colony)
 "fB" = (
-/obj/machinery/door/airlock{
-	name = "Bar Backroom"
+/turf/simulated/floor/wood/walnut{
+	icon_state = "walnut_broken4"
 	},
-/obj/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "fC" = (
 /obj/structure/table/woodentable/walnut,
@@ -1878,9 +1878,8 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "fG" = (
-/obj/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black"
+/turf/simulated/floor/wood/walnut{
+	icon_state = "walnut_broken2"
 	},
 /area/planet/abandoned_colony)
 "fH" = (
@@ -1936,6 +1935,11 @@
 /area/planet/abandoned_colony)
 "fQ" = (
 /turf/simulated/floor/tiled/white,
+/area/planet/abandoned_colony)
+"fR" = (
+/turf/simulated/floor/wood/walnut{
+	icon_state = "walnut_broken6"
+	},
 /area/planet/abandoned_colony)
 "fS" = (
 /obj/structure/hygiene/toilet,
@@ -2159,7 +2163,9 @@
 	pixel_y = 32;
 	color = "#4c0000"
 	},
-/turf/simulated/floor/wood/walnut,
+/turf/simulated/floor/wood/walnut{
+	icon_state = "walnut_broken2"
+	},
 /area/planet/abandoned_colony)
 "gz" = (
 /obj/machinery/light/small/red{
@@ -2208,8 +2214,6 @@
 	name = "dirty syringe";
 	desc = "Probably has at least five incurable STDs."
 	},
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "gD" = (
@@ -2298,7 +2302,6 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/item/clothing/suit/surgicalapron,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},
@@ -2366,15 +2369,15 @@
 /obj/item/reagent_containers/syringe/drugs,
 /obj/item/reagent_containers/syringe/drugs,
 /obj/item/reagent_containers/syringe/steroid,
-/obj/item/storage/box/beakers,
-/obj/item/storage/box/syringes,
+/obj/item/reagent_containers/syringe/steroid,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "ha" = (
 /obj/structure/table/standard,
-/obj/machinery/reagentgrinder,
+/obj/item/clothing/suit/surgicalapron,
+/obj/item/clothing/suit/surgicalapron,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},
@@ -2384,7 +2387,10 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/machinery/reagent_temperature,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},
@@ -8097,7 +8103,6 @@
 /area/planet/abandoned_colony)
 "vf" = (
 /mob/living/simple_animal/hostile/scom/forgotten/awaymap,
-/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},
@@ -8806,13 +8811,6 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
-"wW" = (
-/obj/machinery/door/airlock,
-/obj/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black"
-	},
-/area/planet/abandoned_colony)
 "wY" = (
 /obj/machinery/door/airlock/atmos{
 	name = "Hangar Bathrooms"
@@ -8970,13 +8968,6 @@
 	},
 /turf/simulated/floor/lino,
 /area/planet/abandoned_colony)
-"zP" = (
-/obj/item/clothing/mask/gas/half,
-/obj/item/reagent_containers/syringe/steroid,
-/turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black"
-	},
-/area/planet/abandoned_colony)
 "zV" = (
 /obj/structure/salvageable/machine,
 /turf/simulated/floor/tiled,
@@ -8984,14 +8975,6 @@
 "Aw" = (
 /obj/random/trash,
 /turf/simulated/floor/tiled/dark,
-/area/planet/abandoned_colony)
-"AE" = (
-/obj/item/clothing/suit/surgicalapron,
-/obj/item/clothing/mask/gas/half,
-/obj/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black"
-	},
 /area/planet/abandoned_colony)
 "AH" = (
 /obj/structure/salvageable/machine,
@@ -9069,10 +9052,6 @@
 /obj/item/reagent_containers/food/snacks/canned/caviar,
 /turf/simulated/floor/carpet,
 /area/planet/abandoned_colony)
-"DY" = (
-/obj/machinery/portable_atmospherics/hydroponics,
-/turf/simulated/floor/planet/dirt/city,
-/area/planet/abandoned_colony)
 "EW" = (
 /obj/structure/salvageable/console_broken_os{
 	icon_state = "os_console_broken";
@@ -9106,14 +9085,6 @@
 /obj/random/junk,
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "horizontalinnermain1"
-	},
-/area/planet/abandoned_colony)
-"Hz" = (
-/obj/decal/cleanable/blood/drip,
-/obj/decal/cleanable/blood/drip,
-/obj/decal/cleanable/blood/drip,
-/turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "HD" = (
@@ -9201,10 +9172,6 @@
 /obj/machinery/light/colored/green,
 /obj/random/clothing,
 /turf/simulated/floor/tiled/dark,
-/area/planet/abandoned_colony)
-"LM" = (
-/obj/machinery/seed_storage/garden,
-/turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "LV" = (
 /obj/machinery/light/street,
@@ -9346,13 +9313,6 @@
 	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
-"Ri" = (
-/obj/decal/cleanable/blood/drip,
-/obj/item/reagent_containers/syringe/steroid,
-/turf/simulated/floor/tiled/uristturf/geminus{
-	icon_state = "square_black"
-	},
-/area/planet/abandoned_colony)
 "Rt" = (
 /obj/random/junk,
 /turf/simulated/floor/pavement{
@@ -9423,10 +9383,6 @@
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "dottedhorizontalcorroded"
 	},
-/area/planet/abandoned_colony)
-"Ve" = (
-/obj/machinery/smartfridge/drying_rack,
-/turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "Vn" = (
 /obj/decal/cleanable/blood/drip,
@@ -9836,7 +9792,7 @@ jL
 jM
 jR
 ac
-Ve
+rH
 rH
 rH
 sY
@@ -9883,11 +9839,11 @@ dO
 fj
 eh
 eh
-eh
+fA
 eh
 eu
 fo
-eh
+fG
 fo
 ac
 fu
@@ -9938,7 +9894,7 @@ jQ
 dy
 hN
 ac
-LM
+rH
 kc
 rH
 jj
@@ -9983,7 +9939,7 @@ dD
 ac
 dP
 eh
-eh
+fp
 eh
 eh
 vJ
@@ -10088,7 +10044,7 @@ fk
 en
 eh
 eh
-eh
+fB
 eu
 fo
 eh
@@ -10193,7 +10149,7 @@ et
 eu
 eh
 eG
-eh
+fR
 eL
 ac
 ac
@@ -11522,7 +11478,7 @@ al
 eh
 gp
 ct
-eh
+fR
 hu
 ft
 ez
@@ -12045,7 +12001,7 @@ am
 gz
 ac
 gD
-zP
+el
 gZ
 ac
 el
@@ -12151,9 +12107,9 @@ vf
 ha
 ac
 el
-fG
-wW
-cv
+el
+cP
+am
 cm
 am
 am
@@ -12249,14 +12205,14 @@ am
 al
 ac
 gF
-Ri
+el
 hb
 ac
 ht
-fG
+el
 ac
 cl
-fA
+cm
 al
 ab
 cl
@@ -12351,11 +12307,11 @@ am
 al
 ac
 ac
-fB
+gR
 ac
 ac
 gI
-fG
+el
 ac
 bZ
 am
@@ -12453,10 +12409,10 @@ am
 al
 ac
 dU
-fG
-AE
-Hz
-fG
+el
+el
+el
+el
 el
 hC
 al
@@ -18967,9 +18923,9 @@ aq
 aq
 aq
 aq
-DY
-DY
-DY
+aq
+aq
+aq
 aq
 al
 am
