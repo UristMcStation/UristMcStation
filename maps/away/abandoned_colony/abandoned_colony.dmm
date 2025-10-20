@@ -1775,9 +1775,8 @@
 /turf/simulated/floor/wood/walnut,
 /area/planet/abandoned_colony)
 "fp" = (
-/turf/simulated/floor/wood/walnut{
-	icon_state = "walnut_broken0"
-	},
+/obj/machinery/seed_storage/garden,
+/turf/simulated/floor/tiled,
 /area/planet/abandoned_colony)
 "fq" = (
 /obj/machinery/light/colored{
@@ -1839,14 +1838,15 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "fA" = (
-/turf/simulated/floor/wood/walnut{
-	icon_state = "walnut_broken1"
+/obj/item/clothing/suit/surgicalapron,
+/obj/item/reagent_containers/syringe/drugs,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "fB" = (
-/turf/simulated/floor/wood/walnut{
-	icon_state = "walnut_broken4"
-	},
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/planet/dirt/city,
 /area/planet/abandoned_colony)
 "fC" = (
 /obj/structure/table/woodentable/walnut,
@@ -1878,8 +1878,10 @@
 /turf/simulated/floor/tiled/steel_grid,
 /area/planet/abandoned_colony)
 "fG" = (
-/turf/simulated/floor/wood/walnut{
-	icon_state = "walnut_broken2"
+/obj/decal/cleanable/blood/drip,
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "fH" = (
@@ -1937,8 +1939,10 @@
 /turf/simulated/floor/tiled/white,
 /area/planet/abandoned_colony)
 "fR" = (
-/turf/simulated/floor/wood/walnut{
-	icon_state = "walnut_broken6"
+/obj/machinery/door/airlock,
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "fS" = (
@@ -2163,9 +2167,7 @@
 	pixel_y = 32;
 	color = "#4c0000"
 	},
-/turf/simulated/floor/wood/walnut{
-	icon_state = "walnut_broken2"
-	},
+/turf/simulated/floor/wood/walnut,
 /area/planet/abandoned_colony)
 "gz" = (
 /obj/machinery/light/small/red{
@@ -2214,6 +2216,8 @@
 	name = "dirty syringe";
 	desc = "Probably has at least five incurable STDs."
 	},
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
 "gD" = (
@@ -2302,6 +2306,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},
@@ -2367,17 +2372,16 @@
 "gZ" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/syringe/drugs,
-/obj/item/reagent_containers/syringe/drugs,
 /obj/item/reagent_containers/syringe/steroid,
-/obj/item/reagent_containers/syringe/steroid,
+/obj/item/storage/box/syringes,
+/obj/item/storage/box/beakers,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},
 /area/planet/abandoned_colony)
 "ha" = (
 /obj/structure/table/standard,
-/obj/item/clothing/suit/surgicalapron,
-/obj/item/clothing/suit/surgicalapron,
+/obj/machinery/reagentgrinder,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},
@@ -2387,10 +2391,7 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/mask/gas/half,
+/obj/machinery/reagent_temperature,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},
@@ -8103,6 +8104,7 @@
 /area/planet/abandoned_colony)
 "vf" = (
 /mob/living/simple_animal/hostile/scom/forgotten/awaymap,
+/obj/decal/cleanable/blood,
 /turf/simulated/floor/tiled/uristturf/geminus{
 	icon_state = "square_black"
 	},
@@ -8923,6 +8925,10 @@
 /obj/item/clothing/under/schoolgirl,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
+"yo" = (
+/obj/machinery/smartfridge/drying_rack,
+/turf/simulated/floor/tiled,
+/area/planet/abandoned_colony)
 "yJ" = (
 /obj/structure/table/woodentable,
 /obj/structure/window/reinforced{
@@ -9063,6 +9069,12 @@
 /obj/machinery/papershredder,
 /turf/simulated/floor/tiled/dark,
 /area/planet/abandoned_colony)
+"FV" = (
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "square_black"
+	},
+/area/planet/abandoned_colony)
 "FZ" = (
 /obj/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
@@ -9101,6 +9113,14 @@
 	},
 /turf/simulated/floor/fixed/destroyedroad{
 	icon_state = "dottedverticaldegraded"
+	},
+/area/planet/abandoned_colony)
+"IO" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/fixed/uristturf/geminus{
+	icon_state = "square_grey";
+	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
 "IQ" = (
@@ -9313,6 +9333,13 @@
 	color = "#cccccc"
 	},
 /area/planet/abandoned_colony)
+"Rm" = (
+/obj/machinery/door/airlock{
+	name = "Bar Backroom"
+	},
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
 "Rt" = (
 /obj/random/junk,
 /turf/simulated/floor/pavement{
@@ -9336,9 +9363,24 @@
 /obj/structure/gravemarker/random,
 /turf/simulated/floor/planet/dirt/city,
 /area/planet/abandoned_colony)
+"SH" = (
+/obj/item/clothing/suit/surgicalapron,
+/obj/item/clothing/mask/gas/half,
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "square_black"
+	},
+/area/planet/abandoned_colony)
 "Te" = (
 /obj/item/clothing/ears/earring/stud/gold,
 /turf/simulated/floor/tiled/dark,
+/area/planet/abandoned_colony)
+"Tw" = (
+/obj/item/reagent_containers/syringe/steroid,
+/obj/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/uristturf/geminus{
+	icon_state = "square_black"
+	},
 /area/planet/abandoned_colony)
 "TB" = (
 /obj/structure/bed/chair/urist/bench/bench1/right{
@@ -9792,7 +9834,7 @@ jL
 jM
 jR
 ac
-rH
+yo
 rH
 rH
 sY
@@ -9839,11 +9881,11 @@ dO
 fj
 eh
 eh
-fA
+eh
 eh
 eu
 fo
-fG
+eh
 fo
 ac
 fu
@@ -9894,7 +9936,7 @@ jQ
 dy
 hN
 ac
-rH
+fp
 kc
 rH
 jj
@@ -9939,7 +9981,7 @@ dD
 ac
 dP
 eh
-fp
+eh
 eh
 eh
 vJ
@@ -10044,7 +10086,7 @@ fk
 en
 eh
 eh
-fB
+eh
 eu
 fo
 eh
@@ -10149,7 +10191,7 @@ et
 eu
 eh
 eG
-fR
+eh
 eL
 ac
 ac
@@ -11478,7 +11520,7 @@ al
 eh
 gp
 ct
-fR
+eh
 hu
 ft
 ez
@@ -12001,7 +12043,7 @@ am
 gz
 ac
 gD
-el
+fA
 gZ
 ac
 el
@@ -12107,9 +12149,9 @@ vf
 ha
 ac
 el
-el
-cP
-am
+FV
+fR
+cv
 cm
 am
 am
@@ -12205,14 +12247,14 @@ am
 al
 ac
 gF
-el
+Tw
 hb
 ac
 ht
-el
+FV
 ac
 cl
-cm
+IO
 al
 ab
 cl
@@ -12307,14 +12349,14 @@ am
 al
 ac
 ac
-gR
+Rm
 ac
 ac
 gI
-el
+FV
 ac
 bZ
-am
+cv
 al
 ac
 ac
@@ -12409,10 +12451,10 @@ am
 al
 ac
 dU
-el
-el
-el
-el
+FV
+SH
+fG
+FV
 el
 hC
 al
@@ -12620,7 +12662,7 @@ hc
 el
 hC
 al
-am
+cv
 cl
 dK
 jo
@@ -18924,9 +18966,9 @@ aq
 aq
 aq
 aq
-aq
-aq
-aq
+fB
+fB
+fB
 al
 am
 ac
