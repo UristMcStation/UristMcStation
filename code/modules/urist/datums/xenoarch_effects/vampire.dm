@@ -14,18 +14,13 @@
 	DoEffectAura()
 
 
-/datum/artifact_effect/vampire/DoEffectAura(atom/holder)
-
-	if (length(nearby_mobs))
-		nearby_mobs.Cut()
-
+/datum/artifact_effect/vampire/DoEffectAura()
 	var/turf/T = get_turf(holder)
 
-	for (var/mob/living/L in oview(effectrange, T))
-		if (!L.stat && L.mind)
-			nearby_mobs |= L
+	for (var/mob/living/L in oview(src.effectrange, T))
+		nearby_mobs |= L
 
-	if (world.time - bloodcall_interval >= last_bloodcall && LAZYLEN(nearby_mobs))
+	if (world.time - bloodcall_interval >= last_bloodcall && length(nearby_mobs))
 		var/mob/living/carbon/human/M = pick(nearby_mobs)
 		if (get_dist(M, T) <= effectrange && M.health > 20 && !M.isSynthetic())
 			bloodcall(M)
@@ -67,6 +62,8 @@
 			holder?.visible_message(SPAN_CLASS("alien", "\icon[holder] \The [holder] gleams a bloody red!"))
 			charges -= 0.1
 
+	if (length(nearby_mobs))
+		nearby_mobs.Cut()
 
 /datum/artifact_effect/vampire/DoEffectPulse()
 	DoEffectAura()
@@ -86,4 +83,4 @@
 		B.target_turf = pick(range(1, get_turf(holder)))
 		B.blood_DNA = list()
 		B.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
-		M.vessel.remove_reagent("blood",rand(10,30))
+		M.vessel.remove_reagent(/datum/reagent/blood, rand(10,30))

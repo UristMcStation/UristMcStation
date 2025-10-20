@@ -30,3 +30,12 @@
 	if(chargelevel < 3)
 		return
 	shoot(list(user))
+
+
+/datum/artifact_effect/spines/DoEffectAura()
+	if(chargelevel < 12)
+		return
+	shoot()
+
+/datum/artifact_effect/spines/DoEffectPulse()
+	DoEffectAura()
