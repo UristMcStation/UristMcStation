@@ -174,7 +174,7 @@
  * Energy Sword
  */
 /obj/item/melee/energy/sword
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_energy.dmi'
 	name = "energy sword"
 	desc = "May the force be within you."
 	icon_state = "sword0"
@@ -255,7 +255,7 @@
 
 /obj/item/melee/energy/sword/dualsaber
 	var/base_icon = "dualsaber"
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_energy.dmi'
 	icon_state = "dualsaber0"
 	name = "double-bladed energy sword"
 	desc = "Handle with care."

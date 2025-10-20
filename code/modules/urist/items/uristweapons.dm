@@ -9,7 +9,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	item_icons = DEF_URIST_INHANDS
 	name = "machete"
 	desc = "a large blade beloved by sugar farmers and mass murderers"
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_physical.dmi'
 	icon_state = "machete"
 	item_state = "machete"
 	sharp = 1
@@ -86,12 +86,12 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/material/knife/hook
 	name = "meat hook"
 	desc = "A sharp, metal hook what sticks into things."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_physical.dmi'
 	icon_state = "hook_knife"
 	item_state = "hook_knife"
 
 /obj/item/material/sword/urist
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_physical.dmi'
 
 /obj/item/material/sword/urist/basic
 	name = "sword"
@@ -195,7 +195,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/urist/blade/bronzedagger
 	name = "Bronze Dagger"
 	desc = "Short but pointy."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_physical.dmi'
 	icon_state = "bronze_dagger"
 	item_state = "knife"
 	force = 12
@@ -206,7 +206,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/urist/blade/addydagger
 	name = "Adamantite Dagger"
 	desc = "Short but pointy."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_physical.dmi'
 	icon_state = "green_dagger"
 	item_state = "knife"
 	force = 20
@@ -217,7 +217,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/urist/blade/runedagger
 	name = "Runite Dagger"
 	desc = "Short but pointy."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_physical.dmi'
 	icon_state = "blue_dagger"
 	item_state = "knife"
 	force = 27
@@ -227,7 +227,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/urist/blade/bronzesword
 	name = "Bronze Sword"
 	desc = "A razor sharp sword."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_physical.dmi'
 	icon_state = "bronze_sword"
 	item_state = "claymore"
 	force = 15
@@ -238,7 +238,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/urist/blade/addysword
 	name = "Adamantite  Sword"
 	desc = "A razor sharp sword."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_physical.dmi'
 	icon_state = "green_sword"
 	item_state = "claymore"
 	force = 30
@@ -250,7 +250,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/urist/blade/runesword
 	name = "Runeite Sword"
 	desc = "A razor sharp sword."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_physical.dmi'
 	icon_state = "blue_sword"
 	item_state = "claymore"
 	force = 50
@@ -263,7 +263,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/cane/crutch
 	name ="crutch"
 	desc = "A long stick with a crosspiece at the top, used to help with walking."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_physical.dmi'
 	item_icons = list(
 			slot_l_hand_str = 'icons/uristmob/items_lefthand.dmi',
 			slot_r_hand_str = 'icons/uristmob/items_righthand.dmi',
@@ -276,7 +276,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/cane/white
 	name = "white cane"
 	desc = "A white cane. They are commonly used by the blind or visually impaired as a mobility tool or as a courtesy to others."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_physical.dmi'
 	item_icons = list(
 			slot_l_hand_str = 'icons/uristmob/items_lefthand.dmi',
 			slot_r_hand_str = 'icons/uristmob/items_righthand.dmi',
@@ -299,7 +299,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/item/cane/white/collapsible
 	name = "telescopic white cane"
 	desc = "A telescopic white cane. They are commonly used by the blind or visually impaired as a mobility tool or as a courtesy to others."
-	icon = 'icons/urist/items/uristweapons.dmi'
+	icon = 'icons/urist/weapons/melee_physical.dmi'
 	icon_state = "whitecane1in"
 	item_state = "whitecanein"
 	item_icons = list(
@@ -319,7 +319,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 		user.visible_message("<span class='notice'>\The [user] extends the white cane.</span>",\
 				"<span class='warning'>You extend the white cane.</span>",\
 				"You hear an ominous click.")
-		icon = 'icons/urist/items/uristweapons.dmi'
+		icon = 'icons/urist/weapons/melee_physical.dmi'
 		icon_state = "whitecane1out"
 		item_state_slots = list(slot_r_hand_str = "whitecane", slot_l_hand_str = "whitecane")
 		w_class = ITEM_SIZE_NORMAL
