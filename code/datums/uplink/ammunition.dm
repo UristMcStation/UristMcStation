@@ -36,19 +36,19 @@
 
 /datum/uplink_item/item/ammo/rifle
 	name = "Assault Rifle Magazine (7.62mm)"
-	desc = "A 7.62mm magazine designed primairly used for the STS-35, whilst also fitting the SD-Panther & L6 Saw. Contains 20 rounds."
+	desc = "A 7.62mm magazine used for the STS-35, whilst also fitting the SD-Panther & L6 Saw. Contains 20 rounds."
 	item_cost = 8
 	path = /obj/item/ammo_magazine/rifle
 
 /datum/uplink_item/item/ammo/bullpup
 	name = "Bullpup Rifle Magazine (5.56mm)"
-	desc = "A 5.56mm magazine designed to fit the Z8 Bulldog & variants, as well as the Battle Rifle. Contains 15 rounds."
+	desc = "A 5.56mm magazine designed to fit the Z8 Bulldog & variants, as well as the Battle Rifle. Contains 18 rounds."
 	item_cost = 8
 	path = /obj/item/ammo_magazine/mil_rifle
 
 /datum/uplink_item/item/ammo/bullpup/heavy // is there actually a difference between these??
 	name = "Heavy Bullpup Rifle Magazine (5.56mm)"
-	desc = "A 5.56mm magazine designed to fit the Z8 Bulldog & variants, as well as the Battle Rifle. Contains 15 rounds."
+	desc = "A 5.56mm magazine designed to fit the Z8 Bulldog & variants, as well as the Battle Rifle. Contains 18 rounds."
 	item_cost = 8
 	path = /obj/item/ammo_magazine/mil_rifle/heavy
 
