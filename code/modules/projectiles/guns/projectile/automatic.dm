@@ -187,7 +187,7 @@
 
 /obj/item/gun/projectile/automatic/z8
 	name = "bullpup assault rifle"
-	desc = "The Z8 Bulldog is an older model bullpup carbine, made by the now defunct Zendai Foundries. Uses armor piercing 7.62mm rounds. Makes you feel like a space marine when you hold it."
+	desc = "The Z8 Bulldog is an older model bullpup carbine, made by the now defunct Zendai Foundries. Uses armor piercing 5.56mm rounds. Makes you feel like a space marine when you hold it."
 	icon = 'icons/urist/items/z8carbine.dmi'
 	icon_state = "carbine"
 	item_state = "z8carbine"
