@@ -137,61 +137,61 @@
 	cost = 150
 
 /////////////////////////////////////////////////////////
-//                     Doll(s?)                        //
+//                     Plushies                        //
 /////////////////////////////////////////////////////////
 
 /datum/storeitem/dollunathigreen
-	name="Green Unathi Doll"
+	name="Green Unathi Plushie"
 	desc="A cute little doll modeled after an ugly lizard! This one is green."
-	typepath=/obj/item/vanity/doll/unathi/green
+	typepath=/obj/item/toy/plushie/unathi/green
 	cost = 150
 
 /datum/storeitem/dollunathired
-	name="Red Unathi Doll"
+	name="Red Unathi Plushie"
 	desc="A cute little doll modeled after an ugly lizard! This one is red."
-	typepath=/obj/item/vanity/doll/unathi/red
+	typepath=/obj/item/toy/plushie/unathi/red
 	cost = 150
 
 /datum/storeitem/dollunathilightblue
-	name="Light Blue Unathi Doll"
+	name="Light Blue Unathi Plushie"
 	desc="A cute little doll modeled after an ugly lizard! This one is light blue."
-	typepath=/obj/item/vanity/doll/unathi/lightblue
+	typepath=/obj/item/toy/plushie/unathi/lightblue
 	cost = 150
 
 /datum/storeitem/dollunathiblack
-	name="Black Unathi Doll"
+	name="Black Unathi Plushie"
 	desc="A cute little doll modeled after an ugly lizard! This one is black."
-	typepath=/obj/item/vanity/doll/unathi/black
+	typepath=/obj/item/toy/plushie/unathi/black
 	cost = 175 //Hey, that extra dye costs extra!
 
 /datum/storeitem/dollunathiyellow
-	name="Yellow Unathi Doll"
+	name="Yellow Unathi Plushie"
 	desc="A cute little doll modeled after an ugly lizard! This one is yellow."
-	typepath=/obj/item/vanity/doll/unathi/yellow
+	typepath=/obj/item/toy/plushie/unathi/yellow
 	cost = 150
 
 /datum/storeitem/dollunathiwhite
-	name="White Unathi Doll"
+	name="White Unathi Plushie"
 	desc="A cute little doll modeled after an ugly lizard! This one is white."
-	typepath=/obj/item/vanity/doll/unathi/white
+	typepath=/obj/item/toy/plushie/unathi/white
 	cost = 200 //No dye is very cheap!
 
 /datum/storeitem/dollunathipurple
-	name="Purple Unathi Doll"
+	name="Purple Unathi Plushie"
 	desc="A cute little doll modeled after an ugly lizard! This one is purple."
-	typepath=/obj/item/vanity/doll/unathi/purple
+	typepath=/obj/item/toy/plushie/unathi/purple
 	cost = 150
 
 /datum/storeitem/dollunathiorange
-	name="Orange Unathi Doll"
+	name="Orange Unathi Plushie"
 	desc="A cute little doll modeled after an ugly lizard! This one is orange."
-	typepath=/obj/item/vanity/doll/unathi/orange
+	typepath=/obj/item/toy/plushie/unathi/orange
 	cost = 150
 
 /datum/storeitem/dollunathibrown
-	name="Brown Unathi Doll"
+	name="Brown Unathi Plushie"
 	desc="A cute little doll modeled after an ugly lizard! This one is brown."
-	typepath=/obj/item/vanity/doll/unathi/brown
+	typepath=/obj/item/toy/plushie/unathi/brown
 	cost = 150
 
 /datum/storeitem/dollfarwa

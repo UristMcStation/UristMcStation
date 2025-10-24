@@ -3464,6 +3464,7 @@
 #include "code\modules\urist\items\terran_confederacy_items.dm"
 #include "code\modules\urist\items\tgbedsheets.dm"
 #include "code\modules\urist\items\tgitems.dm"
+#include "code\modules\urist\items\toys.dm"
 #include "code\modules\urist\items\trash_material.dm"
 #include "code\modules\urist\items\uristmed.dm"
 #include "code\modules\urist\items\uristpapers.dm"
