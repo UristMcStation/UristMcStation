@@ -365,7 +365,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/raft //just a fucking raft
 	name = "raft frame"
 	desc = "It's a shitty little improvised raft frame."
-	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon = 'icons/urist/vehicles/raft.dmi'
 	icon_state = "raft_frame0"
 	density = FALSE
 	anchored = FALSE
@@ -457,7 +457,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 /obj/structure/raft/built
 	name = "raft"
 	desc = "It's a shitty little improvised raft. Good luck."
-	icon = 'icons/urist/structures&machinery/structures.dmi'
+	icon = 'icons/urist/vehicles/raft.dmi'
 	icon_state = "raft_frame4"
 	built = 1
 	buildstate = 4

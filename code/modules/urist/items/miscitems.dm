@@ -376,7 +376,7 @@
 /obj/item/paddle
 	name = "paddle"
 	desc = "A shaped piece of wood, best used for manually propelling waterborne objects."
-	icon = 'icons/urist/items/misc.dmi'
+	icon = 'icons/urist/vehicles/raft.dmi'
 	icon_state = "paddle"
 	slot_flags = SLOT_BACK
 	force = 8.0
@@ -392,7 +392,7 @@
 	icon_state = "medradio"
 	frequency = MED_I_FREQ
 
-//jeez this file is a mess. anyways, here's an empty welder for merchants
+//jeez this file is a mess. anyways, here's an empty welder for merchants // yes it is... - y
 
 /obj/item/weldingtool/empty
 	tank = /obj/item/welder_tank/empty
@@ -715,29 +715,6 @@
 	desc = "A picture of a young squire."
 	icon_state = "squire"
 
-/obj/item/toy/plushie/loot
-	name = "old cartoon doll"
-	desc = "A cute doll of an old cartoon from early in the millennium."
-	icon = 'icons/urist/items/misc.dmi'
-	icon_state = "rareplush1"
-
-/obj/item/toy/plushie/loot/pink
-	icon_state = "rareplush2"
-
-/obj/item/toy/plushie/loot/blue
-	icon_state = "rareplush3"
-
-/obj/item/toy/plushie/loot/neet
-	icon_state = "rareplush4"
-
-/obj/item/toy/plushie/loot/goat
-	icon_state = "goat"
-
-/obj/item/toy/plushie/loot/scug
-	name = "slugcat plush"
-	desc = "A cute doll based off a sleeping slugcat."
-	icon_state = "scugplush"
-
 /obj/random/treasure
 	name = "random treasure"
 	desc = "This is some random loot."
@@ -897,10 +874,3 @@
 	hitsound = "swing_hit"
 	flashlight_power = 0.75
 	flashlight_range = 6
-
-//blueshield action figure
-/obj/item/toy/figure/blueshield
-	name = "Blueshield action figure"
-	desc = "A \"Space Life\" brand Blueshield action figure."
-	icon = 'icons/urist/items/misc.dmi'
-	icon_state = "blueshield"
