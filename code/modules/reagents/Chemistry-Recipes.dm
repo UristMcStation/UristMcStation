@@ -2465,14 +2465,6 @@
 	required_reagents = list(/datum/reagent/spaceacillin = 3, /datum/reagent/uranium = 1)
 	result_amount = 1*/
 
-/singleton/reaction/latrazine
-	name = "Latrazine"
-	result = /datum/reagent/latrazine
-	required_reagents = list(/datum/reagent/toxin/phoron = 10, /datum/reagent/peridaxon = 1, /datum/reagent/paroxetine = 1)
-	result_amount = 1
-
-	mix_message = "The solution thickens slowly into a glossy liquid."
-
 /singleton/reaction/vinegar
 	name = "Apple Vinegar"
 	result = /datum/reagent/nutriment/vinegar

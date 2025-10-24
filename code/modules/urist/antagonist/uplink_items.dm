@@ -18,7 +18,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/uristmoonshine
 	name = "Urist's Moonshine"
 	desc = "A dusty looking bottle of plump helmet moonshine. It has a label stating 'URIST MCDWARFS, DO NOT TOUCH!'"
-	icon = 'icons/urist/items/uristfood.dmi'
+	icon = 'icons/urist/obj/food/bottles.dmi'
 	icon_state = "uristmoonshine"
 	center_of_mass = "x=16;y=8"
 

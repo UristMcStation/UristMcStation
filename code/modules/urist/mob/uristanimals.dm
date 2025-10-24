@@ -14,7 +14,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	speak_emote = list("purrs", "barks")
 	turns_per_move = 5
 	see_in_dark = 6
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/fox
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
@@ -103,7 +103,7 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	//Turtles don't speak or make noise...
 	turns_per_move = 10
 	health = 150 //Turtles are tanky
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/turtle
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "hits"

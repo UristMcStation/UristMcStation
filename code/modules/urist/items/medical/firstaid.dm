@@ -2,23 +2,6 @@
 
 Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual. */
 
-//Anti-rad autoinjectors for the engineers: for when you're above hoarding vodka bottles.
-
-/obj/item/reagent_containers/hypospray/autoinjector/rad
-	name = "anti-radiation autoinjector"
-	desc = "An autoinjector with a small concotion of drugs designed to treat radiation poisoning." //A label says: <b>Warning!</b> this product contains arithrazine."
-	icon = 'icons/urist/items/misc.dmi'
-	icon_state = "radinjector"
-	item_state = "autoinjector"
-
-/obj/item/reagent_containers/hypospray/autoinjector/rad/New()
-	..()
-	reagents.remove_reagent(/datum/reagent/inaprovaline, 5)
-	reagents.add_reagent(/datum/reagent/hyronalin, 3)
-	reagents.add_reagent(/datum/reagent/dylovene, 2)
-	update_icon()
-	return
-
 /obj/item/storage/firstaid/rad
 	name = "radiation first aid kit"
 	desc = "A first aid kit loaded with medicine for radiation treatment."
@@ -56,53 +39,6 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 		/obj/item/reagent_containers/glass/beaker/radiation,
 		/obj/item/reagent_containers/glass/beaker/painkiller,
 		)
-
-/obj/item/reagent_containers/hypospray/autoinjector/adv
-	name = "advanced autoinjector"
-	desc = "An advanced autoinjector, containing a number of helpful chemicals."
-	icon = 'icons/urist/items/misc.dmi'
-	icon_state = "radinjector"
-	item_state = "autoinjector"
-	volume = 20
-	amount_per_transfer_from_this = 20
-
-/obj/item/reagent_containers/hypospray/autoinjector/adv/New()
-	..()
-	reagents.add_reagent(/datum/reagent/tricordrazine, 5)
-	reagents.add_reagent(/datum/reagent/tramadol, 5)
-	reagents.add_reagent(/datum/reagent/dexalinp, 5)
-	update_icon()
-	return
-
-/obj/item/reagent_containers/hypospray/autoinjector/admin
-	name = "advanced autoinjector"
-	desc = "An advanced autoinjector, containing a number of helpful chemicals."
-	icon = 'icons/urist/items/misc.dmi'
-	icon_state = "radinjector"
-	item_state = "autoinjector"
-	volume = 20
-	amount_per_transfer_from_this = 20
-
-/obj/item/reagent_containers/hypospray/autoinjector/admin/New()
-	..()
-	reagents.add_reagent(/datum/reagent/adminordrazine, 5)
-	reagents.add_reagent(/datum/reagent/tramadol, 5)
-	reagents.add_reagent(/datum/reagent/dexalinp, 5)
-	update_icon()
-	return
-
-///obj/item/reagent_containers/hypospray/autoinjector/quickclot/New()
-//	..()
-//	reagents.add_reagent("tramadol", 5)
-//	reagents.add_reagent("quickclot", 5)
-//	update_icon()
-//	return
-
-///obj/item/reagent_containers/hypospray/autoinjector/quickclot
-//	name = "Quick Clot"
-//	desc = "An Auto-injector loaded with Quick-clot, a chemical designed to stop internal bleeding instantly."
-//	icon_state = "autoinjector"
-//	item_state = "autoinjector"
 
 /obj/item/storage/box/autoinjectorscom
 	name = "box of advanced autoinjectors"
@@ -170,52 +106,3 @@ Space for all Urist-done, non-pill medical items. Please keep it tidy, as usual.
 	reagents.add_reagent(/datum/reagent/tramadol/oxycodone, 45)
 	reagents.add_reagent(/datum/reagent/dexalinp, 15)
 	update_icon()
-
-//resomi / teshari blood
-
-/obj/item/reagent_containers/ivbag/blood/teshari
-	abstract_type = /obj/item/reagent_containers/ivbag/blood/teshari
-
-
-/obj/item/reagent_containers/ivbag/blood/teshari/Initialize(mapload, blood_type)
-	return ..(mapload, blood_type, SPECIES_RESOMI)
-
-
-/obj/item/reagent_containers/ivbag/blood/teshari/apos/Initialize(mapload)
-	return ..(mapload, "A+")
-
-
-/obj/item/reagent_containers/ivbag/blood/teshari/aneg/Initialize(mapload)
-	return ..(mapload, "A-")
-
-
-/obj/item/reagent_containers/ivbag/blood/teshari/bpos/Initialize(mapload)
-	return ..(mapload, "B+")
-
-
-/obj/item/reagent_containers/ivbag/blood/teshari/bneg/Initialize(mapload)
-	return ..(mapload, "B-")
-
-
-/obj/item/reagent_containers/ivbag/blood/teshari/abpos/Initialize(mapload)
-	return ..(mapload, "AB+")
-
-
-/obj/item/reagent_containers/ivbag/blood/teshari/abneg/Initialize(mapload)
-	return ..(mapload, "AB-")
-
-
-/obj/item/reagent_containers/ivbag/blood/teshari/opos/Initialize(mapload)
-	return ..(mapload, "O+")
-
-
-/obj/item/reagent_containers/ivbag/blood/teshari/oneg/Initialize(mapload)
-	return ..(mapload, "O-")
-
-//tesh blood freezer
-
-/obj/item/storage/box/freezer/blood/teshari
-	name = "portable freezer (teshari blood)"
-	startswith = list(
-		/obj/item/reagent_containers/ivbag/blood/teshari/oneg = 4
-	)
