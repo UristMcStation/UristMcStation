@@ -113,34 +113,3 @@
 	icon = 'icons/urist/items/wood.dmi'
 	icon_state = "loom"
 	w_class = 4 //a table loom is small only by comparison to a floor loom.
-
-/datum/seed/cotton // move dis
-	name = "cotton"
-	seed_name = "cotton"
-	display_name = "cotton plant"
-	chems = list(/datum/reagent/cottonfiber = list(6,1))
-
-/datum/seed/cotton/New()
-	..()
-	set_trait(TRAIT_MATURATION,10)
-	set_trait(TRAIT_PRODUCTION,1)
-	set_trait(TRAIT_YIELD,8)
-	set_trait(TRAIT_POTENCY,10)
-	set_trait(TRAIT_PRODUCT_ICON,"cotton")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#f0f0f0")
-	set_trait(TRAIT_PLANT_ICON,"bush2")
-	set_trait(TRAIT_WATER_CONSUMPTION, 6)
-
-/obj/item/seeds/cotton
-	seed_type = "cotton"
-
-/obj/item/loom/use_tool(obj/item/W, mob/living/user, list/click_params)
-	if(istype(W, /obj/item/reagent_containers/food/snacks/grown))
-		var/obj/item/reagent_containers/food/snacks/grown/plant = W
-		if(plant.seed?.chems)
-			if(!isnull(plant.seed.chems[/datum/reagent/cottonfiber]))
-				user.visible_message(SPAN_NOTICE("\The [user] weaves \the [plant] into cotton cloth"), SPAN_NOTICE("You weave \the [plant] into cotton cloth"))
-				new /obj/item/stack/material/cloth(user.loc)
-				qdel(plant)
-				return
-	..()
