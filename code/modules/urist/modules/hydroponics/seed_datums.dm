@@ -17,9 +17,6 @@
 	set_trait(TRAIT_PLANT_ICON,"bush2")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 
-/obj/item/seeds/cotton
-	seed_type = "cotton"
-
 /obj/item/loom/use_tool(obj/item/W, mob/living/user, list/click_params)
 	if(istype(W, /obj/item/reagent_containers/food/snacks/grown))
 		var/obj/item/reagent_containers/food/snacks/grown/plant = W

@@ -376,3 +376,6 @@ var/global/list/plant_seed_sprites = list()
 
 /obj/item/seeds/maneater
 	seed_type = "maneater"
+
+/obj/item/seeds/cotton
+	seed_type = "cotton"
