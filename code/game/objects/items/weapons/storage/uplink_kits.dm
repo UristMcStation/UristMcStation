@@ -94,13 +94,13 @@
 		/obj/item/pen/chameleon,
 		/obj/item/device/destTagger,
 		)
-
+/*
 /obj/item/storage/box/syndie_kit/spy
 	startswith = list(
 		/obj/item/device/spy_bug = 6,
 		/obj/item/device/spy_monitor
 	)
-
+*/
 /obj/item/storage/box/syndie_kit/silenced
 	startswith = list(
 		/obj/item/gun/projectile/pistol/holdout,
