@@ -203,6 +203,7 @@
 /obj/item/device/radio/proc/reset_frequency()
 	if (default_frequency)
 		frequency = default_frequency
+		radio_connection.frequency = PUB_FREQ
 
 /obj/item/device/radio/proc/ToggleBroadcast()
 	broadcasting = !broadcasting && !(wires.IsIndexCut(WIRE_TRANSMIT) || wires.IsIndexCut(WIRE_SIGNAL))

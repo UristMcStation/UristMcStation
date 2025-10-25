@@ -98,17 +98,6 @@
 	. = ..()
 
 /mob/living/carbon/human/space_do_move(allow_move, direction)
-	if(allow_move == 1)
-		var/obj/item/tank/jetpack/thrust = get_jetpack()
-		if(thrust && thrust.on && skill_fail_prob(SKILL_EVA, 10, SKILL_TRAINED))
-			to_chat(src, SPAN_WARNING("You fumble with [thrust] controls!"))
-			if(prob(50))
-				thrust.toggle()
-			if(prob(50))
-				thrust.stabilization_on = 0
-			SetMoveCooldown(15)	//2 seconds of random rando panic drifting
-			step(src, pick(GLOB.alldirs))
-			return 0
 	. = ..()
 
 /mob/living/carbon/human/proc/get_jetpack()

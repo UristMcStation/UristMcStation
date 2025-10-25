@@ -82,7 +82,10 @@
 	var/scaned_object = sample.name
 	if(istype(sample, /obj/item/forensics/swab))
 		var/obj/item/forensics/swab/swab = sample
-		evidence["gunshot_residue"] = swab.gunshot_residue_sample.Copy()
+		if(swab.dna)
+			evidence["dna"] = swab.dna.Copy()
+		if(swab.gunshot_residue_sample)
+			evidence["gunshot_residue"] = swab.gunshot_residue_sample.Copy()
 	else if(istype(sample, /obj/item/sample/fibers))
 		var/obj/item/sample/fibers/fibers = sample
 		scaned_object = fibers.object
@@ -129,6 +132,14 @@
 				report.info += "<br>"
 		else
 			report.info += "No information available."
+	if("dna" in evidence)
+		report.info += "<b> DNA analysis report</b>: [scaned_object]<br>"
+		if(LAZYLEN(evidence["dna"]))
+			report.info += "DNA analysis has revealed the following string:<br><br>"
+			for(var/founddna in evidence["dna"])
+				report.info += SPAN_NOTICE("DNA string: [founddna]")
+		else
+			report.info += "No DNA information available."
 
 	if(report)
 		report.update_icon()

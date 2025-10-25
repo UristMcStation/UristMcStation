@@ -155,16 +155,10 @@
 	if (user.a_intent == I_HELP) // Prevents putting sample kits in bags, on racks/tables, etc when trying to take samples
 		return ..()
 
-	. = ..()
-
-/obj/item/forensics/sample_kit/afterattack(atom/A, mob/user, proximity)
-	if(!proximity)
-		return
-	if(can_take_sample(user, A))
-		take_sample(user,A)
-		. = 1
+	if (can_take_sample(user, target))
+		take_sample(user,target)
 	else
-		to_chat(user, SPAN_WARNING("You are unable to locate any [evidence_type]s on \the [A]."))
+		to_chat(user, SPAN_WARNING("You are unable to locate any [evidence_type]s on \the [target]."))
 	return TRUE
 
 /obj/item/forensics/sample_kit/MouseDrop(atom/over)
@@ -173,7 +167,7 @@
 
 /obj/item/forensics/sample_kit/powder
 	name = "fingerprint powder"
-	desc = "A jar containing alumiinum powder and a specialized brush."
+	desc = "A jar containing aluminium powder and a specialized brush."
 	icon_state = "dust"
 	evidence_type = "fingerprint"
 	evidence_path = /obj/item/sample/print

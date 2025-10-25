@@ -114,6 +114,8 @@
 		var/area/A = get_area(R)
 		log_and_message_admins("created \an [R.cultname] rune at \the [A.name].")
 		R.add_fingerprint(src)
+		R.add_blood(src)
+		R.blood_DNA |= src.dna.unique_enzymes
 		return 1
 	return 0
 

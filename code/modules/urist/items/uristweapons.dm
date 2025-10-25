@@ -33,11 +33,14 @@ Please keep it tidy, by which I mean put comments describing the item before the
 
 	if(tool == src)
 		to_chat(user, SPAN_NOTICE("You try to attach the end of the energy sword to... itself. You're not very smart, are you?"))
-		if(ishuman(user))
-			user.adjustBrainLoss(10)
 		return TRUE
 
 	to_chat(user, SPAN_NOTICE("You attach the ends of the two energy swords, making a single double-bladed weapon! You're cool."))
+
+	user.remove_from_mob(tool)
+	user.remove_from_mob(src)
+	qdel(tool)
+	qdel(src)
 
 	// This is straight-up spaghetti from hell.
 	if(src.blade_color == "red")
@@ -76,10 +79,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	if(src.blade_color == "black")
 		new /obj/item/melee/energy/sword/dualsaber(user.loc)
 
-	user.remove_from_mob(tool)
-	user.remove_from_mob(src)
-	qdel(tool)
-	qdel(src)
 
 //misc melee weapons
 
