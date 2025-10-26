@@ -11,9 +11,9 @@
 	available_by_default = FALSE
 	allowed_ranks = null
 	allowed_branches = null
-	skill_points = 25
+	//skill_points = 25
 	give_psionic_implant_on_join = FALSE
-	max_skill = list(   SKILL_BUREAUCRACY = SKILL_MAX,
+	/*max_skill = list(   SKILL_BUREAUCRACY = SKILL_MAX,
 	                    SKILL_FINANCE = SKILL_MAX,
 	                    SKILL_EVA = SKILL_MAX,
 	                    SKILL_MECH = SKILL_MAX,
@@ -33,7 +33,7 @@
 	                    SKILL_SCIENCE = SKILL_MAX,
 	                    SKILL_MEDICAL = SKILL_MAX,
 	                    SKILL_ANATOMY = SKILL_MAX,
-	                    SKILL_CHEMISTRY = SKILL_MAX)
+	                    SKILL_CHEMISTRY = SKILL_MAX)*/
 
 	var/info = "You have survived a terrible disaster. Make the best of things that you can."
 	var/rank

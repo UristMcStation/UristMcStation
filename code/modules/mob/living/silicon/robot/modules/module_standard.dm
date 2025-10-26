@@ -23,9 +23,9 @@
 		/obj/item/device/flash,
 		/obj/item/borg/combat/shield
 	)
-	skills = list(
+	/*skills = list(
 		SKILL_COMBAT       = SKILL_TRAINED,
 		SKILL_MEDICAL      = SKILL_TRAINED,
 		SKILL_CONSTRUCTION = SKILL_TRAINED,
 		SKILL_BUREAUCRACY  = SKILL_TRAINED
-	)
+	)*/

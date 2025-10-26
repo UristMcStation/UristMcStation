@@ -40,13 +40,13 @@
 		/obj/item/gun/launcher/syringe/rapid/sleepy,
 		/obj/item/shockpaddles/robot
 	)
-	skills = list(
+	/*skills = list(
 		SKILL_ANATOMY      = SKILL_BASIC,
 		SKILL_MEDICAL      = SKILL_MASTER,
 		SKILL_EVA          = SKILL_EXPERIENCED,
 		SKILL_CONSTRUCTION = SKILL_EXPERIENCED,
 		SKILL_ELECTRICAL   = SKILL_EXPERIENCED
-	)
+	)*/
 
 /obj/item/robot_module/medical/finalize_emag()
 	. = ..()

@@ -35,14 +35,14 @@
 		/obj/item/gun/projectile/automatic/sec_smg,
 		/obj/item/gun/energy/plasmacutter
 	)
-	skills = list(
+	/*skills = list(
 		SKILL_BUREAUCRACY         = SKILL_MASTER,
 		SKILL_COMPUTER            = SKILL_EXPERIENCED,
 		SKILL_FORENSICS           = SKILL_MASTER,
 		SKILL_WEAPONS             = SKILL_EXPERIENCED,
 		SKILL_CONSTRUCTION        = SKILL_TRAINED,
 		SKILL_ANATOMY             = SKILL_TRAINED
-	)
+	)*/
 
 /obj/item/robot_module/flying/forensics/respawn_consumable(mob/living/silicon/robot/R, amount)
 	..()

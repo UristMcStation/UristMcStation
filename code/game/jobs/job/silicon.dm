@@ -14,7 +14,7 @@
 	loadout_allowed = FALSE
 	hud_icon = "hudblank"
 	skill_points = 0
-	min_skill = list(
+	/*min_skill = list(
 		SKILL_BUREAUCRACY   = SKILL_EXPERIENCED,
 		SKILL_FINANCE       = SKILL_EXPERIENCED,
 		SKILL_EVA           = SKILL_EXPERIENCED,
@@ -36,8 +36,7 @@
 		SKILL_MEDICAL       = SKILL_EXPERIENCED,
 		SKILL_ANATOMY       = SKILL_EXPERIENCED,
 		SKILL_CHEMISTRY     = SKILL_EXPERIENCED
-	)
-
+	)*/
 /datum/job/ai/equip(mob/living/carbon/human/H)
 	if(!H)	return 0
 	return 1

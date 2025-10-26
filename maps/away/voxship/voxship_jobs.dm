@@ -8,7 +8,7 @@
 	whitelisted_species = list(SPECIES_VOX)
 	blacklisted_species = null
 	is_semi_antagonist = TRUE
-	max_skill = list(
+	/*max_skill = list(
 		SKILL_BUREAUCRACY = SKILL_MAX,
 		SKILL_FINANCE = SKILL_MAX,
 		SKILL_EVA = SKILL_MAX,
@@ -30,7 +30,7 @@
 		SKILL_MEDICAL = SKILL_TRAINED,
 		SKILL_ANATOMY = SKILL_TRAINED,
 		SKILL_CHEMISTRY = SKILL_TRAINED
-	)
+	)*/
 
 /datum/job/submap/voxship_vox/doc
 	title = "Shoal Biotechnician"
@@ -38,7 +38,7 @@
 	info = "You are the sawbones of your scavenger crew. You are in charge of removing stacks, replacing limbs, and generally keeping \
 	your kin alive at all costs."
 	whitelisted_species = list(SPECIES_VOX)
-	min_skill = list( // 45 points
+	/*min_skill = list( // 45 points
 		SKILL_HAULING = SKILL_BASIC, // 1 point
 		SKILL_EVA = SKILL_EXPERIENCED, // 4 points
 		SKILL_MEDICAL = SKILL_EXPERIENCED, // 16 points
@@ -70,14 +70,14 @@
 		SKILL_ANATOMY = SKILL_MAX,
 		SKILL_CHEMISTRY = SKILL_MAX
 	)
-	skill_points = 20
+	skill_points = 20*/
 
 /datum/job/submap/voxship_vox/engineer
 	title = "Shoal Technician"
 	total_positions = 1
 	info = "You are the mechanic of your scavenger crew. Keep all your salvaged technology running, fix robotics, and disassemble some of \
 	the more complex devices your crew comes across."
-	min_skill = list( // 16 points
+	/*min_skill = list( // 16 points
 		SKILL_HAULING = SKILL_BASIC, // 1 point
 		SKILL_COMPUTER = SKILL_BASIC, // 1 point
 		SKILL_EVA = SKILL_EXPERIENCED, // 4 points
@@ -110,7 +110,7 @@
 		SKILL_ANATOMY = SKILL_TRAINED,
 		SKILL_CHEMISTRY = SKILL_TRAINED
 	)
-	skill_points = 20
+	skill_points = 20*/
 
 /datum/job/submap/voxship_vox/quill
 	title = "Quill"
@@ -118,7 +118,7 @@
 	outfit_type = /singleton/hierarchy/outfit/job/voxship/crew
 	supervisors = "apex and the arkship"
 	info = "You're in charge. You fly the ship, and dictate what the crew does. Do not disappoint the Apex."
-	min_skill = list( // 25 points
+	/*min_skill = list( // 25 points
 		SKILL_HAULING = SKILL_BASIC, // 1 point
 		SKILL_EVA = SKILL_EXPERIENCED, // 4 points
 		SKILL_SCIENCE = SKILL_TRAINED, // 4 points
@@ -150,7 +150,7 @@
 		SKILL_ANATOMY = SKILL_EXPERIENCED,
 		SKILL_CHEMISTRY = SKILL_EXPERIENCED
 	)
-	skill_points = 20
+	skill_points = 20*/
 
 var/global/const/access_voxship = "ACCESS_VOXSHIP"
 /datum/access/vox

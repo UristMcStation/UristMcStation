@@ -58,12 +58,12 @@
 		/obj/item/shield_diffuser,
 		/obj/item/gun/launcher/grenade/foam
 	)
-	skills = list(
+	/*skills = list(
 		SKILL_ATMOS        = SKILL_MASTER,
 		SKILL_ENGINES      = SKILL_MASTER,
 		SKILL_CONSTRUCTION = SKILL_MASTER,
 		SKILL_ELECTRICAL   = SKILL_MASTER
-	)
+	)*/
 
 /obj/item/robot_module/flying/repair/finalize_synths()
 	. = ..()

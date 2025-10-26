@@ -453,13 +453,13 @@ GLOBAL_LIST_AS(zombie_species, list(
 	resuscitate()
 	set_stat(CONSCIOUS)
 
-	if (skillset && skillset.skill_list)
+	/*if (skillset && skillset.skill_list)
 		skillset.skill_list = list()
 		for(var/singleton/hierarchy/skill/S in GLOB.skills) //Only want trained CQC and athletics
 			skillset.skill_list[S.type] = SKILL_UNSKILLED
 		skillset.skill_list[SKILL_HAULING] = SKILL_TRAINED
 		skillset.skill_list[SKILL_COMBAT] = SKILL_EXPERIENCED
-		skillset.on_levels_change()
+		skillset.on_levels_change()*/
 
 	if (mind)
 		if (mind.special_role == ANTAG_ZOMBIE)
@@ -679,13 +679,13 @@ GLOBAL_LIST_AS(zombie_species, list(
 	eye_color = "#662300"
 	update_eyes()
 
-	if (skillset && skillset.skill_list)
+	/*if (skillset && skillset.skill_list)
 		skillset.skill_list = list()
 		for(var/singleton/hierarchy/skill/S in GLOB.skills) //Only want trained CQC and athletics
 			skillset.skill_list[S.type] = SKILL_UNSKILLED
 		skillset.skill_list[SKILL_HAULING] = SKILL_TRAINED
 		skillset.skill_list[SKILL_COMBAT] = SKILL_EXPERIENCED
-		skillset.on_levels_change()
+		skillset.on_levels_change()*/
 
 	return INITIALIZE_HINT_LATELOAD
 

@@ -2,13 +2,13 @@
 	channels = list(
 		"Service" = TRUE
 	)
-	skills = list(
+	/*skills = list(
 		SKILL_BUREAUCRACY         = SKILL_MASTER,
 		SKILL_FINANCE             = SKILL_MASTER,
 		SKILL_COMPUTER            = SKILL_EXPERIENCED,
 		SKILL_SCIENCE             = SKILL_EXPERIENCED,
 		SKILL_DEVICES             = SKILL_EXPERIENCED
-	)
+	)*/
 
 /obj/item/robot_module/clerical/butler
 	name = "service robot module"
@@ -50,14 +50,14 @@
 		/obj/item/device/flash,
 		/obj/item/reagent_containers/food/drinks/bottle/small/beer/fake
 	)
-	skills = list(
+	/*skills = list(
 		SKILL_BUREAUCRACY         = SKILL_MASTER,
 		SKILL_COMPUTER            = SKILL_EXPERIENCED,
 		SKILL_COOKING             = SKILL_MASTER,
 		SKILL_BOTANY              = SKILL_MASTER,
 		SKILL_MEDICAL             = SKILL_BASIC,
 		SKILL_CHEMISTRY           = SKILL_TRAINED
-	)
+	)*/
 
 /obj/item/robot_module/clerical/butler/finalize_equipment()
 	. = ..()

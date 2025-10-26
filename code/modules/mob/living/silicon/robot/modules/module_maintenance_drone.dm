@@ -47,12 +47,12 @@
 		/datum/matter_synth/wire =    30
 	)
 	emag_gear = list(/obj/item/gun/energy/plasmacutter)
-	skills = list(
+	/*skills = list(
 		SKILL_ATMOS        = SKILL_EXPERIENCED,
 		SKILL_ENGINES      = SKILL_EXPERIENCED,
 		SKILL_CONSTRUCTION = SKILL_EXPERIENCED,
 		SKILL_ELECTRICAL   = SKILL_EXPERIENCED
-	)
+	)*/
 
 /obj/item/robot_module/drone/finalize_equipment(mob/living/silicon/robot/R)
 	. = ..()
