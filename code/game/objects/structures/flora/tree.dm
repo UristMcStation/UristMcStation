@@ -125,7 +125,7 @@
 	damage = max(damage, 0)
 	if (damage)
 		if (chop)
-			playsound(src, ('sound/urist/chopchop.ogg'), 50, TRUE)
+			playsound(src, 'sound/urist/chopchop.ogg', 50, TRUE)
 		else if (item?.hitsound)
 			playsound(src, item.hitsound, 50, TRUE)
 	if (damage < health_min_damage)
