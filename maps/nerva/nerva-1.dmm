@@ -14867,7 +14867,6 @@
 /obj/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/machinery/carpentry/planer,
 /turf/simulated/floor/tiled/dark,
 /area/logistics/fabwork)
 "zO" = (
@@ -16856,9 +16855,7 @@
 	icon_state = "corner_white"
 	},
 /obj/item/carpentry/axe,
-/obj/item/carpentry/saw,
 /obj/item/carpentry/axe,
-/obj/item/carpentry/saw,
 /turf/simulated/floor/tiled/techmaint,
 /area/logistics/prep)
 "DD" = (

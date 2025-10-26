@@ -8201,7 +8201,6 @@
 	icon_state = "0-2";
 	d2 = 2
 	},
-/obj/machinery/carpentry/planer,
 /turf/simulated/floor/plating,
 /area/morninglight/atmos)
 "vq" = (

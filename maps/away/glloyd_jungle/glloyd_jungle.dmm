@@ -115,7 +115,7 @@
 	},
 /area/planet/jungle/away)
 "av" = (
-/obj/structure/flora/tree/planet/jungle/small,
+/obj/structure/flora/tree/jungle,
 /turf/simulated/floor/planet/plains/clear,
 /area/planet/jungle/away)
 "aw" = (
@@ -3531,7 +3531,6 @@
 /turf/simulated/floor/tiled/white,
 /area/jungleoutpost/medbay)
 "MN" = (
-/obj/item/stock_parts/circuitboard/carpentryplaner,
 /turf/simulated/floor/plating,
 /area/planet/jungle/away)
 "Ol" = (

@@ -2398,7 +2398,6 @@
 	},
 /area/planet/destroyed_colony)
 "ik" = (
-/obj/machinery/carpentry/planer,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "il" = (

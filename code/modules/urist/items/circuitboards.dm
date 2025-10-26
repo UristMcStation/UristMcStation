@@ -1,11 +1,3 @@
-/obj/item/stock_parts/circuitboard/carpentryplaner
-	name = "circuit board (wood processor)"
-	build_path = /obj/machinery/carpentry/planer
-	board_type = "machine"
-	origin_tech = list(TECH_ENGINEERING = 1)
-	req_components = list(
-							/obj/item/stack/cable_coil = 2,
-							/obj/item/stock_parts/manipulator = 1)
 
 /obj/item/stock_parts/circuitboard/woodprocessor
 	name = "circuit board (pulp and paper processor)"

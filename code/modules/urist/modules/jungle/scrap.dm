@@ -20,7 +20,7 @@
 		/obj/item/material/shard/phoron,
 		/obj/item/material/shard/shrapnel,
 		/obj/item/pipe,
-		/obj/item/stack/material/r_wood/scrap,
+		/obj/item/stack/material/wood/scrap,
 		/obj/item/stack/cable_coil/scrap,
 		/obj/item/stack/material/wood/scrap,
 		/obj/item/trash/tray,
@@ -210,7 +210,7 @@
 /obj/item/stack/cable_coil/scrap/New(newloc)
 	..(newloc, rand(1,6))
 
-/obj/item/stack/material/r_wood/scrap/New(newloc)
+/obj/item/stack/material/wood/scrap/New(newloc)
 	..(newloc, rand(1,8))
 
 /obj/item/vehicle_part

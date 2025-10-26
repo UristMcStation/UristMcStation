@@ -838,7 +838,7 @@
 "qf" = (/obj/machinery/light{brightness_power = 5; brightness_range = 10; dir = 8},/turf/simulated/floor,/area/outpost/mining_main/refinery)
 "qg" = (/obj/machinery/atmospherics/pipe/simple/hidden/supply,/turf/simulated/floor,/area/outpost/mining_main/refinery)
 "qh" = (/turf/simulated/floor,/area/outpost/mining_main/refinery)
-"qi" = (/obj/machinery/planer,/turf/simulated/floor/wood,/area/outpost/mining_main/refinery)
+"qi" = (/turf/simulated/floor/wood,/area/outpost/mining_main/refinery)
 "qj" = (/obj/machinery/door/blast/shutters{id = "planet_mining"; name = "Elevator Shutters"},/turf/simulated/floor{dir = 1; icon_state = "warning"},/area/outpost/mining_main/refinery)
 "qk" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 1},/obj/structure/window/reinforced{dir = 8},/obj/machinery/door/firedoor{dir = 2},/turf/simulated/floor/plating,/area/outpost/mining_main/dorms)
 "ql" = (/obj/structure/grille,/obj/structure/window/reinforced,/obj/structure/window/reinforced{dir = 4},/obj/structure/window/reinforced{dir = 1},/obj/machinery/door/firedoor{dir = 2},/turf/simulated/floor/plating,/area/outpost/mining_main/dorms)
