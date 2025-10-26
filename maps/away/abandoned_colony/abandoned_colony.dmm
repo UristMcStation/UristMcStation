@@ -7645,7 +7645,6 @@
 /obj/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/item/carpentry/saw,
 /obj/item/shovel,
 /obj/item/carpentry/axe,
 /obj/item/material/hatchet/wood,

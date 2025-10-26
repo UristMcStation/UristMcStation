@@ -2175,7 +2175,6 @@
 "hy" = (
 /obj/structure/table/rack,
 /obj/item/carpentry/axe,
-/obj/item/carpentry/saw,
 /turf/simulated/floor/tiled,
 /area/planet/destroyed_colony)
 "hz" = (

@@ -8223,7 +8223,6 @@
 "rI" = (
 /obj/structure/table/woodentable/walnut,
 /obj/item/carpentry/axe,
-/obj/item/carpentry/saw,
 /turf/simulated/floor/wood/walnut,
 /area/outpost/mining_main/refinery)
 "rJ" = (
