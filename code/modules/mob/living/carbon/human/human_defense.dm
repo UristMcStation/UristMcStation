@@ -160,9 +160,9 @@ meteor_act
 	if (user == src || species.species_flags & SPECIES_FLAG_NO_BLOCK)
 		return target_zone
 
-	var/accuracy_penalty = user.melee_accuracy_mods()
-	accuracy_penalty += 5*get_skill_difference(SKILL_COMBAT, user)
-	var/hit_zone = get_zone_with_miss_chance(target_zone, src, accuracy_penalty)
+//	var/accuracy_penalty = user.melee_accuracy_mods()
+//	accuracy_penalty += 5*get_skill_difference(SKILL_COMBAT, user)
+	var/hit_zone = get_zone_with_miss_chance(target_zone, src, user.melee_accuracy_mods())
 
 	if (!hit_zone)
 		return

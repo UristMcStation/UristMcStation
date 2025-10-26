@@ -208,7 +208,7 @@
 			worm.detatch()
 			worm.leave_host()
 		playsound(target.loc, 'sound/effects/squelch1.ogg', 15, TRUE)
-		if (i == 1 || !user.do_skilled(3 SECONDS, SKILL_ANATOMY, target, 0.3, DO_SURGERY) || !user.use_sanity_check(target, tool))
+		if (i == 1 || !do_after(3 SECONDS, target, 0.3, DO_SURGERY) || !user.use_sanity_check(target, tool))
 			break
 
 

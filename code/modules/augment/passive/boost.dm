@@ -29,7 +29,7 @@
 /obj/item/organ/internal/augment/boost/onInstall()
 	if (length(buffs))
 		var/datum/skill_buff/augment/A
-		A = owner.buff_skill(buffs, 0, buffpath)
+		//A = owner.buff_skill(buffs, 0, buffpath)
 		if (A && istype(A))
 			active = TRUE
 			A.id = id

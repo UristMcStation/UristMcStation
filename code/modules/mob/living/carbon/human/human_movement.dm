@@ -143,7 +143,7 @@
 /mob/living/carbon/human/Move()
 	. = ..()
 	if(.) //We moved
-		species.handle_exertion(src)
+		//species.handle_exertion(src)
 		handle_leg_damage()
 
 /mob/living/carbon/human/proc/handle_leg_damage()

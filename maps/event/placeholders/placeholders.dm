@@ -53,7 +53,7 @@ Middle-Click / Ctrl-Click - Jump a placeholder to a point and deselect it
 	else if (option == "Scan")
 		var/scantext = ""
 		option = input(user, "Placeholder Scan Description", null, scantext) as null | text
-		selected.add_scan_data("secondary_scan", option, "You detect an active sensor contact.", SKILL_SCIENCE, SKILL_TRAINED)
+		selected.add_scan_data("secondary_scan", option, "You detect an active sensor contact.", SKILL_SCIENCE, SKILL_UNSKILLED)
 
 /datum/build_mode/placeholders/OnClick(atom/atom, list/parameters)
 	if (!atom)
