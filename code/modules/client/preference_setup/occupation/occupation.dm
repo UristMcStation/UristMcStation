@@ -187,10 +187,10 @@
 					current_level = JOB_LEVEL_LOW
 
 				var/skill_link
-				if(pref.points_by_job[job] && (!job.available_by_default || current_level != JOB_LEVEL_NEVER))
-					skill_link = "<a class = 'Points' href='byond://?src=\ref[src];set_skills=[title]'>Set Skills</a>"
-				else
-					skill_link = "<a href='byond://?src=\ref[src];set_skills=[title]'>View Skills</a>"
+				//if(pref.points_by_job[job] && (!job.available_by_default || current_level != JOB_LEVEL_NEVER))
+					//skill_link = "<a class = 'Points' href='byond://?src=\ref[src];set_skills=[title]'>Set Skills</a>"
+				//else
+					//skill_link = "<a href='byond://?src=\ref[src];set_skills=[title]'>View Skills</a>"
 				skill_link = "<td>[skill_link]</td>"
 
 				// Begin assembling the actual HTML.
