@@ -16,12 +16,6 @@ Please keep it tidy, by which I mean put comments describing the item before the
 	sort_string = "URSTA"
 
 // circuits
-/datum/design/circuit/carpentryplaner
-	name = "wood processor"
-	id = "wood_processor"
-	req_tech = list(TECH_ENGINEERING = 1)
-	build_path = /obj/item/stock_parts/circuitboard/carpentryplaner
-	sort_string = "URSTC"
 
 /datum/design/circuit/woodprocessor
 	name = "pulp and paper processor"

@@ -34,11 +34,6 @@
 	path = /obj/item/pickaxe/old
 	category = "Tools"
 
-/datum/fabricator_recipe/saw
-	name = "hand saw"
-	path = /obj/item/carpentry/saw
-	category = "Tools"
-
 /datum/fabricator_recipe/axe
 	name = "wood axe"
 	path = /obj/item/carpentry/axe

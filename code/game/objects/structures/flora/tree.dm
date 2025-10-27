@@ -86,6 +86,7 @@
 	density = FALSE
 	set_light(0)
 
+	playsound(src.loc, 'sound/urist/treefalling.ogg', 100, 1)
 
 /obj/structure/flora/tree/proc/TryChop(obj/item/item, mob/living/user)
 	var/damage
@@ -124,7 +125,7 @@
 	damage = max(damage, 0)
 	if (damage)
 		if (chop)
-			playsound(src, 'sound/effects/woodcutting.ogg', 50, TRUE)
+			playsound(src, 'sound/urist/chopchop.ogg', 50, TRUE)
 		else if (item?.hitsound)
 			playsound(src, item.hitsound, 50, TRUE)
 	if (damage < health_min_damage)
@@ -137,7 +138,7 @@
 		self_message,
 		SPAN_WARNING("You hear something impact on wood!")
 	)
-
+	user.setClickCooldown(user.get_attack_speed(item))
 
 /obj/structure/flora/tree/damage_health(damage, damage_type, damage_flags, severity, skip_can_damage_check)
 	if (holographic || is_stump)

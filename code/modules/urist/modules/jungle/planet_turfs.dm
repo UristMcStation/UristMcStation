@@ -18,8 +18,8 @@
 
 	var/misc_plant_type = /obj/structure/flora/reeds
 	var/bush_type = /obj/structure/bush
-	var/small_tree_type = /obj/structure/flora/tree/planet/jungle/small
-	var/large_tree_type = /obj/structure/flora/tree/planet/jungle/large
+	var/small_tree_type = /obj/structure/flora/tree/jungle
+	var/large_tree_type = /obj/structure/flora/tree/jungle/large
 
 	var/spawn_scrap = FALSE //do we spawn scrap piles at random
 
@@ -492,22 +492,6 @@
 
 			return TRUE
 
-	else if(istype(I, /obj/item/stack/material/r_wood))
-		if(!bridge)
-			var/obj/item/stack/material/r_wood/R = I
-
-			if(R.amount >= 3)
-				to_chat(user, "<span class='notice'>You build a makeshift platform to cross the river safely.</span>")
-				desc = "thick murky water. There's a makeshift platform over it."
-				R.use(3)
-
-				AddOverlays(image('icons/urist/jungle/turfs.dmi', "bridge2", layer=2.1))
-				bridge = 2
-			else
-				to_chat(user, "<span class='notice'>You do not have enough wood to build a bridge.</span>")
-
-			return TRUE
-
 	else if(istype(I, /obj/item/paddle))
 		if(!bridge)
 			for(var/obj/structure/raft/R in user.loc)
@@ -554,10 +538,6 @@
 
 				if(bridge == 1)
 					var/obj/item/stack/material/wood/S =  new /obj/item/stack/material/wood(get_turf(src))
-					S.amount = 3
-
-				else if(bridge == 2)
-					var/obj/item/stack/material/r_wood/S =  new /obj/item/stack/material/r_wood/(get_turf(src))
 					S.amount = 3
 
 				bridge = 0
@@ -704,8 +684,8 @@
 	misc_plant_spawn_chance = 10
 	misc_plant_type = /obj/structure/flora/grass/arid
 	temperature = 305.15 //32C
-	small_tree_type = /obj/structure/flora/tree/planet/arid/small
-	large_tree_type = /obj/structure/flora/tree/planet/arid/large
+	small_tree_type = /obj/structure/flora/tree/arid
+	large_tree_type = /obj/structure/flora/tree/arid/large
 	footstep_type = /singleton/footsteps/sand
 
 /turf/simulated/floor/planet/ariddirt/Initialize()

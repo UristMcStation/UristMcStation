@@ -63800,7 +63800,6 @@
 	pixel_x = 3;
 	pixel_y = -3
 	},
-/obj/item/stock_parts/circuitboard/carpentryplaner,
 /obj/item/stock_parts/circuitboard/woodprocessor,
 /turf/simulated/floor/plating,
 /area/storage/tech)

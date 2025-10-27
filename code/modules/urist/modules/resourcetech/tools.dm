@@ -4,18 +4,6 @@
 	item_icons = DEF_URIST_INHANDS
 	icon = 'icons/urist/items/tools.dmi'
 
-/obj/item/carpentry/saw
-	name = "carpenter's saw"
-	desc = "A one person crosscut saw, used for sawing logs into reasonable lengths."
-	icon_state = "saw"
-	item_state = "saw"
-	edge = 1
-	w_class = 3.0
-	force = 8
-	throwforce = 2
-	attack_verb = list("cut", "sawed")
-	matter = list(DEFAULT_WALL_MATERIAL = 1000, "wood" = 500)
-
 /obj/item/carpentry/axe
 	name = "woodsman's axe"
 	desc = "A heavy axe designed for chopping down large trees."

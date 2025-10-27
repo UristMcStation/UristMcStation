@@ -233,7 +233,7 @@
 /turf/simulated/floor/planet/jungle/clear/underground,
 /area/planet/forest)
 "bf" = (
-/obj/structure/flora/tree/planet/temperate,
+/obj/structure/flora/tree/temperate,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "bg" = (
@@ -356,7 +356,7 @@
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "bK" = (
-/obj/structure/flora/tree/planet/arid/small,
+/obj/structure/flora/tree/arid,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
 "bL" = (
@@ -382,7 +382,7 @@
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
 "bX" = (
-/obj/structure/flora/tree/planet/temperate,
+/obj/structure/flora/tree/temperate,
 /obj/structure/flora/ausbushes/pointybush,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest)
@@ -398,7 +398,7 @@
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest/cabin2)
 "cb" = (
-/obj/structure/flora/tree/planet/temperate,
+/obj/structure/flora/tree/temperate,
 /turf/simulated/floor/planet/temperate,
 /area/planet/forest/cabin2)
 "cc" = (
@@ -701,7 +701,6 @@
 /obj/item/seeds/tobaccoseed,
 /obj/item/seeds/tobaccoseed,
 /obj/item/material/minihoe,
-/obj/item/carpentry/saw,
 /obj/item/seeds/towermycelium,
 /obj/item/seeds/towermycelium,
 /obj/item/device/scanner/plant,
@@ -783,7 +782,6 @@
 /obj/structure/table/rack,
 /obj/item/stock_parts/circuitboard/biogenerator,
 /obj/item/stock_parts/circuitboard/autolathe,
-/obj/item/stock_parts/circuitboard/carpentryplaner,
 /obj/item/stock_parts/circuitboard/woodprocessor,
 /obj/item/device/radio/off/old,
 /obj/item/device/radio/off/old,
@@ -1029,7 +1027,7 @@
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
 "HG" = (
-/obj/structure/flora/tree/planet/arid/small,
+/obj/structure/flora/tree/arid,
 /obj/floor_decal/planet/border/dirttograss{
 	dir = 10
 	},
@@ -1081,7 +1079,7 @@
 /turf/simulated/floor/planet/dirt/temperate,
 /area/planet/forest)
 "Vi" = (
-/obj/structure/flora/tree/planet/snowy,
+/obj/structure/flora/tree/pine,
 /turf/simulated/floor/planet/snow,
 /area/planet/forest)
 "Vm" = (

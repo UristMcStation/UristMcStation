@@ -8716,7 +8716,7 @@
 /area/tdome)
 "uP" = (
 /obj/structure/flora/ausbushes/sunnybush,
-/obj/structure/flora/tree/planet/jungle/large,
+/obj/structure/flora/tree/jungle/large,
 /obj/urist_intangible/weather/invariant/holo_rain,
 /turf/simulated/floor/holofloor/urist/junglegrass_browngreen,
 /area/holodeck/source_jungle)
@@ -17054,7 +17054,7 @@
 	},
 /area/holodeck/source_beach)
 "OY" = (
-/obj/structure/flora/tree/planet/jungle/small,
+/obj/structure/flora/tree/jungle,
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/urist_intangible/weather/invariant/holo_rain,
 /turf/simulated/floor/holofloor/urist/junglegrass_browngreen,

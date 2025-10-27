@@ -7645,7 +7645,6 @@
 /obj/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/item/carpentry/saw,
 /obj/item/shovel,
 /obj/item/carpentry/axe,
 /obj/item/material/hatchet/wood,
@@ -8201,7 +8200,6 @@
 	icon_state = "0-2";
 	d2 = 2
 	},
-/obj/machinery/carpentry/planer,
 /turf/simulated/floor/plating,
 /area/morninglight/atmos)
 "vq" = (
