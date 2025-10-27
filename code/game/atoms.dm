@@ -407,7 +407,7 @@
 			user.ForensicsExamination(src, distance)
 	else
 		var/mob/living/carbon/human/M = user
-		if(M.job == "Detective")
+		if((M.mind.assigned_role == "Detective") || (M.mind.role_alt_title == "Detective"))
 			user.ForensicsExamination(src, distance)
 	return TRUE
 

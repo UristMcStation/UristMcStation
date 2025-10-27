@@ -117,9 +117,9 @@ The Appraise verb. Used on objects to estimate their value.
 	if(!..())
 		return
 	var/mob/living/carbon/human/H = skillset.owner
-	if(!(H.mind?.assigned_role == "Detective"))
-		return
-	return 1
+	if((H.mind?.assigned_role == "Detective") || (H.mind?.role_alt_title == "Detective"))
+		return 1
+	return
 
 /mob/proc/noirvision()
 	set category = "IC"
