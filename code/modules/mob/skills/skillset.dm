@@ -27,9 +27,13 @@
 	. = ..()
 
 /datum/skillset/proc/get_value(skill_path)
+	#ifdef INCLUDE_URIST_CODE
 	. = SKILL_MASTER	//everyone is good at everything and all shall win prizes -grant
-	//for(var/datum/skill_buff/SB in skill_buffs)
-	//	. += SB.buffs[skill_path]
+	#else
+	. = skill_list[skill_path] || default_value
+	for(var/datum/skill_buff/SB in skill_buffs)
+		. += SB.buffs[skill_path]
+	#endif
 
 /datum/skillset/proc/obtain_from_mob(mob/mob)
 	if(!istype(mob) || !skills_transferable || !mob.skillset?.skills_transferable)
