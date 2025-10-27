@@ -104,21 +104,21 @@
 		/datum/matter_synth/medicine = 15000,
 	)
 
-	skills = list(
+	/*skills = list(
 		SKILL_ANATOMY     = SKILL_MASTER,
 		SKILL_MEDICAL     = SKILL_EXPERIENCED,
 		SKILL_CHEMISTRY   = SKILL_TRAINED,
 		SKILL_BUREAUCRACY = SKILL_TRAINED,
 		SKILL_DEVICES     = SKILL_EXPERIENCED
-	)
+	)*/
 
 /obj/item/robot_module/medical/surgeon/finalize_equipment()
 	. = ..()
 	for(var/thing in list(
-		 /obj/item/stack/nanopaste,
-		 /obj/item/stack/medical/advanced/ointment,
-		 /obj/item/stack/medical/advanced/bruise_pack,
-		 /obj/item/stack/medical/splint
+		/obj/item/stack/nanopaste,
+		/obj/item/stack/medical/advanced/ointment,
+		/obj/item/stack/medical/advanced/bruise_pack,
+		/obj/item/stack/medical/splint
 		))
 		var/obj/item/stack/medical/stack = locate(thing) in equipment
 		stack.uses_charge = 1

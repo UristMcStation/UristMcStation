@@ -7,7 +7,7 @@
 	Your weapons are limited; trade, salvage, but avoid conflict as a matter of course."
 	whitelisted_species = list(SPECIES_HUMAN,SPECIES_IPC,SPECIES_SPACER,SPECIES_GRAVWORLDER,SPECIES_VATGROWN,SPECIES_TRITONIAN,SPECIES_MULE)
 	is_semi_antagonist = TRUE
-	min_skill = list( // 27 points
+	/*min_skill = list( // 27 points
 		SKILL_HAULING = SKILL_BASIC, // 1 point
 		SKILL_EVA = SKILL_EXPERIENCED, // 4 points
 		SKILL_MECH = SKILL_MAX, // 2 points
@@ -39,7 +39,7 @@
 		SKILL_ANATOMY = SKILL_EXPERIENCED,
 		SKILL_CHEMISTRY = SKILL_EXPERIENCED
 	)
-	skill_points = 20
+	skill_points = 20*/
 
 /datum/job/submap/scavver_doctor
 	title = "Salvage Doctor"
@@ -49,7 +49,7 @@
 	info = "You are the doctor aboard your meagre Salvage team. Keep everyone alive. Your weapons are limited; trade, salvage, but avoid conflict as a matter of course."
 	whitelisted_species = list(SPECIES_HUMAN,SPECIES_IPC,SPECIES_SPACER,SPECIES_GRAVWORLDER,SPECIES_VATGROWN,SPECIES_TRITONIAN,SPECIES_MULE)
 	is_semi_antagonist = TRUE
-	min_skill = list( // 45 points
+	/*min_skill = list( // 45 points
 		SKILL_HAULING = SKILL_BASIC, // 1 point
 		SKILL_EVA = SKILL_EXPERIENCED, // 4 points
 		SKILL_MEDICAL = SKILL_EXPERIENCED, // 16 points
@@ -81,7 +81,7 @@
 		SKILL_ANATOMY = SKILL_MAX,
 		SKILL_CHEMISTRY = SKILL_MAX
 	)
-	skill_points = 20
+	skill_points = 20*/
 
 /datum/job/submap/scavver_engineer
 	title = "Salvage Engineer"
@@ -92,7 +92,7 @@
 	Your weapons are limited; trade, salvage, but avoid conflict as a matter of course."
 	whitelisted_species = list(SPECIES_HUMAN,SPECIES_IPC,SPECIES_SPACER,SPECIES_GRAVWORLDER,SPECIES_VATGROWN,SPECIES_TRITONIAN,SPECIES_MULE)
 	is_semi_antagonist = TRUE
-	min_skill = list( // 16 points
+	/*min_skill = list( // 16 points
 		SKILL_HAULING = SKILL_BASIC, // 1 point
 		SKILL_COMPUTER = SKILL_BASIC, // 1 point
 		SKILL_EVA = SKILL_EXPERIENCED, // 4 points
@@ -125,7 +125,7 @@
 		SKILL_ANATOMY = SKILL_TRAINED,
 		SKILL_CHEMISTRY = SKILL_TRAINED
 	)
-	skill_points = 20
+	skill_points = 20*/
 
 /obj/submap_landmark/spawnpoint/scavver_pilot
 	name = "Salvage Pilot"

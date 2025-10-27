@@ -194,9 +194,9 @@
 
 	if(is_held_twohanded(user) && !O.anchored && isturf(O.loc) && O.w_class <= ITEM_SIZE_SMALL)
 		if(!prob(10))
-			var/skill = 0.25 + (user.get_skill_value(SKILL_HAULING) - SKILL_MIN)/(SKILL_MAX - SKILL_MIN)
-			var/dist = O.throw_range * skill
-			O.throw_at(get_ranged_target_turf(user, user.dir, dist), dist, O.throw_speed * skill, user, TRUE)
+			//var/skill = 0.25 + (user.get_skill_value(SKILL_HAULING) - SKILL_MIN)/(SKILL_MAX - SKILL_MIN)
+			var/dist = O.throw_range //* skill
+			O.throw_at(get_ranged_target_turf(user, user.dir, dist), dist, O.throw_speed, user, TRUE)
 			visible_message(SPAN_NOTICE("\The [user] hits \the [O], sending it flying!"))
 			playsound(src, pick('sound/items/baseball/baseball_hit_01.wav', 'sound/items/baseball/baseball_hit_02.wav'), 75, 1)
 		else

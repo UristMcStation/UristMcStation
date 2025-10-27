@@ -78,13 +78,13 @@
 		/obj/item/gun/launcher/grenade/foam
 	)
 
-	skills = list(
+	/*skills = list(
 		SKILL_ATMOS        = SKILL_MASTER,
 		SKILL_ENGINES      = SKILL_MASTER,
 		SKILL_CONSTRUCTION = SKILL_MASTER,
 		SKILL_ELECTRICAL   = SKILL_MASTER,
 		SKILL_COMPUTER     = SKILL_EXPERIENCED
-	)
+	)*/
 
 	var/flamethrower_recharge_modifier = 8
 

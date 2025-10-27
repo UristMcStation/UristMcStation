@@ -43,11 +43,11 @@
 		/obj/item/rcd/borg
 	)
 
-	skills = list(
+	/*skills = list(
 		SKILL_PILOT        = SKILL_EXPERIENCED,
 		SKILL_EVA          = SKILL_MASTER,
 		SKILL_CONSTRUCTION = SKILL_EXPERIENCED
-	)
+	)*/
 	no_slip = 1
 
 /obj/item/robot_module/miner/handle_emagged()

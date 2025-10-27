@@ -27,9 +27,13 @@
 	. = ..()
 
 /datum/skillset/proc/get_value(skill_path)
+	#ifdef INCLUDE_URIST_CODE
+	. = SKILL_MASTER	//everyone is good at everything and all shall win prizes -grant
+	#else
 	. = skill_list[skill_path] || default_value
 	for(var/datum/skill_buff/SB in skill_buffs)
 		. += SB.buffs[skill_path]
+	#endif
 
 /datum/skillset/proc/obtain_from_mob(mob/mob)
 	if(!istype(mob) || !skills_transferable || !mob.skillset?.skills_transferable)
@@ -110,7 +114,7 @@
 			return
 
 /mob/proc/get_skill_difference(skill_path, mob/opponent)
-	return get_skill_value(skill_path) - opponent.get_skill_value(skill_path)
+	return 0 //no -grant
 
 // A generic way of modifying times via skill values
 /mob/proc/skill_delay_mult(skill_path, factor = 0.3)

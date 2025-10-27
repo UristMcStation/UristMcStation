@@ -11,7 +11,7 @@
 	//C.available_maneuvers.Remove(/singleton/maneuver/leap)
 	C.available_maneuvers.Add(/singleton/maneuver/leap/changeling)
 	src.mind.changeling.tendons_reinforced = TRUE
-	C.buff_skill(list(SKILL_HAULING = 1), 0, buff_type = /datum/skill_buff)
+	//C.buff_skill(list(SKILL_HAULING = 1), 0, buff_type = /datum/skill_buff)
 	//C.prepared_maneuver = /singleton/maneuver/leap/grab
 
 	playsound(src, 'sound/effects/corpsecube.ogg',35,1)

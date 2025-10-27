@@ -322,7 +322,7 @@
 			SPAN_INFO("[wearer]'s suit emits a quiet hum as it begins to adjust its seals."), \
 			SPAN_INFO("With a quiet hum, the suit begins running checks and adjusting components."))
 
-			if(seal_delay && !instant && !wearer.do_skilled(seal_delay, SKILL_EVA, src))
+			if(seal_delay && !instant && !do_after(seal_delay, src))
 				failed_to_seal = 1
 
 		if(!wearer)
@@ -345,7 +345,7 @@
 
 				if(!failed_to_seal && wearer.back == src && piece == compare_piece)
 
-					if(seal_delay && !instant && !wearer.do_skilled(seal_delay, SKILL_EVA, src, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
+					if(seal_delay && !instant && !do_after(seal_delay, src, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 						failed_to_seal = 1
 
 					piece.icon_state = "[initial(icon_state)][!seal_target ? "_sealed" : ""]"

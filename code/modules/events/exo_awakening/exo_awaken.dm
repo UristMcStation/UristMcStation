@@ -138,7 +138,7 @@ GLOBAL_LIST_EMPTY(exo_event_mob_count)// a list of all mobs currently spawned
 	for (var/obj/overmap/visitable/ship/S in range(chosen_planet,2)) //announce the event to ships in range of the planet
 		command_announcement.Announce(announcement, "[S.name] Biological Sensor Array", zlevels = S.map_z)
 
-	chosen_planet.add_scan_data("exo_awaken", SPAN_COLOR(COLOR_RED, announcement), null, SKILL_SCIENCE, SKILL_TRAINED)
+	chosen_planet.add_scan_data("exo_awaken", SPAN_COLOR(COLOR_RED, announcement), null, SKILL_SCIENCE, SKILL_UNSKILLED)
 
 /datum/event/exo_awakening/tick()
 	count_mobs()
@@ -219,7 +219,7 @@ GLOBAL_LIST_EMPTY(exo_event_mob_count)// a list of all mobs currently spawned
 		return
 
 	chosen_planet.remove_scan_data("exo_awaken")
-	chosen_planet.add_scan_data("exo_awaken_aftermath", SPAN_COLOR(COLOR_GREEN, "Biological and geological activity within tolerance, trace unknown lifeforms detected."), null, SKILL_SCIENCE, SKILL_TRAINED)
+	chosen_planet.add_scan_data("exo_awaken_aftermath", SPAN_COLOR(COLOR_GREEN, "Biological and geological activity within tolerance, trace unknown lifeforms detected."), null, SKILL_SCIENCE, SKILL_UNSKILLED)
 
 	QDEL_NULL(chosen_mob_list)
 	log_debug("Exoplanet Awakening event spawned [spawned_mobs] mobs. It was a level [event_severity] out of 3 severity.")
