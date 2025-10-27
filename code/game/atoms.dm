@@ -401,7 +401,14 @@
 /atom/proc/LateExamine(mob/user, distance, is_adjacent)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	user.ForensicsExamination(src, distance)
+	if(isrobot(user))
+		var/mob/living/silicon/robot/R = user
+		if(R.modtype == "Forensics")
+			user.ForensicsExamination(src, distance)
+	else
+		var/mob/living/carbon/human/M = user
+		if(M.job == "Detective")
+			user.ForensicsExamination(src, distance)
 	return TRUE
 
 /**
