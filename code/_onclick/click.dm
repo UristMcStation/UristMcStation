@@ -58,7 +58,7 @@
  *
  * Has no return value.
  */
-/mob/proc/ClickOn(atom/A, params)
+/mob/proc/ClickOn(atom/A, params, use_in_world = FALSE)
 
 	if(world.time <= next_click) // Hard check, before anything else, to avoid crashing
 		return
@@ -114,6 +114,8 @@
 		throw_mode_off()
 
 	var/obj/item/W = get_active_hand()
+	if (use_in_world)
+		W = null
 
 	if(W == A) // Handle attack_self
 		W.attack_self(src)
@@ -135,7 +137,7 @@
 		else
 			if(ismob(A)) // No instant mob attacking
 				setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			UnarmedAttack(A, 1)
+			UnarmedAttack(A, 1, use_in_world)
 
 		trigger_aiming(TARGET_CAN_CLICK)
 		return
@@ -156,7 +158,7 @@
 			else
 				if(ismob(A)) // No instant mob attacking
 					setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-				UnarmedAttack(A, 1)
+				UnarmedAttack(A, 1, use_in_world)
 
 			trigger_aiming(TARGET_CAN_CLICK)
 			return
@@ -192,10 +194,10 @@
  *
  * Returns boolean - Whether or not the mob was able to perform the interaction.
  */
-/mob/proc/UnarmedAttack(atom/A, proximity_flag)
+/mob/proc/UnarmedAttack(atom/A, proximity_flag, use_in_world_flag)
 	return
 
-/mob/living/UnarmedAttack(atom/A, proximity_flag)
+/mob/living/UnarmedAttack(atom/A, proximity_flag, use_in_world_flag)
 
 	if(GAME_STATE < RUNLEVEL_GAME)
 		to_chat(src, "You cannot attack people before the game has started.")
@@ -531,6 +533,14 @@ GLOBAL_LIST_INIT(click_catchers)
 /client/MouseDrag(src_object,atom/over_object,src_location,over_location,src_control,over_control,params)
 	var/datum/click_handler/click_handler = usr.GetClickHandler()
 	click_handler.OnMouseDrag(over_object, params)
+
+/client/MouseEntered(object, location, control, params)
+	var/datum/click_handler/click_handler = usr.GetClickHandler()
+	click_handler.OnMouseEntered(object, location, control, params)
+
+/client/MouseExited(object, location, control, params)
+	var/datum/click_handler/click_handler = usr.GetClickHandler()
+	click_handler.OnMouseExited(object, location, control, params)
 
 /mob/proc/CanMobAutoclick(object, location, params)
 	return
