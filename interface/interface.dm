@@ -68,6 +68,7 @@
 \t. = move-down
 \tq = drop
 \te = equip
+\tf = activate object in world
 \tr = throw
 \tt = say
 \t5 = emote
@@ -88,6 +89,7 @@
 \tCtrl+w = up
 \tCtrl+q = drop
 \tCtrl+e = equip
+\tCtrl+f = activate object in world
 \tCtrl+r = throw
 \tCtrl+x or Middle Mouse = swap-hand
 \tCtrl+z = activate held object (or Ctrl+y)
