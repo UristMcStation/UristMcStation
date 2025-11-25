@@ -52,25 +52,3 @@
 	..()
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 3)
 	src.bitesize = 6
-
-/datum/microwave_recipe/fishburger2
-	required_items = list(
-		/obj/item/reagent_containers/food/snacks/bun,
-		/obj/item/reagent_containers/food/snacks/fishmeat
-	)
-	result_path = /obj/item/reagent_containers/food/snacks/fishburger
-
-/datum/microwave_recipe/fishandchips2
-	required_items = list(
-		/obj/item/reagent_containers/food/snacks/fries,
-		/obj/item/reagent_containers/food/snacks/fishmeat,
-	)
-	result_path = /obj/item/reagent_containers/food/snacks/fishandchips
-
-/datum/microwave_recipe/fishfingers2
-	required_reagents = list(/datum/reagent/nutriment/flour = 10)
-	required_items = list(
-		/obj/item/reagent_containers/food/snacks/egg,
-		/obj/item/reagent_containers/food/snacks/fishmeat,
-	)
-	result_path = /obj/item/reagent_containers/food/snacks/fishfingers
