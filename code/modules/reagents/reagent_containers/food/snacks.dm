@@ -116,23 +116,17 @@
 		admin_attack_log(user, M, "Fed the victim with [name] (Reagents: [contained])", "Was fed [src] (Reagents: [contained])", "used [src] (Reagents: [contained]) to feed")
 		user.visible_message(SPAN_DANGER("[user] feeds [M] [src]."))
 
-	if(reagents) //Handle ingestion of the reagent.
-		if(eat_sound)
+	if (reagents) //Handle ingestion of the reagent.
+		if (eat_sound)
 			playsound(M, pick(eat_sound), rand(10, 50), 1)
-		if(reagents.total_volume)
-			var/obj/item/organ/internal/cell/potato = C.internal_organs_by_name[BP_CELL]
-			var/mob/living/carbon/human/H = M
-			if(reagents.total_volume > bitesize)
+		if (reagents.total_volume)
+			if (reagents.total_volume > bitesize)
 				reagents.trans_to_mob(M, bitesize, CHEM_INGEST)
-				if(potato && H.isFBP())
-					potato.cell.give((reagents.get_reagent_amount(/datum/reagent/nutriment) / reagents.total_volume) * bitesize * ENERGY_PER_NUTRIMENT)
 			else
 				reagents.trans_to_mob(M, reagents.total_volume, CHEM_INGEST)
-				if(potato && H.isFBP())
-					potato.cell.give(reagents.get_reagent_amount(/datum/reagent/nutriment) * ENERGY_PER_NUTRIMENT)
 			bitecount++
 			OnConsume(M, user)
-		return TRUE
+	return TRUE
 
 /obj/item/reagent_containers/food/snacks/examine(mob/user, distance)
 	. = ..()
@@ -188,7 +182,7 @@
 
 	if (is_sliceable())
 		//these are used to allow hiding edge items in food that is not on a table/tray
-		var/can_slice_here = isturf(src.loc) && ((locate(/obj/structure/table) in src.loc) || (locate(/obj/machinery/optable) in src.loc) || (locate(/obj/item/tray) in src.loc))
+		var/can_slice_here = isturf(src.loc) && ((locate(/obj/structure/table) in src.loc) || (locate(/obj/machinery/optable) in src.loc) || (locate(/obj/item/reagent_containers/cooking_container/tray) in src.loc))
 		var/hide_item = !has_edge(W) || !can_slice_here
 
 		if (hide_item)
@@ -219,7 +213,7 @@
 				var/obj/item/reagent_containers/food/snacks/S = new slice_path (src.loc)
 				reagents.trans_to_obj(S, reagents_per_slice)
 
-				if(istype(src, /obj/item/reagent_containers/food/snacks/sliceable/variable))
+				if(istype(src, /obj/item/reagent_containers/food/snacks/variable))
 					S.SetName("[name] slice")
 					S.filling_color = filling_color
 					var/image/I = image(S.icon, "[S.icon_state]_filling")
@@ -331,7 +325,7 @@
 	reagents.add_reagent(/datum/reagent/nutriment/protein/egg, 3)
 
 /obj/item/reagent_containers/food/snacks/egg/use_after(obj/O, mob/living/user, click_parameters)
-	if(istype(O,/obj/machinery/microwave))
+	if(istype(O,/obj/machinery/appliance))
 		return FALSE
 	if(!O.is_open_container())
 		return TRUE
@@ -2547,7 +2541,7 @@
 
 		if(pizza)
 			var/image/pizzaimg = image(pizza.icon, icon_state = pizza.icon_state)
-			if (istype(pizza, /obj/item/reagent_containers/food/snacks/sliceable/variable/pizza))
+			if (istype(pizza, /obj/item/reagent_containers/food/snacks/variable/pizza))
 				var/image/filling = image("food_custom.dmi", icon_state = "pizza_filling")
 				filling.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
 				filling.color = pizza.filling_color
@@ -2638,7 +2632,7 @@
 			to_chat(user, SPAN_WARNING("Close \the [box] first!"))
 		return TRUE
 
-	if (istype(I, /obj/item/reagent_containers/food/snacks/sliceable/pizza) || istype(I, /obj/item/reagent_containers/food/snacks/sliceable/variable/pizza))
+	if (istype(I, /obj/item/reagent_containers/food/snacks/sliceable/pizza) || istype(I, /obj/item/reagent_containers/food/snacks/variable/pizza))
 		if (open)
 			if (!pizza)
 				if(!user.unEquip(I, src))
@@ -2829,23 +2823,79 @@
 		return ..()
 	var/obj/item/reagent_containers/food/snacks/created
 
-	if (istype(ingredient,/obj/item/reagent_containers/food/snacks/meatball) || istype(ingredient,/obj/item/reagent_containers/food/snacks/cutlet))
+	if (istype(ingredient, /obj/item/reagent_containers/food/snacks/meatball) || istype(ingredient,/obj/item/reagent_containers/food/snacks/cutlet))
 		created = new /obj/item/reagent_containers/food/snacks/meatburger(src)
 		ingredient.reagents.trans_to_obj(created, ingredient.reagents.total_volume)
 		to_chat(user, SPAN_NOTICE("You make a burger."))
 		qdel(ingredient)
 		qdel(src)
 
-	else if (istype(ingredient,/obj/item/reagent_containers/food/snacks/sausage))
+	else if (istype(ingredient, /obj/item/organ/internal/brain))
+		created = new /obj/item/reagent_containers/food/snacks/brainburger(src)
+		ingredient.reagents.trans_to_obj(created, ingredient.reagents.total_volume)
+		to_chat(user, SPAN_NOTICE("You make a brainburger."))
+		qdel(ingredient)
+		qdel(src)
+
+	else if (istype(ingredient, /obj/item/robot_parts/head))
+		created = new /obj/item/reagent_containers/food/snacks/roburger(src)
+		ingredient.reagents.trans_to_obj(created, ingredient.reagents.total_volume)
+		to_chat(user, SPAN_NOTICE("You make a roburger."))
+		qdel(ingredient)
+		qdel(src)
+
+	else if (istype(ingredient, /obj/item/reagent_containers/food/snacks/fish))
+		created = new /obj/item/reagent_containers/food/snacks/fishburger(src)
+		ingredient.reagents.trans_to_obj(created, ingredient.reagents.total_volume)
+		to_chat(user, SPAN_NOTICE("You make a fish sandwich."))
+		qdel(ingredient)
+		qdel(src)
+
+	else if (istype(ingredient, /obj/item/reagent_containers/food/snacks/tofu))
+		created = new /obj/item/reagent_containers/food/snacks/tofuburger(src)
+		ingredient.reagents.trans_to_obj(created, ingredient.reagents.total_volume)
+		to_chat(user, SPAN_NOTICE("You make a fish tofu burger."))
+		qdel(ingredient)
+		qdel(src)
+
+	else if (istype(ingredient, /obj/item/ectoplasm))
+		created = new /obj/item/reagent_containers/food/snacks/ghostburger(src)
+		ingredient.reagents.trans_to_obj(created, ingredient.reagents.total_volume)
+		to_chat(user, SPAN_NOTICE("You make a fish ghost burger."))
+		qdel(ingredient)
+		qdel(src)
+
+	else if (istype(ingredient, /obj/item/clothing/mask/gas/clown_hat))
+		created = new /obj/item/reagent_containers/food/snacks/clownburger(src)
+		ingredient.reagents.trans_to_obj(created, ingredient.reagents.total_volume)
+		to_chat(user, SPAN_NOTICE("You make a fish clown burger."))
+		qdel(ingredient)
+		qdel(src)
+
+	else if (istype(ingredient, /obj/item/clothing/head/beret))
+		created = new /obj/item/reagent_containers/food/snacks/mimeburger(src)
+		ingredient.reagents.trans_to_obj(created, ingredient.reagents.total_volume)
+		to_chat(user, SPAN_NOTICE("You make a fish mime burger."))
+		qdel(ingredient)
+		qdel(src)
+
+	else if (istype(ingredient, /obj/item/reagent_containers/food/snacks/sausage))
 		created = new /obj/item/reagent_containers/food/snacks/hotdog(src)
 		ingredient.reagents.trans_to_obj(created, ingredient.reagents.total_volume)
 		to_chat(user, SPAN_NOTICE("You make a hotdog."))
 		qdel(ingredient)
 		qdel(src)
 
-	else if (istype(ingredient,/obj/item/reagent_containers/food/snacks/bun))
+	else if (istype(ingredient, /obj/item/reagent_containers/food/snacks/bun))
 		new /obj/item/reagent_containers/food/snacks/bunbun(src)
 		to_chat(user, SPAN_NOTICE("You make a bun bun."))
+		qdel(ingredient)
+		qdel(src)
+
+	else if (istype(ingredient, /obj/item/holder/corgi))
+		created = new /obj/item/reagent_containers/food/snacks/classichotdog(src)
+		ingredient.reagents.trans_to_obj(created, ingredient.reagents.total_volume)
+		to_chat(user, SPAN_NOTICE("You make a classic hotdog."))
 		qdel(ingredient)
 		qdel(src)
 
@@ -2928,7 +2978,6 @@
 	name = "raw cutlet"
 	desc = "A thin piece of raw meat."
 	icon = 'icons/obj/food/food_ingredients.dmi'
-	filling_color = "#fb8258"
 	icon_state = "rawcutlet"
 	filling_color = "#fb8258"
 	slice_path = /obj/item/reagent_containers/food/snacks/rawbacon
@@ -3855,8 +3904,8 @@
 	icon_state = "custard"
 	filling_color = "#ebedc2"
 	trash = /obj/item/trash/ramiken
-	nutriment_amt = 5
-	nutriment_desc = list("custard" = 5)
+	nutriment_amt = 10
+	nutriment_desc = list("custard" = 5, "eggs" = 5)
 	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/custard/use_tool(obj/item/attacking_item, mob/user, params)
