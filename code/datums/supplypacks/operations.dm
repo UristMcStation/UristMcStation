@@ -88,7 +88,7 @@
 	access = access_brig
 
 /singleton/hierarchy/supply_pack/operations/bureaucracy
-	name = "Office supplies"
+	name = "Gear - Office Supplies"
 	cost = 15
 	containertype = /obj/structure/closet/crate/large
 	containername = "office supplies crate"
@@ -116,7 +116,7 @@
 	)
 
 /singleton/hierarchy/supply_pack/operations/minergear
-	name = "Shaft miner equipment"
+	name = "Gear - Shaft Miner equipment"
 	contains = list(/obj/item/storage/backpack/industrial,
 					/obj/item/storage/backpack/satchel/eng,
 					/obj/item/device/radio/headset/headset_cargo,
