@@ -25,3 +25,8 @@
 	name = "crab crate"
 	held_count = 3
 	held_type = /mob/living/simple_animal/passive/crab
+
+/obj/structure/largecrate/animal/fox
+	name = "fox crate"
+	held_count = 1
+	held_type = /mob/living/simple_animal/fox
