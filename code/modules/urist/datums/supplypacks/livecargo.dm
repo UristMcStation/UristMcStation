@@ -12,12 +12,14 @@
 	name = "Live - Turtle"
 	contains = list()
 	cost = 50
+	newcargocost = 52 // 2600th
 	containertype = /obj/structure/largecrate/animal/turtle
 	containername = "turtle crate"
 
 /singleton/hierarchy/supply_pack/livecargo/fox
 	name = "Live - Fox"
 	contains = list()
-	cost = 50
-	containertype = /obj/structure/largecrate/animal/turtle
+	cost = 30
+	newcargocost = 60 //1800th
+	containertype = /obj/structure/largecrate/animal/fox
 	containername = "fox crate"

@@ -24,12 +24,12 @@
 
 // Critters:
 
-/singleton/hierarchy/supply_pack/livecargo/fakecat
-	name = "Live - 'Cat' Crate" // Panther Crate
+/singleton/hierarchy/supply_pack/livecargo/panther
+	name = "Live - Cat? Crate" // Panther Crate
 	contains = list()
 	cost = 50
 	newcargocost = 50 //2500th
-	containertype = /obj/structure/largecrate/animal/fakecat
+	containertype = /obj/structure/largecrate/animal/panther
 	contraband = 1
 	containername = "cat crate"
 
@@ -38,6 +38,6 @@
 	contains = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped/pikecube = 3) // decentish amount
 	cost = 50
 	newcargocost = 48 //2400th
-	hidden = 1
+	contraband = 1
 	containertype = /obj/structure/closet/crate/freezer
 	containername = "pike crate"

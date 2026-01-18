@@ -12,9 +12,9 @@
 	held_count = 1
 	held_type = /mob/living/simple_animal/passive/opossum
 
-/obj/structure/largecrate/animal/fakecat // panther crate
+/obj/structure/largecrate/animal/panther // panther crate
 	name = "cat crate"
-	held_count = 3
+	held_count = 2
 	held_type = /mob/living/simple_animal/hostile/huntable/panther
 
 /obj/structure/largecrate/animal/goose
