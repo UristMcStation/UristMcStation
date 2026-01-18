@@ -2,12 +2,12 @@
 	name = "Security"
 
 /singleton/hierarchy/supply_pack/security/specialops
-	name = "Grenades - Special Ops supplies"
+	name = "Grenades - Special Ops Supplies"
 	contains = list(/obj/item/storage/box/emps,
 					/obj/item/grenade/smokebomb = 3,
 					/obj/item/grenade/chem_grenade/incendiary)
 	cost = 20
-	containername = "special ops crate"
+	containername = "crate" // discreet
 	hidden = 1
 
 /singleton/hierarchy/supply_pack/security/lightarmor
@@ -187,6 +187,87 @@
 	containername = "tear gas grenades crate"
 	access = access_security
 
+#ifdef INCLUDE_URIST_CODE // Bay Ammo Renaming
+
+/singleton/hierarchy/supply_pack/security/shotgunammo
+	name = "Ammunition - Shotgun Shells (12g)"
+	contains = list(/obj/item/storage/box/ammo/shotgunammo = 2,
+					/obj/item/storage/box/ammo/shotgunshells = 2)
+	cost = 60
+	containertype = /obj/structure/closet/crate/secure/weapon
+	containername = "lethal shotgun shells crate"
+	access = access_hos
+	security_level = SUPPLY_SECURITY_ELEVATED
+
+/singleton/hierarchy/supply_pack/security/shotgunbeanbag
+	name = "Ammunition - Shotgun Shells (12g, beanbag)"
+	contains = list(/obj/item/storage/box/ammo/beanbags = 3)
+	cost = 30
+	containertype = /obj/structure/closet/crate/secure/weapon
+	containername = "beanbag shotgun shells crate"
+	access = access_armory
+
+/singleton/hierarchy/supply_pack/security/pdwammo
+	name = "Ammunition - SMG Top-Mounted Magazines (9mm)"
+	contains = list(/obj/item/storage/box/ammo/smg = 2)
+	cost = 30
+	containertype = /obj/structure/closet/crate/secure/weapon
+	containername = "SMG ammunition crate"
+	access = access_hos
+	security_level = SUPPLY_SECURITY_HIGH
+
+/singleton/hierarchy/supply_pack/security/pdwammorubber
+	name = "Ammunition - SMG Top-Mounted Magazines (9mm, rubber)"
+	contains = list(/obj/item/storage/box/ammo/smg/rubber = 2)
+	cost = 20
+	containertype = /obj/structure/closet/crate/secure/weapon
+	containername = "SMG rubber ammunition crate"
+	access = access_armory
+
+/singleton/hierarchy/supply_pack/security/pdwammopractice
+	name = "Ammunition - SMG Top-Mounted Magazines (9mm, practice)"
+	contains = list(/obj/item/ammo_magazine/smg_top/practice = 8)
+	cost = 15
+	containertype = /obj/structure/closet/crate/secure/weapon
+	containername = "SMG practice ammunition crate"
+	access = access_security
+
+/singleton/hierarchy/supply_pack/security/bullpupammo
+	name = "Ammunition - Heavy Bullpup Magazines (5.56mm)"
+	contains = list(/obj/item/storage/box/ammo/heavy_bullpup = 2)
+	cost = 40
+	containertype = /obj/structure/closet/crate/secure/weapon
+	containername = "heavy bullpup rifle ammunition crate"
+	access = access_hos
+	security_level = SUPPLY_SECURITY_HIGH
+
+/singleton/hierarchy/supply_pack/security/bullpupammopractice
+	name = "Ammunition - Heavy Bullpup Magazines (5.56mm, practice)"
+	contains = list(/obj/item/ammo_magazine/mil_rifle/heavy/practice = 8)
+	cost = 30
+	containertype = /obj/structure/closet/crate/secure/weapon
+	containername = "heavy bullpup practice ammunition crate"
+	access = access_security
+
+/singleton/hierarchy/supply_pack/security/lightbullpupammo
+	name = "Ammunition - Light Bullpup Magazines (5.56mm)"
+	contains = list(/obj/item/storage/box/ammo/light_bullpup = 2)
+	cost = 30
+	containertype = /obj/structure/closet/crate/secure/weapon
+	containername = "light bullpup ammunition crate"
+	access = access_armory
+	security_level = SUPPLY_SECURITY_HIGH
+
+/singleton/hierarchy/supply_pack/security/lightbullpupammopractice
+	name = "Ammunition - Light Bullpup Magazines (5.56mm, practice)"
+	contains = list(/obj/item/ammo_magazine/mil_rifle/light/practice = 4)
+	cost = 20
+	containertype = /obj/structure/closet/crate/secure/weapon
+	containername = "light bullpup practice ammunition crate"
+	access = access_security
+
+#else // or just use bay's old names
+
 /singleton/hierarchy/supply_pack/security/shotgunammo
 	name = "Ammunition - Lethal shells"
 	contains = list(/obj/item/storage/box/ammo/shotgunammo = 2,
@@ -197,7 +278,7 @@
 	access = access_hos
 	security_level = SUPPLY_SECURITY_ELEVATED
 
-/singleton/hierarchy/supply_pack/security/shotgunbeanbag
+	/singleton/hierarchy/supply_pack/security/shotgunbeanbag
 	name = "Ammunition - Beanbag shells"
 	contains = list(/obj/item/storage/box/ammo/beanbags = 3)
 	cost = 30
@@ -263,6 +344,8 @@
 	containertype = /obj/structure/closet/crate/secure/weapon
 	containername = "light bullpup practice ammunition crate"
 	access = access_security
+
+#endif
 
 /singleton/hierarchy/supply_pack/security/forensics //Not access-restricted so PIs can use it.
 	name = "Forensics - Auxiliary tools"
